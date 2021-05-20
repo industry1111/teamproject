@@ -163,6 +163,33 @@
 							</div>
 						</div>
 					</div>
+					
+					<div class="row">
+
+					<!-- 판매상품 등록하기 -->
+					<div class="col-12 col-sm-6 col-md-12 col-xl-6">
+						<div class="single-product-wrapper">
+							<!-- Product Image -->
+							<div class="product-img">
+								<img src="img/product-img/product1.jpg" alt="">
+								<!-- Hover Thumb
+                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">  -->
+							</div>
+
+							<!-- Product Description -->
+							<div
+								class="product-description d-flex align-items-center justify-content-between">
+								<!-- Product Meta Data -->
+								<div class="product-meta-data">
+									<div class="line"></div>
+									<p class="product-price">상품 등록</p>
+									<a href="product-details-seller.jsp"> <h6> 상품 등록 </h6> </a>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 						</div>
 					</div>
 				</div>
