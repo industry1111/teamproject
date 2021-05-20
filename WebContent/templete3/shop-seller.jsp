@@ -140,7 +140,7 @@
 					</div>
 					<!-- 카테고리2끝 -->
 
-			<!-- 상품리스트 -->
+					<!-- 상품리스트 -->
 					<div class="row">
 						<!-- product -->
 						<div class="col-md-4 col-xs-6">
@@ -148,7 +148,7 @@
 								<div class="product-img">
 									<img src="./img/product01.png" alt="">
 									<div class="product-label">
-			<!-- 	할인, 신상품여부	
+<!-- 	할인, 신상품여부	
 			<span class="sale">-30%</span> <span class="new">NEW</span> -->
 									</div>
 								</div>
@@ -189,11 +189,44 @@
 							</div>
 						</div>
 						<!-- /product -->
+						
+						
+					<!-- 상품 등록하기-->
+					<div class="row">
+						<!-- product -->
+						<div class="col-md-4 col-xs-6">
+							<div class="product">
+								<div class="product-img">
+									<img src="./img/product01.png" alt="">
+									<div class="product-label">
+
+									</div>
+								</div>
+								<div class="product-body">
+									<p class="product-category"></p>
+									<h3 class="product-name">
+										<a href="#"></a>
+									</h3>
+									<h4 class="product-price">
+										새 상품 등록하기
+									</h4>
+								</div>
+								
+								
+								<div class="add-to-cart">
+									<button class="add-to-cart-btn">
+										<i class="fa fa-shopping-cart"></i> <a href="product-seller.jsp">상품 등록하기</a>
+									</button>
+								</div>
+							</div>
+						</div>
+						<!-- /product -->
 					</div>
 					<!-- /store products -->
 
 					<!-- store bottom filter -->
 					<div class="store-filter clearfix">
+						<span class="store-qty"></span>
 						<ul class="store-pagination">
 							<li class="active">1</li>
 							<li><a href="#">2</a></li>
@@ -220,8 +253,7 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
-	<!-- 푸터 -->
+
 	<jsp:include page="../footer.jsp" />
-	<!-- 푸터 -->
 </body>
 </html>

@@ -6,7 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>템플렛2-상품리스트</title>
+  
+ 							 <title>템플렛4-상품리스트</title>
+ 							 
 	<link rel="icon" href="img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -39,7 +41,7 @@
   </header>
 
 
-	<!-- ================ 카테고리 섹션 시작 ================= -->		  
+	<!-- ================ category section start ================= -->		  
   <section class="section-margin--small mb-5">
     <div class="container">
       <div class="row">
@@ -69,7 +71,7 @@
           </div>
         </div>
         <div class="col-xl-9 col-lg-8 col-md-7">
-          <!-- 상품필터 시작 -->
+          <!-- Start Filter Bar -->
           <div class="filter-bar d-flex flex-wrap align-items-center">
             <div class="sorting">
               <select>
@@ -104,14 +106,24 @@
                   </div>
                 </div>
               </div>
-             </div>
-             <!-- 상품리스트 1개 끝. -->
+                </div>
+               
+   			 <div class="row">
+              <div class="col-md-6 col-lg-4">
+                <div class="card text-center card-product">
+                  <div class="card-product__img">
+                    <img class="card-img" src="img/product/product1.png" alt="">
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-product__title"><a href="single-product-seller-form.jsp">상품 등록</a></h4>
+                  </div>
+                </div>
+              </div>
+                </div>
+                
+              </div>
             </div>
-            <!--  상품 필터바 끝 -->
-           </div>
-           <!-- 카테고리 셀렉션 끝 -->
-         </section>
-         <!-- 상품. -->
+          </section>
 
 	<jsp:include page="../footer.jsp"/>
 

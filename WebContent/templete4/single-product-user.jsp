@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>탬플렛2-상품정보</title>
+
+
+				<title>탬플렛4-일반 사용자 상품 상세정보</title>
+				
+				
 <link rel="icon" href="img/Fevicon.png" type="image/png">
 <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
@@ -108,8 +112,8 @@
 								<td class=""></td>
 								<td>
 									<div class="checkout_btn_inner d-flex align-items-center">
-										<a class="gray_btn" href="category.html">목록으로 가기</a> <a
-											class="primary-btn ml-2" href="category.html">목록으로 가기</a>
+										<a class="gray_btn" href="shop.jsp">목록으로 가기</a> <a
+											class="primary-btn ml-2" href="shop.jsp">목록으로 가기</a>
 									</div>
 								</td>
 							</tr>
@@ -140,7 +144,7 @@
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade" id="home" role="tabpanel"
 					aria-labelledby="home-tab">
-					<p>Beryl Cook is one of Britain’s most talented and amusing
+					<p> Beryl Cook is one of Britain’s most talented and amusing
 						artists .Beryl’s pictures feature women of all shapes and sizes
 						enjoying themselves .Born between the two world wars, Beryl Cook
 						eventually left Kendrick School in Reading at the age of 15, where
@@ -471,8 +475,9 @@
 		</div>
 	</section>
 	<!--================상품평 및 상품 디테일  =================-->
+	<!-- 푸터부분 -->
 	<jsp:include page="../footer.jsp"/>
-
+	<!-- 푸터부분 -->
 	<script src="vendors/jquery/jquery-3.2.1.min.js"></script>
 	<script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="vendors/skrollr.min.js"></script>
