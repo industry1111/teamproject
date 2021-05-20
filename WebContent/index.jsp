@@ -9,7 +9,9 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<c:set var="center" value="main.jsp"></c:set>
+<c:if test="${center == null }">
+	<c:set var="center" value="main.jsp"/>
+</c:if>
 <title>Shop Homepage - Start Bootstrap Template</title>
 </head>
 
@@ -19,6 +21,7 @@
 	
 	<%--Center --%>
 	<jsp:include page="${center }"/>
+	
 	<!-- Footer-->
 	<jsp:include page="footer.jsp"/>
 
