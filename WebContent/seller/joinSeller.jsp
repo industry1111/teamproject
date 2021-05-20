@@ -24,6 +24,7 @@
 
 <body>
 <!-- 판매자 등록 창 -->
+<<<<<<< HEAD
 <div id="seller" style="text-align: center">
 	<form action="joinSellerProc.jsp" id="regsiter">
 		<h1>판매자 등록</h1>
@@ -59,6 +60,43 @@
 	</form>
 	</div>
 </div>
+=======
+	<form action="joinSellerProc.jsp" id="regsiter">
+		<h1>판매자 등록</h1>
+		<p>
+			스토어 이름  <input type="text" name="store_name" />
+			 <span id="storename_check" class="check"></span>
+		</p>
+		<p>
+			<tr>
+				<td valign="top">카테고리 
+					<select name="items1">
+						<option value="A">A</option>
+						<option value="B">B</option>
+						<option value="C">C</option>
+					</select>
+				</td>
+			</tr>
+		</p>
+		<p>
+			프로필 이미지 <input type="file" name="fileName"/>
+		</p>
+		<p>
+			<input onclick="popup()" type="button" value="템플릿선택">
+		</p>
+		<hr>
+		<p>
+			계좌 <input type="text" name="store_account"/>
+		</p>
+
+
+
+		<p class="signin button">
+			<input type="submit" id="joinSeller" value="가입하기" />
+		</p>
+	</form>
+	</div>
+>>>>>>> refs/remotes/origin/cyh
 
 
 
