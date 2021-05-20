@@ -2,11 +2,11 @@
 <Context>
 <!-- JNDI기술을 사용하여 접속할 DB정보를 지정 -->
 	 <Resource 
-	name="jdbc/jspbeginner"
+	name="jdbc/teamdb"
 	auth="Container"
 	type="javax.sql.DataSource"
 	driverClassName="com.mysql.jdbc.Driver"
-	url="jdbc:mysql://localhost:3306/jspbeginner"
+	url="jdbc:mysql://localhost:3306/teamdb"
 	username="jspid"
 	password="jsppass"	
 	/>

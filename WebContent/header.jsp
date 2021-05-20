@@ -42,7 +42,7 @@
 					<!-- 로그인 안되었을때 -->
 					<c:if test="${id == 0}">
 						<li class="nav-item"><a class="nav-link h_nav" href="#!">로그인</a></li>
-						<li class="nav-item"><a class="nav-link h_nav" href="#!">회원가입</a></li>
+						<li class="nav-item"><a class="nav-link h_nav" href="register.me">회원가입</a></li>
 					</c:if>
 
 					<!--로그인 되었을 경우 -->
