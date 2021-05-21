@@ -19,9 +19,9 @@
 </style>
 </head>
 
-
-<c:set var="id" value="2" />
-
+<c:if test="${code == null }">
+	<c:set var="code" value="0" />
+</c:if>
 
 <body>
 	<div class="row">
@@ -34,20 +34,20 @@
 		<div class="col-md-6" align="right">
 
 			<!-- 로그인 안되었을때 -->
-			<c:if test="${id == 0}">
-				<a class="h_nav" href="#!">로그인</a>
-				<a class="h_nav" href="#!">회원가입</a>
+			<c:if test="${code == 0}">
+				<a class="h_nav" href="member/login.jsp">로그인</a>
+				<a class="h_nav" href="member/join.jsp">회원가입</a>
 			</c:if>
 
 			<!--로그인 되었을 경우 -->
-			<c:if test="${id == 1}">
+			<c:if test="${code == 1}">
 				<a class="h_nav" href="#!">마이페이지</a>
 				<a class="h_nav" href="#!">장바구니</a>
-				<a class=" _nav" href="#!">로그아웃</a>
+				<a class="h_nav" href="#!">로그아웃</a>
 			</c:if>
 
 			<!-- 판매자 로그인 -->
-			<c:if test="${id == 2 }">
+			<c:if test="${code == 2 }">
 				<a class="h_nav" href="#!">마이스토어</a>
 				<a class="h_nav" href="#!">마이페이지</a>
 				<a class="h_nav" href="#!">장바구니</a>
