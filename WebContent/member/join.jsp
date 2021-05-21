@@ -1,10 +1,14 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="login.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <head>
-<title>Sign Up 01</title>
+<title>JOIN</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +20,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="join.css">
 
 </head>
 <body>
@@ -31,7 +35,7 @@
 				<div class="col-md-9 col-lg-6">
 					<div class="login-wrap">
 						<h6 class="mb-4 text-center">Create Your Account</h6>
-						<form action="SignUpAction.me" class="signup-form">
+						<form action="./MemberJoinAction.me" class="signup-form">
 							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
@@ -42,7 +46,7 @@
 								</div>
 								<div class="col-md-8">
 									<div class="form-group mb-4">
-										<input id="id" name="id" type="text" class="form-control" placeholder="ID" maxlength="20">
+										<input id="r_id" name="id" type="text" class="form-control" placeholder="ID" maxlength="20">
 										<span id="id_check" class="check"></span>
                                     	<span id="id_check2" class="check2"></span>
 									</div>
@@ -51,37 +55,39 @@
 									<div class="form-group mb-4">
 										<input id="r_pw" name="pw" required="required" type="password" class="form-control"
 											placeholder="Password">
+										<span id="pw_check" class="check"></span>
+	                                    <span id="pw_check2" class="check2"></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group mb-4">
 										<input id="pw_confirm" name="pw_confirm" required="required" type="password" class="form-control"
 											placeholder="Confirm Password">
-                                    <span id="pw_confirm_check" class="check"></span>
-                                    <span id="pw_confirm_check2" class="check2"></span>
+	                                    <span id="pw_confirm_check" class="check"></span>
+	                                    <span id="pw_confirm_check2" class="check2"></span>
 									</div>
 								</div>
-	
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="email" name="email" type="text" required="required" class="form-control" placeholder="Email">
+	                                    <span id="email_check" class="check"></span>
+	                                    <span id="email_check2" class="check2"></span>
 									</div>
 								</div>
 								<div class="col-md-4">
-                                    <input type="button" id="email_cf_btn" value="인증 " class="btn btn-primary rounded submit p-3"><br>
-                                    <span id="email_check" class="check"></span>
-                                    <span id="email_check2" class="check2"></span><br> 
-                                  
-								</div>
-								<div class="col-md-8">
+                                    <input type="button" id="email_cf_btn" value="인증 " class="btn btn-primary rounded submit p-3">
+                                  </div>
+								<div class="col-md-7">
 									<div class="form-group mb-4">
-										<input name="cf_num" type="text" required="required" class="form-control" placeholder="Check">
-										 <span id="cf_num_check" class="check2" hidden><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'><path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg></span>
-                                     	<span id="cf_num_check2" class="check" hidden>번호가 일치하지 않습니다.</span>
+										<input name="cf_num" id="cf_num" type="text" required="required" class="form-control" placeholder="Check">
+										<span id="cf_num_check2" class="check" hidden>번호가 일치하지 않습니다.</span>
 									</div>
 								</div>
+								<div class="col-md-1">
+										 <span id="cf_num_check" class="check2" hidden><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'><path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg></span>
+								</div>
 								<div class="col-md-4">
-									<input type="button" id="cf_num_btn" value="확인" class="btn btn-primary rounded submit p-3"><br>
+									<input style="size: 30%" type="button" id="cf_num_btn" value="확인" class="btn btn-primary rounded submit p-3"><br>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group mb-4">
@@ -92,14 +98,14 @@
 									</div>
 								</div>
 								<div class="col-md-5">
-									<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
+									<input class="form-control"  type="text" id="sample6_postcode" name="addr_pc" placeholder="우편번호" required><br>
 								</div>
 								<div class="col-md-7">
 									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
 								</div>
 								<div class="col-md-8">
-									<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
-									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
+									<input class="form-control"  type="text" id="sample6_address" name="address" placeholder="주소" required>&nbsp;
+									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소" required> <br>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group d-flex">

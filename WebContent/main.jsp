@@ -115,7 +115,7 @@
 				</div>
 				</a>
 				<hr>
-				<a href="store.me?num=2">
+				<a href="templete4/shop.jsp">
 				<div class="row">
 					<div class="col-md-2">
 						<img src="https://via.placeholder.com/100x150">
