@@ -30,7 +30,6 @@
 </head>
 
 <body>
-	<jsp:include page="../header.jsp"></jsp:include>
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
         <div class="container">
@@ -295,7 +294,6 @@
     </section>
     <!-- Shop Section End -->
 
-  <jsp:include page="../footer.jsp"/>
 
 <!-- Search Begin -->
 <div class="search-model">

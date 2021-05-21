@@ -7,7 +7,12 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<c:set var="center" value="main.jsp"></c:set>
+<c:set var="center" value="${param.center }"></c:set>
+<c:if test="${center == null }">
+	<c:set var="center" value="index-slider.html"></c:set>
+</c:if>
+	
+
 <title>모두?</title>
 </head>
 
