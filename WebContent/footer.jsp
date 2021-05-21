@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
 <title>Shop Homepage - Start Bootstrap Template</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!--         Core theme CSS (includes Bootstrap) -->
-<link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet" />
+<style>
+li, b, span,p, small{
+color: #627482;
+}
+</style>
 </head>
 <body>
 
 	<footer>
 		<div
-			class="container-fluid pb-0 mb-0 justify-content-center text-light ">
+			class="container-fluid pb-0 mb-0 justify-content-center text-light " style="background-color: #EAEAEA">
 			<div class="row my-5 justify-content-center py-5">
 				<div class="col-11">
 					<div class="row ">
@@ -28,10 +24,10 @@
 						</div>
 						<div class="col-xl-2 col-md-4 col-sm-4 col-12">
 							<h6 class="mb-3 mb-lg-4 bold-text ">
-								<b>고객센터</b>
+								<b >고객센터</b>
 							</h6>
 							<ul class="list-unstyled">
-								<li>부산시 부산진구 ,,,,,,</li>
+								<li > 부산시 부산진구 ,,,,,,</li>
 								<li>전화 1588</li>
 								<li>Blog</li>
 								<li>Por</li>
@@ -62,19 +58,19 @@
 						<div
 							class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
 							<h6 class="mt-55 mt-2 text-muted bold-text">
-								<b>ANIRUDH SINGLA</b>
+								<b style="color: #627482">ANIRUDH SINGLA</b>
 							</h6>
 							<small> <span><i class="fa fa-envelope"
-									aria-hidden="true"></i></span> anirudh@gmail.com
+									aria-hidden="true"></i></span > anirudh@gmail.com
 							</small>
 						</div>
 						<div
 							class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
 							<h6 class="text-muted bold-text">
-								<b>RISHABH SHEKHAR</b>
+								<b style="color: #627482">RISHABH SHEKHAR</b>
 							</h6>
 							<small><span><i class="fa fa-envelope"
-									aria-hidden="true"></i></span> rishab@gmail.com</small>
+									aria-hidden="true"></i></span > rishab@gmail.com</small>
 						</div>
 					</div>
 				</div>
@@ -83,9 +79,5 @@
 	</footer>
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="${pageContext.request.contextPath}/js/scripts.js"></script>
 </body>
 </html>

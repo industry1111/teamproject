@@ -5,17 +5,15 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	
-<c:set var="center" value="main.jsp"></c:set>
+<c:set var="center" value="main2.jsp"></c:set>
 <title>모두?</title>
 </head>
 
 <body>
 	<%--Header --%>
 	<jsp:include page="header.jsp"/>
-	
+	<hr>
 	<%--Center --%>
 	<jsp:include page="${center }"/>
 	<!-- Footer-->
