@@ -39,24 +39,24 @@
     <br><br>
     <input type="button" value="확인" onclick="drawImage()">
 
-=======
-function drawImage()
-{
-    var found = null;
-    var sel = document.getElementsByName("templete"); 
-    var img = document.getElementById("templte"); 
+<!-- ======= -->
+<!-- function drawImage() -->
+<!-- { -->
+<!--     var found = null; -->
+<!--     var sel = document.getElementsByName("templete");  -->
+<!--     var img = document.getElementById("templte");  -->
  
-    for(var i=0; i<sel.length; i++) 
-    {
-        if(sel[i].checked == true) 
-        {
-            found = sel[i];
-            break; 
-        }
-    }
-    img.src = found.value;
-}
-</script>
+<!--     for(var i=0; i<sel.length; i++)  -->
+<!--     { -->
+<!--         if(sel[i].checked == true)  -->
+<!--         { -->
+<!--             found = sel[i]; -->
+<!--             break;  -->
+<!--         } -->
+<!--     } -->
+<!--     img.src = found.value; -->
+<!-- } -->
+<!-- </script> -->
 </head>
 
 
