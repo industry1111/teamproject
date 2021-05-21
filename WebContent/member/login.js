@@ -2,7 +2,7 @@ var nameReg = /^[가-힣]{2,5}$/;
 var idReg = /^[A-Za-z0-9]{6,15}$/;
 var blogReg = /^[A-Za-z0-9가-힣]{4,20}$/;
 var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
-var emailReg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+var emailReg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[a-zA-Z_-]+){1,2}$/;
 var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 
 
@@ -123,7 +123,7 @@ $(function() {
 	});
 	
 	$("#email_cf_btn").click(function(){
-//		if(email_check == 1){
+		if(email_check == 1){
 			var email = $("#email").val();
 			if(confirm("인증번호를 보내시겠습니까?")){
 		  		$.ajax({
@@ -139,7 +139,7 @@ $(function() {
 				}
 			});
 			}
-//		}
+		}
 	});
 	
 	$("#cf_num_btn").click(function(){
