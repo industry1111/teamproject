@@ -22,6 +22,17 @@
 
 <link rel="stylesheet" href="join.css">
 
+<style>
+			.check{
+				color: red;
+				font-size: 12px;
+			}
+			.check2{
+				color: green;
+				font-size: 12px;
+			}
+</style>
+
 </head>
 <body>
 	<section class="ftco-section">
