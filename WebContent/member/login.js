@@ -1,7 +1,7 @@
 var nameReg = /^[가-힣]{2,5}$/;
-var idReg = /^[A-Za-z0-9]{8,20}$/;
+var idReg = /^[A-Za-z0-9]{6,15}$/;
 var blogReg = /^[A-Za-z0-9가-힣]{4,20}$/;
-var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}$/;
+var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
 var emailReg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 
@@ -84,41 +84,12 @@ $(function() {
 				},
 			});
 		} else {
-			$("#id_check").text("특수문자 한글 제외  8~20자 이내로 작성해 주세요");
+			$("#id_check").text("특수문자 한글 제외  6~15자 이내로 작성해 주세요");
 			$("#id_check2").text("");
 			id_check = 0;
 		}
 	});
-	$("#blog_name").blur(function() {
-		var blog_name = $(this).val();
-		if (blogReg.test(blog_name)) {
-			$.ajax({
-				type: "post",
-				async: true,
-				url: contextPath + "/RegisterCheck",
-				data: {
-					param: blog_name,
-					command: "blog_name"
-				},
-				dataType: "text",
-				success: function(data) {
-					if(data == "이미 존재하는 블로그 이름입니다."){
-						$("#blog_check").text(data);
-						$("#blog_check2").text("");
-						blog_check = 0;
-					}else{
-						$("#blog_check2").text(data);
-						$("#blog_check").text("");
-						blog_check = 1;
-					}
-				},
-			});
-		}else {
-			$("#blog_check").text("특수문자 제외 4~20자 이내로 작성해 주세요")
-			$("#blog_check2").text("");
-			blog_check = 0;
-		}
-	});
+	
 	
 	$("#email").blur(function() {
 		var email = $(this).val();
@@ -152,7 +123,7 @@ $(function() {
 	});
 	
 	$("#email_cf_btn").click(function(){
-		if(email_check == 1){
+//		if(email_check == 1){
 			var email = $("#email").val();
 			if(confirm("인증번호를 보내시겠습니까?")){
 		  		$.ajax({
@@ -168,7 +139,7 @@ $(function() {
 				}
 			});
 			}
-		}
+//		}
 	});
 	
 	$("#cf_num_btn").click(function(){
