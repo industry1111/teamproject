@@ -7,10 +7,8 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
 <c:set var="center" value="main.jsp"></c:set>
-<title>Shop Homepage - Start Bootstrap Template</title>
+<title>모두?</title>
 </head>
 
 <body>
