@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8" />
 	
-<c:set var="center" value="main2.jsp"></c:set>
+<c:set var="center" value="cart.jsp"></c:set>
 <title>모두?</title>
 </head>
 

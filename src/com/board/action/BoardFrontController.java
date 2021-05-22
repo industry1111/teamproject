@@ -42,7 +42,7 @@ public class BoardFrontController extends HttpServlet {
 			forward=new ActionForward();
 			
 			forward.setRedirect(false);
-			forward.setPath("storelist.jsp");
+			forward.setPath("index.jsp");
 			
 		}
 		
