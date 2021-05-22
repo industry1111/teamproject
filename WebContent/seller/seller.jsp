@@ -13,8 +13,10 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/seller/seller.css">
+<script src="${pageContext.request.contextPath}/seller/seller.js"></script>
 
 <style>
 	#template{
@@ -31,9 +33,7 @@
 	<header>
 		<jsp:include page="../header.jsp"/>
 	</header>
-	<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="joinseller.css">
+	
 	<!-- 판매자 등록 창 -->
 	<form action="" method="post"
 		enctype="multipart/form-data">
@@ -48,7 +48,6 @@
 					<div class="col-md-9 col-lg-6">
 						<div class="login-wrap">
 							<h6 class="mb-4 text-center">Add Information Your Account</h6>
-							<form action="./MemberJoinAction.me" class="signup-form">
 								<div class="row">
 									<div class="col-md-8">
 										<div class="form-group mb-4">
@@ -65,6 +64,17 @@
 												<option>1</option>
 												<option>2</option>
 											</select>
+										</div>
+									</div>
+									<div class="col-md-9">
+										<div class="form-group mb-4">
+											계좌번호 <select>
+												<option>은행</option>
+												<option>부산 은행</option>
+												<option>농협</option>
+											</select>
+											<input type="text" placeholder="계좌번호 입려">
+											<button type="button">인증</button>
 										</div>
 									</div>
 									<div class="col-md-8">
@@ -99,19 +109,19 @@
 												Seller</button>
 										</div>
 									</div>
-
 								</div>
-							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 	</form>
+	
+	
 	<footer>
 		<jsp:include page="../footer.jsp"></jsp:include>
 	</footer>
 	
-	<script src="seller.js"></script>
+	
 </body>
 </html>

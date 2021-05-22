@@ -97,6 +97,8 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/SellerJoinAction.me")) {
+			
 		}
 		//주소 이동
 		if(forward!=null){ 

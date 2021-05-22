@@ -54,7 +54,7 @@ public class BoardFrontController extends HttpServlet {
 			forward=new ActionForward();
 			
 			forward.setRedirect(false);
-			forward.setPath("seller/joinseller.jsp");
+			forward.setPath("seller/seller.jsp");
 		}else if(command.equals("/basket.bo")) {
 			forward=new ActionForward();
 			forward.setRedirect(false);
