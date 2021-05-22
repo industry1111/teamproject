@@ -29,17 +29,14 @@ public class MemberFrontController extends HttpServlet{
 		//가상요청 주소 가져오기
 		//  /CarProject/MemberJoin.me
 		String RequestURI=request.getRequestURI();
-		System.out.println(RequestURI);
 		
 		//  /CarProject 얻기
 		String contextPath=request.getContextPath();
 		
 		//	길이 11
-		System.out.println(contextPath.length());
 		
 		//  /MemberJoin.me 얻기
 		String command=RequestURI.substring(contextPath.length()+7);
-		System.out.println(command);
 					
 		/*주소 비교*/	
 		//페이지 이동 방식 여부 값,이동페이지 경로 값 저장 하여 리턴 해주는 객체를 저장할 참조변수 선언 
