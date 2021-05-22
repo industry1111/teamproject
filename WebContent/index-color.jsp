@@ -43,7 +43,7 @@
 								<!-- Options btn color: .btn-success | .btn-info | .btn-warning | .btn-danger | .btn-primary -->
 								<div class="title__action">
 									<a
-										href="modoo.bo"
+										href="index.bo"
 										class="btn btn-primary">모두? 시작하기</a>
 								</div>
 							</div>

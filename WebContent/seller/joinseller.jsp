@@ -9,14 +9,13 @@
 <c:set var="center" value="main.jsp"></c:set>
 <title>seller</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<link rel="stylesheet" href="joinseller.css">
-<script src="seller.js"></script>
+
+
 <style>
 	#template{
   	margin-top: 35px
@@ -29,6 +28,12 @@
 </head>
 
 <body>
+	<header>
+		<jsp:include page="../header.jsp"/>
+	</header>
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="joinseller.css">
 	<!-- 판매자 등록 창 -->
 	<form action="" method="post"
 		enctype="multipart/form-data">
@@ -69,13 +74,13 @@
 											 <input type="file" id="image" name="image" hidden/>
 										</div>
 									</div>
-									<c:forEach var="i" begin="0" step="1" end="4" >
+									<c:forEach var="i" begin="1" step="1" end="5" >
 									<div class="col-md-12">
 										<hr>
 										<div class="row">
 											
 											<div class="col-md-3">
-												<input type="radio" name="template" id="template" value="template${i }">template${i +1}
+												<input type="radio" name="template" id="template" value="template${i }">template${i}
 											</div>
 											<div class="col-md-9">
 												<img alt="" src="images/1.png" >&nbsp;
@@ -83,7 +88,7 @@
 												<img alt="" src="images/1.png" >
 											</div>
 										</div>
-										<c:if test="${i == 4 }"><hr></c:if>
+										<c:if test="${i == 5 }"><hr></c:if>
 									</div>
 									</c:forEach>
 									
@@ -103,5 +108,10 @@
 			</div>
 		</section>
 	</form>
+	<footer>
+		<jsp:include page="../footer.jsp"></jsp:include>
+	</footer>
+	
+	<script src="seller.js"></script>
 </body>
 </html>

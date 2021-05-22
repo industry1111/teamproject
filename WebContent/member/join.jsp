@@ -13,14 +13,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="join.css">
 <style>
 			.check{
 				color: red;
@@ -33,6 +29,15 @@
 		</style>
 </head>
 <body>
+	<header>
+		<jsp:include page="../header.jsp"/>
+	</header>
+	
+	<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet">
+	<link rel="stylesheet" href="login.css">
+	
 	<section class="ftco-section" >
 		<div class="container">
 			<div class="row justify-content-center">
@@ -130,7 +135,10 @@
 			</div>
 		</div>
 	</section>
-
+	
+	<footer style="margin-top: 100px;">
+		<jsp:include page="../footer.jsp"></jsp:include>
+	</footer>
 	 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

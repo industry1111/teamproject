@@ -17,7 +17,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	
+	<header>
+		<jsp:include page="../header.jsp"/>
+	</header>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -59,16 +61,9 @@
 			</div>
 		</div>
 	</div>
-	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-	<script src="vendor/animsition/js/animsition.min.js"></script>
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/select2/select2.min.js"></script>
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="vendor/countdowntime/countdowntime.js"></script>
-	<script src="js/main.js"></script>
+	<footer>
+		<jsp:include page="../footer.jsp"/>
+	</footer>
 
 </body>
 </html>

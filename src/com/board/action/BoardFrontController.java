@@ -37,13 +37,28 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward forward = null;
 
 		boolean a = false;
-		if(command.equals("/modoo.bo")) {
+		if(command.equals("/index.bo")) {
 			
 			forward=new ActionForward();
 			
 			forward.setRedirect(false);
 			forward.setPath("index.jsp");
 			
+		}else if(command.equals("/store.bo")) {
+
+			forward=new ActionForward();
+			
+			forward.setRedirect(false);
+			forward.setPath("index.jsp");
+		}else if(command.equals("/seller.bo")) {
+			forward=new ActionForward();
+			
+			forward.setRedirect(false);
+			forward.setPath("seller/joinseller.jsp");
+		}else if(command.equals("/basket.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("basket.jsp");
 		}
 		
 		if(forward!=null){ 
