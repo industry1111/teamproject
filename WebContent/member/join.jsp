@@ -33,7 +33,7 @@
 		</style>
 </head>
 <body>
-	<section class="ftco-section">
+	<section class="ftco-section" >
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
@@ -131,10 +131,6 @@
 		</div>
 	</section>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
 	 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -164,7 +160,6 @@ function sample6_execDaumPostcode() {
     }).open();
 }
 </script>
-<!-- 카카오 우편번호 api -->
 
 </body>
 </html>

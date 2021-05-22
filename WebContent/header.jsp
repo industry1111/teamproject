@@ -37,12 +37,13 @@
 			<c:if test="${code == 0}">
 				<a class="h_nav" href="member/login.jsp">로그인</a>
 				<a class="h_nav" href="member/join.jsp">회원가입</a>
-			</c:if>
+<%-- 			</c:if> --%>
 
 			<!--로그인 되었을 경우 -->
-			<c:if test="${code == 1}">
+<%-- 			<c:if test="${code == 1}"> --%>
 				<a class="h_nav" href="#!">마이페이지</a>
 				<a class="h_nav" href="#!">장바구니</a>
+				<a class="h_nav" href="seller/joinSeller.jsp">스토어 등록</a>
 				<a class="h_nav" href="#!">로그아웃</a>
 			</c:if>
 

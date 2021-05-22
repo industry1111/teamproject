@@ -34,9 +34,8 @@
 							<div class="title-01 title-01--11 text-center">
 								<h2 class="title__heading">
 									<div class="hero-section__words text-center">
-										<div class="title__effect is-visible">We are Modoo?</div>
+										<div class="title__effect is-visible">We are Free</div>
 										<div class="title__effect">We are Creative</div>
-										<div class="title__effect">We are Free</div>
 									</div>
 								</h2>
 								<div class="title__description">네이버 모두! 를 벤치마킹한 웹사이트입니다</div>

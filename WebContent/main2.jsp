@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +45,7 @@ input::placeholder { text-align: right;}
 </head>
 
 <body>
-	<div class="wrap">
+	
 		<div class="row">
 			<div class="col-md-3" align="right">
 				<a href="${pageContext.request.contextPath}/index.jsp"> <img
@@ -58,7 +59,8 @@ input::placeholder { text-align: right;}
 					src="${pageContext.request.contextPath}/images/magnifying-glass.png"
 					alt="shopping" style="height: 23px">
 			</div>
-
+		</div>
+		<div class="wrap" style="margin-left: 100px;">
 			<div class="row" style="margin-top: 40px;height: 40px;">
 				<div class="col-md-1 offset-2 category" align="left" >카테고리</div>
 				<div class="col-md-6 list">
@@ -113,24 +115,28 @@ input::placeholder { text-align: right;}
 				</div>
 			</div>
 			<div class="row" style="margin-top: 10px;">
-				<div class="col-md-7 offset-2" style="height: 120px;">
+				<c:forEach var="i" begin="0" step="1" end="4">
+				<div class="col-md-7 offset-2">
 					<hr>
-					<img alt="" src="images/1.png" style="background-color: gray;height: 100px; width: 100px;">
+					<div class="row">
+						<div class="col-md-9">
+							<img alt="" src="images/product.png" style="height: 100px; width: 100px;">
+							상품 설명
+						</div>
+						<div class="col-md-3">
+							<img alt="" src="images/storeprofile.png" style="height: 100px; width: 100px;">
+							스토어 정보
+						</div>
+					</div>
 				</div>
-				<div class="col-md-7 offset-2" style="height: 120px;">
-					<hr>
-					<img alt="" src="images/2.png" style="background-color: gray;height: 100px; width: 100px;">
-				</div>
-				<div class="col-md-7 offset-2" style="height: 120px;">
-					<hr>
-					<img alt="" src="images/3.png" style="background-color: gray;height: 100px; width: 100px;">
-				</div>
+				</c:forEach>
+			</div>
+			<div class="row">
 				<div class="col-md-7 offset-2" style="height: 120px;" align="center">
 					<hr>
 					페이징
 				</div>
 			</div>
-		</div>
 	</div>
 </body>
 </html>
