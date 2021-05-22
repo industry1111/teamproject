@@ -123,7 +123,7 @@ $(function() {
 	});
 	
 	$("#email_cf_btn").click(function(){
-//		if(email_check == 1){
+		if(email_check == 1){
 			var email = $("#email").val();
 			if(confirm("인증번호를 보내시겠습니까?")){
 		  		$.ajax({
@@ -139,7 +139,7 @@ $(function() {
 				}
 			});
 			}
-//		}
+		}
 	});
 	
 	$("#cf_num_btn").click(function(){

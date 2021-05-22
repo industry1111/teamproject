@@ -100,7 +100,14 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}else if(command.equals("/Main.me")){ 
+
+            forward=new ActionForward();
+            forward.setRedirect(false); 
+            forward.setPath("/main.jsp"); 
+
+        }
+		
 		//주소 이동
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식

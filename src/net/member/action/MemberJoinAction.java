@@ -21,12 +21,11 @@ public class MemberJoinAction implements Action{
 		mb.setName(request.getParameter("name"));
 		mb.setEmail(request.getParameter("email"));
 		mb.setPhone(request.getParameter("phone"));
-		mb.setAddress(request.getParameter("address"));
+		mb.setAddr1(request.getParameter("addr1"));
 		mb.setAddr2(request.getParameter("addr2"));
-		mb.setAddr_pc(Integer.parseInt(request.getParameter("addr_pc")));
+		mb.setAddr3(request.getParameter("addr3"));
 		
 		
-	
 		//회원가입 성공 여부를 담을 변수 선언
 		boolean result = false;
 		

@@ -21,7 +21,16 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="join.css">
-
+<style>
+			.check{
+				color: red;
+				font-size: 12px;
+			}
+			.check2{
+				color: green;
+				font-size: 12px;
+			}
+		</style>
 </head>
 <body>
 	<section class="ftco-section">
@@ -98,14 +107,14 @@
 									</div>
 								</div>
 								<div class="col-md-5">
-									<input class="form-control"  type="text" id="sample6_postcode" name="addr_pc" placeholder="우편번호" required><br>
+									<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
 								</div>
 								<div class="col-md-7">
 									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
 								</div>
 								<div class="col-md-8">
-									<input class="form-control"  type="text" id="sample6_address" name="address" placeholder="주소" required>&nbsp;
-									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소" required> <br>
+									<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
+									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group d-flex">
