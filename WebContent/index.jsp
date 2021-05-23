@@ -19,7 +19,7 @@
 </style>
 </head>
 <c:if test="${center ==null }">
-<c:set var="center" value="index2.jsp"/>
+<c:set var="center" value="main.jsp"/>
 </c:if>
 <body>
 	<header>

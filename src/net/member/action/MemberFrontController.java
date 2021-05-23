@@ -87,6 +87,8 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			
+		}else if(command.equals("/Main.me")) {
+			
 		}else if(command.equals("/MemberLogout.me")){
 			
 			//로그아웃 처리를 위한 Action객체 생성  
@@ -105,6 +107,11 @@ public class MemberFrontController extends HttpServlet{
 			request.setAttribute("center","seller.jsp" );
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
+		}else if(command.equals("/MemberUpdate.me")){
+			forward=new ActionForward();
+			forward.setRedirect(false); 
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","MemberUpdate.jsp" );
 		}
 		//주소 이동
 		if(forward!=null){ 

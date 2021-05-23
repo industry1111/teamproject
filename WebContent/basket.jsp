@@ -38,7 +38,7 @@
 
 	</head>
 	<body>
-	<div id="page">
+<!-- 	<div id="page"> -->
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row row-pb-lg">
@@ -180,11 +180,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
-	</div>
+<!-- 	</div> -->
    <!-- popper -->
    <script src="js/popper.min.js"></script>
    <!-- bootstrap 4.1 -->

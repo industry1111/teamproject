@@ -6,6 +6,7 @@ public class memberDTO {
 	
 	int member_num;
 	
+//	일반 회원 정보
 	private String name;
 	private String id;
 	private String pw;
@@ -16,7 +17,12 @@ public class memberDTO {
     private String addr3;
     private int member_code;
     private Timestamp date;
-    
+//	판매자 등록했을 시 정보 추가
+    private String store_name;
+    private String store_c_num;
+    private String profile_img;
+    private String template;
+    private String account;
     
 	public int getMember_num() {
 		return member_num;
