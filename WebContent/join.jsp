@@ -2,25 +2,25 @@
     pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>var contextPath = "${pageContext.request.contextPath}";</script>
-<script src="login.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <head>
 <title>JOIN</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/login.js"></script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
 	rel="stylesheet">
-	<link rel="stylesheet" href="login.css">
+	<link rel="stylesheet" href="css/login.css">
 <style>
 			.check{
 				color: red;
@@ -33,11 +33,6 @@
 		</style>
 </head>
 <body>
-	<header>
-		<jsp:include page="../header.jsp"/>
-	</header>
-	
-	
 	<section class="ftco-section" >
 		<div class="container">
 			<div class="row justify-content-center">
@@ -112,14 +107,14 @@
 									</div>
 								</div>
 								<div class="col-md-5">
-									<input class="form-control"  type="text" id="sample6_postcode" name="addr_pc" placeholder="우편번호" required><br>
+									<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
 								</div>
 								<div class="col-md-7">
 									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
 								</div>
 								<div class="col-md-8">
-									<input class="form-control"  type="text" id="sample6_address" name="address" placeholder="주소" required>&nbsp;
-									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr2" placeholder="상세주소" required> <br>
+									<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
+									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group d-flex">
@@ -135,10 +130,6 @@
 			</div>
 		</div>
 	</section>
-	
-	<footer style="margin-top: 100px;">
-		<jsp:include page="../footer.jsp"></jsp:include>
-	</footer>
 	 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

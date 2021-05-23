@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/member/login.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/member/util.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 
 
@@ -17,9 +17,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<header>
-		<jsp:include page="../header.jsp"/>
-	</header>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -53,7 +50,7 @@
 						</button>
 						<div class="col-md-4">
 							<a href="./MemberJoin.me" class="login100-form-btn">
-								회원가입
+								Sign Up
 							</a>
 						</div>
 					</div>
@@ -61,9 +58,6 @@
 			</div>
 		</div>
 	</div>
-	<footer>
-		<jsp:include page="../footer.jsp"/>
-	</footer>
 
 </body>
 </html>

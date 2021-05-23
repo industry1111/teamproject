@@ -36,7 +36,8 @@ public class MemberFrontController extends HttpServlet{
 		//	길이 11
 		
 		//  /MemberJoin.me 얻기
-		String command=RequestURI.substring(contextPath.length()+7);
+		String command=RequestURI.substring(contextPath.length());
+		System.out.println(command);
 					
 		/*주소 비교*/	
 		//페이지 이동 방식 여부 값,이동페이지 경로 값 저장 하여 리턴 해주는 객체를 저장할 참조변수 선언 
@@ -72,7 +73,7 @@ public class MemberFrontController extends HttpServlet{
 
 			forward=new ActionForward();
 			forward.setRedirect(false); 
-			forward.setPath("./member/login.jsp"); 
+			forward.setPath("login.jsp"); 
 
 		}else if(command.equals("/MemberLoginAction.me")){
 			
@@ -97,6 +98,11 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/Seller.me")){
+			forward=new ActionForward();
+			forward.setRedirect(false); 
+			forward.setPath("index.jsp");
+			request.setAttribute("center","seller.jsp" );
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
 		}

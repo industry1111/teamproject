@@ -17,8 +17,6 @@
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Ion Icon Fonts-->
 	<link rel="stylesheet" href="css/ionicons.min.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
 
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="css/magnific-popup.css">
@@ -40,10 +38,6 @@
 
 	</head>
 	<body>
-	<header>
-		<jsp:include page="header.jsp"/>
-	</header>	
-
 	<div id="page">
 		<div class="colorlib-product">
 			<div class="container">
@@ -191,19 +185,9 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
 	</div>
-	
-	<footer>
-		<jsp:include page="footer.jsp"/>
-	</footer>
-	
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
    <!-- popper -->
    <script src="js/popper.min.js"></script>
    <!-- bootstrap 4.1 -->
-   <script src="js/bootstrap.min.js"></script>
-   <!-- jQuery easing -->
    <script src="js/jquery.easing.1.3.js"></script>
 	<!-- Waypoints -->
 	<script src="js/jquery.waypoints.min.js"></script>
