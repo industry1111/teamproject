@@ -16,7 +16,7 @@ public class Mail {
 	public void naverMailSend(String title,String text,String address) {
 		String host = "smtp.naver.com";
 		String user = "industry1111@naver.com";
-		String password = "rkswl940**";
+		String password = "rkswl940*";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);

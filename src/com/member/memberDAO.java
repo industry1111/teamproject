@@ -53,8 +53,8 @@ public class memberDAO {
 		try {
 			con= ds.getConnection();
 
-			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,code)"
-					+ " values(?,?,?,?,?,?,?,?,0)";
+			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code)"
+					+ " values(?,?,?,?,?,?,?,?,?)";
 
 			pstmt =con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
@@ -65,8 +65,6 @@ public class memberDAO {
 			pstmt.setString(6, dto.getAddr1());
 			pstmt.setString(7, dto.getAddr2());
 			pstmt.setString(8, dto.getAddr3());
-
-
 			pstmt.setInt(9, 0);
 
 			result = pstmt.executeUpdate();
@@ -120,9 +118,9 @@ public class memberDAO {
 	public void updateName(String name,int member_num) {
 		try {
 			con = ds.getConnection();
-
-
+			
 			String sql = "update member set name=? where member_num = ?";
+
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, name);
@@ -306,6 +304,7 @@ public class memberDAO {
                 mdto.setAddr1(rs.getString("addr1"));
                 mdto.setAddr2(rs.getString("addr2"));
                 mdto.setAddr3(rs.getString("addr3"));
+                mdto.setDate(rs.getTimestamp("date"));
             }
 	    } catch (Exception e) {
             System.out.println("getMemberInfo:"+e.toString());

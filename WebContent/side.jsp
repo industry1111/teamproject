@@ -62,7 +62,6 @@ a:active {
 </head>
 <c:if test="${member_code == null }">
 	<c:set var="member_code" value="2"/>
-
 </c:if>
 <body>
 	<form method="post" id="index">
@@ -79,7 +78,7 @@ a:active {
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">주문/배송내역</a>
+				<a href="order.bo">주문/배송내역</a>
 			</div>
 		</div>
 		<div class="row">
@@ -97,16 +96,7 @@ a:active {
 				<a href="#">배송지관리</a>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">반품/교환내역</a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">환불내역</a>
-			</div>
-		</div>
+	
 		<c:if test="${member_code ==1 }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
@@ -159,7 +149,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">회원 탈퇴</a>
+				<a href="DeleteMember.me">회원 탈퇴</a>
 			</div>
 		</div>
 	</form>

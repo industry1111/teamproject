@@ -7,10 +7,7 @@
 <script>var contextPath = "${pageContext.request.contextPath}";</script>
 <head>
 <title>현재 유저정보 출력화면</title>
-<jsp:useBean id="mdao" class="com.member.memberDAO"/>
-<jsp:useBean id="mdto" class="com.member.memberDTO"/>
-<jsp:setProperty property="*" name="mdto"/>
-<c:set var="" value=<%=mdao. %>/>
+
 <style type="text/css">
 
 .myButton {
@@ -50,7 +47,7 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-
+ 
 	<p style="font-size: 20; color: gray;">회원정보 수정</p>
 	<form method="post" id="form">
 		<table border="0" class="tbl_model">
@@ -67,9 +64,9 @@
                                 <span id="id_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">아이디는 30일에 한 번 변경하실 수 있습니다.</p>
-							<input type="hidden" name="date" value="${date}" >
+							<input type="hidden" name="date" value="${mdto.date}" >
 							<p>
-								<input type="button" id="id_btn" value="수정" class="myButton"/>
+								<input type="button" id="id_btn" value="수정" class="myButton" disabled="disabled"/>
 							</p>
 							<p class="id_update" hidden>
 								<input id="id_cancle" type="button" value="수정 취소" class="myButton"/> <input
@@ -85,7 +82,7 @@
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="name" name="name" value="<%=mdto.getName() %>" disabled="disabled" maxlength="5"><br>
+								<input type="text" id="name" name="name" value="${mdto.name}" disabled="disabled" maxlength="5"><br>
 								<span id="name_check" class="check"></span>
                                 <span id="name_check2" class="check2"></span>
 							</p>
@@ -106,7 +103,7 @@
 						<div>비밀번호</div>
 					</th>
 					<td>
-						<div class="pass_div" >
+						<div class="password" hidden>
 							<p>
 								현재 비밀번호<br> <input type="password" id="pw" name="pw" />
 							    <span id="pw_check" class="check2"></span>
@@ -126,10 +123,15 @@
                                 <span id="new_pw_confirm_check2" class="check2"></span>
 							</p>
 							<p>
-								<input type="button" value="수정" class="myButton"/> 
+								<input id="pw_btn" type="button" value="수정" class="myButton"/> 
 							</p>
-
 						</div>
+							<p>
+								<input id="pw_cancle" type="button" value="수정취소" class="myButton"/> 
+							</p>
+							<p>
+								<input id="pw_update" type="button" value="수정완료" class="myButton"/> 
+							</p>
 					</td>
 				</tr>
 				<tr>
@@ -150,8 +152,8 @@
 								<input type="button" id="phone_btn" value="수정" class="myButton"/>
 							</p>
 							<p class="phone" hidden>
-								<input class="phone_cancle" type="button" value="수정 취소" class="myButton"/> <input
-									class="phone_update" type="button" value="수정 완료" class="myButton"/>
+								<input id="phone_cancle" type="button" value="수정 취소" class="myButton"/> <input
+									id="phone_update" type="button" value="수정 완료" class="myButton"/>
 							</p>
 						</div>
 					</td>
@@ -190,7 +192,7 @@
 							우편번호&nbsp;<input type="text" id="addr1" name="addr1" value="${mdto.addr1}" disabled="disabled"/>
 						</div>
 						<div>
-							주소		<input type="text" id="addr1" name="addr1" value="${mdto.addr2}" disabled="disabled" style="border: 0"/>
+							주소		<input type="text" id="addr1" name="addr1" value="${mdto.addr2}" disabled="disabled"/>
 						</div>
 						<div>
 							상세주소&nbsp;<input type="text" id="addr1" name="addr1" value="${mdto.addr3}" disabled="disabled"/>

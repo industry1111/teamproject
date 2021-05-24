@@ -7,10 +7,16 @@ var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 
 $(function() {
 	
+	var id = $("#id").val();
+//	var date = ${mdto.date};
+//	var reg_date = new Date(date);
+//	var now_date = new Date();
+//	
+//	var diffdate = now_date - reg_date;
+//	if(diffdate > 30){
+//		$("#id_btn").removeAttr("disabled");
 	$("#id_btn").on("click",function() {
 	
-		var id = $("#id").val();
-		var date =${date} 
 		
 		$(this).attr("hidden",true);
 		$("#id").removeAttr("disabled");
@@ -65,12 +71,99 @@ $(function() {
 			}
 		});
 	});
-	
+//}
 	$("#id_update").on("click",function(){
 		
 	});
 	
+	$("#phone_btn").on("click",function(){
+		var phone = $("#phone").val();
+		$(this).attr("hidden",true);
+		$("#phone").removeAttr("disabled");
+		$("#phone").focus();
+		$(".phone").removeAttr("hidden");
+		
+		$("#phone").blur(function(){
+			if(phone == $(this).val()){}
+				$("phone_check").text("이전의 번호와 동일합니다.");
+		});
+		
+		$("#phone_cancle").on("click",function(){
+			$(".phone").attr("hidden",true);
+			$("#phone").val(phone);
+			$("#phone").attr("disabled",true);
+			$("#phone_btn").removeAttr("hidden");
+			$("#id_check2").text("");
+			$("#id_check").text("");
+		});
+		
+	});
 	
-	
+	$("#pw_btn").on("click",function(){
+		
+		
+		
+		$(".password").removeAttr("hidden");
+		
+		$(".pw_cancle").on("click", function() {
+			$("#pw").val("");
+			$(".password").attr("hidden", true);
+			$(".pw_btn").removeAttr("hidden");
+			$("#pw_check2").text("");
+			$("#pw_check").text("");
+			$("#new_pw").attr("disabled",true);
+			$("#new_pw_confirm").attr("disabled",true);
+			$("#pw").removeAttr("disabled");
+			
+		});
+		
+		$("#pw").blur(function(){
+			var pw = $(this).val();
+			$.ajax({
+				type: "post",
+				async: "true",
+				url : contextPath + "/UpdateCheck",
+				data:	{	
+							param : pw,
+					  		command : "pw"
+						},
+				dataType : "text",
+				success : function(data){
+					if(data==0){
+						$("#pw_check2").text("비밀번호가 확인되었습니다.");
+						$("#pw_check").text("");
+						$("#new_pw").removeAttr("disabled");
+						$("#new_pw_confirm").removeAttr("disabled");
+						$("#pw").attr("disabled",true);
+					}else{
+						$("#pw_check").text("비밀번호를 다시 입력해주세요.");
+						$("#pw_check2").text("");
+					}
+					
+				}
+			
+			});
+			
+			$("#pw_btn").on("click",function(){
+				
+				if(pw.eqauls($("#new_pw").val())){
+					$("#new_pw_check").text("이전의 비밀번호와 동일합니다.");
+				}else{
+					
+					if(pwReg.test($("#new_pw_check"))){
+						
+						
+					}
+					
+				}
+				
+				
+			});
+			
+			
+		});
+		
+	});
+		
 
 });

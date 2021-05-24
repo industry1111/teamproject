@@ -110,12 +110,24 @@ public class MemberFrontController extends HttpServlet{
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
 		}else if(command.equals("/MemberUpdate.me")){
+		    
+		    action = new MemberUpdate();
+		    
+		    try{
+		        
+		        forward = action.execute(request, response);
+    
+		    }catch (Exception e) {
+                e.printStackTrace();
+            }
+
+		}else if(command.equals("/DeleteMember.me")){
 			forward=new ActionForward();
 			forward.setRedirect(false); 
 			forward.setPath("mypage.jsp");
-			request.setAttribute("center","MemberUpdate.jsp" );
+			request.setAttribute("center","deleteMember.jsp" );
 		}
-
+		
 
 		//주소 이동
 		if(forward!=null){ 
