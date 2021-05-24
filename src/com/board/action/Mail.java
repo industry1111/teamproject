@@ -23,7 +23,7 @@ public class Mail {
 		props.put("mail.smtp.prot",465);
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.ssl.enable","true");
-		props.put("mail.smtp.ssl.trust","smtp.naver.com");
+		props.put("mail.smtp.ssl.trust",host);
 
 		Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
@@ -37,6 +37,7 @@ public class Mail {
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(address));
 			message.setSubject(title);
 			message.setText(text);
+			
 			Transport.send(message);
 		} catch (Exception e) {
 			System.out.println("naverMailSend:"+e.toString());

@@ -23,7 +23,7 @@ public class memberDAO {
 			Context ctx = new InitialContext();
 			Context envContext = (Context)ctx.lookup("java:/comp/env");		
 			
-			ds = (DataSource)envContext.lookup("jdbc/jspbeginner");
+			ds = (DataSource)envContext.lookup("jdbc/teamdb");
 	
 		}catch(Exception e){
 			System.out.println("DB_Connect : " + e.toString());
@@ -53,17 +53,18 @@ public class memberDAO {
 		try {
 			con= ds.getConnection();
 			
-			String sql = "insert into member1 (name,id,email,pw,phone,address,addr_pc,addr2)"
-					+ " values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,code)"
+					+ " values(?,?,?,?,?,?,?,?,?)";
 			pstmt =con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getId());
 			pstmt.setString(3, dto.getEmail());
 			pstmt.setString(4, dto.getPw());
 			pstmt.setString(5, dto.getPhone());
-			pstmt.setString(6, dto.getAddress());
-			pstmt.setInt(7, dto.getAddr_pc());
-			pstmt.setString(8, dto.getAddr2());
+			pstmt.setString(6, dto.getAddr1());
+			pstmt.setString(7, dto.getAddr2());
+			pstmt.setString(8, dto.getAddr3());
+			pstmt.setInt(9, 0);
 			result = pstmt.executeUpdate();
 			
 			if(result != 0){
@@ -81,7 +82,7 @@ public class memberDAO {
 	public int userCheck(String id,String pw) {
 		try {
 			con = ds.getConnection();
-			String sql = "select pw from member1 where id=?";
+			String sql = "select pw from member where id=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -101,7 +102,7 @@ public class memberDAO {
 	public void updateID(String id,int member_num) {
 		try {
 			con = ds.getConnection();
-			String sql = "update member1 set id=? where member_num = ?";
+			String sql = "update member set id=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setInt(2, member_num);
@@ -115,7 +116,7 @@ public class memberDAO {
 	public void updateName(String name,int member_num) {
 		try {
 			con = ds.getConnection();
-			String sql = "update member1 set name=? where member_num = ?";
+			String sql = "update member set name=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setInt(2, member_num);
@@ -129,7 +130,7 @@ public class memberDAO {
 	public void updatePhone(String phone,int member_num) {
 		try {
 			con = ds.getConnection();
-			String sql = "update member1 set phone=? where member_num = ?";
+			String sql = "update member set phone=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, phone);
 			pstmt.setInt(2, member_num);
@@ -144,7 +145,7 @@ public class memberDAO {
 	public int idCheck(String id) {
 		try {
 			con = ds.getConnection();
-			String sql = "select id from member1 where id=?";
+			String sql = "select id from member where id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -161,7 +162,7 @@ public class memberDAO {
 	public int blog_nameCheck(String blog_name) {
 		try {
 			con = ds.getConnection();
-			String sql = "select blog_name from member1 where blog_name=?";
+			String sql = "select blog_name from member where blog_name=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, blog_name);
 			rs = pstmt.executeQuery();
@@ -178,7 +179,7 @@ public class memberDAO {
 	public int emailCheck(String email) {
 		try {
 			con = ds.getConnection();
-			String sql = "select email from member1 where email=?";
+			String sql = "select email from member where email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
@@ -195,7 +196,7 @@ public class memberDAO {
 	public int phoneCheck(String phone) {
 		try {
 			con = ds.getConnection();
-			String sql = "select phone from member1 where phone=?";
+			String sql = "select phone from member where phone=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, phone);
 			rs = pstmt.executeQuery();
@@ -212,7 +213,7 @@ public class memberDAO {
 	public int pwCheck(String pw,int member_num) {
 		try {
 			con = ds.getConnection();
-			String sql = "select pw from member1 where member_num=?";
+			String sql = "select pw from member where member_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
@@ -248,7 +249,7 @@ public class memberDAO {
 	public void updateEmail(String email,int member_num){
 		try {
 			con = ds.getConnection();
-			String sql = "update member1 set email=? where member_num=?";
+			String sql = "update member set email=? where member_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			pstmt.setInt(2, member_num);
