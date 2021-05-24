@@ -1,19 +1,33 @@
 package com.member;
 
+import java.sql.Timestamp;
+
 public class memberDTO {
 	
 	int member_num;
 	
+
+//	일반 회원 정보
+
 	private String name;
 	private String id;
 	private String pw;
 	private String email;
 	private String phone;
-    private String address;
+
     private String addr1;
     private String addr2;
     private String addr3;
-    private int code;
+
+    private int member_code;
+    private Timestamp date;
+//	판매자 등록했을 시 정보 추가
+    private String store_name;
+    private String store_c_num;
+    private String profile_img;
+    private String template;
+    private String account;
+
 	public int getMember_num() {
 		return member_num;
 	}
@@ -50,15 +64,10 @@ public class memberDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
 	public String getAddr1() {
 		return addr1;
 	}
+
 	public void setAddr1(String addr1) {
 		this.addr1 = addr1;
 	}
@@ -74,11 +83,18 @@ public class memberDTO {
 	public void setAddr3(String addr3) {
 		this.addr3 = addr3;
 	}
-	public int getCode() {
-		return code;
+
+	public int getMember_code() {
+		return member_code;
 	}
-	public void setCode(int code) {
-		this.code = code;
+	public void setMember_code(int member_code) {
+		this.member_code = member_code;
+	}
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
 	
 }

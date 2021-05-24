@@ -29,16 +29,14 @@ public class MemberFrontController extends HttpServlet{
 		//가상요청 주소 가져오기
 		//  /CarProject/MemberJoin.me
 		String RequestURI=request.getRequestURI();
-		System.out.println(RequestURI);
 		
 		//  /CarProject 얻기
 		String contextPath=request.getContextPath();
 		
 		//	길이 11
-		System.out.println(contextPath.length());
 		
 		//  /MemberJoin.me 얻기
-		String command=RequestURI.substring(contextPath.length()+7);
+		String command=RequestURI.substring(contextPath.length());
 		System.out.println(command);
 					
 		/*주소 비교*/	
@@ -75,7 +73,7 @@ public class MemberFrontController extends HttpServlet{
 
 			forward=new ActionForward();
 			forward.setRedirect(false); 
-			forward.setPath("./login.jsp"); 
+			forward.setPath("login.jsp"); 
 
 		}else if(command.equals("/MemberLoginAction.me")){
 			
@@ -89,6 +87,8 @@ public class MemberFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 			
+		}else if(command.equals("/Main.me")) {
+			
 		}else if(command.equals("/MemberLogout.me")){
 			
 			//로그아웃 처리를 위한 Action객체 생성  
@@ -100,6 +100,18 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/Seller.me")){
+			forward=new ActionForward();
+			forward.setRedirect(false); 
+			forward.setPath("index.jsp");
+			request.setAttribute("center","seller.jsp" );
+		}else if(command.equals("/SellerJoinAction.me")) {
+			
+		}else if(command.equals("/MemberUpdate.me")){
+			forward=new ActionForward();
+			forward.setRedirect(false); 
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","MemberUpdate.jsp" );
 		}
 		//주소 이동
 		if(forward!=null){ 

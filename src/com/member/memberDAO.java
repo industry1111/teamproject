@@ -23,7 +23,7 @@ public class memberDAO {
 			Context ctx = new InitialContext();
 			Context envContext = (Context)ctx.lookup("java:/comp/env");		
 			
-			ds = (DataSource)envContext.lookup("jdbc/jspbeginner");
+			ds = (DataSource)envContext.lookup("jdbc/teamdb");
 	
 		}catch(Exception e){
 			System.out.println("DB_Connect : " + e.toString());
@@ -53,8 +53,11 @@ public class memberDAO {
 		try {
 			con= ds.getConnection();
 			
-			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3)"
-					+ " values(?,?,?,?,?,?,?,?)";
+
+
+			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code)"
+					+ " values(?,?,?,?,?,?,?,?,?)";
+
 			pstmt =con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getId());
@@ -64,6 +67,7 @@ public class memberDAO {
 			pstmt.setString(6, dto.getAddr1());
 			pstmt.setString(7, dto.getAddr2());
 			pstmt.setString(8, dto.getAddr3());
+			pstmt.setInt(9, 0);
 			result = pstmt.executeUpdate();
 			
 			if(result != 0){
