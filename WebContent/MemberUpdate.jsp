@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>  
 <!DOCTYPE html>
 <html>
 <script src="js/memberupdate.js"></script>
 <script>var contextPath = "${pageContext.request.contextPath}";</script>
 <head>
 <title>현재 유저정보 출력화면</title>
+<jsp:useBean id="mdao" class="com.member.memberDAO"/>
 <jsp:useBean id="mdto" class="com.member.memberDTO"/>
 <jsp:setProperty property="*" name="mdto"/>
+<c:set var="" value=<%=mdao. %>/>
 <style type="text/css">
 
 .myButton {
@@ -82,7 +85,7 @@
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="name" name="name" value="${name}" disabled="disabled" maxlength="5"><br>
+								<input type="text" id="name" name="name" value="<%=mdto.getName() %>" disabled="disabled" maxlength="5"><br>
 								<span id="name_check" class="check"></span>
                                 <span id="name_check2" class="check2"></span>
 							</p>
@@ -136,7 +139,7 @@
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="phone" name="phone" value="${mdto.phone }" disabled="disabled"
+								<input type="text" id="phone" name="phone" value="${mdto.phone}" disabled="disabled"
 									style="border: 0" maxlength="11"><br>
 								<span id="phone_check" class="check"></span>
                                 <span id="phone_check2" class="check2"></span>
@@ -160,7 +163,7 @@
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="email" name="email" value="${mdto.email }" disabled="disabled"
+								<input type="text" id="email" name="email" value="${mdto.email}" disabled="disabled"
 									style="border: 0"><br>
 								<span id="email_check" class="check"></span>
                                 <span id="email_check2" class="check2"></span>	

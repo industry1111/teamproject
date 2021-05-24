@@ -284,6 +284,37 @@ public class memberDAO {
 			ResouceClose();
 		}
 	}
+	
+	public memberDTO getMemberInfo(String id){
+	    
+	    memberDTO mdto = new memberDTO();
+	    
+	    try {
+            con = ds.getConnection();
+            String sql = "select * from member where id=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            
+            if(rs.next()){
+                mdto.setMember_num(rs.getInt("member_num"));
+                mdto.setName(rs.getString("name"));
+                mdto.setId(rs.getString("id"));
+                mdto.setPw(rs.getString("pw"));
+                mdto.setEmail(rs.getString("email"));
+                mdto.setPhone(rs.getString("phone"));
+                mdto.setAddr1(rs.getString("addr1"));
+                mdto.setAddr2(rs.getString("addr2"));
+                mdto.setAddr3(rs.getString("addr3"));
+            }
+	    } catch (Exception e) {
+            System.out.println("getMemberInfo:"+e.toString());
+        }finally{
+            ResouceClose();
+        }
+	    
+	    return mdto;
+	}
 
 
 }//memberDAO

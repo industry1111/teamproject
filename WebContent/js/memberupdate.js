@@ -10,6 +10,8 @@ $(function() {
 	$("#id_btn").on("click",function() {
 	
 		var id = $("#id").val();
+		var date =${date} 
+		
 		$(this).attr("hidden",true);
 		$("#id").removeAttr("disabled");
 		$("#id").focus();
