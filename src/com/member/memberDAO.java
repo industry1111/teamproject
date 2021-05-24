@@ -150,6 +150,8 @@ public class memberDAO {
 	}
 	
 	public int idCheck(String id) {
+		
+		
 		try {
 			con = ds.getConnection();
 			String sql = "select id from member where id=?";
@@ -159,6 +161,7 @@ public class memberDAO {
 			if(rs.next()) {
 				return 1;
 			}
+			
 		} catch (Exception e) {
 			System.out.println("idCheck"+e.toString());
 		}finally {
@@ -281,4 +284,6 @@ public class memberDAO {
 			ResouceClose();
 		}
 	}
+
+
 }//memberDAO

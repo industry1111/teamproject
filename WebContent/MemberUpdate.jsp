@@ -64,6 +64,7 @@
                                 <span id="id_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">아이디는 30일에 한 번 변경하실 수 있습니다.</p>
+							<input type="hidden" name="date" value="${date}" >
 							<p>
 								<input type="button" id="id_btn" value="수정" class="myButton"/>
 							</p>

@@ -8,12 +8,13 @@ var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 $(function() {
 	
 	$("#id_btn").on("click",function() {
+	
 		var id = $("#id").val();
 		$(this).attr("hidden",true);
 		$("#id").removeAttr("disabled");
 		$("#id").focus();
 		$(".id_update").removeAttr("hidden");
-
+		
 		$("#id_cancle").on("click",function(){
 			$(".id_update").attr("hidden",true);
 			$("#id").val(id);
