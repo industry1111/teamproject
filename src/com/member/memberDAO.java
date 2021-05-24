@@ -52,16 +52,10 @@ public class memberDAO {
 	    
 		try {
 			con= ds.getConnection();
-<<<<<<< HEAD
 
-			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code)"
-					+ " values(?,?,?,?,?,?,?,?,?)";
-
-=======
-			
 			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,code)"
 					+ " values(?,?,?,?,?,?,?,?,0)";
->>>>>>> af99b75afb5e9c5f7ee16c6465d90bd6dc178f4f
+
 			pstmt =con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getId());
@@ -71,12 +65,10 @@ public class memberDAO {
 			pstmt.setString(6, dto.getAddr1());
 			pstmt.setString(7, dto.getAddr2());
 			pstmt.setString(8, dto.getAddr3());
-<<<<<<< HEAD
+
 
 			pstmt.setInt(9, 0);
 
-=======
->>>>>>> af99b75afb5e9c5f7ee16c6465d90bd6dc178f4f
 			result = pstmt.executeUpdate();
 			
 			if(result != 0){
@@ -128,13 +120,10 @@ public class memberDAO {
 	public void updateName(String name,int member_num) {
 		try {
 			con = ds.getConnection();
-<<<<<<< HEAD
+
 
 			String sql = "update member set name=? where member_num = ?";
 
-=======
-			String sql = "update  set name=? where member_num = ?";
->>>>>>> af99b75afb5e9c5f7ee16c6465d90bd6dc178f4f
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setInt(2, member_num);
