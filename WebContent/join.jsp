@@ -4,7 +4,7 @@
 <html lang="en">
 <c:set var="contextPath" value="<%=request.getContextPath() %>"/>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="${contextPath}/js/login.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <head>
@@ -19,7 +19,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="${contextPath}/css/join.css">
+<link rel="stylesheet" href="${contextPath1}/css/join.css">
 <style>
 			.check{
 				color: red;

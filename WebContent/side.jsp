@@ -60,7 +60,7 @@ a:active {
 </style>
 </head>
 <c:if test="${member_code == null }">
-	<c:set var="member_code" value="1"/>
+	<c:set var="member_code" value="2"/>
 </c:if>
 <body>
 	<form method="post" id="index">
