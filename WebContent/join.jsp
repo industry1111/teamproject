@@ -17,7 +17,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="join.css">
+<link rel="stylesheet" href="css/login.css">
 
 	<link
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

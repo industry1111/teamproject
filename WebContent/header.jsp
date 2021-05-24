@@ -27,7 +27,7 @@
 	<div class="row">
 		<div class="col-md-3" align="right">
 			<a href="index.bo"> <img
-				src="images/modooLogo.jpg"
+				src="images/modooLogo.png"
 				alt="Logo" style="height: 30px">
 			</a>
 		</div>
