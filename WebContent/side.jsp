@@ -32,7 +32,8 @@
 	<!-- Date Picker -->
 	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
 	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
@@ -61,6 +62,7 @@ a:active {
 </head>
 <c:if test="${member_code == null }">
 	<c:set var="member_code" value="2"/>
+
 </c:if>
 <body>
 	<form method="post" id="index">

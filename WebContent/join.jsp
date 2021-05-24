@@ -2,24 +2,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-<c:set var="contextPath" value="<%=request.getContextPath() %>"/>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="/js/login.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<script>var contextPath = "${pageContext.request.contextPath}";</script>
+
 <head>
 <title>JOIN</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
 
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/login.js"></script>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="${contextPath1}/css/join.css">
+	<link
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+	rel="stylesheet">
+
 <style>
 			.check{
 				color: red;

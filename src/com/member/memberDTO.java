@@ -4,8 +4,12 @@ import java.sql.Timestamp;
 
 public class memberDTO {
 	
+
 	private int member_num;
 
+//	일반 회원 정보
+
+	
 //	일반 회원 정보
 
 	private String name;
@@ -95,6 +99,5 @@ public class memberDTO {
 	public void setDate(Timestamp date) {
 		this.date = date;
 	}
-
 	
 }

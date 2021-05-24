@@ -105,7 +105,7 @@ public class MemberFrontController extends HttpServlet{
 			forward.setRedirect(false); 
 			forward.setPath("index.jsp");
 			request.setAttribute("center","seller.jsp" );
-			
+
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
 		}else if(command.equals("/MemberUpdate.me")){
