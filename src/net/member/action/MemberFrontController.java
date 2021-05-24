@@ -100,6 +100,7 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+<<<<<<< HEAD
 		}else if(command.equals("/Seller.me")){
 			forward=new ActionForward();
 			forward.setRedirect(false); 
@@ -116,6 +117,16 @@ public class MemberFrontController extends HttpServlet{
 		}
 
 
+=======
+		}else if(command.equals("/Main.me")){
+                    
+		        forward=new ActionForward();
+		        //페이지 이동 방식 여부 값 false로 저장-> RequestDispatcher  forward() 방식
+		        forward.setRedirect(false);
+		        //이동할 페이지 경로(회원가입 페이지) 주소값 저장
+		        forward.setPath("/main.jsp");
+                }
+>>>>>>> af99b75afb5e9c5f7ee16c6465d90bd6dc178f4f
 		//주소 이동
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식

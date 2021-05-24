@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
 <!-- JNDI기술을 사용하여 접속할 DB정보를 지정 -->
@@ -10,5 +11,19 @@
 	username="jspid"
 	password="jsppass"	
 	/>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+<!-- JNDI기술을 사용하여 접속할 DB정보를 지정 -->
+	 <Resource 
+	name="jdbc/teamdb"
+	auth="Container"
+	type="javax.sql.DataSource"
+	driverClassName="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3306/teamdb"
+	username="jspid"
+	password="jsppass"	
+	/>
+>>>>>>> af99b75afb5e9c5f7ee16c6465d90bd6dc178f4f
 
 </Context>
