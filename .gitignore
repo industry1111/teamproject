@@ -2,7 +2,11 @@
 .classpath
 .project
 .settings/
+<<<<<<< HEAD
 
 
 
 >>>>>>> a3541acb2c9f39c04552fab1ed93bd0b95dcaa5d
+=======
+/bin/
+>>>>>>> af99b75afb5e9c5f7ee16c6465d90bd6dc178f4f

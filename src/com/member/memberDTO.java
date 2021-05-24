@@ -4,8 +4,7 @@ import java.sql.Timestamp;
 
 public class memberDTO {
 	
-	int member_num;
-	
+	private int member_num;
 
 //	일반 회원 정보
 
@@ -96,5 +95,6 @@ public class memberDTO {
 	public void setDate(Timestamp date) {
 		this.date = date;
 	}
+
 	
 }

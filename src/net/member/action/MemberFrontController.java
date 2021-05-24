@@ -105,6 +105,7 @@ public class MemberFrontController extends HttpServlet{
 			forward.setRedirect(false); 
 			forward.setPath("index.jsp");
 			request.setAttribute("center","seller.jsp" );
+			
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
 		}else if(command.equals("/MemberUpdate.me")){
@@ -113,6 +114,8 @@ public class MemberFrontController extends HttpServlet{
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","MemberUpdate.jsp" );
 		}
+
+
 		//주소 이동
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식
