@@ -112,7 +112,14 @@ public class MemberFrontController extends HttpServlet{
 			forward.setRedirect(false); 
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","MemberUpdate.jsp" );
+			
+		}else if(command.equals("/DeleteMember.me")){
+			forward=new ActionForward();
+			forward.setRedirect(false); 
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","deleteMember.jsp" );
 		}
+		
 		//주소 이동
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식

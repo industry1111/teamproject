@@ -61,6 +61,11 @@ public class BoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","MemberUpdate.jsp");
+		}else if(command.equals("/order.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","order.jsp");
 		}
 		
 		if(forward!=null){ 
