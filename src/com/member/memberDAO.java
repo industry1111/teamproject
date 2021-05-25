@@ -269,18 +269,21 @@ public class memberDAO {
 		}
 	}
 	
-	public void deletemember(int member_num){
+	public int deletemember(int member_num){
+		int result = 0;
 		try {
+			
 			con = ds.getConnection();
 			String sql = "delete from member where member_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, member_num);
-			pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("deleteMember:"+e.toString());
 		}finally{
 			ResouceClose();
 		}
+		return result;
 	}
 	
 	public memberDTO getMemberInfo(String id){
