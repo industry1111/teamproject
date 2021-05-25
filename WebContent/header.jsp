@@ -20,7 +20,7 @@
 </head>
 
 <c:if test="${member_code == null }">
-	<c:set var="member_code" value="1" />
+	<c:set var="member_code" value="0" />
 </c:if>
 
 <body>

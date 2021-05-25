@@ -88,7 +88,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">위시리스트</a>
+				<a href="keepstore.bo">찜한 스토어</a>
 			</div>
 		</div>
 		<div class="row">

@@ -71,6 +71,11 @@ public class BoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","receiver.jsp");
+		}else if(command.equals("/keepstore.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","keepstore.jsp");
 		}
 		
 		if(forward!=null){ 
