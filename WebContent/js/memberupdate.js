@@ -1,21 +1,17 @@
+
 var nameReg = /^[가-힣]{2,5}$/;
 var idReg = /^[A-Za-z0-9]{6,15}$/;
 var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
 var emailReg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[a-zA-Z_-]+){1,2}$/;
 var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
+var check = 0;
 
 $(function() {
-
-	var id = $("#id").val();
-	// var date = ${mdto.date};
-	// var reg_date = new Date(date);
-	// var now_date = new Date();
-	//	
-	// var diffdate = now_date - reg_date;
-	// if(diffdate > 30){
-	// $("#id_btn").removeAttr("disabled");
+	
+	var member_num = $("#member_num").val();
+	
 	$("#id_btn").on("click", function() {
-
+		var id = $("#id").val();
 		$(this).attr("hidden", true);
 		$("#id").removeAttr("disabled");
 		$("#id").focus();
@@ -51,9 +47,10 @@ $(function() {
 						},
 						dataType : "text",
 						success : function(data) {
-							if (data == "0") {
+							if (data == 0) {
 								$("#id_check2").text("사용가능한 아이디 입니다.");
 								$("#id_check").text("");
+								check=1;
 							} else {
 								$("#id_check").text("중복된 아이디입니다.");
 								$("#id_check2").text("");
@@ -66,12 +63,29 @@ $(function() {
 					$("#id_check2").text("");
 				}
 			}
+				$("#id_update").on("click", function() {
+					$.ajax({
+						type:"post",
+						async:"true",
+						url : contextPath + "/MemberUpdateAction",
+						data : {
+							
+								id : update_id,
+								member_id : member_id,
+								command : "update_id"
+						},
+						dataType : "text",
+						success : function(){
+							$("#id").attr("disabled",true);
+							$(".id_update").attr(hidden);
+							$("#id_btn").removeAttr(hidden);
+						}
+					});
+					
+				});
 		});
-	});
-	// }
-	$("#id_update").on("click", function() {
-
-	});
+				
+});
 
 	$("#phone_btn").on("click", function() {
 		var phone = $("#phone").val();
@@ -107,6 +121,7 @@ $(function() {
 							}else{
 								$("#phone_check2").text("사용가능한 번호입니다.");
 								$("#phone_check").text("");
+								check = 1;
 							}
 						}
 						
@@ -117,11 +132,39 @@ $(function() {
 					$("#phone_check2").text("");
 				}
 				
+				
+					$("#phone_update").on("click",function(){
+						if(check==1){
+							
+							$.ajax({
+								
+								type:"post",
+								async:true,
+								url:contextPath + "/MemberUpdateAction",
+								data:{
+									phone : new_phone,
+									member_num : member_num,
+									command : "new_phone"
+								},
+								dataType:"text",
+								success : function(){
+									
+										$("#phone_check2").text("");
+										$("#phone_check").text("");
+										$(".phone").attr("hidden",true);
+										$("#phone_btn").attr("hidden",false);
+										$("#phone").attr("disabled",true);
+									
+								}
+							});
+						}
+					});
 			}
+			
 			
 		});
 
-		$("#phone_cancle").on("click", function() {
+		$("#phone_cancle").on("click", function(){
 			$(".phone").attr("hidden", true);
 			$("#phone").val(phone);
 			$("#phone").attr("disabled", true);
@@ -167,6 +210,7 @@ $(function() {
 								$("#pw_check").text("비밀번호가 확인되었습니다.");
 								$("#pw_check2").text("");
 								$("#new_pw").removeAttr("disabled");
+								$("#new_pw").focus();
 								
 								$("#pw").attr("disabled",true);
 							} else {
@@ -181,11 +225,13 @@ $(function() {
 							if (pw == new_pw) {
 									$("#new_pw_check").text("이전의 비밀번호와 동일합니다.");
 									$("#new_pw_check2").text("");
+									$("#new_pw").focus();
 							} else {
 									if (pwReg.test(new_pw)) {
 										$("#new_pw_check2").text("사용가능한 비밀번호 입니다.");
 										$("#new_pw_check").text("");
 										$("#new_pw_confirm").removeAttr("disabled");
+										$("#new_pw_confirm").focus();
 									} else {
 										$("#new_pw_check").text("대소문자,특수문자,숫자를 조합해 8-20자 사이로 작성해주세요.");
 										$("#new_pw_check2").text("");
@@ -201,16 +247,51 @@ $(function() {
 							if (new_pw_confirm == new_pw) {
 									$("#new_pw_confirm_check2").text("비밀번호가 일치합니다.");
 									$("#new_pw_confirm_check").text("");
+									check = 1;
 							} else {
 								$("#new_pw_confirm_check").text("비밀번호가 일치하지 않습니다.");
 								$("#new_pw_confirm_check2").text("");
 							}
+							
+							$("#pw_update").on("click",function(){
+								
+								if(check==1){
+									$.ajax({
+										
+										type:"post",
+										async:true,
+										url : contextPath + "/MemberUpdateAction",
+										data : {
+											
+											pw : new_pw_confirm,
+											member_num : member_num,
+											command : "new_pw"
+											
+										},
+										dataType : "text",
+										success : function(){
+											
+											$(".password").attr("hidden",true);
+											$("#pw_btn").removeAttr("hidden");
+											$("#pw").attr("disabled",false);
+											$("#new_pw").val("");
+											$("#new_pw_confirm").val("");
+											$("#new_pw_check2").text("");
+											$("#new_pw_confirm_check2").text("");
+											$("#new_pw").attr("disabled",true);
+											$("#new_pw_confirm").attr("disabled",true);
+										}
+										
+									});
+									
+								}
+
+							});
 
 					});
-
-					$("#pw_btn").on("click",function() {
-
-					});
+					
+					
+					
 
 				});
 
@@ -307,11 +388,76 @@ $(function() {
 		});
 		
 		$("#addr_update").on("click",function(){
-			
+			$("")
 		});
+		
+		
 	});
 	
+	$("#name_btn").on("click",function(){
 		
-	
+		var name = $("#name").val();
+		$(".name").removeAttr("hidden");
+		$("#name_btn").attr("hidden",true);
+		$("#name").attr("disabled",false);
+		
+		$("#name").blur(function(){
+			
+			var new_name = $(this).val();
+			
+			if(name == new_name){
+				$("#name_check").text("이전 이름과 같습니다.");
+				$("#name_check2").text("");
+			}else{
+				if(nameReg.test(new_name)){
+					
+					$("#name_check2").text("사용 가능한 이름입니다.");
+					$("#name_check").text("");
+						check=1;
+				}else{
+					$("#name_check").text("다시 작성해주세요.");
+					$("#name_check2").text("");
+				}
+			}
+
+			
+			$("#name_update").on("click",function(){
+				if(check==1){
+					$.ajax({
+						
+						type:"post",
+						asysn:true,
+						url:contextPath + "/MemberUpdateAction",
+						data:{
+							name : new_name,
+							member_num : member_num,
+							command : "new_name"
+						},
+						dataType : "text",
+						success:function(){
+							
+							$("#name_check").text("");
+							$("#name_check2").text("");
+							$(".name").attr("hidden",true);
+							$("#name").attr("disabled",true);
+							$("#name_btn").removeAttr("hidden");	
+						}
+						
+					});
+				}
+			});
+		});
+		
+
+			$("#name_cancle").on("click",function(){
+					
+					$(".name").attr("hidden");
+					$("#name_btn").removeAttr("hidden");
+					
+			});
+		
+		
+	});
+
 
 });
