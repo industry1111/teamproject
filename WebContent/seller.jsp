@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>seller</title>
 <link rel="stylesheet" href="css/seller.css">
-<script src="js/seller.js"></script>
+
 
 <style>
 	#template{
@@ -24,7 +24,7 @@
 <body>
 	<!-- 판매자 등록 창 -->
 	<form action="" method="post"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data"> <%--이미지 파일업로드 저장. --%>
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -104,6 +104,7 @@
 			</div>
 		</section>
 	</form>
-	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/seller.js"></script>
 </body>
 </html>

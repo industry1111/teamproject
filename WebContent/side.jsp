@@ -60,7 +60,7 @@ a:active {
 </style>
 </head>
 <c:if test="${member_code == null }">
-	<c:set var="member_code" value="1"/>
+	<c:set var="member_code" value="2"/>
 </c:if>
 <body>
 	<form method="post" id="index">
@@ -140,7 +140,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">물품등록/삭제</a>
+				<a href="ProductList.bo">물품등록/삭제</a> 
 			</div>
 		</div>
 		</c:if>
