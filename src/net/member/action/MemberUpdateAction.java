@@ -12,21 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import com.member.memberDAO;
 
-@WebServlet("/MemberUpdateAction")
-public class MemberUpdateAction extends HttpServlet{
-	
+public class MemberUpdateAction implements Action {
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doUpdate(request,response);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doUpdate(request,response);
-	}
-	
-	protected void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -62,12 +51,8 @@ public class MemberUpdateAction extends HttpServlet{
 			String name = request.getParameter("name");
 			mdao.updateName(name, member_num);
 		}
-		
-		
-		
-		
+
+		return null;
 	}
-	
-	
-	
+
 }

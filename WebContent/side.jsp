@@ -88,12 +88,12 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">위시리스트</a>
+				<a href="keepstore.bo">찜한 스토어</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">배송지관리</a>
+				<a href="receiver.bo">배송지관리</a>
 			</div>
 		</div>
 	
@@ -132,7 +132,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">물품등록/삭제</a>
+				<a href="ProductList.bo">물품등록/삭제</a> 
 			</div>
 		</div>
 		</c:if>

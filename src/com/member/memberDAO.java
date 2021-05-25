@@ -65,7 +65,7 @@ public class memberDAO {
 			pstmt.setString(6, dto.getAddr1());
 			pstmt.setString(7, dto.getAddr2());
 			pstmt.setString(8, dto.getAddr3());
-			pstmt.setInt(9, 0);
+			pstmt.setInt(9, 1);
 
 			result = pstmt.executeUpdate();
 			
@@ -150,8 +150,6 @@ public class memberDAO {
 	}
 	
 	public int idCheck(String id) {
-		
-		
 		try {
 			con = ds.getConnection();
 			String sql = "select id from member where id=?";
@@ -164,23 +162,6 @@ public class memberDAO {
 			
 		} catch (Exception e) {
 			System.out.println("idCheck"+e.toString());
-		}finally {
-			ResouceClose();
-		}
-		return 0;
-	}
-	public int blog_nameCheck(String blog_name) {
-		try {
-			con = ds.getConnection();
-			String sql = "select blog_name from member where blog_name=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, blog_name);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-					return 1;
-			}
-		} catch (Exception e) {
-			System.out.println("blog_nameCheck"+e.toString());
 		}finally {
 			ResouceClose();
 		}
@@ -291,7 +272,7 @@ public class memberDAO {
 	    
 	    try {
             con = ds.getConnection();
-            String sql = "select * from member where id=?";
+            String sql = "select * from member natural join where id=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
@@ -307,6 +288,12 @@ public class memberDAO {
                 mdto.setAddr2(rs.getString("addr2"));
                 mdto.setAddr3(rs.getString("addr3"));
                 mdto.setDate(rs.getTimestamp("date"));
+                mdto.setMember_code((rs.getString("member_code")));
+                mdto.setStore_name(rs.getString("store_name"));
+                mdto.setStore_c_num(rs.getString("store_c_num"));
+                mdto.setProfile_img(rs.getString("profile_img"));
+                mdto.setTemplate(rs.getString("template"));
+                mdto.setAccount(rs.getString("account"));
             }
 	    } catch (Exception e) {
             System.out.println("getMemberInfo:"+e.toString());
