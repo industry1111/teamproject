@@ -92,7 +92,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">배송지관리</a>
+				<a href="receiver.bo">배송지관리</a>
 			</div>
 		</div>
 	
@@ -143,7 +143,7 @@ a:active {
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="MemberUpdate.me">회원 정보 변경</a>
+				<a href="#">회원 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">
