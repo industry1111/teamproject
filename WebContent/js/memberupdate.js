@@ -64,6 +64,7 @@ $(function() {
 				}
 			}
 				$("#id_update").on("click", function() {
+					
 					$.ajax({
 						type:"post",
 						async:"true",
@@ -71,14 +72,17 @@ $(function() {
 						data : {
 							
 								id : update_id,
-								member_id : member_id,
-								command : "update_id"
+								member_num : member_num,
+								command : "new_id"
 						},
 						dataType : "text",
 						success : function(){
 							$("#id").attr("disabled",true);
-							$(".id_update").attr(hidden);
-							$("#id_btn").removeAttr(hidden);
+							$(".id_update").attr("hidden",true);
+							$("#id_btn").removeAttr("hidden");
+							$("#id_check").text("");
+							$("#id_check2").text("");
+							$("#id").val(update_id);
 						}
 					});
 					
@@ -274,8 +278,10 @@ $(function() {
 											$(".password").attr("hidden",true);
 											$("#pw_btn").removeAttr("hidden");
 											$("#pw").attr("disabled",false);
+											$("#pw").val("");
 											$("#new_pw").val("");
 											$("#new_pw_confirm").val("");
+											$("#pw_check").text("");
 											$("#new_pw_check2").text("");
 											$("#new_pw_confirm_check2").text("");
 											$("#new_pw").attr("disabled",true);
@@ -304,6 +310,7 @@ $(function() {
 		$("#email_btn").attr("hidden", true);
 		$("#email").attr("disabled", false);
 		$("#email").focus();
+		$(".email_check").removeAttr("hidden");
 
 		$("#email").blur(function() {
 			var new_email = $(this).val();
@@ -311,8 +318,9 @@ $(function() {
 				$("#email_check").text("이전의 이메일과 동일합니다.");
 				$("#email_check2").text("");
 			}else{
+				
 				if (emailReg.test(new_email)) {
-					$.ajax({
+						$.ajax({
 
 						type : "post",
 						async : true,
@@ -330,6 +338,7 @@ $(function() {
 							}else{
 								$("#email_check2").text("사용가능한 이메일 입니다.");
 								$("#email_check").text("");
+								check=1;
 							}
 						}
 
@@ -339,6 +348,41 @@ $(function() {
 					$("#email_check2").text("");
 				}
 			}
+			$("#email_cf_btn").click(function(){
+				if(check == 1){
+					var email = $("#email").val();
+					if(confirm("인증번호를 보내시겠습니까?")){
+				  		$.ajax({
+						type: "post",
+						async: true,
+						url: contextPath + "/MailAuthentication",
+						data: {
+							address: email,
+						},
+						dataType: "text",
+						success: function(data) {
+							cf_num = data;
+							$("#cf_num").attr("disabled",false);
+						}
+					});
+					}else{
+						$("#email").focus();
+					}
+				}
+			});
+			
+			$("#cf_num_btn").click(function(){
+				cf_num2 = $("#cf_num").val();
+				if(cf_num == cf_num2 && cf_num !=""){
+					$(this).attr("disabled",true);
+					$("#cf_num").attr("disabled",true);
+					$("#cf_num_check").removeAttr("hidden");
+					$("#cf_num_check2").text("");
+					email_check2 = 1;
+				}else{
+					$("#cf_num_check2").removeAttr("hidden")
+				}
+			});
 
 		});
 
@@ -350,6 +394,7 @@ $(function() {
 			$("#email").val(email);
 			$("#email_check").text("");
 			$("#email_check2").text("");
+			$(".email_check").attr("hidden",true);
 
 		});
 
@@ -388,9 +433,40 @@ $(function() {
 		});
 		
 		$("#addr_update").on("click",function(){
-			$("")
-		});
+			
+			var new_addr1 = $("#addr1").val();
+			var new_addr2 = $("#addr2").val();
+			var new_addr3 = $("#addr3").val();
+			
+				$.ajax({
+					
+					type:"post",
+					asycn:true,
+					url : contextPath + "/MemberUpdateAction",
+					data : {
+						
+						addr1 : new_addr1,
+						addr2 : new_addr2,
+						addr3 : new_addr3,
+						member_num : member_num,
+						command : "new_address"
+	
+					},
+					dataType:"text",
+					success:function(){
+						
+						$("#address_btn").attr("hidden",false);
+						$("#search").attr("hidden",true);
+						$(".addr").attr("hidden",true);
+						$("#addr1").attr("disabled",true);
+						$("#addr2").attr("disabled",true);
+						$("#addr3").attr("disabled",true);
+					}
+					
+				  });
 		
+			
+		});
 		
 	});
 	
@@ -447,17 +523,18 @@ $(function() {
 				}
 			});
 		});
-		
-
-			$("#name_cancle").on("click",function(){
+		$("#name_cancle").on("click",function(){
 					
-					$(".name").attr("hidden");
+					$(".name").attr("hidden",true);
 					$("#name_btn").removeAttr("hidden");
-					
-			});
+					$("#name").attr("disabled",true);
+		});
 		
 		
 	});
+	
+	
+	
 
 
 });

@@ -265,6 +265,24 @@ public class memberDAO {
 			ResouceClose();
 		}
 	}
+	
+	//주소 변경
+	public void updateAddr(String addr1,String addr2,String addr3,int member_num){
+        try {
+            con = ds.getConnection();
+            String sql = "update member set addr1=?,addr2=?,addr3=? where member_num=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, addr1);
+            pstmt.setString(2, addr2);
+            pstmt.setString(3, addr3);
+            pstmt.setInt(4, member_num);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("updateEmail"+e.toString());
+        }finally{
+            ResouceClose();
+        }
+    }
 
 	// 회원 탈퇴
 	public void deletemember(int member_num) {
