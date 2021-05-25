@@ -126,8 +126,6 @@
 							</p>
 							<p>
 								<input id="pw_cancle" type="button" value="수정취소" class="myButton"/> 
-							</p>
-							<p>
 								<input id="pw_update" type="button" value="수정완료" class="myButton"/> 
 							</p>
 						</div>
@@ -167,10 +165,29 @@
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="email" name="email" value="${mdto.email}" disabled="disabled"
-									style="border: 0"><br>
-								<span id="email_check" class="check"></span>
-                                <span id="email_check2" class="check2"></span>	
+							<div class="col-md-8">
+								 <div class="form-group mb-4">
+									<input type="text" id="email" name="email" value="${mdto.email}" disabled="disabled"
+										style="border: 0" ><br>
+									<span id="email_check" class="check"></span>
+	                                <span id="email_check2" class="check2"></span>
+                                </div>
+                            </div>
+                           <div class="col-md-4">
+                                <input type="button" id="email_cf_btn" value="인증 " class="myButton" hidden>	
+                            </div>   
+                            <div class="col-md-7">
+									<div class="form-group mb-4">
+										<input hidden name="cf_num" id="cf_num" type="text" required="required" class="form-control" placeholder="Check">
+										<span id="cf_num_check2" class="check" hidden>번호가 일치하지 않습니다.</span>
+									</div>
+								</div>
+								<div class="col-md-1">
+										 <span id="cf_num_check" class="check2" hidden><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'><path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg></span>
+								</div>
+								<div class="col-md-4">
+									<input style="size: 30%" type="button" id="cf_num_btn" value="확인" class="myButton"><br>
+								</div>
 							</p>
 							<p class="contxt_desc">블로그의 안내에 대해 전달 받을 이메일
 								주소 입니다.</p>
@@ -178,8 +195,9 @@
 								<input type="button" id="email_btn" value="수정" class="myButton" />
 							</p>
 							<p class="email" hidden>
-								<input id="email_cancle" type="button" value="수정 취소" class="myButton"/> <input
-									id="email_update" type="button" value="수정 완료" class="myButton"/>
+	
+								<input id="email_cancle" type="button" value="수정 취소" class="myButton"/> 
+								<input id="email_update" type="button" value="수정 완료" class="myButton"/>
 							</p>
 						</div>
 					</td>

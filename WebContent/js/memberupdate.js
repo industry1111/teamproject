@@ -274,8 +274,10 @@ $(function() {
 											$(".password").attr("hidden",true);
 											$("#pw_btn").removeAttr("hidden");
 											$("#pw").attr("disabled",false);
+											$("#pw").val("");
 											$("#new_pw").val("");
 											$("#new_pw_confirm").val("");
+											$("#pw_check").text("");
 											$("#new_pw_check2").text("");
 											$("#new_pw_confirm_check2").text("");
 											$("#new_pw").attr("disabled",true);
@@ -304,6 +306,8 @@ $(function() {
 		$("#email_btn").attr("hidden", true);
 		$("#email").attr("disabled", false);
 		$("#email").focus();
+		$("#email_cf_btn").removeAttr("hidden");
+		$("#cf_num").removeAttr("hidden");
 
 		$("#email").blur(function() {
 			var new_email = $(this).val();
@@ -350,6 +354,8 @@ $(function() {
 			$("#email").val(email);
 			$("#email_check").text("");
 			$("#email_check2").text("");
+			$("#email_cf_btn").attr("hidden",true);
+			$("#cf_num").attr("hidden",true);
 
 		});
 
@@ -388,7 +394,22 @@ $(function() {
 		});
 		
 		$("#addr_update").on("click",function(){
-			$("")
+			$.ajax({
+				
+				type:"post",
+				asycn:true,
+				url : contextPath + "/MemberUpdateAction",
+				data : {
+					
+					addr1 : addr1,
+					addr2 : addr2,
+					addr3 : addr3,
+					command : "address"
+					
+				}
+				
+			});
+			
 		});
 		
 		
@@ -447,17 +468,18 @@ $(function() {
 				}
 			});
 		});
-		
-
-			$("#name_cancle").on("click",function(){
+		$("#name_cancle").on("click",function(){
 					
-					$(".name").attr("hidden");
+					$(".name").attr("hidden",true);
 					$("#name_btn").removeAttr("hidden");
-					
-			});
+					$("#name").attr("disabled",true);
+		});
 		
 		
 	});
+	
+	
+	
 
 
 });
