@@ -8,20 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class MemberUpdateAction extends HttpServlet{
-	
+public class MemberUpdateAction implements Action {
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doUpdate(request,response);
-	}
-	
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doUpdate(request,response);
-	}
-	
-	protected void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -29,18 +19,12 @@ public class MemberUpdateAction extends HttpServlet{
 		String param = null;
 		int result = 0;
 		int member_num = (Integer.parseInt(request.getParameter("member_num")));
-		
-		if(command.equals("id")){
+
+		if (command.equals("id")) {
 			param = request.getParameter("param");
-			
-			
 		}
-		
-		
-		
-		
+
+		return null;
 	}
-	
-	
-	
+
 }
