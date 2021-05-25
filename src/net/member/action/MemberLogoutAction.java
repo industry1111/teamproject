@@ -16,12 +16,6 @@ public class MemberLogoutAction implements Action{
 		HttpSession session=request.getSession();
 		session.invalidate();
 		
-		//이동 ./Main.me
-//		ActionForward forward=new ActionForward();
-//		forward.setRedirect(true);
-//		forward.setPath("./Main.bo");
-//		return forward;
-		
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out=response.getWriter();
 		out.println("<script>");
@@ -29,6 +23,10 @@ public class MemberLogoutAction implements Action{
 		out.println("location.href='./Main.me';");
 		out.println("</script>");
 		out.close();
-		return null;
+		
+		ActionForward forward=new ActionForward();
+		forward.setRedirect(true);
+		forward.setPath("./Main.me");
+		return forward;
 	}
 }

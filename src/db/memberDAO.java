@@ -21,7 +21,7 @@ public class memberDAO {
 	public void getCon() {
 		try {
 			Context init = new InitialContext();
-			ds = (DataSource) init.lookup("java:comp/env/jdbc/jspbeginner");
+			ds = (DataSource) init.lookup("java:comp/env/jdbc/teamdb");
 			con = ds.getConnection();
 		} catch (Exception e) {
 			System.out.println("DB_Connection:" + e.toString());
@@ -366,6 +366,11 @@ public class memberDAO {
 			pstmt.setString(4, sdto.getProfile_img());
 			pstmt.setString(5, sdto.getTemplate());
 			pstmt.setString(6, sdto.getAccount());
+			pstmt.executeUpdate();
+			
+			sql = "update member set member_code = 2 where member_num =?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sdto.getMember_num());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("insertSeller:"+e.toString());

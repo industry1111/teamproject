@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import db.memberDAO;
+import db.memberDTO;
+import db.sellerDTO;
 
 
 /*login.jsp에서 사용자가 입력한 id와 pass를  userCheck메소드로 전달하여..
@@ -57,7 +59,8 @@ public class MemberLoginAction implements Action{
 		
 		//login.jsp 화면에서 입력한 아이디를 세션객체영역에 저장
 		session.setAttribute("id", id);
-		
+		memberDTO mdto = mdao.getMemberInfo(id);
+		session.setAttribute("member_code", mdto.getMember_code());
 	/*로그인 성공시.... CarMain.jsp 페이지로 이동 시킨다.*/
 		//페이지 이동 방식 여부 값,이동페이지 경로 값 저장 하여 리턴 해주는 객체 생성
 		ActionForward forward=new ActionForward();

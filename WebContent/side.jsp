@@ -60,9 +60,7 @@ a:active {
 }
 </style>
 </head>
-<c:if test="${member_code == null }">
-	<c:set var="member_code" value="2"/>
-</c:if>
+
 <body>
 	<form method="post" id="index">
 		<div class="row">
@@ -78,7 +76,7 @@ a:active {
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="order.bo">주문/배송내역</a>
+				<a href="Order.bo">주문/배송내역</a>
 			</div>
 		</div>
 		<div class="row">
@@ -117,7 +115,7 @@ a:active {
 		
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="StoreInfo.mp">스토어 정보 변경</a>
+				<a href="StoreInfo.bo">스토어 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">
