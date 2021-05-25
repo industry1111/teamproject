@@ -30,7 +30,7 @@
 <title>mypage</title>
 </head>
 <c:if test="${center == null }">
-	<c:set var="center" value="MemberUpdate.jsp"/>
+	<c:set var="center" value="order.jsp"/>
 </c:if>
 <body style="overflow:hidden;">
 	<header>
