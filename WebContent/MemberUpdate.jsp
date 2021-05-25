@@ -68,7 +68,7 @@
 							<input type="hidden" id="date" value="${mdto.date}" >
 							<input type="hidden" id="member_num" value="${mdto.member_num}" >
 							<p>
-								<input type="button" id="id_btn" value="수정" class="myButton" disabled="disabled"/>
+								<input type="button" id="id_btn" value="수정" class="myButton"/>
 							</p>
 							<p class="id_update" hidden>
 								<input id="id_cancle" type="button" value="수정 취소" class="myButton"/> <input
@@ -173,22 +173,24 @@
 	                                <span id="email_check2" class="check2"></span>
                                 </div>
                             </div>
+                            <div class="email_check" hidden>
                            <div class="col-md-4">
-                                <input type="button" id="email_cf_btn" value="인증 " class="myButton" hidden>	
-                            </div>   
-                            <div class="col-md-7">
-									<div class="form-group mb-4">
-										<input hidden name="cf_num" id="cf_num" type="text" required="required" class="form-control" placeholder="Check">
-										<span id="cf_num_check2" class="check" hidden>번호가 일치하지 않습니다.</span>
+	                                <input type="button" id="email_cf_btn" value="인증 " class="myButton">	<br>
+	                            </div>   
+	                            <div class="col-md-7">
+										<div class="form-group mb-4">
+											<input disabled="disabled"  name="cf_num" id="cf_num" type="text" required="required" placeholder="Check">
+											<span id="cf_num_check2" class="check" hidden >번호가 일치하지 않습니다.</span>
+										</div>
 									</div>
-								</div>
-								<div class="col-md-1">
-										 <span id="cf_num_check" class="check2" hidden><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'><path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg></span>
-								</div>
-								<div class="col-md-4">
-									<input style="size: 30%" type="button" id="cf_num_btn" value="확인" class="myButton"><br>
-								</div>
-							</p>
+									<div class="col-md-1">
+											 <span id="cf_num_check" class="check2" hidden><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check' viewBox='0 0 16 16'><path d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z'/></svg></span>
+									</div>
+									<div class="col-md-4">
+										<input style="size: 30%" type="button" id="cf_num_btn" value="확인" class="myButton"><br>
+									</div>
+								</p>
+							</div>
 							<p class="contxt_desc">블로그의 안내에 대해 전달 받을 이메일
 								주소 입니다.</p>
 							<p>
@@ -219,7 +221,7 @@
 						</div>
 						</p>
 						<div class="col-md-7" id="search" hidden>
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
 						</div>
 					<p>
 						<input type="button" id="address_btn" value="수정" class="myButton" />

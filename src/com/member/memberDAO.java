@@ -252,6 +252,23 @@ public class memberDAO {
 		}
 	}
 	
+	public void updateAddr(String addr1,String addr2,String addr3,int member_num){
+        try {
+            con = ds.getConnection();
+            String sql = "update member set addr1=?,addr2=?,addr3=? where member_num=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, addr1);
+            pstmt.setString(2, addr2);
+            pstmt.setString(3, addr3);
+            pstmt.setInt(4, member_num);
+            pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("updateEmail"+e.toString());
+        }finally{
+            ResouceClose();
+        }
+    }
+	
 	public void deletemember(int member_num){
 		try {
 			con = ds.getConnection();
@@ -272,7 +289,7 @@ public class memberDAO {
 	    
 	    try {
             con = ds.getConnection();
-            String sql = "select * from member natural join where id=?";
+            String sql = "select * from member where id=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, id);
             rs = pstmt.executeQuery();
@@ -289,11 +306,7 @@ public class memberDAO {
                 mdto.setAddr3(rs.getString("addr3"));
                 mdto.setDate(rs.getTimestamp("date"));
                 mdto.setMember_code((rs.getString("member_code")));
-                mdto.setStore_name(rs.getString("store_name"));
-                mdto.setStore_c_num(rs.getString("store_c_num"));
-                mdto.setProfile_img(rs.getString("profile_img"));
-                mdto.setTemplate(rs.getString("template"));
-                mdto.setAccount(rs.getString("account"));
+               
             }
 	    } catch (Exception e) {
             System.out.println("getMemberInfo:"+e.toString());
