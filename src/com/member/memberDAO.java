@@ -133,6 +133,7 @@ public class memberDAO {
 		}
 	}
 	public void updatePhone(String phone,int member_num) {
+		
 		try {
 			con = ds.getConnection();
 			String sql = "update member set phone=? where member_num = ?";
@@ -145,6 +146,7 @@ public class memberDAO {
 		}finally {
 			ResouceClose();
 		}
+		
 	}
 	
 	public int idCheck(String id) {

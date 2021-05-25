@@ -3,8 +3,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c" %>  
 <!DOCTYPE html>
 <html>
-<script src="js/memberupdate.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="js/memberupdate.js"></script>
+
 <head>
 <title>현재 유저정보 출력화면</title>
 
@@ -44,7 +46,6 @@
 	font-size: 13px;
 }
 </style>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
  
@@ -93,8 +94,8 @@
 								<input type="button" id="name_btn" value="수정" class="myButton"/>
 							</p>
 							<p class="name" hidden>
-								<input class="name_cancle" type="button" value="수정 취소" class="myButton"/> <input
-									class="name_update" type="button" value="수정 완료" class="myButton"/>
+								<input id="name_cancle" type="button" value="수정 취소" class="myButton"/> <input
+									id="name_update" type="button" value="수정 완료" class="myButton"/>
 							</p>
 						</div>
 					</td>
@@ -154,7 +155,7 @@
 							</p>
 							<p class="phone" hidden>
 								<input id="phone_cancle" type="button" value="수정 취소" class="myButton"/> <input
-									id="phone_update" type="button" value="수정 완료" class="myButton"/>
+									id="phone_update" type="button" value="수정 완료" class="myButton" >
 							</p>
 						</div>
 					</td>
@@ -213,7 +214,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<input type="hidden" name="member_num" value="${mdto.member_num}">
+		
 	</form>
 	<!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

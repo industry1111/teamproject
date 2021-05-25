@@ -32,7 +32,7 @@ public class UpdateCheck extends HttpServlet{
 		String command = request.getParameter("command");
 		String param = null;
 		int result = 0;
-		
+
 		memberDAO mdao = new memberDAO();
 		
 		if(command.equals("id")){
