@@ -144,7 +144,7 @@ a:active {
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="MemberUpdate.me">회원 정보 변경</a>
+				<a href="MemberInfo.me">회원 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">

@@ -37,11 +37,11 @@
 
 .check{
 	color: red;
-	font-size: 3px;
+	font-size: 13px;
 }
 .check2{
 	color: green;
-	font-size: 3px;
+	font-size: 13px;
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -64,7 +64,8 @@
                                 <span id="id_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">아이디는 30일에 한 번 변경하실 수 있습니다.</p>
-							<input type="hidden" name="date" value="${mdto.date}" >
+							<input type="hidden" id="date" value="${mdto.date}" >
+							<input type="hidden" id="member_num" value="${mdto.member_num}" >
 							<p>
 								<input type="button" id="id_btn" value="수정" class="myButton" disabled="disabled"/>
 							</p>
@@ -123,14 +124,14 @@
                                 <span id="new_pw_confirm_check2" class="check2"></span>
 							</p>
 							<p>
-								<input id="pw_btn" type="button" value="수정" class="myButton"/> 
-							</p>
-						</div>
-							<p>
 								<input id="pw_cancle" type="button" value="수정취소" class="myButton"/> 
 							</p>
 							<p>
 								<input id="pw_update" type="button" value="수정완료" class="myButton"/> 
+							</p>
+						</div>
+							<p>
+								<input id="pw_btn" type="button" value="수정" class="myButton"/> 
 							</p>
 					</td>
 				</tr>
@@ -176,8 +177,8 @@
 								<input type="button" id="email_btn" value="수정" class="myButton" />
 							</p>
 							<p class="email" hidden>
-								<input class="email_cancle" type="button" value="수정 취소" class="myButton"/> <input
-									class="email_update" type="button" value="수정 완료" class="myButton"/>
+								<input id="email_cancle" type="button" value="수정 취소" class="myButton"/> <input
+									id="email_update" type="button" value="수정 완료" class="myButton"/>
 							</p>
 						</div>
 					</td>
@@ -192,14 +193,21 @@
 							우편번호&nbsp;<input type="text" id="addr1" name="addr1" value="${mdto.addr1}" disabled="disabled"/>
 						</div>
 						<div>
-							주소		<input type="text" id="addr1" name="addr1" value="${mdto.addr2}" disabled="disabled"/>
+							주소		<input type="text" id="addr2" name="addr2" value="${mdto.addr2}" disabled="disabled"/>
 						</div>
 						<div>
-							상세주소&nbsp;<input type="text" id="addr1" name="addr1" value="${mdto.addr3}" disabled="disabled"/>
+							상세주소&nbsp;<input type="text" id="addr3" name="addr3" value="${mdto.addr3}" disabled="disabled"/>
 						</div>
 						</p>
+						<div class="col-md-7" id="search" hidden>
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
+						</div>
 					<p>
 						<input type="button" id="address_btn" value="수정" class="myButton" />
+					</p>
+					<p class="addr" hidden>
+						<input type="button" id="addr_cancle" value="수정취소" class="myButton" />
+						<input type="button" id="addr_update" value="수정완료" class="myButton" />
 					</p>
 					</td>
 				</tr>
@@ -207,5 +215,34 @@
 		</table>
 		<input type="hidden" name="member_num" value="${mdto.member_num}">
 	</form>
+	<!-- 카카오 우편번호 api -->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var address = ''; // 주소 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                address = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                address = data.jibunAddress;
+            }
+
+    
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('addr1').value = data.zonecode;
+            document.getElementById("addr2").value = address;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("addr3").focus();
+        }
+    }).open();
+}
+</script>
 </body>
 </html>

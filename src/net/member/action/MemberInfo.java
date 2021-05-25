@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.member.memberDAO;
 import com.member.memberDTO;
 
-public class MemberUpdate implements Action{
+public class MemberInfo implements Action{
 
     @Override
     public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
