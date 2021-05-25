@@ -20,14 +20,14 @@
 </head>
 
 <c:if test="${member_code == null }">
-	<c:set var="member_code" value="1" />
+	<c:set var="member_code" value="0" />
 </c:if>
 
 <body>
 	<div class="row">
 		<div class="col-md-3" align="right">
 			<a href="index.bo"> <img
-				src="images/modooLogo.jpg"
+				src="images/modooLogo.png"
 				alt="Logo" style="height: 30px">
 			</a>
 		</div>

@@ -52,9 +52,10 @@ public class memberDAO {
 	    
 		try {
 			con= ds.getConnection();
-			
-			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,code)"
+
+			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code)"
 					+ " values(?,?,?,?,?,?,?,?,?)";
+
 			pstmt =con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());
 			pstmt.setString(2, dto.getId());
@@ -64,7 +65,8 @@ public class memberDAO {
 			pstmt.setString(6, dto.getAddr1());
 			pstmt.setString(7, dto.getAddr2());
 			pstmt.setString(8, dto.getAddr3());
-			pstmt.setInt(9, 0);
+			pstmt.setInt(9, 1);
+
 			result = pstmt.executeUpdate();
 			
 			if(result != 0){
@@ -116,7 +118,10 @@ public class memberDAO {
 	public void updateName(String name,int member_num) {
 		try {
 			con = ds.getConnection();
+			
 			String sql = "update member set name=? where member_num = ?";
+
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, name);
 			pstmt.setInt(2, member_num);
@@ -152,25 +157,9 @@ public class memberDAO {
 			if(rs.next()) {
 				return 1;
 			}
+			
 		} catch (Exception e) {
 			System.out.println("idCheck"+e.toString());
-		}finally {
-			ResouceClose();
-		}
-		return 0;
-	}
-	public int blog_nameCheck(String blog_name) {
-		try {
-			con = ds.getConnection();
-			String sql = "select blog_name from member where blog_name=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, blog_name);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-					return 1;
-			}
-		} catch (Exception e) {
-			System.out.println("blog_nameCheck"+e.toString());
 		}finally {
 			ResouceClose();
 		}
@@ -274,4 +263,44 @@ public class memberDAO {
 			ResouceClose();
 		}
 	}
+	
+	public memberDTO getMemberInfo(String id){
+	    
+	    memberDTO mdto = new memberDTO();
+	    
+	    try {
+            con = ds.getConnection();
+            String sql = "select * from member natural join where id=?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            
+            if(rs.next()){
+                mdto.setMember_num(rs.getInt("member_num"));
+                mdto.setName(rs.getString("name"));
+                mdto.setId(rs.getString("id"));
+                mdto.setPw(rs.getString("pw"));
+                mdto.setEmail(rs.getString("email"));
+                mdto.setPhone(rs.getString("phone"));
+                mdto.setAddr1(rs.getString("addr1"));
+                mdto.setAddr2(rs.getString("addr2"));
+                mdto.setAddr3(rs.getString("addr3"));
+                mdto.setDate(rs.getTimestamp("date"));
+                mdto.setMember_code((rs.getString("member_code")));
+                mdto.setStore_name(rs.getString("store_name"));
+                mdto.setStore_c_num(rs.getString("store_c_num"));
+                mdto.setProfile_img(rs.getString("profile_img"));
+                mdto.setTemplate(rs.getString("template"));
+                mdto.setAccount(rs.getString("account"));
+            }
+	    } catch (Exception e) {
+            System.out.println("getMemberInfo:"+e.toString());
+        }finally{
+            ResouceClose();
+        }
+	    
+	    return mdto;
+	}
+
+
 }//memberDAO

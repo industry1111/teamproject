@@ -88,7 +88,10 @@ public class MemberFrontController extends HttpServlet{
 			}
 			
 		}else if(command.equals("/Main.me")) {
+			forward=new ActionForward();
 			
+			forward.setRedirect(false); 
+			forward.setPath("index.jsp?center=main.jsp");
 		}else if(command.equals("/MemberLogout.me")){
 			
 			//로그아웃 처리를 위한 Action객체 생성  
@@ -100,19 +103,45 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 		}else if(command.equals("/Seller.me")){
 			forward=new ActionForward();
 			forward.setRedirect(false); 
 			forward.setPath("index.jsp");
 			request.setAttribute("center","seller.jsp" );
+
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
+		}else if(command.equals("/MemberInfo.me")){
+		    
+		    action = new MemberInfo();
+		    try{
+		        
+		        forward = action.execute(request, response);
+    
+		    }catch (Exception e) {
+                e.printStackTrace();
+            }
+
 		}else if(command.equals("/MemberUpdate.me")){
+		    
+		    action = new MemberUpdateAction();
+		    try{
+		        
+		        forward = action.execute(request, response);
+    
+		    }catch (Exception e) {
+                e.printStackTrace();
+            }
+
+		}else if(command.equals("/DeleteMember.me")){
 			forward=new ActionForward();
 			forward.setRedirect(false); 
 			forward.setPath("mypage.jsp");
-			request.setAttribute("center","MemberUpdate.jsp" );
+			request.setAttribute("center","deleteMember.jsp" );
 		}
+		
+
 		//주소 이동
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식

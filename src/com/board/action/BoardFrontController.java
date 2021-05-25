@@ -50,7 +50,7 @@ public class BoardFrontController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
-			request.setAttribute("center","MemberUpdate.jsp");
+			request.setAttribute("center","order.jsp");
 		}else if(command.equals("/basket.bo")) {
 			forward=new ActionForward();
 			forward.setRedirect(false);
@@ -78,6 +78,22 @@ public class BoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","ProductModify.jsp");
+
+		}else if(command.equals("/order.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","order.jsp");
+		}else if(command.equals("/receiver.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","receiver.jsp");
+		}else if(command.equals("/keepstore.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","keepstore.jsp");
 		}
 		
 		if(forward!=null){ 
@@ -91,5 +107,7 @@ public class BoardFrontController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}//if 
+
+		}
 	}
-}
+

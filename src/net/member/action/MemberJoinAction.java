@@ -25,8 +25,6 @@ public class MemberJoinAction implements Action{
 		mb.setAddr2(request.getParameter("addr2"));
 		mb.setAddr3(request.getParameter("addr3"));
 		
-		
-	
 		//회원가입 성공 여부를 담을 변수 선언
 		boolean result = false;
 		

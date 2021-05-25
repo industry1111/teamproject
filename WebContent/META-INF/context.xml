@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
+
 <!-- JNDI기술을 사용하여 접속할 DB정보를 지정 -->
 	 <Resource 
 	name="jdbc/teamdb"
@@ -7,8 +8,8 @@
 	type="javax.sql.DataSource"
 	driverClassName="com.mysql.jdbc.Driver"
 	url="jdbc:mysql://localhost:3306/teamdb"
-	username="jspid"
-	password="jsppass"	
+	username="root"
+	password="1234"	
 	/>
 
 </Context>

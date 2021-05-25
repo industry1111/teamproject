@@ -3,7 +3,7 @@ package com.member;
 import java.sql.Timestamp;
 
 public class memberDTO {
-	
+
 	int member_num;
 	
 //	일반 회원 정보
@@ -15,8 +15,9 @@ public class memberDTO {
     private String addr1;
     private String addr2;
     private String addr3;
-    private int member_code;
+    private String member_code;
     private Timestamp date;
+    
 //	판매자 등록했을 시 정보 추가
     private String store_name;
     private String store_c_num;
@@ -78,10 +79,41 @@ public class memberDTO {
 	public void setAddr3(String addr3) {
 		this.addr3 = addr3;
 	}
-	public int getMember_code() {
+	public String getMember_code() {
 		return member_code;
 	}
-	public void setMember_code(int member_code) {
+
+	public String getStore_name() {
+		return store_name;
+	}
+	public void setStore_name(String store_name) {
+		this.store_name = store_name;
+	}
+	public String getStore_c_num() {
+		return store_c_num;
+	}
+	public void setStore_c_num(String store_c_num) {
+		this.store_c_num = store_c_num;
+	}
+	public String getProfile_img() {
+		return profile_img;
+	}
+	public void setProfile_img(String profile_img) {
+		this.profile_img = profile_img;
+	}
+	public String getTemplate() {
+		return template;
+	}
+	public void setTemplate(String template) {
+		this.template = template;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
+	}
+	public void setMember_code(String member_code) {
 		this.member_code = member_code;
 	}
 	public Timestamp getDate() {
@@ -90,5 +122,5 @@ public class memberDTO {
 	public void setDate(Timestamp date) {
 		this.date = date;
 	}
-	
+
 }
