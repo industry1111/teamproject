@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-
+<script src="login.js"></script>
 
 
 <head>

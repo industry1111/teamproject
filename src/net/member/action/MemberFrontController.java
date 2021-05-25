@@ -100,19 +100,37 @@ public class MemberFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+
 		}else if(command.equals("/Seller.me")){
 			forward=new ActionForward();
 			forward.setRedirect(false); 
 			forward.setPath("index.jsp");
 			request.setAttribute("center","seller.jsp" );
+
 		}else if(command.equals("/SellerJoinAction.me")) {
 			
+		}else if(command.equals("/MemberInfo.me")){
+		    
+		    action = new MemberInfo();
+		    try{
+		        
+		        forward = action.execute(request, response);
+    
+		    }catch (Exception e) {
+                e.printStackTrace();
+            }
+
 		}else if(command.equals("/MemberUpdate.me")){
-			forward=new ActionForward();
-			forward.setRedirect(false); 
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","MemberUpdate.jsp" );
-			
+		    
+		    action = new MemberUpdateAction();
+		    try{
+		        
+		        forward = action.execute(request, response);
+    
+		    }catch (Exception e) {
+                e.printStackTrace();
+            }
+
 		}else if(command.equals("/DeleteMember.me")){
 			forward=new ActionForward();
 			forward.setRedirect(false); 
@@ -120,6 +138,7 @@ public class MemberFrontController extends HttpServlet{
 			request.setAttribute("center","deleteMember.jsp" );
 		}
 		
+
 		//주소 이동
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식

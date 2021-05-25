@@ -1,8 +1,6 @@
 var nameReg = /^[가-힣]{2,5}$/;
 var idReg = /^[A-Za-z0-9]{6,15}$/;
-var blogReg = /^[A-Za-z0-9가-힣]{4,20}$/;
 var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
-
 var emailReg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[a-zA-Z_-]+){1,2}$/;
 var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 
@@ -17,7 +15,6 @@ var email_check = 0;
 var email_check2 = 0;
 var cf_num = 0;
 var cf_num2 = 0
-
 
 $(function() {
 	$("#name").blur(function(){
@@ -197,9 +194,6 @@ $(function() {
 			return false;
 		}else if(pw_confirm_check == 0){
 			$("#pw_confirm").focus();
-			return false;
-		}else if(blog_check == 0){
-			$("#blog_name").focus();
 			return false;
 		}else if(phone_check == 0){
 			$("#phone").focus();

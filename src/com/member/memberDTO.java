@@ -3,7 +3,7 @@ package com.member;
 import java.sql.Timestamp;
 
 public class memberDTO {
-	
+
 	int member_num;
 	
 //	일반 회원 정보
@@ -17,6 +17,7 @@ public class memberDTO {
     private String addr3;
     private int member_code;
     private Timestamp date;
+    
 //	판매자 등록했을 시 정보 추가
     private String store_name;
     private String store_c_num;
@@ -90,5 +91,5 @@ public class memberDTO {
 	public void setDate(Timestamp date) {
 		this.date = date;
 	}
-	
+
 }

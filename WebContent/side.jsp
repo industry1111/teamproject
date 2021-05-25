@@ -32,7 +32,8 @@
 	<!-- Date Picker -->
 	<link rel="stylesheet" href="css/bootstrap-datepicker.css">
 	<!-- Flaticons  -->
-	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
@@ -143,7 +144,7 @@ a:active {
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">회원 정보 변경</a>
+				<a href="MemberInfo.me">회원 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">
