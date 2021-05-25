@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.member.memberDAO;
+import db.memberDAO;
 
 
 /*login.jsp에서 사용자가 입력한 id와 pass를  userCheck메소드로 전달하여..

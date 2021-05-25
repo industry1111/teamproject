@@ -1,11 +1,10 @@
-package com.board;
+package db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import com.board.boardDTO;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.member.memberDAO;
+import db.memberDAO;
 
 @WebServlet("/UpdateCheck")
 public class UpdateCheck extends HttpServlet{
