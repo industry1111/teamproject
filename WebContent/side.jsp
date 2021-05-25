@@ -132,7 +132,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">물품등록/삭제</a>
+				<a href="ProductList.bo">물품등록/삭제</a> 
 			</div>
 		</div>
 		</c:if>

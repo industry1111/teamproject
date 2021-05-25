@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.member.action.ActionForward;
 
-
 public class BoardFrontController extends HttpServlet {
+
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -61,6 +61,24 @@ public class BoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","MemberUpdate.jsp");
+			
+		}else if(command.equals("/ProductList.bo")) { // 상품 등록페이지 이동
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","productUpdateDelete.jsp");
+		}else if(command.equals("/ProductAdd.bo")) { //상품 등록 페이지 이동
+				forward=new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("mypage.jsp");
+				request.setAttribute("center","ProductAdd.jsp");
+
+		}else if(command.equals("/ProductModify.bo")) { //상품 수정 페이지 이동
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","ProductModify.jsp");
+
 		}else if(command.equals("/order.bo")) {
 			forward=new ActionForward();
 			forward.setRedirect(false);
@@ -89,5 +107,7 @@ public class BoardFrontController extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 		}//if 
+
+		}
 	}
-}
+

@@ -88,7 +88,10 @@ public class MemberFrontController extends HttpServlet{
 			}
 			
 		}else if(command.equals("/Main.me")) {
+			forward=new ActionForward();
 			
+			forward.setRedirect(false); 
+			forward.setPath("index.jsp?center=main.jsp");
 		}else if(command.equals("/MemberLogout.me")){
 			
 			//로그아웃 처리를 위한 Action객체 생성  
