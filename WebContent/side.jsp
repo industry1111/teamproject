@@ -117,7 +117,7 @@ a:active {
 		
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">스토어 정보 변경</a>
+				<a href="StoreInfoUpdate.bo">스토어 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">

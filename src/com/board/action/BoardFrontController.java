@@ -94,8 +94,14 @@ public class BoardFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center","keepstore.jsp");
+		}else if(command.equals("/StoreInfoUpdate.bo")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center","StoreInfoUpdate.jsp");
 		}
 		
+	
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect() 방식
 
