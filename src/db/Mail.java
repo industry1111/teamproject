@@ -22,7 +22,7 @@ import javax.net.ssl.X509TrustManager;
 public class Mail {
 	public void naverMailSend(String title,String text,String address) {
 		String host = "smtp.naver.com";
-		
+	
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);

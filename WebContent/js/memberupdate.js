@@ -195,6 +195,7 @@ $(function() {
 
 		$(".password").removeAttr("hidden");
 		$("#pw_btn").attr("hidden",true);
+		$("#pw").focus();
 
 		$("#pw_cancle").on("click", function() {
 			$("#pw").val("");
@@ -531,6 +532,7 @@ $(function() {
 		$(".name").removeAttr("hidden");
 		$("#name_btn").attr("hidden",true);
 		$("#name").attr("disabled",false);
+		$("#name").focus();
 		
 		$("#name").blur(function(){
 			
@@ -584,6 +586,7 @@ $(function() {
 					$("#name_btn").removeAttr("hidden");
 					$("#name").attr("disabled",true);
 					$("#name").val(name);
+					
 		});
 		
 		

@@ -49,6 +49,30 @@
 	color: green;
 	font-size: 13px;
 }
+input[type="text"] {
+  width: 30%;
+  border: 2px solid DarkGray;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
 </style>
 </head>
 <body>
@@ -151,7 +175,7 @@
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="phone" name="phone" value="${mdto.phone}"
-									disabled="disabled" style="border: 0" maxlength="11"><br>
+									disabled="disabled" maxlength="11"><br>
 								<span id="phone_check" class="check"></span> <span
 									id="phone_check2" class="check2"></span>
 							</p>
@@ -178,7 +202,7 @@
 							<div class="col-md-8">
 								<div class="form-group mb-4">
 									<input type="text" id="email" name="email"
-										value="${mdto.email}" disabled="disabled" style="border: 0"><br>
+										value="${mdto.email}" disabled="disabled" style="width: 300px;"><br>
 									<span id="email_check" class="check"></span> <span
 										id="email_check2" class="check2"></span>
 								</div>
