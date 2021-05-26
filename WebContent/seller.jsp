@@ -50,7 +50,7 @@
 											카테고리 <select name="store_c_num">
 												<option>====카테고리====</option>
 												<c:forEach var="list" items="${list }">
-													<option value="${store_c_num }">${list.store_category }</option>
+													<option value="${list.store_c_num }">${list.store_category }</option>
 												</c:forEach>
 												
 											</select>
