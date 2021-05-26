@@ -21,7 +21,7 @@ public class ProdcutList implements Action{
 		
 		//회원정보 가져오기
 		boardDAO bDao = new boardDAO();
-		List<productDTO> productlist = bDao.getProductList(member_num);
+		List<productDTO> productlist = bDao.getProductList();
 						
 		//등록된 상품 목록 전부 가져오기
 		System.out.println("M : "+ productlist);
