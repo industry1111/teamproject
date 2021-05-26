@@ -582,6 +582,8 @@ $(function() {
 		});
 		$("#name_cancle").on("click",function(){
 					
+					$("#name_check2").text("");
+					$("#name_check").text("");
 					$(".name").attr("hidden",true);
 					$("#name_btn").removeAttr("hidden");
 					$("#name").attr("disabled",true);
