@@ -78,6 +78,7 @@ public class memberDAO {
 		}
 		return false;
 	}
+	
 
 	// 로그인 아이디 비밀번호 확인
 	public int userCheck(String id, String pw) {
@@ -408,5 +409,32 @@ public class memberDAO {
 		return null;
 	}
 	
+	//샐러 이미지 업로드
+	public int upload(sellerDTO sd){
+		
+		try {
+			
+			String sql = "INSERT INTO FILE VALUES(?,?,?,?,?,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sd.getMember_num());
+			pstmt.setString(2, sd.getStore_name());
+			pstmt.setInt(3, sd.getStore_c_num());
+			pstmt.setString(4, sd.getProfile_img());
+			pstmt.setString(5, sd.getTemplate());
+			pstmt.setString(6, sd.getAccount());
+			pstmt.executeUpdate();
+			
+			
+			//성공하면 1 반환
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		//실패하면 -1반환
+		return -1; 
+	}
 
 }// memberDAO

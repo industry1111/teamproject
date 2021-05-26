@@ -23,7 +23,7 @@
 
 <body>
 	<!-- 판매자 등록 창 -->
-	<form action="" method="post"
+	<form action="SellerJoinAction.me" method="post"
 		enctype="multipart/form-data"> <%--이미지 파일업로드 저장. --%>
 		<section class="ftco-section">
 			<div class="container">
