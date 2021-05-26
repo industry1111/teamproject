@@ -71,7 +71,7 @@ $(function() {
 			}
 				$("#id_update").on("click", function() {
 				if(check==1){
-					if(days>=1){	
+					if(days>=30){	
 						$.ajax({
 							type:"post",
 							async:"true",
