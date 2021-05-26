@@ -436,5 +436,23 @@ public class memberDAO {
 		//실패하면 -1반환
 		return -1; 
 	}
+	
+
+	//카테고리추가
+	public void insertStore_category(store_categoryDTO scdto){
+		try {
+			getCon();
+			String sql="insert into store_category (store_c_num,store_category)"
+					+ "values(?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, scdto.getStore_c_num());
+			pstmt.setString(2, scdto.getStore_category());
+			
+		} catch (Exception e) {
+			System.out.println("insertStore_category:"+e.toString());
+		} finally {
+			ResouceClose();
+		}
+	}
 
 }// memberDAO

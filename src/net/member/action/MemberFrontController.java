@@ -116,7 +116,7 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/MemberUpdateAciton.me")) {
+		} else if (command.equals("/MemberUpdateAction.me")) {
 
 		} else if (command.equals("/DeleteMember.me")) {
 			forward = new ActionForward();

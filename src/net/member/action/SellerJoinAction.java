@@ -11,31 +11,38 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db.memberDAO;
 import db.memberDTO;
 import db.sellerDTO;
+import db.store_categoryDTO;
 
-public class SellerJoinAction extends HttpServlet implements Action{
+public class SellerJoinAction implements Action{
 	  @Override
 	    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	        
-		  System.out.print("SellerJoinAction execute()");
+		  System.out.println("SellerJoinAction execute()");
 	      
 		  	//세션객체 생성
 			HttpSession session=request.getSession();
+			String id = (String)session.getAttribute("id");
 			
-			String directory = getServletContext().getRealPath("/");
+			
+			String directory = request.getSession().getServletContext().getRealPath("/upload_profile/");
 			System.out.println(directory);
 			int maxSize = 1024*1024*1024;
 			
 			MultipartRequest multipartRequest;
 			multipartRequest = new MultipartRequest(request, directory, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 			
-			
-			
-	        sellerDTO sd = new sellerDTO();
-	        sd.setStore_name(multipartRequest.getParameter("setsote_name"));
-	        sd.setProfile_img(multipartRequest.getParameter("profile_img"));
-	        sd.setTemplate(multipartRequest.getParameter("settemplate"));
-	        sd.setAccount(multipartRequest.getParameter("account"));
-	        
+			memberDAO mdao = new memberDAO();
+			int member_num = mdao.getMemberNum(id);
+			 
+	        sellerDTO sdto = new sellerDTO();
+	        sdto.setStore_name(multipartRequest.getParameter("store_name"));
+	        sdto.setProfile_img(multipartRequest.getParameter("profile_img"));
+	        sdto.setTemplate(multipartRequest.getParameter("template"));
+	        sdto.setAccount(multipartRequest.getParameter("account"));
+	        sdto.setMember_num(member_num);
+	        sdto.setStore_c_num(Integer.parseInt(multipartRequest.getParameter("store_c_num")));
+	        mdao.insertSeller(sdto);
+	      
 	        /*
 	        //회원가입 성공 여부를 담을 변수 선언
 			boolean result = false;
@@ -54,10 +61,12 @@ public class SellerJoinAction extends HttpServlet implements Action{
 	        */
 	        
 	        
-	        
+	        memberDTO mdto = mdao.getMemberInfo(id);
+			session.setAttribute("member_code", mdto.getMember_code());
+			
 	        ActionForward forward = new ActionForward();
-	        forward.setRedirect(true);
-	        forward.setPath("main.me");
+	        forward.setRedirect(false);
+	        forward.setPath("Main.me");
 	        
 	        return forward;
 	    }
