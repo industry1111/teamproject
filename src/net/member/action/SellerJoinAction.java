@@ -21,7 +21,7 @@ public class SellerJoinAction extends HttpServlet implements Action{
 		  	//세션객체 생성
 			HttpSession session=request.getSession();
 			
-			String directory = getServletContext().getRealPath("upload_profile/");
+			String directory = getServletContext().getRealPath("/");
 			System.out.println(directory);
 			int maxSize = 1024*1024*1024;
 			
