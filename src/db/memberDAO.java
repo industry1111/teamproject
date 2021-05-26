@@ -359,7 +359,7 @@ public class memberDAO {
 	public void insertSeller(sellerDTO sdto) {
 		try {
 			getCon();
-			String sql = "insert into member (member_num,store_name,store_c_num,profile_img,template,account"
+			String sql = "insert into seller (member_num,store_name,store_c_num,profile_img,template,account)"
 					+ "values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, sdto.getMember_num());
