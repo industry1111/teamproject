@@ -9,8 +9,14 @@ var check = 0;
 $(function() {
 	
 	var member_num = $("#member_num").val();
+	var date = $("#date").val();
+	var date1 = new Date(date);
+	var now_date = new Date();
+	var diff_date = Math.abs(now_date-date1);
+	var days = Math.floor(diff_date/(1000 * 3600 * 24));
 	
 	$("#id_btn").on("click", function() {
+		console.log(days);
 		var id = $("#id").val();
 		$(this).attr("hidden", true);
 		$("#id").removeAttr("disabled");
@@ -64,29 +70,35 @@ $(function() {
 				}
 			}
 				$("#id_update").on("click", function() {
-					
-					$.ajax({
-						type:"post",
-						async:"true",
-						url : contextPath + "/MemberUpdateAction",
-						data : {
-							
-								id : update_id,
-								member_num : member_num,
-								command : "new_id"
-						},
-						dataType : "text",
-						success : function(){
-							$("#id").attr("disabled",true);
-							$(".id_update").attr("hidden",true);
-							$("#id_btn").removeAttr("hidden");
-							$("#id_check").text("");
-							$("#id_check2").text("");
-							$("#id").val(update_id);
-						}
-					});
-					
-				});
+				if(check==1){
+					if(days>=1){	
+						$.ajax({
+							type:"post",
+							async:"true",
+							url : contextPath + "/MemberUpdateAction",
+							data : {
+								
+									id : update_id,
+									member_num : member_num,
+									command : "new_id"
+							},
+							dataType : "text",
+							success : function(){
+								$("#id").attr("disabled",true);
+								$(".id_update").attr("hidden",true);
+								$("#id_btn").removeAttr("hidden");
+								$("#id_check").text("");
+								$("#id_check2").text("");
+								$("#id").val(update_id);
+							}
+						});
+						
+					}else{
+						$("#id_check").text("아이디 변경이"+" "+(30-days)+"일 후 에 가능합니다.");
+						$("#id_check2").text("");
+					}
+				}
+						});
 		});
 				
 });
