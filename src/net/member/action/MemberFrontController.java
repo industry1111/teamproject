@@ -58,7 +58,7 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("login.jsp");
-
+			System.out.println("dd");
 		} else if (command.equals("/MemberLoginAction.me")) {
 
 			// 로그인 처리를 위한 Action객체 생성
@@ -92,7 +92,7 @@ public class MemberFrontController extends HttpServlet {
 		} else if (command.equals("/Seller.me")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("index.jsp");
+			forward.setPath("mypage.jsp");
 			request.setAttribute("center", "seller.jsp");
 
 		} else if (command.equals("/SellerJoinAction.me")) {
