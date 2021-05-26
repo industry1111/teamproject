@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.board.action.StoreCategoryList;
 
+import db.storeCategoryDTO;
+
 public class MemberFrontController extends HttpServlet {
 
 	@Override
