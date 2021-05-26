@@ -1,7 +1,6 @@
 package net.member.action;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,26 +9,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.member.memberDAO;
+import db.memberDAO;
 
-public class MemberUpdateAction implements Action {
+@WebServlet("/MemberUpdateAction")
+public class MemberUpdateAction extends HttpServlet {
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doMemberUpdate(request, response);
+    }
 
-	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        doMemberUpdate(request, response);
+    }
+    
+    protected void doMemberUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
-		PrintWriter out = response.getWriter();
 		String command = request.getParameter("command");
-		String param = null;
-		int result = 0;
+
 		int member_num = (Integer.parseInt(request.getParameter("member_num")));
 		
 		memberDAO mdao = new memberDAO();
 		
 		
 		if(command.equals("new_id")){
-			param = request.getParameter("param");
-			HttpSession session = request.getSession();
+		    
+			String id = request.getParameter("id");
+			HttpSession session=request.getSession();
+			session.setAttribute("id", id);
+			mdao.updateID(id, member_num);
 			
 		}else if(command.equals("new_pw")){
 			
@@ -50,9 +62,15 @@ public class MemberUpdateAction implements Action {
 			
 			String name = request.getParameter("name");
 			mdao.updateName(name, member_num);
+			
+		}else if(command.equals("new_address")){
+		    
+		    String addr1 = request.getParameter("addr1");
+		    String addr2 = request.getParameter("addr2");
+		    String addr3 = request.getParameter("addr3");
+		    mdao.updateAddr(addr1, addr2, addr3, member_num);
 		}
 
-		return null;
 	}
 
 }

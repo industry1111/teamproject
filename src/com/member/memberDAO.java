@@ -12,6 +12,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import db.memberDTO;
+
 public class memberDAO {
 	Connection con;
 	ResultSet rs;
@@ -292,11 +294,11 @@ public class memberDAO {
                 mdto.setAddr3(rs.getString("addr3"));
                 mdto.setDate(rs.getTimestamp("date"));
                 mdto.setMember_code((rs.getString("member_code")));
-                mdto.setStore_name(rs.getString("store_name"));
-                mdto.setStore_c_num(rs.getString("store_c_num"));
-                mdto.setProfile_img(rs.getString("profile_img"));
-                mdto.setTemplate(rs.getString("template"));
-                mdto.setAccount(rs.getString("account"));
+               // mdto.setStore_name(rs.getString("store_name"));
+               // mdto.setStore_c_num(rs.getString("store_c_num"));
+               // mdto.setProfile_img(rs.getString("profile_img"));
+               // mdto.setTemplate(rs.getString("template"));
+               // mdto.setAccount(rs.getString("account"));
             }
 	    } catch (Exception e) {
             System.out.println("getMemberInfo:"+e.toString());

@@ -1,4 +1,4 @@
-package com.board.action;
+package db;
 
 import java.util.Properties;
 

@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.member.memberDAO;
-import com.member.memberDTO;
+import db.memberDAO;
+import db.memberDTO;
 
 public class MemberInfo implements Action{
 
