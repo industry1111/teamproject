@@ -40,8 +40,8 @@ public class MemberUpdateAction extends HttpServlet {
 		    
 			String id = request.getParameter("id");
 			HttpSession session=request.getSession();
-			session.setAttribute("id", id);
 			mdao.updateID(id, member_num);
+			session.setAttribute("id", id);
 			
 		}else if(command.equals("new_pw")){
 			
@@ -64,10 +64,11 @@ public class MemberUpdateAction extends HttpServlet {
 			mdao.updateName(name, member_num);
 			
 		}else if(command.equals("new_address")){
-		    
+			
 		    String addr1 = request.getParameter("addr1");
 		    String addr2 = request.getParameter("addr2");
 		    String addr3 = request.getParameter("addr3");
+
 		    mdao.updateAddr(addr1, addr2, addr3, member_num);
 		}
 

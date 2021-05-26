@@ -187,7 +187,7 @@ public class memberDAO {
 	public void updateID(String id, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set id=? where member_num = ?";
+			String sql = "update member set id=?,date=now() where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setInt(2, member_num);
@@ -270,7 +270,8 @@ public class memberDAO {
 	//주소 변경
 	public void updateAddr(String addr1,String addr2,String addr3,int member_num){
         try {
-            con = ds.getConnection();
+        
+            getCon();
             String sql = "update member set addr1=?,addr2=?,addr3=? where member_num=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, addr1);
@@ -279,7 +280,7 @@ public class memberDAO {
             pstmt.setInt(4, member_num);
             pstmt.executeUpdate();
         } catch (Exception e) {
-            System.out.println("updateEmail"+e.toString());
+            System.out.println("updateAddr"+e);
         }finally{
             ResouceClose();
         }

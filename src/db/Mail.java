@@ -11,12 +11,18 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.MimeMessage;
+import java.security.SecureRandom; 
+import java.security.cert.X509Certificate; 
+import javax.net.ssl.HttpsURLConnection; 
+import javax.net.ssl.SSLContext; 
+import javax.net.ssl.TrustManager; 
+import javax.net.ssl.X509TrustManager;
+
 
 public class Mail {
 	public void naverMailSend(String title,String text,String address) {
 		String host = "smtp.naver.com";
-		String user = "industry1111@naver.com";
-		String password = "Rkswl940**";
+	
 
 		Properties props = new Properties();
 		props.put("mail.smtp.host", host);

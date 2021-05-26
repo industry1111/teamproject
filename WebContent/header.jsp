@@ -48,7 +48,7 @@
 
 			<!-- 판매자 로그인 -->
 			<c:if test="${member_code == 2 }">
-				<a class="h_nav" href="MyPage.bo">마이페이지</a>
+				<a class="h_nav" href="Order.bo">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
 			</c:if>
