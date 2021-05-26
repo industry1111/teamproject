@@ -78,6 +78,7 @@ public class memberDAO {
 		}
 		return false;
 	}
+	
 
 	// 로그인 아이디 비밀번호 확인
 	public int userCheck(String id, String pw) {
@@ -186,7 +187,7 @@ public class memberDAO {
 	public void updateID(String id, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set id=? where member_num = ?";
+			String sql = "update member set id=?,date=now() where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setInt(2, member_num);
@@ -269,7 +270,8 @@ public class memberDAO {
 	//주소 변경
 	public void updateAddr(String addr1,String addr2,String addr3,int member_num){
         try {
-            con = ds.getConnection();
+        
+            getCon();
             String sql = "update member set addr1=?,addr2=?,addr3=? where member_num=?";
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, addr1);
@@ -278,7 +280,7 @@ public class memberDAO {
             pstmt.setInt(4, member_num);
             pstmt.executeUpdate();
         } catch (Exception e) {
-            System.out.println("updateEmail"+e.toString());
+            System.out.println("updateAddr"+e);
         }finally{
             ResouceClose();
         }
@@ -357,7 +359,7 @@ public class memberDAO {
 	public void insertSeller(sellerDTO sdto) {
 		try {
 			getCon();
-			String sql = "insert into member (member_num,store_name,store_c_num,profile_img,template,account"
+			String sql = "insert into seller (member_num,store_name,store_c_num,profile_img,template,account)"
 					+ "values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, sdto.getMember_num());
@@ -485,7 +487,52 @@ public class memberDAO {
 		} finally {
 			ResouceClose();
 		}
+	}
+	
+	//샐러 이미지 업로드
+	public int upload(sellerDTO sd){
 		
+		try {
+			
+			String sql = "INSERT INTO FILE VALUES(?,?,?,?,?,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sd.getMember_num());
+			pstmt.setString(2, sd.getStore_name());
+			pstmt.setInt(3, sd.getStore_c_num());
+			pstmt.setString(4, sd.getProfile_img());
+			pstmt.setString(5, sd.getTemplate());
+			pstmt.setString(6, sd.getAccount());
+			pstmt.executeUpdate();
+			
+			
+			//성공하면 1 반환
+			return pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		//실패하면 -1반환
+		return -1; 
+	}
+	
+
+	//카테고리추가
+	public void insertStore_category(store_categoryDTO scdto){
+		try {
+			getCon();
+			String sql="insert into store_category (store_c_num,store_category)"
+					+ "values(?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, scdto.getStore_c_num());
+			pstmt.setString(2, scdto.getStore_category());
+			
+		} catch (Exception e) {
+			System.out.println("insertStore_category:"+e.toString());
+		} finally {
+			ResouceClose();
+		}
 	}
 
 }// memberDAO

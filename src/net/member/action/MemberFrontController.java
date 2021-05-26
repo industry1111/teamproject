@@ -96,7 +96,15 @@ public class MemberFrontController extends HttpServlet {
 			request.setAttribute("center", "seller.jsp");
 
 		} else if (command.equals("/SellerJoinAction.me")) {
-
+			action = new SellerJoinAction();
+			try {
+				
+				forward = action.execute(request, response);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		} else if (command.equals("/MemberInfo.me")) {
 
 			action = new MemberInfo();
@@ -108,7 +116,7 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/MemberUpdateAciton.me")) {
+		} else if (command.equals("/MemberUpdateAction.me")) {
 
 		} else if (command.equals("/DeleteMember.me")) {
 			forward = new ActionForward();
