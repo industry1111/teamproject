@@ -1,9 +1,10 @@
-package com.board.action;
+package net.member.action;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import db.boardDAO;
 import db.storeCategoryDTO;
@@ -18,6 +19,7 @@ public class StoreCategoryList implements Action{
 		List<storeCategoryDTO> list = bdao.getStoreCategory();
 		
 		request.setAttribute("list", list);
+		
 		request.setAttribute("center", "seller.jsp");
 		
 		ActionForward forward = new ActionForward();

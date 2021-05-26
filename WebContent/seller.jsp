@@ -49,8 +49,10 @@
 										<div class="form-group mb-4">
 											카테고리 <select>
 												<option>====카테고리====</option>
-												<option>1</option>
-												<option>2</option>
+												<c:forEach var="list" items="${list }">
+													<option value="${store_c_num }">${list.store_category }</option>
+												</c:forEach>
+												
 											</select>
 										</div>
 									</div>

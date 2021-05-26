@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.board.action.StoreCategoryList;
-
 import db.storeCategoryDTO;
 
 public class MemberFrontController extends HttpServlet {
@@ -97,8 +95,7 @@ public class MemberFrontController extends HttpServlet {
 			action = new StoreCategoryList();
 			try {
 
-				forward = action.execute(request, response); // return null;
-
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
