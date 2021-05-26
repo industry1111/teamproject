@@ -21,9 +21,7 @@
 
 <link rel="stylesheet" href="css/login.css">
 
-	<link
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-	rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
 <style>
 			.check{

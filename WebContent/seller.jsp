@@ -69,7 +69,7 @@
 										<div class="form-group mb-4">
 											<img src="" id="preview" ><br>
 											<label for="image">프로필 이미지 선택</label>
-											 <input type="file" id="image" name="image" hidden/>
+											 <input type="file" id="profile_img" name="profile_img" hidden/>
 										</div>
 									</div>
 									<c:forEach var="i" begin="1" step="1" end="5" >
@@ -93,8 +93,7 @@
 									<div class="col-md-12">
 										<div class="form-group d-flex">
 											<button type="submit"
-												class="btn btn-primary rounded submit p-3">Register
-												Seller</button>
+												class="btn btn-primary rounded submit p-3">Register Seller</button>
 										</div>
 									</div>
 								</div>

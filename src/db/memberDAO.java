@@ -407,6 +407,85 @@ public class memberDAO {
 		}
 		return null;
 	}
-	
+
+	//판매자 정보 수정 
+	//스토어명변경
+	public void updateStore_name(String store_name, int member_num) {
+		try {
+			getCon();
+			String sql = "update member set store_name=? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, store_name);
+			pstmt.setInt(2, member_num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateStore_name" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	}
+	//카테고리명변경
+	public int updateStore_c_num(int store_c_num, int member_num) {
+		try {
+			getCon();
+			String sql = "update member set store_c_num=? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_c_num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateStore_c_num" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+		return 0;
+	}
+	//프로필변경
+	public void updateProfile_img(String profile_img, int member_num) {
+		try {
+			getCon();
+			String sql = "update member set profile_img=? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, profile_img);
+			pstmt.setInt(2, member_num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateProfile_img" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	}
+
+	//템플릿변경
+	public void updateTemplate(String template, int member_num) {
+		try {
+			getCon();
+			String sql = "update member set template=? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, template);
+			pstmt.setInt(2, member_num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateTemplate" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+		
+	}
+		//계좌번호변경
+	public void updateAccount(String account, int member_num) {
+		try {
+			getCon();
+			String sql = "update member set account=? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, account);
+			pstmt.setInt(2, member_num);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateAccount" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+		
+	}
 
 }// memberDAO
