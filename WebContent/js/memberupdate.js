@@ -194,16 +194,18 @@ $(function() {
 	$("#pw_btn").on("click",function() {
 
 		$(".password").removeAttr("hidden");
+		$("#pw_btn").attr("hidden",true);
 
 		$("#pw_cancle").on("click", function() {
 			$("#pw").val("");
 			$(".password").attr("hidden", true);
-			$(".pw_btn").removeAttr("hidden");
+			$("#pw_btn").removeAttr("hidden");
 			$("#pw_check2").text("");
 			$("#pw_check").text("");
 			$("#new_pw").attr("disabled", true);
 			$("#new_pw_confirm").attr("disabled", true);
 			$("#pw").removeAttr("disabled");
+			
 
 		});
 
@@ -248,6 +250,7 @@ $(function() {
 										$("#new_pw_check").text("");
 										$("#new_pw_confirm").removeAttr("disabled");
 										$("#new_pw_confirm").focus();
+										
 									} else {
 										$("#new_pw_check").text("대소문자,특수문자,숫자를 조합해 8-20자 사이로 작성해주세요.");
 										$("#new_pw_check2").text("");
@@ -307,9 +310,6 @@ $(function() {
 							});
 
 					});
-					
-					
-					
 
 				});
 
@@ -322,6 +322,7 @@ $(function() {
 		$("#email_btn").attr("hidden", true);
 		$("#email").attr("disabled", false);
 		$("#email").focus();
+		$("#email").val("");
 		$(".email_check").removeAttr("hidden");
 
 		$("#email").blur(function() {
@@ -390,24 +391,66 @@ $(function() {
 					$("#cf_num").attr("disabled",true);
 					$("#cf_num_check").removeAttr("hidden");
 					$("#cf_num_check2").text("");
-					email_check2 = 1;
+					check2=1;
 				}else{
 					$("#cf_num_check2").removeAttr("hidden")
 				}
 			});
 
-		});
+			
+			$("#email_cancle").on("click", function() {
+				
+				$(".email").attr("hidden", true);
+				$("#email_btn").removeAttr("hidden");
+				$("#email").attr("disabled", true);
+				$("#email").val(email);
+				$("#email_check").text("");
+				$("#email_check2").text("");
+				$(".email_check").attr("hidden",true);
+				$("#cf_num").attr("disabled",true);
+				
+			});
+			
+			$("#email_update").on("click",function(){
+			
+				if(check2 == 1){
+					
+					$.ajax({
+						
+						type:"post",
+						async:true,
+						url : contextPath + "/MemberUpdateAction",
+						data : {
+							
+							email : new_email,
+							member_num : member_num,
+							command : "new_email"
+							
+						},
+						dataType:"text",
+						success:function(){
+							
+							$(".email").attr("hidden", true);
+							$("#email_btn").removeAttr("hidden");
+							$("#email").attr("disabled", true);
+							$("#email_check").text("");
+							$("#email_check2").text("");
+							$(".email_check").attr("hidden",true);
+							$("#cf_num_check").attr("hidden",true);
+							$("#cf_num").val("");
+							$("#cf_num").attr("disabled",true);
+						}
+						
+						
+						
+					});
+					
+				}else{
+					
+					
+				}
 
-		$("#email_cancle").on("click", function() {
-
-			$(".email").attr("hidden", true);
-			$("#email_btn").removeAttr("hidden");
-			$("#email").attr("disabled", true);
-			$("#email").val(email);
-			$("#email_check").text("");
-			$("#email_check2").text("");
-			$(".email_check").attr("hidden",true);
-
+			});
 		});
 
 	});
@@ -540,6 +583,7 @@ $(function() {
 					$(".name").attr("hidden",true);
 					$("#name_btn").removeAttr("hidden");
 					$("#name").attr("disabled",true);
+					$("#name").val(name);
 		});
 		
 		
