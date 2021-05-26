@@ -1,6 +1,12 @@
+<%@page import="db.productDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+ List<productDTO> list =(List<productDTO>)request.getAttribute("productList");
+%>
 <!DOCTYPE HTML>
 <html>
 	<head> <%--not used --%>
@@ -63,7 +69,7 @@
 								<span>상품 삭제</span>
 							</div>
 						</div>
-						<c:forEach var="i" begin="0" step="1" end="4">
+						<c:forEach var="product" items="${productlist}">
 							<div class="product-cart d-flex">
 								<div class="one-forth">
 									<a>
