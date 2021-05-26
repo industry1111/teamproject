@@ -50,7 +50,7 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/ProductList.bo")) { // 상품 등록페이지 이동
+		}else if(command.equals("/ProductList.bo")) { // 상품 리스트 페이지 이동
 			action = new ProdcutList();
 			try {
 				forward = action.execute(request, response);
@@ -66,6 +66,16 @@ public class BoardFrontController extends HttpServlet {
 
 			} catch (Exception e) {
 				e.printStackTrace();
+			}
+			
+		}else if(command.equals("/ProductAddAction.bo")) { //상품 등록 페이지 이동
+			action = new ProductAddAction();
+			System.out.println("controll: Action.bo");
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+					e.printStackTrace();
 			}
 
 		}else if(command.equals("/ProductModify.bo")) { //상품 수정 페이지 이동

@@ -7,7 +7,7 @@ public class productDTO {
 	private String product_name;
 	private String product_img;
 	private String prodcut_category;
-	private int product_price;
+	private int price;
 	private int count;
 	private String brand;
 	private String description;
@@ -37,11 +37,11 @@ public class productDTO {
 	public void setProdcut_category(String prodcut_category) {
 		this.prodcut_category = prodcut_category;
 	}
-	public int getProduct_price() {
-		return product_price;
+	public int getPrice() {
+		return price;
 	}
-	public void setProduct_price(int product_price) {
-		this.product_price = product_price;
+	public void setPrice(int product_price) {
+		this.price = product_price;
 	}
 	public int getCount() {
 		return count;

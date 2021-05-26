@@ -47,21 +47,23 @@ public class boardDAO {
 	
 	//상품 등록
 	public void insertProduct(productDTO pdto) {
+		
 		try {
 			getCon();
-			String sql = "insert into product (member_num,product_name,product_img,product_category,"
-					+ "product_price,count,brand,description)"
-					+ "values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into product (member_num,product_name,product_img,product_category, "
+					+ " price,count,brand,description) "
+					+ " values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pdto.getMember_num());
 			pstmt.setString(2, pdto.getProduct_name());
 			pstmt.setString(3, pdto.getProduct_img());
 			pstmt.setString(4, pdto.getProdcut_category());
-			pstmt.setInt(5, pdto.getProduct_price());
+			pstmt.setInt(5, pdto.getPrice());
 			pstmt.setInt(6, pdto.getCount());
 			pstmt.setString(7, pdto.getBrand());
 			pstmt.setString(8, pdto.getDescription());
 			pstmt.executeUpdate();
+			System.out.println("상품등록완료");
 		} catch (Exception e) {
 			System.out.println("insertProduct:"+e.toString());
 		}finally {
@@ -85,7 +87,7 @@ public class boardDAO {
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
 				pdto.setProdcut_category(rs.getString("product_category"));
-				pdto.setProduct_price(rs.getInt("product_price"));
+				pdto.setPrice(rs.getInt("price"));
 				pdto.setCount(rs.getInt("count"));
 				pdto.setBrand(rs.getString("brand"));
 				pdto.setDescription(rs.getString("description"));
@@ -116,7 +118,7 @@ public class boardDAO {
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
 				pdto.setProdcut_category(rs.getString("product_category"));
-				pdto.setProduct_price(rs.getInt("product_price"));
+				pdto.setPrice(rs.getInt("price"));
 				pdto.setCount(rs.getInt("count"));
 				pdto.setBrand(rs.getString("brand"));
 				pdto.setDescription(rs.getString("description"));

@@ -63,29 +63,31 @@
 								<span>상품 삭제</span>
 							</div>
 						</div>
-						<c:forEach var="i" begin="0" step="1" end="4">
+						<%-- 리스트 불러오는 부분 --%>
+						<c:set var="Productlist" value="${requestScope.list}"/>
+						<c:forEach var="product" items="${list}">
 							<div class="product-cart d-flex">
 								<div class="one-forth">
-									<a>
-										<img src="images/product.png" style="width: 100px;height: 100px;">
-									</a>
+									<div>
+										<img src="${pdto.product_img}" style="width: 100px;height: 100px;">
+									</div>
 									<div class="display-tc">
-										<h3>상품명</h3> <%-- 상품명 --%>
+										<h3>${pdto.product_name}</h3> <%-- 상품명 --%>
 									</div>
 								</div>
 								<div class="one-forth text-center">
 									<div class="display-tc">
-										<span class="price">상품설명을 입력받는 곳</span> <%-- 물품가격 --%>
+										${pdto.description} <%-- 물품가격 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										상품카테고리
+										${pdto.product_category } <%--카테고리 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<span class="price">상품가격</span>
+										${pdto.product_price } <%--상품가격 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
