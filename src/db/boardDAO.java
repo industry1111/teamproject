@@ -200,6 +200,29 @@ public class boardDAO {
 		}
 	}
 	
+	//store Category List
+	public List<storeCategoryDTO> getStoreCategory(){
+		List<storeCategoryDTO> list = new ArrayList<storeCategoryDTO>();
+		try {
+			getCon();
+			String sql = "select * from store_category";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				storeCategoryDTO scdto = new storeCategoryDTO();
+				
+				scdto.setStore_c_num(rs.getInt("store_c_num"));
+				scdto.setStore_category(rs.getString("store_category"));
+				
+				list.add(scdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getStoreCategory:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+		return list;
+	}
 	
 	
 }
