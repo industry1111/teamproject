@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.board.action.StoreCategoryList;
+
 public class MemberFrontController extends HttpServlet {
 
 	@Override
@@ -83,17 +85,21 @@ public class MemberFrontController extends HttpServlet {
 			action = new MemberLogoutAction();
 			try {
 
-				forward = action.execute(request, response); // return null;
+				forward = action.execute(request, response); 
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 		} else if (command.equals("/Seller.me")) {
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("index.jsp");
-			request.setAttribute("center", "seller.jsp");
+			action = new StoreCategoryList();
+			try {
+
+				forward = action.execute(request, response); // return null;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 		} else if (command.equals("/SellerJoinAction.me")) {
 
