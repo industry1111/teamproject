@@ -7,8 +7,6 @@ var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 var check = 0;
 
 $(function() {
-	
-	var member_num = $("#member_num").val();
 	var date = $("#date").val();
 	var date1 = new Date(date);
 	var now_date = new Date();
@@ -16,7 +14,7 @@ $(function() {
 	var days = Math.floor(diff_date/(1000 * 3600 * 24));
 	
 	$("#id_btn").on("click", function() {
-		console.log(days);
+		
 		var id = $("#id").val();
 		$(this).attr("hidden", true);
 		$("#id").removeAttr("disabled");
@@ -582,6 +580,8 @@ $(function() {
 		});
 		$("#name_cancle").on("click",function(){
 					
+					$("#name_check2").text("");
+					$("#name_check").text("");
 					$(".name").attr("hidden",true);
 					$("#name_btn").removeAttr("hidden");
 					$("#name").attr("disabled",true);

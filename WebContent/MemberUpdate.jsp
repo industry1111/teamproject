@@ -95,7 +95,10 @@ input[type="text"]:focus {
 							</p>
 							<p class="contxt_desc">아이디는 30일에 한 번 변경하실 수 있습니다.</p>
 							<input type="hidden" id="date" value="${mdto.date}"> 
+<<<<<<< HEAD
 							<input type="hidden" id="member_num" value="${mdto.member_num}">
+=======
+>>>>>>> 9f6ccbc3e44a9f6c7cae6ad687744e90f73dd59f
 							<p>
 								<input type="button" id="id_btn" value="수정" class="myButton" />
 							</p>
