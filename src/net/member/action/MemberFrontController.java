@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.storeCategoryDTO;
-
 public class MemberFrontController extends HttpServlet {
 
 	@Override
@@ -39,7 +37,7 @@ public class MemberFrontController extends HttpServlet {
 		if (command.equals("/MemberJoin.me")) {
 
 			forward = new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("./join.jsp");
 
 			// join.jsp에서...회원가입 처리요청이 들어 왔을떄...
@@ -57,7 +55,7 @@ public class MemberFrontController extends HttpServlet {
 
 		} else if (command.equals("/MemberLogin.me")) {
 			forward = new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("login.jsp");
 		} else if (command.equals("/MemberLoginAction.me")) {
 
@@ -73,7 +71,7 @@ public class MemberFrontController extends HttpServlet {
 
 		} else if (command.equals("/Main.me")) {
 			forward = new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("index.jsp?center=main.jsp");
 
 		} else if (command.equals("/MemberLogout.me")) {
@@ -82,7 +80,7 @@ public class MemberFrontController extends HttpServlet {
 			action = new MemberLogoutAction();
 			try {
 
-				forward = action.execute(request, response); 
+				forward = action.execute(request, response);
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -100,13 +98,13 @@ public class MemberFrontController extends HttpServlet {
 		} else if (command.equals("/SellerJoinAction.me")) {
 			action = new SellerJoinAction();
 			try {
-				
+
 				forward = action.execute(request, response);
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 		} else if (command.equals("/MemberInfo.me")) {
 
 			action = new MemberInfo();

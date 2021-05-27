@@ -50,7 +50,9 @@
 											카테고리 <select name="store_c_num">
 												<option value="0">====카테고리====</option>
 												<c:forEach var="list" items="${list }">
-													<option value="${list.store_c_num }">${list.store_category }</option>
+													<c:if test="${list.category_codeRef1 eq 0 && list.category_codeRef2 eq 0 }">
+														<option value="${list.category_code}">${list.category_name }</option>
+													</c:if>
 												</c:forEach>
 												
 											</select>
@@ -59,7 +61,7 @@
 									<div class="col-md-12">
 										<div class="form-group mb-4">
 											계좌번호 <select name="account">
-												<option>은행</option>
+												<option value=>은행</option>
 												<option>부산 은행</option>
 												<option>농협</option>
 											</select>

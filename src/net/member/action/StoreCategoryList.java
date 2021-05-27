@@ -5,9 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 import db.boardDAO;
-import db.storeCategoryDTO;
+import db.categoryDTO;
+
 
 
 public class StoreCategoryList implements Action{
@@ -16,7 +16,7 @@ public class StoreCategoryList implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		boardDAO bdao = new boardDAO();
-		List<storeCategoryDTO> list = bdao.getStoreCategory();
+		List<categoryDTO> list = bdao.getcategory();
 		
 		request.setAttribute("list", list);
 		

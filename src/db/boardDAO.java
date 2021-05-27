@@ -260,23 +260,26 @@ public class boardDAO {
 	}
 	
 	//store Category List
-	public List<storeCategoryDTO> getStoreCategory(){
-		List<storeCategoryDTO> list = new ArrayList<storeCategoryDTO>();
+	public List<categoryDTO> getcategory(){
+		List<categoryDTO> list = new ArrayList<categoryDTO>();
 		try {
 			getCon();
-			String sql = "select * from store_category";
+			String sql = "select * from category";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				storeCategoryDTO scdto = new storeCategoryDTO();
+				categoryDTO cdto = new categoryDTO();
+				cdto.setCategory_num(rs.getInt("category_num"));
+				cdto.setCategory_name(rs.getString("category_name"));
+				cdto.setCategory_code(rs.getInt("category_code"));
+				cdto.setCategory_codeRef1(rs.getInt("category_coderef1"));
+				cdto.setCategory_codeRef2(rs.getInt("category_coderef2"));
+			
 				
-				scdto.setStore_c_num(rs.getInt("store_c_num"));
-				scdto.setStore_category(rs.getString("store_category"));
-				
-				list.add(scdto);
+				list.add(cdto);
 			}
 		} catch (Exception e) {
-			System.out.println("getStoreCategory:"+e.toString());
+			System.out.println("category:"+e.toString());
 		}finally{
 			ResouceClose();
 		}
