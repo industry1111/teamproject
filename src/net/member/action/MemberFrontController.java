@@ -54,11 +54,9 @@ public class MemberFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/MemberLogin.me")) {
-
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("login.jsp");
-
+			forward.setPath("./login.jsp");
 		} else if (command.equals("/MemberLoginAction.me")) {
 
 			// 로그인 처리를 위한 Action객체 생성
@@ -72,7 +70,6 @@ public class MemberFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/Main.me")) {
-			System.out.println("jimin");
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("index.jsp?center=main.jsp");
@@ -140,7 +137,7 @@ public class MemberFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-	
+		}
 		// 주소 이동
 		if (forward != null) {
 			if (forward.isRedirect()) {// true -> sendRedirect() 방식
@@ -155,6 +152,5 @@ public class MemberFrontController extends HttpServlet {
 		} // if
 
 	}// doProcess 메소드 끝
-}
 	
 }// 서블릿 끝
