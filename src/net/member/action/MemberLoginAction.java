@@ -60,6 +60,7 @@ public class MemberLoginAction implements Action{
 		//login.jsp 화면에서 입력한 아이디를 세션객체영역에 저장
 		session.setAttribute("id", id);
 		memberDTO mdto = mdao.getMemberInfo(id);
+		session.setAttribute("member_num", mdto.getMember_num());
 		session.setAttribute("member_code", mdto.getMember_code());
 		session.setAttribute("member_num",mdto.getMember_num());
 	/*로그인 성공시.... CarMain.jsp 페이지로 이동 시킨다.*/

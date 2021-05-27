@@ -45,26 +45,13 @@ public class boardDAO {
 		}
 	}
 	
-	//상품 입력
-	public void insertProduct(productDTO pdto) {
-		int product_num = 0; //임시적용
-		int member_num = 0; //임시적용
+	
+	public void insertProduct(productDTO pdto) { //상품 정보를 입력함
+
 		try {
 			getCon();
-			//1.상품등록번호 계산
-			String sql = "select max(product_num),max(member_num) from product";
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				product_num = rs.getInt(1)+1;
-				member_num = rs.getInt(1)+1;
-			}
-			System.out.println("상품번호 반영" + product_num + "맴버넘반영" + member_num);
-			
-			//2.상품등록
-			
-			sql = "insert into product (member_num,product_name,product_img,product_category,"
+		
+			String sql = "insert into product (member_num,product_name,product_img,product_category,"
 					+ "price,count,brand,description)"
 					+ "values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
@@ -77,14 +64,15 @@ public class boardDAO {
 			pstmt.setString(7, pdto.getBrand());
 			pstmt.setString(8, pdto.getDescription());
 			pstmt.executeUpdate();
+			System.out.println("상품등록완료");
 		} catch (Exception e) {
 			System.out.println("insertProduct:"+e.toString());
 		}finally {
 			ResouceClose();
 		}
 	}
-	//상품 정보
-	public productDTO getProductInfo(int product_num) {
+	
+	public productDTO getProductInfo(int product_num) { //리스트 중 선택한 상품정보를 가져옴
 		productDTO pdto = new productDTO();
 		try {
 			getCon();
@@ -105,27 +93,58 @@ public class boardDAO {
 				pdto.setBrand(rs.getString("brand"));
 				pdto.setDescription(rs.getString("description"));
 				
+				System.out.println("조회완료");
 			}
 			
 		} catch (Exception e) {
-			System.out.println("getProduct"+e.toString());
+			System.out.println("getProductInfo"+e.toString());
 		} finally {
 			ResouceClose();
 		}
 		return pdto;
 	}
+	
+	
+	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정하는 서블릿
+		try {
+		getCon();
+		String sql ="update product set product_name=? , product_category=? , decription=? "
+					+ " , brand=? , price=? , count=?, product_img where product_num=? ";
+			//쿼리 실행할 객체 생성
+			pstmt= con.prepareStatement(sql);
+			
+			pstmt.setString(1, pdto.getProduct_name());
+			pstmt.setString(2, pdto.getProdcut_category());
+			pstmt.setString(3, pdto.getDescription());
+			pstmt.setString(4, pdto.getBrand());
+			pstmt.setInt(5, pdto.getPrice());
+			pstmt.setInt(6, pdto.getCount());
+			pstmt.setString(7, pdto.getProduct_img());
+			pstmt.executeUpdate();
+			
+			System.out.println("수정완료");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			ResouceClose();
+		}
+		
+	}
+	
+
 	//상품 리스트
 	public List<productDTO> getProductList() {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product where member_num=?";
+			String sql = "select * from product";
 			pstmt =con.prepareStatement(sql);
-//			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
+
 			while(rs.next()) {
-				productDTO pdto = new productDTO();
 				
+				productDTO pdto = new productDTO();
 				pdto.setProduct_num(rs.getInt("product_num"));
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
@@ -147,6 +166,9 @@ public class boardDAO {
 		}
 		return list;
 	}
+	
+	
+	
 	
 	//장바구니 추가
 	public void insertBasket(int member_num,int product_num,int quantity) {

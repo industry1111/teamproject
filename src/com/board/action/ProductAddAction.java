@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -18,29 +19,31 @@ public class ProductAddAction implements Action{
 						HttpServletResponse response)
 	throws Exception{
 		System.out.println("ProductAddAction execute()");
-		
+
 		request.setCharacterEncoding("UTF-8");
-		
-		
 		//파일 업로드(product_img_upload) 준비
 		ServletContext context = request.getServletContext();
 		String realpath = context.getRealPath("/product_img_upload");
 		System.out.println("realpath: " + realpath);
 		
+		HttpSession session = request.getSession();
+		int member_num = (Integer)session.getAttribute("member_num");
+
 		//업로드 파일 크기
 		int maxSize = 10 * 1024 * 1024;
-		System.out.println("image size");
-		
+		System.out.println("image size 출력됨");
+
 		//multipart객체생성
 		MultipartRequest multi = new MultipartRequest(
 				request, realpath, maxSize, "UTF-8", new DefaultFileRenamePolicy()
 				);
-		System.out.println("M : multipart 전송입니다." + multi);
+		System.out.println("M : 파일업로드완료" + multi);
 		
 
 		//상품정보(DTO) 저장
 		productDTO pdto = new productDTO();
 		
+		pdto.setMember_num(member_num);
 		pdto.setProduct_name(multi.getParameter("product_name"));
 		pdto.setProdcut_category(multi.getParameter("prodcut_category"));
 		pdto.setDescription(multi.getParameter("description"));
@@ -56,7 +59,7 @@ public class ProductAddAction implements Action{
 		
 		
 		//insertProduct 메소드 생성
-		boardDAO bDao = new boardDAO();
+		boardDAO bDao= new boardDAO();
 		bDao.insertProduct(pdto);
 		
 		//페이지 이동
@@ -64,7 +67,7 @@ public class ProductAddAction implements Action{
 		
 		forward.setRedirect(true);
 		
-		forward.setPath("./ProductList.bo");
+		forward.setPath("./ProductListAction.bo");
 		
 		return forward;
 	}
