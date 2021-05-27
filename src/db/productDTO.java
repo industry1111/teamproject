@@ -7,12 +7,13 @@ public class productDTO {
 	private String product_name;
 	private String product_img;
 	private String prodcut_category;
-	private int product_price;
+	private int price;
 	private int count;
 	private String brand;
 	private String description;
 	private Timestamp regdate;
 	private int member_num;
+	
 	public int getProduct_num() {
 		return product_num;
 	}
@@ -37,11 +38,11 @@ public class productDTO {
 	public void setProdcut_category(String prodcut_category) {
 		this.prodcut_category = prodcut_category;
 	}
-	public int getProduct_price() {
-		return product_price;
+	public int getPrice() {
+		return price;
 	}
-	public void setProduct_price(int product_price) {
-		this.product_price = product_price;
+	public void setPrice(int product_price) {
+		this.price = product_price;
 	}
 	public int getCount() {
 		return count;
@@ -74,5 +75,11 @@ public class productDTO {
 		this.member_num = member_num;
 	}
 	
+	@Override
+	public String toString() {
+		return "productDTO [product_num =" + product_num + ", product_name=" + product_name + ", product_img=" + product_img + ", price=" + price + ", prodcut_category="
+				+ prodcut_category + ", count=" + count + ", brand=" + brand + ", description=" + description + ", regdate =" + regdate
+				+ ", member_num=" + member_num + "]";
+	}	
 	
 }

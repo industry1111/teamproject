@@ -23,7 +23,7 @@ public class MemberInfo implements Action{
         ActionForward forward = new ActionForward();
         forward.setRedirect(false);
         forward.setPath("mypage.jsp");
-        request.setAttribute("center","MemberUpdate.jsp");
+       
         
         return forward;
     }

@@ -29,7 +29,7 @@ public class MemberFrontController extends HttpServlet {
 
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
-
+		System.out.println(command);
 		ActionForward forward = null;
 
 		Action action = null;
@@ -54,11 +54,9 @@ public class MemberFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/MemberLogin.me")) {
-
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("login.jsp");
-			System.out.println("dd");
 		} else if (command.equals("/MemberLoginAction.me")) {
 
 			// 로그인 처리를 위한 Action객체 생성
@@ -72,13 +70,12 @@ public class MemberFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/Main.me")) {
-
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("index.jsp?center=main.jsp");
 
 		} else if (command.equals("/MemberLogout.me")) {
-
+			
 			// 로그아웃 처리를 위한 Action객체 생성
 			action = new MemberLogoutAction();
 			try {
@@ -126,8 +123,24 @@ public class MemberFrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
 			request.setAttribute("center", "deleteMember.jsp");
+			
+		} else if (command.equals("/StoreInfoUpdateAction.me")) {
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("mypage.jsp");
+			request.setAttribute("center", "StoreInfoUpdate.jsp");
+	
+		} else if (command.equals("/StoreInfo.me")) {
+			action = new StoreInfo();
+			try {
+	
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-
 		// 주소 이동
 		if (forward != null) {
 			if (forward.isRedirect()) {// true -> sendRedirect() 방식
@@ -142,5 +155,5 @@ public class MemberFrontController extends HttpServlet {
 		} // if
 
 	}// doProcess 메소드 끝
-
+	
 }// 서블릿 끝
