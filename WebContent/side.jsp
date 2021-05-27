@@ -65,7 +65,7 @@ a:active {
 	<form method="post" id="index">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-1">
-				<h3><a>회원 정보</a></h3>
+				<h3><a style="font-size: 30px;">회원정보</a></h3>
 			</div>
 		</div>
 		<div class="row">
@@ -105,7 +105,7 @@ a:active {
 			</div>
 		</div>
 		</c:if>
-		<c:if test="${member_code == null }">
+		<c:if test="${member_code == 2 }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>

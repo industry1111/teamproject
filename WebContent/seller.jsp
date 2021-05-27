@@ -48,15 +48,17 @@
 									<div class="col-md-8">
 										<div class="form-group mb-4">
 											카테고리 <select name="store_c_num">
-												<option>====카테고리====</option>
-												<option>1</option>
-												<option>2</option>
+												<option value="0">====카테고리====</option>
+												<c:forEach var="list" items="${list }">
+													<option value="${list.store_c_num }">${list.store_category }</option>
+												</c:forEach>
+												
 											</select>
 										</div>
 									</div>
 									<div class="col-md-12">
 										<div class="form-group mb-4">
-											계좌번호 <select>
+											계좌번호 <select name="account">
 												<option>은행</option>
 												<option>부산 은행</option>
 												<option>농협</option>
@@ -68,7 +70,7 @@
 									<div class="col-md-8">
 										<div class="form-group mb-4">
 											<img src="" id="preview" ><br>
-											<label for="image">프로필 이미지 선택</label>
+											<label for="profile_img">프로필 이미지 선택</label>
 											 <input type="file" id="profile_img" name="profile_img" hidden/>
 										</div>
 									</div>
