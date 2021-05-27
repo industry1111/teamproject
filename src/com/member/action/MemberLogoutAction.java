@@ -1,4 +1,4 @@
-package net.member.action;
+package com.member.action;
 
 import java.io.PrintWriter;
 

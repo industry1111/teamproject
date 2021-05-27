@@ -1,4 +1,4 @@
-package db;
+package dto;
 
 public class basketDTO {
 	private int basket_num;

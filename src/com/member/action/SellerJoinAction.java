@@ -1,4 +1,4 @@
-package net.member.action;
+package com.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,9 +7,9 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-import db.memberDAO;
-import db.memberDTO;
-import db.sellerDTO;
+import dao.memberDAO;
+import dto.memberDTO;
+import dto.sellerDTO;
 
 
 public class SellerJoinAction implements Action{

@@ -1,4 +1,4 @@
-<%@page import="db.productDTO"%>
+<%@page import="dto.productDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

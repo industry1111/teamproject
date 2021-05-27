@@ -1,4 +1,4 @@
-package db;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,11 @@ import java.util.List;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import dto.basketDTO;
+import dto.categoryDTO;
+import dto.productDTO;
+import dto.receiverDTO;
 
 public class boardDAO {
 

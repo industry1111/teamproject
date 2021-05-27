@@ -1,4 +1,4 @@
-package net.member.action;
+package com.member.action;
 
 /*
   ActionForward클래스는 Action인터페이스에서 명령을 수행하고.....

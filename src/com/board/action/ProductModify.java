@@ -3,8 +3,8 @@ package com.board.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.boardDAO;
-import db.productDTO;
+import dao.boardDAO;
+import dto.productDTO;
 
 public class ProductModify implements Action {
 

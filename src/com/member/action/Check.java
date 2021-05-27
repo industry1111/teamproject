@@ -1,4 +1,4 @@
-package net.member.action;
+package com.member.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.memberDAO;
+import dao.memberDAO;
 
 @WebServlet("/Check")
 public class Check extends HttpServlet {

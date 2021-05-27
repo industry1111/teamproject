@@ -1,4 +1,4 @@
-package db;
+package dto;
 
 public class categoryDTO {
 	private int category_num;

@@ -5,8 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.boardDAO;
-import db.categoryDTO;
+import dao.boardDAO;
+import dto.categoryDTO;
 
 public class KeepStoreList implements Action{
 

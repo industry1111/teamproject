@@ -6,8 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db.boardDAO;
-import db.receiverDTO;
+import dao.boardDAO;
+import dto.receiverDTO;
 
 public class ReceiverList implements Action{
 

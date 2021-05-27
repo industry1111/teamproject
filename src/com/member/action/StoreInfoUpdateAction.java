@@ -1,4 +1,4 @@
-package net.member.action;
+package com.member.action;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db.memberDAO;
+import dao.memberDAO;
 
 @WebServlet("/StoreInfoUpdateAction")
 public class StoreInfoUpdateAction extends HttpServlet {

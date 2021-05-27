@@ -1,4 +1,4 @@
-package db;
+package dto;
 
 public class sellerDTO {
 	private int member_num;

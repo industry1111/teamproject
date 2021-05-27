@@ -1,4 +1,4 @@
-package db;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import dto.memberDTO;
+import dto.sellerDTO;
 
 public class memberDAO {
 	Connection con;

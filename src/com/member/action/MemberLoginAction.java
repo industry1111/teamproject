@@ -1,4 +1,4 @@
-package net.member.action;
+package com.member.action;
 
 import java.io.PrintWriter;
 
@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db.memberDAO;
-import db.memberDTO;
-import db.sellerDTO;
+import dao.memberDAO;
+import dto.memberDTO;
+import dto.sellerDTO;
 
 
 /*login.jsp에서 사용자가 입력한 id와 pass를  userCheck메소드로 전달하여..

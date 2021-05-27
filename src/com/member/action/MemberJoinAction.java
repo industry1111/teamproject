@@ -1,11 +1,11 @@
-package net.member.action;
+package com.member.action;
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.memberDAO;
-import db.memberDTO;
+import dao.memberDAO;
+import dto.memberDTO;
 
 public class MemberJoinAction implements Action{
 	@Override

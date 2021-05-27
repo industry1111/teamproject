@@ -1,11 +1,11 @@
-package net.member.action;
+package com.member.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db.memberDAO;
-import db.memberDTO;
+import dao.memberDAO;
+import dto.memberDTO;
 
 public class MemberInfo implements Action{
 
