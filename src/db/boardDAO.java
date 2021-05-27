@@ -197,22 +197,66 @@ public class boardDAO {
 	public void insertReceiver(receiverDTO rdto,int member_num) {
 		try {
 			getCon();
-			String sql="insert into receiver (receiver_name,receiver_phone,receiver_addr1,"
-					+ "receiver_addr2,receiver_addr3,receiver_msg,member_num,basic_num"
+			if(rdto.getBasic_num()==1){
+				
+				String sql= "update receiver set basic_num = 0";
+				pstmt = con.prepareStatement(sql);
+				pstmt.executeUpdate();
+				
+			}
+			String sql="insert into receiver (member_num,receiver_name,receiver_phone,receiver_addr1,"
+					+ "receiver_addr2,receiver_addr3,basic_num,address_name)"
 					+ "values(?,?,?,?,?,?,?,?)";
+			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, rdto.getReceiver_name());
-			pstmt.setString(2, rdto.getReceiver_phone());
-			pstmt.setString(3, rdto.getReceiver_addr1());
-			pstmt.setString(4, rdto.getReceiver_addr2());
-			pstmt.setString(5, rdto.getReceiver_addr3());
-			pstmt.setString(6, rdto.getReceiver_msg());
-			pstmt.setInt(7, member_num);
-			pstmt.setInt(8, 0);
+			pstmt.setInt(1, member_num);
+			pstmt.setString(2, rdto.getReceiver_name());
+			pstmt.setString(3, rdto.getReceiver_phone());
+			pstmt.setString(4, rdto.getReceiver_addr1());
+			pstmt.setString(5, rdto.getReceiver_addr2());
+			pstmt.setString(6, rdto.getReceiver_addr3());
+			pstmt.setInt(7, rdto.getBasic_num());
+			pstmt.setString(8, rdto.getAddress_name());
+			pstmt.executeUpdate();
+			
 			
 		} catch (Exception e) {
 			System.out.println("insertReceiver:"+e.toString());
 		}
+	}
+	//배송지 정보
+	public List<receiverDTO> getReceiverInfo(int member_num){
+		
+		List<receiverDTO> rlist = new ArrayList<receiverDTO>();
+		
+		try {
+			getCon();
+			String sql = "select * from receiver where member_num=?";
+		
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				receiverDTO rdto = new receiverDTO();
+				rdto.setAddress_name(rs.getString("address_name"));
+				rdto.setBasic_num(rs.getInt("basic_num"));
+				rdto.setReceiver_addr1(rs.getString("receiver_addr1"));
+				rdto.setReceiver_addr2(rs.getString("receiver_addr2"));
+				rdto.setReceiver_addr3(rs.getString("receiver_addr3"));
+				rdto.setReceiver_name(rs.getString("receiver_name"));
+				rdto.setReceiver_num(rs.getInt("receiver_num"));
+				rdto.setReceiver_phone(rs.getString("receiver_phone"));
+				
+				rlist.add(rdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getReceiverInfo:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+		return rlist;
 	}
 	
 	//store Category List

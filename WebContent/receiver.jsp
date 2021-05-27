@@ -15,6 +15,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700"
 	rel="stylesheet">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- Animate.css -->
 <link rel="stylesheet" href="css/animate.css">
@@ -45,7 +46,22 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<script src="js/memberupdate.js"></script>
+<script type="text/javascript">
+ function add_onclick(){
+            
+    //이름은 중복창 제어용
+    child = window.open("receiver_1.jsp","child","width=500,height=650");
+};//click
+
+function update_onclick(){
+            
+    //이름은 중복창 제어용
+    child = window.open("receiver_2.jsp","child","width=500,height=650");
+};//click
+
+
+</script>
+
 
 
 <style type="text/css">
@@ -120,7 +136,7 @@ input[type="text"]:focus {
 				<div class="col-md-12">
 					<div class="product-name d-flex" align="center">
 						<div class="col-md-2">
-						배송지
+						배송지 이름
 						</div>
 						<div class="col-md-6">
 						주소
@@ -132,39 +148,69 @@ input[type="text"]:focus {
 						수정삭제
 						</div>				
 					</div>
-					<c:forEach var="i" begin="0" step="1" end="4">
+
 					<div class="row" align="center" >
 					<div class="col-md-12"><hr></div>
-						<div class="col-md-2">
-						지역
-						</div>
+
 					</div>
+					
+					<c:forEach var="rlist" items="${rlist}">
+					<c:if test="${rlist.basic_num == 1}">
 					<div class="row" align="center">
+					  
 						<div class="col-md-2">
-						이름
+							<c:out value="${rlist.address_name }"/>
+							<br>
+							기본배송지
 						</div>	
 						<div class="col-md-6">
-						주소
+							<c:out value="${rlist.receiver_addr1 }"/>
+							<c:out value="${rlist.receiver_addr2 }"/>
+							<c:out value="${rlist.receiver_addr3 }"/>
 						</div>
 						<div class="col-md-2">
-						연락처
+							<c:out value="${rlist.receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" class="myButton" /><br>
-							<input id="id_cancle" type="button" value="삭제"
-									class="myButton" /> 
+							<input type="button" id="name_btn" value="수정" onclick="update_onclick();"/><br>
+							<input id="id_cancle" type="button" value="삭제" />  
 						</div>
 					</div>
-					<c:if test="${basic_num == 1 }">
-						<div class="row" align="center" >
-							<div class="col-md-2">
-							기본배송지
-							</div>
+					<div class="row" align="center" >
+					<div class="col-md-12"><hr></div>
+					</div> 
+				</c:if>
+					</c:forEach>
+					<c:forEach var="rlist" items="${rlist}">
+					<c:if test="${rlist.basic_num == 0}">
+					<div class="row" align="center">
+					  
+						<div class="col-md-2">
+							<c:out value="${rlist.address_name }"/>
+						</div>	
+						<div class="col-md-6">
+							<c:out value="${rlist.receiver_addr1 }"/>
+							<c:out value="${rlist.receiver_addr2 }"/>
+							<c:out value="${rlist.receiver_addr3 }"/>
 						</div>
+						<div class="col-md-2">
+							<c:out value="${rlist.receiver_phone}"/>
+						</div>
+						<div class="col-md-2">
+							<input type="button" id="name_btn" value="수정" onclick="update_onclick();"/><br>
+							<input id="id_cancle" type="button" value="삭제" />  
+						</div>
+					</div>
+					<div class="row" align="center" >
+					<div class="col-md-12"><hr></div>
+					</div> 
 					</c:if>
 					</c:forEach>
+
 				</div>
 			</div>
+			<input type="button" value="배송지 등록" id="add_btn" class="myButton" onclick="add_onclick();">
+
 		</div>
 	</div>
 	<!-- 	</div> -->
