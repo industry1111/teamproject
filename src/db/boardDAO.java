@@ -64,9 +64,9 @@ public class boardDAO {
 			pstmt.setString(7, pdto.getBrand());
 			pstmt.setString(8, pdto.getDescription());
 			pstmt.executeUpdate();
-			System.out.println("상품등록완료");
+
 		} catch (Exception e) {
-			System.out.println("insertProduct:"+e.toString());
+			e.printStackTrace();
 		}finally {
 			ResouceClose();
 		}
@@ -76,7 +76,7 @@ public class boardDAO {
 		productDTO pdto = new productDTO();
 		try {
 			getCon();
-			String sql = "select * from product where product_num=?";
+			String sql = "select from product where product_num=?";
 			pstmt =con.prepareStatement(sql);
 			pstmt.setInt(1, product_num);
 			rs = pstmt.executeQuery();
@@ -93,11 +93,10 @@ public class boardDAO {
 				pdto.setBrand(rs.getString("brand"));
 				pdto.setDescription(rs.getString("description"));
 				
-				System.out.println("조회완료");
 			}
 			
 		} catch (Exception e) {
-			System.out.println("getProductInfo"+e.toString());
+			e.printStackTrace();
 		} finally {
 			ResouceClose();
 		}
@@ -108,8 +107,8 @@ public class boardDAO {
 	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정하는 서블릿
 		try {
 		getCon();
-		String sql ="update product set product_name=? , product_category=? , decription=? "
-					+ " , brand=? , price=? , count=?, product_img where product_num=? ";
+		String sql ="update product set product_name=? , product_category=? , description=? "
+					+ " , brand=? , price=? , count=?, product_img=? where product_num=? ";
 			//쿼리 실행할 객체 생성
 			pstmt= con.prepareStatement(sql);
 			
@@ -120,13 +119,29 @@ public class boardDAO {
 			pstmt.setInt(5, pdto.getPrice());
 			pstmt.setInt(6, pdto.getCount());
 			pstmt.setString(7, pdto.getProduct_img());
+			pstmt.setInt(8, pdto.getProduct_num());
 			pstmt.executeUpdate();
-			
-			System.out.println("수정완료");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{
+			ResouceClose();
+		}
+		
+	}
+	
+	public void deleteProduct(int product_num){ //상품 정보 삭제
+		productDTO pdto = new productDTO();
+		try {
+			getCon();
+			String sql = "delete from product where product_num = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pdto.getProduct_num());
+			pstmt.executeUpdate();
+						
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
 			ResouceClose();
 		}
 		
@@ -156,11 +171,9 @@ public class boardDAO {
 				pdto.setDescription(rs.getString("description"));
 				
 				list.add(pdto);
-				
 			}
-			System.out.println("상품목록 저장완료");
 		} catch (Exception e) {
-			System.out.println("getProduct"+e.toString());
+			e.printStackTrace();
 		} finally {
 			ResouceClose();
 		}

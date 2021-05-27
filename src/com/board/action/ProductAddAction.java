@@ -18,26 +18,22 @@ public class ProductAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request, 
 						HttpServletResponse response)
 	throws Exception{
-		System.out.println("ProductAddAction execute()");
 
 		request.setCharacterEncoding("UTF-8");
 		//파일 업로드(product_img_upload) 준비
 		ServletContext context = request.getServletContext();
 		String realpath = context.getRealPath("/product_img_upload");
-		System.out.println("realpath: " + realpath);
 		
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 
 		//업로드 파일 크기
 		int maxSize = 10 * 1024 * 1024;
-		System.out.println("image size 출력됨");
 
 		//multipart객체생성
 		MultipartRequest multi = new MultipartRequest(
 				request, realpath, maxSize, "UTF-8", new DefaultFileRenamePolicy()
 				);
-		System.out.println("M : 파일업로드완료" + multi);
 		
 
 		//상품정보(DTO) 저장
@@ -54,7 +50,6 @@ public class ProductAddAction implements Action{
 		
 		//상품이미지 정보 처리
 		String product_img = multi.getFilesystemName("product_img");
-		System.out.println("img표시입니다." + product_img);
 		pdto.setProduct_img(product_img);
 		
 		
