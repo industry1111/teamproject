@@ -44,7 +44,7 @@
 								<!-- Options btn color: .btn-success | .btn-info | .btn-warning | .btn-danger | .btn-primary -->
 								<div class="title__action">
 									<a
-										href="index.bo"
+										href="Main.me"
 										class="btn btn-success">모두? 시작하기</a>
 								</div>
 							</div>

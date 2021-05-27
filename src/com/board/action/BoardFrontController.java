@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.member.action.ActionForward;
 
 public class BoardFrontController extends HttpServlet {
 
@@ -29,76 +28,68 @@ public class BoardFrontController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String RequestURI = request.getRequestURI();
-		System.out.println(RequestURI);
 		String contextPath = request.getContextPath();
-		System.out.println(contextPath.length());
 		String command = RequestURI.substring(contextPath.length());
 		System.out.println(command);
 		ActionForward forward = null;
+		Action action = null;
+		if(command.equals("/Order.bo")) {
+			action = new OrderList();
+			try {
+				forward = action.execute(request, response);
 
-		boolean a = false;
-		if(command.equals("/index.bo")) {
-			
-			forward=new ActionForward();
-			
-			forward.setRedirect(false);
-			forward.setPath("index.jsp");
-			request.setAttribute("center","main.jsp");
-			
-		}else if(command.equals("/MyPage.bo")) {
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","order.jsp");
 		}else if(command.equals("/basket.bo")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","basket.jsp");
-		}else if(command.equals("/memberupdate.bo")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","MemberUpdate.jsp");
-			
+			action = new BasketList();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/ProductList.bo")) { // 상품 등록페이지 이동
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","productUpdateDelete.jsp");
+			action = new ProdcutList();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}else if(command.equals("/ProductAdd.bo")) { //상품 등록 페이지 이동
-				forward=new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("mypage.jsp");
-				request.setAttribute("center","ProductAdd.jsp");
+			action = new ProductAdd();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 		}else if(command.equals("/ProductModify.bo")) { //상품 수정 페이지 이동
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","ProductModify.jsp");
+			action = new ProductModify();
+			try {
+				forward = action.execute(request, response);
 
-		}else if(command.equals("/order.bo")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","order.jsp");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/receiver.bo")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","receiver.jsp");
+			action = new ReceiverList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/keepstore.bo")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","keepstore.jsp");
-		}else if(command.equals("/StoreInfoUpdate.bo")) {
-			forward=new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("mypage.jsp");
-			request.setAttribute("center","StoreInfoUpdate.jsp");
+			action = new KeepStoreList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	

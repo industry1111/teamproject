@@ -23,7 +23,7 @@
 
 <body>
 	<!-- 판매자 등록 창 -->
-	<form action="" method="post"
+	<form action="SellerJoinAction.me" method="post"
 		enctype="multipart/form-data"> <%--이미지 파일업로드 저장. --%>
 		<section class="ftco-section">
 			<div class="container">
@@ -47,7 +47,7 @@
 									</div>
 									<div class="col-md-8">
 										<div class="form-group mb-4">
-											카테고리 <select>
+											카테고리 <select name="store_c_num">
 												<option>====카테고리====</option>
 												<option>1</option>
 												<option>2</option>
@@ -69,7 +69,7 @@
 										<div class="form-group mb-4">
 											<img src="" id="preview" ><br>
 											<label for="image">프로필 이미지 선택</label>
-											 <input type="file" id="image" name="image" hidden/>
+											 <input type="file" id="profile_img" name="profile_img" hidden/>
 										</div>
 									</div>
 									<c:forEach var="i" begin="1" step="1" end="5" >
@@ -93,8 +93,7 @@
 									<div class="col-md-12">
 										<div class="form-group d-flex">
 											<button type="submit"
-												class="btn btn-primary rounded submit p-3">Register
-												Seller</button>
+												class="btn btn-primary rounded submit p-3">Register Seller</button>
 										</div>
 									</div>
 								</div>

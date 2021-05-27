@@ -9,23 +9,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.member.memberDAO;
+import db.memberDAO;
 
 @WebServlet("/UpdateCheck")
-public class UpdateCheck extends HttpServlet{
-	
+public class UpdateCheck extends HttpServlet {
+
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doUpdate(request,response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doUpdate(request, response);
 	}
-	
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doUpdate(request,response);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doUpdate(request, response);
 	}
-	
-	protected void doUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -34,45 +37,45 @@ public class UpdateCheck extends HttpServlet{
 		int result = 0;
 
 		memberDAO mdao = new memberDAO();
-		
-		if(command.equals("id")){
-			
+
+		if (command.equals("id")) {
+
 			param = request.getParameter("param");
-			
+
 			result = mdao.idCheck(param);
-			
-			if(result == 0){
+
+			if (result == 0) {
 				out.print("0");
-			}else{
+			} else {
 				out.print("1");
 			}
-		}else if(command.equals("pw")){
+		} else if (command.equals("pw")) {
 			param = request.getParameter("param");
 			int member_num = (Integer.parseInt(request.getParameter("member_num")));
 			result = mdao.pwCheck(param, member_num);
-			if(result == 1){
+			if (result == 1) {
 				out.print("1");
-			}else{
+			} else {
 				out.print("0");
 			}
-		}else if(command.equals("email")){
+		} else if (command.equals("email")) {
 			param = request.getParameter("param");
 			result = mdao.emailCheck(param);
-			if(result == 0){
+			if (result == 0) {
 				out.print("0");
-			}else{
+			} else {
 				out.print("1");
 			}
-		}else if(command.equals("phone")){
+		} else if (command.equals("phone")) {
 			param = request.getParameter("param");
 			result = mdao.phoneCheck(param);
-			if(result == 0){
+			if (result == 0) {
 				out.print("0");
-			}else{
+			} else {
 				out.print("1");
 			}
 		}
 
 	}
-	
+
 }

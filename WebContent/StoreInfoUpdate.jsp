@@ -110,70 +110,70 @@ tr {
 <script type="text/javascript">
 $(function() {
 	var contextPath = "${pageContext.request.contextPath}";
-	//var member_num = ${mdto.member_num};
-	var storeidReg = /^[A-Za-z0-9]{8,20}$/;
+	var store_nameReg = /^[A-Za-z0-9]{8,20}$/;
 	var accountReg = /^[0-9]{10,11}$/;
-	var categoryReg = /^[가-힣]{2,5}$/;
-	var templateReg = /^[가-힣]{2,5}$/; //변경필요함ㅠㅠ 
+	var store_c_numReg = /^[가-힣]{2,5}$/;
+	var templateReg = /^[가-힣]{2,5}$/; 
+	var	profile_imgReg = /^[A-Za-z0-9]{8,20}$/;
 	var check = 0;
 	
-	//store_id
-	$("#storeid_btn").on("click",function() {
-		var store_id = $("#store_id").val();
+	//store_name
+	$("#store_name_btn").on("click",function() {
+		var store_name = $("#store_name").val();
 		$(this).attr("hidden",true);
-		$("#store_id").removeAttr("disabled");
-		$("#store_id").focus();
-		$(".store_id").removeAttr("hidden");
-		$(".storeid_cancle").on("click", function() {
-			$(".store_id").attr("hidden", true);
-			$("#storeid_btn").removeAttr("hidden");
-			$("#store_id").val(id);
-			$("#store_id").attr("disabled", true);
-			$("#storeid_check2").text("");
-			$("#storeid_check").text("");
+		$("#store_name").removeAttr("disabled");
+		$("#store_name").focus();
+		$(".store_name").removeAttr("hidden");
+		$(".store_name_cancle").on("click", function() {
+			$(".store_name").attr("hidden", true);
+			$("#store_name_btn").removeAttr("hidden");
+			$("#store_name").val(store_name);
+			$("#store_name").attr("disabled", true);
+			$("#store_name_check2").text("");
+			$("#store_name_check").text("");
 		});
-		$("#store_id").blur(function() {
-			var store_id2 = $(this).val();
-			if(store_id == store_id2){
-				$("#storeid_check").text("이전의 스토어명과 동일 합니다.");
+		$("#store_name").blur(function() {
+			var store_name2 = $(this).val();
+			if(store_name == store_name2){
+				$("#store_name_check").text("이전의 스토어명과 동일 합니다.");
 				check = 0;
 			}else{
-				if (storeidReg.test(store_id2)) {
+				if (store_nameReg.test(store_name2)) {
 					$.ajax({
 						type: "post",
 						async: true,
 						url: contextPath + "/StoreInfoUpdate",
 						data: {
-							param: id2,
-							command: "store_id",
+							param: store_name2,
+							command: "store_name",
 						},
 						dataType: "text",
 						success: function(data) {
 							if(data == "사용가능한 스토어명입니다."){
-								$("#storeid_check2").text(data);
-								$("#storeid_check").text("");
+								$("#store_name_check2").text(data);
+								$("#store_name_check").text("");
 								check = 1;
 							}else{
-								$("#storeid_check").text(data);
-								$("#storeid_check2").text("");
+								$("#store_name_check").text(data);
+								$("#store_name_check2").text("");
 								check = 0;
 							}
 						}
 					});
 				} else {
-					$("#storeid_check").text("특수문자 한글 제외  8~20자 이내로 작성해 주세요");
-					$("#storeid_check2").text("");
+					$("#store_name_check").text("특수문자 한글 제외  8~20자 이내로 작성해 주세요");
+					$("#store_name_check2").text("");
 					check = 0;
 				}
 			}
 		});
-		$(".storeid_update").on("click",function() {
+		$(".store_name_update").on("click",function() {
 			if(check == 1){
 				if(window.confirm("변경하시겠습니까?")){
-					$("#form").attr("action","memberUpdateAction.do?command=store_id").submit();
+					$("#form").attr("action","StoreInfoUpdateAction.me?command=store_name").submit();
 				}
 			}else{
-				$("#store_id").focus();
+				$("#store_name").focus();
 			}
 		});
 	});
@@ -189,7 +189,7 @@ $(function() {
 			$(".account").attr("hidden", true);
 			$("#account_btn").removeAttr("hidden");
 			$("#account").attr("disabled", true);
-			$("#account").val(phone);
+			$("#account").val(account);
 			$("#account_check").text("");
 			$("#account_check2").text("");
 		});
@@ -211,7 +211,7 @@ $(function() {
 						},
 						dataType: "text",
 						success: function(data) {
-							if(data == "다른 계정에서 사용하고 있는 번호입니다."){
+							if(data == "다른 계정에서 사용하고 있는 번호입니다."){ //수정해야함
 								$("#account_check").text(data);
 								$("#account_check2").text("");
 								check = 0;
@@ -232,7 +232,7 @@ $(function() {
 		$(".account_update").on("click",function() {
 			if(check == 1){
 				if(confirm("변경하시겠습니까?")){
-					$("#form").attr("action","memberUpdateAction.do?command=account").submit();
+					$("#form").attr("action","StoreInfoUpdateAction.me?command=account").submit();
 				}
 			}else{
 				$("#account").focus();
@@ -240,50 +240,48 @@ $(function() {
 		});
 });
 	
-	
-	//category
-	$("#category_btn").on("click",function() {
-		var category = $("#category").val();
+	//store_c_num
+	$("#store_c_num_btn").on("click",function() {
+		var store_c_num = $("#store_c_num").val();
 		$(this).attr("hidden", true);
-		$("#category").removeAttr("disabled");
-		$("#category").focus();
-		$(".category").removeAttr("hidden");
-		$(".category_cancle").on("click", function() {
-			$(".category").attr("hidden", true);
-			$("#category_btn").removeAttr("hidden");
-			$("#category").attr("disabled", true);
-			$("#category").val(name);
-			$("#category_check2").text("");
-			$("#category_check").text("");
+		$("#store_c_num").removeAttr("disabled");
+		$("#store_c_num").focus();
+		$(".store_c_num").removeAttr("hidden");
+		$(".store_c_num_cancle").on("click", function() {
+			$(".store_c_num").attr("hidden", true);
+			$("#store_c_num_btn").removeAttr("hidden");
+			$("#store_c_num").attr("disabled", true);
+			$("#store_c_num").val(store_c_num);
+			$("#store_c_num_check2").text("");
+			$("#store_c_num_check").text("");
 		});
-		$("#category").blur(function(){
-			var category2 = $(this).val();
-			if(category == category2){
-				$("#category_check").text("이전의 카테고리와 동일 합니다.");
+		$("#store_c_num").blur(function(){
+			var store_c_num2 = $(this).val();
+			if(store_c_num == store_c_num2){
+				$("#store_c_num_check").text("이전의 카테고리와 동일 합니다.");
 				check = 0;
 			}else{
-				if(categoryReg.test(category2)){
-					$("#category_check2").text("사용가능합니다.");
-					$("#category_check").text("");
+				if(store_c_numReg.test(store_c_num2)){
+					$("#store_c_num_check2").text("사용가능합니다.");
+					$("#store_c_num_check").text("");
 					check = 1;
 				}else{
-					$("#category_check").text("카테고리명은 2~5자이내로 한글만 가능합니다");
-					$("#category_check2").text("");
+					$("#store_c_num_check").text("카테고리명은 2~5자이내로 한글만 가능합니다");
+					$("#store_c_num_check2").text("");
 					check = 0;
 				}
 			}
 		});
-		$(".category_update").on("click",function() {
+		$(".store_c_num_update").on("click",function() {
 			if(check == 1){
 				if(window.confirm("변경하시겠습니까?")){
-					$("#form").attr("action","memberUpdateAction.do?command=category").submit();
+					$("#form").attr("action","StoreInfoUpdateAction.me?command=store_c_num").submit();
 				}
 			}else{
-				$("#category").focus();
+				$("#store_c_num").focus();
 			}
 		});
 	});
-	
 	
 	//template
 	$("#template_btn").on("click",function() {
@@ -296,17 +294,17 @@ $(function() {
 			$(".template").attr("hidden", true);
 			$("#template_btn").removeAttr("hidden");
 			$("#template").attr("disabled", true);
-			$("#template").val(name);
+			$("#template").val(template);
 			$("#template_check2").text("");
 			$("#template_check").text("");
 		});
 		$("#template").blur(function(){
 			var template2 = $(this).val();
 			if(template == template2){
-				$("#template_check").text("이전의 이름과 동일 합니다.");
+				$("#template_check").text("이전의 템플릿과 동일 합니다.");
 				check = 0;
 			}else{
-				if(templateReg.test(name2)){
+				if(templateReg.test(template2)){
 					$("#template_check2").text("사용가능합니다.");
 					$("#template_check").text("");
 					check = 1;
@@ -320,7 +318,7 @@ $(function() {
 		$(".template_update").on("click",function() {
 			if(check == 1){
 				if(window.confirm("변경하시겠습니까?")){
-					$("#form").attr("action","memberUpdateAction.do?command=template").submit();
+					$("#form").attr("action","StoreInfoUpdateAction.me?command=template").submit();
 				}
 			}else{
 				$("#template").focus();
@@ -345,18 +343,18 @@ $(function() {
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="store_id" name="store_id" value="${store_id}"
+								<input type="text" id="store_name" name="store_name" value="${store_name}"
 									   disabled="disabled" style="border: 0;"><br>
-								<span id="storeid_check" class="check"></span>
-                                <span id="storeid_check2" class="check2"></span>
+								<span id="store_name_check" class="check"></span>
+                                <span id="store_name_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">스토어명은 한달에 한 번 변경하실 수 있습니다.</p>
 							<p>
-								<input type="button" id="storeid_btn" value="수정" />
+								<input type="button" id="store_name_btn" value="수정" />
 							</p>
 							<p class="id" hidden>
-								<input class="storeid_cancle" type="button" value="수정 취소" /> 
-								<input class="storeid_update" type="button" value="수정 완료" />
+								<input class="store_name_cancle" type="button" value="수정 취소" /> 
+								<input class="store_name_update" type="button" value="수정 완료" />
 							</p>
 						</div>
 					</td>
@@ -374,7 +372,7 @@ $(function() {
 										<div class="form-group mb-4">
 											<img src="" id="preview" ><br>
 											<label for="image">프로필 이미지 선택</label>
-											 <input type="file" id="image" name="image" hidden/>
+											 <input type="file" id="profile_img" name="profile_img" hidden/>
 										</div>
 									</div>
 						</div>
@@ -388,17 +386,17 @@ $(function() {
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="category" name="category" value="${category}" disabled="disabled" style="border: 0;" maxlength="5"><br>
-								<span id="category_check" class="check"></span>
-                                <span id="category_check2" class="check2"></span>
+								<input type="text" id="store_c_num" name="store_c_num" value="${store_c_num}" disabled="disabled" style="border: 0;" maxlength="5"><br>
+								<span id="store_c_num_check" class="check"></span>
+                                <span id="store_c_num_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">판매하시는 물품의 카테고리가 변경되었다면 수정하실 수 있습니다.</p>
 							<p>
-								<input type="button" id="category_btn" value="수정" />
+								<input type="button" id="store_c_num_btn" value="수정" />
 							</p>
 							<p class="name" hidden>
-								<input class="category_cancle" type="button" value="수정 취소" /> 
-								<input class="category_update" type="button" value="수정 완료" />
+								<input class="store_c_num_cancle" type="button" value="수정 취소" /> 
+								<input class="store_c_num_update" type="button" value="수정 완료" />
 							</p>
 						</div>
 					</td>

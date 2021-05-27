@@ -1,9 +1,9 @@
 $(function(){
 
 $('#image').change(function(){
-	$(this).removeAttr("hidden");
+	
     setImageFromFile(this, '#preview');
-	$(this).attr("hidden",true);
+	
 });
 
 function setImageFromFile(input, expression) {

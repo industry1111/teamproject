@@ -1,22 +1,18 @@
-package com.board;
+package db;
 
 import java.sql.Timestamp;
 
-public class boardDTO {
-
-	//제품 테이블
-	int product_num; //제품번호
-	private String product_name; //제품명
-	private String product_img; //제품이미지
-	private String product_category; //제품 카테고리
-	private int price; //가격
-	private int count; //수량
-	private String brand; //브랜드
-	private String description; //설명
-	private Timestamp regdate; //등록일자
-	
-	
-	
+public class productDTO {
+	private int product_num;
+	private String product_name;
+	private String product_img;
+	private String prodcut_category;
+	private int product_price;
+	private int count;
+	private String brand;
+	private String description;
+	private Timestamp regdate;
+	private int member_num;
 	public int getProduct_num() {
 		return product_num;
 	}
@@ -35,17 +31,17 @@ public class boardDTO {
 	public void setProduct_img(String product_img) {
 		this.product_img = product_img;
 	}
-	public String getProduct_category() {
-		return product_category;
+	public String getProdcut_category() {
+		return prodcut_category;
 	}
-	public void setProduct_category(String product_category) {
-		this.product_category = product_category;
+	public void setProdcut_category(String prodcut_category) {
+		this.prodcut_category = prodcut_category;
 	}
-	public int getPrice() {
-		return price;
+	public int getProduct_price() {
+		return product_price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
 	}
 	public int getCount() {
 		return count;
@@ -71,7 +67,12 @@ public class boardDTO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
-	
+	public int getMember_num() {
+		return member_num;
+	}
+	public void setMember_num(int member_num) {
+		this.member_num = member_num;
+	}
 	
 	
 }
