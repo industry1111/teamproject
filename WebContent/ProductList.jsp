@@ -1,4 +1,4 @@
-<%@page import="db.productDTO"%>
+<%@page import="dto.productDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -41,83 +41,73 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
-
+	<style>
+		.a{
+			margin-top: 40px;
+		}
+	</style>
 	</head>
 	<body>
 	<form action="ProductListAction.bo" method="post"
 		enctype="multipart/form-data">
 		<div class="colorlib-product">
 			<div class="container">
-				<div class="row row-pb-lg">
-					<div class="col-md-12">
-						<div class="product-name d-flex">
-							<div class="one-eight text-left px-4">
-								<span>상품목록</span>
+				<div class="row">
+						<div class="product-name d-flex" align="center">
+							<div class="col-md-2">
+								상품이미지
 							</div>
-							<div class="one-forth text-center">
-								<span>상품설명</span>
+							<div class="col-md-2">
+								상품이름
 							</div>
-							<div class="one-eight text-center">
-								<span>카테고리</span>
+							<div class="col-md-2">
+								상품설명
 							</div>
-							<div class="one-eight text-center">
-								<span>가격</span>
+							<div class="col-md-2">
+								카테고리
 							</div>
-							<div class="one-eight text-center px-4">
-								<span>상품 수정</span>
+							<div class="ocol-md-2">
+								가격
 							</div>
-							<div class="one-eight text-center px-4">
-								<span>상품 삭제</span>
+							<div class="col-md-2 offset-1">
+								수정 및 삭제
 							</div>
 						</div>
-
-						<c:forEach var="list" items="${requestScope.list}">
-						
-							<div class="product-cart d-flex">
-								<div class="one-forth">
-									<div>
-										<img src="${list.product_img}" style="width: 100px;height: 100px;">
-									</div>
-									<div class="display-tc">
-										<h3>${list.product_name}</h3> <%-- 상품명 --%>
-									</div>
-								</div>
-								<div class="one-forth text-center">
-									<div class="display-tc">
-										${list.description} <%-- 물품가격 --%>
-									</div>
-								</div>
-								<div class="one-eight text-center">
-									<div class="display-tc">
-										${list.prodcut_category } <%--카테고리 --%>
-									</div>
-								</div>
-								<div class="one-eight text-center">
-									<div class="display-tc">
-										${list.price } <%--상품가격 --%>
-									</div>
-								</div>
-						
-								<div class="one-eight text-center">
-									<div class="display-tc">
-										<a href="ProductModify.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-success">수정</a>
-									</div>
-								</div>
-								<div class="one-eight text-center">
-									<div class="display-tc">
-										<a href="ProductDelete.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-danger">삭제</a>
-									</div>
-								</div>
+				</div>
+				<c:forEach var="list" items="${requestScope.list}">
+					<div class="row  d-flex" align="center">
+						<div class="col-md-2">
+								<img src="${list.product_img}" style="width: 100px;height: 100px;">
+						</div>
+						<div class="col-md-2">
+							<div class="a">${list.product_name}</div> <%-- 상품명 --%>
+						</div>
+						<div class="col-md-2">
+							<div class="a">${list.product_description}</div> <%-- 물품가격 --%>
+						</div>
+						<div class="col-md-2">
+							<div class="a">${list.category_name }</div> <%--카테고리 --%>
+						</div>
+						<div class="col-md-1" align="left">
+							<div class="a">${list.product_price }</div> <%--상품가격 --%>
+						</div>
+						<div class="col-md-2" style="margin-left: 40px;">
+							<div class="a">
+								<a href="ProductModify.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-success">수정</a>
+								<a href="ProductDelete.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-danger">삭제</a>
 							</div>
-						</c:forEach>
-					</div>
-					<%--해당 쇼핑몰 홈페이지로 이동 --%>
-					<div class="one-eight text-center">
-						<div class="display-tc">
-							<a href="ProductAdd.bo" type="button" class="btn btn-outline-info">신규 상품 등록</a>
 						</div>
 					</div>
+				</c:forEach>
+			
+			<%--해당 쇼핑몰 홈페이지로 이동 --%>
+			<div class="row">
+				<div class="col-md-3 offset-3" align="right">페이징</div>
+				<div class="col-md-3 offset-3" align="right">
+					<a href="ProductAdd.bo" type="button" class="btn btn-outline-info">신규 상품 등록</a>
+				</div>
 			</div>
+			
 <!-- 	</div> -->
 	</div>
 </form>

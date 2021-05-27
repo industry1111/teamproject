@@ -3,14 +3,17 @@ package com.board.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.boardDAO;
-import db.productDTO;
+import dao.boardDAO;
+import dto.productDTO;
 
 public class ProductModify implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, 
-			HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		
+
 		//상품 상세정보로 이동하는 서블릿
 		//전달해오는  product_num 값 받기
 		int product_num = Integer.parseInt(request.getParameter("product_num"));

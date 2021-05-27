@@ -42,8 +42,6 @@
 <link rel="stylesheet" href="css/style.css">
 
 <style type="text/css">
-
-
 .check {
 	color: red;
 	font-size: 13px;
@@ -53,30 +51,30 @@
 	color: green;
 	font-size: 13px;
 }
+
 input[type="text"] {
-  width: 30%;
-  border: 2px solid DarkGray;
-  border-radius: 4px;
-  margin: 8px 0;
-  outline: none;
-  padding: 8px;
-  box-sizing: border-box;
-  transition: 0.3s;
+	width: 30%;
+	border: 2px solid DarkGray;
+	border-radius: 4px;
+	margin: 8px 0;
+	outline: none;
+	padding: 8px;
+	box-sizing: border-box;
+	transition: 0.3s;
 }
 
 input[type="text"]:focus {
-  border-color: dodgerBlue;
-  box-shadow: 0 0 8px 0 dodgerBlue;
+	border-color: dodgerBlue;
+	box-shadow: 0 0 8px 0 dodgerBlue;
 }
 
 .inputWithIcon input[type="text"] {
-  padding-left: 40px;
+	padding-left: 40px;
 }
 
 .inputWithIcon {
-  position: relative;
+	position: relative;
 }
-
 </style>
 
 </head>
@@ -115,13 +113,17 @@ input[type="text"]:focus {
 	</script>
 
 	<!-- 	<div id="page"> -->
-	<div class="colorlib-product">
-		<div class="container">
-			<div class="row row-pb-lg">
-				<div class="col-md-12">
-					<div class="product-name d-flex" align="center">
-						<c:forEach var="i" begin="0" step="1" end="5">
-							<div class="col-md-1">1</div>
+	<div class="colorlib-product" >
+		<div class="container" >
+			<div class="row row-pb-lg" >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " align="center" >
+					<div class="col-md-1" ></div>
+						<c:forEach var="list" items="${list }">
+							<c:if
+								test="${list.category_codeRef1 eq 0 && list.category_codeRef2 eq 0 }">
+								<div class="col-md-2" >${list.category_name }</div>
+							</c:if>
 						</c:forEach>
 					</div>
 					<div class="row">
@@ -141,7 +143,8 @@ input[type="text"]:focus {
 							</div>
 						</div>
 						<div class="col-md-2">
-							<input id="id_cancle" type="button" value="수정 취소" class="myButton" />
+							<input id="id_cancle" type="button" value="수정 취소"
+								class="myButton" />
 						</div>
 					</div>
 				</div>
