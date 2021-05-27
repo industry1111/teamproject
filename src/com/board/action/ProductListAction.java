@@ -20,16 +20,17 @@ public class ProductListAction implements Action {
 		
 		//AdminGoodsDAO객체 생성 후 getGoodsList()생성
 		boardDAO bDao = new boardDAO();
-		List<productDTO> productList = bDao.getProductList();
+		List<productDTO> list = bDao.getProductList();
 				
 		//등록된 상품 목록 전부 가져오기
-		System.out.println("M : "+ productList);
+		System.out.println("M : "+ list);
 		
 		//requset영역에 저장
-		request.setAttribute("productList", productList);
+		request.setAttribute("list", list);
+		request.setAttribute("center", "ProductList.jsp");
 		
 		//페이지이동(뷰페이지로이동)
-		forward.setPath("./ProductList.jsp");
+		forward.setPath("mypage.jsp");
 		forward.setRedirect(false);		
 		return forward;
 	}

@@ -44,7 +44,8 @@
 
 	</head>
 	<body>
-<!-- 	<div id="page"> -->
+	<form action="ProductListAction.bo" method="post"
+		enctype="multipart/form-data">
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row row-pb-lg">
@@ -70,8 +71,8 @@
 							</div>
 						</div>
 
-						<c:forEach var="list" items="${productlist}">
-
+						<c:forEach var="list" items="${requestScope.list}">
+						
 							<div class="product-cart d-flex">
 								<div class="one-forth">
 									<div>
@@ -88,7 +89,7 @@
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										${list.product_category } <%--카테고리 --%>
+										${list.prodcut_category } <%--카테고리 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
@@ -96,14 +97,15 @@
 										${list.price } <%--상품가격 --%>
 									</div>
 								</div>
+						
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<a href="ProductModify.bo" type="button" class="btn btn-outline-success">수정</a>
+										<a href="ProductModify.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-success">수정</a>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-									<a href="ProductDelete.bo" type="button" class="btn btn-outline-danger">삭제</a>
+										<a href="ProductDelete.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-danger">삭제</a>
 									</div>
 								</div>
 							</div>
@@ -117,6 +119,9 @@
 					</div>
 			</div>
 <!-- 	</div> -->
+	</div>
+</form>
+<!--  form태그 끝 -->
    <!-- popper -->
    <script src="js/popper.min.js"></script>
    <!-- bootstrap 4.1 -->

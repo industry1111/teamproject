@@ -118,7 +118,7 @@ img{
 
 			<div class="d-grid gap-2 col-6 mx-auto">
 				<button type="submit" >상품 등록</button> 
-				<a type="button" class="btn btn-secondary btn-lg" href="ProductList.bo">등록 취소</a>
+				<a type="button" class="btn btn-secondary btn-lg" href="ProductListAction.bo">등록 취소</a>
 			</div>
 		</form>	
 	</div>

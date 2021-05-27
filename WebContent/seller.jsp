@@ -58,12 +58,12 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group mb-4">
-											계좌번호 <select name="account">
+											계좌번호 <select >
 												<option>은행</option>
 												<option>부산 은행</option>
 												<option>농협</option>
 											</select>
-											<input type="text" placeholder="계좌번호 입려">
+											<input type="text" placeholder="계좌번호 입려" name="account">
 											<button type="button">인증</button>
 										</div>
 									</div>
