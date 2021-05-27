@@ -15,6 +15,7 @@ public class memberDTO {
     private String addr3;
     private String member_code;
     private Timestamp date;
+    private Timestamp regdate;
 
 	public int getMember_num() {
 		return member_num;
@@ -82,6 +83,12 @@ public class memberDTO {
 	}
 	public void setDate(Timestamp date) {
 		this.date = date;
+	}
+	public Timestamp getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
 	}
 
 }

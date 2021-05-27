@@ -6,7 +6,7 @@ public class productDTO {
 	private int product_num;
 	private String product_name;
 	private String product_img;
-	private String prodcut_category;
+	private int category_num;
 	private int product_price;
 	private int count;
 	private String brand;
@@ -31,11 +31,12 @@ public class productDTO {
 	public void setProduct_img(String product_img) {
 		this.product_img = product_img;
 	}
-	public String getProdcut_category() {
-		return prodcut_category;
+	
+	public int getCategory_num() {
+		return category_num;
 	}
-	public void setProdcut_category(String prodcut_category) {
-		this.prodcut_category = prodcut_category;
+	public void setCategory_num(int category_num) {
+		this.category_num = category_num;
 	}
 	public int getProduct_price() {
 		return product_price;

@@ -322,6 +322,7 @@ public class memberDAO {
 				mdto.setAddr2(rs.getString("addr2"));
 				mdto.setAddr3(rs.getString("addr3"));
 				mdto.setDate(rs.getTimestamp("date"));
+				mdto.setRegdate(rs.getTimestamp("regdate"));
 				mdto.setMember_code((rs.getString("member_code")));
 			}
 		} catch (Exception e) {
@@ -357,12 +358,12 @@ public class memberDAO {
 	public void insertSeller(sellerDTO sdto) {
 		try {
 			getCon();
-			String sql = "insert into member (member_num,store_name,store_c_num,profile_img,template,account"
+			String sql = "insert into member (member_num,store_name,category_num,profile_img,template,account"
 					+ "values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, sdto.getMember_num());
 			pstmt.setString(2, sdto.getStore_name());
-			pstmt.setInt(3, sdto.getStore_c_num());
+			pstmt.setInt(3, sdto.getCategory_num());
 			pstmt.setString(4, sdto.getProfile_img());
 			pstmt.setString(5, sdto.getTemplate());
 			pstmt.setString(6, sdto.getAccount());
@@ -389,10 +390,10 @@ public class memberDAO {
 			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				sdto.setStore_c_num(rs.getInt("store_num"));
+				sdto.setCategory_num(rs.getInt("store_num"));
 				sdto.setMember_num(member_num);
 				sdto.setStore_name(rs.getString("store_name"));
-				sdto.setStore_c_num(rs.getInt("store_c_num"));
+				sdto.setCategory_num(rs.getInt("category_num"));
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
 				sdto.setAccount(rs.getString("account"));

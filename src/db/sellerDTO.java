@@ -3,7 +3,7 @@ package db;
 public class sellerDTO {
 	private int member_num;
 	private String store_name;
-	private int store_c_num;
+	private int category_num;
 	private String profile_img;
 	private String template;
 	private String account;
@@ -20,11 +20,11 @@ public class sellerDTO {
 	public void setStore_name(String store_name) {
 		this.store_name = store_name;
 	}
-	public int getStore_c_num() {
-		return store_c_num;
+	public int getCategory_num() {
+		return category_num;
 	}
-	public void setStore_c_num(int store_c_num) {
-		this.store_c_num = store_c_num;
+	public void setCategory_num(int category_num) {
+		this.category_num = category_num;
 	}
 	public String getProfile_img() {
 		return profile_img;
