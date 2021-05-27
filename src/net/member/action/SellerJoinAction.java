@@ -1,6 +1,5 @@
 package net.member.action;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +10,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import db.memberDAO;
 import db.memberDTO;
 import db.sellerDTO;
-import db.store_categoryDTO;
+
 
 public class SellerJoinAction implements Action{
 	  @Override
@@ -24,7 +23,7 @@ public class SellerJoinAction implements Action{
 			String id = (String)session.getAttribute("id");
 			
 			
-			String directory = request.getSession().getServletContext().getRealPath("/upload_profile/");
+			String directory = request.getServletContext().getRealPath("/upload_profile/");
 			System.out.println(directory);
 			int maxSize = 1024*1024*1024;
 			

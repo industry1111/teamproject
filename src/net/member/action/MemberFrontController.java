@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.storeCategoryDTO;
-
 public class MemberFrontController extends HttpServlet {
 
 	@Override
@@ -74,7 +72,7 @@ public class MemberFrontController extends HttpServlet {
 			}
 
 		} else if (command.equals("/Main.me")) {
-			
+
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("index.jsp?center=main.jsp");
@@ -85,7 +83,7 @@ public class MemberFrontController extends HttpServlet {
 			action = new MemberLogoutAction();
 			try {
 
-				forward = action.execute(request, response); 
+				forward = action.execute(request, response);
 
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -103,13 +101,13 @@ public class MemberFrontController extends HttpServlet {
 		} else if (command.equals("/SellerJoinAction.me")) {
 			action = new SellerJoinAction();
 			try {
-				
+
 				forward = action.execute(request, response);
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 		} else if (command.equals("/MemberInfo.me")) {
 
 			action = new MemberInfo();
