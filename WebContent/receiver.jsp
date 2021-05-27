@@ -15,7 +15,8 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700"
 	rel="stylesheet">
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/receiver.js"></script>
 <!-- Animate.css -->
 <link rel="stylesheet" href="css/animate.css">
 <!-- Icomoon Icon Fonts-->
@@ -165,6 +166,19 @@ input[type="text"]:focus {
 					</c:forEach>
 				</div>
 			</div>
+			
+			<div hidden id="add">
+			<div class="col-md-5">
+				<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
+			</div>
+			<div class="col-md-7">
+				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
+			</div>
+			<div class="col-md-8">
+				<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
+				<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
+			</div>
+			</div>
 		</div>
 	</div>
 	<!-- 	</div> -->
@@ -187,6 +201,29 @@ input[type="text"]:focus {
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+<!-- 카카오 우편번호 api -->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function sample6_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) { 
+            var address = ''; // 주소 변수
 
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                address = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                address = data.jibunAddress;
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('sample6_postcode').value = data.zonecode;
+            document.getElementById("sample6_address").value = address;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("sample6_detailAddress").focus();
+        }
+    }).open();
+}
+</script>
 </body>
 </html>
