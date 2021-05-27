@@ -16,7 +16,7 @@ $(function() {
 	var days = Math.floor(diff_date/(1000 * 3600 * 24));
 	
 	$("#id_btn").on("click", function() {
-		console.log(days);
+		
 		var id = $("#id").val();
 		$(this).attr("hidden", true);
 		$("#id").removeAttr("disabled");
