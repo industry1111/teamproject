@@ -13,6 +13,7 @@ public class productDTO {
 	private String description;
 	private Timestamp regdate;
 	private int member_num;
+	
 	public int getProduct_num() {
 		return product_num;
 	}
@@ -74,5 +75,11 @@ public class productDTO {
 		this.member_num = member_num;
 	}
 	
+	@Override
+	public String toString() {
+		return "productDTO [product_num =" + product_num + ", product_name=" + product_name + ", product_img=" + product_img + ", price=" + price + ", prodcut_category="
+				+ prodcut_category + ", count=" + count + ", brand=" + brand + ", description=" + description + ", regdate =" + regdate
+				+ ", member_num=" + member_num + "]";
+	}	
 	
 }

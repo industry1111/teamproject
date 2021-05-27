@@ -43,14 +43,16 @@ img{
 	<p style="font-size: 30;color: gray;">신규물품 등록</p>
 
 	<div class="container" cols="100" rows="2">
-		<form name="newProduct" action="ProductAddAction.bo"
+
+		<form name="newProduct" action="./ProductAddAction.bo"
+
 			class="form-horizontal" method="post" enctype="multipart/form-data">
 
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품 카테고리</label>
 				<div class="com-sm-3">
-					<select id="product_category" name="product_category" class="form-control" aria-label=".form-select-sm example">
+					<select  name="product_category" class="form-control" aria-label=".form-select-sm example">
 						<option selected>상품 카테고리를 선택해주세요.</option>
 						<option value="1">카테고리1</option>
 						<option value="2">카테고리2</option>
@@ -62,7 +64,8 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_name" id="product_name" class="form-control"
+
+					<input type="text" name="product_name" class="form-control"
 						placeholder="상품명을 입력하세요.">
 				</div>
 			</div>
@@ -79,7 +82,8 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" name="brand" id="brand" class="form-control"
+
+					<input type="text" name="brand" class="form-control"
 						placeholder="브랜드를 입력하세요.">
 				</div>
 			</div>
@@ -87,7 +91,8 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_price" id="product_price" class="form-control"
+
+					<input type="text" name="price" class="form-control"
 						placeholder="상품가격을 입력하세요.">
 				</div>
 			</div>
@@ -95,7 +100,8 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
-					<input type="text" id="count" name="count"
+
+					<input type="text" name="count"
 						class="form-control" placeholder="상품재고 수량을 입력하세요.">
 				</div>
 			</div>
@@ -104,7 +110,7 @@ img{
 			<div class="form-group row">
 				<div class="col-sm-2"> 
 					<label for="image">상품 이미지 선택</label> 
-						<input type="file" id="product_img" name="product_img" hidden />
+						<input type="file" name="product_img" hidden />
 					<img src="" id="preview">
 				</div>
 			</div>

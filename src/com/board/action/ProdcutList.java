@@ -19,6 +19,7 @@ public class ProdcutList implements Action{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		
+
 		//회원정보 가져오기
 		boardDAO bDao = new boardDAO();
 		List<productDTO> productlist = bDao.getProductList();
@@ -29,7 +30,9 @@ public class ProdcutList implements Action{
 		
 		//리퀘스트 영역에 저장
 		request.setAttribute("center", "ProductList.jsp");
+		request.setAttribute("productlist", productlist);
 		//페이지 이동
+
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("mypage.jsp");

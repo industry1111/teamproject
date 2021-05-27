@@ -1,6 +1,6 @@
 $(function(){
 
-$('#image').change(function(){
+$('#profile_img').change(function(){
 	
     setImageFromFile(this, '#preview');
 	

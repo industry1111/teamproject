@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -19,7 +18,7 @@ public class boardDAO {
 	PreparedStatement pstmt;
 	DataSource ds;
 	
-	//커넥션풀 얻기
+	//커넥션
 	public void getCon() {
 		try {
 			Context init = new InitialContext();
@@ -29,7 +28,7 @@ public class boardDAO {
 			System.out.println("DB_Connection:" + e.toString());
 		}
 	}
-	//자원반납
+	//자원반환
 	public void ResouceClose(){	
 		try {
 			if(pstmt != null){
@@ -46,14 +45,29 @@ public class boardDAO {
 		}
 	}
 	
-	//상품 등록
+	//상품 입력
 	public void insertProduct(productDTO pdto) {
-		
+
+		int product_num = 0; //임시적용
+		int member_num = 0; //임시적용
 		try {
 			getCon();
-			String sql = "insert into product (member_num,product_name,product_img,product_category, "
-					+ " price,count,brand,description) "
-					+ " values(?,?,?,?,?,?,?,?)";
+			//1.상품등록번호 계산
+			String sql = "select max(product_num),max(member_num) from product";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				product_num = rs.getInt(1)+1;
+				member_num = rs.getInt(1)+1;
+			}
+			System.out.println("상품번호 반영" + product_num + "맴버넘반영" + member_num);
+			
+			//2.상품등록
+			
+			sql = "insert into product (member_num,product_name,product_img,product_category,"
+					+ "price,count,brand,description)"
+					+ "values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pdto.getMember_num());
 			pstmt.setString(2, pdto.getProduct_name());
@@ -71,7 +85,7 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
-	//물품  상세 정보
+	//상품 정보
 	public productDTO getProductInfo(int product_num) {
 		productDTO pdto = new productDTO();
 		try {
@@ -102,13 +116,16 @@ public class boardDAO {
 		}
 		return pdto;
 	}
-	//물품  리스트
-	public Vector<productDTO> getProductList() {
-		Vector<productDTO> v = new Vector<productDTO>();
+
+	//상품 리스트
+	public List<productDTO> getProductList() {
+		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
 			String sql = "select * from product where member_num=?";
 			pstmt =con.prepareStatement(sql);
+//			pstmt.setInt(1, member_num);
+
 			rs = pstmt.executeQuery();
 			
 			productDTO pdto = null;
@@ -127,7 +144,9 @@ public class boardDAO {
 				pdto.setDescription(rs.getString("description"));
 				
 				list.add(pdto);
+				
 			}
+			System.out.println("상품목록 저장완료");
 		} catch (Exception e) {
 			System.out.println("getProduct"+e.toString());
 		} finally {
@@ -136,7 +155,7 @@ public class boardDAO {
 		return list;
 	}
 	
-	//장바구니 등록
+	//장바구니 추가
 	public void insertBasket(int member_num,int product_num,int quantity) {
 		try {
 			getCon();
@@ -154,7 +173,7 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
-	//장바구니 리스트
+	//장바구니 리스트 
 	public List<basketDTO> getBasketList(int member_num){
 		List<basketDTO> list = new ArrayList<basketDTO>();
 		try {
@@ -181,7 +200,7 @@ public class boardDAO {
 		return list;
 	}
 	
-	//배송지 추가
+	//구매자
 	public void insertReceiver(receiverDTO rdto,int member_num) {
 		try {
 			getCon();

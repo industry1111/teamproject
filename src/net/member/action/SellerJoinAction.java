@@ -34,9 +34,11 @@ public class SellerJoinAction implements Action{
 			memberDAO mdao = new memberDAO();
 			int member_num = mdao.getMemberNum(id);
 			 
+			System.out.println(multipartRequest.getFilesystemName("profile_img"));
 	        sellerDTO sdto = new sellerDTO();
 	        sdto.setStore_name(multipartRequest.getParameter("store_name"));
-	        sdto.setProfile_img(multipartRequest.getParameter("profile_img"));
+	        sdto.setProfile_img(multipartRequest.getFilesystemName("profile_img"));
+	        
 	        sdto.setTemplate(multipartRequest.getParameter("template"));
 	        sdto.setAccount(multipartRequest.getParameter("account"));
 	        sdto.setMember_num(member_num);

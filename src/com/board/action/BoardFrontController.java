@@ -50,8 +50,10 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/ProductList.bo")) { // 상품 리스트 페이지 이동
-			System.out.println("상품등록 페이지로 이동");
+
+		}else if(command.equals("/ProductListAction.bo")) { // 상품 조회 페이지 이동
+			System.out.println("ProductListAction.bo");
+
 			action = new ProdcutList();
 			try {
 				forward = action.execute(request, response);
@@ -71,15 +73,15 @@ public class BoardFrontController extends HttpServlet {
 			
 		}else if(command.equals("/ProductAddAction.bo")) { //상품 등록 
 			action = new ProductAddAction();
-			System.out.println("controll: AddAction.bo");
+
+			System.out.println("controll: ProductAddAction.bo");
 			try {
 				forward = action.execute(request, response);
 
 			} catch (Exception e) {
 					e.printStackTrace();
-			}
-
-		}else if(command.equals("/ProductModify.bo")) { //상품 수정 페이지 이동
+			}	
+		}else if(command.equals("/ProductModify.bo")) { //상품 수정
 			action = new ProductModify();
 			try {
 				forward = action.execute(request, response);
@@ -104,11 +106,11 @@ public class BoardFrontController extends HttpServlet {
 		}
 		
 		if(forward!=null){ 
-			if(forward.isRedirect()){//true -> sendRedirect() 방식
+			if(forward.isRedirect()){//true -> sendRedirect()
 
 				response.sendRedirect(forward.getPath());
 				
-			}else{//forward() 방식
+			}else{//forward() 諛⑹떇
 				
 				RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);

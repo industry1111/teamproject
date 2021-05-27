@@ -1,6 +1,12 @@
+<%@page import="db.productDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+ List<productDTO> list =(List<productDTO>)request.getAttribute("productList");
+%>
 <!DOCTYPE HTML>
 <html>
 	<head> <%--not used --%>
@@ -63,31 +69,31 @@
 								<span>상품 삭제</span>
 							</div>
 						</div>
-						<%-- 리스트 불러오는 부분 --%>
-						<c:set var="Productlist" value="${requestScope.list}"/>
-						<c:forEach var="product" items="${list}">
+
+						<c:forEach var="list" items="${productlist}">
+
 							<div class="product-cart d-flex">
 								<div class="one-forth">
 									<div>
-										<img src="${pdto.product_img}" style="width: 100px;height: 100px;">
+										<img src="${list.product_img}" style="width: 100px;height: 100px;">
 									</div>
 									<div class="display-tc">
-										<h3>${pdto.product_name}</h3> <%-- 상품명 --%>
+										<h3>${list.product_name}</h3> <%-- 상품명 --%>
 									</div>
 								</div>
 								<div class="one-forth text-center">
 									<div class="display-tc">
-										${pdto.description} <%-- 물품가격 --%>
+										${list.description} <%-- 물품가격 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										${pdto.product_category } <%--카테고리 --%>
+										${list.product_category } <%--카테고리 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										${pdto.product_price } <%--상품가격 --%>
+										${list.price } <%--상품가격 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
