@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -102,17 +103,19 @@ public class boardDAO {
 		return pdto;
 	}
 	//물품  리스트
-	public List<productDTO> getProductList(int member_num) {
-		List<productDTO> list = new ArrayList<productDTO>();
+	public Vector<productDTO> getProductList() {
+		Vector<productDTO> v = new Vector<productDTO>();
 		try {
 			getCon();
 			String sql = "select * from product where member_num=?";
 			pstmt =con.prepareStatement(sql);
-			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
+			
+			productDTO pdto = null;
 			while(rs.next()) {
-				productDTO pdto = new productDTO();
 				
+				
+				pdto = new productDTO();
 				pdto.setProduct_num(rs.getInt("product_num"));
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
