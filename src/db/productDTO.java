@@ -8,10 +8,10 @@ public class productDTO {
 	private String product_img;
 	private int category_num;
 	private int product_price;
-	private int count;
-	private String brand;
-	private String description;
-	private Timestamp regdate;
+	private int product_count;
+	private String product_brand;
+	private String product_description;
+	private Timestamp product_regdate;
 	private int member_num;
 	public int getProduct_num() {
 		return product_num;
@@ -31,7 +31,6 @@ public class productDTO {
 	public void setProduct_img(String product_img) {
 		this.product_img = product_img;
 	}
-	
 	public int getCategory_num() {
 		return category_num;
 	}
@@ -44,29 +43,29 @@ public class productDTO {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
-	public int getCount() {
-		return count;
+	public int getProduct_count() {
+		return product_count;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setProduct_count(int product_count) {
+		this.product_count = product_count;
 	}
-	public String getBrand() {
-		return brand;
+	public String getProduct_brand() {
+		return product_brand;
 	}
-	public void setBrand(String brand) {
-		this.brand = brand;
+	public void setProduct_brand(String product_brand) {
+		this.product_brand = product_brand;
 	}
-	public String getDescription() {
-		return description;
+	public String getProduct_description() {
+		return product_description;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setProduct_description(String product_description) {
+		this.product_description = product_description;
 	}
-	public Timestamp getRegdate() {
-		return regdate;
+	public Timestamp getProduct_regdate() {
+		return product_regdate;
 	}
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate;
+	public void setProduct_regdate(Timestamp product_regdate) {
+		this.product_regdate = product_regdate;
 	}
 	public int getMember_num() {
 		return member_num;

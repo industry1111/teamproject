@@ -1,6 +1,12 @@
+<%@page import="db.productDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+ List<productDTO> list =(List<productDTO>)request.getAttribute("productList");
+%>
 <!DOCTYPE HTML>
 <html>
 	<head> <%--not used --%>
@@ -38,7 +44,8 @@
 
 	</head>
 	<body>
-<!-- 	<div id="page"> -->
+	<form action="ProductListAction.bo" method="post"
+		enctype="multipart/form-data">
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row row-pb-lg">
@@ -63,39 +70,42 @@
 								<span>상품 삭제</span>
 							</div>
 						</div>
-						<c:forEach var="i" begin="0" step="1" end="4">
+
+						<c:forEach var="list" items="${requestScope.list}">
+						
 							<div class="product-cart d-flex">
 								<div class="one-forth">
-									<a>
-										<img src="images/product.png" style="width: 100px;height: 100px;">
-									</a>
+									<div>
+										<img src="${list.product_img}" style="width: 100px;height: 100px;">
+									</div>
 									<div class="display-tc">
-										<h3>상품명</h3> <%-- 상품명 --%>
+										<h3>${list.product_name}</h3> <%-- 상품명 --%>
 									</div>
 								</div>
 								<div class="one-forth text-center">
 									<div class="display-tc">
-										<span class="price">상품설명을 입력받는 곳</span> <%-- 물품가격 --%>
+										${list.description} <%-- 물품가격 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										상품카테고리
+										${list.prodcut_category } <%--카테고리 --%>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<span class="price">상품가격</span>
+										${list.price } <%--상품가격 --%>
+									</div>
+								</div>
+						
+								<div class="one-eight text-center">
+									<div class="display-tc">
+										<a href="ProductModify.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-success">수정</a>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<a href="ProductModify.bo" type="button" class="btn btn-outline-success">수정</a>
-									</div>
-								</div>
-								<div class="one-eight text-center">
-									<div class="display-tc">
-									<a href="ProductDelete.bo" type="button" class="btn btn-outline-danger">삭제</a>
+										<a href="ProductDelete.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-danger">삭제</a>
 									</div>
 								</div>
 							</div>
@@ -109,6 +119,9 @@
 					</div>
 			</div>
 <!-- 	</div> -->
+	</div>
+</form>
+<!--  form태그 끝 -->
    <!-- popper -->
    <script src="js/popper.min.js"></script>
    <!-- bootstrap 4.1 -->

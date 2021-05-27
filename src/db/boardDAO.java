@@ -18,7 +18,7 @@ public class boardDAO {
 	PreparedStatement pstmt;
 	DataSource ds;
 	
-	//커넥션풀 얻기
+	//커넥션
 	public void getCon() {
 		try {
 			Context init = new InitialContext();
@@ -28,7 +28,7 @@ public class boardDAO {
 			System.out.println("DB_Connection:" + e.toString());
 		}
 	}
-	//자원반납
+	//자원반환
 	public void ResouceClose(){	
 		try {
 			if(pstmt != null){
@@ -45,22 +45,24 @@ public class boardDAO {
 		}
 	}
 	
-	//상품 등록
-	public void insertProduct(productDTO pdto) {
+	
+	public void insertProduct(productDTO pdto) { //상품 정보를 입력함
+
 		try {
 			getCon();
+		
 			String sql = "insert into product (member_num,product_name,product_img,product_category,"
-					+ "product_price,count,brand,description)"
+					+ "price,count,brand,description)"
 					+ "values(?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, pdto.getMember_num());
 			pstmt.setString(2, pdto.getProduct_name());
 			pstmt.setString(3, pdto.getProduct_img());
-			pstmt.setString(4, pdto.getProdcut_category());
+			pstmt.setInt(4, pdto.getCategory_num());
 			pstmt.setInt(5, pdto.getProduct_price());
-			pstmt.setInt(6, pdto.getCount());
-			pstmt.setString(7, pdto.getBrand());
-			pstmt.setString(8, pdto.getDescription());
+			pstmt.setInt(6, pdto.getProduct_count());
+			pstmt.setString(7, pdto.getProduct_brand());
+			pstmt.setString(8, pdto.getProduct_description());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("insertProduct:"+e.toString());
@@ -68,8 +70,8 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
-	//물품  상세 정보
-	public productDTO getProductInfo(int product_num) {
+	
+	public productDTO getProductInfo(int product_num) { //리스트 중 선택한 상품정보를 가져옴
 		productDTO pdto = new productDTO();
 		try {
 			getCon();
@@ -79,50 +81,77 @@ public class boardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				
-				
 				pdto.setProduct_num(rs.getInt("product_num"));
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
-				pdto.setProdcut_category(rs.getString("product_category"));
+				pdto.setCategory_num(rs.getInt("category_num"));
 				pdto.setProduct_price(rs.getInt("product_price"));
-				pdto.setCount(rs.getInt("count"));
-				pdto.setBrand(rs.getString("brand"));
-				pdto.setDescription(rs.getString("description"));
-				
+				pdto.setProduct_count(rs.getInt("product_count"));
+				pdto.setProduct_brand(rs.getString("product_brand"));
+				pdto.setProduct_description(rs.getString("product_description"));
 			}
 			
 		} catch (Exception e) {
-			System.out.println("getProduct"+e.toString());
+			System.out.println("getProductInfo"+e.toString());
 		} finally {
 			ResouceClose();
 		}
 		return pdto;
 	}
-	//물품  리스트
-	public List<productDTO> getProductList(int member_num) {
+	
+	
+	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정하는 서블릿
+		try {
+		getCon();
+		String sql ="update product set product_name=? , product_category=? , product_decription=? "
+					+ " , product_brand=? , product_price=? , product_count=?, product_img where product_num=? ";
+			//쿼리 실행할 객체 생성
+			pstmt= con.prepareStatement(sql);
+			
+			pstmt.setString(1, pdto.getProduct_name());
+			pstmt.setInt(2, pdto.getCategory_num());
+			pstmt.setString(3, pdto.getProduct_description());
+			pstmt.setString(4, pdto.getProduct_brand());
+			pstmt.setInt(5, pdto.getProduct_price());
+			pstmt.setInt(6, pdto.getProduct_count());
+			pstmt.setString(7, pdto.getProduct_img());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("updateProduct:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+		
+	}
+	
+
+	//상품 리스트
+	public List<productDTO> getProductList() {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product where member_num=?";
+			String sql = "select * from product";
 			pstmt =con.prepareStatement(sql);
-			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
+
 			while(rs.next()) {
-				productDTO pdto = new productDTO();
 				
+				productDTO pdto = new productDTO();
 				pdto.setProduct_num(rs.getInt("product_num"));
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
-				pdto.setProdcut_category(rs.getString("product_category"));
+				pdto.setCategory_num(rs.getInt("category_num"));
 				pdto.setProduct_price(rs.getInt("product_price"));
-				pdto.setCount(rs.getInt("count"));
-				pdto.setBrand(rs.getString("brand"));
-				pdto.setDescription(rs.getString("description"));
+				pdto.setProduct_count(rs.getInt("product_count"));
+				pdto.setProduct_brand(rs.getString("product_brand"));
+				pdto.setProduct_description(rs.getString("product_description"));
 				
 				list.add(pdto);
+				
 			}
+			System.out.println("상품목록 저장완료");
 		} catch (Exception e) {
 			System.out.println("getProduct"+e.toString());
 		} finally {
@@ -131,7 +160,10 @@ public class boardDAO {
 		return list;
 	}
 	
-	//장바구니 등록
+	
+	
+	
+	//장바구니 추가
 	public void insertBasket(int member_num,int product_num,int quantity) {
 		try {
 			getCon();
@@ -149,7 +181,7 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
-	//장바구니 리스트
+	//장바구니 리스트 
 	public List<basketDTO> getBasketList(int member_num){
 		List<basketDTO> list = new ArrayList<basketDTO>();
 		try {
@@ -176,28 +208,98 @@ public class boardDAO {
 		return list;
 	}
 	
-	//배송지 추가
+	//구매자
 	public void insertReceiver(receiverDTO rdto,int member_num) {
 		try {
 			getCon();
-			String sql="insert into receiver (receiver_name,receiver_phone,receiver_addr1,"
-					+ "receiver_addr2,receiver_addr3,receiver_msg,member_num,basic_num"
+			if(rdto.getBasic_num()==1){
+				
+				String sql= "update receiver set basic_num = 0";
+				pstmt = con.prepareStatement(sql);
+				pstmt.executeUpdate();
+				
+			}
+			String sql="insert into receiver (member_num,receiver_name,receiver_phone,receiver_addr1,"
+					+ "receiver_addr2,receiver_addr3,basic_num,address_name)"
 					+ "values(?,?,?,?,?,?,?,?)";
+			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, rdto.getReceiver_name());
-			pstmt.setString(2, rdto.getReceiver_phone());
-			pstmt.setString(3, rdto.getReceiver_addr1());
-			pstmt.setString(4, rdto.getReceiver_addr2());
-			pstmt.setString(5, rdto.getReceiver_addr3());
-			pstmt.setString(6, rdto.getReceiver_msg());
-			pstmt.setInt(7, member_num);
-			pstmt.setInt(8, 0);
+			pstmt.setInt(1, member_num);
+			pstmt.setString(2, rdto.getReceiver_name());
+			pstmt.setString(3, rdto.getReceiver_phone());
+			pstmt.setString(4, rdto.getReceiver_addr1());
+			pstmt.setString(5, rdto.getReceiver_addr2());
+			pstmt.setString(6, rdto.getReceiver_addr3());
+			pstmt.setInt(7, rdto.getBasic_num());
+			pstmt.setString(8, rdto.getAddress_name());
+			pstmt.executeUpdate();
+			
 			
 		} catch (Exception e) {
 			System.out.println("insertReceiver:"+e.toString());
 		}
 	}
+	//배송지 정보
+	public List<receiverDTO> getReceiverInfo(int member_num){
+		
+		List<receiverDTO> rlist = new ArrayList<receiverDTO>();
+		
+		try {
+			getCon();
+			String sql = "select * from receiver where member_num=?";
+		
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				receiverDTO rdto = new receiverDTO();
+				rdto.setAddress_name(rs.getString("address_name"));
+				rdto.setBasic_num(rs.getInt("basic_num"));
+				rdto.setReceiver_addr1(rs.getString("receiver_addr1"));
+				rdto.setReceiver_addr2(rs.getString("receiver_addr2"));
+				rdto.setReceiver_addr3(rs.getString("receiver_addr3"));
+				rdto.setReceiver_name(rs.getString("receiver_name"));
+				rdto.setReceiver_num(rs.getInt("receiver_num"));
+				rdto.setReceiver_phone(rs.getString("receiver_phone"));
+				
+				rlist.add(rdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getReceiverInfo:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+		return rlist;
+	}
 	
+	//store Category List
+	public List<categoryDTO> getcategory(){
+		List<categoryDTO> list = new ArrayList<categoryDTO>();
+		try {
+			getCon();
+			String sql = "select * from category";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				categoryDTO cdto = new categoryDTO();
+				cdto.setCategory_num(rs.getInt("category_num"));
+				cdto.setCategory_name(rs.getString("category_name"));
+				cdto.setCategory_code(rs.getInt("category_code"));
+				cdto.setCategory_codeRef1(rs.getInt("category_coderef1"));
+				cdto.setCategory_codeRef2(rs.getInt("category_coderef2"));
+			
+				
+				list.add(cdto);
+			}
+		} catch (Exception e) {
+			System.out.println("category:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+		return list;
+	}
 	
 	
 }

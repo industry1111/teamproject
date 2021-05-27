@@ -65,7 +65,7 @@ a:active {
 	<form method="post" id="index">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-1">
-				<h3><a>회원 정보</a></h3>
+				<h3><a style="font-size: 30px; font-family:휴먼엽서체;">회원정보</a></h3>
 			</div>
 		</div>
 		<div class="row">
@@ -97,15 +97,15 @@ a:active {
 	
 		<c:if test="${member_code ==1 }">
 		<div class="row">
-			<div class="col-md-9 col-md-offset-2">
+			<div class="col-md-9 col-md-offset-2" >
 				<hr>
-				<a href="Seller.me">
+				<a href="Seller.me" >
 					<h5>판매자 등록</h5>
 				</a>
 			</div>
 		</div>
 		</c:if>
-		<c:if test="${member_code ==2 }">
+		<c:if test="${member_code == 2 }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>
@@ -115,7 +115,7 @@ a:active {
 		
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="StoreInfo.bo">스토어 정보 변경</a>
+				<a href="StoreInfo.me">스토어 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">
@@ -130,7 +130,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="ProductList.bo">물품등록/삭제</a> 
+				<a href="ProductListAction.bo">물품등록/삭제</a> 
 			</div>
 		</div>
 		</c:if>

@@ -1,16 +1,27 @@
-package com.board.action;
+package net.member.action;
 
-import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class OrderList implements Action{
+import db.boardDAO;
+import db.categoryDTO;
+
+
+
+public class StoreCategoryList implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		request.setAttribute("center", "order.jsp");
+		boardDAO bdao = new boardDAO();
+		List<categoryDTO> list = bdao.getcategory();
+		
+		request.setAttribute("list", list);
+		
+		request.setAttribute("center", "seller.jsp");
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("mypage.jsp");
