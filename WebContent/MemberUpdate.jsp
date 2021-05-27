@@ -89,19 +89,19 @@ input[type="text"]:focus {
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="id" name="id" value="${id}"
-									disabled="disabled"><br> <span id="id_check"
-									class="check"></span> <span id="id_check2" class="check2"></span>
+									disabled="disabled"><br> 
+									<span id="id_check" class="check"></span> 
+									<span id="id_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">아이디는 30일에 한 번 변경하실 수 있습니다.</p>
-							<input type="hidden" id="date" value="${mdto.date}"> <input
-								type="hidden" id="member_num" value="${mdto.member_num}">
+							<input type="hidden" id="date" value="${mdto.date}"> 
+							<input type="hidden" id="member_num" value="${mdto.member_num}">
 							<p>
 								<input type="button" id="id_btn" value="수정" class="myButton" />
 							</p>
 							<p class="id_update" hidden>
-								<input id="id_cancle" type="button" value="수정 취소"
-									class="myButton" /> <input id="id_update" type="button"
-									value="수정 완료" class="myButton" />
+								<input id="id_cancle" type="button" value="수정 취소" class="myButton" /> 
+								<input id="id_update" type="button" value="수정 완료" class="myButton" />
 							</p>
 						</div>
 					</td>

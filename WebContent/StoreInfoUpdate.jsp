@@ -102,9 +102,35 @@ tr {
 	color: green;
 	font-size: 13px;
 }
+input[type="text"] {
+  width: 30%;
+  border: 2px solid DarkGray;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>var contextPath = "${pageContext.request.contextPath}";</script>
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
 <script src="js/memberupdate.js"></script>
 <script src="js/seller.js"></script>
 <script src="js/storeinfo.js"></script>
@@ -123,18 +149,18 @@ tr {
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="store_name" name="store_name" value="${store_name}"
-									   disabled="disabled" style="border: 0;"><br>
+								<input type="text" id="store_name" name="store_name" value="${sdto.store_name}"
+									   disabled="disabled"><br>
 								<span id="store_name_check" class="check"></span>
                                 <span id="store_name_check2" class="check2"></span>
 							</p>
-							<p class="contxt_desc">스토어명은 한달에 한 번 변경하실 수 있습니다.</p>
+							
 							<p>
-								<input type="button" id="store_name_btn" value="수정" />
+								<input type="button" id="store_name_btn" value="수정" class="myButton"/>
 							</p>
-							<p class="id" hidden>
-								<input class="store_name_cancle" type="button" value="수정 취소" /> 
-								<input class="store_name_update" type="button" value="수정 완료" />
+							<p class="store_name_update" hidden>
+								<input id="store_name_cancle" type="button" value="수정 취소" class="myButton"/> 
+								<input id="store_name_update" type="button" value="수정 완료" class="myButton"/>
 							</p>
 						</div>
 					</td>
@@ -150,9 +176,9 @@ tr {
 							<p>현재 사용중인 프로필<br>
 							  	<div class="col-md-8">
 										<div class="form-group mb-4">
-											<img src="" id="preview" ><br>
+											<img src="" id="preview"  ><br>
 											<label for="image">프로필 이미지 선택</label>
-											 <input type="file" id="profile_img" name="profile_img" hidden/>
+											 <input type="file" id="profile_img" name="profile_img" value="${sdto.profile_img}" class="myButton" hidden/>
 										</div>
 									</div>
 						</div>
@@ -166,17 +192,17 @@ tr {
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="store_c_num" name="store_c_num" value="${store_c_num}" disabled="disabled" style="border: 0;" maxlength="5"><br>
+								<input type="text" id="store_c_num" name="store_c_num" value="${sdto.store_c_num}" disabled="disabled" maxlength="5"><br>
 								<span id="store_c_num_check" class="check"></span>
                                 <span id="store_c_num_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">판매하시는 물품의 카테고리가 변경되었다면 수정하실 수 있습니다.</p>
 							<p>
-								<input type="button" id="store_c_num_btn" value="수정" />
+								<input type="button" id="store_c_num_btn" value="수정" class="myButton" />
 							</p>
-							<p class="name" hidden>
-								<input class="store_c_num_cancle" type="button" value="수정 취소" /> 
-								<input class="store_c_num_update" type="button" value="수정 완료" />
+							<p class="store_c_num_update" hidden>
+								<input class="store_c_num_cancle" type="button" value="수정 취소"  class="myButton" /> 
+								<input class="store_c_num_update" type="button" value="수정 완료"  class="myButton" />
 							</p>
 						</div>
 					</td>
@@ -215,8 +241,8 @@ tr {
 											<input type="button" id="template_btn" value="수정" /> 
 										</p> -->
 										<p class="template" hidden>
-											<input class="template_cancle" type="button" value="수정 취소" /> 
-											<input class="template_update" type="button" value="수정 완료" />
+											<input id="template_cancle" type="button" value="수정 취소" /> 
+											<input id="template_update" type="button" value="수정 완료" />
 										</p>
 											</div>
 										</div>
@@ -228,7 +254,7 @@ tr {
 										<div class="form-group d-flex"> </div>
 									</div>
 							<p>
-								<input class="template_btn" type="button" value="수정" /> 
+								<input id="template_btn" type="button" value="수정" class="myButton" /> 
 							</p>
 						</div>
 					</td>
@@ -239,25 +265,25 @@ tr {
 					<td>
 						<div>
 							<p class="contxt_tit">
-								<input type="text" id="account" name="account" value="${mdto.account}" disabled="disabled"
-									style="border: 0" maxlength="11"><br>
+								<input type="text" id="account" name="account" value="${sdto.account}" disabled="disabled"
+									 maxlength="11"><br>
 								<span id="account_check" class="check"></span>
                                 <span id="account_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">정산대금을 수령하실 계좌번호를 입력해주세요.</p>
 							<p>
-								<input type="button" id="account_btn" value="수정" />
+								<input type="button" id="account_btn" value="수정" class="myButton"/>
 							</p>
 							<p class="account" hidden>
-								<input class="account_cancle" type="button" value="수정 취소" /> 
-								<input class="account_update" type="button" value="수정 완료" />
+								<input id="account_cancle" type="button" value="수정 취소"  class="myButton"/> 
+								<input id="account_update" type="button" value="수정 완료"  class="myButton"/>
 							</p>
 						</div>
 					</td>
 				</tr>
 			</tbody>
 		</table>
-		<input type="hidden" name="member_num" value="${mdto.member_num}">
+		<input type="hidden" name="member_num" value="${sdto.member_num}">
 	</form>
 </body>
 </html>

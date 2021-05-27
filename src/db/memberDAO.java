@@ -415,7 +415,7 @@ public class memberDAO {
 	public void updateStore_name(String store_name, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set store_name=? where member_num = ?";
+			String sql = "update seller set store_name=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, store_name);
 			pstmt.setInt(2, member_num);
@@ -430,7 +430,7 @@ public class memberDAO {
 	public int updateStore_c_num(int store_c_num, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set store_c_num=? where member_num = ?";
+			String sql = "update seller set store_c_num=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, store_c_num);
 			pstmt.executeUpdate();
@@ -445,7 +445,7 @@ public class memberDAO {
 	public void updateProfile_img(String profile_img, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set profile_img=? where member_num = ?";
+			String sql = "update seller set profile_img=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, profile_img);
 			pstmt.setInt(2, member_num);
@@ -461,7 +461,7 @@ public class memberDAO {
 	public void updateTemplate(String template, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set template=? where member_num = ?";
+			String sql = "update seller set template=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, template);
 			pstmt.setInt(2, member_num);
@@ -477,7 +477,7 @@ public class memberDAO {
 	public void updateAccount(String account, int member_num) {
 		try {
 			getCon();
-			String sql = "update member set account=? where member_num = ?";
+			String sql = "update seller set account=? where member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, account);
 			pstmt.setInt(2, member_num);
