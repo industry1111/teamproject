@@ -41,40 +41,78 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 
+<style type="text/css">
+
+
+.check {
+	color: red;
+	font-size: 13px;
+}
+
+.check2 {
+	color: green;
+	font-size: 13px;
+}
+input[type="text"] {
+  width: 30%;
+  border: 2px solid DarkGray;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+</style>
+
 </head>
 <body>
-<script>
-$("#").click(function() {
-	
-	if (idReg.test(id)) {
-		$.ajax({
-			type: "post",
-			async: true,
-			url: contextPath + "/RegisterCheck",
-			data: {
-				param: id,
-				command: "id"
-			},
-			dataType: "text",
-			success: function(data) {
-				if(data == "중복된 아이디입니다."){
-					$("#id_check").text(data);
-					$("#id_check2").text("");
-					id_check = 0;
-				}else{
-					$("#id_check2").text(data);
-					$("#id_check").text("");
-					id_check = 1;
-				}
-			},
+	<script>
+		$("#").click(function() {
+
+			if (idReg.test(id)) {
+				$.ajax({
+					type : "post",
+					async : true,
+					url : contextPath + "/RegisterCheck",
+					data : {
+						param : id,
+						command : "id"
+					},
+					dataType : "text",
+					success : function(data) {
+						if (data == "중복된 아이디입니다.") {
+							$("#id_check").text(data);
+							$("#id_check2").text("");
+							id_check = 0;
+						} else {
+							$("#id_check2").text(data);
+							$("#id_check").text("");
+							id_check = 1;
+						}
+					},
+				});
+			} else {
+				$("#id_check").text("특수문자 한글 제외  6~15자 이내로 작성해 주세요");
+				$("#id_check2").text("");
+				id_check = 0;
+			}
 		});
-	} else {
-		$("#id_check").text("특수문자 한글 제외  6~15자 이내로 작성해 주세요");
-		$("#id_check2").text("");
-		id_check = 0;
-	}
-});
-</script>
+	</script>
 
 	<!-- 	<div id="page"> -->
 	<div class="colorlib-product">
@@ -88,9 +126,10 @@ $("#").click(function() {
 					</div>
 					<div class="row">
 						<div class="col-md-2">
-							<img src="images/storeprofile.png" style="width: 100px; height: 100px;">
+							<img src="images/storeprofile.png"
+								style="width: 100px; height: 100px;">
 						</div>
-						<div class="col-md-8" style="margin-top:15px;">
+						<div class="col-md-8" style="margin-top: 15px;">
 							<div class="row">
 								<div class="col-md-2">스토어 이름</div>
 							</div>
@@ -101,7 +140,9 @@ $("#").click(function() {
 								<div class="col-md-2">찜갯수</div>
 							</div>
 						</div>
-						<div class="col-md-2" style="margin-top:40px; ">스토어 찜 취소</div>
+						<div class="col-md-2">
+							<input id="id_cancle" type="button" value="수정 취소" class="myButton" />
+						</div>
 					</div>
 				</div>
 			</div>

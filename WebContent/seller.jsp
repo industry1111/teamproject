@@ -23,7 +23,7 @@
 
 <body>
 	<!-- 판매자 등록 창 -->
-	<form action="" method="post"
+	<form action="SellerJoinAction.me" method="post"
 		enctype="multipart/form-data"> <%--이미지 파일업로드 저장. --%>
 		<section class="ftco-section">
 			<div class="container">
@@ -47,16 +47,18 @@
 									</div>
 									<div class="col-md-8">
 										<div class="form-group mb-4">
-											카테고리 <select>
-												<option>====카테고리====</option>
-												<option>1</option>
-												<option>2</option>
+											카테고리 <select name="store_c_num">
+												<option value="0">====카테고리====</option>
+												<c:forEach var="list" items="${list }">
+													<option value="${list.store_c_num }">${list.store_category }</option>
+												</c:forEach>
+												
 											</select>
 										</div>
 									</div>
 									<div class="col-md-12">
 										<div class="form-group mb-4">
-											계좌번호 <select>
+											계좌번호 <select name="account">
 												<option>은행</option>
 												<option>부산 은행</option>
 												<option>농협</option>
@@ -68,8 +70,8 @@
 									<div class="col-md-8">
 										<div class="form-group mb-4">
 											<img src="" id="preview" ><br>
-											<label for="image">프로필 이미지 선택</label>
-											 <input type="file" id="image" name="image" hidden/>
+											<label for="profile_img">프로필 이미지 선택</label>
+											 <input type="file" id="profile_img" name="profile_img" hidden/>
 										</div>
 									</div>
 									<c:forEach var="i" begin="1" step="1" end="5" >
