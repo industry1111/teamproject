@@ -66,6 +66,8 @@ public class memberDAO {
 			pstmt.setInt(9, 1);
 
 			result = pstmt.executeUpdate();
+			
+			
 
 			if (result != 0) {
 				return true;

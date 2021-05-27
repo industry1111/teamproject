@@ -37,7 +37,7 @@ public class MemberFrontController extends HttpServlet {
 		if (command.equals("/MemberJoin.me")) {
 
 			forward = new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("./join.jsp");
 
 			// join.jsp에서...회원가입 처리요청이 들어 왔을떄...
@@ -55,7 +55,7 @@ public class MemberFrontController extends HttpServlet {
 
 		} else if (command.equals("/MemberLogin.me")) {
 			forward = new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("login.jsp");
 		} else if (command.equals("/MemberLoginAction.me")) {
 
@@ -71,7 +71,7 @@ public class MemberFrontController extends HttpServlet {
 
 		} else if (command.equals("/Main.me")) {
 			forward = new ActionForward();
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("index.jsp?center=main.jsp");
 
 		} else if (command.equals("/MemberLogout.me")) {

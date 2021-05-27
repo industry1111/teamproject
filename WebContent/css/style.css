@@ -8096,7 +8096,12 @@ h1, h2, h3, h4, h5,
 
 .product-name {
   padding: .8em 0;
-  background: #f0f0f0;
+  background: #9FC93C;
+  background-color :#9FC93C;
+  color:white;
+  font-weight :bold;
+  font-size:130%;
+  font-family:휴먼엽서체;
   border: none;
   width: 100%;
   -webkit-border-radius: 30px;
