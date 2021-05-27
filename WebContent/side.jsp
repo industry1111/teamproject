@@ -105,7 +105,7 @@ a:active {
 			</div>
 		</div>
 		</c:if>
-		<c:if test="${member_code ==2 }">
+		<c:if test="${member_code == null }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>
@@ -115,7 +115,7 @@ a:active {
 		
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="StoreInfo.bo">스토어 정보 변경</a>
+				<a href="StoreInfo.me">스토어 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">

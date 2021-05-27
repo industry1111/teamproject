@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.member.memberDAO;
+import db.memberDAO;
 
 @WebServlet("/Check")
 public class Check extends HttpServlet {
@@ -39,7 +39,7 @@ public class Check extends HttpServlet {
 		if (command.equals("pw")) {
 			param = request.getParameter("param");
 			int member_num = (Integer.parseInt(request.getParameter("member_num")));
-			result = mdao.deletemember(member_num);
+			mdao.deletemember(member_num);
 			if (result == 1) {
 				out.print("1");
 			} else {
