@@ -17,5 +17,4 @@ function setImageFromFile(input, expression) {
 }
 
 
-
 });

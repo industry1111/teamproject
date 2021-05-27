@@ -141,7 +141,7 @@ input[type="text"] {
 				<div>
 					
 						<div class="col-md-4">
-							<input type="text" id="addr_name" name="addr_name" style="width:150px" value="${rlist.address_name}">
+							<input type="text" id="addr_name" name="addr_name" style="width:150px" value="${rdto.address_name}">
 					</div>
 					
 				</div>
@@ -155,7 +155,7 @@ input[type="text"] {
 				<div>
 					
 						<div class="col-md-7">
-							<input type="text" id="receiver_name" name="receiver_name" value="${rlist.receiver_name}">
+							<input type="text" id="receiver_name" name="receiver_name" value="${rdto.receiver_name}">
 					</div>
 					
 				</div>
@@ -170,7 +170,7 @@ input[type="text"] {
 					
 					<div class="row">
 						<div style="margin-right: 10px;margin-left: 15px">
-							<input type="text" id="sample6_postcode" name="addr1" style="width: 100px" value="${rlist.receiver_addr1}">
+							<input type="text" id="sample6_postcode" name="addr1" style="width: 100px" value="${rdto.receiver_addr1}">
 						</div>
 						<div>
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
@@ -178,10 +178,10 @@ input[type="text"] {
 					</div>
 				
 					<div>
-						<input type="text" id="sample6_address" name="addr2" value="${rlist.receiver_addr2}" style="width: 300px;">&nbsp;
+						<input type="text" id="sample6_address" name="addr2" value="${rdto.receiver_addr2}" style="width: 300px;">&nbsp;
 					</div>
 					<div>
-						<input type="text" id="sample6_detailAddress" name="addr3" value="${rlist.receiver_addr3}" style="width: 300px;">
+						<input type="text" id="sample6_detailAddress" name="addr3" value="${rdto.receiver_addr3}" style="width: 300px;">
 					</div>
 					
 				</div>
@@ -195,7 +195,7 @@ input[type="text"] {
 				<div>
 					
 						<div class="col-md-7">
-							<input type="text" id="receiver_phone" name="receiver_phone" value="${rlist.receiver_phone}">
+							<input type="text" id="receiver_phone" name="receiver_phone" value="${rdto.receiver_phone}">
 					</div>
 					
 				</div>

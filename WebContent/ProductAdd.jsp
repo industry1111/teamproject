@@ -35,8 +35,8 @@ img{
   }
 </style>
 
-
 <title>상품 등록</title>
+
 </head>
 <body>
 
@@ -44,7 +44,7 @@ img{
 
 	<div class="container" cols="100" rows="2">
 
-		<form name="newProduct" action="./ProductAddAction.bo"
+		<form name="newProduct" action="ProductAddAction.bo"
 
 			class="form-horizontal" method="post" enctype="multipart/form-data">
 
@@ -52,11 +52,25 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품 카테고리</label>
 				<div class="com-sm-3">
-					<select  name="product_category" class="form-control" aria-label=".form-select-sm example">
-						<option selected>상품 카테고리를 선택해주세요.</option>
-						<option value="1">카테고리1</option>
-						<option value="2">카테고리2</option>
-						<option value="3">카테고리3</option>
+					<select   class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
+						<option selected>=1차=</option>
+						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+							<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
+								<option value="${list[i].category_code}">${list[i].category_name }${ref1}</option>
+							</c:if>
+						</c:forEach>
+					</select>
+					<select  class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
+						<option selected>=2차=</option>
+						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+								<option value="${list[i].category_code}">${list[i].category_name }</option>
+						</c:forEach>
+					</select>
+					<select id="category_name" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+						<option selected>=3차=</option>
+						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+								<option value="${list[i].category_name }">${list[i].category_name }</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -74,7 +88,7 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
-					<textarea name="description" id="description" cols="100" rows="10"
+					<textarea name="product_description" id="description" cols="100" rows="10"
 						class="form-control" placeholder="상품내용을 입력하세요."></textarea>
 				</div>
 			</div>
@@ -83,7 +97,7 @@ img{
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="brand" class="form-control"
+					<input type="text" name="product_brand" class="form-control"
 						placeholder="브랜드를 입력하세요.">
 				</div>
 			</div>
@@ -92,7 +106,7 @@ img{
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="price" class="form-control"
+					<input type="text" name="product_price" class="form-control"
 						placeholder="상품가격을 입력하세요.">
 				</div>
 			</div>
@@ -101,7 +115,7 @@ img{
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="count"
+					<input type="text" name="product_count"
 						class="form-control" placeholder="상품재고 수량을 입력하세요.">
 				</div>
 			</div>

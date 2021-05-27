@@ -360,10 +360,12 @@ public class memberDAO {
 	
 	//판매자 등록
 	public void insertSeller(sellerDTO sdto) {
+	
 		try {
+			
 			getCon();
-			String sql = "insert into member (member_num,store_name,category_num,profile_img,template,account"
-					+ "values(?,?,?,?,?,?)";
+			String sql = "insert into seller (member_num,store_name,category_num,profile_img,template,account)"
+					+ " values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, sdto.getMember_num());
 			pstmt.setString(2, sdto.getStore_name());

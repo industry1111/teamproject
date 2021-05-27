@@ -19,7 +19,7 @@ public class ReceiverList implements Action{
 		HttpSession session = request.getSession();
         
         int member_num = (int) session.getAttribute("member_num");
-        List<receiverDTO> rlist = new boardDAO().getReceiverInfo(member_num);
+        List<receiverDTO> rlist = new boardDAO().getReceiverList(member_num);
         
         request.setAttribute("rlist", rlist);
 	

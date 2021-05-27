@@ -122,6 +122,16 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/receiver_2.bo")) {
+			action = new ReceiverInfo();
+			System.out.println("1234");
+			try {
+	
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect()

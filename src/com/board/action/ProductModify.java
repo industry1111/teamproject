@@ -10,6 +10,9 @@ public class ProductModify implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		request.setCharacterEncoding("utf-8");
+		
 		//상품 상세정보로 이동하는 서블릿
 		
 		/*클라이언트의 요청값 전달받기*/

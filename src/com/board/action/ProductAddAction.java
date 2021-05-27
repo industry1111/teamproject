@@ -16,7 +16,6 @@ public class ProductAddAction implements Action{
 	public ActionForward execute(HttpServletRequest request, 
 						HttpServletResponse response)
 	throws Exception{
-		System.out.println("ProductAddAction execute()");
 
 		request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
@@ -26,19 +25,18 @@ public class ProductAddAction implements Action{
 		int member_num = (Integer)session.getAttribute("member_num");
 
 		int maxSize = 10 * 1024 * 1024;
-		System.out.println("image size 출력됨");
 
 		MultipartRequest multi = new MultipartRequest(
 				request, realpath, maxSize, "UTF-8", new DefaultFileRenamePolicy()
 				);
-		System.out.println("M : 파일업로드완료" + multi);
 		
 
 		productDTO pdto = new productDTO();
 		
 		pdto.setMember_num(member_num);
 		pdto.setProduct_name(multi.getParameter("product_name"));
-		pdto.setCategory_num(Integer.parseInt(multi.getParameter("category_num")));
+		pdto.setCategory_name(multi.getParameter("category_name"));
+		System.out.println(multi.getParameter("category_name"));
 		pdto.setProduct_description(multi.getParameter("product_description"));
 		pdto.setProduct_brand(multi.getParameter("product_brand"));
 		pdto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
