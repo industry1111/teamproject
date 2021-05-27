@@ -9,7 +9,8 @@ import db.productDTO;
 public class ProductModify implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, 
+			HttpServletResponse response) throws Exception {
 		//상품 상세정보로 이동하는 서블릿
 		//전달해오는  product_num 값 받기
 		int product_num = Integer.parseInt(request.getParameter("product_num"));

@@ -76,7 +76,7 @@ public class boardDAO {
 		productDTO pdto = new productDTO();
 		try {
 			getCon();
-			String sql = "select from product where product_num=?";
+			String sql = "select * from product where product_num=?";
 			pstmt =con.prepareStatement(sql);
 			pstmt.setInt(1, product_num);
 			rs = pstmt.executeQuery();
@@ -129,24 +129,6 @@ public class boardDAO {
 		}
 		
 	}
-	
-	public void deleteProduct(int product_num){ //상품 정보 삭제
-		productDTO pdto = new productDTO();
-		try {
-			getCon();
-			String sql = "delete from product where product_num = ? ";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, pdto.getProduct_num());
-			pstmt.executeUpdate();
-						
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			ResouceClose();
-		}
-		
-	}
-	
 
 	//상품 리스트
 	public List<productDTO> getProductList() {
@@ -180,7 +162,22 @@ public class boardDAO {
 		return list;
 	}
 	
-	
+	public void deleteProduct(int product_num){ //상품 정보 삭제
+		productDTO pdto = new productDTO();
+		try {
+			getCon();
+			String sql = "delete from product where product_num = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, pdto.getProduct_num());
+			pstmt.executeUpdate();
+						
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			ResouceClose();
+		}
+		
+	}
 	
 	
 	//장바구니 추가
