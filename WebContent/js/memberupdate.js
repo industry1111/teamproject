@@ -8,7 +8,7 @@ var check = 0;
 
 $(function() {
 	
-	var member_num = $("#member_num").val();
+	var member_num = ${member_num};
 	var date = $("#date").val();
 	var date1 = new Date(date);
 	var now_date = new Date();

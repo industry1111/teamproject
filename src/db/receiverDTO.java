@@ -1,7 +1,10 @@
 package db;
 
 public class receiverDTO {
+	
+	
 	private int receiver_num;	
+	private String address_name;
 	private String receiver_name;	
 	private String receiver_phone;	
 	private String receiver_addr1;	
@@ -9,11 +12,19 @@ public class receiverDTO {
 	private String receiver_addr3;	
 	private String receiver_msg;	
 	private int basic_num;
+	
 	public int getReceiver_num() {
 		return receiver_num;
 	}
 	public void setReceiver_num(int receiver_num) {
 		this.receiver_num = receiver_num;
+	}
+	
+	public String getAddress_name() {
+		return address_name;
+	}
+	public void setAddress_name(String address_name) {
+		this.address_name = address_name;
 	}
 	public String getReceiver_name() {
 		return receiver_name;

@@ -16,7 +16,7 @@
 	href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700"
 	rel="stylesheet">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="js/receiver.js"></script>
+
 <!-- Animate.css -->
 <link rel="stylesheet" href="css/animate.css">
 <!-- Icomoon Icon Fonts-->
@@ -46,7 +46,22 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<script src="js/memberupdate.js"></script>
+<script type="text/javascript">
+ function add_onclick(){
+            
+    //이름은 중복창 제어용
+    child = window.open("receiver_1.jsp","child","width=500,height=650");
+};//click
+
+function update_onclick(){
+            
+    //이름은 중복창 제어용
+    child = window.open("receiver_2.jsp","child","width=500,height=650");
+};//click
+
+
+</script>
+
 
 
 <style type="text/css">
@@ -121,7 +136,7 @@ input[type="text"]:focus {
 				<div class="col-md-12">
 					<div class="product-name d-flex" align="center">
 						<div class="col-md-2">
-						배송지
+						배송지 이름
 						</div>
 						<div class="col-md-6">
 						주소
@@ -133,52 +148,69 @@ input[type="text"]:focus {
 						수정삭제
 						</div>				
 					</div>
-					<c:forEach var="i" begin="0" step="1" end="4">
+
 					<div class="row" align="center" >
 					<div class="col-md-12"><hr></div>
-						<div class="col-md-2">
-						지역
-						</div>
+
 					</div>
+					
+					<c:forEach var="rlist" items="${rlist}">
+					<c:if test="${rlist.basic_num == 1}">
 					<div class="row" align="center">
+					  
 						<div class="col-md-2">
-						이름
+							<c:out value="${rlist.address_name }"/>
+							<br>
+							기본배송지
 						</div>	
 						<div class="col-md-6">
-						주소
+							<c:out value="${rlist.receiver_addr1 }"/>
+							<c:out value="${rlist.receiver_addr2 }"/>
+							<c:out value="${rlist.receiver_addr3 }"/>
 						</div>
 						<div class="col-md-2">
-						연락처
+							<c:out value="${rlist.receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" class="myButton" /><br>
-							<input id="id_cancle" type="button" value="삭제"
-									class="myButton" /> 
+							<input type="button" id="name_btn" value="수정" onclick="update_onclick();"/><br>
+							<input id="id_cancle" type="button" value="삭제" />  
 						</div>
 					</div>
-					<c:if test="${basic_num == 1 }">
-						<div class="row" align="center" >
-							<div class="col-md-2">
-							기본배송지
-							</div>
+					<div class="row" align="center" >
+					<div class="col-md-12"><hr></div>
+					</div> 
+				</c:if>
+					</c:forEach>
+					<c:forEach var="rlist" items="${rlist}">
+					<c:if test="${rlist.basic_num == 0}">
+					<div class="row" align="center">
+					  
+						<div class="col-md-2">
+							<c:out value="${rlist.address_name }"/>
+						</div>	
+						<div class="col-md-6">
+							<c:out value="${rlist.receiver_addr1 }"/>
+							<c:out value="${rlist.receiver_addr2 }"/>
+							<c:out value="${rlist.receiver_addr3 }"/>
 						</div>
+						<div class="col-md-2">
+							<c:out value="${rlist.receiver_phone}"/>
+						</div>
+						<div class="col-md-2">
+							<input type="button" id="name_btn" value="수정" onclick="update_onclick();"/><br>
+							<input id="id_cancle" type="button" value="삭제" />  
+						</div>
+					</div>
+					<div class="row" align="center" >
+					<div class="col-md-12"><hr></div>
+					</div> 
 					</c:if>
 					</c:forEach>
+
 				</div>
 			</div>
-			
-			<div hidden id="add">
-			<div class="col-md-5">
-				<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
-			</div>
-			<div class="col-md-7">
-				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
-			</div>
-			<div class="col-md-8">
-				<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
-				<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
-			</div>
-			</div>
+			<input type="button" value="배송지 등록" id="add_btn" class="myButton" onclick="add_onclick();">
+
 		</div>
 	</div>
 	<!-- 	</div> -->
@@ -201,29 +233,6 @@ input[type="text"]:focus {
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-<!-- 카카오 우편번호 api -->
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-function sample6_execDaumPostcode() {
-    new daum.Postcode({
-        oncomplete: function(data) { 
-            var address = ''; // 주소 변수
 
-            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-                address = data.roadAddress;
-            } else { // 사용자가 지번 주소를 선택했을 경우(J)
-                address = data.jibunAddress;
-            }
-
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample6_postcode').value = data.zonecode;
-            document.getElementById("sample6_address").value = address;
-            // 커서를 상세주소 필드로 이동한다.
-            document.getElementById("sample6_detailAddress").focus();
-        }
-    }).open();
-}
-</script>
 </body>
 </html>
