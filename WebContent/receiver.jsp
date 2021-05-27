@@ -50,7 +50,7 @@
  function add_onclick(){
             
     //이름은 중복창 제어용
-    child = window.open("receiver_1.me","child","width=500,height=650");
+    child = window.open("receiver_1.jsp","child","width=500,height=650");
 };//click
 
 function update_onclick(receiver_num){
