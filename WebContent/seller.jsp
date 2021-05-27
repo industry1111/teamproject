@@ -95,8 +95,7 @@
 									<div class="col-md-12">
 										<div class="form-group d-flex">
 											<button type="submit"
-												class="btn btn-primary rounded submit p-3">Register
-												Seller</button>
+												class="btn btn-primary rounded submit p-3">Register Seller</button>
 										</div>
 									</div>
 								</div>
