@@ -69,11 +69,11 @@
 							</div>
 						</div>
 				</div>
-				<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+				<c:forEach var="i" begin="0" step="1" end="${list.size()-1 }">
 
 					<div class="row  d-flex" align="center">
 						<div class="col-md-2">
-								${i+1 }<img src="${list[i].product_img}" style="width: 100px;height: 100px;">
+							<img src="product_img_upload/${list[i].product_img}" style="width: 100px;height: 100px;">
 						</div>
 						<div class="col-md-2">
 							<div class="a">${list[i].product_name}</div> <%-- 상품명 --%>
@@ -99,7 +99,9 @@
 			<%--해당 쇼핑몰 홈페이지로 이동 --%>
 			<div class="row">
 				<div class="col-md-3 offset-3" align="right">페이징</div>
-				<div class="col-md-3 offset-3" align="right">
+			</div>
+			<div class="row">	
+				<div class="col-md-3" align="left">
 					<a href="ProductAdd.bo" type="button" class="btn btn-outline-info">신규 상품 등록</a>
 				</div>
 			</div>
