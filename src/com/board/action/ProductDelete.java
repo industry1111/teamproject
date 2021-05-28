@@ -3,7 +3,7 @@ package com.board.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import db.boardDAO;
+import dao.boardDAO;
 
 
 public class ProductDelete implements Action {
@@ -21,7 +21,7 @@ public class ProductDelete implements Action {
 		bdao.deleteProduct(product_num);
 		
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
+		forward.setRedirect(true);
 		forward.setPath("ProductListAction.bo");
 		return forward;
 	}

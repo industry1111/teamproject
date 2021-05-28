@@ -78,7 +78,7 @@ img {
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
 					<textarea name="description" cols="100" rows="10"
-						class="form-control" style="border: 0;"> ${pdto.description} </textarea>
+						class="form-control" style="border: 0;"> ${pdto.product_description} </textarea>
 				</div>
 			</div>
 
@@ -86,7 +86,7 @@ img {
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
 					<input type="text" name="brand" class="form-control"
-						value="${pdto.brand}" style="border: 0;">
+						value="${pdto.product_brand}" style="border: 0;">
 				</div>
 			</div>
 
@@ -94,7 +94,7 @@ img {
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
 					<input type="text" name="price" class="form-control"
-						value="${pdto.price}" style="border: 0;">
+						value="${pdto.product_price}" style="border: 0;">
 				</div>
 			</div>
 
@@ -102,7 +102,7 @@ img {
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
 					<input type="text" id="count" name="count"
-						class="form-control" value="${pdto.count}" style="border: 0;">
+						class="form-control" value="${pdto.product_count}" style="border: 0;">
 				</div>
 			</div>
 

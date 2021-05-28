@@ -40,10 +40,6 @@ public class ProductModifyAction implements Action {
 		boardDAO bdao = new boardDAO();// 데이터 베이스 객체 생성
 		bdao.updateProduct(pdto);// 수정메소드 호출시 빈객체 전달하여 수정!
 
-		response.setContentType("text/html; charset=UTF-8");
-
-		request.setAttribute("center", "ProductModify.jsp");
-
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
 		forward.setPath("./ProductListAction.bo");
