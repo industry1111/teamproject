@@ -305,6 +305,25 @@ public class boardDAO {
 		}
 		return rdto;
 	}
+	
+	//배송지 변경
+	public void updateAddr(receiverDTO rdto ,int receiver_num){
+	    try {
+	        
+	        getCon();
+	         String sql = "update receiver set address_name,receiver_name,receiver_phone,receiver_addr1=?,receiver_addr2=?,receiver_addr3=?,basic_num where receiver__num=?";
+	          pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, rdto.getAddress_name());
+	            pstmt.setString(2, addr2);
+	            pstmt.setString(3, addr3);
+	            pstmt.setInt(4, member_num);
+	            pstmt.executeUpdate();
+	       } catch (Exception e) {
+	            System.out.println("updateAddr"+e);
+	      }finally{
+	            ResouceClose();
+	     }
+	}
 	//store Category List
 	public List<categoryDTO> getcategory(){
 		List<categoryDTO> list = new ArrayList<categoryDTO>();

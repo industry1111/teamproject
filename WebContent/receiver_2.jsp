@@ -58,7 +58,7 @@ if(document.getElementById("basic_num").checked) {
 };
 
 function addr_update(){
-	document.form_addr.action = contextPath + "/ReceiverUpdate";
+	document.form_addr.action = contextPath + "/ReceiverUpdate.bo";
 	document.form_addr.submit();
 
 };
