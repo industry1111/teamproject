@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class BoardFrontController extends HttpServlet {
+public class ProductFrontController extends HttpServlet {
 
 
 	@Override
@@ -125,27 +125,6 @@ public class BoardFrontController extends HttpServlet {
 			try {
 				forward = action.execute(request, response);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/ReviewAction.bo")) {
-			action = new ReviewAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/writableReviews.bo")) {
-			action = new WritableReviewsAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/writtenReviews.bo")) {
-			action = new WrittenReviewsAction();
-			try {
-				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
