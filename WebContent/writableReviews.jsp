@@ -83,11 +83,11 @@ input[type="text"]:focus {
 	<!-- 	<div id="page"> -->
 	<div class="colorlib-product" >
 		<div class="container" >
-			<div class="row row-pb-lg" >
+			<div class="row " >
 				<div class="col-md-12"  >
 					<div class="product-name d-flex " align="center" >
 					<div class="col-md-1" ></div>
-						//
+						작성 가능한 리뷰
 					</div>
 					<div class="row">
 						<div class="col-md-2">

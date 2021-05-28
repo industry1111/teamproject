@@ -106,7 +106,9 @@ input[type="text"]:focus {
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-3 offset-1">
-									별점
+								${rating.rating }
+
+
 								</div>
 								<div class="col-md-1 offset-7">
 									x
