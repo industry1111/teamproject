@@ -25,10 +25,6 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<%
-productDTO pdto = (productDTO)request.getAttribute("pdto");	
-%>
-
 <style type="text/css">
 img {
 	width: 100px;
@@ -48,24 +44,24 @@ img {
 	</div>
 
 	<div class="container" cols="100" rows="2">
-	
-		<form name="newProduct" action="/ProductModifyAction.bo"
+
+		<form name="newProduct" action="ProductModifyAction.bo"
 			class="form-horizontal" method="post" enctype="multipart/form-data">
-			
-				<input type="text" value="${pdto.product_num}" hidden />
-<!-- 			<div class="form-group row"> -->
-<!-- 				<label class="col-sm-2">상품 카테고리</label> -->
-<!-- 				<div class="com-sm-3"> -->
-<!-- 					<select class="form-control" aria-label=".form-select-sm example"> -->
-<%--  						<option selected value="${pdto.product_category}"></option> --%>
-<!-- 						<option value="1">카테고리1</option> --> 
-<!--  						<option value="2">카테고리2</option> --> 
-<!-- 						<option value="3">카테고리3</option> --> 
-<!-- 					</select> --> 
-<!-- 					<input type="text" name="product_category" -->
-<%-- 						value="${pdto.product_category}" style="border: 0;"> 임시 --%>
-<!-- 				</div> -->
-<!-- 			</div> -->
+
+			<input name="product_num" type="text" value="${pdto.product_num}" hidden/>
+			<!-- 			<div class="form-group row"> -->
+			<!-- 				<label class="col-sm-2">상품 카테고리</label> -->
+			<!-- 				<div class="com-sm-3"> -->
+			<!-- 					<select class="form-control" aria-label=".form-select-sm example"> -->
+			<%--  						<option selected value="${pdto.product_category}"></option> --%>
+			<!-- 						<option value="1">카테고리1</option> -->
+			<!--  						<option value="2">카테고리2</option> -->
+			<!-- 						<option value="3">카테고리3</option> -->
+			<!-- 					</select> -->
+			<!-- 					<input type="text" name="product_category" -->
+			<%-- 						value="${pdto.product_category}" style="border: 0;"> 임시 --%>
+			<!-- 				</div> -->
+			<!-- 			</div> -->
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
@@ -79,33 +75,32 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
-					<textarea name="description" cols="100" rows="10"
-						class="form-control"
-						style="border: 0;"> ${pdto.description} </textarea>
+					<textarea name="product_description" cols="100" rows="10"
+						class="form-control" style="border: 0;"> ${pdto.product_description} </textarea>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" name="brand" class="form-control"
-						value="${pdto.brand}" style="border: 0;">
+					<input type="text" name="product_brand" class="form-control"
+						value="${pdto.product_brand}" style="border: 0;">
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-					<input type="text" name="price" class="form-control"
-						value="${pdto.price}"  style="border: 0;">
+					<input type="text" name="product_price" class="form-control"
+						value="${pdto.product_price}" style="border: 0;">
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
-					<input type="text" id="count" name="unitsInStock"
-						class="form-control" value="${pdto.count}" 
+					<input type="text" id="product_count" name="product_count"
+						class="form-control" value="${pdto.product_count}"
 						style="border: 0;">
 				</div>
 			</div>
@@ -113,17 +108,19 @@ img {
 			<!-- 상품 미리보기 이미지가 올라가는 곳. -->
 			<div class="form-group row">
 				<div class="col-sm-2">
-					<label for="image">상품 이미지 선택</label> <input type="file" id="image" value="${pdto.product_img}"
-						name="image" hidden /> <img src="product_img_upload/${pdto.product_img}" id="preview">
+					<label for="image">상품 이미지 선택</label> <input type="file" id="image"
+						value="${pdto.product_img}" name="image" hidden /> <img
+						src="product_img_upload/${pdto.product_img}" id="preview">
 				</div>
 			</div>
-		</form>
-
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<a type="submit" class="btn btn-primary btn-lg" href="ProductModifyAction.bo">상품 수정</a>
+				<button type="submit">상품 수정</button> 
 				<a type="button" class="btn btn-secondary btn-lg" href="ProductListAction.bo">수정 취소</a>
 			</div>
 	</div>
+	</form>
+
+
 
 	<script src="js/seller.js"></script>
 </body>
