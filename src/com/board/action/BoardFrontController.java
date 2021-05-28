@@ -53,8 +53,6 @@ public class BoardFrontController extends HttpServlet {
 
 		}else if(command.equals("/ProductListAction.bo")) //상품 리스트 페이지로 이동하는 서블릿 
 		{ 
-			System.out.println("ProductListAction.bo");
-
 			action = new ProductListAction();
 			try {
 				forward = action.execute(request, response);
@@ -75,7 +73,6 @@ public class BoardFrontController extends HttpServlet {
 		}else if(command.equals("/ProductAddAction.bo")) { //상품을 등록하는 서블릿 
 			action = new ProductAddAction();
 
-			System.out.println("controll: ProductAddAction.bo");
 			try {
 				forward = action.execute(request, response);
 

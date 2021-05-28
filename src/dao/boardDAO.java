@@ -87,7 +87,7 @@ public class boardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				
-				pdto.setProduct_num(rs.getInt("product_num"));
+				pdto.setProduct_num(product_num);
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
@@ -112,7 +112,7 @@ public class boardDAO {
 		try {
 		getCon();
 
-		String sql ="update product set product_name=? , caetgory_name=? , product_decription=? "
+		String sql ="update product set product_name=? , category_name=? , product_description=? "
 					+ " , product_brand=? , product_price=? , product_count=?, product_img=? where product_num=? ";
 
 			//쿼리 실행할 객체 생성
@@ -137,19 +137,19 @@ public class boardDAO {
 	}
 
 	//상품 리스트
-	public List<productDTO> getProductList() {
+	public List<productDTO> getProductList(int member_num) {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product";
+			String sql = "select * from product where member_num =?";
 			pstmt =con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
 				
 				productDTO pdto = new productDTO();
 				pdto.setProduct_num(rs.getInt("product_num"));
-				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
 				pdto.setCategory_name(rs.getString("category_name"));

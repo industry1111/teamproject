@@ -74,27 +74,27 @@
 							</div>
 						</div>
 				</div>
-				<c:forEach var="list" items="${requestScope.list}">
+				<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 					<div class="row  d-flex" align="center">
 						<div class="col-md-2">
-								<img src="${list.product_img}" style="width: 100px;height: 100px;">
+								<img src="${list[i].product_img}" style="width: 100px;height: 100px;">
 						</div>
 						<div class="col-md-2">
-							<div class="a">${list.product_name}</div> <%-- 상품명 --%>
+							<div class="a">${list[i].product_name}</div> <%-- 상품명 --%>
 						</div>
 						<div class="col-md-2">
-							<div class="a">${list.product_description}</div> <%-- 물품가격 --%>
+							<div class="a">${list[i].product_description}</div> <%-- 물품가격 --%>
 						</div>
 						<div class="col-md-2">
-							<div class="a">${list.category_name }</div> <%--카테고리 --%>
+							<div class="a">${list[i].category_name }</div> <%--카테고리 --%>
 						</div>
 						<div class="col-md-1" align="left">
-							<div class="a">${list.product_price }</div> <%--상품가격 --%>
+							<div class="a">${list[i].product_price }</div> <%--상품가격 --%>
 						</div>
 						<div class="col-md-2" style="margin-left: 40px;">
 							<div class="a">
-								<a href="ProductModify.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-success">수정</a>
-								<a href="ProductDelete.bo?product_num=${list.product_num}" type="button" class="btn btn-outline-danger">삭제</a>
+								<a href="ProductModify.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-success">수정</a>
+								<a href="ProductDelete.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-danger">삭제</a>
 							</div>
 						</div>
 					</div>

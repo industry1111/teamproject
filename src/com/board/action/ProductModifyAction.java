@@ -20,14 +20,13 @@ public class ProductModifyAction implements Action {
 		ServletContext context = request.getServletContext();
 		String realpath = context.getRealPath("/product_img_upload");
 
-		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		int maxSize = 10 * 1024 * 1024;
 
 		MultipartRequest multi = new MultipartRequest(request, realpath, maxSize, "UTF-8",
 				new DefaultFileRenamePolicy());
 		
 		productDTO pdto = new productDTO();
-		pdto.setProduct_num(product_num);
+		pdto.setProduct_num(Integer.parseInt(multi.getParameter("product_num")));
 		pdto.setProduct_name(multi.getParameter("product_name"));
 		pdto.setCategory_name((multi.getParameter("category_name")));
 		pdto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));

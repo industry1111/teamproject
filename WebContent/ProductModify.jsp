@@ -25,7 +25,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-
+<<<<<<< HEAD ======= >>>>>>> 2760701ea55813f82791035bb5051f329bf466a7
 <style type="text/css">
 img {
 	width: 100px;
@@ -43,13 +43,10 @@ img {
 			<h1 class="display-3">상품 정보 수정${pdto.product_num }</h1>
 		</div>
 	</div>
-
-
-
 	<form name="newProduct" action="ProductModifyAction.bo"
 		class="form-horizontal" method="post" enctype="multipart/form-data">
 		<div class="container" cols="100" rows="2">
-			<input type="text" name="product_num" value="${pdto.product_num}"
+			<input name="product_num" type="text" value="${pdto.product_num}"
 				hidden />
 			<!-- 			<div class="form-group row"> -->
 			<!-- 				<label class="col-sm-2">상품 카테고리</label> -->
@@ -77,7 +74,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
-					<textarea name="description" cols="100" rows="10"
+					<textarea name="product_description" cols="100" rows="10"
 						class="form-control" style="border: 0;"> ${pdto.product_description} </textarea>
 				</div>
 			</div>
@@ -85,7 +82,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" name="brand" class="form-control"
+					<input type="text" name="product_brand" class="form-control"
 						value="${pdto.product_brand}" style="border: 0;">
 				</div>
 			</div>
@@ -93,7 +90,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-					<input type="text" name="price" class="form-control"
+					<input type="text" name="product_price" class="form-control"
 						value="${pdto.product_price}" style="border: 0;">
 				</div>
 			</div>
@@ -101,8 +98,9 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
-					<input type="text" id="count" name="count"
-						class="form-control" value="${pdto.product_count}" style="border: 0;">
+					<input type="text" id="product_count" name="product_count"
+						class="form-control" value="${pdto.product_count}"
+						style="border: 0;">
 				</div>
 			</div>
 

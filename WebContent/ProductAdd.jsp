@@ -56,7 +56,7 @@ img{
 						<option selected>=1차=</option>
 						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 							<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
-								<option value="${list[i].category_code}">${list[i].category_name }${ref1}</option>
+								<option value="${list[i].category_code}">${list[i].category_name }</option>
 							</c:if>
 						</c:forEach>
 					</select>
