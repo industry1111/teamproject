@@ -109,9 +109,12 @@ input::placeholder { text-align: right;}
 				<div class="col-md-7 offset-2">
 					<hr>
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-2">
 							<img alt="" src="images/product.png" style="height: 100px; width: 100px;">
-							상품 이름
+						</div>
+						<div class="col-md-6 offset-1">
+							상품이름<br>
+							상품 설명
 						</div>
 						<div class="col-md-3">
 							<a href="store.bo">

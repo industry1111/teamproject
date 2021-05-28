@@ -125,7 +125,7 @@ a:active {
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">스토어 현황</a>
+				<a href="StoreChart.bo">스토어 현황</a>
 			</div>
 		</div>
 		<div class="row">
