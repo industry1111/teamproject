@@ -43,12 +43,13 @@ img {
 		</div>
 	</div>
 
-	<div class="container" cols="100" rows="2">
 
-		<form name="newProduct" action="ProductModifyAction.bo"
-			class="form-horizontal" method="post" enctype="multipart/form-data">
 
-			<input name="product_num" type="text" value="${pdto.product_num}" hidden/>
+	<form name="newProduct" action="ProductModifyAction.bo"
+		class="form-horizontal" method="post" enctype="multipart/form-data">
+		<div class="container" cols="100" rows="2">
+			<input name="product_num" type="text" value="${pdto.product_num}"
+				hidden />
 			<!-- 			<div class="form-group row"> -->
 			<!-- 				<label class="col-sm-2">상품 카테고리</label> -->
 			<!-- 				<div class="com-sm-3"> -->
@@ -114,10 +115,11 @@ img {
 				</div>
 			</div>
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit">상품 수정</button> 
-				<a type="button" class="btn btn-secondary btn-lg" href="ProductListAction.bo">수정 취소</a>
+				<button type="submit">상품 수정</button>
+				<a type="button" class="btn btn-secondary btn-lg"
+					href="ProductListAction.bo">수정 취소</a>
 			</div>
-	</div>
+		</div>
 	</form>
 
 
