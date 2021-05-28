@@ -113,7 +113,7 @@ public class boardDAO {
 		getCon();
 
 		String sql ="update product set product_name=? , caetgory_name=? , product_decription=? "
-					+ " , product_brand=? , product_price=? , product_count=?, product_img where product_num=? ";
+					+ " , product_brand=? , product_price=? , product_count=?, product_img=? where product_num=? ";
 
 			//쿼리 실행할 객체 생성
 			pstmt= con.prepareStatement(sql);
