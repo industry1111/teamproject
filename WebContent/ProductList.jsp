@@ -1,12 +1,7 @@
-<%@page import="dto.productDTO"%>
-<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
- List<productDTO> list =(List<productDTO>)request.getAttribute("productList");
-%>
 <!DOCTYPE HTML>
 <html>
 	<head> <%--not used --%>
@@ -75,9 +70,10 @@
 						</div>
 				</div>
 				<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+
 					<div class="row  d-flex" align="center">
 						<div class="col-md-2">
-								<img src="${list[i].product_img}" style="width: 100px;height: 100px;">
+								${i+1 }<img src="${list[i].product_img}" style="width: 100px;height: 100px;">
 						</div>
 						<div class="col-md-2">
 							<div class="a">${list[i].product_name}</div> <%-- 상품명 --%>
@@ -107,11 +103,10 @@
 					<a href="ProductAdd.bo" type="button" class="btn btn-outline-info">신규 상품 등록</a>
 				</div>
 			</div>
-			
-<!-- 	</div> -->
 	</div>
 </form>
 <!--  form태그 끝 -->
+
    <!-- popper -->
    <script src="js/popper.min.js"></script>
    <!-- bootstrap 4.1 -->

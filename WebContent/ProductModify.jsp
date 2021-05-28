@@ -25,7 +25,6 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
-<<<<<<< HEAD ======= >>>>>>> 2760701ea55813f82791035bb5051f329bf466a7
 <style type="text/css">
 img {
 	width: 100px;

@@ -169,12 +169,11 @@ public class boardDAO {
 	}
 	
 	public void deleteProduct(int product_num){ //상품 정보 삭제
-		productDTO pdto = new productDTO();
 		try {
 			getCon();
 			String sql = "delete from product where product_num = ? ";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, pdto.getProduct_num());
+			pstmt.setInt(1, product_num);
 			pstmt.executeUpdate();
 						
 		} catch (Exception e) {
