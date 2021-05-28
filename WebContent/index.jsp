@@ -1,29 +1,35 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<c:if test="${center == null }">
-	<c:set var="center" value="main.jsp"/>
-</c:if>
-<title>Shop Homepage - Start Bootstrap Template</title>
-</head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
+<style type="text/css">
+.aa{
+ position: relative;
+ bottom: -30px;;
+ width: 100%;
+ 
+}
+</style>
+</head>
+<c:if test="${center ==null }">
+<c:set var="center" value="main.jsp"/>
+</c:if>
 <body>
-	<%--Header --%>
-	<jsp:include page="header.jsp"/>
-	
-	<%--Center --%>
-	<jsp:include page="${center }"/>
-	
-	<!-- Footer-->
-	<jsp:include page="footer.jsp"/>
+	<header>
+		<jsp:include page="header.jsp"/>
+	</header>
+		<jsp:include page="${center }"/>
+	<footer class="aa">
+		<jsp:include page="footer.jsp"/>
+	</footer>
 
 </body>
-</html>
+</html>	
