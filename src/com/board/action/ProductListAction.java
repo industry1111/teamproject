@@ -14,21 +14,18 @@ public class ProductListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
-		System.out.println("ProductListAction");
 
-		ActionForward forward = new ActionForward();
-		
+		HttpSession session = request.getSession();
+		int member_num = (Integer) session.getAttribute("member_num");
+	
 		//AdminGoodsDAO객체 생성 후 getGoodsList()생성
 		boardDAO bDao = new boardDAO();
-		List<productDTO> list = bDao.getProductList();
-				
-		//등록된 상품 목록 전부 가져오기
-		System.out.println("M : "+ list);
+		List<productDTO> list = bDao.getProductList(member_num);
 		
 		//requset영역에 저장
 		request.setAttribute("list", list);
 		request.setAttribute("center", "ProductList.jsp");
-		
+		ActionForward forward = new ActionForward();
 		//페이지이동(뷰페이지로이동)
 		forward.setPath("mypage.jsp");
 		forward.setRedirect(false);		

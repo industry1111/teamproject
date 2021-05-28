@@ -24,14 +24,14 @@ public class ProductModifyAction implements Action {
 
 		HttpSession session = request.getSession();
 
-		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		
 		int maxSize = 10 * 1024 * 1024;
 
 		MultipartRequest multi = new MultipartRequest(request, realpath, maxSize, "UTF-8",
 				new DefaultFileRenamePolicy());
 		
 		productDTO pdto = new productDTO();
-		pdto.setProduct_num(product_num);
+		pdto.setProduct_num(Integer.parseInt(multi.getParameter("product_num")));
 		pdto.setProduct_name(multi.getParameter("product_name"));
 		pdto.setCategory_name((multi.getParameter("category_name")));
 		pdto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
@@ -42,11 +42,6 @@ public class ProductModifyAction implements Action {
 
 		boardDAO bdao = new boardDAO();// 데이터 베이스 객체 생성
 		bdao.updateProduct(pdto);// 수정메소드 호출시 빈객체 전달하여 수정!
-
-
-		response.setContentType("text/html; charset=UTF-8");
-
-		request.setAttribute("center", "ProductModify.jsp");
 
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);

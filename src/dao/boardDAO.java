@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import dto.basketDTO;
 import dto.categoryDTO;
 import dto.productDTO;
+import dto.ratingDTO;
 import dto.receiverDTO;
 
 public class boardDAO {
@@ -86,7 +87,7 @@ public class boardDAO {
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				
-				pdto.setProduct_num(rs.getInt("product_num"));
+				pdto.setProduct_num(product_num);
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
@@ -109,8 +110,8 @@ public class boardDAO {
 	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정하는 서블릿
 		try {
 		getCon();
-		String sql ="update product set product_name=? , caetgory_name=? , product_decription=? "
-					+ " , product_brand=? , product_price=? , product_count=?, product_img where product_num=? ";
+		String sql ="update product set product_name=? , category_name=? , product_description=? "
+					+ " , product_brand=? , product_price=? , product_count=?, product_img=? where product_num=? ";
 			//쿼리 실행할 객체 생성
 			pstmt= con.prepareStatement(sql);
 			
@@ -121,6 +122,7 @@ public class boardDAO {
 			pstmt.setInt(5, pdto.getProduct_price());
 			pstmt.setInt(6, pdto.getProduct_count());
 			pstmt.setString(7, pdto.getProduct_img());
+			pstmt.setInt(8, pdto.getProduct_num());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("updateProduct:"+e.toString());
@@ -132,19 +134,19 @@ public class boardDAO {
 	
 
 	//상품 리스트
-	public List<productDTO> getProductList() {
+	public List<productDTO> getProductList(int member_num) {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product";
+			String sql = "select * from product where member_num =?";
 			pstmt =con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
 				
 				productDTO pdto = new productDTO();
 				pdto.setProduct_num(rs.getInt("product_num"));
-				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
 				pdto.setCategory_name(rs.getString("category_name"));
@@ -156,7 +158,6 @@ public class boardDAO {
 				list.add(pdto);
 				
 			}
-			System.out.println("상품목록 저장완료");
 		} catch (Exception e) {
 			System.out.println("getProduct"+e.toString());
 		} finally {
@@ -332,5 +333,24 @@ public class boardDAO {
 		return list;
 	}
 	
+	//별점
+	public void insertRating(ratingDTO rdto) { //상품 정보를 입력함
+
+		try {
+			getCon();
+		
+			String sql = "insert into rating (member_num,product_num,star)"
+					+ "values(?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rdto.getMember_num());
+			pstmt.setInt(2, rdto.getProduct_num());
+			pstmt.setInt(3, rdto.getStar());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("insertRating:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+	}
 	
 }
