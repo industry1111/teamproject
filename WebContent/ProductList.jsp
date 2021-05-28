@@ -74,7 +74,7 @@
 							</div>
 						</div>
 				</div>
-				<c:forEach var="list" items="${requestScope.list}">
+				<c:forEach var="list" items="${list}">
 					<div class="row  d-flex" align="center">
 						<div class="col-md-2">
 								<img src="${list.product_img}" style="width: 100px;height: 100px;">
