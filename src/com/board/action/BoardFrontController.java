@@ -120,8 +120,18 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if (command.equals("/receiver_2.bo")) {
+			
 			action = new ReceiverInfo();
-			System.out.println("1234");
+			try {
+	
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/ReceiverDelete.bo")) {
+			
+			action = new ReceiverDelete();
 			try {
 	
 				forward = action.execute(request, response);

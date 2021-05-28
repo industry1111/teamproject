@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.memberDAO;
 
@@ -35,7 +36,9 @@ public class UpdateCheck extends HttpServlet {
 		String command = request.getParameter("command");
 		String param = null;
 		int result = 0;
-
+		HttpSession session = request.getSession();
+	    int member_num = (int) session.getAttribute("member_num");
+	    
 		memberDAO mdao = new memberDAO();
 
 		if (command.equals("id")) {
@@ -50,8 +53,8 @@ public class UpdateCheck extends HttpServlet {
 				out.print("1");
 			}
 		} else if (command.equals("pw")) {
+			
 			param = request.getParameter("param");
-			int member_num = (Integer.parseInt(request.getParameter("member_num")));
 			result = mdao.pwCheck(param, member_num);
 			if (result == 1) {
 				out.print("1");

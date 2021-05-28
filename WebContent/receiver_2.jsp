@@ -58,7 +58,8 @@ if(document.getElementById("basic_num").checked) {
 };
 
 function addr_update(){
-	document.form_addr.action = contextPath + "/ReceiverUpdate.bo";
+	
+	document.form_addr.action = contextPath + "/ReceiverUpdate";
 	document.form_addr.submit();
 
 };
@@ -131,6 +132,7 @@ input[type="text"] {
 	</div>
 	<h4 align="center">배송지 등록/수정</h4>
 	<h6 align="center">배송지 정보 상세</h6>
+
 	<form action="ReceiverInsert" name="form_addr">
 	<table align="center" style="margin-left: 50px">
 		<tr>
@@ -139,8 +141,9 @@ input[type="text"] {
 			</th>
 			<td>
 				<div>
-					
+						
 						<div class="col-md-4">
+							<input type="hidden" name="receiver_num" value="${rdto.receiver_num}">
 							<input type="text" id="addr_name" name="addr_name" style="width:150px" value="${rdto.address_name}">
 					</div>
 					
@@ -170,7 +173,7 @@ input[type="text"] {
 					
 					<div class="row">
 						<div style="margin-right: 10px;margin-left: 15px">
-							<input type="text" id="sample6_postcode" name="addr1" style="width: 100px" value="${rdto.receiver_addr1}">
+							<input type="text" id="sample6_postcode" name="receiver_addr1" style="width: 100px" value="${rdto.receiver_addr1}">
 						</div>
 						<div>
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
@@ -178,10 +181,10 @@ input[type="text"] {
 					</div>
 				
 					<div>
-						<input type="text" id="sample6_address" name="addr2" value="${rdto.receiver_addr2}" style="width: 300px;">&nbsp;
+						<input type="text" id="sample6_address" name="receiver_addr2" value="${rdto.receiver_addr2}" style="width: 300px;">&nbsp;
 					</div>
 					<div>
-						<input type="text" id="sample6_detailAddress" name="addr3" value="${rdto.receiver_addr3}" style="width: 300px;">
+						<input type="text" id="sample6_detailAddress" name="receiver_addr3" value="${rdto.receiver_addr3}" style="width: 300px;">
 					</div>
 					
 				</div>

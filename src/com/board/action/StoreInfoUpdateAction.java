@@ -1,4 +1,4 @@
-package com.member.action;
+package com.board.action;
 
 import java.io.IOException;
 
@@ -7,31 +7,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.sellerDAO;
 
-@WebServlet("/StoreInfoUpdateAction")
-public class StoreInfoUpdateAction extends HttpServlet {
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	doStoreUpdate(request, response);
-    }
+@WebServlet("/StoreInfoUpdate")
+public class StoreInfoUpdateAction extends HttpServlet{
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	doStoreUpdate(request, response);
-    }
-    
-    protected void doStoreUpdate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doStInfoUpdate(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doStInfoUpdate(request, response);
+	}
+
+	protected void doStInfoUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		String command = request.getParameter("command");
-		HttpSession session = request.getSession();
-	 
-		int member_num = (int)session.getAttribute("member_num");
+
+		int member_num = (Integer.parseInt(request.getParameter("member_num")));
 		
 		sellerDAO sdao = new sellerDAO();
 				
@@ -64,4 +65,3 @@ public class StoreInfoUpdateAction extends HttpServlet {
 	
 	}
 }
-
