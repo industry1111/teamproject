@@ -72,8 +72,8 @@ img {
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<img src="" id="preview"><br> <label
-											for="profile_img">프로필 이미지 선택</label> <input type="file"
-											id="profile_img" name="profile_img" hidden />
+											for="profile_img">프로필 이미지 선택</label> 
+											<input type="file" id="profile_img" name="profile_img" hidden />
 									</div>
 								</div>
 								<c:forEach var="i" begin="1" step="1" end="5">

@@ -19,12 +19,13 @@ public class ProductAddAction implements Action{
 
 		request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
-		String realpath = context.getRealPath("/product_img_upload");
+		String realpath = context.getRealPath("/product_img_upload/");
+		
 		
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 
-		int maxSize = 10 * 1024 * 1024;
+		int maxSize = 1024 * 1024 * 1024;
 
 		MultipartRequest multi = new MultipartRequest(
 				request, realpath, maxSize, "UTF-8", new DefaultFileRenamePolicy()
@@ -45,7 +46,6 @@ public class ProductAddAction implements Action{
 		
 		//상품이미지 정보 처리
 		String product_img = multi.getFilesystemName("product_img");
-
 		pdto.setProduct_img(product_img);
 		
 		
