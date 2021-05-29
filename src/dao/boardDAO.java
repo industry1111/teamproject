@@ -323,6 +323,61 @@ public class boardDAO {
 		}
 		return rdto;
 	}
+	
+	//배송지 변경
+	public void updateReceiver(receiverDTO rdto ,int receiver_num){
+	    try {
+	    	 getCon();
+	    	 
+	    	if(rdto.getBasic_num()==1){
+	    		String sql = "update receiver set basic_num = 0 ";
+	    		pstmt = con.prepareStatement(sql);
+	    		pstmt.executeUpdate();
+	    	}
+	    	
+	       
+	         String sql = "update receiver set address_name=?,receiver_name=?,receiver_phone=?,receiver_addr1=?,"
+	         		+ "receiver_addr2=?,receiver_addr3=?,receiver_msg=?,basic_num=? where receiver_num=?";
+
+	         	pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, rdto.getAddress_name());
+	            pstmt.setString(2, rdto.getReceiver_name());
+	            pstmt.setString(3, rdto.getReceiver_phone());
+	            pstmt.setString(4, rdto.getReceiver_addr1());
+	            pstmt.setString(5, rdto.getReceiver_addr2());
+	            pstmt.setString(6, rdto.getReceiver_addr3());
+	            pstmt.setString(7, rdto.getReceiver_msg());
+	            pstmt.setInt(8, rdto.getBasic_num());
+	            pstmt.setInt(9, receiver_num);
+	            pstmt.executeUpdate();
+	            
+	       } catch (Exception e) {
+	            System.out.println("updateReceiver()"+e);
+	      }finally{
+	            ResouceClose();
+	     }
+	}
+	
+	//배송지 삭제
+	public void deleteReceiver(int receiver_num){
+		
+		try {
+			
+			getCon();
+			
+			String sql = "delete receiver from receiver where receiver_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, receiver_num);
+			pstmt.executeUpdate();
+		
+		} catch (Exception e) {
+			 System.out.println("deleteReceiver()"+e);
+		}finally {
+			ResouceClose();
+		}
+		
+	}
+	
 	//store Category List
 	public List<categoryDTO> getcategory(){
 		List<categoryDTO> list = new ArrayList<categoryDTO>();

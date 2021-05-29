@@ -58,6 +58,16 @@ function update_onclick(receiver_num){
     //이름은 중복창 제어용
     child = window.open("receiver_2.bo?receiver_num="+receiver_num,"child","width=500,height=650");
 };//click
+function delete_onclick(receiver_num){
+
+	if(confirm("삭제하시겠습니까?")){
+		
+		document.location.href = "ReceiverDelete.bo?receiver_num="+receiver_num;
+	}else{
+		window.close();
+	}
+    
+};
 
 
 </script>
@@ -173,7 +183,7 @@ input[type="text"]:focus {
 						</div>
 						<div class="col-md-2">
 							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
-							<input id="id_cancle" type="button" value="삭제" />  
+							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >
@@ -198,7 +208,7 @@ input[type="text"]:focus {
 						</div>
 						<div class="col-md-2">
 							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
-							<input id="id_cancle" type="button" value="삭제" />  
+							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >

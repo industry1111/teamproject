@@ -8,6 +8,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dao.memberDAO;
+import dao.sellerDAO;
 import dto.memberDTO;
 import dto.sellerDTO;
 
@@ -20,6 +21,7 @@ public class SellerJoinAction implements Action{
 		  	//세션객체 생성
 			HttpSession session=request.getSession();
 			String id = (String)session.getAttribute("id");
+			int member_num = (int)session.getAttribute("member_num");
 			
 			String directory = request.getServletContext().getRealPath("/upload_profile/");
 			int maxSize = 1024*1024*1024;
@@ -27,8 +29,7 @@ public class SellerJoinAction implements Action{
 			MultipartRequest multipartRequest;
 			multipartRequest = new MultipartRequest(request, directory, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 			
-			memberDAO mdao = new memberDAO();
-			int member_num = mdao.getMemberNum(id);
+			sellerDAO sdao = new sellerDAO();
 			 
 	        sellerDTO sdto = new sellerDTO();
 	        sdto.setStore_name(multipartRequest.getParameter("store_name"));
@@ -45,8 +46,9 @@ public class SellerJoinAction implements Action{
 			System.out.println(sdto.getStore_name());
 	        sdto.setCategory_num(Integer.parseInt(multipartRequest.getParameter("category_num")));
 	        System.out.println(sdto.getCategory_num());
-	        mdao.insertSeller(sdto);
+	        sdao.insertSeller(sdto);
 	        
+	        memberDAO mdao = new memberDAO();
 	        memberDTO mdto = mdao.getMemberInfo(id);
 			session.setAttribute("member_code", mdto.getMember_code());
 			

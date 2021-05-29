@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class MemberFrontController extends HttpServlet {
 
@@ -119,9 +120,11 @@ public class MemberFrontController extends HttpServlet {
 		} else if (command.equals("/MemberUpdateAction.me")) {
 
 		} else if (command.equals("/DeleteMember.me")) {
+			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("mypage.jsp");
+			
 			request.setAttribute("center", "deleteMember.jsp");
 			
 		} else if (command.equals("/StoreInfoUpdateAction.me")) {
