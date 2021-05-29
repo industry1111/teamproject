@@ -458,5 +458,32 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
+	public List<categoryDTO> getcategory(int category_code1){
+		List<categoryDTO> list = new ArrayList<categoryDTO>();
+		try {
+			getCon();
+			String sql = "select * from category where category_coderef1=? and category_coderef2 is null";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, category_code1);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				categoryDTO cdto = new categoryDTO();
+				cdto.setCategory_num(rs.getInt("category_num"));
+				cdto.setCategory_name(rs.getString("category_name"));
+				cdto.setCategory_code(rs.getInt("category_code"));
+				cdto.setCategory_codeRef1(rs.getInt("category_coderef1"));
+				cdto.setCategory_codeRef2(rs.getInt("category_coderef2"));
+			
+				
+				list.add(cdto);
+			}
+		} catch (Exception e) {
+			System.out.println("category:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+		return list;
+	}
+	
 	
 }
