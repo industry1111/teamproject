@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import dto.basketDTO;
 import dto.categoryDTO;
 import dto.productDTO;
+import dto.ratingDTO;
 import dto.receiverDTO;
 
 public class boardDAO {
@@ -332,5 +333,24 @@ public class boardDAO {
 		return list;
 	}
 	
+	//별점
+	public void insertRating(ratingDTO rdto) { //상품 정보를 입력함
+
+		try {
+			getCon();
+		
+			String sql = "insert into rating (member_num,product_num,star)"
+					+ "values(?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rdto.getMember_num());
+			pstmt.setInt(2, rdto.getProduct_num());
+			pstmt.setInt(3, rdto.getStar());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("insertRating:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+	}
 	
 }

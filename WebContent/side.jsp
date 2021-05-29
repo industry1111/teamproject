@@ -94,6 +94,22 @@ a:active {
 				<a href="receiver.bo">배송지관리</a>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-9 col-md-offset-2">
+				<hr>
+				<h4>상품 리뷰</h4>
+			</div>
+		</div>
+		<div class="row" style="margin-top: 10px">
+			<div class="col-md-9 col-md-offset-2 side"align="center" >
+				<a href="writableReviews.bo">작성 가능한 리뷰</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 col-md-offset-2 side"align="center" >
+				<a href="writtenReviews.bo">내가 작성한 리뷰</a>
+			</div>
+		</div>
 	
 		<c:if test="${member_code ==1 }">
 		<div class="row">

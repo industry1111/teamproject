@@ -4,9 +4,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
- List<productDTO> list =(List<productDTO>)request.getAttribute("productList");
-%>
 <!DOCTYPE HTML>
 <html>
 	<head> <%--not used --%>
@@ -74,7 +71,9 @@
 							</div>
 						</div>
 				</div>
+
 				<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+
 					<div class="row  d-flex" align="center">
 						<div class="col-md-2">
 								<img src="${list[i].product_img}" style="width: 100px;height: 100px;">
