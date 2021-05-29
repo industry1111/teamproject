@@ -13,6 +13,7 @@ public class productDTO {
 	private String product_description;
 	private Timestamp product_regdate;
 	private int member_num;
+	
 	public int getProduct_num() {
 		return product_num;
 	}

@@ -169,6 +169,39 @@ public class boardDAO {
 		return list;
 	}
 	
+	
+	//메인화면에 보여줄 상품 리스트
+	public List<productDTO> getProductList() {
+		List<productDTO> list = new ArrayList<productDTO>();
+		try {
+			getCon();
+			String sql = "select * from product ";
+			pstmt =con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				
+				productDTO pdto = new productDTO();
+				pdto.setProduct_num(rs.getInt("product_num"));
+				pdto.setProduct_name(rs.getString("product_name"));
+				pdto.setProduct_img(rs.getString("product_img"));
+				pdto.setCategory_name(rs.getString("category_name"));
+				pdto.setProduct_price(rs.getInt("product_price"));
+				pdto.setProduct_count(rs.getInt("product_count"));
+				pdto.setProduct_brand(rs.getString("product_brand"));
+				pdto.setProduct_description(rs.getString("product_description"));
+				pdto.setMember_num(rs.getInt("member_num"));
+				
+				list.add(pdto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ResouceClose();
+		}
+		return list;
+	}
+	
 	public void deleteProduct(int product_num){ //상품 정보 삭제
 		try {
 			getCon();
@@ -184,7 +217,6 @@ public class boardDAO {
 		}
 		
 	}
-	
 	
 	//장바구니 추가
 	public void insertBasket(int member_num,int product_num,int quantity) {
@@ -296,6 +328,8 @@ public class boardDAO {
 		}
 		return rlist;
 	}
+	
+	
 	
 	public receiverDTO getReceiverInfo(int receiver_num) {
 		receiverDTO rdto = new receiverDTO();
