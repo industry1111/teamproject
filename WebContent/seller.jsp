@@ -11,20 +11,23 @@
 
 
 <style>
-	#template{
-  	margin-top: 35px
-  }
-  img{
-  	width: 100px; 
-  	height: 100px;
-  }
+#template {
+	margin-top: 35px
+}
+
+img {
+	width: 100px;
+	height: 100px;
+}
 </style>
+
 </head>
 
 <body>
 	<!-- 판매자 등록 창 -->
 	<form action="SellerJoinAction.me" method="post"
-		enctype="multipart/form-data"> <%--이미지 파일업로드 저장. --%>
+		enctype="multipart/form-data">
+		<%--이미지 파일업로드 저장. --%>
 		<section class="ftco-section">
 			<div class="container">
 				<div class="row justify-content-center">
@@ -36,69 +39,72 @@
 					<div class="col-md-9 col-lg-6">
 						<div class="login-wrap">
 							<h6 class="mb-4 text-center">Add Information Your Account</h6>
-								<div class="row">
-									<div class="col-md-8">
-										<div class="form-group mb-4">
-											<input id="store_name" name="store_name" type="text"
-												class="form-control" placeholder="스토어 이름"> <span
-												id="name_check" class="check"></span> <span id="name_check2"
-												class="check2"></span>
-										</div>
+							<div class="row">
+								<div class="col-md-8">
+									<div class="form-group mb-4">
+										<input id="store_name" name="store_name" type="text" class="form-control" placeholder="스토어 이름"> 
+										<span id="name_check" class="check"></span> 
+										<span id="name_check2" class="check2"></span>
 									</div>
-									<div class="col-md-8">
-										<div class="form-group mb-4">
-											카테고리 <select name="store_c_num">
-												<option value="0">====카테고리====</option>
-												<c:forEach var="list" items="${list }">
-													<option value="${list.store_c_num }">${list.store_category }</option>
-												</c:forEach>
-												
-											</select>
-										</div>
+								</div>
+								<div class="col-md-8">
+									<div class="form-group mb-4">카테고리 
+										<select id="category_num" name="category_num">
+											<option>====카테고리====</option>
+											<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+												<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
+													<option value="${list[i].category_num}">${list[i].category_name }</option>
+												</c:if>
+											</c:forEach>
+										</select>
 									</div>
-									<div class="col-md-12">
-										<div class="form-group mb-4">
-											계좌번호 <select name="account">
-												<option>은행</option>
-												<option>부산 은행</option>
-												<option>농협</option>
-											</select>
-											<input type="text" placeholder="계좌번호 입려">
-											<button type="button">인증</button>
-										</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group mb-4">
+										계좌번호 <select>
+											<option>은행</option>
+											<option>부산 은행</option>
+											<option>농협</option>
+										</select> <input type="text" placeholder="계좌번호 입려" name="account">
+										<button type="button">인증</button>
 									</div>
-									<div class="col-md-8">
-										<div class="form-group mb-4">
-											<img src="" id="preview" ><br>
-											<label for="profile_img">프로필 이미지 선택</label>
-											 <input type="file" id="profile_img" name="profile_img" hidden/>
-										</div>
+								</div>
+								<div class="col-md-8">
+									<div class="form-group mb-4">
+										<img src="" id="preview"><br> <label
+											for="profile_img">프로필 이미지 선택</label> <input type="file"
+											id="profile_img" name="profile_img" hidden />
 									</div>
-									<c:forEach var="i" begin="1" step="1" end="5" >
+								</div>
+								<c:forEach var="i" begin="1" step="1" end="5">
 									<div class="col-md-12">
 										<hr>
 										<div class="row">
-											
+
 											<div class="col-md-3">
-												<input type="radio" name="template" id="template" value="template${i }">template${i}
+												<input type="radio" name="template" id="template"
+													value="template${i }">template${i}
 											</div>
 											<div class="col-md-9">
-												<img alt="" src="images/1.png" >&nbsp;
-												<img alt="" src="images/1.png" >&nbsp;
-												<img alt="" src="images/1.png" >
+												<img alt="" src="images/1.png">&nbsp; <img alt=""
+													src="images/1.png">&nbsp; <img alt=""
+													src="images/1.png">
 											</div>
 										</div>
-										<c:if test="${i == 5 }"><hr></c:if>
+										<c:if test="${i == 5 }">
+											<hr>
+										</c:if>
 									</div>
-									</c:forEach>
-									
-									<div class="col-md-12">
-										<div class="form-group d-flex">
-											<button type="submit"
-												class="btn btn-primary rounded submit p-3">Register Seller</button>
-										</div>
+								</c:forEach>
+
+								<div class="col-md-12">
+									<div class="form-group d-flex">
+										<button id="btn_submit" type="submit"
+											class="btn btn-primary rounded submit p-3">Register
+											Seller</button>
 									</div>
 								</div>
+							</div>
 						</div>
 					</div>
 				</div>

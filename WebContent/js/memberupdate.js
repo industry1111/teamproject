@@ -7,8 +7,6 @@ var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 var check = 0;
 
 $(function() {
-	
-	var member_num = ${member_num};
 	var date = $("#date").val();
 	var date1 = new Date(date);
 	var now_date = new Date();

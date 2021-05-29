@@ -6,9 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db.basketDTO;
-import db.boardDAO;
-import db.memberDAO;
+import dao.boardDAO;
+import dao.memberDAO;
+import dto.basketDTO;
 
 public class BasketList implements Action{
 

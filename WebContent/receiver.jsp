@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title></title>
+<title>배송지 정보</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,11 +53,21 @@
     child = window.open("receiver_1.jsp","child","width=500,height=650");
 };//click
 
-function update_onclick(){
+function update_onclick(receiver_num){
             
     //이름은 중복창 제어용
-    child = window.open("receiver_2.jsp","child","width=500,height=650");
+    child = window.open("receiver_2.bo?receiver_num="+receiver_num,"child","width=500,height=650");
 };//click
+function delete_onclick(receiver_num){
+
+	if(confirm("삭제하시겠습니까?")){
+		
+		document.location.href = "ReceiverDelete.bo?receiver_num="+receiver_num;
+	}else{
+		window.close();
+	}
+    
+};
 
 
 </script>
@@ -154,26 +164,26 @@ input[type="text"]:focus {
 
 					</div>
 					
-					<c:forEach var="rlist" items="${rlist}">
-					<c:if test="${rlist.basic_num == 1}">
+					<c:forEach var="i" begin="0" step="1" end="${rlist.size() }" >
+					<c:if test="${rlist[i].basic_num == 1}">
 					<div class="row" align="center">
 					  
 						<div class="col-md-2">
-							<c:out value="${rlist.address_name }"/>
+							<c:out value="${rlist[i].address_name }"/>
 							<br>
 							기본배송지
 						</div>	
 						<div class="col-md-6">
-							<c:out value="${rlist.receiver_addr1 }"/>
-							<c:out value="${rlist.receiver_addr2 }"/>
-							<c:out value="${rlist.receiver_addr3 }"/>
+							<c:out value="${rlist[i].receiver_addr1 }"/>
+							<c:out value="${rlist[i].receiver_addr2 }"/>
+							<c:out value="${rlist[i].receiver_addr3 }"/>
 						</div>
 						<div class="col-md-2">
-							<c:out value="${rlist.receiver_phone}"/>
+							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" onclick="update_onclick();"/><br>
-							<input id="id_cancle" type="button" value="삭제" />  
+							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
+							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >
@@ -181,24 +191,24 @@ input[type="text"]:focus {
 					</div> 
 				</c:if>
 					</c:forEach>
-					<c:forEach var="rlist" items="${rlist}">
-					<c:if test="${rlist.basic_num == 0}">
+					<c:forEach var="i" begin="0" step="1" end="${rlist.size() }" >
+					<c:if test="${rlist[i].basic_num == 0}">
 					<div class="row" align="center">
 					  
 						<div class="col-md-2">
-							<c:out value="${rlist.address_name }"/>
+							<c:out value="${rlist[i].address_name }"/>
 						</div>	
 						<div class="col-md-6">
-							<c:out value="${rlist.receiver_addr1 }"/>
-							<c:out value="${rlist.receiver_addr2 }"/>
-							<c:out value="${rlist.receiver_addr3 }"/>
+							<c:out value="${rlist[i].receiver_addr1 }"/>
+							<c:out value="${rlist[i].receiver_addr2 }"/>
+							<c:out value="${rlist[i].receiver_addr3 }"/>
 						</div>
 						<div class="col-md-2">
-							<c:out value="${rlist.receiver_phone}"/>
+							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" onclick="update_onclick();"/><br>
-							<input id="id_cancle" type="button" value="삭제" />  
+							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
+							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >

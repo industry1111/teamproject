@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title></title>
+<title>배송지 등록</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,31 +42,11 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 
-<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<!-- <script src="js/receiver.js"></script> -->
-<script type="text/javascript">
-
-if(document.getElementById("basic_num").checked) {
-    document.getElementById("basic_num_hidden").disabled = true;
-}
-
- function close_btn(){
-       window.close();
-};
-
-function addr_add(){
-	document.form_addr.action = contextPath + "/ReceiverInsert";
-	document.form_addr.submit();
-
-};
-
-
-</script>
-
-
+<script src="js/receiver.js"></script> 
 
 <style type="text/css">
 .myButton {
@@ -170,7 +150,7 @@ input[type="text"] {
 					
 					<div class="row">
 						<div style="margin-right: 10px;margin-left: 15px">
-							<input type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required
+							<input type="text" id="addr1" name="addr1" placeholder="우편번호" required
 									style="width: 100px">
 						</div>
 						<div>
@@ -179,10 +159,10 @@ input[type="text"] {
 					</div>
 				
 					<div>
-						<input type="text" id="sample6_address" name="addr2" placeholder="주소" required style="width: 300px;">&nbsp;
+						<input type="text" id="addr2" name="addr2" placeholder="주소" required style="width: 300px;">&nbsp;
 					</div>
 					<div>
-						<input type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required style="width: 300px;">
+						<input type="text" id="addr3" name="addr3" placeholder="상세주소" style="width: 300px;">
 					</div>
 					
 				</div>
@@ -209,8 +189,7 @@ input[type="text"] {
 			<td>
 				<div>
 					<div class="col-md-7">
-							<input type="checkbox" name="basic_num" id="basic_num" value='1' onclick="check_click();"/> 기본배송지로 설정
-								<input type="hidden" name="basic_num" id="basic_num_hidden" value="0" /> 
+							<input type="checkbox" name="basic_num" id="basic_num" value="1"/> 기본배송지로 설정
 					</div>
 					
 				</div>
@@ -221,16 +200,16 @@ input[type="text"] {
 		
 			<div class="row" style="margin-left: 100px">
 				<div style="margin-right: 20px">
-					<input type="button" class="myButton" value="닫기" onclick="close_btn();" >
+					<input type="button" class="myButton" value="닫기" name="close_btn" id="close_btn">
 				</div>
 				
 				<div>
-					<input type="button" class="myButton" value="저장" name="addr_add_btn" id="addr_add_btn" onclick="addr_add();">
+					<input type="button" class="myButton" value="저장" name="addr_add_btn" id="addr_add_btn">
 				</div>
 			</div>
 		</div>
 	</form>
-	<!-- 	</div> -->
+	
 	<!-- popper -->
 	<script src="js/popper.min.js"></script>
 	<!-- bootstrap 4.1 -->
@@ -266,10 +245,10 @@ function sample6_execDaumPostcode() {
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample6_postcode').value = data.zonecode;
-            document.getElementById("sample6_address").value = address;
+            document.getElementById('addr1').value = data.zonecode;
+            document.getElementById("addr2").value = address;
             // 커서를 상세주소 필드로 이동한다.
-            document.getElementById("sample6_detailAddress").focus();
+            document.getElementById("addr3").focus();
         }
     }).open();
 }

@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import db.boardDAO;
-import db.memberDAO;
-import db.receiverDTO;
+import dao.boardDAO;
+import dao.memberDAO;
+import dto.receiverDTO;
 @WebServlet("/ReceiverInsert")
 public class ReceiverInsert extends HttpServlet{
 
