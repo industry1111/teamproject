@@ -411,12 +411,14 @@ public class boardDAO {
 		try {
 			getCon();
 		
-			String sql = "insert into rating (member_num,product_num,star)"
-					+ "values(?,?,?)";
+			String sql = "insert into rating (member_num,product_num,rating1,rating2,rating3)"
+					+ "values(?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rdto.getMember_num());
 			pstmt.setInt(2, rdto.getProduct_num());
-			pstmt.setInt(3, rdto.getStar());
+			pstmt.setInt(3, rdto.getRating1());
+			pstmt.setInt(4, rdto.getRating2());
+			pstmt.setInt(5, rdto.getRating3());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("insertRating:"+e.toString());

@@ -106,7 +106,7 @@ input[type="text"]:focus {
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-3 offset-1">
-								${rating.rating }
+								${rdto.rating1 }
 
 
 								</div>

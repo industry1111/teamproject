@@ -11,15 +11,16 @@ public class WrittenReviewsAction implements Action{
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("ratingTest");
 		
-		
-
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session=request.getSession();
 		String id = (String)session.getAttribute("id");
+		int member_num = (int)session.getAttribute("member_num");
 		
-		System.out.println(request.getParameter("rating"));
+		int rating1 = Integer.parseInt(request.getParameter("rating1"));
+		System.out.println(request.getParameter("rating1"));
 		
 		
 		

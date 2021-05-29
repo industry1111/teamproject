@@ -12,13 +12,16 @@ public class RatingAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		System.out.println("ratingTest");
 		
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session=request.getSession();
 		String id = (String)session.getAttribute("id");
 		
-		System.out.println(request.getParameter("rating"));
+		System.out.println(request.getParameter("rating1"));
+		System.out.println(request.getParameter("rating2"));
+		System.out.println(request.getParameter("rating3"));
 		
 		
 		
