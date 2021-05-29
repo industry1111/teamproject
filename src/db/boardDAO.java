@@ -224,6 +224,7 @@ public class boardDAO {
 			System.out.println("insertReceiver:"+e.toString());
 		}
 	}
+	
 	//배송지 정보
 	public List<receiverDTO> getReceiverInfo(int member_num){
 		
