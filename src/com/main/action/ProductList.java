@@ -25,7 +25,7 @@ public class ProductList implements Action{
 		sellerDAO sdao = new sellerDAO();
 		List<categoryDTO> clist = bdao.getcategory();
 		List<productDTO> plist = bdao.getProductList();
-		List<sellerDTO> slist = sdao.getSellerInfo();
+ 		List<sellerDTO> slist = sdao.getSellerInfo();
  		request.setAttribute("clist", clist);
 		request.setAttribute("plist", plist);
 		request.setAttribute("slist", slist);
