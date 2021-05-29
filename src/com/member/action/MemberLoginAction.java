@@ -62,8 +62,7 @@ public class MemberLoginAction implements Action{
 		memberDTO mdto = mdao.getMemberInfo(id);
 		session.setAttribute("member_num", mdto.getMember_num());
 		session.setAttribute("member_code", mdto.getMember_code());
-		session.setAttribute("member_num",mdto.getMember_num());
-	/*로그인 성공시.... CarMain.jsp 페이지로 이동 시킨다.*/
+		
 		//페이지 이동 방식 여부 값,이동페이지 경로 값 저장 하여 리턴 해주는 객체 생성
 		ActionForward forward=new ActionForward();
 		

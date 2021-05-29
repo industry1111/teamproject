@@ -70,8 +70,9 @@ public class boardDAO {
 			pstmt.setString(7, pdto.getProduct_brand());
 			pstmt.setString(8, pdto.getProduct_description());
 			pstmt.executeUpdate();
+
 		} catch (Exception e) {
-			System.out.println("insertProduct:"+e.toString());
+			e.printStackTrace();
 		}finally {
 			ResouceClose();
 		}
@@ -96,10 +97,11 @@ public class boardDAO {
 				pdto.setProduct_count(rs.getInt("product_count"));
 				pdto.setProduct_brand(rs.getString("product_brand"));
 				pdto.setProduct_description(rs.getString("product_description"));
+
 			}
 			
 		} catch (Exception e) {
-			System.out.println("getProductInfo"+e.toString());
+			e.printStackTrace();
 		} finally {
 			ResouceClose();
 		}
@@ -110,8 +112,10 @@ public class boardDAO {
 	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정하는 서블릿
 		try {
 		getCon();
+
 		String sql ="update product set product_name=? , category_name=? , product_description=? "
 					+ " , product_brand=? , product_price=? , product_count=?, product_img=? where product_num=? ";
+
 			//쿼리 실행할 객체 생성
 			pstmt= con.prepareStatement(sql);
 			
@@ -124,6 +128,7 @@ public class boardDAO {
 			pstmt.setString(7, pdto.getProduct_img());
 			pstmt.setInt(8, pdto.getProduct_num());
 			pstmt.executeUpdate();
+
 		} catch (Exception e) {
 			System.out.println("updateProduct:"+e.toString());
 		}finally{
@@ -131,7 +136,6 @@ public class boardDAO {
 		}
 		
 	}
-	
 
 	//상품 리스트
 	public List<productDTO> getProductList(int member_num) {
@@ -156,17 +160,30 @@ public class boardDAO {
 				pdto.setProduct_description(rs.getString("product_description"));
 				
 				list.add(pdto);
-				
 			}
 		} catch (Exception e) {
-			System.out.println("getProduct"+e.toString());
+			e.printStackTrace();
 		} finally {
 			ResouceClose();
 		}
 		return list;
 	}
 	
-	
+	public void deleteProduct(int product_num){ //상품 정보 삭제
+		try {
+			getCon();
+			String sql = "delete from product where product_num = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, product_num);
+			pstmt.executeUpdate();
+						
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			ResouceClose();
+		}
+		
+	}
 	
 	
 	//장바구니 추가
@@ -306,6 +323,61 @@ public class boardDAO {
 		}
 		return rdto;
 	}
+	
+	//배송지 변경
+	public void updateReceiver(receiverDTO rdto ,int receiver_num){
+	    try {
+	    	 getCon();
+	    	 
+	    	if(rdto.getBasic_num()==1){
+	    		String sql = "update receiver set basic_num = 0 ";
+	    		pstmt = con.prepareStatement(sql);
+	    		pstmt.executeUpdate();
+	    	}
+	    	
+	       
+	         String sql = "update receiver set address_name=?,receiver_name=?,receiver_phone=?,receiver_addr1=?,"
+	         		+ "receiver_addr2=?,receiver_addr3=?,receiver_msg=?,basic_num=? where receiver_num=?";
+
+	         	pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, rdto.getAddress_name());
+	            pstmt.setString(2, rdto.getReceiver_name());
+	            pstmt.setString(3, rdto.getReceiver_phone());
+	            pstmt.setString(4, rdto.getReceiver_addr1());
+	            pstmt.setString(5, rdto.getReceiver_addr2());
+	            pstmt.setString(6, rdto.getReceiver_addr3());
+	            pstmt.setString(7, rdto.getReceiver_msg());
+	            pstmt.setInt(8, rdto.getBasic_num());
+	            pstmt.setInt(9, receiver_num);
+	            pstmt.executeUpdate();
+	            
+	       } catch (Exception e) {
+	            System.out.println("updateReceiver()"+e);
+	      }finally{
+	            ResouceClose();
+	     }
+	}
+	
+	//배송지 삭제
+	public void deleteReceiver(int receiver_num){
+		
+		try {
+			
+			getCon();
+			
+			String sql = "delete receiver from receiver where receiver_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, receiver_num);
+			pstmt.executeUpdate();
+		
+		} catch (Exception e) {
+			 System.out.println("deleteReceiver()"+e);
+		}finally {
+			ResouceClose();
+		}
+		
+	}
+	
 	//store Category List
 	public List<categoryDTO> getcategory(){
 		List<categoryDTO> list = new ArrayList<categoryDTO>();

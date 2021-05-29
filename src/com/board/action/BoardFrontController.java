@@ -98,8 +98,8 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}else if(command.equals("/Productdelete.bo")) { //등록된 상품을 삭제하는 서블릿
-			action = new ProductModify();
+		}else if(command.equals("/ProductDelete.bo")) { //등록된 상품을 삭제하는 서블릿
+			action = new ProductDelete();
 			try {
 				
 				forward = action.execute(request, response);
@@ -151,7 +151,18 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if (command.equals("/receiver_2.bo")) {
+			
 			action = new ReceiverInfo();
+			try {
+	
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/ReceiverDelete.bo")) {
+			
+			action = new ReceiverDelete();
 			try {
 	
 				forward = action.execute(request, response);

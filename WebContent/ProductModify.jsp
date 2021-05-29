@@ -38,12 +38,9 @@ img {
 
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">상품 정보 수정</h1>
+			<h1 class="display-3">상품 정보 수정${pdto.product_num }</h1>
 		</div>
 	</div>
-
-
-
 	<form name="newProduct" action="ProductModifyAction.bo"
 		class="form-horizontal" method="post" enctype="multipart/form-data">
 		<div class="container" cols="100" rows="2">
@@ -108,21 +105,22 @@ img {
 			<!-- 상품 미리보기 이미지가 올라가는 곳. -->
 			<div class="form-group row">
 				<div class="col-sm-2">
-					<label for="image">상품 이미지 선택</label> <input type="file" id="image"
-						value="${pdto.product_img}" name="image" hidden /> <img
+					<label for="image">상품 이미지 변경</label> 
+					<input type="file" id="product_img"
+						value="${pdto.product_img}" name="product_img" /> <img
 						src="product_img_upload/${pdto.product_img}" id="preview">
 				</div>
 			</div>
+
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit">상품 수정</button>
-				<a type="button" class="btn btn-secondary btn-lg"
+				<button type="submit" class="btn btn-secondary" >상품 수정</button>
+				<a type="button" class="btn btn-secondary"
 					href="ProductListAction.bo">수정 취소</a>
 			</div>
 		</div>
 	</form>
 
-
-
+	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
 </body>
 </html>
