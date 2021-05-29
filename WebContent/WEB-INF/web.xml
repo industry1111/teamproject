@@ -20,6 +20,15 @@
   	<url-pattern>*.bo</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>MainFrontController</servlet-name>
+  	<servlet-class>com.main.action.MainFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MainFrontController</servlet-name>
+  	<url-pattern>*.main</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
