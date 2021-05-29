@@ -8854,7 +8854,11 @@ input[type="text"] {
 /*별점 */
 
 .star-rating {
+<<<<<<< HEAD
   border:solid 1px #ccc;
+=======
+  border:none;
+>>>>>>> cca61d3941ee64e03f42ec825ddeb40ed84a6856
   display:flex;
   flex-direction: row-reverse;
   font-size:1.5em;

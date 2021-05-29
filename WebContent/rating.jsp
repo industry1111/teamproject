@@ -24,7 +24,11 @@
   <input type="radio" id="1-star" name="rating" value="1" />
   <label for="1-star" class="star">&#9733;</label>
 </div>
+<<<<<<< HEAD
 <input type="submit" type="button" value="별점주기"
+=======
+<input  type="submit" value="별점주기"
+>>>>>>> cca61d3941ee64e03f42ec825ddeb40ed84a6856
 								class="myButton" />
 </form>
 </body>

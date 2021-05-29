@@ -43,7 +43,7 @@ img {
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="store_name" name="store_name" type="text" class="form-control" placeholder="스토어 이름"> 
-										<spanid="name_check" class="check"></span> 
+										<span id="name_check" class="check"></span> 
 										<span id="name_check2" class="check2"></span>
 									</div>
 								</div>

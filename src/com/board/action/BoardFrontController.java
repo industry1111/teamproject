@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 public class BoardFrontController extends HttpServlet {
 
 
@@ -158,7 +159,23 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/StoreChart.bo")) {
+			forward = new ActionForward();
+			forward.setPath("mypage.jsp");
+			forward.setRedirect(false);
+			request.setAttribute("center", "StoreChart.jsp");
+		}else if (command.equals("/RatingAction.bo")) {
+			action = new Rating();
+			try {
+				
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+
+		
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect()
 
