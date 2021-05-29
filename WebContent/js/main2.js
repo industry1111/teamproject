@@ -19,38 +19,22 @@ $(function() {
 		$(this).css('background-color', 'green');
 		$(this).attr('class', 'category1 allowed');
 
-		$(".allowed").click(function() {
-			$(this).css('background-color', 'white');
-			$(this).css('color', '#627482');
-			$(this).attr('class', 'category1');
-			category_code1 = 0;
-		});
 		$.ajax({
 			type: "get",
 			url: contextPath + "/SelectList.do",
 			data: {
-				category_code1:category_code1,
-				category_code2:category_code2,
-				category_code3:category_code3, 
-				brand:brand,
-				price1:price1, 
-				price2:price2
+				category_code1: category_code1,
 			},
-			dataType: JSON,
+			dataType: "text",
 			success: function(data) {
-				alert(data);
+				var obj = JSON.parse(data);
+				$("#test").html("");
+				for (var i = 0; i < obj.length; i++) {
+					$("#test").append("<li class='category2' value=" + obj[i].category_code + ">" + obj[i].category_name + "</li>");
+				}
 			}
 		});
 	});
-
-
-
-
-
-
-
-
-
 	$(".category2").click(function() {
 		category_code2 = $(this).val();
 		$('.category2').css('color', '#627482');
@@ -66,6 +50,12 @@ $(function() {
 			$(this).attr('class', 'category2');
 			category_code2 = 0;
 		});
+	});
+	$(".allowed").click(function() {
+		$(this).css('background-color', 'white');
+		$(this).css('color', '#627482');
+		$(this).attr('class', 'category1');
+		category_code1 = 0;
 	});
 	$(".category3").click(function() {
 		alert(category_code1);

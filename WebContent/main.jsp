@@ -71,12 +71,12 @@ input::placeholder { text-align: right;}
 			<div class="row">
 				<div class="col-md-1 offset-2 category" align="left">중분류</div>
 					<div class="col-md-6 list">
-						<ul >
-							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-							<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 eq 0}">
-								<li class="category2" value="${clist[i].category_code }">${clist[i].category_name }</li>
-							</c:if>
-						</c:forEach>
+						<ul id="test">
+<%-- 							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }"> --%>
+<%-- 							<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 eq 0}"> --%>
+<%-- 								<li class="category2" value="${clist[i].category_code }">${clist[i].category_name }</li> --%>
+<%-- 							</c:if> --%>
+<%-- 						</c:forEach> --%>
 						</ul>
 				</div>
 			</div>
