@@ -120,19 +120,19 @@ img{
 				</div>
 			</div>
 
-			<!-- 상품 미리보기 이미지가 올라가는 곳. -->
+			<!-- 상품 미리보기 이미지가 올라가는 곳. 20210528/product_img 수정부 , product_img.js -->
 			<div class="form-group row">
 				<div class="col-sm-2"> 
-					<label for="image">상품 이미지 선택</label> 
-						<input type="file" name="product_img" hidden />
-					<img src="" id="preview">
+					<img src="" id="preview"><br> 
+					<label for="product_img"> 이미지 선택</label> 
+						<input type="file" id="product_img" name="product_img" />
 				</div>
 			</div>
 
 
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit" >상품 등록</button> 
-				<a type="button" class="btn btn-secondary btn-lg" href="ProductListAction.bo">등록 취소</a>
+				<button type="submit" class="btn btn-secondary" >상품 등록</button> 
+				<a type="button" class="btn btn-secondary" href="ProductListAction.bo">등록 취소</a>
 			</div>
 		</form>	
 	</div>
@@ -157,5 +157,6 @@ img{
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+	<script src="js/product_img.js"></script>
 </body>
 </html>

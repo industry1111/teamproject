@@ -33,6 +33,8 @@ input::placeholder { text-align: right;}
 	width: 130px;
 }
 </style>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/main2.js"></script>
 </head>
 
 <body>
@@ -88,12 +90,22 @@ input::placeholder { text-align: right;}
 			</div>
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
-					<ul>
-						<li>랭킹순</li>
-						<li>낮은 가격순</li>
-						<li>높은 가격순</li>
-						<li>등록일순</li>
-						<li>리뷰 많은순</li>
+					<ul >
+						<li  class="sort">
+							<a>랭킹순</a>
+						</li>
+						<li  class="sort">
+							<a>낮은 가격순</a>
+						</li>
+						<li  class="sort">
+							<a>높은 가격순</a>
+						</li>
+						<li  class="sort">
+							<a>등록일순</a>
+						</li>
+						<li  class="sort">
+							<a>리뷰 많은순</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-md-4">
@@ -109,9 +121,12 @@ input::placeholder { text-align: right;}
 				<div class="col-md-7 offset-2">
 					<hr>
 					<div class="row">
-						<div class="col-md-9">
+						<div class="col-md-2">
 							<img alt="" src="images/product.png" style="height: 100px; width: 100px;">
-							상품 이름
+						</div>
+						<div class="col-md-6 offset-1">
+							상품이름<br>
+							상품 설명
 						</div>
 						<div class="col-md-3">
 							<a href="store.bo">

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import action.Action;
+import action.ActionForward;
 import dao.memberDAO;
 import dao.sellerDAO;
 import dto.memberDTO;
@@ -53,8 +55,8 @@ public class SellerJoinAction implements Action{
 			session.setAttribute("member_code", mdto.getMember_code());
 			
 	        ActionForward forward = new ActionForward();
-	        forward.setRedirect(false);
-	        forward.setPath("Main.me");
+	        forward.setRedirect(true);
+	        forward.setPath("Main.main");
 	        
 	        return forward;
 	    }

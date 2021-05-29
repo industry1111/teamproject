@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.Action;
+import action.ActionForward;
 import dao.memberDAO;
 import dto.memberDTO;
-import dto.sellerDTO;
 
 
 public class MemberLoginAction implements Action{
@@ -62,8 +63,9 @@ public class MemberLoginAction implements Action{
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
 		forward.setRedirect(true);
+		
+		forward.setPath("./Main.main"); 
 
-		forward.setPath("./Main.me"); 
 		
 		return forward;
 	}

@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import action.Action;
+import action.ActionForward;
+
+
 
 public class BoardFrontController extends HttpServlet {
 
@@ -53,6 +57,7 @@ public class BoardFrontController extends HttpServlet {
 
 		}else if(command.equals("/ProductListAction.bo")) //상품 리스트 페이지로 이동하는 서블릿 
 		{ 
+
 			action = new ProductListAction();
 			try {
 				forward = action.execute(request, response);
@@ -96,8 +101,8 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}else if(command.equals("/Productdelete.bo")) { //등록된 상품을 삭제하는 서블릿
-			action = new ProductModify();
+		}else if(command.equals("/ProductDelete.bo")) { //등록된 상품을 삭제하는 서블릿
+			action = new ProductDelete();
 			try {
 				
 				forward = action.execute(request, response);
@@ -114,6 +119,35 @@ public class BoardFrontController extends HttpServlet {
 			}
 		}else if(command.equals("/keepstore.bo")) {
 			action = new KeepStoreList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/RatingAction.bo")) { //상품 수정 페이지로 이동하는 서블릿
+			action = new RatingAction();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ReviewAction.bo")) {
+			action = new ReviewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/writableReviews.bo")) {
+			action = new WritableReviewsAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/writtenReviews.bo")) {
+			action = new WrittenReviewsAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
@@ -139,7 +173,23 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if (command.equals("/StoreChart.bo")) {
+			forward = new ActionForward();
+			forward.setPath("mypage.jsp");
+			forward.setRedirect(false);
+			request.setAttribute("center", "StoreChart.jsp");
+		}else if (command.equals("/RatingAction.bo")) {
+			action = new Rating();
+			try {
+				
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+
+		
 		if(forward!=null){ 
 			if(forward.isRedirect()){//true -> sendRedirect()
 
