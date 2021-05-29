@@ -134,6 +134,7 @@ input::placeholder { text-align: right;}
 				</div>
 			</div>
 			<div class="row" style="margin-top: 10px;">
+				<c:if test="${plist.size() > 0 }">
 				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
 				<div class="col-md-7 offset-2">
 					<hr>
@@ -163,6 +164,7 @@ input::placeholder { text-align: right;}
 					</div>
 				</div>
 				</c:forEach>
+				</c:if>
 			</div>
 			<div class="row">
 				<div class="col-md-7 offset-2" style="height: 120px;" align="center">
