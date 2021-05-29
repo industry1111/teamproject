@@ -69,6 +69,7 @@
 							</div>
 						</div>
 				</div>
+				<c:if test="${list.size() ne 0 }">
 				<c:forEach var="i" begin="0" step="1" end="${list.size()-1 }">
 
 					<div class="row  d-flex" align="center">
@@ -95,7 +96,7 @@
 						</div>
 					</div>
 				</c:forEach>
-			
+			</c:if>
 			<%--해당 쇼핑몰 홈페이지로 이동 --%>
 			<div class="row">
 				<div class="col-md-3 offset-3" align="right">페이징</div>

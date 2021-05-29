@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import action.Action;
+import action.ActionForward;
 //로그아웃 요청이 들어왔을때... 
 //세션값 초기화후~ 로그아웃 메세지창을 띄어주고...
 //CarList.jsp페이지로 이동하는일을 하는 Action클래스 
@@ -20,13 +23,13 @@ public class MemberLogoutAction implements Action{
 		PrintWriter out=response.getWriter();
 		out.println("<script>");
 		out.println("alert('로그아웃');");
-		out.println("location.href='./Main.me';");
+		out.println("location.href='./Main.main';");
 		out.println("</script>");
 		out.close();
 		
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("./Main.me");
+		forward.setPath("./Main.main");
 		return forward;
 	}
 }

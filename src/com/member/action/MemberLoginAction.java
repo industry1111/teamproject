@@ -6,9 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.Action;
+import action.ActionForward;
 import dao.memberDAO;
 import dto.memberDTO;
-import dto.sellerDTO;
 
 
 /*login.jsp에서 사용자가 입력한 id와 pass를  userCheck메소드로 전달하여..
@@ -71,7 +72,7 @@ public class MemberLoginAction implements Action{
 		forward.setRedirect(true);
 		
 		// ./CarMain.jsp 이동할 페이지 주소 저장
-		forward.setPath("./Main.me"); 
+		forward.setPath("./Main.main"); 
 		
 		return forward;
 	}

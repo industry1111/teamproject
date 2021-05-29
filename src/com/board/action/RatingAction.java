@@ -4,9 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.memberDAO;
-import dao.productDAO;
-import dto.ratingDTO;
+import action.Action;
+import action.ActionForward;
 
 public class RatingAction implements Action {
 

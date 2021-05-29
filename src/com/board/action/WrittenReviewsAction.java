@@ -4,6 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.Action;
+import action.ActionForward;
+
 
 
 public class WrittenReviewsAction implements Action{
@@ -27,7 +30,7 @@ public class WrittenReviewsAction implements Action{
 		request.setAttribute("center", "writtenReviews.jsp");
 		
 		ActionForward forward = new ActionForward();
-		forward.setPath("writtenReviews.jsp");
+		forward.setPath("mypage.jsp");
 		forward.setRedirect(false);
 		return forward;
 	}
