@@ -164,9 +164,10 @@ public class sellerDAO {
 		public int updateStore_c_num(int store_c_num, int member_num) {
 			try {
 				getCon();
-				String sql = "update seller set store_c_num=? where member_num = ?";
+				String sql = "update seller set category_num=? where member_num = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, store_c_num);
+				pstmt.setInt(2, member_num);
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				System.out.println("updateStore_c_num" + e.toString());

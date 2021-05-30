@@ -16,6 +16,7 @@ import dto.categoryDTO;
 import dto.productDTO;
 import dto.ratingDTO;
 import dto.receiverDTO;
+import dto.templateDTO;
 
 public class boardDAO {
 
@@ -427,5 +428,35 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
+	
+	//템플릿 리스트
+	public List<templateDTO> getTemplateList(){
+        
+        List<templateDTO> tlist = new ArrayList<templateDTO>();
+        
+        try {
+            getCon();
+            String sql = "select * from template";
+        
+            pstmt = con.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()){
+                
+                templateDTO tdto = new templateDTO();
+                tdto.setTemplate_num(rs.getInt("template_num"));
+                tdto.setTemplate_name(rs.getString("template_name"));
+                tdto.setTemplate_img1(rs.getString("template_img1"));
+                tdto.setTemplate_img1(rs.getString("template_img2"));
+                
+                tlist.add(tdto);
+            }
+        } catch (Exception e) {
+            System.out.println("getReceiverInfo:"+e.toString());
+        }finally{
+            ResouceClose();
+        }
+        return tlist;
+    }
 	
 }

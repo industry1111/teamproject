@@ -146,36 +146,45 @@ $(function() {
 	
 	//store_c_num
 	$("#store_c_num_btn").on("click",function() {
-		var category_num = $("#category_num").val();
+		var store_c_num = $("#store_c_num").val();
 		$(this).attr("hidden", true);
-		$("#category_num").removeAttr("disabled");
-		$("#category_num").focus();
+		$("#store_c_num").removeAttr("disabled");
+		$("#store_c_num").focus();
 		$(".store_c_num_btn").removeAttr("hidden");
+		$("#store_c_num").removeAttr("selected");
 		
 		$("#store_c_num_cancle").on("click", function() {
+			$("#store_c_num_btn").removeAttr("hidden");
 			$(".store_c_num_btn").attr("hidden", true);
-			$("#category_num").removeAttr("hidden");
 			$("#store_c_num").attr("disabled", true);
-			$("#store_c_num").val(category_num);
+			$("#store_c_num").val(store_c_num);
 			$("#store_c_num_check2").text("");
 			$("#store_c_num_check").text("");
 		});
 		
-		$("#store_c_num").blur(function(){
-			var store_c_num2 = $(this).val();
-			if(category_num == store_c_num2){
-				$("#store_c_num_check").text("이전의 카테고리와 동일 합니다.");
-				check = 0;
-			}
-		});
-		$("#store_c_num_update").on("click",function() {
-			if(check == 1){
-				if(window.confirm("변경하시겠습니까?")){
-					$("#form").attr("action","StoreInfoUpdateAction.me?command=store_c_num").submit();
-				}
-			}else{
-				$("#store_c_num").focus();
-			}
+		$("#store_c_num").on("click",function(){
+			var new_store_c_num = $(this).val();
+			$("#store_c_num_update").on("click",function() {
+				$.ajax({
+					
+					type:"post",
+					async:true,
+					url : contextPath + "/StoreInfoUpdateAction",
+					data: {
+						
+						store_c_num : new_store_c_num,
+						command : "new_store_c_num"
+							
+					},
+					success : function(){
+						$("#store_c_num_btn").removeAttr("hidden");
+						$(".store_c_num_btn").attr("hidden", true);
+						$("#store_c_num").attr("disabled", true);
+						$("#store_c_num_check2").text("");
+						$("#store_c_num_check").text("");
+					}
+				});
+			});
 		});
 	});
 	
@@ -198,14 +207,14 @@ $(function() {
 		
 	
 			$("#template_update").on("click",function() {
-				var template = $(":input:radio[name=template]:checked").val();
+				var new_template = $(":input:radio[name=template]:checked").val();
 	
 						$.ajax({
 							type: "post",
 							async: true,
 							url: contextPath + "/StoreInfoUpdateAction",
 							data: {
-								template: template,
+								template: new_template,
 								command: "new_template",
 							},
 							dataType: "text",
@@ -214,14 +223,84 @@ $(function() {
 								$(".template").attr("hidden", true);
 								$("#template_btn").removeAttr("hidden");
 								$("#template").attr("disabled", true);
-								$("#account_check").text("");
-								$("#account_check2").text("");
+//								$("#template_o").attr("src","template/"+new_template+".jpg");
+//								$("#template2_o").attr("src","template/"+new_template+"-2.jpg");
+								location.reload();
+								
 							}
 							
 						});
 				});	
 		
 			});
+	
+	//프로필 이미지
+	$("#img_btn").on("click",function(){
+		
+		var img = $("#preview").val();
+		
+		$(".profile_img").removeAttr("hidden");
+		$(".img_btn").removeAttr("hidden");
+		$("#img_btn").attr("hidden",true);
+		
+		$("#img_btn_cancle").on("click",function(){
+			
+			$(".profile_img").attr("hidden",false);
+			$(".img_btn").attr("hidden",true);
+			$("#img_btn").removeAttr("hidden");
+			$("#preview").val(img);
+			
+		});
+		
+	
+		$("#profile_img").change(function(){
+			
+			setImageFromFile(this, '#preview');
+			
+			
+			$("#img_btn_update").on("click",function(){
+				
+				var form = new FormData();
+				form.append("profile_img",$("#profile_img")[0].files[0]);
+				
+				$.ajax({
+					
+					type:"post",
+					aysnc:true,
+					url : contextPath + "/ProfileImageUpdateAction",
+					data : form,
+					
+					processData: false,
+					contentType: false,
+					success : function(){
+						
+						$(".profile_img").attr("hidden",true);
+						$(".img_btn").attr("hidden",true);
+						$("#img_btn").removeAttr("hidden");
+						
+					}
+
+				});
+				
+				
+			});
+			
+			
+			
+			
+		});
+		
+		function setImageFromFile(input, expression) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$(expression).attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+	});
+	
 	
 	$("#")
 });/**

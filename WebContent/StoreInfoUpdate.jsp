@@ -56,7 +56,7 @@ input[type="text"]:focus {
 <body>
 
 	<p style="font-size: 20;color: gray;">내 스토어 정보</p>
-	<form method="post" id="form" enctype="multipart/form-data">
+	<form method="post" id="profile_form" name="profile_form" enctype="multipart/form-data">
 		<table border="0" class="tbl_model">
 			<tbody>
 				<tr>
@@ -94,9 +94,18 @@ input[type="text"]:focus {
 								<br>
 							  	<div class="col-md-8">
 										<div class="form-group mb-4">
-											<img src="upload_profile/${sdto.profile_img}" id="preview"><br>
-											<label for="image">프로필 이미지 선택</label>
-											 <input type="file" id="profile_img" name="profile_img" hidden/>
+											<img src="upload_profile/${sdto.profile_img}" id="preview" name="preview"><br>
+										</div>
+										
+											<div class="profile_img" hidden>
+												<label for="profile_img">프로필 이미지 선택</label>
+												 <input type="file" id="profile_img" name="profile_img" hidden/>
+											</div>
+									
+											<input type="button" class="myButton" name="img_btn" id="img_btn" value="수정">
+										<div class="img_btn" hidden>
+											<input type="button" class="myButton" name="img_btn_cancle" id="img_btn_cancle" value="수정취소">
+											<input type="button" class="myButton" name="img_btn_update" id="img_btn_update" value="수정완료">
 										</div>
 									</div>
 							</p>
@@ -110,12 +119,14 @@ input[type="text"]:focus {
 					
 					<td>
 					<div>
-							<select id="category_num" name="category_num" disabled="disabled">
+							<select id="store_c_num" name="store_c_num" disabled="disabled">
 									<c:forEach var="i" begin="0" step="1" end="${list.size()}">
 										<c:if test="${list[i].category_num eq sdto.category_num}">
 											<option value="${sdto.category_num}" selected="selected">${list[i].category_name }</option>
 										</c:if>
-										<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
+									</c:forEach>
+									<c:forEach var="i" begin="0" step="1" end="${list.size()}">
+										<c:if test="${list[i].category_num ne sdto.category_num && list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 												<option value="${list[i].category_num}">${list[i].category_name }</option>
 										</c:if>
 									</c:forEach>
@@ -143,38 +154,33 @@ input[type="text"]:focus {
 							&nbsp;
 							<p>현재 사용중인 템플릿<br>
 							  <div class="col-md-9">
-							<a href="store.bo">
-							<img alt="" src="images/1.png"> 
-							<img alt="" src="images/1.png"> 
-<%-- 							<input value="${sdto.template }"> --%>
-<%-- 							<c:set var="o_template" value="${sdto.template }"/> --%>
-							</a>
-						</div>
+								
+									<img alt="" src="template/${sdto.template}.jpg" name="template_o" id="template_o"> 
+									<img alt="" src="template/${sdto.template}-2.jpg" name="template2_o" id="template2_o"> 
+								
+							  </div>
 							</p>
 							<p class="contxt_desc">스토어에 새롭게 적용하실 템플릿을 변경하실 수 있습니다.</p>
 							
-							<c:forEach var="i" begin="1" step="1" end="4" >
+							<c:forEach var="i" begin="0" step="1" end="4" >
+								<c:set var="o_template" value="${sdto.template}"/>
+								
 									<div class="col-md-12">
-									<hr>
 										<div class="row">
+ 												<c:if test="${tlist[i].template_num ne sdto.template}">
 											<div class="col-md-3">
-<%--  												<c:if test="${new_template ne o_template}"> --%>
-														
-													<input disabled="disabled"	type="radio" class="template" name="template" id="template" value="template${i}"> template${i}
-<%-- 												</c:if>  --%>
-										
+													<input hidden	type="radio" class="template" name="template" id="template" value="${tlist[i].template_num}"> ${tlist[i].template_name}
 											</div>
-											<div class="col-md-9">
-												<img alt="" src="images/1.png" >&nbsp;
-												<img alt="" src="images/1.png" >&nbsp;
-											</div>
-
+														<div class="col-md-9">
+															<img alt="" src="template/${tlist[i].template_num}.jpg" >&nbsp;
+															<img alt="" src="template/${tlist[i].template_num}-2.jpg" >&nbsp;
+														<br>
+														</div>
+											   	</c:if>
 											</div>
 										</div>
-									</div>
-								
-										<hr>
-									</c:forEach>
+								</c:forEach>
+									</div>			
 									<div class="col-md-12">
 										<div class="form-group d-flex"> </div>
 									</div>

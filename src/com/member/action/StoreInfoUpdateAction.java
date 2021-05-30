@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import dao.sellerDAO;
 
 @WebServlet("/StoreInfoUpdateAction")
@@ -32,9 +35,9 @@ public class StoreInfoUpdateAction extends HttpServlet {
 		HttpSession session = request.getSession();
 	 
 		int member_num = (int)session.getAttribute("member_num");
-		
+        
 		sellerDAO sdao = new sellerDAO();
-				
+			
 		if(command.equals("new_store_name")){
 			
 			String store_name = request.getParameter("store_name");
@@ -44,11 +47,6 @@ public class StoreInfoUpdateAction extends HttpServlet {
 			
 			int store_c_num = (Integer.parseInt(request.getParameter("store_c_num")));
 			sdao.updateStore_c_num(store_c_num, member_num);
-			
-		}else if(command.equals("new_profile_img")){
-			
-			String profile_img = request.getParameter("profile_img");
-			sdao.updateProfile_img(profile_img, member_num);
 			
 		}else if(command.equals("new_template")){
 			
