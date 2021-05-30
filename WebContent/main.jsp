@@ -34,6 +34,9 @@ input::placeholder { text-align: right;}
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
 <script src="js/main2.js"></script>
 </head>
 
@@ -56,10 +59,10 @@ input::placeholder { text-align: right;}
 			<div class="row" style="margin-top: 40px;">
 				<div class="col-md-1 offset-2 category" align="left" >카테고리</div>
 				<div class="col-md-6 list">
-					<ul class="category1">
+					<ul >
 						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
 							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
-								<li>${clist[i].category_name }</li>
+								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -68,12 +71,12 @@ input::placeholder { text-align: right;}
 			<div class="row">
 				<div class="col-md-1 offset-2 category" align="left">중분류</div>
 					<div class="col-md-6 list">
-						<ul class="category2">
-							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-							<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 eq 0}">
-								<li>${clist[i].category_name }</li>
-							</c:if>
-						</c:forEach>
+						<ul id="test">
+<%-- 							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }"> --%>
+<%-- 							<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 eq 0}"> --%>
+<%-- 								<li class="category2" value="${clist[i].category_code }">${clist[i].category_name }</li> --%>
+<%-- 							</c:if> --%>
+<%-- 						</c:forEach> --%>
 						</ul>
 				</div>
 			</div>
