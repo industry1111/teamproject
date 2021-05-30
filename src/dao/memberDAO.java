@@ -53,6 +53,7 @@ public class memberDAO {
 
 			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code)"
 					+ " values(?,?,?,?,?,?,?,?,?)";
+			
 
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, dto.getName());

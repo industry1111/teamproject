@@ -4,7 +4,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title></title>
+<title>배송지 정보 수정</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,32 +42,11 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 
-<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<!-- <script src="js/receiver.js"></script> -->
-<script type="text/javascript">
-
-if(document.getElementById("basic_num").checked) {
-    document.getElementById("basic_num_hidden").disabled = true;
-}
-
- function close_btn(){
-       window.close();
-};
-
-function addr_update(){
-	
-	document.form_addr.action = contextPath + "/ReceiverUpdate";
-	document.form_addr.submit();
-
-};
-
-
-</script>
-
-
+<script src="js/receiver.js"></script> 
 
 <style type="text/css">
 .myButton {
@@ -143,7 +122,7 @@ input[type="text"] {
 				<div>
 						
 						<div class="col-md-4">
-							<input type="hidden" name="receiver_num" value="${rdto.receiver_num}">
+							<input type="hidden" id="receiver_num" name="receiver_num" value="${rdto.receiver_num}">
 							<input type="text" id="addr_name" name="addr_name" style="width:150px" value="${rdto.address_name}">
 					</div>
 					
@@ -173,7 +152,7 @@ input[type="text"] {
 					
 					<div class="row">
 						<div style="margin-right: 10px;margin-left: 15px">
-							<input type="text" id="sample6_postcode" name="receiver_addr1" style="width: 100px" value="${rdto.receiver_addr1}">
+							<input type="text" id="receiver_addr1" name="receiver_addr1" style="width: 100px" value="${rdto.receiver_addr1}">
 						</div>
 						<div>
 							<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
@@ -181,10 +160,10 @@ input[type="text"] {
 					</div>
 				
 					<div>
-						<input type="text" id="sample6_address" name="receiver_addr2" value="${rdto.receiver_addr2}" style="width: 300px;">&nbsp;
+						<input type="text" id="receiver_addr2" name="receiver_addr2" value="${rdto.receiver_addr2}" style="width: 300px;">&nbsp;
 					</div>
 					<div>
-						<input type="text" id="sample6_detailAddress" name="receiver_addr3" value="${rdto.receiver_addr3}" style="width: 300px;">
+						<input type="text" id="receiver_addr3" name="receiver_addr3" value="${rdto.receiver_addr3}" style="width: 300px;">
 					</div>
 					
 				</div>
@@ -211,8 +190,16 @@ input[type="text"] {
 			<td>
 				<div>
 					<div class="col-md-7">
-							<input type="checkbox" name="basic_num" id="basic_num" value='1' onclick="check_click();"/> 기본배송지로 설정
-								<input type="hidden" name="basic_num" id="basic_num_hidden" value="0" /> 
+						<c:set var="basic_num" value="${rdto.basic_num}"/>
+						<c:choose>
+							<c:when test="${basic_num eq 1}">
+								<input type="checkbox" name="basic_num" id="basic_num" value="0" checked="checked"/> 기본배송지로 설정
+							</c:when>
+							<c:otherwise>
+								<input type="checkbox" name="basic_num" id="basic_num" value="0" /> 기본배송지로 설정
+							</c:otherwise>
+						</c:choose>
+							
 					</div>
 					
 				</div>
@@ -223,14 +210,14 @@ input[type="text"] {
 		
 			<div class="row" style="margin-left: 100px">
 				<div style="margin-right: 20px">
-					<input type="button" class="myButton" value="닫기" onclick="close_btn();" >
+					<input type="button" class="myButton" value="닫기" name="close_btn" id="close_btn" >
 				</div>
 				
 				<div>
-					<input type="button" class="myButton" value="저장" name="addr_add_btn" id="addr_add_btn" onclick="addr_update();">
+					<input type="button" class="myButton" value="수정" name="addr_update_btn" id="addr_update_btn">
 				</div>
 			</div>
-		</div>
+		
 	</form>
 	<!-- 	</div> -->
 	<!-- popper -->
@@ -268,10 +255,10 @@ function sample6_execDaumPostcode() {
             }
 
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample6_postcode').value = data.zonecode;
-            document.getElementById("sample6_address").value = address;
+            document.getElementById('receiver_addr1').value = data.zonecode;
+            document.getElementById("receiver_addr2").value = address;
             // 커서를 상세주소 필드로 이동한다.
-            document.getElementById("sample6_detailAddress").focus();
+            document.getElementById("receiver_addr3").focus();
         }
     }).open();
 }

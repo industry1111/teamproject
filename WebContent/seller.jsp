@@ -43,7 +43,7 @@ img {
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="store_name" name="store_name" type="text" class="form-control" placeholder="스토어 이름"> 
-										<spanid="name_check" class="check"></span> 
+										<span id="name_check" class="check"></span> 
 										<span id="name_check2" class="check2"></span>
 									</div>
 								</div>
@@ -83,12 +83,11 @@ img {
 
 											<div class="col-md-3">
 												<input type="radio" name="template" id="template"
-													value="template${i }">template${i}
+													value="${i}">template${i}
 											</div>
 											<div class="col-md-9">
-												<img alt="" src="images/1.png">&nbsp; <img alt=""
-													src="images/1.png">&nbsp; <img alt=""
-													src="images/1.png">
+												<img alt="" src="template/${i}.jpg">&nbsp; 
+												<img alt="" src="template/${i}-2.jpg">&nbsp; 
 											</div>
 										</div>
 										<c:if test="${i == 5 }">

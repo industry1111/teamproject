@@ -137,6 +137,7 @@ public class MemberFrontController extends HttpServlet {
 			request.setAttribute("center", "StoreInfoUpdate.jsp");
 	
 		} else if (command.equals("/StoreInfo.me")) {
+		    
 			action = new StoreInfo();
 			try {
 	
