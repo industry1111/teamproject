@@ -7,7 +7,14 @@ public class sellerDTO {
 	private String profile_img;
 	private String template;
 	private String account;
+	private int store_num;
 	
+	public int getStore_num() {
+		return store_num;
+	}
+	public void setStore_num(int store_num) {
+		this.store_num = store_num;
+	}
 	public int getMember_num() {
 		return member_num;
 	}

@@ -26,7 +26,7 @@
 <body>
 	<div class="row">
 		<div class="col-md-3" align="right">
-			<a href="Main.me"> <img
+			<a href="Main.main"> <img
 				src="images/modooLogo.png"
 				alt="Logo" style="height: 30px">
 			</a>

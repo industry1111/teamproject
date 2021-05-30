@@ -34,6 +34,9 @@ input::placeholder { text-align: right;}
 }
 </style>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
 <script src="js/main2.js"></script>
 </head>
 
@@ -53,26 +56,34 @@ input::placeholder { text-align: right;}
 			</div>
 		</div>
 		<div class="wrap" style="margin-left: 100px;">
-			<div class="row" style="margin-top: 40px;height: 40px;">
+			<div class="row" style="margin-top: 40px;">
 				<div class="col-md-1 offset-2 category" align="left" >카테고리</div>
 				<div class="col-md-6 list">
-					<ul>
-						<li>카테고리1</li>
-						<li>카테고리2...</li>
+					<ul >
+						<li class="category1" value="0">전체</li>
+						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
+								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
+							</c:if>
+						</c:forEach>
 					</ul>
 				</div>
 			</div>
-			<div class="row" style="height: 40px">
-				<div class="col-md-1 offset-2 category" align="left" style="">브랜드</div>
-				
-				<div class="col-md-6 list">
-					<ul>
-						<li>브랜드1</li>
-						<li>브랜드2...</li>
-					</ul>
+			<div class="row">
+				<div class="col-md-1 offset-2 category" align="left">중분류</div>
+					<div class="col-md-6 list">
+						<ul id="category2">
+						</ul>
 				</div>
 			</div>
-			<div class="row" style="height: 40px">
+			<div class="row">
+				<div class="col-md-1 offset-2 category" align="left">소분류</div>
+					<div class="col-md-6 list">
+						<ul id="category3">
+						</ul>
+				</div>
+			</div>
+			<div class="row" >
 				<div class="col-md-1 offset-2 category" align="left" style="">가격</div>
 				<div class="col-md-6 list">
 					<ul>
@@ -117,26 +128,37 @@ input::placeholder { text-align: right;}
 				</div>
 			</div>
 			<div class="row" style="margin-top: 10px;">
-				<c:forEach var="i" begin="1" step="1" end="5">
+				<c:if test="${plist.size() > 0 }">
+				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
 				<div class="col-md-7 offset-2">
 					<hr>
 					<div class="row">
 						<div class="col-md-2">
-							<img alt="" src="images/product.png" style="height: 100px; width: 100px;">
+							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 100px; width: 100px;">
 						</div>
 						<div class="col-md-6 offset-1">
-							상품이름<br>
-							상품 설명
+							${plist[i].product_name }<br>
+							${plist[i].product_description }
 						</div>
 						<div class="col-md-3">
-							<a href="store.bo">
-								<img alt="" src="images/storeprofile.png" style="height: 100px; width: 100px;">
-							</a>
-							스토어 정보
+						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
+							<c:if test="${plist[i].member_num eq slist[j].member_num }">
+								<a href="store.bo?${slist[j].store_num }">
+									<img alt="" src="upload_profile/${slist[j].profile_img }" style="height: 100px; width: 100px;">
+								</a>
+								${slist[j].store_name }<br>
+								<c:forEach var="category" items="${clist }">
+									<c:if test="${category.category_num eq slist[j].category_num}">
+										${category.category_name }
+									</c:if>
+								</c:forEach>
+							</c:if>
+						</c:forEach>
 						</div>
 					</div>
 				</div>
 				</c:forEach>
+				</c:if>
 			</div>
 			<div class="row">
 				<div class="col-md-7 offset-2" style="height: 120px;" align="center">

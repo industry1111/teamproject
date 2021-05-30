@@ -39,11 +39,12 @@ public class MainFrontController extends HttpServlet{
 		Action action = null;
 		
 		if (command.equals("/Main.main")) {
-			forward = new ActionForward();
-			request.setAttribute("center", "main.jsp");
-			forward.setRedirect(false);
-			forward.setPath("index.jsp");
-
+			action = new ProductList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				System.out.println("Main.main"+e.toString());
+			}
 		} 
 		
 		if (forward != null) {
