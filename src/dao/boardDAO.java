@@ -201,6 +201,46 @@ public class boardDAO {
 		}
 		return list;
 	}
+	//메인화면에 선택한 리스트
+		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,int price1, int price2) {
+			List<productDTO> list = new ArrayList<productDTO>();
+			String sql = "select * from product ";
+			if(category_code3 == 0) {
+				if(category_code2 == 0) {
+					if(category_code1 != 0) {
+						sql += " where category_coderef1="+category_code1;
+					}
+				}
+			}
+			
+			try {
+				getCon();
+		
+				pstmt =con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+
+				while(rs.next()) {
+					
+					productDTO pdto = new productDTO();
+					pdto.setProduct_num(rs.getInt("product_num"));
+					pdto.setProduct_name(rs.getString("product_name"));
+					pdto.setProduct_img(rs.getString("product_img"));
+					pdto.setCategory_name(rs.getString("category_name"));
+					pdto.setProduct_price(rs.getInt("product_price"));
+					pdto.setProduct_count(rs.getInt("product_count"));
+					pdto.setProduct_brand(rs.getString("product_brand"));
+					pdto.setProduct_description(rs.getString("product_description"));
+					pdto.setMember_num(rs.getInt("member_num"));
+					
+					list.add(pdto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				ResouceClose();
+			}
+			return list;
+		}
 	
 	public void deleteProduct(int product_num){ //상품 정보 삭제
 		try {

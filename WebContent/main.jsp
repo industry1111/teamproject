@@ -127,7 +127,7 @@ input::placeholder { text-align: right;}
 					</select>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 10px;">
+			<div class="row" id="product-list" style="margin-top: 10px;">
 				<c:if test="${plist.size() > 0 }">
 				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
 				<div class="col-md-7 offset-2">
