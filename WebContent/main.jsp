@@ -33,8 +33,6 @@ input::placeholder { text-align: right;}
 	width: 130px;
 }
 </style>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="js/main2.js"></script>
 </head>
 
 <body>
@@ -90,22 +88,12 @@ input::placeholder { text-align: right;}
 			</div>
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
-					<ul >
-						<li  class="sort">
-							<a>랭킹순</a>
-						</li>
-						<li  class="sort">
-							<a>낮은 가격순</a>
-						</li>
-						<li  class="sort">
-							<a>높은 가격순</a>
-						</li>
-						<li  class="sort">
-							<a>등록일순</a>
-						</li>
-						<li  class="sort">
-							<a>리뷰 많은순</a>
-						</li>
+					<ul>
+						<li>랭킹순</li>
+						<li>낮은 가격순</li>
+						<li>높은 가격순</li>
+						<li>등록일순</li>
+						<li>리뷰 많은순</li>
 					</ul>
 				</div>
 				<div class="col-md-4">
@@ -138,12 +126,39 @@ input::placeholder { text-align: right;}
 				</div>
 				</c:forEach>
 			</div>
+
+	
 			<div class="row">
 				<div class="col-md-7 offset-2" style="height: 120px;" align="center">
 					<hr>
-					페이징
-				</div>
-			</div>
+
+<!-- PAGINATION-->
+                <nav aria-label="Page">
+                
+                  <ul id="pageOrder" class=""> 
+                  	<c:if test="${param.startPage > param.pageBlock }">
+                    	<li class="page-item"><a class="page-link" 
+                    	href='<c:url value="/ProductListAction.bo?pageNum=${param.startPage-pb.pageBlock}" />' 
+                    	aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+					</c:if>
+				
+						<c:forEach var="i" begin="${param.startPage }" end="${param.endPage}" step="1">
+							 <li class="page-item active"><a class="page-link" 
+							 href='<c:url value="mypage.jsp?pageNum=${i}" />'>${i}</a></li>
+						</c:forEach>
+						
+						
+						<c:if test="${param.endPage < param.pageCount }">
+                    		<li class="page-item"><a class="page-link" 
+                    		href='<c:url value="/ProductListAction.bo?pageNum=${param.startPage+pb.pageBlock}" />' 
+                    		aria-label="Next"><span aria-hidden="true">»</span></a></li>
+						</c:if>
+                 
+                 </ul>
+              </nav>
+
 	</div>
+	</div>
+	
 </body>
 </html>
