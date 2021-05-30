@@ -61,7 +61,7 @@ input::placeholder { text-align: right;}
 				<div class="col-md-6 list">
 					<ul >
 						<li class="category1" value="0">전체</li>
-						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}"> <%-- -1제거하고 실행 --%>
 							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
 								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
 							</c:if>

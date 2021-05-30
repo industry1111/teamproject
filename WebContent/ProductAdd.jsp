@@ -52,24 +52,28 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품 카테고리</label>
 				<div class="com-sm-3">
-					<select   class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
+					<select name="category1" class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
 						<option selected>=1차=</option>
-						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-							<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
-								<option value="${list[i].category_code}">${list[i].category_name }</option>
-							</c:if>
-						</c:forEach>
+							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
+										<option value="${list[i].category_code}">${list[i].category_name }</option>
+									</c:if>								
+							</c:forEach>	
 					</select>
-					<select  class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
+					<select  name="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
 						<option selected>=2차=</option>
 						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-								<option value="${list[i].category_code}">${list[i].category_name }</option>
+								<c:if test="${list[i].category_codeRef1 eq list[i].category_code && list[i].category_codeRef2 eq 0}">
+									<option value="${list[i].category_code}">${list[i].category_name }</option>
+								</c:if>
 						</c:forEach>
 					</select>
 					<select id="category_name" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
 						<option selected>=3차=</option>
 						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-								<option value="${list[i].category_name }">${list[i].category_name }</option>
+							<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 ne 0 }">
+								<option value="${list[i].category_code}">${list[i].category_name }</option>
+							</c:if>	
 						</c:forEach>
 					</select>
 				</div>
@@ -158,5 +162,8 @@ img{
 	<!-- Main -->
 	<script src="js/main.js"></script>
 	<script src="js/product_img.js"></script>
+	
+	<script src="js/main2.js"></script> <%--카테고리 --%>
+	
 </body>
 </html>
