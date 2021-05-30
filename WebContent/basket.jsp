@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+	<title>장바구니</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
+<script src="js/basket.js"></script>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -65,38 +71,84 @@
 								<span>Remove</span>
 							</div>
 						</div>
-						<c:forEach var="i" begin="0" step="1" end="4">
+						<c:forEach var="i" begin="0" step="1" end="${list.size()}">
+						
+							<c:if test="${list[i].store_num ne null}">
+								<h6 align="left">${list[i].store_name}</h6>
+<%-- 								<c:if test="${list[i].store_num ne list[i].store_num}"></c:if> --%>
 							<div class="product-cart d-flex">
+								<div class="col-md-1">
+									<input type="checkbox" value="${list[i].product_price * list[i].quantity}" name="product_check" id="product_check">
+								</div>
 								<div class="one-forth">
 									<a>
-										<img src="images/product.png" style="width: 100px;height: 100px;">
+										<img src="product_img_upload/${list[i].product_img}" style="width: 100px;height: 100px;">
+								
 									</a>
 									<div class="display-tc">
-										<h3>Product Name</h3>
+										<h3>${list[i].product_name}</h3>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<span class="price">$68.00</span>
+										<span class="price">${list[i].product_price}원</span>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+										<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100">
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<span class="price">$120.00</span>
+										<span class="price">${list[i].product_price * list[i].quantity}</span>
 									</div>
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<a href="#" class="closed"></a>
+										<a href="#" class="closed" id="delete_btn">
+											<input type="hidden" name="product_num" id="product_num" value="${list[i].product_num}"/>
+										</a>
 									</div>
 								</div>
 							</div>
+							
+							</c:if>
 						</c:forEach>
+<%-- 						<c:forEach var="i" begin="0" step="1" end="${list.size()}"> --%>
+<%-- 							<h6 align="left">${list[i].store_name}</h6> --%>
+<!-- 							<div class="product-cart d-flex"> -->
+<!-- 								<div class="one-forth"> -->
+<!-- 									<a> -->
+<%-- 										<img src="images/${list[i].product_img}" style="width: 100px;height: 100px;"> --%>
+								
+<!-- 									</a> -->
+<!-- 									<div class="display-tc"> -->
+<%-- 										<h3>${list[i].product_name}</h3> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="one-eight text-center"> -->
+<!-- 									<div class="display-tc"> -->
+<%-- 										<span class="price">${list[i].product_price}</span> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="one-eight text-center"> -->
+<!-- 									<div class="display-tc"> -->
+<%-- 										<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100"> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="one-eight text-center"> -->
+<!-- 									<div class="display-tc"> -->
+<%-- 										<span class="price">${list[i].product_price * list[i].quantity}</span> --%>
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="one-eight text-center"> -->
+<!-- 									<div class="display-tc"> -->
+<!-- 										<a href="#" class="closed"></a> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<%-- 						</c:forEach> --%>
 					</div>
 				</div>
 				<div class="row row-pb-lg">
@@ -123,7 +175,11 @@
 											<p><span>Discount:</span> <span>$45.00</span></p>
 										</div>
 										<div class="grand-total">
-											<p><span><strong>Total:</strong></span> <span>$450.00</span></p>
+											<p><span><strong>Total:</strong></span> 
+											<span>
+												<input type="text" id="price_total" value="0">
+											</span>
+											</p>
 										</div>
 									</div>
 								</div>

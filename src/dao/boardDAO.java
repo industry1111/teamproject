@@ -210,19 +210,25 @@ public class boardDAO {
 		List<basketDTO> list = new ArrayList<basketDTO>();
 		try {
 			getCon();
-			String sql = "select * from basket natural join product";
+			String sql = "select * from basket join product on basket.product_num = product.product_num "
+			        + "join seller on product.member_num = seller.member_num where basket.member_num = ?;";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
 				basketDTO bdto = new basketDTO();
-				bdto.setBasket_num(rs.getInt("basketnum"));
+				bdto.setBasket_num(rs.getInt("basket_num"));
 				bdto.setProduct_num(rs.getInt("product_num"));
 				bdto.setProduct_img(rs.getString("product_img"));
 				bdto.setProduct_name(rs.getString("product_name"));
 				bdto.setProduct_price(rs.getInt("product_price"));
+				bdto.setStore_num(rs.getInt("store_num"));
+				bdto.setStore_name(rs.getString("store_name"));
 				bdto.setQuantity(rs.getInt("quantity"));
 				
 				list.add(bdto);
+				
 			}
 		} catch (Exception e) {
 			System.out.println("getBasketList:"+e.toString());
@@ -232,6 +238,25 @@ public class boardDAO {
 		return list;
 	}
 	
+	//장바구니 삭제
+    public void deleteBasket(int product_num){
+        
+        try {
+            
+            getCon();
+            
+            String sql = "delete basket from basket where product_num = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, product_num);
+            pstmt.executeUpdate();
+        
+        } catch (Exception e) {
+             System.out.println("deleteBasket()"+e);
+        }finally {
+            ResouceClose();
+        }
+        
+    }
 	//구매자
 	public void insertReceiver(receiverDTO rdto,int member_num) {
 		try {

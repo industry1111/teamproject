@@ -13,7 +13,43 @@ public class productDTO {
 	private String product_description;
 	private Timestamp product_regdate;
 	private int member_num;
-	public int getProduct_num() {
+	private String store_name;
+    private int category_num;
+    private String profile_img;
+    private String template;
+    private String account;
+    
+	public String getStore_name() {
+        return store_name;
+    }
+    public void setStore_name(String store_name) {
+        this.store_name = store_name;
+    }
+    public int getCategory_num() {
+        return category_num;
+    }
+    public void setCategory_num(int category_num) {
+        this.category_num = category_num;
+    }
+    public String getProfile_img() {
+        return profile_img;
+    }
+    public void setProfile_img(String profile_img) {
+        this.profile_img = profile_img;
+    }
+    public String getTemplate() {
+        return template;
+    }
+    public void setTemplate(String template) {
+        this.template = template;
+    }
+    public String getAccount() {
+        return account;
+    }
+    public void setAccount(String account) {
+        this.account = account;
+    }
+    public int getProduct_num() {
 		return product_num;
 	}
 	public void setProduct_num(int product_num) {

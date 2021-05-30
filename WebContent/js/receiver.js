@@ -59,8 +59,6 @@ $(function() {
 			dataTyep:"json",
 			success : function() {
 				window.close();
-
-
 			}
 			
 		});

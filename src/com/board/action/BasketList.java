@@ -18,12 +18,12 @@ public class BasketList implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session = request.getSession();
-		String id = (String) session.getAttribute("id");
+		int member_num = (int) session.getAttribute("member_num");
 		memberDAO mdao = new memberDAO();
-		int member_num = mdao.getMemberNum(id);
+		
 		List<basketDTO> list = new boardDAO().getBasketList(member_num);
 		
-		
+		request.setAttribute("list", list);
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(false);
 		
