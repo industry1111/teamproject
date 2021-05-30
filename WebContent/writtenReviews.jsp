@@ -106,8 +106,8 @@ input[type="text"]:focus {
 						<div class="col-md-12">
 							<div class="row">
 								<div class="col-md-3 offset-1">
-								${list.rating1 }
-
+								
+								<c:out value="${list[1].rating1 }"/>
 
 								</div>
 								<div class="col-md-1 offset-7">

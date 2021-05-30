@@ -26,7 +26,7 @@ public class ReviewList implements Action {
 		rdto.setRating2(Integer.parseInt(request.getParameter("Rating2")));
 		rdto.setRating3(Integer.parseInt(request.getParameter("Rating3")));
 		System.out.println("DD");
-		//AdminGoodsDAO객체 생성 후 getGoodsList()생성
+		//
 		ReviewDAO rvdao = new ReviewDAO();
 		List<reviewDTO> list = rvdao.getReviewList(member_num);
 		
