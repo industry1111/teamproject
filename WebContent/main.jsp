@@ -60,6 +60,7 @@ input::placeholder { text-align: right;}
 				<div class="col-md-1 offset-2 category" align="left" >카테고리</div>
 				<div class="col-md-6 list">
 					<ul >
+						<li class="category1" value="0">전체</li>
 						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
 							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
 								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
@@ -71,24 +72,14 @@ input::placeholder { text-align: right;}
 			<div class="row">
 				<div class="col-md-1 offset-2 category" align="left">중분류</div>
 					<div class="col-md-6 list">
-						<ul id="test">
-<%-- 							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }"> --%>
-<%-- 							<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 eq 0}"> --%>
-<%-- 								<li class="category2" value="${clist[i].category_code }">${clist[i].category_name }</li> --%>
-<%-- 							</c:if> --%>
-<%-- 						</c:forEach> --%>
+						<ul id="category2">
 						</ul>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-1 offset-2 category" align="left">소분류</div>
 					<div class="col-md-6 list">
-						<ul class="category3">
-							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-							<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 eq 0}">
-								<li>${clist[i].category_name }</li>
-							</c:if>
-						</c:forEach>
+						<ul id="category3">
 						</ul>
 				</div>
 			</div>

@@ -458,13 +458,22 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
-	public List<categoryDTO> getcategory(int category_code1){
+	public List<categoryDTO> getcategory(int category_code1,int category_code2){
 		List<categoryDTO> list = new ArrayList<categoryDTO>();
+		String sql ="select * from category";
+		
+		if(category_code2 == 0) {
+			if(category_code1 != 0) {
+				sql += " where category_coderef1="+category_code1+" and category_coderef2 is null";
+			}else {
+				sql += " where category_coderef2 is null";
+			}
+		}else {
+			sql += " where category_coderef2 = "+category_code2;
+		}
 		try {
 			getCon();
-			String sql = "select * from category where category_coderef1=? and category_coderef2 is null";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, category_code1);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				categoryDTO cdto = new categoryDTO();

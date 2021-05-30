@@ -32,10 +32,17 @@ public class SelectProductList extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		int category_code1 = Integer.parseInt(request.getParameter("category_code1"));
+		int category_code2 = Integer.parseInt(request.getParameter("category_code2"));
+		int category_code3 = Integer.parseInt(request.getParameter("category_code3"));
+		String brand = request.getParameter("brand");
+		int price1 = Integer.parseInt(request.getParameter("price1"));
+		int price2 = Integer.parseInt(request.getParameter("price2"));
 
 		
+		
+		
 		boardDAO bdao = new boardDAO();
-		List<categoryDTO> list = bdao.getcategory(category_code1);
+		List<categoryDTO> list = bdao.getcategory(category_code1,category_code2);
 		String json = "[";
 		for (int i=0; i<list.size();i++) {
 			categoryDTO cdto = (categoryDTO)list.get(i);
@@ -47,7 +54,6 @@ public class SelectProductList extends HttpServlet{
 			}
 		}
 		json +="]";
-		System.out.println(json);
 		response.setHeader("content-type", "application/json");
 		out.print(json);
 		out.flush();
