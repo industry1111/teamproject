@@ -10,9 +10,9 @@ import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
 import dto.productDTO;
-import dto.reviewDTO;
 
-public class ProductListAction implements Action {
+
+public class ProductList implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, 
@@ -21,6 +21,7 @@ public class ProductListAction implements Action {
 		
 		HttpSession session = request.getSession();
 		int member_num = (Integer) session.getAttribute("member_num");
+		
 		
 		
 		//AdminGoodsDAO객체 생성 후 getGoodsList()생성

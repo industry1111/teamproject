@@ -19,10 +19,6 @@ public class WrittenReviewsAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		
 		HttpSession session=request.getSession();
-		String id = (String)session.getAttribute("id");
-		int member_num = (int)session.getAttribute("member_num");
-		
-		int rating1 = Integer.parseInt(request.getParameter("rating1"));
 		System.out.println(request.getParameter("rating1"));
 		
 		

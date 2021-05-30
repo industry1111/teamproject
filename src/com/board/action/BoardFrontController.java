@@ -55,13 +55,27 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+		}else if(command.equals("/ProductList.bo")) //상품 리스트 페이지로 이동하는 서블릿 
+		{ 
+			
+			action = new ProductList();
+			
+			try {
+				
+				forward = action.execute(request, response);
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/ProductListAction.bo")) //상품 리스트 페이지로 이동하는 서블릿 
 		{ 
-
+			
 			action = new ProductListAction();
+			
 			try {
+				
 				forward = action.execute(request, response);
-
+			
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -83,7 +97,8 @@ public class BoardFrontController extends HttpServlet {
 
 			} catch (Exception e) {
 					e.printStackTrace();
-			}	
+			}
+			
 		}else if(command.equals("/ProductModify.bo")) { //상품 수정 페이지로 이동하는 서블릿
 			action = new ProductModify();
 			try {
@@ -134,6 +149,20 @@ public class BoardFrontController extends HttpServlet {
 			}
 		}else if(command.equals("/ReviewAction.bo")) {
 			action = new ReviewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ReviewList.bo")) {
+			action = new ReviewList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ReviewListAction.bo")) {
+			action = new ReviewListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
