@@ -11,7 +11,7 @@ $(function() {
 		$(this).css('color', '#627482');
 	});
 
-	$(".category1").click(function() {
+	$(document).on("click", ".category1", function() {
 		
 		category_code1 = $(this).val();
 		$('.category1').css('color', '#627482');
