@@ -12,6 +12,7 @@ $(function() {
 	});
 
 	$(".category1").click(function() {
+		
 		category_code1 = $(this).val();
 		$('.category1').css('color', '#627482');
 		$('.category1').css('background-color', 'white');
