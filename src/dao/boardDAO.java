@@ -16,11 +16,11 @@ import dto.categoryDTO;
 import dto.productDTO;
 import dto.ratingDTO;
 import dto.receiverDTO;
-<<<<<<< HEAD
+
 import dto.reviewDTO;
-=======
+
 import dto.templateDTO;
->>>>>>> 75937cff0325687d709c19517ca5564d2fcea0aa
+
 
 public class boardDAO {
 
@@ -577,8 +577,7 @@ public class boardDAO {
 	}
 	
 	
-<<<<<<< HEAD
-=======
+
 	//템플릿 리스트
 	public List<templateDTO> getTemplateList(){
         
@@ -608,6 +607,6 @@ public class boardDAO {
         }
         return tlist;
     }
->>>>>>> 75937cff0325687d709c19517ca5564d2fcea0aa
+
 	
 }
