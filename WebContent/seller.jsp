@@ -83,12 +83,11 @@ img {
 
 											<div class="col-md-3">
 												<input type="radio" name="template" id="template"
-													value="template${i }">template${i}
+													value="${i}">template${i}
 											</div>
 											<div class="col-md-9">
-												<img alt="" src="images/1.png">&nbsp; <img alt=""
-													src="images/1.png">&nbsp; <img alt=""
-													src="images/1.png">
+												<img alt="" src="template/${i}.jpg">&nbsp; 
+												<img alt="" src="template/${i}-2.jpg">&nbsp; 
 											</div>
 										</div>
 										<c:if test="${i == 5 }">

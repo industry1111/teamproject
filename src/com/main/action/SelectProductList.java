@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.boardDAO;
 import dto.categoryDTO;
+import dto.productDTO;
 
 @WebServlet("/SelectList.do")
 public class SelectProductList extends HttpServlet{
@@ -42,14 +43,26 @@ public class SelectProductList extends HttpServlet{
 		
 		
 		boardDAO bdao = new boardDAO();
-		List<categoryDTO> list = bdao.getcategory(category_code1,category_code2);
+		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
+		List<productDTO> plist = bdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2);
 		String json = "[";
-		for (int i=0; i<list.size();i++) {
-			categoryDTO cdto = (categoryDTO)list.get(i);
+		for (int i=0; i<clist.size();i++) {
+			categoryDTO cdto = (categoryDTO)clist.get(i);
 			int category_code = cdto.getCategory_code();
 			String category_name= cdto.getCategory_name();
 			json+="{\"category_code\":\""+category_code+"\",\"category_name\":\""+category_name+"\"}";
-			if(i !=list.size()-1) {
+			if(i !=clist.size()-1) {
+				json+=",";
+			}
+		}
+		json +="]||[";
+		for (int i=0; i<plist.size();i++) {
+			productDTO pdto = (productDTO)plist.get(i);
+			String product_img = pdto.getProduct_img();
+			String product_name = pdto.getProduct_name();
+			String category_name = pdto.getCategory_name();
+			json+="{\"product_img\":\""+product_img+"\",\"category_name\":\""+category_name+"\",\"product_name\":\""+product_name+"\"}";
+			if(i !=plist.size()-1) {
 				json+=",";
 			}
 		}

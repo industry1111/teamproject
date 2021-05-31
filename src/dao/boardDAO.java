@@ -16,7 +16,11 @@ import dto.categoryDTO;
 import dto.productDTO;
 import dto.ratingDTO;
 import dto.receiverDTO;
+<<<<<<< HEAD
 import dto.reviewDTO;
+=======
+import dto.templateDTO;
+>>>>>>> 75937cff0325687d709c19517ca5564d2fcea0aa
 
 public class boardDAO {
 
@@ -202,6 +206,45 @@ public class boardDAO {
 		}
 		return list;
 	}
+	//메인화면에 선택한 리스트
+		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,int price1, int price2) {
+			List<productDTO> list = new ArrayList<productDTO>();
+			String sql = "select * from product natural join category ";
+			if(category_code3 == 0) {
+				if(category_code2 == 0) {
+					if(category_code1 != 0) {
+						sql += " where category_coderef1="+category_code1;
+					}
+				}
+			}
+			try {
+				getCon();
+		
+				pstmt =con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+
+				while(rs.next()) {
+					
+					productDTO pdto = new productDTO();
+					pdto.setProduct_num(rs.getInt("product_num"));
+					pdto.setProduct_name(rs.getString("product_name"));
+					pdto.setProduct_img(rs.getString("product_img"));
+					pdto.setCategory_name(rs.getString("category_name"));
+					pdto.setProduct_price(rs.getInt("product_price"));
+					pdto.setProduct_count(rs.getInt("product_count"));
+					pdto.setProduct_brand(rs.getString("product_brand"));
+					pdto.setProduct_description(rs.getString("product_description"));
+					pdto.setMember_num(rs.getInt("member_num"));
+					
+					list.add(pdto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				ResouceClose();
+			}
+			return list;
+		}
 	
 	public void deleteProduct(int product_num){ //상품 정보 삭제
 		try {
@@ -242,19 +285,25 @@ public class boardDAO {
 		List<basketDTO> list = new ArrayList<basketDTO>();
 		try {
 			getCon();
-			String sql = "select * from basket natural join product";
+			String sql = "select * from basket join product on basket.product_num = product.product_num "
+			        + "join seller on product.member_num = seller.member_num where basket.member_num = ?;";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
 				basketDTO bdto = new basketDTO();
-				bdto.setBasket_num(rs.getInt("basketnum"));
+				bdto.setBasket_num(rs.getInt("basket_num"));
 				bdto.setProduct_num(rs.getInt("product_num"));
 				bdto.setProduct_img(rs.getString("product_img"));
 				bdto.setProduct_name(rs.getString("product_name"));
 				bdto.setProduct_price(rs.getInt("product_price"));
+				bdto.setStore_num(rs.getInt("store_num"));
+				bdto.setStore_name(rs.getString("store_name"));
 				bdto.setQuantity(rs.getInt("quantity"));
 				
 				list.add(bdto);
+				
 			}
 		} catch (Exception e) {
 			System.out.println("getBasketList:"+e.toString());
@@ -264,14 +313,34 @@ public class boardDAO {
 		return list;
 	}
 	
+	//장바구니 삭제
+    public void deleteBasket(int product_num){
+        
+        try {
+            
+            getCon();
+            
+            String sql = "delete basket from basket where product_num = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, product_num);
+            pstmt.executeUpdate();
+        
+        } catch (Exception e) {
+             System.out.println("deleteBasket()"+e);
+        }finally {
+            ResouceClose();
+        }
+        
+    }
 	//구매자
 	public void insertReceiver(receiverDTO rdto,int member_num) {
 		try {
 			getCon();
 			if(rdto.getBasic_num()==1){
 				
-				String sql= "update receiver set basic_num = 0";
+				String sql= "update receiver set basic_num = 0 where member_num=?";
 				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, member_num);
 				pstmt.executeUpdate();
 				
 			}
@@ -295,6 +364,7 @@ public class boardDAO {
 			System.out.println("insertReceiver:"+e.toString());
 		}
 	}
+	
 	//배송지 정보
 	public List<receiverDTO> getReceiverList(int member_num){
 		
@@ -360,13 +430,14 @@ public class boardDAO {
 	}
 	
 	//배송지 변경
-	public void updateReceiver(receiverDTO rdto ,int receiver_num){
+	public void updateReceiver(receiverDTO rdto ,int receiver_num, int member_num){
 	    try {
 	    	 getCon();
 	    	 
 	    	if(rdto.getBasic_num()==1){
-	    		String sql = "update receiver set basic_num = 0 ";
+	    		String sql = "update receiver set basic_num = 0 where member_num = ?";
 	    		pstmt = con.prepareStatement(sql);
+	    		pstmt.setInt(1, member_num);
 	    		pstmt.executeUpdate();
 	    	}
 	    	
@@ -467,6 +538,8 @@ public class boardDAO {
 		}
 	}
 	public List<categoryDTO> getcategory(int category_code1,int category_code2){
+	System.out.println("category_code1:"+category_code1);
+	System.out.println("category_code2:"+category_code2);
 		List<categoryDTO> list = new ArrayList<categoryDTO>();
 		String sql ="select * from category";
 		
@@ -477,8 +550,9 @@ public class boardDAO {
 				sql += " where category_coderef2 is null";
 			}
 		}else {
-			sql += " where category_coderef2 = "+category_code2;
+			sql += " where category_coderef2="+category_code2;
 		}
+		System.out.println(sql);
 		try {
 			getCon();
 			pstmt = con.prepareStatement(sql);
@@ -495,7 +569,7 @@ public class boardDAO {
 				list.add(cdto);
 			}
 		} catch (Exception e) {
-			System.out.println("category:"+e.toString());
+			System.out.println("getcategory(int category_cod1,int category_code2):"+e.toString());
 		}finally{
 			ResouceClose();
 		}
@@ -503,5 +577,37 @@ public class boardDAO {
 	}
 	
 	
+<<<<<<< HEAD
+=======
+	//템플릿 리스트
+	public List<templateDTO> getTemplateList(){
+        
+        List<templateDTO> tlist = new ArrayList<templateDTO>();
+        
+        try {
+            getCon();
+            String sql = "select * from template";
+        
+            pstmt = con.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()){
+                
+                templateDTO tdto = new templateDTO();
+                tdto.setTemplate_num(rs.getInt("template_num"));
+                tdto.setTemplate_name(rs.getString("template_name"));
+                tdto.setTemplate_img1(rs.getString("template_img1"));
+                tdto.setTemplate_img1(rs.getString("template_img2"));
+                
+                tlist.add(tdto);
+            }
+        } catch (Exception e) {
+            System.out.println("getReceiverInfo:"+e.toString());
+        }finally{
+            ResouceClose();
+        }
+        return tlist;
+    }
+>>>>>>> 75937cff0325687d709c19517ca5564d2fcea0aa
 	
 }

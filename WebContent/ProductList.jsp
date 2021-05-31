@@ -91,7 +91,8 @@
 						<div class="col-md-2" style="margin-left: 40px;">
 							<div class="a">
 								<a href="ProductModify.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-success">수정</a>
-								<a href="ProductDelete.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-danger">삭제</a>
+								<a href="ProductDelete.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-danger"
+										onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
 							</div>
 						</div>
 					</div>

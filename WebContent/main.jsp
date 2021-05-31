@@ -61,7 +61,7 @@ input::placeholder { text-align: right;}
 				<div class="col-md-6 list">
 					<ul >
 						<li class="category1" value="0">전체</li>
-						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}"> <%-- -1제거하고 실행 --%>
 							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
 								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
 							</c:if>
@@ -127,7 +127,7 @@ input::placeholder { text-align: right;}
 					</select>
 				</div>
 			</div>
-			<div class="row" style="margin-top: 10px;">
+			<div class="row" id="product-list" style="margin-top: 10px;">
 				<c:if test="${plist.size() > 0 }">
 				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
 				<div class="col-md-7 offset-2">

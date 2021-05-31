@@ -113,9 +113,9 @@ img {
 			</div>
 
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit" class="btn btn-secondary" >상품 수정</button>
-				<a type="button" class="btn btn-secondary"
-					href="ProductListAction.bo">수정 취소</a>
+				<button type="submit" class="btn btn-secondary"  >상품 수정</button>
+				<a type="button" class="btn btn-secondary" href="ProductListAction.bo" 
+					onclick="if(!confirm('수정을 취소 하시겠습니까?')){return false;}">수정 취소</a>
 			</div>
 		</div>
 	</form>

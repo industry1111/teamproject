@@ -12,6 +12,7 @@ import dao.boardDAO;
 import dao.sellerDAO;
 import dto.categoryDTO;
 import dto.sellerDTO;
+import dto.templateDTO;
 
 public class StoreInfo implements Action {
 	@Override
@@ -23,9 +24,13 @@ public class StoreInfo implements Action {
 
         sellerDTO sdto = new sellerDAO().getSellerInfo(member_num);
         request.setAttribute("sdto", sdto);
-
-        List<categoryDTO> list = new boardDAO().getcategory();
+        
+        boardDAO bdao = new boardDAO();
+        List<categoryDTO> list = bdao.getcategory();
+        List<templateDTO> tlist = bdao.getTemplateList();
+        
         request.setAttribute("list", list);
+        request.setAttribute("tlist", tlist);
 		
         request.setAttribute("center","StoreInfoUpdate.jsp");
 		ActionForward forward = new ActionForward();

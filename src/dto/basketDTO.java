@@ -7,7 +7,22 @@ public class basketDTO {
 	private String product_name;
 	private int product_price;
 	private int quantity;
-	public int getBasket_num() {
+	private int store_num;
+	private String store_name;
+
+    public String getStore_name() {
+        return store_name;
+    }
+    public void setStore_name(String store_name) {
+        this.store_name = store_name;
+    }
+    public int getStore_num() {
+        return store_num;
+    }
+    public void setStore_num(int store_num) {
+        this.store_num = store_num;
+    }
+    public int getBasket_num() {
 		return basket_num;
 	}
 	public void setBasket_num(int basket_num) {
