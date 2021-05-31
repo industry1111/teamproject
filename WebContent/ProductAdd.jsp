@@ -23,7 +23,7 @@
 	crossorigin="anonymous"></script>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<script src="js/product_add.js"></script>
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
 
 <style type="text/css">
@@ -74,8 +74,10 @@ img{
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="product_name" class="form-control"
+					<input type="text" name="product_name" id="product_name" class="form-control"
 						placeholder="상품명을 입력하세요.">
+						<span id="product_name_check" class="check"></span>
+	                    <span id="product_name_check2" class="check2"></span>
 				</div>
 			</div>
 
@@ -83,17 +85,20 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
-					<textarea name="product_description" id="description" cols="100" rows="10"
+					<textarea name="product_description" id="product_description" cols="100" rows="10"
 						class="form-control" placeholder="상품내용을 입력하세요."></textarea>
+					<span id="product_description_check" class="check"></span>
+	                <span id="product_description_check2" class="check2"></span>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-
-					<input type="text" name="product_brand" class="form-control"
+					<input type="text" id="product_brand" name="product_brand" class="form-control"
 						placeholder="브랜드를 입력하세요.">
+					<span id="product_brand_check" class="check"></span>
+	                <span id="product_brand_check2" class="check2"></span>	
 				</div>
 			</div>
 
@@ -101,8 +106,10 @@ img{
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="product_price" class="form-control"
+					<input type="text" name="product_price" id="product_price" class="form-control"
 						placeholder="상품가격을 입력하세요.">
+					<span id="product_price_check" class="check"></span>
+	                <span id="product_price_check2" class="check2"></span>
 				</div>
 			</div>
 
@@ -110,8 +117,10 @@ img{
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="product_count"
+					<input type="text" name="product_count" id="product_count"
 						class="form-control" placeholder="상품재고 수량을 입력하세요.">
+						<span id="product_count_check" class="check"></span>
+	               		<span id="product_count_check2" class="check2"></span>
 				</div>
 			</div>
 
@@ -121,6 +130,8 @@ img{
 					<img src="" id="preview"><br> 
 					<label for="product_img"> 이미지 선택</label> 
 						<input type="file" id="product_img" name="product_img" />
+						<span id="product_img_check" class="check"></span>
+	               		<span id="product_img_check2" class="check2"></span>
 				</div>
 			</div>
 
