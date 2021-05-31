@@ -52,29 +52,20 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품 카테고리</label>
 				<div class="com-sm-3">
-					<select name="category1" class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
-						<option selected>=1차=</option>
+					<select name="category1"  id = "category1" 
+					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
+						<option value="" selected>=1차=</option>
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
 									</c:if>								
 							</c:forEach>	
-<!-- 					</select> -->
-<!-- 					<select  name="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;"> -->
-						<option selected>=2차=</option>
-						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-								<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 eq 0}">
-									<option value="${list[i].category_code}">${list[i].category_name }</option>
-								</c:if>
-						</c:forEach>
-<!-- 					</select> -->
-<!-- 					<select id="category_name" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;"> -->
-						<option selected>=3차=</option>
-						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-							<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 ne 0 }">
-								<option value="${list[i].category_code}">${list[i].category_name }</option>
-							</c:if>	
-						</c:forEach>
+					</select>
+					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
+						<option class='category2' value=0>==2차==</option>
+					</select>
+					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+						<option class='category3' value=0>==3차==</option>
 					</select>
 				</div>
 			</div>
@@ -163,7 +154,7 @@ img{
 	<script src="js/main.js"></script>
 	<script src="js/product_img.js"></script>
 	
-	<script src="js/main2.js"></script> <%--카테고리 --%>
+	<script src="js/category.js"></script> <%--카테고리 --%>
 	
 </body>
 </html>
