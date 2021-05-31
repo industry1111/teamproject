@@ -203,11 +203,11 @@ public class boardDAO {
 		return list;
 	}
 	//메인화면에 선택한 리스트
-		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,int price1, int price2) {
+		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,int price1, int price2, String sort) {
 			List<productDTO> list = new ArrayList<productDTO>();
 			String sql = "select p.product_num, s.store_name, p.member_num, p.product_name, p.product_img, c.category_name,p.product_price,"
 					+ " p.product_description, product_regdate, product_brand, c.category_num, c.category_name,"
-					+ " c.category_codeRef1,c.category_codeRef2,c.category_code , s.profile_img, p.product_count "
+					+ " c.category_codeRef1,c.category_codeRef2,c.category_code , s.profile_img, p.product_count, p.product_regdate "
 					+ " from product p join category c on p.category_name = c.category_name "
 					+ " join seller s on s.member_num = p.member_num";
 					
@@ -221,9 +221,22 @@ public class boardDAO {
 					sql += " where category_coderef1 = "+category_code1 + " and category_coderef2 = "+category_code2;
 				}
 			}else{
-				sql += " where category_coderef1 = "+category_code1 + " and category_coderef2 = "+category_code2 + " and category_coderef3 = "+category_code3;
+				sql += " where category_coderef1 = "+category_code1 + " and category_coderef2 = "+category_code2 + " and category_code = "+category_code3;
 			}
 //			
+			if(sort != null){
+			    
+			    if(sort.equals("1")){
+			        sql += " order by p.product_price";
+			    }else if(sort.equals("2")){
+                    sql += " order by p.product_price desc";
+                }else if(sort.equals("3")){
+                    sql += " order by p.product_regdate desc";
+                }
+			    
+			}
+			
+			System.out.println("sort!!!!!"+sort);
 			try {
 				getCon();
 		
@@ -244,6 +257,7 @@ public class boardDAO {
 					pdto.setMember_num(rs.getInt("member_num"));
 					pdto.setStore_name(rs.getString("store_name"));
 					pdto.setProfile_img(rs.getString("profile_img"));
+					pdto.setRegdate(rs.getTimestamp("product_regdate"));
 	
 					
 					list.add(pdto);

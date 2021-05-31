@@ -2,6 +2,7 @@ package com.main.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -38,13 +39,13 @@ public class SelectProductList extends HttpServlet{
 		String brand = request.getParameter("brand");
 		int price1 = Integer.parseInt(request.getParameter("price1"));
 		int price2 = Integer.parseInt(request.getParameter("price2"));
-		
-		
+		String sort = request.getParameter("sort");
+		System.out.println("sort:"+sort);
 		
 		
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
-		List<productDTO> plist = bdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2);
+		List<productDTO> plist = bdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort);
 		String json = "[";
 		for (int i=0; i<clist.size();i++) {
 			categoryDTO cdto = (categoryDTO)clist.get(i);
@@ -67,11 +68,16 @@ public class SelectProductList extends HttpServlet{
 			String profile_img = pdto.getProfile_img();
 			String template = pdto.getTemplate();
 			int category_num = pdto.getCategory_num();
+			int product_price = pdto.getProduct_price();
+			Timestamp regdate = pdto.getRegdate();
+			
 			System.out.println(profile_img);
 			System.out.println(store_name);
+			System.out.println(product_price);
 			json+="{\"product_img\":\""+product_img+"\",\"category_name\":\""+category_name+"\",\"product_name\":\""+product_name+"\",\"category_name\":\""+category_name+"\","
 					+ "\"product_description\":\""+product_description+"\",\"store_name\":\""+store_name+"\",\"store_num\":\""+store_num+"\","
-					+ "\"profile_img\":\""+profile_img+"\",\"template\":\""+template+"\",\"category_num\":\""+category_num+"\"}	";
+					+ "\"profile_img\":\""+profile_img+"\",\"template\":\""+template+"\",\"category_num\":\""+category_num+"\",\"product_price\":\""+product_price+"\""
+					        + ",\"regdate\":\""+regdate+"\"}";
 			if(i !=plist.size()-1) {
 				json+=",";
 			}
