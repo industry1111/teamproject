@@ -109,7 +109,7 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-				
+			
 		}else if(command.equals("/receiver.bo")) {
 			action = new ReceiverList();
 			try {

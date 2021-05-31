@@ -46,20 +46,26 @@ img {
 		<div class="container" cols="100" rows="2">
 			<input name="product_num" type="text" value="${pdto.product_num}"
 				hidden />
-			<!-- 			<div class="form-group row"> -->
-			<!-- 				<label class="col-sm-2">상품 카테고리</label> -->
-			<!-- 				<div class="com-sm-3"> -->
-			<!-- 					<select class="form-control" aria-label=".form-select-sm example"> -->
-			<%--  						<option selected value="${pdto.product_category}"></option> --%>
-			<!-- 						<option value="1">카테고리1</option> -->
-			<!--  						<option value="2">카테고리2</option> -->
-			<!-- 						<option value="3">카테고리3</option> -->
-			<!-- 					</select> -->
-			<!-- 					<input type="text" name="product_category" -->
-			<%-- 						value="${pdto.product_category}" style="border: 0;"> 임시 --%>
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
+			<div class="form-group row">
+				<label class="col-sm-2">상품 카테고리</label>
+				<div class="com-sm-3">
+					<select name="category1"  id = "category1" 
+					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
+						<option value="" selected>=1차=</option>
+							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
+										<option value="${list[i].category_code}">${list[i].category_name }</option>
+									</c:if>								
+							</c:forEach>	
+					</select>
+					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
+						<option class='category2' value=0>==2차==</option>
+					</select>
+					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+						<option class='category3' value="0">${pdto.category_name}</option>
+					</select>
+				</div>
+			</div>
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
@@ -122,5 +128,6 @@ img {
 
 	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
+	<script src="js/category.js"></script>
 </body>
 </html>
