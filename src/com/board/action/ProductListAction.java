@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.Action;
+import action.ActionForward;
 import dao.boardDAO;
 import dto.pagingDTO;
 import dto.productDTO;
@@ -29,7 +31,7 @@ public class ProductListAction implements Action {
 		
 		//AdminGoodsDAO객체 생성 후 getGoodsList()생성
 		boardDAO bDao = new boardDAO();
-		List<productDTO> list = bDao.getProductList(member_num, param);
+		List<productDTO> list = bDao.getProductList(member_num);
 		
 //		param.setCount(bDao.getProductCount());
 		param.setCurrentPage(Integer.parseInt(param.getPageNum()));
