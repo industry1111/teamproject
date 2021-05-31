@@ -205,7 +205,7 @@ public class boardDAO {
 	//메인화면에 선택한 리스트
 		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,int price1, int price2) {
 			List<productDTO> list = new ArrayList<productDTO>();
-			String sql = "select * from product ";
+			String sql = "select * from product natural join category ";
 			if(category_code3 == 0) {
 				if(category_code2 == 0) {
 					if(category_code1 != 0) {
@@ -213,7 +213,6 @@ public class boardDAO {
 					}
 				}
 			}
-			
 			try {
 				getCon();
 		
@@ -528,6 +527,8 @@ public class boardDAO {
 		}
 	}
 	public List<categoryDTO> getcategory(int category_code1,int category_code2){
+	System.out.println("category_code1:"+category_code1);
+	System.out.println("category_code2:"+category_code2);
 		List<categoryDTO> list = new ArrayList<categoryDTO>();
 		String sql ="select * from category";
 		
@@ -538,8 +539,9 @@ public class boardDAO {
 				sql += " where category_coderef2 is null";
 			}
 		}else {
-			sql += " where category_coderef2 = "+category_code2;
+			sql += " where category_coderef2="+category_code2;
 		}
+		System.out.println(sql);
 		try {
 			getCon();
 			pstmt = con.prepareStatement(sql);
@@ -556,7 +558,7 @@ public class boardDAO {
 				list.add(cdto);
 			}
 		} catch (Exception e) {
-			System.out.println("category:"+e.toString());
+			System.out.println("getcategory(int category_cod1,int category_code2):"+e.toString());
 		}finally{
 			ResouceClose();
 		}

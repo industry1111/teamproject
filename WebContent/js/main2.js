@@ -19,7 +19,6 @@ $(function() {
 		$(this).css('color', 'white');
 		$(this).css('background-color', 'green');
 		$(this).attr('class', 'category1 allowed');
-
 		$.ajax({
 			type: "get",
 			url: contextPath + "/SelectList.do",
@@ -79,10 +78,12 @@ $(function() {
 			},
 			dataType: "text", 
 			success: function(data) {
-				var obj = JSON.parse(data);
+				var data1 = data.split("||");
+				var obj1 = JSON.parse(data1[0]);
+				console.log(obj1);
 				$("#category3").html("");
-				for (var i = 0; i < obj.length; i++) {
-					$("#category3").append("<li class='category3' value=" + obj[i].category_code + ">" + obj[i].category_name + "</li>");
+				for (var i = 0; i < obj1.length; i++) {
+					$("#category3").append("<li class='category3' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
 				}
 			}
 		});
