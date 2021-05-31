@@ -6,12 +6,61 @@ $(function() {
 	var price1 = 0;
 	var price2 = 0;
 
-	$(".sort").click(function() {
+	$(document).on("click", ".sort",function() {
 		$(".sort").css('color', "gray");
-		$(this).css('color', '#627482');
+		$(this).css('color', 'black');
+		$.ajax({
+			type: "get",
+			url: contextPath + "/SelectList.do",
+			data: {
+				category_code1: category_code1,
+				category_code2: 0,
+				category_code3: 0,
+				brand: 0,
+				price1: 0,
+				price2: 0,
+				
+			},
+			dataType: "text",
+			success: function(data) {
+				var data1 = data.split("||");
+			
+				var obj1 = JSON.parse(data1[0]);
+				var obj2 = JSON.parse(data1[1]);
+				console.log(obj1);
+				console.log(obj2);
+				
+				$("#product-list").html("");
+				$("#category2").html("");
+				$("#category3").html("");
+				for (var i=0;i<obj1.length;i++) {
+					$("#category2").append("<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
+				}
+				for(var i=0;i<obj2.length;i++){
+					
+					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					"<div class='row'>" +
+					"<div class='col-md-2'>" +
+						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
+					"</div>" +
+					"<div class='col-md-6 offest-1'>" + obj2[i].product_name + "<br>" + obj2[i].product_description +"</div>" +
+					"<div class='col-md-3'>" +
+					"<a href='store.bo?" + obj2[i].store_num + "'>" + 
+						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 100px; width:100px;'>" +
+					"</div>" +
+					"</a>" + obj2[i].store_name + "<br>" +
+						obj2[i].category_name + 
+					"</div>"+
+					"</div>";
+				
+					$("#product-list").append(html);
+				}
+			}
+		});
 	});
 
-	$(".category1").click(function() {
+	$(document).on("click", ".category1", function() {
+		
 		category_code1 = $(this).val();
 		$('.category1').css('color', '#627482');
 		$('.category1').css('background-color', 'white');
@@ -45,7 +94,22 @@ $(function() {
 					$("#category2").append("<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
 				}
 				for(var i=0;i<obj2.length;i++){
-					$("#product-list").append(obj2[i].product_name);
+					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					"<div class='row'>" +
+					"<div class='col-md-2'>" +
+						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
+					"</div>" +
+					"<div class='col-md-6 offest-1'>" + obj2[i].product_name + "<br>" + obj2[i].product_description +"</div>" +
+					"<div class='col-md-3'>" +
+					"<a href='store.bo?" + obj2[i].store_num + "'>" + 
+						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 100px; width:100px;'>" +
+					"</div>" +
+					"</a>" + obj2[i].store_name + "<br>" +
+						obj2[i].category_name + 
+					"</div>"+
+					"</div>";
+				
+					$("#product-list").append(html);
 				}
 			}
 		});
@@ -65,6 +129,7 @@ $(function() {
 		$(this).css('color', 'white');
 		$(this).css('background-color', 'green');
 		$(this).attr('class', 'category2 allowed');
+		
 		$.ajax({
 			type: "get",
 			url: contextPath + "/SelectList.do",
@@ -80,10 +145,31 @@ $(function() {
 			success: function(data) {
 				var data1 = data.split("||");
 				var obj1 = JSON.parse(data1[0]);
+				var obj2 = JSON.parse(data1[1]);
+				
 				console.log(obj1);
+				$("#product-list").html("");
 				$("#category3").html("");
 				for (var i = 0; i < obj1.length; i++) {
 					$("#category3").append("<li class='category3' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
+				}
+				for(var i=0;i<obj2.length;i++){
+					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					"<div class='row'>" +
+					"<div class='col-md-2'>" +
+						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
+					"</div>" +
+					"<div class='col-md-6 offest-1'>" + obj2[i].product_name + "<br>" + obj2[i].product_description +"</div>" +
+					"<div class='col-md-3'>" +
+					"<a href='store.bo?" + obj2[i].store_num + "'>" + 
+						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 100px; width:100px;'>" +
+					"</div>" +
+					"</a>" + obj2[i].store_name + "<br>" +
+						obj2[i].category_name + 
+					"</div>"+
+					"</div>";
+				
+					$("#product-list").append(html);
 				}
 			}
 		});

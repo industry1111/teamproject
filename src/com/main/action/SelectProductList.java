@@ -38,7 +38,7 @@ public class SelectProductList extends HttpServlet{
 		String brand = request.getParameter("brand");
 		int price1 = Integer.parseInt(request.getParameter("price1"));
 		int price2 = Integer.parseInt(request.getParameter("price2"));
-
+		
 		
 		
 		
@@ -61,7 +61,17 @@ public class SelectProductList extends HttpServlet{
 			String product_img = pdto.getProduct_img();
 			String product_name = pdto.getProduct_name();
 			String category_name = pdto.getCategory_name();
-			json+="{\"product_img\":\""+product_img+"\",\"category_name\":\""+category_name+"\",\"product_name\":\""+product_name+"\"}";
+			String product_description = pdto.getProduct_description();
+			String store_name = pdto.getStore_name();
+			int store_num = pdto.getStore_num();
+			String profile_img = pdto.getProfile_img();
+			String template = pdto.getTemplate();
+			int category_num = pdto.getCategory_num();
+			System.out.println(profile_img);
+			System.out.println(store_name);
+			json+="{\"product_img\":\""+product_img+"\",\"category_name\":\""+category_name+"\",\"product_name\":\""+product_name+"\",\"category_name\":\""+category_name+"\","
+					+ "\"product_description\":\""+product_description+"\",\"store_name\":\""+store_name+"\",\"store_num\":\""+store_num+"\","
+					+ "\"profile_img\":\""+profile_img+"\",\"template\":\""+template+"\",\"category_num\":\""+category_num+"\"}	";
 			if(i !=plist.size()-1) {
 				json+=",";
 			}
