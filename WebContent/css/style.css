@@ -8854,15 +8854,7 @@ input[type="text"] {
 /*별점 */
 
 .star-rating {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  border:solid 1px #ccc;
-=======
   border:none;
->>>>>>> cca61d3941ee64e03f42ec825ddeb40ed84a6856
-=======
-  border:none;
->>>>>>> 238d14cc454f2549a1ff228d92eebc1f1ebbe6c6
   display:flex;
   flex-direction: row-reverse;
   font-size:1.5em;
@@ -8870,6 +8862,7 @@ input[type="text"] {
   padding:0 .2em;
   text-align:center;
   width:5em;
+  
 }
 
 .star-rating input {
@@ -8885,10 +8878,10 @@ input[type="text"] {
   color:#f90;
 }
 
-.star-rating label:hover,
-.star-rating label:hover ~ label {
-  color:#fc0;
-}
+/* .star-rating label:hover, */
+/* .star-rating label:hover ~ label { */
+/*   color:#fc0; */
+/* } */
 
 
  

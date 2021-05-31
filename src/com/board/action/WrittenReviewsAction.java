@@ -1,11 +1,16 @@
 package com.board.action;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.ActionForward;
+import dao.ReviewDAO;
+import dao.boardDAO;
+import dto.productDTO;
 import dto.reviewDTO;
 
 
@@ -18,18 +23,18 @@ public class WrittenReviewsAction implements Action{
 		System.out.println("ratingTest");
 		
 		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		int member_num = (Integer)session.getAttribute("member_num");
 		
-		HttpSession session=request.getSession();
-		int product_num = (Integer) session.getAttribute("product_num");
+		boardDAO  bdao = new boardDAO();
+		List<productDTO> plist= bdao.getProductList(member_num);
+		request.setAttribute("plist", plist);
 		
-		reviewDTO rdto = new reviewDTO();
-		rdto.setRating1(Integer.parseInt(request.getParameter("Rating1")));
-		rdto.setRating2(Integer.parseInt(request.getParameter("Rating2")));
-		rdto.setRating3(Integer.parseInt(request.getParameter("Rating3")));
-		
+		ReviewDAO rvdao = new ReviewDAO();
+		List<reviewDTO> rvlist= rvdao.getReviewList(member_num);
+		request.setAttribute("rvlist", rvlist);
 		
 		request.setAttribute("center", "writtenReviews.jsp");
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath("mypage.jsp");
 		forward.setRedirect(false);

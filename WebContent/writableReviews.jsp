@@ -40,7 +40,17 @@
 
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+ function add_onclick(){
+            
+    //이름은 중복창 제어용
+    child = window.open("reviewForm.jsp","child","width=500,height=650");
+};//click
 
+
+
+
+</script>
 <style type="text/css">
 .check {
 	color: red;
@@ -106,8 +116,7 @@ input[type="text"]:focus {
 							</div>
 						</div>
 						<div class="col-md-2">
-							<input id="id_cancle" type="button" value="리뷰쓰기"
-								class="myButton" />
+								<input type="button" value="리뷰쓰기" id="add_review" class="myButton" onclick="add_onclick();">
 						</div>
 					</div>
 				</div>

@@ -176,7 +176,16 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/writtenReviews.bo")) {
+			
 			action = new WrittenReviewsAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/WriteReviewAction.bo")) {
+			
+			action = new WriteReviewAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

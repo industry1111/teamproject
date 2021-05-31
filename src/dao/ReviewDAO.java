@@ -104,13 +104,13 @@ public class ReviewDAO {
 		}
 		
 		//
-		public List<reviewDTO> getReviewList(int product_num) {
+		public List<reviewDTO> getReviewList(int member_num) {
 			List<reviewDTO> list = new ArrayList<reviewDTO>();
 			try {
 				getCon();
-				String sql = "select * from review where product_num =?";
+				String sql = "select * from review where member_num =?";
 				pstmt =con.prepareStatement(sql);
-				pstmt.setInt(1, product_num);
+				pstmt.setInt(1, member_num);
 				rs = pstmt.executeQuery();
 
 				while(rs.next()) {
