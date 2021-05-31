@@ -59,16 +59,16 @@ img{
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
 									</c:if>								
 							</c:forEach>	
-					</select>
-					<select  name="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
+<!-- 					</select> -->
+<!-- 					<select  name="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;"> -->
 						<option selected>=2차=</option>
 						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-								<c:if test="${list[i].category_codeRef1 eq list[i].category_code && list[i].category_codeRef2 eq 0}">
+								<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 eq 0}">
 									<option value="${list[i].category_code}">${list[i].category_name }</option>
 								</c:if>
 						</c:forEach>
-					</select>
-					<select id="category_name" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+<!-- 					</select> -->
+<!-- 					<select id="category_name" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;"> -->
 						<option selected>=3차=</option>
 						<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 							<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 ne 0 }">
