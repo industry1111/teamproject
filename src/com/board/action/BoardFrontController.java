@@ -58,14 +58,14 @@ public class BoardFrontController extends HttpServlet {
 		}else if(command.equals("/ProductListAction.bo")) //상품 리스트 페이지로 이동하는 서블릿 
 		{ 
 
-			action = new ProductListAction();
-			try {
-				forward = action.execute(request, response);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
+//			action = new ProductListAction();
+//			try {
+//				forward = action.execute(request, response);
+//
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			
 		}else if(command.equals("/ProductAdd.bo")) { //상품 등록 페이지로 이동하는 서블릿
 			action = new ProductAdd();
 			try {

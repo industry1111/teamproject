@@ -78,7 +78,7 @@
 <%-- 								<c:if test="${list[i].store_num ne list[i].store_num}"></c:if> --%>
 							<div class="product-cart d-flex">
 								<div class="col-md-1">
-									<input type="checkbox" value="${list[i].product_price * list[i].quantity}" name="product_check" id="product_check">
+									<input type="checkbox" value="${list[i].product_price * list[i].quantity}" name="product_check" id="product_check" class="check_total">
 								</div>
 								<div class="one-forth">
 									<a>
@@ -177,7 +177,7 @@
 										<div class="grand-total">
 											<p><span><strong>Total:</strong></span> 
 											<span>
-												<input type="text" id="price_total" value="0">
+												<input type="text" id="price_total" value="0" >
 											</span>
 											</p>
 										</div>
