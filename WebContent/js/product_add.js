@@ -1,10 +1,10 @@
-var ProductNameReg = /^[가-힣](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{10,100}$/;
-var productDescReg = /^[가-힣](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{10,2000}$/;
-var productBrandReg = /^[가-힣](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{2,20}$/;
-var productImgReg = /^[가-힣](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{1,2000}$/;
-var CountReg = /^[1-9]{1,10}$/;
-var PriceReg = /^[1-9]{3,10}$/;
-var ProductCateReg = /^[가-힣](?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{10,2000}$/;
+var productNameReg = /^[가-힣a-zA-Z0-9]{1,100}$/;
+var productDescReg = /^[가-힣a-zA-Z0-9]{1,2000}$/;
+var productBrandReg = /^[가-힣a-zA-Z0-9]{1,20}$/;
+var productImgReg = /^[가-힣a-zA-Z0-9]{1,2000}$/;
+var CountReg = /^[0-9]{1,10}$/;
+var PriceReg = /^[0-9]{3,10}$/;
+var ProductCateReg = /^[가-힣a-zA-Z0-9]{1,2000}$/;
 
 var product_category_check = 0;
 var product_name_check = 0;
@@ -18,7 +18,7 @@ var product_price_check = 0;
 $(function() {
 	$("#product_name").blur(function(){
 		var name = $(this).val();
-		if(!ProductNameReg.test(product_name)){
+		if(!productNameReg.test(product_name)){
 			$("#product_name_check").text("상품이름은 한글자 이상 작성해 주세요");
 			$("#product_name_check2").text("");
 			product_name_check = 0;

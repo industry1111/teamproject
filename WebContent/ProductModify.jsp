@@ -69,7 +69,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
-					<input type="text" id="product_name" name="product_name"
+					<input type="text" id="product_name" name="product_name" required="required"
 						value="${pdto.product_name}" style="border: 0;">
 				</div>
 			</div>
@@ -78,7 +78,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
-					<textarea name="product_description" cols="100" rows="10"
+					<textarea name="product_description" cols="100" rows="10" required="required"
 						class="form-control" style="border: 0;"> ${pdto.product_description} </textarea>
 				</div>
 			</div>
@@ -86,7 +86,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_brand" class="form-control"
+					<input type="text" name="product_brand" class="form-control" required="required"
 						value="${pdto.product_brand}" style="border: 0;">
 				</div>
 			</div>
@@ -94,7 +94,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_price" class="form-control"
+					<input type="text" name="product_price" class="form-control" required="required"
 						value="${pdto.product_price}" style="border: 0;">
 				</div>
 			</div>
@@ -102,7 +102,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
-					<input type="text" id="product_count" name="product_count"
+					<input type="text" id="product_count" name="product_count" required="required"
 						class="form-control" value="${pdto.product_count}"
 						style="border: 0;">
 				</div>
@@ -112,7 +112,7 @@ img {
 			<div class="form-group row">
 				<div class="col-sm-2">
 					<label for="image">상품 이미지 변경</label> 
-					<input type="file" id="product_img"
+					<input type="file" id="product_img" required="required"
 						value="${pdto.product_img}" name="product_img" /> <img
 						src="product_img_upload/${pdto.product_img}" id="preview">
 				</div>
