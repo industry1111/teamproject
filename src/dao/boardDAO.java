@@ -177,7 +177,7 @@ public class boardDAO {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product ";
+			String sql = "select * from product natural join category";
 			pstmt =con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -193,6 +193,11 @@ public class boardDAO {
 				pdto.setProduct_brand(rs.getString("product_brand"));
 				pdto.setProduct_description(rs.getString("product_description"));
 				pdto.setMember_num(rs.getInt("member_num"));
+				pdto.setRegdate(rs.getTimestamp("product_regdate"));
+				pdto.setCategory_code1(rs.getInt("category_code"));
+				pdto.setCategory_coderef1(rs.getInt("category_codeRef1"));
+				pdto.setCategory_coderef2(rs.getInt("category_codeRef2"));
+				
 				
 				list.add(pdto);
 			}
@@ -236,10 +241,6 @@ public class boardDAO {
 					sql += " and p.product_price between 50000 and 100000";
 				}else if(price1 != "" && price2 != ""){
 					sql += " and p.product_price between "+price1+" and "+price2;
-					System.out.println("오류지점3");
-					System.out.println(price1);
-					System.out.println(price2);
-					System.out.println(price);
 				}
 			}
 		
@@ -278,7 +279,10 @@ public class boardDAO {
 					pdto.setStore_name(rs.getString("store_name"));
 					pdto.setProfile_img(rs.getString("profile_img"));
 					pdto.setRegdate(rs.getTimestamp("product_regdate"));
-	
+					pdto.setCategory_code1(rs.getInt("category_code"));
+					pdto.setCategory_coderef1(rs.getInt("category_codeRef1"));
+					pdto.setCategory_coderef2(rs.getInt("category_codeRef2"));
+					
 					
 					list.add(pdto);
 				}
