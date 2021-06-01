@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import dto.basketDTO;
+import dto.brandDTO;
 import dto.categoryDTO;
 import dto.productDTO;
 import dto.ratingDTO;
@@ -554,6 +555,7 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
+	
 	public List<categoryDTO> getcategory(int category_code1,int category_code2){
 	System.out.println("category_code1:"+category_code1);
 	System.out.println("category_code2:"+category_code2);
@@ -623,5 +625,29 @@ public class boardDAO {
         }
         return tlist;
     }
+	public List<brandDTO> getbrandList() { //상품 등록, 수정시 사용하는 brand리스트 
+		List<brandDTO> list = new ArrayList<brandDTO>();
+		try {
+			getCon();
+			String sql = "select * from brand ";
+			pstmt =con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+
+				brandDTO bdto = new brandDTO();
+				bdto.setBrand_num(rs.getInt("brand_num"));
+				bdto.setCategory_code(rs.getInt("category_code"));
+				bdto.setBrand_name(rs.getString("brand_num"));
+
+				list.add(bdto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ResouceClose();
+		}
+		return list;
+	}
 	
 }

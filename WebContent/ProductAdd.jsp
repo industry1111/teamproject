@@ -62,7 +62,7 @@ img{
 							</c:forEach>	
 					</select>
 					<select required="required" name="category2" id="category2"  class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-						<option class='category2'  value=0>==2차==</option>
+						<option  class='category2' value=0>==2차==</option>
 					</select>
 					<select required="required" id="category3" name="category_name"  class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
 						<option class='category3' value=0>==3차==</option>

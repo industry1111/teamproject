@@ -71,9 +71,7 @@ public class SelectProductList extends HttpServlet{
 			int product_price = pdto.getProduct_price();
 			Timestamp regdate = pdto.getRegdate();
 			
-			System.out.println(profile_img);
-			System.out.println(store_name);
-			System.out.println(product_price);
+			
 			json+="{\"product_img\":\""+product_img+"\",\"category_name\":\""+category_name+"\",\"product_name\":\""+product_name+"\",\"category_name\":\""+category_name+"\","
 					+ "\"product_description\":\""+product_description+"\",\"store_name\":\""+store_name+"\",\"store_num\":\""+store_num+"\","
 					+ "\"profile_img\":\""+profile_img+"\",\"template\":\""+template+"\",\"category_num\":\""+category_num+"\",\"product_price\":\""+product_price+"\""
