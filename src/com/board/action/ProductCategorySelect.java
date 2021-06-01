@@ -40,7 +40,7 @@ public class ProductCategorySelect extends HttpServlet{
 		
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
-		List<brandDTO> blist = bdao.getbrandList();
+		List<brandDTO> blist = bdao.getbrandList(category_code2);
 		String json = "[";
 		for (int i=0; i<clist.size();i++) {
 			categoryDTO cdto = (categoryDTO)clist.get(i);
@@ -51,7 +51,21 @@ public class ProductCategorySelect extends HttpServlet{
 				json+=",";
 			}
 		}
-		json +="]";
+		json +="]||[";
+		for (int i=0; i<blist.size(); i++){
+			brandDTO bdto = (brandDTO)blist.get(i);
+			int brand_num = bdto.getBrand_num();
+			String brand_name = bdto.getBrand_name();
+		
+		json +="{\"brand_num\":\""+brand_num
+				+"\",\"brand_name\":\""+brand_name+"\"}";
+			
+		if(i !=blist.size()-1){
+			json+= ",";
+			}
+			
+		}
+		json +="]"; System.out.println(json);
 		response.setHeader("content-type", "application/json");
 		out.print(json);
 		out.flush();

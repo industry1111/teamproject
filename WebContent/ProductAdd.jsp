@@ -95,8 +95,10 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" id="product_brand" name="product_brand" required="required" class="form-control"
-						placeholder="브랜드를 입력하세요.">
+					<select id="brand_name" name="brand_name" required="required" class="form-control">
+							<option class='brand_name' value=0>==브랜드==</option>
+					</select>
+					
 					<span id="product_brand_check" class="check"></span>
 	                <span id="product_brand_check2" class="check2"></span>	
 				</div>
@@ -124,7 +126,7 @@ img{
 				</div>
 			</div>
 
-			<!-- 상품 미리보기 이미지가 올라가는 곳. 20210528/product_img 수정부 , product_img.js -->
+			
 			<div class="form-group row">
 				<div class="col-sm-2"> 
 					<img src="" id="preview"><br> 

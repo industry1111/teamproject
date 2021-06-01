@@ -39,7 +39,6 @@ public class ProductAddAction implements Action{
 		pdto.setMember_num(member_num);
 		pdto.setProduct_name(multi.getParameter("product_name"));
 		pdto.setCategory_name(multi.getParameter("category_name"));
-		System.out.println(multi.getParameter("category_name"));
 		pdto.setProduct_description(multi.getParameter("product_description"));
 		pdto.setProduct_brand(multi.getParameter("product_brand"));
 		pdto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));

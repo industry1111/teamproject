@@ -625,20 +625,22 @@ public class boardDAO {
         }
         return tlist;
     }
-	public List<brandDTO> getbrandList() { //상품 등록, 수정시 사용하는 brand리스트 
+	
+	//상품 등록, 수정시 사용하는 brand리스트
+	public List<brandDTO> getbrandList(int category_code2) {  
+		
 		List<brandDTO> list = new ArrayList<brandDTO>();
 		try {
 			getCon();
-			String sql = "select * from brand ";
+			String sql = " select * from category natural join brand where category_code ="+category_code2;
 			pstmt =con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-
+				
 			while(rs.next()) {
 
 				brandDTO bdto = new brandDTO();
 				bdto.setBrand_num(rs.getInt("brand_num"));
-				bdto.setCategory_code(rs.getInt("category_code"));
-				bdto.setBrand_name(rs.getString("brand_num"));
+				bdto.setBrand_name(rs.getString("brand_name"));
 
 				list.add(bdto);
 			}
