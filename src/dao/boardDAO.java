@@ -176,7 +176,7 @@ public class boardDAO {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product ";
+			String sql = "select * from product natural join category";
 			pstmt =con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -192,6 +192,11 @@ public class boardDAO {
 				pdto.setProduct_brand(rs.getString("product_brand"));
 				pdto.setProduct_description(rs.getString("product_description"));
 				pdto.setMember_num(rs.getInt("member_num"));
+				pdto.setRegdate(rs.getTimestamp("product_regdate"));
+				pdto.setCategory_code1(rs.getInt("category_code"));
+				pdto.setCategory_coderef1(rs.getInt("category_codeRef1"));
+				pdto.setCategory_coderef2(rs.getInt("category_codeRef2"));
+				
 				
 				list.add(pdto);
 			}
@@ -203,7 +208,8 @@ public class boardDAO {
 		return list;
 	}
 	//메인화면에 선택한 리스트
-		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,int price1, int price2, String sort) {
+		public List<productDTO> getProductList(int category_code1,int category_code2,int category_code3,String brand,
+														String price1, String price2, String sort,String price) {
 			List<productDTO> list = new ArrayList<productDTO>();
 			String sql = "select p.product_num, s.store_name, p.member_num, p.product_name, p.product_img, c.category_name,p.product_price,"
 					+ " p.product_description, product_regdate, product_brand, c.category_num, c.category_name,"
@@ -223,7 +229,20 @@ public class boardDAO {
 			}else{
 				sql += " where category_coderef1 = "+category_code1 + " and category_coderef2 = "+category_code2 + " and category_code = "+category_code3;
 			}
-//			
+			
+			if(price != null){
+				
+				if(price.equals("1")){
+					sql += " and p.product_price between 0 and 10000";
+				}else if(price.equals("2")){
+					sql += " and p.product_price between 10000 and 50000";
+				}else if(price.equals("3")){
+					sql += " and p.product_price between 50000 and 100000";
+				}else if(price1 != "" && price2 != ""){
+					sql += " and p.product_price between "+price1+" and "+price2;
+				}
+			}
+		
 			if(sort != null){
 			    
 			    if(sort.equals("1")){
@@ -235,6 +254,7 @@ public class boardDAO {
                 }
 			    
 			}
+			
 			
 			System.out.println("sort!!!!!"+sort);
 			try {
@@ -258,7 +278,10 @@ public class boardDAO {
 					pdto.setStore_name(rs.getString("store_name"));
 					pdto.setProfile_img(rs.getString("profile_img"));
 					pdto.setRegdate(rs.getTimestamp("product_regdate"));
-	
+					pdto.setCategory_code1(rs.getInt("category_code"));
+					pdto.setCategory_coderef1(rs.getInt("category_codeRef1"));
+					pdto.setCategory_coderef2(rs.getInt("category_codeRef2"));
+					
 					
 					list.add(pdto);
 				}

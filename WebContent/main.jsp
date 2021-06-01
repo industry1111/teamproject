@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,7 +61,6 @@ input::placeholder { text-align: right;}
 				<div class="col-md-1 offset-2 category" align="left" >카테고리</div>
 				<div class="col-md-6 list">
 					<ul >
-						<li class="category1" value="0">전체</li>
 						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}"> <%-- -1제거하고 실행 --%>
 							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
 								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
@@ -87,14 +87,12 @@ input::placeholder { text-align: right;}
 				<div class="col-md-1 offset-2 category" align="left" style="">가격</div>
 				<div class="col-md-6 list">
 					<ul>
-						<li>1만원이하</li>
-						<li>1만원~5만원</li>
-						<li>5만원~10만원</li>
-						<li>직접입력 &nbsp;<input class="price" type="text" placeholder="원"></li>
-						<li>~</li>
-						<li>
-							<input class="price" type="text" placeholder="원">
-								<img src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
+						<li class="price" value="1">1만원이하</li>
+						<li class="price" value="2" >1만원~5만원</li>
+						<li class="price" value="3" >5만원~10만원</li>
+						<li>직접입력 &nbsp;<input type="text" id="price1" placeholder="원" >~
+							<input type="text" id="price2" placeholder="원" > 
+						<img class="price" src="images/magnifying-glass.png" alt="shopping" style="height: 15px; width:15px;">
 						</li>
 					</ul>
 				</div>
@@ -133,22 +131,46 @@ input::placeholder { text-align: right;}
 				<div class="col-md-7 offset-2">
 					<hr>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-2"  >
 							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 100px; width: 100px;">
 						</div>
-						<div class="col-md-4 offset-1">
+						<div class="col-md-6 ">
 							${plist[i].product_name }<br>
-							${plist[i].product_description }
+							${plist[i].product_description }<br><br>
+							
+						<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
+							<c:if test="${plist[i].category_coderef1 eq clist[j].category_code}">
+									${clist[j].category_name } >
+							</c:if>
+						</c:forEach>
+						<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
+							<c:if test="${plist[i].category_coderef2 eq clist[j].category_code}">
+									${clist[j].category_name } >
+							</c:if>
+						</c:forEach>
+						<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
+							<c:if test="${plist[i].category_code1 eq clist[j].category_code}">
+									${clist[j].category_name } 
+							</c:if>
+						</c:forEach>
+
+							
+						<br>
+		
+							상품 가격 : ${plist[i].product_price}원<br>
+							리뷰수 : &nbsp;
+							구매건수 : &nbsp;
+							등록일 : <fmt:formatDate pattern="yyyy-MM-dd" value="${plist[i].regdate}" /> &nbsp;
+							<input type="button" value="찜하기"/>
+							<input type="button" value="신고하기"/>
+							
 						
-						</div>
-						<div class="col-md-2">
-							상품 가격 : ${plist[i].product_price }원
 						</div>
 						<div class="col-md-3">
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
 							<c:if test="${plist[i].member_num eq slist[j].member_num }">
 								<a href="store.bo?${slist[j].store_num }">
-									<img alt="" src="upload_profile/${slist[j].profile_img }" style="height: 100px; width: 100px;">
+									<img src="upload_profile/${slist[j].profile_img }" style="height: 70px; width: 70px;">
 								</a>
 								${slist[j].store_name }<br>
 								<c:forEach var="category" items="${clist }">

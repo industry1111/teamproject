@@ -46,24 +46,30 @@ img {
 		<div class="container" cols="100" rows="2">
 			<input name="product_num" type="text" value="${pdto.product_num}"
 				hidden />
-			<!-- 			<div class="form-group row"> -->
-			<!-- 				<label class="col-sm-2">상품 카테고리</label> -->
-			<!-- 				<div class="com-sm-3"> -->
-			<!-- 					<select class="form-control" aria-label=".form-select-sm example"> -->
-			<%--  						<option selected value="${pdto.product_category}"></option> --%>
-			<!-- 						<option value="1">카테고리1</option> -->
-			<!--  						<option value="2">카테고리2</option> -->
-			<!-- 						<option value="3">카테고리3</option> -->
-			<!-- 					</select> -->
-			<!-- 					<input type="text" name="product_category" -->
-			<%-- 						value="${pdto.product_category}" style="border: 0;"> 임시 --%>
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-
+			<div class="form-group row">
+				<label class="col-sm-2">상품 카테고리</label>
+				<div class="com-sm-3">
+					<select name="category1"  id = "category1" 
+					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
+						<option value="" selected>=1차=</option>
+							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
+										<option value="${list[i].category_code}">${list[i].category_name }</option>
+									</c:if>								
+							</c:forEach>	
+					</select>
+					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
+						<option class='category2' value=0>==2차==</option>
+					</select>
+					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+						<option class='category3' value="0">${pdto.category_name}</option>
+					</select>
+				</div>
+			</div>
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
-					<input type="text" id="product_name" name="product_name"
+					<input type="text" id="product_name" name="product_name" required="required"
 						value="${pdto.product_name}" style="border: 0;">
 				</div>
 			</div>
@@ -72,7 +78,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
-					<textarea name="product_description" cols="100" rows="10"
+					<textarea name="product_description" cols="100" rows="10" required="required"
 						class="form-control" style="border: 0;"> ${pdto.product_description} </textarea>
 				</div>
 			</div>
@@ -80,7 +86,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_brand" class="form-control"
+					<input type="text" name="product_brand" class="form-control" required="required"
 						value="${pdto.product_brand}" style="border: 0;">
 				</div>
 			</div>
@@ -88,7 +94,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_price" class="form-control"
+					<input type="text" name="product_price" class="form-control" required="required"
 						value="${pdto.product_price}" style="border: 0;">
 				</div>
 			</div>
@@ -96,7 +102,7 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
-					<input type="text" id="product_count" name="product_count"
+					<input type="text" id="product_count" name="product_count" required="required"
 						class="form-control" value="${pdto.product_count}"
 						style="border: 0;">
 				</div>
@@ -106,7 +112,7 @@ img {
 			<div class="form-group row">
 				<div class="col-sm-2">
 					<label for="image">상품 이미지 변경</label> 
-					<input type="file" id="product_img"
+					<input type="file" id="product_img" required="required"
 						value="${pdto.product_img}" name="product_img" /> <img
 						src="product_img_upload/${pdto.product_img}" id="preview">
 				</div>
@@ -122,5 +128,6 @@ img {
 
 	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
+	<script src="js/category.js"></script>
 </body>
 </html>
