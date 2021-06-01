@@ -64,7 +64,7 @@ $(function() {
 				}
 				
 				for (var i = 0; i < obj2.length; i++) {				
-					$("#brand_name").append("<option class='brand_name' value="+ obj2[i].brand_name + ">" + obj2[i].brand_name+"</option>");
+					$("#brand_name").append("<option  class='brand_name' value="+ obj2[i].brand_name + ">" + obj2[i].brand_name+"</option>");
 				}
 				
 			}
