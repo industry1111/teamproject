@@ -168,6 +168,7 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 		}else if(command.equals("/writableReviews.bo")) {
 			action = new WritableReviewsAction();
 			try {
@@ -183,14 +184,17 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/WriteReviewAction.bo")) {
+		
+			}else if(command.equals("/reviewForm.bo")) {
 			
 			action = new WriteReviewAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
+			}	
+		
+		
 		}else if (command.equals("/receiver_2.bo")) {
 			
 			action = new ReceiverInfo();

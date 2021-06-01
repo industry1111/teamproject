@@ -20,7 +20,7 @@ public class WrittenReviewsAction implements Action{
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("ratingTest");
+		System.out.println("writtenReveiwsAction execute");
 		
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
@@ -33,6 +33,9 @@ public class WrittenReviewsAction implements Action{
 		ReviewDAO rvdao = new ReviewDAO();
 		List<reviewDTO> rvlist= rvdao.getReviewList(member_num);
 		request.setAttribute("rvlist", rvlist);
+		
+		System.out.println(plist.size());
+		System.out.println(rvlist.size());
 		
 		request.setAttribute("center", "writtenReviews.jsp");
 		ActionForward forward = new ActionForward();

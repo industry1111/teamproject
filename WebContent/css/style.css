@@ -8878,10 +8878,10 @@ input[type="text"] {
   color:#f90;
 }
 
-/* .star-rating label:hover, */
-/* .star-rating label:hover ~ label { */
-/*   color:#fc0; */
-/* } */
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
 
 
  
