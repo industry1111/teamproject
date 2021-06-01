@@ -278,7 +278,10 @@ public class boardDAO {
 					pdto.setStore_name(rs.getString("store_name"));
 					pdto.setProfile_img(rs.getString("profile_img"));
 					pdto.setRegdate(rs.getTimestamp("product_regdate"));
-	
+					pdto.setCategory_code1(rs.getInt("category_code"));
+					pdto.setCategory_coderef1(rs.getInt("category_codeRef1"));
+					pdto.setCategory_coderef2(rs.getInt("category_codeRef2"));
+					
 					
 					list.add(pdto);
 				}
