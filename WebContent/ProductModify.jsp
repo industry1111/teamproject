@@ -86,8 +86,9 @@ img {
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<input type="text" name="product_brand" class="form-control" required="required"
-						value="${pdto.product_brand}" style="border: 0;">
+					<select id="brand_name" name="brand_name" required="required" class="form-control">
+							<option class='brand_name' value=0> ${pdto.product_brand} </option>
+					</select>
 				</div>
 			</div>
 
