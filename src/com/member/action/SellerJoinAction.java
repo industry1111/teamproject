@@ -9,9 +9,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import action.Action;
 import action.ActionForward;
-import dao.memberDAO;
 import dao.sellerDAO;
-import dto.memberDTO;
 import dto.sellerDTO;
 
 

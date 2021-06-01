@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
-import dto.productDTO;
 
 public class ProductModify implements Action {
 
@@ -18,9 +17,8 @@ public class ProductModify implements Action {
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 	
 		/*데이터베이스 자바빈 작업*/
-		boardDAO bdao = new boardDAO();
-
-		productDTO pdto = bdao.getProductInfo(product_num);	
+		productDAO pdao = new productDAO();
+		productDTO pdto = pdao.getProductInfo(product_num);	
 
 		
 		request.setAttribute("pdto", pdto);

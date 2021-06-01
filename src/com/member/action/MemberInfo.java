@@ -6,8 +6,6 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.ActionForward;
-import dao.memberDAO;
-import dto.memberDTO;
 
 public class MemberInfo implements Action{
 

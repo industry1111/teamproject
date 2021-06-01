@@ -8,8 +8,6 @@ import javax.servlet.http.HttpSession;
 import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
-import dao.memberDAO;
-import dto.memberDTO;
 import dto.receiverDTO;
 
 

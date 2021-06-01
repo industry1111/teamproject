@@ -44,7 +44,7 @@ img{
 
 	<div class="container" cols="100" rows="2">
 
-		<form name="newProduct" action="ProductAddAction.bo"
+		<form name="newProduct" action="ProductAddAction.pr"
 
 			class="form-horizontal" method="post" enctype="multipart/form-data">
 
@@ -140,7 +140,7 @@ img{
 
 			<div class="d-grid gap-2 col-6 mx-auto">
 				<button type="submit" class="btn btn-secondary" >상품 등록</button> 
-				<a type="button" class="btn btn-secondary" href="ProductListAction.bo">등록 취소</a>
+				<a type="button" class="btn btn-secondary" href="ProductListAction.pr">등록 취소</a>
 			</div>
 		</form>	
 	</div>

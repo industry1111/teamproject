@@ -41,7 +41,7 @@ img {
 			<h1 class="display-3">상품 정보 수정${pdto.product_num }</h1>
 		</div>
 	</div>
-	<form name="newProduct" action="ProductModifyAction.bo"
+	<form name="newProduct" action="ProductModifyAction.pr"
 		class="form-horizontal" method="post" enctype="multipart/form-data">
 		<div class="container" cols="100" rows="2">
 			<input name="product_num" type="text" value="${pdto.product_num}"
@@ -121,7 +121,7 @@ img {
 
 			<div class="d-grid gap-2 col-6 mx-auto">
 				<button type="submit" class="btn btn-secondary"  >상품 수정</button>
-				<a type="button" class="btn btn-secondary" href="ProductListAction.bo" 
+				<a type="button" class="btn btn-secondary" href="ProductListAction.pr" 
 					onclick="if(!confirm('수정을 취소 하시겠습니까?')){return false;}">수정 취소</a>
 			</div>
 		</div>

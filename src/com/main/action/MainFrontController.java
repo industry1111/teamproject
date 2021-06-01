@@ -38,6 +38,7 @@ public class MainFrontController extends HttpServlet{
 
 		Action action = null;
 		
+		//메인화면 갈 때 
 		if (command.equals("/Main.main")) {
 			action = new ProductList();
 			try {
@@ -48,11 +49,10 @@ public class MainFrontController extends HttpServlet{
 		} 
 		
 		if (forward != null) {
-			if (forward.isRedirect()) {// true -> sendRedirect() 방식
-
+			if (forward.isRedirect()) {
 				response.sendRedirect(forward.getPath());
 
-			} else {// forward() 방식
+			} else {
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);

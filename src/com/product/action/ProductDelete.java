@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,12 +21,12 @@ public class ProductDelete implements Action {
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		System.out.println(product_num);
 		/*데이터베이스 자바빈 작업*/
-		boardDAO bdao = new boardDAO();// 데이터 베이스 객체 생성
-		bdao.deleteProduct(product_num);
+		productDAO pdao = new productDAO();
+		pdao.deleteProduct(product_num);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);
-		forward.setPath("ProductListAction.bo");
+		forward.setPath("ProductListAction.pr");
 		return forward;
 	}
 	

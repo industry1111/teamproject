@@ -29,7 +29,6 @@ $(function() {
 		}
 	});
 	
-	$(function() {
 		$("#product_description").blur(function(){
 			var name = $(this).val();
 			if(!productDescReg.test(product_description)){
@@ -43,7 +42,6 @@ $(function() {
 			}
 		});
 	
-	$(function() {
 		$("#product_img").blur(function(){
 			var name = $(this).val();
 			if(!productImgReg.test(product_description)){
@@ -56,7 +54,6 @@ $(function() {
 				product_img_check = 1;
 				}
 			});
-	$(function() {
 		$("#product_brand").blur(function(){
 			var name = $(this).val();
 			if(!productBrandReg.test(product_description)){
@@ -69,7 +66,6 @@ $(function() {
 				product_brand_check = 1;
 				}
 			});			
-	$(function() {
 		$("#product_category").blur(function(){
 			var name = $(this).val();
 			if(!ProductCateReg.test(product_description)){
@@ -82,7 +78,6 @@ $(function() {
 				product_category_check = 1;
 				}
 			});		
-		$(function() {
 			$("#product_count").blur(function(){
 				var name = $(this).val();
 				if(!CountReg.test(product_name)){
@@ -95,7 +90,6 @@ $(function() {
 					name_check = 1;
 				}
 			});
-			$(function() {
 				$("#product_price").blur(function(){
 					var name = $(this).val();
 					if(!PriceReg.test(product_name)){

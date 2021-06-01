@@ -20,6 +20,15 @@
   	<url-pattern>*.bo</url-pattern>
   </servlet-mapping>
   
+   <servlet>
+  	<servlet-name>ProductFrontController</servlet-name>
+  	<servlet-class>com.product.action.ProductFrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProductFrontController</servlet-name>
+  	<url-pattern>*.pr</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
   	<servlet-name>MainFrontController</servlet-name>
   	<servlet-class>com.main.action.MainFrontController</servlet-class>

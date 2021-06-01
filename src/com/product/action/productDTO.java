@@ -1,4 +1,4 @@
-package dto;
+package com.product.action;
 
 import java.sql.Timestamp;
 

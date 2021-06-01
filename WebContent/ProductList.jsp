@@ -43,7 +43,7 @@
 	</style>
 	</head>
 	<body>
-	<form action="ProductListAction.bo" method="post"
+	<form action="ProductListAction.pr" method="post"
 		enctype="multipart/form-data">
 		<div class="colorlib-product">
 			<div class="container">
@@ -90,8 +90,8 @@
 						</div>
 						<div class="col-md-2" style="margin-left: 40px;">
 							<div class="a">
-								<a href="ProductModify.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-success">수정</a>
-								<a href="ProductDelete.bo?product_num=${list[i].product_num}" type="button" class="btn btn-outline-danger"
+								<a href="ProductModify.pr?product_num=${list[i].product_num}" type="button" class="btn btn-outline-success">수정</a>
+								<a href="ProductDelete.pr?product_num=${list[i].product_num}" type="button" class="btn btn-outline-danger"
 										onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
 							</div>
 						</div>
@@ -104,7 +104,7 @@
 			</div>
 			<div class="row">	
 				<div class="col-md-3" align="left">
-					<a href="ProductAdd.bo" type="button" class="btn btn-outline-info">신규 상품 등록</a>
+					<a href="ProductAdd.pr" type="button" class="btn btn-outline-info">신규 상품 등록</a>
 				</div>
 			</div>
 	</div>

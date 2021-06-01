@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import java.util.List;
 

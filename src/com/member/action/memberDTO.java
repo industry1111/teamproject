@@ -1,4 +1,4 @@
-package dto;
+package com.member.action;
 
 import java.sql.Timestamp;
 

@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.product.action.productDAO;
+import com.product.action.productDTO;
+
 import dao.boardDAO;
 import dto.categoryDTO;
-import dto.productDTO;
 
 @WebServlet("/SelectList.do")
 public class SelectProductList extends HttpServlet{
@@ -43,9 +45,10 @@ public class SelectProductList extends HttpServlet{
 		String sort = request.getParameter("sort");
 
 		boardDAO bdao = new boardDAO();
+		productDAO pdao = new productDAO();
 		List<categoryDTO> clist_all = bdao.getcategory();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
-		List<productDTO> plist = bdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort,price);
+		List<productDTO> plist = pdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort,price);
 		
 		
 		String json = "[";

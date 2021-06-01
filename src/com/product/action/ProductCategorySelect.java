@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,9 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import dao.boardDAO;
 import dto.brandDTO;
 import dto.categoryDTO;
-import dto.productDTO;
 
-@WebServlet("/ProductCategorySelect.do")
+@WebServlet("/ProductCategorySelect.pr")
 public class ProductCategorySelect extends HttpServlet{
 
 	@Override

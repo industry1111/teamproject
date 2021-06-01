@@ -8,7 +8,7 @@ $(function() {
 		
 		$.ajax({
 			type: "get",
-			url: contextPath + "/ProductCategorySelect.do",
+			url: contextPath + "/ProductCategorySelect.pr",
 			data: {
 				category_code1: category_code1,
 				category_code2: 0,
@@ -36,13 +36,13 @@ $(function() {
 	});
 
 	
-//	$(document).on("change", ".category2", function() {
-//		category_code2 = $(this).val();
-	$(".category2").change(function() {
-			category_code2 = $(this).val();
+	$(document).on("change", ".category2", function() {
+		category_code2 = $(this).val();
+//	$(".category2").change(function() {
+//			category_code2 = $(this).val();
 		$.ajax({
 			type: "get",
-			url: contextPath + "/ProductCategorySelect.do",
+			url: contextPath + "/ProductCategorySelect.pr",
 			data: {
 				category_code1: category_code1,
 				category_code2: category_code2,

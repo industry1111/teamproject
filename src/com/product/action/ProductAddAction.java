@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +11,6 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
-import dto.productDTO;
 
 public class ProductAddAction implements Action{
 	@Override
@@ -50,15 +49,15 @@ public class ProductAddAction implements Action{
 		pdto.setProduct_img(product_img);
 		
 		
-		boardDAO bDao= new boardDAO();
-		bDao.insertProduct(pdto);
+		productDAO pdao = new productDAO();
+		pdao.insertProduct(pdto);
 		
 		
 		ActionForward forward=new ActionForward();
 		
 		forward.setRedirect(true);
 		
-		forward.setPath("./ProductListAction.bo");
+		forward.setPath("./ProductListAction.pr");
 		
 		return forward;
 	}

@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.product.action.productDAO;
+import com.product.action.productDTO;
+
 import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
 import dao.sellerDAO;
 import dto.categoryDTO;
-import dto.productDTO;
 import dto.sellerDTO;
 
 public class ProductList implements Action{
@@ -23,8 +25,9 @@ public class ProductList implements Action{
 		
 		boardDAO bdao = new boardDAO();
 		sellerDAO sdao = new sellerDAO();
+		productDAO pdao = new productDAO();
 		List<categoryDTO> clist = bdao.getcategory();
-		List<productDTO> plist = bdao.getProductList();
+		List<productDTO> plist = pdao.getProductList();
  		List<sellerDTO> slist = sdao.getSellerInfo();
  		request.setAttribute("clist", clist);
 		request.setAttribute("plist", plist);

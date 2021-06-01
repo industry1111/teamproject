@@ -1,4 +1,4 @@
-package com.board.action;
+package com.product.action;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
 import dto.pagingDTO;
-import dto.productDTO;
 
 public class ProductListAction implements Action {
 	
@@ -22,8 +21,8 @@ public class ProductListAction implements Action {
 		int member_num = (Integer) session.getAttribute("member_num");
 		
 		
-		boardDAO bDao = new boardDAO();
-		List<productDTO> list = bDao.getProductList(member_num);
+		productDAO pdao = new productDAO();
+		List<productDTO> list = pdao.getProductList(member_num);
 		
 
 
