@@ -112,7 +112,7 @@ img {
 			<div class="form-group row">
 				<div class="col-sm-2">
 					<label for="image">상품 이미지 변경</label> 
-					<input type="file" id="product_img" required="required"
+					<input type="file" id="product_img"
 						value="${pdto.product_img}" name="product_img" /> <img
 						src="product_img_upload/${pdto.product_img}" id="preview">
 				</div>

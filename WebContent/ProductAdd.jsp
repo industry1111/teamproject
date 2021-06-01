@@ -54,7 +54,7 @@ img{
 				<div class="com-sm-3">
 					<select name="category1"  id = "category1" 
 					class="form-control category1" required="required" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected>=1차=</option>
+						<option value="" selected>==1차==</option>
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
@@ -129,7 +129,7 @@ img{
 				<div class="col-sm-2"> 
 					<img src="" id="preview"><br> 
 					<label for="product_img"> 이미지 선택</label> 
-						<input type="file" id="product_img" name="product_img" required="required" />
+						<input type="file" id="product_img" name="product_img" required="required"/>
 						<span id="product_img_check" class="check"></span>
 	               		<span id="product_img_check2" class="check2"></span>
 				</div>
