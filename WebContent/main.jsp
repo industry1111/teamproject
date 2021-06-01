@@ -102,19 +102,19 @@ input::placeholder { text-align: right;}
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
 					<ul >
-						<li  class="sort">
+						<li  class="sort" value="0">
 							<a>랭킹순</a>
 						</li>
-						<li  class="sort">
+						<li  class="sort" value="1">
 							<a>낮은 가격순</a>
 						</li>
-						<li  class="sort">
+						<li  class="sort" value="2">
 							<a>높은 가격순</a>
 						</li>
-						<li  class="sort">
+						<li  class="sort" value="3">
 							<a>등록일순</a>
 						</li>
-						<li  class="sort">
+						<li  class="sort" value="4">
 							<a>리뷰 많은순</a>
 						</li>
 					</ul>
@@ -136,9 +136,13 @@ input::placeholder { text-align: right;}
 						<div class="col-md-2">
 							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 100px; width: 100px;">
 						</div>
-						<div class="col-md-6 offset-1">
+						<div class="col-md-4 offset-1">
 							${plist[i].product_name }<br>
 							${plist[i].product_description }
+						
+						</div>
+						<div class="col-md-2">
+							상품 가격 : ${plist[i].product_price }원
 						</div>
 						<div class="col-md-3">
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
