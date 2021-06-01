@@ -226,14 +226,19 @@ public class boardDAO {
 			}
 			
 			if(price != null){
+				
 				if(price.equals("1")){
 					sql += " and p.product_price between 0 and 10000";
 				}else if(price.equals("2")){
 					sql += " and p.product_price between 10000 and 50000";
 				}else if(price.equals("3")){
 					sql += " and p.product_price between 50000 and 100000";
-				}else{
+				}else if(price1 != "" && price2 != ""){
 					sql += " and p.product_price between "+price1+" and "+price2;
+					System.out.println("오류지점3");
+					System.out.println(price1);
+					System.out.println(price2);
+					System.out.println(price);
 				}
 			}
 		

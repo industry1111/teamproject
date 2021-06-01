@@ -91,9 +91,8 @@ input::placeholder { text-align: right;}
 						<li class="price" value="3" >5만원~10만원</li>
 						<li>직접입력 &nbsp;<input type="text" id="price1" placeholder="원" >~
 							<input type="text" id="price2" placeholder="원" > 
-							<img class="price" value="4" src="images/magnifying-glass.png" alt="shopping" style="height: 15px; width:15px;">
+						<img class="price" src="images/magnifying-glass.png" alt="shopping" style="height: 15px; width:15px;">
 						</li>
-						
 					</ul>
 				</div>
 			</div>

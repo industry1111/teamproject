@@ -204,6 +204,7 @@ $(function() {
 		$(this).css('color', 'white');
 		$(this).css('background-color', 'green');
 		$(this).attr('class', 'price allowed');
+		
 		$.ajax({
 			type: "get",
 			url: contextPath + "/SelectList.do",
@@ -275,8 +276,8 @@ $(function() {
 				brand: 0,
 				price1: price1,
 				price2: price2,
+				price : price,
 				sort : sort,
-				price : price
 				
 			},
 			dataType: "text",
