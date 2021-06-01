@@ -39,13 +39,14 @@ public class SelectProductList extends HttpServlet{
 		String brand = request.getParameter("brand");
 		int price1 = Integer.parseInt(request.getParameter("price1"));
 		int price2 = Integer.parseInt(request.getParameter("price2"));
+		String price = request.getParameter("price");
 		String sort = request.getParameter("sort");
 		System.out.println("sort:"+sort);
 		
 		
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
-		List<productDTO> plist = bdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort);
+		List<productDTO> plist = bdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort,price);
 		String json = "[";
 		for (int i=0; i<clist.size();i++) {
 			categoryDTO cdto = (categoryDTO)clist.get(i);

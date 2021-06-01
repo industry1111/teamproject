@@ -87,9 +87,9 @@ input::placeholder { text-align: right;}
 				<div class="col-md-1 offset-2 category" align="left" style="">가격</div>
 				<div class="col-md-6 list">
 					<ul>
-						<li>1만원이하</li>
-						<li>1만원~5만원</li>
-						<li>5만원~10만원</li>
+						<li value="1" id="price_1">1만원이하</li>
+						<li value="2" id="price_2">1만원~5만원</li>
+						<li value="3" id="price_3">5만원~10만원</li>
 						<li>직접입력 &nbsp;<input class="price" type="text" placeholder="원"></li>
 						<li>~</li>
 						<li>
