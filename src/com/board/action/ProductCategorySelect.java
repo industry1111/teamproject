@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.boardDAO;
+import dto.brandDTO;
 import dto.categoryDTO;
 import dto.productDTO;
 
@@ -39,6 +40,7 @@ public class ProductCategorySelect extends HttpServlet{
 		
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
+		List<brandDTO> blist = bdao.getbrandList();
 		String json = "[";
 		for (int i=0; i<clist.size();i++) {
 			categoryDTO cdto = (categoryDTO)clist.get(i);
