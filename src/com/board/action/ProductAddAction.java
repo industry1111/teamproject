@@ -54,6 +54,7 @@ public class ProductAddAction implements Action{
 		boardDAO bDao= new boardDAO();
 		bDao.insertProduct(pdto);
 		
+		
 		ActionForward forward=new ActionForward();
 		
 		forward.setRedirect(true);

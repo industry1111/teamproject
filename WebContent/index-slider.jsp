@@ -54,7 +54,7 @@
 				</div>
 			</div>
 
-			<div class="button-group" style="bottom: 50px;">
+			<div class="button-group" <style></style>="bottom: 50px;">
 				<a href="index-color.jsp" class="btn btn-outline-success button-sm">Color</a>
 				<a href="index-video.jsp" class="btn btn-outline-success button-sm">Video
 					Background</a>

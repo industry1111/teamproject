@@ -29,12 +29,12 @@ $(function() {
 			},
 			dataTyep:"json",
 			success : function() {
-				window.close();
-
+				
 			}
 			
 		});
 		
+		window.close();
 
 	});
 	
@@ -58,11 +58,11 @@ $(function() {
 			},
 			dataTyep:"json",
 			success : function() {
-				window.close();
+				
 			}
 			
 		});
-	
+		window.close();
 	
 	});
 	

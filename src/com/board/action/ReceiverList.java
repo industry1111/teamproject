@@ -22,7 +22,6 @@ public class ReceiverList implements Action{
         
         int member_num = (int) session.getAttribute("member_num");
         List<receiverDTO> rlist = new boardDAO().getReceiverList(member_num);
-        
         request.setAttribute("rlist", rlist);
 	
 		request.setAttribute("center", "receiver.jsp");
