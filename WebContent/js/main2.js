@@ -199,6 +199,7 @@ $(function() {
 		$(".sort").css('color', "gray");
 		$(this).css('color', 'black');
 		var sort = $(this).val();
+		
 		$.ajax({
 			type: "get",
 			url: contextPath + "/SelectList.do",
