@@ -37,8 +37,8 @@ public class SelectProductList extends HttpServlet{
 		int category_code2 = Integer.parseInt(request.getParameter("category_code2"));
 		int category_code3 = Integer.parseInt(request.getParameter("category_code3"));
 		String brand = request.getParameter("brand");
-		int price1 = Integer.parseInt(request.getParameter("price1"));
-		int price2 = Integer.parseInt(request.getParameter("price2"));
+		String price1 = request.getParameter("price1");
+		String price2 = request.getParameter("price2");
 		String price = request.getParameter("price");
 		String sort = request.getParameter("sort");
 		System.out.println("sort:"+sort);

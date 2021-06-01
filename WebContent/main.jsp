@@ -60,7 +60,6 @@ input::placeholder { text-align: right;}
 				<div class="col-md-1 offset-2 category" align="left" >카테고리</div>
 				<div class="col-md-6 list">
 					<ul >
-						<li class="category1" value="0">전체</li>
 						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}"> <%-- -1제거하고 실행 --%>
 							<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0}">
 								<li class="category1" value="${clist[i].category_code }">${clist[i].category_name }</li>
@@ -87,15 +86,14 @@ input::placeholder { text-align: right;}
 				<div class="col-md-1 offset-2 category" align="left" style="">가격</div>
 				<div class="col-md-6 list">
 					<ul>
-						<li value="1" id="price_1">1만원이하</li>
-						<li value="2" id="price_2">1만원~5만원</li>
-						<li value="3" id="price_3">5만원~10만원</li>
-						<li>직접입력 &nbsp;<input class="price" type="text" placeholder="원"></li>
-						<li>~</li>
-						<li>
-							<input class="price" type="text" placeholder="원">
-								<img src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
+						<li class="price" value="1">1만원이하</li>
+						<li class="price" value="2" >1만원~5만원</li>
+						<li class="price" value="3" >5만원~10만원</li>
+						<li>직접입력 &nbsp;<input type="text" id="price1" placeholder="원" >~
+							<input type="text" id="price2" placeholder="원" > 
+							<img class="price" value="4" src="images/magnifying-glass.png" alt="shopping" style="height: 15px; width:15px;">
 						</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -148,7 +146,7 @@ input::placeholder { text-align: right;}
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
 							<c:if test="${plist[i].member_num eq slist[j].member_num }">
 								<a href="store.bo?${slist[j].store_num }">
-									<img alt="" src="upload_profile/${slist[j].profile_img }" style="height: 100px; width: 100px;">
+									<img src="upload_profile/${slist[j].profile_img }" style="height: 50px; width: 50px;">
 								</a>
 								${slist[j].store_name }<br>
 								<c:forEach var="category" items="${clist }">
