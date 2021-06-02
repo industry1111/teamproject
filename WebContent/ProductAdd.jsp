@@ -23,7 +23,6 @@
 	crossorigin="anonymous"></script>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="js/product_add.js"></script>
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
 
 <style type="text/css">
@@ -62,10 +61,10 @@ img{
 							</c:forEach>	
 					</select>
 					<select required="required" name="category2" id="category2"  class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-						<option  class='category2' value=0>==2차==</option>
+						<option class='category2' value="">==2차==</option>
 					</select>
 					<select required="required" id="category3" name="category_name"  class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
-						<option class='category3' value=0>==3차==</option>
+						<option class='category3' value="">==3차==</option>
 					</select>
 				</div>
 			</div>
@@ -95,8 +94,8 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<select id="brand_name" name="brand_name" required="required" class="form-control">
-							<option class='brand_name' value=0>==브랜드==</option>
+					<select id="brand_name" name="brand_name" required="required" class="form-control brand_name">
+							<option class='brand_name' value="">==브랜드==</option>
 					</select>
 					
 					<span id="product_brand_check" class="check"></span>

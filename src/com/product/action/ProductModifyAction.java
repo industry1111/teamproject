@@ -1,5 +1,7 @@
 package com.product.action;
 
+import java.util.Enumeration;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,6 +28,7 @@ public class ProductModifyAction implements Action {
 		MultipartRequest multi = new MultipartRequest(request, realpath, maxSize, "UTF-8",
 				new DefaultFileRenamePolicy());
 		
+
 		productDTO pdto = new productDTO();
 		pdto.setProduct_num(Integer.parseInt(multi.getParameter("product_num")));
 		pdto.setProduct_name(multi.getParameter("product_name"));
@@ -35,7 +38,14 @@ public class ProductModifyAction implements Action {
 		pdto.setProduct_brand(multi.getParameter("product_brand"));
 		pdto.setProduct_description(multi.getParameter("product_description"));
 		pdto.setProduct_img(multi.getFilesystemName("product_img")); // 상품이미지 정보 처리
-
+		System.out.println(pdto.getProduct_img());
+		
+		if(pdto.getProduct_img() == null){
+			pdto.setProduct_img(multi.getParameter("origin_product_img"));
+			System.out.println(pdto.getProduct_img());
+		}
+		
+		
 		productDAO pdao = new productDAO();
 		pdao.updateProduct(pdto);// 수정메소드 호출시 빈객체 전달하여 수정!
 
