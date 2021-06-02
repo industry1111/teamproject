@@ -16,9 +16,8 @@ function btn_click() {
 	child = window.open("receiver_3.bo","child","width=600,height=650");
 		
 }
-
-
 </script>
+<script src="js/order.js"></script>
 <head>
 <title>주문하기</title>
 
@@ -90,18 +89,32 @@ ul{
 				</li>
 				<hr>
 			</ul>
+			
 			<c:forEach var="i" begin="0" step="1" end="${rlist.size()}" >
 				<c:if test="${rlist[i].basic_num eq 1 }">
+				<div class="basic">
 					<ul>
 						<li>${rlist[i].address_name}</li>
-						<li>주문자 번호</li>
+						<li>${rlist[i].receiver_phone}</li>
 						<li>(${rlist[i].receiver_addr1})
 						${rlist[i].receiver_addr2}
 						${rlist[i].receiver_addr3}</li>
-						<li>배송 요청사항</li>
+						<li><input type="text" placeholder="배송 요청사항"/></li>
 					</ul>
+				</div>
 				</c:if>
 			</c:forEach>
+			<div class="new">
+			<ul>
+				<li>수령인 : </li>
+				<li>배송지 이름 : </li>
+				<li>번호</li>
+				<li><input type="text" >
+					${rlist[i].receiver_addr2}
+					${rlist[i].receiver_addr3}</li>
+				<li><input type="text" placeholder="배송 요청사항"/></li>
+			</ul>
+			</div>
 			</div>
 		</div>
 	
