@@ -2,24 +2,39 @@ package action;
 
 public class PageDTO {
 	
-	private int startPage;
-	private int endPage;
-	private boolean prev,next;
+	private int startPage;		// 시작 페이지
+	private int endPage;		// 끝 페이지
+	private boolean prev,next; //이전 , 다음 페이지 유무
 	
 	private int total;				// 총 글 수 
-	private int totalPage;			// 총 페이지 수
-	private int totalBlock;			// 총 블럭 수
 	private Criteria cri;	
 	
+	private int beginPerPage;	
+	private int endPerPage;
 	public PageDTO(Criteria cri,int total) {
 		//페이징 DTO 생성 시  페이지당 보여질 목록 수 , 블럭당 보여질 페이지 수 , 리스트 크기를 받아온다
 		this.cri = cri;
 		this.total = total;
-		this.totalPage = (int) Math.ceil((total)/cri.getNumPerPage());
-		this.totalBlock = (int) Math.ceil((this.totalPage/cri.getPagePerBlock()));
 		
-		this.startPage = (int) Math.ceil((cri.getNowPage()-1)*cri.getNumPerPage());
-		this.endPage = (int) Math.ceil(this.startPage+cri.getNumPerPage()-1);
+		this.endPage = (int) (Math.ceil(cri.getNowPage() / 10.0)) * 10;
+		this.startPage = this.endPage -9;
+		
+		this.beginPerPage = (cri.getNowPage()-1)*cri.getNumPerPage();  //페이지 클릭시 처음에 보여줄 상품
+		this.endPerPage = this.beginPerPage + cri.getNumPerPage()-1;  // 페이지 클릭시 마지막에 보여줄 상품	
+		
+		//실제 끝 페이지
+		int realEnd = (int) (Math.ceil((total *1.0) / cri.getNumPerPage()));
+		
+		
+		if(realEnd <= this.endPage){// 실제 끝 페이지가 끝 페이지보다 작으면
+			this.endPage = realEnd; //끝 페이지로 실제 끝 페이지 값으로 변경
+		}
+	
+		
+		//시작 페이지가 1페이지보다 크면 prev가 true
+		this.prev = this.startPage > 1;
+		//끝 페이지가 실제 끝 페이지보다 작으면 next가 true
+		this.next = this.endPage < realEnd;
 		
 		
 		
@@ -65,22 +80,6 @@ public class PageDTO {
 		this.total = total;
 	}
 
-	public int getTotalPage() {
-		return totalPage;
-	}
-
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-
-	
-	public int getTotalBlock() {
-		return totalBlock;
-	}
-
-	public void setTotalBlock(int totalBlock) {
-		this.totalBlock = totalBlock;
-	}
 
 	public Criteria getCri() {
 		return cri;
@@ -88,6 +87,22 @@ public class PageDTO {
 
 	public void setCri(Criteria cri) {
 		this.cri = cri;
+	}
+
+	public int getBeginPerPage() {
+		return beginPerPage;
+	}
+
+	public void setBeginPerPage(int beginPerPage) {
+		this.beginPerPage = beginPerPage;
+	}
+
+	public int getEndPerPage() {
+		return endPerPage;
+	}
+
+	public void setEndPerPage(int endPerPage) {
+		this.endPerPage = endPerPage;
 	}
 	
 	
