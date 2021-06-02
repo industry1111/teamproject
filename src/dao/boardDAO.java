@@ -18,7 +18,11 @@ import dto.brandDTO;
 import dto.categoryDTO;
 import dto.ratingDTO;
 import dto.receiverDTO;
+
+import dto.reviewDTO;
+
 import dto.templateDTO;
+
 
 public class boardDAO {
 
@@ -306,21 +310,28 @@ public class boardDAO {
 		return list;
 	}
 	
-	//별점
-	public void insertRating(ratingDTO rdto) { //상품 정보를 입력함
+	//리뷰
+	public void insertReview(reviewDTO rvdto) { //상품 정보를 입력함
 
 		try {
 			getCon();
 		
-			String sql = "insert into rating (member_num,product_num,star)"
-					+ "values(?,?,?)";
+			String sql = "insert into review (review_num,member_num,product_num,rating1,rating2,rating3,review_title,review_content,regdate)"
+					+ "values(?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rdto.getMember_num());
-			pstmt.setInt(2, rdto.getProduct_num());
-			pstmt.setInt(3, rdto.getStar());
+			pstmt.setInt(1, rvdto.getReview_num());
+			pstmt.setInt(2, rvdto.getMember_num());
+			pstmt.setInt(3, rvdto.getProduct_num());
+			pstmt.setInt(4, rvdto.getRating1());
+			pstmt.setInt(5, rvdto.getRating2());
+			pstmt.setInt(6, rvdto.getRating3());
+			pstmt.setString(7, rvdto.getReview_title());
+			pstmt.setString(8, rvdto.getReview_content());
+			pstmt.setTimestamp(9, rvdto.getRegdate());
+			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
-			System.out.println("insertRating:"+e.toString());
+			System.out.println("insertReview:"+e.toString());
 		}finally {
 			ResouceClose();
 		}
@@ -366,6 +377,7 @@ public class boardDAO {
 	}
 	
 	
+
 	//템플릿 리스트
 	public List<templateDTO> getTemplateList(){
         
@@ -395,6 +407,7 @@ public class boardDAO {
         }
         return tlist;
     }
+
 	
 	//상품 등록, 수정시 사용하는 brand리스트
 	public List<brandDTO> getbrandList(int category_code2) {  

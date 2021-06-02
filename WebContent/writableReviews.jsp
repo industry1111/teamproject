@@ -40,7 +40,16 @@
 
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
+<script type="text/javascript">
+ function add_onclick(product_num){
+    //이름은 중복창 제어용
+    child = window.open("reviewForm.bo?product_num="+product_num,"child","width=500,height=900");
+};//click
 
+
+
+
+</script>
 <style type="text/css">
 .check {
 	color: red;
@@ -83,33 +92,36 @@ input[type="text"]:focus {
 	<!-- 	<div id="page"> -->
 	<div class="colorlib-product" >
 		<div class="container" >
-			<div class="row row-pb-lg" >
+			<div class="row " >
 				<div class="col-md-12"  >
 					<div class="product-name d-flex " align="center" >
 					<div class="col-md-1" ></div>
-						//
+						작성 가능한 리뷰
 					</div>
+					<c:if test="${plist.size() ne 0 }">
+					<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
 					<div class="row">
 						<div class="col-md-2">
-							<img src="images/storeprofile.png"
-								style="width: 100px; height: 100px;">
+							<img src="product_img_upload/${plist[i].product_img}" style="width: 100px; height: 100px;">
 						</div>
 						<div class="col-md-8" style="margin-top: 15px;">
 							<div class="row">
-								<div class="col-md-2">구매확정일</div>
+								<div class="col-md-2">${plist[i].product_price }</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6">스토어이름</div>
+								<div class="col-md-6">${plist[i].product_description }</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4">구매한 물건/옵션</div>
+								<div class="col-md-4">${plist[i].product_name }</div>
 							</div>
+							
 						</div>
 						<div class="col-md-2">
-							<input id="id_cancle" type="button" value="리뷰쓰기"
-								class="myButton" />
+								<input type="button" value="리뷰쓰기" id="add_review" class="myButton" onclick="add_onclick(${plist[i].product_num});">
 						</div>
 					</div>
+					</c:forEach>
+					</c:if>
 				</div>
 			</div>
 		</div>
