@@ -175,11 +175,11 @@ input::placeholder { text-align: right;}
 			<div class="row" id="product-list" style="margin-top: 10px;">
 				<c:if test="${plist.size() > 0 }">
 				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
-				<div class="col-md-7 offset-2">
+				<div class="col-md-7 offset-2" >
 					<hr>
 					<div class="row">
 						<div class="col-md-2"  >
-							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 100px; width: 100px;">
+							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 150px; width: 150px;">
 						</div>
 						<div class="col-md-6 " id="pname" >
 							<b>${plist[i].product_name }</b><br>
