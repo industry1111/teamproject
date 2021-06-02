@@ -51,12 +51,29 @@
 
 <script type="text/javascript">
 
-	function pay_btn_click() {
-		
-		 child = window.open("payment.bo","child","width=500,height=650");
-		
-	}
+function order_btn_click() {
+	
 
+	var checkbox = document.getElementsByName("product_check");
+	var count = 0;
+	for(var i=0; i<checkbox.length; i++){
+		if(checkbox[i].checked){
+			count++;
+		}
+	}
+	
+	if(count>=1){
+		if(confirm("주문하시겠습니까?")){
+			//document.form.submit();
+			document.location.href = "Order.bo";
+		}
+	}else{
+		alert("주문하실 상품을 선택해주세요.");
+	}
+	
+}
+
+</script>
 
 </script>	
 </head>
@@ -83,15 +100,16 @@
 								<span>Remove</span>
 							</div>
 						</div>
+			<form action="Order.bo" method="post">
 						<c:forEach var="i" begin="0" step="1" end="${list.size()}">
-							<input type="hidden" value="${list[i].basket_num}"/>
 							<c:if test="${list[i].store_num ne null}">
 								<h6 align="left">${list[i].store_name}</h6>
-
+						
 							<div class="product-cart d-flex">
 								<div class="col-md-1">
-									<input type="checkbox" value="${list[i].product_price * list[i].quantity}" name="product_check" id="product_check" class="check_total">
-									
+									<input type="checkbox" value="${list[i].product_price * list[i].quantity}" name="product_check" 
+										id="product_check" class="chkbox" basket_num="${list[i].basket_num}">
+										<input type="hidden" name="chk" id="chk"/>
 								</div>
 								<div class="one-forth">
 									<a>
@@ -114,7 +132,7 @@
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<span class="price">${list[i].product_price * list[i].quantity}</span>
+										<span name="total_price" class="price">${list[i].product_price * list[i].quantity}</span>
 									</div>
 								</div>
 								<div class="one-eight text-center">
@@ -135,16 +153,16 @@
 						<div class="total-wrap">
 							<div class="row">
 								<div class="col-sm-8">
-									<form action="#">
-										<div class="row form-group">
-											<div class="col-sm-9">
-												<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
-											</div>
-											<div class="col-sm-3">
-												<input type="submit" value="Apply Coupon" class="btn btn-primary">
-											</div>
-										</div>
-									</form>
+								
+								<div class="row form-group">
+								<div class="col-sm-9">
+									<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
+								</div>
+								<div class="col-sm-3">
+<!-- 												<input type="submit" value="Apply Coupon" class="btn btn-primary"> -->
+							</div>
+						</div>
+	
 								</div>
 								<div class="col-sm-4 text-center">
 									<div class="total ">
@@ -155,12 +173,12 @@
 								</div>
 							</div>
 							<div align="right" class="col-md-11">
-								<input type="button" value="결제하기" class="myButton" onclick="pay_btn_click();">
+								<input type="submit" value="주문하기" class="myButton">
 							</div>
 						</div>
 					</div>
 				</div>
-
+		</form>
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
 						<h2>Related Products</h2>

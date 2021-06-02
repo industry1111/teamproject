@@ -40,7 +40,7 @@
 
 <!-- 			로그인 되었을 경우 -->
 			<c:if test="${member_code == 1}">
-				<a class="h_nav" href="Order.bo">마이페이지</a>
+				<a class="h_nav" href="OrderContent.bo">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
 				<a class="h_nav" href="Seller.me">판매자 등록</a>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
@@ -48,7 +48,7 @@
 
 			<!-- 판매자 로그인 -->
 			<c:if test="${member_code == 2 }">
-				<a class="h_nav" href="Order.bo">마이페이지</a>
+				<a class="h_nav" href="OrderContent.bo">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
 			</c:if>
