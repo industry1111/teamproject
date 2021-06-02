@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.product.action.productDAO;
+import com.product.action.productDTO;
+
 import dao.boardDAO;
 import dto.categoryDTO;
 

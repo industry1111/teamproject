@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.member.action.memberDAO;
+
 import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
