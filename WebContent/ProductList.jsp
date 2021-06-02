@@ -51,12 +51,15 @@
 						<div class="product-name d-flex" align="center">
 							<div class="col-md-2">
 								상품이미지
+								토탈${p.total }
 							</div>
 							<div class="col-md-2">
 								상품이름
+								토탈페이지${p.totalPage }
 							</div>
 							<div class="col-md-2">
 								상품설명
+								토탈 블럭${p.totalBlock }
 							</div>
 							<div class="col-md-2">
 								카테고리

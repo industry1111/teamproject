@@ -58,14 +58,24 @@ a:active {
 .side{
 	
 }
+
+.index, h4, h5{
+	font-family:휴먼엽서체 !important;
+	text-align: center;
+	
+}
+h4{
+	font-weight: border;
+}
+
 </style>
 </head>
 
 <body>
-	<form method="post" id="index">
+	<form method="post" id="index" class="index">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-1">
-				<h3><a style="font-size: 30px; font-family:휴먼엽서체;">회원정보</a></h3>
+				<h3><a style="font-size: 25px; font-family:휴먼엽서체; ">회원정보</a></h3>
 			</div>
 		</div>
 		<div class="row">
@@ -116,7 +126,7 @@ a:active {
 			<div class="col-md-9 col-md-offset-2" >
 				<hr>
 				<a href="Seller.me" >
-					<h5>판매자 등록</h5>
+					<h4>판매자 등록</h4>
 				</a>
 			</div>
 		</div>
@@ -125,7 +135,7 @@ a:active {
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>
-				<h5>판매 관리</h5>
+				<h4>판매 관리</h4>
 			</div>
 		</div>
 		
@@ -153,7 +163,7 @@ a:active {
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>
-				<h5>나의 정보</h5>
+				<h4>나의 정보</h4>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px">

@@ -46,24 +46,25 @@ public class ReviewDAO {
 			}
 		}
 		
-
-		public void insertReview(reviewDTO rvdto) { //상품 정보를 입력함
+		//리뷰 입력하기
+		public void insertReview(reviewDTO rvdto) { 
 
 			try {
 				getCon();
 			
-				String sql = "insert into review (review_num,member_num,product_num,rating1,"
-						+ "rating2,rating3,review_title,review_contentregdate)"
+				String sql = "insert into review (member_num,product_num,rating1,"
+						+ "rating2,rating3,review_title,review_content,regdate,review_img)"
 						+ "values(?,?,?,?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql);
-				pstmt.setInt(1, rvdto.getReview_num());
-				pstmt.setInt(2, rvdto.getMember_num());
-				pstmt.setInt(3, rvdto.getProduct_num());
-				pstmt.setInt(4, rvdto.getRating1());
-				pstmt.setInt(5, rvdto.getRating2());
-				pstmt.setInt(6, rvdto.getRating3());
-				pstmt.setString(7, rvdto.getReview_title());
-				pstmt.setString(8, rvdto.getReview_content());
+				pstmt.setInt(1, rvdto.getMember_num());
+				pstmt.setInt(2, rvdto.getProduct_num());
+				pstmt.setInt(3, rvdto.getRating1());
+				pstmt.setInt(4, rvdto.getRating2());
+				pstmt.setInt(5, rvdto.getRating3());
+				pstmt.setString(6, rvdto.getReview_title());
+				pstmt.setString(7, rvdto.getReview_content());
+				pstmt.setTimestamp(8, rvdto.getRegdate());
+				pstmt.setString(9, rvdto.getReview_img());
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				System.out.println("insertReview:"+e.toString());
@@ -92,6 +93,7 @@ public class ReviewDAO {
 					rvdto.setReview_title(rs.getString("review_title"));
 					rvdto.setReview_content(rs.getString("review_content"));
 					rvdto.setRegdate(rs.getTimestamp("regdate"));
+					rvdto.setReview_img(rs.getString("review_img"));
 					
 				}
 				
@@ -104,13 +106,13 @@ public class ReviewDAO {
 		}
 		
 		//
-		public List<reviewDTO> getReviewList(int product_num) {
+		public List<reviewDTO> getReviewList(int member_num) {
 			List<reviewDTO> list = new ArrayList<reviewDTO>();
 			try {
 				getCon();
-				String sql = "select * from review where product_num =?";
+				String sql = "select * from review where member_num =?";
 				pstmt =con.prepareStatement(sql);
-				pstmt.setInt(1, product_num);
+				pstmt.setInt(1, member_num);
 				rs = pstmt.executeQuery();
 
 				while(rs.next()) {
@@ -125,6 +127,7 @@ public class ReviewDAO {
 					rvdto.setReview_title(rs.getString("review_title"));
 					rvdto.setReview_content(rs.getString("review_content"));
 					rvdto.setRegdate(rs.getTimestamp("regdate"));
+					rvdto.setReview_img(rs.getString("review_img"));
 					
 					list.add(rvdto);
 					
