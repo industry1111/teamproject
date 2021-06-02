@@ -38,6 +38,17 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		if(command.equals("/Order.bo")) {
+			
+			action = new Order();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}else if(command.equals("/OrderContent.bo")) {
+			
 			action = new OrderList();
 			try {
 				forward = action.execute(request, response);
@@ -101,6 +112,16 @@ public class BoardFrontController extends HttpServlet {
 		}else if (command.equals("/receiver_2.bo")) {
 			
 			action = new ReceiverInfo();
+			try {
+	
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/receiver_3.bo")) {
+			
+			action = new OrderReceiverInfo();
 			try {
 	
 				forward = action.execute(request, response);

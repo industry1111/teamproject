@@ -1,5 +1,14 @@
 $(function() {
-
+	
+	var checkArr = new Array();
+	$("input[class='chkbox']:checked").each(function(){
+		checkArr.push($(this).attr("baket_num"));
+		$("#chk").val(checkArr);
+		console.log(checkArr);
+	});
+	
+	
+	
 	
 	$("input:checkbox[name=product_check]").on("click",function(){
 		
@@ -7,17 +16,27 @@ $(function() {
 		var price_total = parseInt($("#price_total").val());
 		
 			if($(this).is(":checked")){
-
+				
+					checkArr.push($(this).attr("basket_num"));
+					$("#chk").val(checkArr);
+					console.log($("#chk").val());
+				
 					product_price = $(this).val();
 					price_total += parseInt(product_price);
 					
 					$("#price_total").val(price_total);
 
 			}else{
-				product_price = $(this).val();
+					product_price = $(this).val();
 					price_total -= parseInt(product_price);	
 					$("#price_total").val(price_total);
-								}
+					
+					checkArr.pop($(this).attr("basket_num"));
+					$("#chk").val(checkArr);
+					console.log($("#chk").val());
+					
+			
+			}
 		
 	});
 
@@ -40,7 +59,8 @@ $(function() {
 			});
 		}
 		
-	 });
+	 });//delete_btn
+	
 	
   });
 
