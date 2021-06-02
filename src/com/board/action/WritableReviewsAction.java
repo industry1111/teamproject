@@ -7,8 +7,6 @@ import javax.servlet.http.HttpSession;
 import action.Action;
 import action.ActionForward;
 
-
-
 public class WritableReviewsAction implements Action{
 
 	
