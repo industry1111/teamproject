@@ -6,10 +6,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.product.action.productDAO;
+import com.product.action.productDTO;
+
 import action.Action;
 import action.ActionForward;
-import dao.boardDAO;
-import dto.productDTO;
 
 
 public class ProductList implements Action {
@@ -25,8 +26,8 @@ public class ProductList implements Action {
 		
 		
 		//AdminGoodsDAO객체 생성 후 getGoodsList()생성
-		boardDAO bDao = new boardDAO();
-		List<productDTO> list = bDao.getProductList(member_num);
+		productDAO pdao = new productDAO();
+		List<productDTO> list = pdao.getProductList(member_num);
 		
 		
 		//requset영역에 저장

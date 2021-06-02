@@ -6,11 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.product.action.productDAO;
+import com.product.action.productDTO;
+
 import action.Action;
 import action.ActionForward;
 import dao.ReviewDAO;
-import dao.boardDAO;
-import dto.productDTO;
 import dto.reviewDTO;
 
 
@@ -26,8 +27,8 @@ public class WrittenReviewsAction implements Action{
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 		
-		boardDAO  bdao = new boardDAO();
-		List<productDTO> plist= bdao.getProductList(member_num);
+		productDAO pdao = new productDAO();
+		List<productDTO> plist= pdao.getProductList(member_num);
 		request.setAttribute("plist", plist);
 		
 		ReviewDAO rvdao = new ReviewDAO();

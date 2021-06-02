@@ -3,10 +3,11 @@ package com.board.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.product.action.productDAO;
+import com.product.action.productDTO;
+
 import action.Action;
 import action.ActionForward;
-import dao.boardDAO;
-import dto.productDTO;
 
 public class WriteReviewAction implements Action{
 	  @Override
@@ -16,9 +17,8 @@ public class WriteReviewAction implements Action{
 		  
 		  int product_num = Integer.parseInt(request.getParameter("product_num"));
 		  
-		  boardDAO bdao = new boardDAO();
-		  
-		  productDTO pdto = bdao.getProductInfo(product_num);
+		  productDAO pdao = new productDAO();
+		  productDTO pdto = pdao.getProductInfo(product_num);
 		  
 		  request.setAttribute("pdto", pdto);
 		  
