@@ -60,23 +60,12 @@ img {
 					</select>
 				
 					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-<!-- 						<option class='category2' value=0>==2차==</option> -->
-							<option value="" selected>=2차=</option>
-							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-									<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 eq 0 }">
-											<option value="${list[i].category_code}">${list[i].category_name }</option>
-									</c:if>								
-							</c:forEach>
-
+						<option class='category2' value=0>==2차==</option> 
 					</select>
+					
 					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
-<%-- 						<option class='category3' value="0">${pdto.category_name}</option> --%>
-					<option value="" selected>${pdto.category_name}</option>
-							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-									<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 ne 0 }">
-											<option value="${list[i].category_code}">${list[i].category_name}</option>
-									</c:if>								
-							</c:forEach>
+						<option class='category3' value="0">${pdto.category_name}</option>
+						<option value="" selected>${pdto.category_name}</option>
 					</select>
 				</div>
 			</div>
@@ -140,9 +129,8 @@ img {
 			</div>
 		</div>
 	</form>
-
 	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
-	<script src="js/category.js"></script>
+	<script src="js/category.js"></script> <%--카테고리 --%>
 </body>
 </html>
