@@ -46,7 +46,17 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<script src="js/receiver.js"></script> 
+<script type="text/javascript"> 
+function select_btn_onclick(){ 
+	
+	opener.document.getElementById("receiver_name").value = document.getElementById("receiver_name").value
+	opener.document.getElementById("address_name").value = document.getElementById("address_name").value
+	opener.document.getElementById("receiver_phone").value = document.getElementById("receiver_phone").value
+	opener.document.getElementById("addr1").value = document.getElementById("addr1").value
+
+} 
+</script>
+
 <style type="text/css">
 table
 {
@@ -90,13 +100,17 @@ th
 	</tr>
 	<c:forEach var="i" begin="0" step="1" end="${list.size()-1}" >
 		<tr>
-			<td>${list[i].address_name}</td>
-			<td>${list[i].receiver_addr1}<br>
+			<td>
+				<span id="address_name" value="${list[i].address_name}">${list[i].address_name}</span><br>
+				<strong id="receiver_name" value="${list[i].receiver_name}">${list[i].receiver_name}</strong>
+			</td>
+			
+			<td id="addr1">${list[i].receiver_addr1}<br>
 				${list[i].receiver_addr2}<br>
 				${list[i].receiver_addr3}
 			</td>
-			<td>${list[i].receiver_phone}</td>
-			<td>선택</td>
+			<td id="receiver_phone" value="${list[i].receiver_phone}">${list[i].receiver_phone}</td>
+			<td><input type="button" value="선택" onclick="select_btn_onclick();"/></td>
 		<tr>
 	</c:forEach>
 	
