@@ -8096,8 +8096,8 @@ h1, h2, h3, h4, h5,
 
 .product-name {
   padding: .8em 0;
-  background: #9FC93C;
-  background-color :#9FC93C;
+  background: #22CC88;
+  background-color :#22CC88;
   color:white;
   font-weight :bold;
   font-size:130%;
@@ -8113,7 +8113,12 @@ h1, h2, h3, h4, h5,
     .product-name .one-forth span, .product-name .one-eight span {
       color: #000;
       font-weight: 400;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: bold;
+    font-family: 휴먼엽서체;
+   
+       }
       @media (max-width: 767.98px) {
         .product-name .one-forth span, .product-name .one-eight span {
           font-size: 10px; } }
@@ -8881,6 +8886,7 @@ input[type="text"] {
 .star-rating label:hover,
 .star-rating label:hover ~ label {
   color:#fc0;
+  
 }
 
 

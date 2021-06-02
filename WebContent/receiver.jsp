@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
 <!-- Theme style  -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?ver=1">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -182,8 +182,8 @@ input[type="text"]:focus {
 							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
-							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
+							<input class="myButton" type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
+							<input class="myButton" id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >
@@ -198,7 +198,7 @@ input[type="text"]:focus {
 						<div class="col-md-2">
 							<c:out value="${rlist[i].address_name }"/>
 						</div>	
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<c:out value="${rlist[i].receiver_addr1 }"/>
 							<c:out value="${rlist[i].receiver_addr2 }"/>
 							<c:out value="${rlist[i].receiver_addr3 }"/>
@@ -206,9 +206,9 @@ input[type="text"]:focus {
 						<div class="col-md-2">
 							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
-						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
-							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
+						<div class="col-md-3">
+							<input class="myButton" type="button" id="add_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
+							<input class="myButton" id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >

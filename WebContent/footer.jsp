@@ -20,24 +20,26 @@ color: #627482;
 					<div class="row ">
 						<div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
 							<h3 class="text-muted mb-md-0 mb-5 bold-text">Modoo</h3>
+							<h7 style="color:grey;">모두㈜는 통신판매중개자이며, 통신판매의 당사자가 아닙니다. 상품, 상품정보, 거래에 관한 의무와 책임은 판매자에게 있습니다.</h7>
 						</div>
 						<div class="col-xl-2 col-md-4 col-sm-4 col-12">
 							<h6 class="mb-3 mb-lg-4 bold-text ">
 								<b >고객센터</b>
 							</h6>
 							<ul class="list-unstyled">
-								<li > 부산시 부산진구 ,,,,,,</li>
-								<li>전화 1588</li>
-								<li>Blog</li>
-								<li>Por</li>
+								<li >부산광역시 부산진구 동천로 109 삼한골든게이트 7층</li>
+								<li>전화 1588-1234</li>
+								<li>1:1문의 바로가기</li>
+								<small><span><i class="fa fa-envelope"
+									aria-hidden="true"></i></span > helpmodoo@modoo.com</small>
 							</ul>
 						</div>
 						<div class="col-xl-2 col-md-4 col-sm-4 col-12">
 							<h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5">
-								<b>ADDRESS</b>
+								<b>주소</b>
 							</h6>
-							<p class="mb-1">605, RATAN ICON BUILDING</p>
-							<p>SEAWOODS SECTOR</p>
+							<p class="mb-1">부산광역시 부산진구 </p>
+							<p>부전동 112-3</p>
 						</div>
 					</div>
 					<div class="row ">
@@ -60,7 +62,7 @@ color: #627482;
 								<b style="color: #627482">ANIRUDH SINGLA</b>
 							</h6>
 							<small> <span><i class="fa fa-envelope"
-									aria-hidden="true"></i></span > anirudh@gmail.com
+									aria-hidden="true"></i></span > 
 							</small>
 						</div>
 						<div

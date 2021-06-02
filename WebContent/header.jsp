@@ -9,10 +9,11 @@
 
 <style>
 .h_nav {
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: bold;
-	color: black;
+	color: #797474;
 	text-decoration: none;
+	
 }
 
 
@@ -24,22 +25,18 @@
 </c:if>
 
 <body>
-	<div class="row">
-		<div class="col-md-3" align="right">
-			<a href="Main.main"> <img
-				src="images/modooLogo.png"
-				alt="Logo" style="height: 30px">
-			</a>
-		</div>
-		<div class="col-md-6" align="right">
+	<div class="row" style="margin-bottom: 30px;">
+		<div class="col-md-6 offset-3" align="right" >
 
 			<!-- 로그인 안되었을때 -->
 			<c:if test="${member_code == 0}">
+				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="MemberLogin.me">로그인</a>
 			</c:if>
 
 <!-- 			로그인 되었을 경우 -->
 			<c:if test="${member_code == 1}">
+				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="Order.bo">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
 				<a class="h_nav" href="Seller.me">판매자 등록</a>
@@ -48,6 +45,7 @@
 
 			<!-- 판매자 로그인 -->
 			<c:if test="${member_code == 2 }">
+				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="Order.bo">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
