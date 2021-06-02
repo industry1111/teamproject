@@ -47,12 +47,12 @@
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
 <script type="text/javascript"> 
-function select_btn_onclick(){ 
+function select_btn_onclick(i){ 
 	
-	opener.document.getElementById("receiver_name").value = document.getElementById("receiver_name").value
-	opener.document.getElementById("address_name").value = document.getElementById("address_name").value
-	opener.document.getElementById("receiver_phone").value = document.getElementById("receiver_phone").value
-	opener.document.getElementById("addr1").value = document.getElementById("addr1").value
+	opener.document.getElementById("receiver_name").value = document.getElementById("receiver_name"+i).value
+	opener.document.getElementById("address_name").value = document.getElementById("address_name"+i).value
+	opener.document.getElementById("receiver_phone").value = document.getElementById("receiver_phone"+i).value
+	opener.document.getElementById("addr1").value = document.getElementById("addr1"+i).value
 
 } 
 </script>
@@ -110,7 +110,7 @@ th
 				${list[i].receiver_addr3}
 			</td>
 			<td id="receiver_phone" value="${list[i].receiver_phone}">${list[i].receiver_phone}</td>
-			<td><input type="button" value="선택" onclick="select_btn_onclick();"/></td>
+			<td><input type="button" value="선택" onclick="select_btn_onclick(1);"/></td>
 		<tr>
 	</c:forEach>
 	
