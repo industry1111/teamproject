@@ -6,9 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.product.action.productDAO;
-import com.product.action.productDTO;
-
 import action.Action;
 import action.ActionForward;
 import dao.boardDAO;
