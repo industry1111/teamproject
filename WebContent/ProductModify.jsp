@@ -54,15 +54,29 @@ img {
 						<option value="" selected>=1차=</option>
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
-										<option value="${list[i].category_code}">${list[i].category_name }</option>
+											<option value="${list[i].category_code}">${list[i].category_name }</option>
 									</c:if>								
 							</c:forEach>	
 					</select>
+				
 					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-						<option class='category2' value=0>==2차==</option>
+<!-- 						<option class='category2' value=0>==2차==</option> -->
+							<option value="" selected>=2차=</option>
+							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+									<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 eq 0 }">
+											<option value="${list[i].category_code}">${list[i].category_name }</option>
+									</c:if>								
+							</c:forEach>
+
 					</select>
 					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
-						<option class='category3' value="0">${pdto.category_name}</option>
+<%-- 						<option class='category3' value="0">${pdto.category_name}</option> --%>
+					<option value="" selected>${pdto.category_name}</option>
+							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
+									<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 ne 0 }">
+											<option value="${list[i].category_code}">${list[i].category_name}</option>
+									</c:if>								
+							</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -112,10 +126,10 @@ img {
 			<!-- 상품 미리보기 이미지가 올라가는 곳. -->
 			<div class="form-group row">
 				<div class="col-sm-2">
-					<label for="image">상품 이미지 변경</label> 
-					<input type="file" id="product_img"
-						value="${pdto.product_img}" name="product_img" /> <img
-						src="product_img_upload/${pdto.product_img}" id="preview">
+					<label for="image">상품 이미지 변경</label>
+					<input type="file" id="product_img" name="product_img" /> 
+					<img src="product_img_upload/${pdto.product_img}" id="preview">
+					<input type="hidden" name="origin_product_img" value="${pdto.product_img}" />
 				</div>
 			</div>
 
