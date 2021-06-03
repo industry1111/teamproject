@@ -63,6 +63,7 @@ public class SelectProductList extends HttpServlet{
 		}
 		
 		json +="]||[";
+		System.out.println(json);
 		for (int i=0; i<plist.size();i++) {
 			productDTO pdto = (productDTO)plist.get(i);
 			String product_img = pdto.getProduct_img();

@@ -74,7 +74,9 @@ input::placeholder { text-align: right;}
 }
 
 </style>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	
@@ -98,7 +100,7 @@ input::placeholder { text-align: right;}
 				</a>
 			</div>
 			<div class="col-md-6">
-				<input type="text" style="border-radius:20px; border: 3px solid #22CC88; width:400px;height:40px;">
+				<input type="text" id="searchBox" style="border-radius:20px; border: 3px solid #22CC88; width:400px;height:40px;">
 				<img src="images/magnifying-glass.png" alt="shopping" style="height: 23px">
 			</div>
 		</div>
