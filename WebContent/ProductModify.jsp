@@ -51,32 +51,43 @@ img {
 				<div class="com-sm-3">
 					<select name="category1"  id = "category1" 
 					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected>=1차=</option>
-							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
-											<option value="${list[i].category_code}">${list[i].category_name }</option>
+							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
+									<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0 }">
+											<c:if test="${pdto.category_coderef1 eq clist[i].category_code}">
+												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
+											<c:if test="${pdto.category_coderef1 ne clist[i].category_code}">
+												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
 									</c:if>								
 							</c:forEach>	
 					</select>
 				
 					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-<!-- 						<option class='category2' value=0>==2차==</option> -->
-							<option value="" selected>=2차=</option>
-							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-									<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 eq 0 }">
-											<option value="${list[i].category_code}">${list[i].category_name }</option>
+						
+							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
+		<!-- 셀렉트 -->					<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq 0 }">
+											<c:if test="${pdto.category_coderef1 ne clist[i].category_code}">
+												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
+		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.category_coderef1 eq clist[i].category_code}">
+												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
 									</c:if>								
 							</c:forEach>
-
 					</select>
-					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
-<%-- 						<option class='category3' value="0">${pdto.category_name}</option> --%>
-					<option value="" selected>${pdto.category_name}</option>
-							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-									<c:if test="${list[i].category_codeRef1 ne 0 && list[i].category_codeRef2 ne 0 }">
-											<option value="${list[i].category_code}">${list[i].category_name}</option>
-									</c:if>								
-							</c:forEach>
+					
+					<select id="category3" name="category3" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+						<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
+							<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq pdto.category_coderef2 }">
+								<c:if test="${pdto.category_code1 eq clist[i].category_code}">
+								<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
+								</c:if>
+								<c:if test="${pdto.category_code1 ne clist[i].category_code}">
+								<option value="${clist[i].category_code}">${clist[i].category_name }</option>
+								</c:if>
+							</c:if>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -101,8 +112,19 @@ img {
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
 					<select id="brand_name" name="brand_name" required="required" class="form-control">
-							<option class='brand_name' value=0> ${pdto.product_brand} </option>
-					</select>
+								<c:forEach var="i" begin="0" step="1" end="${blist.size() }">
+								1
+		<!-- 셀렉트 -->					<c:if test="${pdto.category_coderef2 eq blist[i].category_code}">
+		2
+											<c:if test="${pdto.product_brand eq blist[i].brand_name}">
+												<option selected value="${blist[i].category_code}">${blist[i].brand_name}</option>
+											</c:if>
+		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.product_brand ne blist[i].brand_name}">
+												<option value="${blist[i].category_code}">${blist[i].brand_name}</option>
+											</c:if>
+									</c:if>	
+								</c:forEach>	
+							</select>								
 				</div>
 			</div>
 
@@ -140,9 +162,8 @@ img {
 			</div>
 		</div>
 	</form>
-
 	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
-	<script src="js/category.js"></script>
+	<script src="js/category.js"></script> <%--카테고리 --%>
 </body>
 </html>

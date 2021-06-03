@@ -439,7 +439,7 @@ public class boardDAO {
 				brandDTO bdto = new brandDTO();
 				bdto.setBrand_num(rs.getInt("brand_num"));
 				bdto.setBrand_name(rs.getString("brand_name"));
-
+				bdto.setCategory_code(rs.getInt("category_code"));
 				list.add(bdto);
 			}
 		} catch (Exception e) {
