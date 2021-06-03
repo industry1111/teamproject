@@ -18,7 +18,13 @@ function btn_click() {
 
 function payment_btn_click() {
 	
-	child2 = window.open("payment.bo","child","width=800,height=600");
+		 
+	      var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
+	      var frm = document.form;
+	      frm.action = contextPath + '/payment.bo';
+	      frm.target ="child2";
+	      frm.method ="post";
+	      frm.submit();    
 }
 
 
@@ -41,6 +47,7 @@ input {
 	<h4>주문/결제</h4> 
 장바구니 > <b>주문결제</b> > 완료
 <hr>
+<form name="form" method="post">
 <div>
 	<div class="product_info">
 		<div class="row">
@@ -142,7 +149,7 @@ input {
 				<ul>
 					<li>이름 : <input value="${mdto.name}" type="text" readonly="readonly" name="name"></li><br>
 					<li>연락처 : <input value="${mdto.phone}" type="text" readonly="readonly" name="phone"></li><br>
-					<li>이메일 : <input value="${mdto.phone}" type="text" readonly="readonly" name="email">${mdto.email}</li><br>
+					<li>이메일 : <input value="${mdto.email}" type="text" readonly="readonly" name="email">${mdto.email}</li><br>
 				</ul>
 			
 		
@@ -164,8 +171,8 @@ input {
 		</div>
 	
 	</div>
-
 </div> <!-- 전체 -->	
+</form>
 </body>
 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
