@@ -138,7 +138,8 @@ input::placeholder { text-align: right;}
 						<li class="price" value="2" >1만원~5만원</li>
 						<li class="price" value="3" >5만원~10만원</li>
 						<li>직접입력 &nbsp;<input type="text"  id="price1" class="price1" placeholder="원" >~
-							<input type="text"  id="price2" class="price2" placeholder="원" > 
+							<input class="price" type="text" placeholder="원">
+								<img src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
 						
 						</li>
 					</ul>
@@ -181,7 +182,7 @@ input::placeholder { text-align: right;}
 						<div class="col-md-2"  >
 							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 150px; width: 150px;">
 						</div>
-						<div class="col-md-6 " id="pname" >
+						<div class="col-md-7 " id="pname" >
 							<b>${plist[i].product_name }</b><br>
 							<b>${plist[i].product_description }</b><br><br>
 							
@@ -219,7 +220,7 @@ input::placeholder { text-align: right;}
 							
 						
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
 							<c:if test="${plist[i].member_num eq slist[j].member_num }">
 								<a href="store.bo?${slist[j].store_num }">

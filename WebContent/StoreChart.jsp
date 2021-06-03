@@ -89,8 +89,19 @@ color: black;
 
 </head>
 <body>
+
+<div class="container" >
+			<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: #c5c5c5 !important;" >
+							<div class="col-md-2">스토어 현황</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-10 offset-2">
 	<div class="row">
-		<div class="col-md-11 offset-1" >
+		<div class="col-md-11">
 			<div class="row" style="margin-top: 30px; height: 400px;">
 				<div class="col-md-5" style="border: 1px solid #dadada; box-shadow:2px 2px 2px;">
 					<br><h6>사이트 방문자</h6>
@@ -120,6 +131,7 @@ color: black;
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 <script>

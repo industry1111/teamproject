@@ -51,7 +51,16 @@ input[type="text"]:focus {
 </head>
 <body>
 
-	<p style="font-size: 20; color: gray;">회원정보 수정</p>
+<div class="container" >
+			<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: #c5c5c5 !important;" >
+							<div class="col-md-2">회원 정보 변경</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-10 offset-2">
 	<form method="post" id="form">
 		<table border="0" class="tbl_model">
 			<tbody>
@@ -63,7 +72,7 @@ input[type="text"]:focus {
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="id" name="id" value="${id}"
-									disabled="disabled"><br> <span id="id_check"
+									disabled="disabled" style="border: 0;"><br> <span id="id_check"
 									class="check"></span> <span id="id_check2" class="check2"></span>
 							</p>
 							<p class="contxt_desc">아이디는 30일에 한 번 변경하실 수 있습니다.</p>
@@ -87,7 +96,7 @@ input[type="text"]:focus {
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="name" name="name" value="${mdto.name}"
-									disabled="disabled" maxlength="5"><br> <span
+									disabled="disabled" maxlength="5" style="border: 0;"><br> <span
 									id="name_check" class="check"></span> <span id="name_check2"
 									class="check2"></span>
 							</p>
@@ -112,20 +121,20 @@ input[type="text"]:focus {
 						<div class="password" hidden>
 							<p>
 								현재 비밀번호<br> <input type="password" id="pw" name="pw" /> <span
-									id="pw_check" class="check2"></span> <br> <span
-									id="pw_check2" class="check"></span>
+									id="pw_check" class="check2" style="border: 0;"></span> <br> <span
+									id="pw_check2" class="check" ></span>
 
 							</p>
 							<p class="contxt_desc">현재 비밀번호를 입력해야 비밀번호를 변경하실 수 있습니다.</p>
 							<p>
 								변경할 비밀번호<br> <input type="password" id="new_pw"
-									name="new_pw" disabled="disabled" /><br> <span
+									name="new_pw" disabled="disabled" style="border: 0;"/><br> <span
 									id="new_pw_check" class="check"></span> <span
 									id="new_pw_check2" class="check2"></span>
 							</p>
 							<p>
 								변경할 비밀번호 확인<br> <input type="password" id="new_pw_confirm"
-									name="new_pw_confirm" disabled="disabled" /><br> <span
+									name="new_pw_confirm" disabled="disabled" style="border: 0;" /><br> <span
 									id="new_pw_confirm_check" class="check"></span> <span
 									id="new_pw_confirm_check2" class="check2"></span>
 							</p>
@@ -148,7 +157,7 @@ input[type="text"]:focus {
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="phone" name="phone" value="${mdto.phone}"
-									disabled="disabled" maxlength="11"><br>
+									disabled="disabled" maxlength="11" style="border: 0;"><br>
 								<span id="phone_check" class="check"></span> <span
 									id="phone_check2" class="check2"></span>
 							</p>
@@ -175,7 +184,7 @@ input[type="text"]:focus {
 							<div class="col-md-8">
 								<div class="form-group mb-4">
 									<input type="text" id="email" name="email"
-										value="${mdto.email}" disabled="disabled" style="width: 300px;"><br>
+										value="${mdto.email}" disabled="disabled" style="width: 300px; border: 0;"><br>
 									<span id="email_check" class="check"></span> <span
 										id="email_check2" class="check2"></span>
 								</div>
@@ -229,7 +238,7 @@ input[type="text"]:focus {
 							<div class="col-md-2">우편번호</div>
 							<div class="col-md-9">
 								<input type="text" id="addr1" name="addr1" value="${mdto.addr1}"
-									disabled="disabled" style="width: 100px;"/>
+									disabled="disabled" style="width: 100px;border: 0;"/>
 							</div>
 						</div>
 						</p>
@@ -238,7 +247,7 @@ input[type="text"]:focus {
 							<div class="col-md-2">주소</div>
 							<div class="col-md-9">
 								<input type="text" id="addr2" name="addr2" value="${mdto.addr2}"
-									disabled="disabled" style="width: 300px;"/>
+									disabled="disabled" style="width: 300px; border: 0;"/>
 							</div>
 						</div>
 
@@ -248,7 +257,7 @@ input[type="text"]:focus {
 							<div class="col-md-2">상세 주소</div>
 							<div class="col-md-9">
 								<input type="text" id="addr3" name="addr3" value="${mdto.addr3}"
-									disabled="disabled" style="width: 300px;"/>
+									disabled="disabled" style="width: 300px; border: 0;"/>
 							</div>
 						</div>
 						</p>
@@ -270,6 +279,7 @@ input[type="text"]:focus {
 		</table>
 
 	</form>
+	</div>
 	<!-- 카카오 우편번호 api -->
 	<script
 		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

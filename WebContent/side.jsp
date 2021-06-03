@@ -66,6 +66,8 @@ a:active {
 }
 h4{
 	font-weight: border;
+	background-color: #F6F6F6;
+	border-radius:80px;
 }
 
 </style>
@@ -73,8 +75,8 @@ h4{
 
 <body>
 	<form method="post" id="index" class="index">
-		<div class="row">
-			<div class="col-md-9 col-md-offset-1">
+		<div class="row" >
+			<div class="col-md-9 col-md-offset-1" >
 				<h3><a style="font-size: 25px; font-family:휴먼엽서체; ">회원정보</a></h3>
 			</div>
 		</div>
@@ -85,7 +87,7 @@ h4{
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px">
-			<div class="col-md-9 col-md-offset-2 side"align="center" >
+			<div class="col-md-9 col-md-offset-2 side"align="center " >
 				<a href="OrderContent.bo">주문/배송내역</a>
 			</div>
 		</div>

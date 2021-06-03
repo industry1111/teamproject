@@ -50,19 +50,19 @@
 				<div class="col-md-12">
 					<div class="product-name d-flex">
 						<div class="one-forth text-left px-4">
-							<span>Product Details</span>
+							<span>상품정보</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Price</span>
+							<span>가격</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Quantity</span>
+							<span>주문수량</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Total</span>
+							<span>상품가격</span>
 						</div>
 						<div class="one-eight text-center px-4">
-							<span>Status</span>
+							<span>배송상태</span>
 						</div>
 					</div>
 					<c:forEach var="i" begin="0" step="1" end="4">
