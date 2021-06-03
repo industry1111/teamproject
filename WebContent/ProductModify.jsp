@@ -23,7 +23,7 @@
 	crossorigin="anonymous"></script>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<script> var contextPath = "${pageContext.request.contextPath}";</script>
 <style type="text/css">
 img {
 	width: 100px;
@@ -67,10 +67,10 @@ img {
 						
 							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
 		<!-- 셀렉트 -->					<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq 0 }">
-											<c:if test="${pdto.category_coderef1 ne clist[i].category_code}">
+											<c:if test="${pdto.category_coderef2 eq clist[i].category_code}">
 												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
 											</c:if>
-		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.category_coderef1 eq clist[i].category_code}">
+		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.category_coderef2 ne clist[i].category_code}">
 												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
 											</c:if>
 									</c:if>								
@@ -81,10 +81,10 @@ img {
 						<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
 							<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq pdto.category_coderef2 }">
 								<c:if test="${pdto.category_code1 eq clist[i].category_code}">
-								<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
+									<option selected value="${clist[i].category_name}">${clist[i].category_name }</option>
 								</c:if>
 								<c:if test="${pdto.category_code1 ne clist[i].category_code}">
-								<option value="${clist[i].category_code}">${clist[i].category_name }</option>
+									<option value="${clist[i].category_name}">${clist[i].category_name}</option>
 								</c:if>
 							</c:if>
 						</c:forEach>
@@ -113,14 +113,12 @@ img {
 				<div class="com-sm-3">
 					<select id="brand_name" name="brand_name" required="required" class="form-control">
 								<c:forEach var="i" begin="0" step="1" end="${blist.size() }">
-								1
 		<!-- 셀렉트 -->					<c:if test="${pdto.category_coderef2 eq blist[i].category_code}">
-		2
 											<c:if test="${pdto.product_brand eq blist[i].brand_name}">
-												<option selected value="${blist[i].category_code}">${blist[i].brand_name}</option>
+												<option selected value="${clist[i].category_name}">${blist[i].brand_name}</option>
 											</c:if>
 		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.product_brand ne blist[i].brand_name}">
-												<option value="${blist[i].category_code}">${blist[i].brand_name}</option>
+												<option value="${clist[i].category_name}">${blist[i].brand_name}</option>
 											</c:if>
 									</c:if>	
 								</c:forEach>	
