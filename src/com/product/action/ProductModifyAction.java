@@ -32,14 +32,15 @@ public class ProductModifyAction implements Action {
 		productDTO pdto = new productDTO();
 		pdto.setProduct_num(Integer.parseInt(multi.getParameter("product_num")));
 		pdto.setProduct_name(multi.getParameter("product_name"));
-		pdto.setCategory_name((multi.getParameter("category_name")));
+//		pdto.setCategory_name((multi.getParameter("category_name")));
+		pdto.setCategory_name((multi.getParameter("category3")));
 		pdto.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
 		pdto.setProduct_count(Integer.parseInt(multi.getParameter("product_count")));
-		pdto.setProduct_brand(multi.getParameter("product_brand"));
+//		pdto.setProduct_brand(multi.getParameter("product_brand"));
+		pdto.setProduct_brand(multi.getParameter("brand_name"));
 		pdto.setProduct_description(multi.getParameter("product_description"));
 		pdto.setProduct_img(multi.getFilesystemName("product_img")); // 상품이미지 정보 처리
-		System.out.println(pdto.getProduct_img());
-		
+			
 		if(pdto.getProduct_img() == null){
 			pdto.setProduct_img(multi.getParameter("origin_product_img"));
 			System.out.println(pdto.getProduct_img());
