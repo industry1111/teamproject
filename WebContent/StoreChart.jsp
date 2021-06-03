@@ -47,14 +47,53 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
+<style type="text/css">
+h6{
+text-align: left;
+font-size: 17px;
+font-weight: bold;
+font-family:휴먼엽서체 !important;
+color: black;
+}
+
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+
+</style>
+
 
 </head>
 <body>
 	<div class="row">
-		<div class="col-md-11 offset-1">
+		<div class="col-md-11 offset-1" >
 			<div class="row" style="margin-top: 30px; height: 400px;">
-				<div class="col-md-5" style="border: 1px solid black;">
-					<h6>사이트 방문자</h6>
+				<div class="col-md-5" style="border: 1px solid #dadada; box-shadow:2px 2px 2px;">
+					<br><h6>사이트 방문자</h6>
 
 					<div id="Line_Controls_Chart">
 						<!-- 라인 차트 생성할 영역 -->
@@ -62,17 +101,22 @@
 						<!-- 컨트롤바를 생성할 영역 -->
 						<div id="controlsArea" style="padding: 0px 20px 0px 0px;" hidden></div>
 					</div>
+					
 				</div>
-				<div class="col-md-5" style="border: 1px solid black; margin-left: 10px;">
-					두번째 화면
+				<div class="col-md-5" style="border: 1px solid #dadada; margin-left: 10px; box-shadow:2px 2px 2px;">
+					<br><h6>두번째 화면</h6>
+					<input type="button" value="버튼" id="button" class="myButton" >
 				</div>
 			</div>
 			<div class="row" style="margin-top: 10px; height: 400px;">
-				<div class="col-md-5" style="border: 1px solid black;">
-					세번째 화면
+				<div class="col-md-5" style="border: 1px solid #dadada; box-shadow:2px 2px 2px;">
+						<br><h6>세번째 화면</h6>
+						<input type="button" value="버튼" id="button" class="myButton" >
 				</div>
-				<div class="col-md-5 " style="border: 1px solid black; margin-left: 10px;">
-					네번째 화면
+				<div class="col-md-5 " style="border: 1px solid #dadada; margin-left: 10px; box-shadow:2px 2px 2px;">
+						<br><h6>네번째 화면</h6>
+					<input type="button" value="버튼" id="button" class="myButton" >
+						
 				</div>
 			</div>
 		</div>

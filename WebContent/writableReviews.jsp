@@ -119,7 +119,7 @@ input[type="text"]:focus {
 						<div class="col-md-2">
 								<input type="button" value="리뷰쓰기" id="add_review" class="myButton" onclick="add_onclick(${plist[i].product_num});">
 						</div>
-					</div>
+					</div><hr>
 					</c:forEach>
 					</c:if>
 				</div>

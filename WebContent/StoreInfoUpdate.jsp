@@ -202,7 +202,7 @@ input[type="text"]:focus {
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="account" name="account" value="${sdto.account}" disabled="disabled"
-									 maxlength="11"><br>
+									 maxlength="11" ><br>
 								<span id="account_check" class="check"></span>
                                 <span id="account_check2" class="check2"></span>
 							</p>
