@@ -40,6 +40,7 @@
                     data: {
                         imp_uid : rsp.imp_uid,
                         
+                        
                         //기타 필요한 데이터가 있으면 추가 전달
                     }
                 }).done(function(data) {
@@ -59,7 +60,7 @@
                 });
                 //성공시 이동할 페이지
 					alert("결제완료");
-					opener.document.location.href=contextPath + "/PaymentComplete.or";
+					opener.document.location.href= contextPath + "/PaymentComplete.or";
 				    self.close();
 
             } else {
