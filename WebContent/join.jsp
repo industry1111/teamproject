@@ -34,15 +34,15 @@
 	font-size: 13px;
 }
 input[type="text"], .form-control {
-  width: 100%;
-  border: none;
+  width: 50%;
+  border: none !important;
   border-radius: 4px;
   margin: 8px 0;
   outline: none;
   padding: 8px;
   box-sizing: border-box;
   transition: 0.3s;
-  background-color: #F6F6F6;
+  background-color: #F6F6F6 !important;
 }
 
 input[type="text"]:focus {
@@ -84,24 +84,27 @@ input[type="text"]:focus {
 	top: 1px;
 }
 
+
 </style>
 
 </head>
-<body>
+<body >
+	
 	<section class="ftco-section" >
 		<div class="container" >
 			<div class="row " >
-				<div class="col-md-10 offset-2"  >
-					<div class="product-name d-flex " style="background-color: #c5c5c5 !important; margin-top: 50px; text-align: center;"  >
-							<div class="col-md-2">회원 가입</div>
+				<div class="col-md-7 offset-2"  >
+					<div class="product-name d-flex " style="background-color: : #22CC88; !important; margin-top: 100px; text-align: center;"  >
+							<div class="col-md-12">회원 가입</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="col-md-12" style="background-color: white;">
 			<div class="row justify-content-center">
 				<div class="col-md-6 offset-2">
 					<div class="login-wrap">
-						<h6 class="mb-4 text-center">Create Your Account</h6>
+						
 						<form action="./MemberJoinAction.me" class="signup-form">
 							<div class="row">
 								<div class="col-md-8">
@@ -187,7 +190,9 @@ input[type="text"]:focus {
 				</div>
 			</div>
 		</div>
+		</div>
 	</section>
+	
 	 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
