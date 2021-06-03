@@ -30,14 +30,23 @@ img {
 	height: 100px;
 	margin-left: 180px;
 }
+
+h1{
+font-style:휴먼엽서체;
+}
+
+.col-sm-2, .col-sm-3{
+font-style:휴먼엽서체;
+color: #595959;
+}
 </style>
 
 <title>상품 상세 페이지</title>
 </head>
 <body>
 
-	<div class="jumbotron">
-		<div class="container">
+	<div class="jumbotron" >
+		<div class="container" >
 			<h1 class="display-3">상품 정보 수정${pdto.product_num }</h1>
 		</div>
 	</div>
@@ -154,8 +163,8 @@ img {
 			</div>
 
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit" class="btn btn-secondary"  >상품 수정</button>
-				<a type="button" class="btn btn-secondary" href="ProductListAction.pr" 
+				<button type="submit" class="myButton"  >상품 수정</button>
+				<a type="button" class="myButton" href="ProductListAction.pr" 
 					onclick="if(!confirm('수정을 취소 하시겠습니까?')){return false;}">수정 취소</a>
 			</div>
 		</div>

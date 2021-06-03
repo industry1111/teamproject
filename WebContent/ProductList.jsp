@@ -40,6 +40,34 @@
 		.a{
 			margin-top: 40px;
 		}
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+	color:#666666 !important;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
+		
 	</style>
 	</head>
 	<body>
@@ -48,7 +76,7 @@
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row">
-						<div class="product-name d-flex" align="center">
+						<div class="product-name d-flex" align="center" style="background-color: #c5c5c5 !important;">
 							<div class="col-md-2">
 								상품이미지
 							</div>
@@ -93,14 +121,12 @@
 							<div class="a">${list[i].product_price }</div> <%--상품가격 --%>
 						</div>
 						<div class="col-md-2" style="margin-left: 40px;">
-							<div class="a">
-								<a href="ProductModify.pr?product_num=${list[i].product_num}" type="button" class="btn btn-outline-success">수정</a>
-								<a href="ProductDelete.pr?product_num=${list[i].product_num}" type="button" class="btn btn-outline-danger"
+								<a href="ProductModify.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%">수정</a>
+								<a href="ProductDelete.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%"
 										onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
-							</div>
 						</div>
 					</div>
-					</c:if>
+				<hr></c:if>
 				</c:forEach>
 			</c:if>
 			<%--해당 쇼핑몰 홈페이지로 이동 --%>
@@ -127,7 +153,7 @@
 			</div>
 			<div class="row">	
 				<div class="col-md-3" align="left">
-					<a href="ProductAdd.pr" type="button" class="btn btn-outline-info">신규 상품 등록</a>
+					<a href="ProductAdd.pr" type="button" class="myButton">신규 상품 등록</a>
 				</div>
 			</div>
 	</div>

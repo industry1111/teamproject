@@ -85,19 +85,19 @@ function order_btn_click() {
 					<div class="col-md-12">
 						<div class="product-name d-flex">
 							<div class="one-forth text-left px-4">
-								<span>Product Details</span>
+								<span>상품 정보</span>
 							</div>
 							<div class="one-eight text-center">
-								<span>Price</span>
+								<span>가격</span>
 							</div>
 							<div class="one-eight text-center">
-								<span>Quantity</span>
+								<span>주문수량</span>
 							</div>
 							<div class="one-eight text-center">
-								<span>Total</span>
+								<span>주문합계</span>
 							</div>
 							<div class="one-eight text-center px-4">
-								<span>Remove</span>
+								<span>주문취소</span>
 							</div>
 						</div>
 			<form action="Order.bo" method="post">
@@ -138,7 +138,7 @@ function order_btn_click() {
 								<div class="one-eight text-center">
 									<div class="display-tc">
 										<a href="#" class="closed" id="delete_btn">
-											<input type="hidden" name="product_num" id="product_num" value="${list[i].product_num}"/>
+											<input type="hidden" name="product_num" id="product_num" value="${list[i].product_num}" />
 										</a>
 									</div>
 								</div>
@@ -167,7 +167,7 @@ function order_btn_click() {
 								<div class="col-sm-4 text-center">
 									<div class="total ">
 										<div>
-											<strong>Total:</strong>&nbsp; <input type="text" id="price_total" value="0" >	
+											<strong>Total:</strong>&nbsp; <input type="text" id="price_total" name="price_total" value="0" readonly="readonly">	
 										</div>
 									</div>
 								</div>

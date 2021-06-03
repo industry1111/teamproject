@@ -11,25 +11,23 @@
 <script src="js/memberupdate.js"></script>
 <script type="text/javascript">
 function btn_click() {
-	
-// 	 window.name = "parentForm";
-    //이름은 중복창 제어용
+
 	child = window.open("receiver_3.bo","child","width=600,height=650");
 		
 }
-// function setChildValue(name){
 
-//     document.getElementById("값 넣을곳 id").value = name;
-
-// }
-
-// function sendChildValue(){
-
-// 	opener.setChildValue(name);
+function payment_btn_click() {
 	
-// 	window.close();
+		 
+	      var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
+	      var frm = document.form;
+	      frm.action = contextPath + '/payment.bo';
+	      frm.target ="child2";
+	      frm.method ="post";
+	      frm.submit();    
+}
 
-// }
+
 
 </script>
 <script src="js/order.js"></script>
@@ -40,12 +38,16 @@ function btn_click() {
 ul{
    list-style:none;
    }
-
+input {
+	border: 0;
+}
 </style>
 </head>
 <body>
-<h4>주문/결제</h4>
+	<h4>주문/결제</h4> 
+장바구니 > <b>주문결제</b> > 완료
 <hr>
+<form name="form" method="post">
 <div>
 	<div class="product_info">
 		<div class="row">
@@ -73,16 +75,16 @@ ul{
 							<a>
 								<img src="product_img_upload/${list[j].product_img}" style="width: 100px;height: 100px;">
 							</a>
-								<h6>${list[j].product_name}</h6>
+								<input type="text" name="product_name" value="${list[j].product_name}"readonly="readonly"/>
 							</div>
 							<div class="col-md-2 ">
-								<h6>${list[j].store_name}</h6>
+								<input type="text" name="store_name" value="${list[j].store_name}"readonly="readonly"/>
 							</div>
 							<div class="col-md-1">
-								<h6>${list[j].quantity}</h6>
+								<input type="text" name="quantity" value="${list[j].quantity}"readonly="readonly"/>
 							</div>
 							<div class="col-md-3">
-								<h6>${list[j].product_price * list[j].quantity}</h6>
+								<input type="text" name="price" value="${list[j].product_price * list[j].quantity}"readonly="readonly"/>
 							</div>
 					</div>	
 				</c:if>
@@ -103,7 +105,7 @@ ul{
 				<ul>
 					<li>
 						<span><input type="radio" name="receiver" id="basic" checked/></span><label>기본배송지</label>
-						<span><input type="radio" name="receiver" id="new"/></span><label>신규배송지</label>
+						<span><input type="radio" name="receiver" id="new_check"/></span><label>신규배송지</label>
 						<span><input type="button" value="배송지 목록" onclick="btn_click();" /></span>
 					</li>
 					
@@ -113,26 +115,28 @@ ul{
 					<c:if test="${rlist[i].basic_num eq 1 }">
 					<div class="basic_select">
 						<ul>
-							<li>${rlist[i].address_name}</li>
-							<li>${rlist[i].receiver_phone}</li>
-							<li>(${rlist[i].receiver_addr1})
-							${rlist[i].receiver_addr2}
-							${rlist[i].receiver_addr3}</li>
-							<li><input type="text" placeholder="배송 요청사항"/></li>
+							<li><input type="text" name="address_name" value="${rlist[i].address_name}" readonly="readonly"/></li>
+							<li><input type="text" name="receiver_phone" value="${rlist[i].receiver_phone}" readonly="readonly"/></li>
+							<li>
+							<input type="text" name="addr1" value="${rlist[i].receiver_addr1}" readonly="readonly"/><br>
+							<input type="text" name="addr2" value="${rlist[i].receiver_addr2}" readonly="readonly"/><br>
+							<input type="text" name="addr3" value="${rlist[i].receiver_addr3}" readonly="readonly"/>
+							</li>
+							<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
 						</ul>
 					</div>
 					</c:if>
 				</c:forEach>
 				<div class="new_select" hidden>
 				<ul>
-					<li>수령인 : <input type="text" id="receiver_name" ></li>
-					<li>배송지 이름 : <input type="text" id="address_name" ></li>
-					<li>번호 : <input type="text" id="receiver_phone"></li>
-					<li><input type="text" id="addr1" >&nbsp;
+					<li>수령인 : <input type="text" id="receiver_name" name="receiver_name"></li>
+					<li>배송지 이름 : <input type="text" id="address_name" name="address_name"></li>
+					<li>번호 : <input type="text" id="receiver_phone" name="receiver_phone"></li>
+					<li>주소 : <input type="text" id="addr1" name="addr1" >&nbsp;
 					<input type="button" onclick="addr_search()" value="우편번호 찾기" id="post_btn" class="myButton"></li>
-					<li><input type="text" id="addr2" ></li>
-					<li><input type="text" id="addr3" ></li>
-					<li><input type="text" placeholder="배송 요청사항"/></li>
+					<li><input type="text" id="addr2" name="addr2"></li>
+					<li><input type="text" id="addr3" name="addr3"></li>
+					<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
 				</ul>
 				</div>
 				</div>
@@ -143,9 +147,9 @@ ul{
 			<hr>
 			<div >
 				<ul>
-					<li>이름 : ${mdto.name}</li><br>
-					<li>연락처 : ${mdto.phone}</li><br>
-					<li>이메일 : ${mdto.email}</li><br>
+					<li>이름 : <input value="${mdto.name}" type="text" readonly="readonly" name="name"></li><br>
+					<li>연락처 : <input value="${mdto.phone}" type="text" readonly="readonly" name="phone"></li><br>
+					<li>이메일 : <input value="${mdto.email}" type="text" readonly="readonly" name="email">${mdto.email}</li><br>
 				</ul>
 			
 		
@@ -158,12 +162,17 @@ ul{
 	</div>
 	<div class="payment_info">
 		<h4>결제수단</h4>
-	
-	
+		<div>
+			주문금액 : <input type="text" name="price_total" value="${price_total}" readonly="readonly">
+		
+		</div>
+		<div>
+			<input type="button" value="결제하기" name="payment_btn" onclick="payment_btn_click();">
+		</div>
 	
 	</div>
-
 </div> <!-- 전체 -->	
+</form>
 </body>
 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

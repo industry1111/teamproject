@@ -54,8 +54,18 @@ input[type="text"]:focus {
 
 </head>
 <body>
-
-	<p style="font-size: 20;color: gray;">내 스토어 정보</p>
+	
+	<div class="container" >
+			<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: #c5c5c5 !important;" >
+							<div class="col-md-2">스토어 정보 변경</div>
+					</div>
+				</div>
+			</div>
+		</div>
+					
+	<div class="col-md-10 offset-2">
 	<form method="post" id="profile_form" name="profile_form" enctype="multipart/form-data">
 		<table border="0" class="tbl_model">
 			<tbody>
@@ -82,7 +92,7 @@ input[type="text"]:focus {
 						</div>
 					</td>
 				</tr>
-
+						
 				<tr>
 					<th>
 						<div>프로필</div>
@@ -202,7 +212,7 @@ input[type="text"]:focus {
 						<div>
 							<p class="contxt_tit">
 								<input type="text" id="account" name="account" value="${sdto.account}" disabled="disabled"
-									 maxlength="11"><br>
+									 maxlength="11" style="border: 0;" ><br>
 								<span id="account_check" class="check"></span>
                                 <span id="account_check2" class="check2"></span>
 							</p>
@@ -220,5 +230,6 @@ input[type="text"]:focus {
 			</tbody>
 		</table>
 	</form>
+	</div>
 </body>
 </html>

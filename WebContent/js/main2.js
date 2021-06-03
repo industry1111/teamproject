@@ -29,7 +29,7 @@ $(function() {
 		$('.category1').css('background-color', 'white');
 		$('.category1').attr('class', 'category1');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category1 allowed');
 		$.ajax({
 			type: "get",
@@ -119,7 +119,7 @@ $(function() {
 		$('.category2').css('background-color', 'white');
 		$('.category2').attr('class', 'category2');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category2 allowed');
 		
 		$.ajax({
@@ -210,7 +210,7 @@ $(function() {
 		$('.category3').css('background-color', 'white');
 		$('.category3').attr('class', 'category3');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category3 allowed');
 		$.ajax({
 			type: "get",
@@ -281,7 +281,7 @@ $(function() {
 	});
 	$(document).on("click", ".category3.allowed", function() {
 		$(this).css('background-color', 'white');
-		$(this).css('color', '#627482');
+		$(this).css('color', '#c5c5c5');
 		$(this).attr('class', 'category3');
 		category_code3 = 0;
 	});
@@ -296,7 +296,7 @@ $(function() {
 		$('.price').css('background-color', 'white');
 		$('.price').attr('class', 'price');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'price allowed');
 		
 		$.ajax({
@@ -374,7 +374,7 @@ $(function() {
 	
 	$(document).on("click", ".price.allowed", function() {
 		$(this).css('background-color', 'white');
-		$(this).css('color', '#627482');
+		$(this).css('color', '#c5c5c5');
 		$(this).attr('class', 'price');
 		price = null;
 	});
@@ -459,4 +459,52 @@ $(function() {
 			}
 		});
 	});
+	
+	
+	//autocomplete
+	$("#searchBox").autocomplete({
+            source : function( request, response ) {
+                 $.ajax({
+                        type: 'get',
+                        url: contextPath+"/searchBox",
+                        dataType: "json",
+                        //data: {"param":"param"},
+                        success: function(data) {
+							var obj = JSON.parse(data);
+                            //서버에서 json 데이터 response 후 목록에 추가
+                            response(
+                                $.map(data, function(item) {    //json[i] 번째 에 있는게 item 임.
+                                    return {
+                                        label: item,   //UI 에서 보여지는 글자, 실제 검색어랑 비교 대상
+                                        value: item,    //그냥 사용자 설정값?
+                                        test : item    //이런식으로 사용
+                                    }
+                                })
+                            );
+                        }
+                   });
+                },    // source 는 자동 완성 대상
+            select : function(event, ui) {    //아이템 선택시
+                console.log(ui);//사용자가 오토컴플릿이 만들어준 목록에서 선택을 하면 반환되는 객체
+                console.log(ui.item.label);    //김치 볶음밥label
+                console.log(ui.item.value);    //김치 볶음밥
+                console.log(ui.item.test);    //김치 볶음밥test
+                
+            },
+            focus : function(event, ui) {    //포커스 가면
+                return false;//한글 에러 잡기용도로 사용됨
+            },
+            minLength: 1,// 최소 글자수
+            autoFocus: true, //첫번째 항목 자동 포커스 기본값 false
+            classes: {    //잘 모르겠음
+                "ui-autocomplete": "highlight"
+            },
+            delay: 500,    //검색창에 글자 써지고 나서 autocomplete 창 뜰 때 까지 딜레이 시간(ms)
+            position: { my : "right top", at: "right bottom" },    //잘 모르겠음
+            close : function(event){    //자동완성창 닫아질때 호출
+                console.log(event);
+            }
+        });
+	
+	
 });
