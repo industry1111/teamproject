@@ -77,7 +77,7 @@ public class productDAO {
 		productDTO pdto = new productDTO();
 		try {
 			getCon();
-			String sql = "select * from product where product_num=?";
+			String sql = "select * from product natural join category where product_num=?";
 			pstmt =con.prepareStatement(sql);
 			pstmt.setInt(1, product_num);
 			rs = pstmt.executeQuery();
@@ -92,7 +92,9 @@ public class productDAO {
 				pdto.setProduct_count(rs.getInt("product_count"));
 				pdto.setProduct_brand(rs.getString("product_brand"));
 				pdto.setProduct_description(rs.getString("product_description"));
-
+				pdto.setCategory_coderef1(rs.getInt("category_coderef1"));
+				pdto.setCategory_coderef2(rs.getInt("category_coderef2"));
+				pdto.setCategory_code1(rs.getInt("category_code"));
 			}
 			
 		} catch (Exception e) {
