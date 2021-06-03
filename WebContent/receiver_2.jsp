@@ -85,32 +85,55 @@
 	color: green;
 	font-size: 13px;
 }
+
 input[type="text"] {
-  width: 40%;
-  border: 1px solid DarkGray;
+  width: 30%;
+  border: none;
   border-radius: 4px;
   margin: 8px 0;
   outline: none;
   padding: 8px;
   box-sizing: border-box;
   transition: 0.3s;
+  background-color: #F6F6F6;
 }
 
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+  color: black;
+  background-color:white; 
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
 
 </style>
 </head>
 <body>
 	
 	<div class="row">
-			<div class="col-md-3" align="right">
+			<div class="col-md-3" align="right" style="margin-top: 10px;">
 				 <img
 					src="images/modooLogo.png"
 					alt="Logo" style="height: 30px">
 			
 			</div>
 	</div>
-	<h4 align="center">배송지 등록/수정</h4>
-	<h6 align="center">배송지 정보 상세</h6>
+	<div class="container" >
+			<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: #c5c5c5 !important; text-align: center; margin-top: 15px;" >
+							<div class="col-md-2">배송지 등록/수정</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	<form action="ReceiverInsert" name="form_addr">
 	<table align="center" style="margin-left: 50px">
@@ -208,7 +231,7 @@ input[type="text"] {
 	
 	</table>
 		
-			<div class="row" style="margin-left: 100px">
+			<div class="row" style="margin-left: 150px; margin-top: 20px;">
 				<div style="margin-right: 20px">
 					<input type="button" class="myButton" value="닫기" name="close_btn" id="close_btn" >
 				</div>

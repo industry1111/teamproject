@@ -198,7 +198,7 @@ input[type="text"]:focus {
 						<div class="col-md-2">
 							<c:out value="${rlist[i].address_name }"/>
 						</div>	
-						<div class="col-md-5">
+						<div class="col-md-6">
 							<c:out value="${rlist[i].receiver_addr1 }"/>
 							<c:out value="${rlist[i].receiver_addr2 }"/>
 							<c:out value="${rlist[i].receiver_addr3 }"/>
@@ -206,7 +206,7 @@ input[type="text"]:focus {
 						<div class="col-md-2">
 							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<input class="myButton" type="button" id="add_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
 							<input class="myButton" id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
