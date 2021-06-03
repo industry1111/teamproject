@@ -15,13 +15,11 @@ public class PageDTO {
 		//페이징 DTO 생성 시  페이지당 보여질 목록 수 , 블럭당 보여질 페이지 수 , 리스트 크기를 받아온다
 		this.cri = cri;
 		this.total = total;
+		this.endPage = (int) (Math.ceil(cri.getNowPage() /cri.getNumPerPage())) * (int)cri.getNumPerPage();
+		this.startPage = this.endPage -(int)cri.getNumPerPage()+1;
 		
-		this.endPage = (int) (Math.ceil(cri.getNowPage() / 10.0)) * 10;
-		this.startPage = this.endPage -9;
-		
-		this.beginPerPage = (cri.getNowPage()-1)*cri.getNumPerPage();  //페이지 클릭시 처음에 보여줄 상품
-		this.endPerPage = this.beginPerPage + cri.getNumPerPage()-1;  // 페이지 클릭시 마지막에 보여줄 상품	
-		
+		this.beginPerPage = (int)((cri.getNowPage()-1)*cri.getNumPerPage());  //페이지 클릭시 처음에 보여줄 상품
+		this.endPerPage = (int)(this.beginPerPage + cri.getNumPerPage()-1);  // 페이지 클릭시 마지막에 보여줄 상품	
 		//실제 끝 페이지
 		int realEnd = (int) (Math.ceil((total *1.0) / cri.getNumPerPage()));
 		

@@ -2,12 +2,12 @@ package action;
 
 public class Criteria {
 	private int nowPage;		//현재 페이지 번호
-	private int numPerPage;		//페이지당 보여질 글 수
+	private double numPerPage;		//페이지당 보여질 글 수
 	
 	public Criteria(int numPerPage) {
 		this(1,numPerPage);
 	}
-	public Criteria(int nowPage,int numPerPage) {
+	public Criteria(int nowPage,double numPerPage) {
 		this.nowPage = nowPage;
 		
 		this.numPerPage = numPerPage;
@@ -19,10 +19,10 @@ public class Criteria {
 	public void setNowPage(int nowPage) {
 		this.nowPage = nowPage;
 	}
-	public void setNumPerPage(int numPerPage) {
+	public void setNumPerPage(double numPerPage) {
 		this.numPerPage = numPerPage;
 	}
-	public int getNumPerPage() {
+	public double getNumPerPage() {
 		return numPerPage;
 	}
 	

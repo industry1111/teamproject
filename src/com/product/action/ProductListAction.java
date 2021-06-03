@@ -31,7 +31,7 @@ public class ProductListAction implements Action {
 		String page = request.getParameter("page");
 		Criteria cri;
 		PageDTO pagedto;
-		int numPerPage = 10;
+		int numPerPage = 5;
 		
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
