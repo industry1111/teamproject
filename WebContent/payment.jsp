@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-    String name = (String)request.getAttribute("name");
-    String email = (String)request.getAttribute("email");
-    String phone = (String)request.getAttribute("phone");
-    String address = (String)request.getAttribute("address");
-    int totalPrice = (int)request.getAttribute("totalPrice");    
+    String name = request.getParameter("name");
+	String email = request.getParameter("email");
+    String phone = request.getParameter("phone");
+    int price_total = 1000;   
 %>
 <!DOCTYPE html>
 <html>
@@ -16,22 +15,23 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
+<input value="${name}">
     <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
-        IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        IMP.init('imp98861882'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
         
         IMP.request_pay({
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : 'KH Books 도서 결제',
-            amount : <%=totalPrice%>,
-            buyer_email : '<%=email%>',
-            buyer_name : '<%=name%>',
-            buyer_tel : '<%=phone%>',
-            buyer_addr : '<%=address%>',
+            name : '결제',
+            amount : price_total,
+            buyer_email : email,
+            buyer_name : name,
+            buyer_tel : phone,
+<%--             buyer_addr : '<%=address%>', --%>
             buyer_postcode : '123-456',
             //m_redirect_url : 'http://www.naver.com'
         }, function(rsp) {
@@ -61,12 +61,12 @@
                     }
                 });
                 //성공시 이동할 페이지
-                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+<%--                 location.href='<%=request.getContextPath()%>/; --%>
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+<%--                 location.href="<%=request.getContextPath()%>/order/payFail"; --%>
                 alert(msg);
             }
         });

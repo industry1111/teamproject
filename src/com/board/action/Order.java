@@ -27,12 +27,16 @@ public class Order implements Action{
 		boardDAO bdao =	new boardDAO();
 		memberDAO mdao = new memberDAO();
 		
+		String product_num = request.getParameter("product_num");
+		
+		int price_total = Integer.parseInt(request.getParameter("price_total"));
 		String s_checkbox = request.getParameter("chk");
 		String[] check = s_checkbox.split(",");
 		List<basketDTO> list = bdao.getBasketList(member_num);
 		List<receiverDTO> rlist = bdao.getReceiverList(member_num);
 		memberDTO mdto = mdao.getMemberInfo(id);
 		
+		request.setAttribute("price_total", price_total);
 		request.setAttribute("mdto", mdto);
 		request.setAttribute("rlist", rlist);
 		request.setAttribute("list", list);
