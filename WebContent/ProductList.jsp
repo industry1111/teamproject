@@ -51,15 +51,12 @@
 						<div class="product-name d-flex" align="center">
 							<div class="col-md-2">
 								상품이미지
-								토탈${p.total }
 							</div>
 							<div class="col-md-2">
 								상품이름
-								토탈페이지${p.totalPage }
 							</div>
 							<div class="col-md-2">
 								상품설명
-								토탈 블럭${p.totalBlock }
 							</div>
 							<div class="col-md-2">
 								카테고리
@@ -72,9 +69,13 @@
 							</div>
 						</div>
 				</div>
+				<c:set var="loop" value="true"/>
 				<c:if test="${list.size() ne 0 }">
-				<c:forEach var="i" begin="0" step="1" end="${list.size()-1 }">
-
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+					<c:if test="${p.total == i }">
+						<c:set var="loop" value="false"/>
+					</c:if>
+					<c:if test="${loop }">
 					<div class="row  d-flex" align="center">
 						<div class="col-md-2">
 							<img src="product_img_upload/${list[i].product_img}" style="width: 100px;height: 100px;">
@@ -99,11 +100,30 @@
 							</div>
 						</div>
 					</div>
+					</c:if>
 				</c:forEach>
 			</c:if>
 			<%--해당 쇼핑몰 홈페이지로 이동 --%>
 			<div class="row">
-				<div class="col-md-3 offset-3" align="right">페이징</div>
+				<div class="col-md-3 offset-3" align="right">
+					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" href="ProductListAction.pr?page=true&nowPage=${p.startPage-1 }">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				                <a class="page-link ${p.cri.nowPage == num ? 'active':''}" href="ProductListAction.pr?page=true&nowPage=${num }">${num }</a>
+				            </li>
+				        </c:forEach>
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" href="ProductListAction.pr?page=true&nowPage=${p.endPage + 1 }">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
+				</div>
 			</div>
 			<div class="row">	
 				<div class="col-md-3" align="left">
