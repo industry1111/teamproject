@@ -23,12 +23,21 @@
 	crossorigin="anonymous"></script>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<script> var contextPath = "${pageContext.request.contextPath}";</script>
 <style type="text/css">
 img {
 	width: 100px;
 	height: 100px;
 	margin-left: 180px;
+}
+
+h1{
+font-style:휴먼엽서체;
+}
+
+.col-sm-2, .col-sm-3{
+font-style:휴먼엽서체;
+color: #595959;
 }
 </style>
 
@@ -36,8 +45,8 @@ img {
 </head>
 <body>
 
-	<div class="jumbotron">
-		<div class="container">
+	<div class="jumbotron" >
+		<div class="container" >
 			<h1 class="display-3">상품 정보 수정${pdto.product_num }</h1>
 		</div>
 	</div>
@@ -51,18 +60,43 @@ img {
 				<div class="com-sm-3">
 					<select name="category1"  id = "category1" 
 					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected>=1차=</option>
-							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
-									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
-										<option value="${list[i].category_code}">${list[i].category_name }</option>
+							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
+									<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0 }">
+											<c:if test="${pdto.category_coderef1 eq clist[i].category_code}">
+												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
+											<c:if test="${pdto.category_coderef1 ne clist[i].category_code}">
+												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
 									</c:if>								
 							</c:forEach>	
 					</select>
+				
 					<select  name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-						<option class='category2' value=0>==2차==</option>
+						
+							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
+		<!-- 셀렉트 -->					<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq 0 }">
+											<c:if test="${pdto.category_coderef2 eq clist[i].category_code}">
+												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
+		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.category_coderef2 ne clist[i].category_code}">
+												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
+											</c:if>
+									</c:if>								
+							</c:forEach>
 					</select>
-					<select id="category3" name="category_name" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
-						<option class='category3' value="0">${pdto.category_name}</option>
+					
+					<select id="category3" name="category3" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+						<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
+							<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq pdto.category_coderef2 }">
+								<c:if test="${pdto.category_code1 eq clist[i].category_code}">
+									<option selected value="${clist[i].category_name}">${clist[i].category_name }</option>
+								</c:if>
+								<c:if test="${pdto.category_code1 ne clist[i].category_code}">
+									<option value="${clist[i].category_name}">${clist[i].category_name}</option>
+								</c:if>
+							</c:if>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -87,8 +121,17 @@ img {
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
 					<select id="brand_name" name="brand_name" required="required" class="form-control">
-							<option class='brand_name' value=0> ${pdto.product_brand} </option>
-					</select>
+								<c:forEach var="i" begin="0" step="1" end="${blist.size() }">
+		<!-- 셀렉트 -->					<c:if test="${pdto.category_coderef2 eq blist[i].category_code}">
+											<c:if test="${pdto.product_brand eq blist[i].brand_name}">
+												<option selected value="${clist[i].category_name}">${blist[i].brand_name}</option>
+											</c:if>
+		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.product_brand ne blist[i].brand_name}">
+												<option value="${clist[i].category_name}">${blist[i].brand_name}</option>
+											</c:if>
+									</c:if>	
+								</c:forEach>	
+							</select>								
 				</div>
 			</div>
 
@@ -112,23 +155,22 @@ img {
 			<!-- 상품 미리보기 이미지가 올라가는 곳. -->
 			<div class="form-group row">
 				<div class="col-sm-2">
-					<label for="image">상품 이미지 변경</label> 
-					<input type="file" id="product_img"
-						value="${pdto.product_img}" name="product_img" /> <img
-						src="product_img_upload/${pdto.product_img}" id="preview">
+					<label for="image">상품 이미지 변경</label>
+					<input type="file" id="product_img" name="product_img" /> 
+					<img src="product_img_upload/${pdto.product_img}" id="preview">
+					<input type="hidden" name="origin_product_img" value="${pdto.product_img}" />
 				</div>
 			</div>
 
 			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit" class="btn btn-secondary"  >상품 수정</button>
-				<a type="button" class="btn btn-secondary" href="ProductListAction.pr" 
+				<button type="submit" class="myButton"  >상품 수정</button>
+				<a type="button" class="myButton" href="ProductListAction.pr" 
 					onclick="if(!confirm('수정을 취소 하시겠습니까?')){return false;}">수정 취소</a>
 			</div>
 		</div>
 	</form>
-
 	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
-	<script src="js/category.js"></script>
+	<script src="js/category.js"></script> <%--카테고리 --%>
 </body>
 </html>

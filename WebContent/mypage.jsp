@@ -35,7 +35,7 @@
 	</header>
 		<div class="container-fluid">
 			<div class="row list">
-				<div class="col-md-2" style="border: 0px solid; border-right-width:3px; ">
+				<div class="col-md-2" >
 					<jsp:include page="side.jsp"/>
 				</div>
 				<div class="col-md-10">

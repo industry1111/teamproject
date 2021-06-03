@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -90,41 +91,76 @@ input[type="text"]:focus {
 					</div>
 				</div>
 			</div>
-			//for
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row" style="border: 1px solid black;">
-						<div class="col-md-1"style="border: 1px solid black;">
-							<img src="" style="width: 50px;height: 50px;">
-						</div>
-						<div class="col-md-4">
-							상품이름<br>
-							상품설명
-						</div>
-					</div>
-					<div class="row" style="border: 1px solid black;">
+			<c:if test="${plist.size() ne 0 }">
+				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
+
+					<div class="row">
 						<div class="col-md-12">
-							<div class="row">
-								<div class="col-md-3 offset-1">
-									별점
+							<div class="row" >
+								<div class="col-md-1" >
+									<img src="product_img_upload/${plist[i].product_img}" alt="스토어 사진" style="width: 50px; height: 50px;">
 								</div>
-								<div class="col-md-1 offset-7">
-									x
+								<div class="col-md-4" >
+									${plist[i].product_name }<br>
+									${plist[i].product_description }
+								</div>
+								<div class="col-md-1 offset-6">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+  										<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+ 										<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+									</svg>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-7">
-									상품 평
-								</div>
-								<div class="col-md-4" align="right">
-									<img src="" style="width: 100px; height: 100px;">
-								</div>
-							</div>
+							<c:if test="${rvlist.size() ne 0 }">
+								<c:forEach var="j" begin="0" step="1" end="${rvlist.size()-1 }">
+									<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
+										<div class="row" >
+											<div class="col-md-12">
+												<div class="row">
+													<div class="col-md-3 offset-1">
+														<fmt:formatNumber var="rating"
+															value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}"
+															pattern="0" />
+															<c:out value="${rating }점"></c:out>
+														<div class="star-rating">
+															<c:forEach var="i" begin="1" step="1" end="5">
+																<c:if test="${rating != 6-i }">
+																	<input type="radio" id="${6-i }-stars" name="rating${j }"
+																		value="${6-i }" disabled/>
+																	<label for="${6-i }-stars" class="star">&#9733;</label>
+																</c:if>
+																<c:if test="${rating == 6-i }">
+																	<input type="radio" id="${6-i }-stars" name="rating${j }"
+																		value="${6-i }" checked disabled/>
+																	<label for="${6-i }-stars" class="star">&#9733;</label>
+																</c:if>
+
+															</c:forEach>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+
+													<div class="col-md-7 offset-1">
+
+
+														${rvlist[j].review_title}<br>
+														${rvlist[j].review_content }
+
+													</div>
+													<div class="col-md-3" align="right">
+														<img src="product_img_upload/${plist[j].product_img}" alt="내 리뷰사진" style="height: 150px; width: 150px;">
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:if>
+								</c:forEach>
+							</c:if>
 						</div>
-					</div>
-				</div>
-			</div>
-			//for
+					</div><hr>
+				</c:forEach>
+			</c:if>
 		</div>
 	</div>
 	<!-- 	</div> -->

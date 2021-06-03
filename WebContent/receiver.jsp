@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
 <!-- Theme style  -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?ver=1">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
@@ -160,7 +160,7 @@ input[type="text"]:focus {
 					</div>
 
 					<div class="row" align="center" >
-					<div class="col-md-12"><hr></div>
+					<div class="col-md-12"></div>
 
 					</div>
 					
@@ -182,8 +182,8 @@ input[type="text"]:focus {
 							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
-							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
+							<input class="myButton" type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
+							<input class="myButton" id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >
@@ -207,8 +207,8 @@ input[type="text"]:focus {
 							<c:out value="${rlist[i].receiver_phone}"/>
 						</div>
 						<div class="col-md-2">
-							<input type="button" id="name_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
-							<input id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
+							<input class="myButton" type="button" id="add_btn" value="수정" onclick="update_onclick(${rlist[i].receiver_num});"/><br>
+							<input class="myButton" id="id_cancle" type="button" value="삭제" onclick="delete_onclick(${rlist[i].receiver_num});"/>  
 						</div>
 					</div>
 					<div class="row" align="center" >

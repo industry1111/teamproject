@@ -12,6 +12,7 @@ public class reviewDTO {
 	private String review_title;
 	private String review_content;
 	private Timestamp regdate;
+	private String review_img;
 	
 
 	public int getReview_num() {
@@ -67,6 +68,12 @@ public class reviewDTO {
 	}
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
+	}
+	public String getReview_img() {
+		return review_img;
+	}
+	public void setReview_img(String review_img) {
+		this.review_img = review_img;
 	}
 	
 }

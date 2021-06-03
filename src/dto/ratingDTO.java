@@ -3,7 +3,9 @@ package dto;
 public class ratingDTO {
 	private int member_num;
 	private int product_num;
-	private int star;
+	private int rating1;
+	private int rating2;
+	private int rating3;
 	public int getMember_num() {
 		return member_num;
 	}
@@ -16,13 +18,26 @@ public class ratingDTO {
 	public void setProduct_num(int product_num) {
 		this.product_num = product_num;
 	}
-	public int getStar() {
-		return star;
+	public int getRating1() {
+		return rating1;
 	}
-	public void setStar(int star) {
-		this.star = star;
+	public void setRating1(int rating1) {
+		this.rating1 = rating1;
+	}
+	public int getRating2() {
+		return rating2;
+	}
+	public void setRating2(int rating2) {
+		this.rating2 = rating2;
+	}
+	public int getRating3() {
+		return rating3;
+	}
+	public void setRating3(int rating3) {
+		this.rating3 = rating3;
 	}
 	
 	
 	
 }
+	

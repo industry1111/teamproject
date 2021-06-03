@@ -38,7 +38,28 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 		if(command.equals("/Order.bo")) {
+			
+			action = new Order();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}else if(command.equals("/OrderContent.bo")) {
+			
 			action = new OrderList();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}else if(command.equals("/payment.bo")) {
+			
+			action = new Payment();
 			try {
 				forward = action.execute(request, response);
 
@@ -54,7 +75,6 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
 		}else if(command.equals("/receiver.bo")) {
 			action = new ReceiverList();
 			try {
@@ -84,6 +104,21 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/ReviewList.bo")) {
+			action = new ReviewList();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/ReviewListAction.bo")) {
+			action = new ReviewListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}else if(command.equals("/writableReviews.bo")) {
 			action = new WritableReviewsAction();
 			try {
@@ -92,15 +127,37 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else if(command.equals("/writtenReviews.bo")) {
+			
 			action = new WrittenReviewsAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		
+			}else if(command.equals("/reviewForm.bo")) {
+			
+			action = new WriteReviewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		
+		
 		}else if (command.equals("/receiver_2.bo")) {
 			
 			action = new ReceiverInfo();
+			try {
+	
+				forward = action.execute(request, response);
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/receiver_3.bo")) {
+			
+			action = new OrderReceiverInfo();
 			try {
 	
 				forward = action.execute(request, response);

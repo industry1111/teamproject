@@ -29,7 +29,7 @@ $(function() {
 		$('.category1').css('background-color', 'white');
 		$('.category1').attr('class', 'category1');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category1 allowed');
 		$.ajax({
 			type: "get",
@@ -119,7 +119,7 @@ $(function() {
 		$('.category2').css('background-color', 'white');
 		$('.category2').attr('class', 'category2');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category2 allowed');
 		
 		$.ajax({
@@ -210,7 +210,7 @@ $(function() {
 		$('.category3').css('background-color', 'white');
 		$('.category3').attr('class', 'category3');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category3 allowed');
 		$.ajax({
 			type: "get",
@@ -281,7 +281,7 @@ $(function() {
 	});
 	$(document).on("click", ".category3.allowed", function() {
 		$(this).css('background-color', 'white');
-		$(this).css('color', '#627482');
+		$(this).css('color', '#c5c5c5');
 		$(this).attr('class', 'category3');
 		category_code3 = 0;
 	});
@@ -296,7 +296,7 @@ $(function() {
 		$('.price').css('background-color', 'white');
 		$('.price').attr('class', 'price');
 		$(this).css('color', 'white');
-		$(this).css('background-color', 'green');
+		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'price allowed');
 		
 		$.ajax({
@@ -374,7 +374,7 @@ $(function() {
 	
 	$(document).on("click", ".price.allowed", function() {
 		$(this).css('background-color', 'white');
-		$(this).css('color', '#627482');
+		$(this).css('color', '#c5c5c5');
 		$(this).attr('class', 'price');
 		price = null;
 	});
