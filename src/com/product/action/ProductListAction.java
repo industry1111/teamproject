@@ -32,14 +32,13 @@ public class ProductListAction implements Action {
 		Criteria cri;
 		PageDTO pagedto;
 		int numPerPage = 5;
-		int pagePerBlock = 5;
+		
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
-			int nowBlock = Integer.parseInt(request.getParameter("nowBlock"));
-			cri = new Criteria(nowPage, nowBlock, numPerPage, pagePerBlock);
+			cri = new Criteria(nowPage, numPerPage);
 			pagedto = new PageDTO(cri, list.size());
 		}else{
-			cri = new Criteria(numPerPage, pagePerBlock);
+			cri = new Criteria(numPerPage);
 			pagedto = new PageDTO(cri, list.size());
 		}
 		
