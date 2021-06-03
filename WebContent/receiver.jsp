@@ -160,7 +160,7 @@ input[type="text"]:focus {
 					</div>
 
 					<div class="row" align="center" >
-					<div class="col-md-12"><hr></div>
+					<div class="col-md-12"></div>
 
 					</div>
 					
