@@ -45,7 +45,7 @@
 		<div id="breadcrumb" class="section">
 		<!--  목록으로가기  -->
 					<div>
-						<a href="shop.jsp" class="primary-btn order-submit">목록으로가기 </a>
+						<a href="shop.jsp" class="primary-btn order-submit">상품목록 </a>
 					</div>
 		</div>
 		<!-- /BREADCRUMB -->
@@ -57,46 +57,46 @@
 				<!-- row -->
 				<div class="row">
 					<!-- Product main img -->
-					<div class="col-md-5 col-md-push-2">
-						<div id="product-main-img">
+					<div class="col-md-6">
+						<div id="product_main_image">
 							<div class="product-preview">
 								<img src="./img/product01.png" alt="">
 							</div>
 
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product03.png" alt=""> -->
+<!-- 							</div> -->
 
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product06.png" alt=""> -->
+<!-- 							</div> -->
 
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div>
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product08.png" alt=""> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 					<!-- /Product main img -->
 
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
-						<div id="product-imgs">
-							<div class="product-preview">
-								<img src="./img/product01.png" alt="">
-							</div>
+<!-- 						<div id="product-imgs"> -->
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product01.png" alt=""> -->
+<!-- 							</div> -->
 
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product03.png" alt=""> -->
+<!-- 							</div> -->
 
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product06.png" alt=""> -->
+<!-- 							</div> -->
 
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div>
-						</div>
+<!-- 							<div class="product-preview"> -->
+<!-- 								<img src="./img/product08.png" alt=""> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
 					</div>
 					<!-- /Product thumb imgs -->
 
@@ -121,13 +121,13 @@
 							상품설명란입니다.
 							<div class="product-options">
 								<label>
-									사이즈
-									<select class="input-select">
+									상품 브랜드
+									<input class="input-select">
 										<option value="0">X</option>
 									</select>
 								</label>
 								<label>
-									색상
+									상품수량
 									<select class="input-select">
 										<option value="0">Red</option>
 									</select>
@@ -136,7 +136,7 @@
 
 							<div class="add-to-cart">
 								<div class="qty-label">
-									개수
+									구매 수량
 									<div class="input-number">
 										<input type="number">
 										<span class="qty-up">+</span>
@@ -156,7 +156,6 @@
 							<!-- product tab nav -->
 
 							<ul class="tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">상품정보</a></li>
 								<li><a data-toggle="tab" href="#tab2">상품상세정보</a></li>
 								<li><a data-toggle="tab" href="#tab3">상품리뷰</a></li>
 							</ul>

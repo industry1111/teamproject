@@ -94,7 +94,7 @@
 
 					<!-- 카테고리1 -->
 					<div class="aside">
-						<h3 class="aside-title">카테고리1</h3>
+						<h3 class="aside-title">상품에따라 변경되는 카테고리 부분입니다.</h3>
 						<div class="checkbox-filter">
 
 							<div class="input-checkbox">
@@ -105,22 +105,7 @@
 						</div>
 					</div>
 					<!-- 카테고리1끝 -->
-
-
-					<!-- 카테고리2 -->
-					<div class="aside">
-						<h3 class="aside-title">카테고리2</h3>
-						<div class="checkbox-filter">
-							<div class="input-checkbox">
-								<input type="checkbox" id="brand-1"> <label
-									for="brand-1"> <span></span> SAMSUNG <small>(578)</small>
-								</label>
-							</div>
-						</div>
-					</div>
-
 				</div>
-				<!-- /ASIDE -->
 
 				<!-- STORE -->
 				<div id="store" class="col-md-9">
@@ -135,18 +120,18 @@
 							</label>
 						</div>
 					</div>
-					<!-- 카테고리2끝 -->
+					
 
-					<!-- 상품리스트 -->
+					<!-- 상품리스트 부분입니다. -->
 					<div class="row">
-						<!-- product -->
+					
+						<!-- DB로부터 받아온 정보들을 하나씩 나열합니다.  -->
+							<!-- 쇼핑몰 상품페이지 배열 참조 -->
 						<div class="col-md-4 col-xs-6">
 							<div class="product">
 								<div class="product-img">
 									<img src="./img/product01.png" alt="">
 									<div class="product-label">
-										<!-- 	할인, 신상품여부	
-			<span class="sale">-30%</span> <span class="new">NEW</span> -->
 									</div>
 								</div>
 								<div class="product-body">
@@ -186,9 +171,9 @@
 						</div>
 						<!-- /product -->
 					</div>
-					<!-- /store products -->
+					<!-- 상품리스트 끝. -->
 
-					<!-- store bottom filter -->
+					<!-- 리스트부분입니다. -->
 					<div class="store-filter clearfix">
 						<ul class="store-pagination">
 							<li class="active">1</li>
@@ -198,9 +183,9 @@
 							<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
 						</ul>
 					</div>
-					<!-- /store bottom filter -->
+					<!-- 리스트부분입니다. -->
 				</div>
-				<!-- /STORE -->
+				<!-- 상품 리스트 표시 부분입니다. -->
 			</div>
 			<!-- /row -->
 		</div>
