@@ -12,10 +12,25 @@
 <script type="text/javascript">
 function btn_click() {
 	
+// 	 window.name = "parentForm";
     //이름은 중복창 제어용
 	child = window.open("receiver_3.bo","child","width=600,height=650");
 		
 }
+// function setChildValue(name){
+
+//     document.getElementById("값 넣을곳 id").value = name;
+
+// }
+
+// function sendChildValue(){
+
+// 	opener.setChildValue(name);
+	
+// 	window.close();
+
+// }
+
 </script>
 <script src="js/order.js"></script>
 <head>
@@ -76,48 +91,70 @@ ul{
 		
 	</div>
 
-	<div class="deliver_info" >
-		<h4>배송지 정보</h4>
-		<div class="deliver_option">
-			<strong>배송지 선택</strong>
-			<div class="deliver_option_wrap">
-			<ul>
-				<li>
-					<span><input type="radio"/></span><label>기본배송지</label>
-					<span><input type="radio" id="new"/></span><label>신규배송지</label>
-					<span><input type="button" value="배송지 목록" onclick="btn_click();"/></span>
-				</li>
-				<hr>
-			</ul>
-			
-			<c:forEach var="i" begin="0" step="1" end="${rlist.size()}" >
-				<c:if test="${rlist[i].basic_num eq 1 }">
-				<div class="basic">
-					<ul>
-						<li>${rlist[i].address_name}</li>
-						<li>${rlist[i].receiver_phone}</li>
-						<li>(${rlist[i].receiver_addr1})
-						${rlist[i].receiver_addr2}
-						${rlist[i].receiver_addr3}</li>
-						<li><input type="text" placeholder="배송 요청사항"/></li>
-					</ul>
+<div class="deliver_info" >
+	<div class="row">
+	<div class="col-md-12"  style="display: flex;">
+		<div class="col-md-8">
+			<h4>배송지 정보</h4>
+			<hr>
+			<div class="deliver_option">
+				<strong>배송지 선택</strong>
+				<div class="deliver_option_wrap">
+				<ul>
+					<li>
+						<span><input type="radio" name="receiver" id="basic" checked/></span><label>기본배송지</label>
+						<span><input type="radio" name="receiver" id="new"/></span><label>신규배송지</label>
+						<span><input type="button" value="배송지 목록" onclick="btn_click();" /></span>
+					</li>
+					
+				</ul>
+				
+				<c:forEach var="i" begin="0" step="1" end="${rlist.size()}" >
+					<c:if test="${rlist[i].basic_num eq 1 }">
+					<div class="basic_select">
+						<ul>
+							<li>${rlist[i].address_name}</li>
+							<li>${rlist[i].receiver_phone}</li>
+							<li>(${rlist[i].receiver_addr1})
+							${rlist[i].receiver_addr2}
+							${rlist[i].receiver_addr3}</li>
+							<li><input type="text" placeholder="배송 요청사항"/></li>
+						</ul>
+					</div>
+					</c:if>
+				</c:forEach>
+				<div class="new_select" hidden>
+				<ul>
+					<li>수령인 : <input type="text" id="receiver_name" ></li>
+					<li>배송지 이름 : <input type="text" id="address_name" ></li>
+					<li>번호 : <input type="text" id="receiver_phone"></li>
+					<li><input type="text" id="addr1" >&nbsp;
+					<input type="button" onclick="addr_search()" value="우편번호 찾기" id="post_btn" class="myButton"></li>
+					<li><input type="text" id="addr2" ></li>
+					<li><input type="text" id="addr3" ></li>
+					<li><input type="text" placeholder="배송 요청사항"/></li>
+				</ul>
 				</div>
-				</c:if>
-			</c:forEach>
-			<div class="new">
-			<ul>
-				<li>수령인 : </li>
-				<li>배송지 이름 : </li>
-				<li>번호</li>
-				<li><input type="text" >
-					${rlist[i].receiver_addr2}
-					${rlist[i].receiver_addr3}</li>
-				<li><input type="text" placeholder="배송 요청사항"/></li>
-			</ul>
-			</div>
+				</div>
 			</div>
 		</div>
+		<div class="col-md-4">
+		<h4>주문자 정보</h4>
+			<hr>
+			<div >
+				<ul>
+					<li>이름 : ${mdto.name}</li><br>
+					<li>연락처 : ${mdto.phone}</li><br>
+					<li>이메일 : ${mdto.email}</li><br>
+				</ul>
+			
+		
+		</div>
+	 </div><!-- 주문자 정보 -->
+	</div>
+<div> <!-- 배송지,주문자 -->
 	
+	</div>
 	</div>
 	<div class="payment_info">
 		<h4>결제수단</h4>
@@ -128,4 +165,28 @@ ul{
 
 </div> <!-- 전체 -->	
 </body>
+<!-- 카카오 우편번호 api -->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function addr_search() {
+    new daum.Postcode({
+        oncomplete: function(data) { 
+            var address = ''; // 주소 변수
+
+            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                address = data.roadAddress;
+            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                address = data.jibunAddress;
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('addr1').value = data.zonecode;
+            document.getElementById("addr2").value = address;
+            // 커서를 상세주소 필드로 이동한다.
+            document.getElementById("addr3").focus();
+        }
+    }).open();
+}
+</script>
 </html>
