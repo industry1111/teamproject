@@ -138,7 +138,7 @@ function order_btn_click() {
 								<div class="one-eight text-center">
 									<div class="display-tc">
 										<a href="#" class="closed" id="delete_btn">
-											<input type="hidden" name="product_num" id="product_num" value="${list[i].product_num}"/>
+											<input type="hidden" name="product_num" id="product_num" value="${list[i].product_num}" />
 										</a>
 									</div>
 								</div>
@@ -167,7 +167,7 @@ function order_btn_click() {
 								<div class="col-sm-4 text-center">
 									<div class="total ">
 										<div>
-											<strong>Total:</strong>&nbsp; <input type="text" id="price_total" value="0" >	
+											<strong>Total:</strong>&nbsp; <input type="text" id="price_total" name="price_total" value="0" readonly="readonly">	
 										</div>
 									</div>
 								</div>

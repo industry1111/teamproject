@@ -49,12 +49,14 @@
 <script type="text/javascript"> 
 function select_btn_onclick(i){ 
 	
+	opener.new_check.click();
 	opener.document.getElementById("receiver_name").value = document.getElementById("receiver_name"+i).innerText;
 	opener.document.getElementById("address_name").value = document.getElementById("address_name"+i).innerText;
 	opener.document.getElementById("receiver_phone").value = document.getElementById("receiver_phone"+i).innerText;
 	opener.document.getElementById("addr1").value = document.getElementById("addr1"+i).innerText;
 	opener.document.getElementById("addr2").value = document.getElementById("addr2"+i).innerText;
 	opener.document.getElementById("addr3").value = document.getElementById("addr3"+i).innerText;
+	window.close();
 	
 } 
 
@@ -109,10 +111,12 @@ th
 		<th>선택</th>
 	</tr>
 	<c:forEach var="i" begin="0" step="1" end="${list.size()-1}" >
+	<c:if test="${list[i].basic_num eq 1}">
 		<tr>
 			<td>
 				<span id="address_name${i}">${list[i].address_name}</span><br>
 				<strong id="receiver_name${i}">${list[i].receiver_name}</strong>
+				<br>기본 배송지
 			</td>
 			
 			<td>
@@ -123,6 +127,26 @@ th
 			<td id="receiver_phone${i}">${list[i].receiver_phone}</td>
 			<td><input type="button" value="선택" onclick="select_btn_onclick(${i});"/></td>
 		<tr>
+	</c:if>
+	</c:forEach>
+	<c:forEach var="i" begin="0" step="1" end="${list.size()-1}" >
+	<c:if test="${list[i].basic_num eq 0}">
+		<tr>
+			<td>
+				<span id="address_name${i}">${list[i].address_name}</span><br>
+				<strong id="receiver_name${i}">${list[i].receiver_name}</strong>
+				
+			</td>
+			
+			<td>
+				<span id="addr1${i}">${list[i].receiver_addr1}</span><br>
+				<span id="addr2${i}">${list[i].receiver_addr2}</span><br>
+				<span id="addr3${i}">${list[i].receiver_addr3}</span>
+			</td>
+			<td id="receiver_phone${i}">${list[i].receiver_phone}</td>
+			<td><input type="button" value="선택" onclick="select_btn_onclick(${i});"/></td>
+		<tr>
+	</c:if>
 	</c:forEach>
 	
 	</table>
