@@ -26,7 +26,7 @@ ul {
 
 li {
     margin-left:30px;
-    float: left;
+    float: left; 
     margin-top: 10px;
 }
 .list{

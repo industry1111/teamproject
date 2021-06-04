@@ -31,24 +31,25 @@ public class searchBox extends HttpServlet {
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		
 		String searchBox = request.getParameter("searchBox");
-		System.out.println(searchBox);
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory();
 
 		String json = "[";
-		for (int i = 0; i < clist.size(); i++) {
+		for (int i = 0; i < 5; i++) {
 			categoryDTO cdto = (categoryDTO) clist.get(i);
 
 			int category_code = cdto.getCategory_code();
 			String category_name = cdto.getCategory_name();
 			json += "{\"category_code\":\"" + category_code + "\",\"category_name\":\"" + category_name + "\"}";
-			if (i != clist.size() - 1) {
+			if (i != 4) {
 				json += ",";
 			}
 		}
 
-		json += "]||";
+		json += "]";
 		PrintWriter out = response.getWriter();
 		response.setHeader("content-type", "application/json");
 		out.print(json);
