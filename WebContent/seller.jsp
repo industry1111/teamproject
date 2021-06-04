@@ -19,6 +19,56 @@ img {
 	width: 100px;
 	height: 100px;
 }
+input[type="text"], .form-control {
+  width: 50%;
+  border: none !important;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  background-color: #F6F6F6 !important;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
 </style>
 
 </head>
@@ -29,18 +79,22 @@ img {
 		enctype="multipart/form-data">
 		<%--이미지 파일업로드 저장. --%>
 		<section class="ftco-section">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-md-6 text-center mb-5">
-						<h2 class="heading-section">Register Seller</h2>
+		<div class="container" >
+			<div class="row " >
+				<div class="col-md-8 offset-2"  >
+					<div class="row">
+					<div class="product-name d-flex " style="background-color: : #22CC88; !important; text-align: center;"  >
+							<div class="col-md-12">회원 가입</div>
+					</div>
 					</div>
 				</div>
+			</div>
+		</div>
 				<div class="row justify-content-center">
 					<div class="col-md-9 col-lg-6">
 						<div class="login-wrap">
-							<h6 class="mb-4 text-center">Add Information Your Account</h6>
 							<div class="row">
-								<div class="col-md-8">
+								<div class="col-md-12">
 									<div class="form-group mb-4">
 										<input id="store_name" name="store_name" type="text" class="form-control" placeholder="스토어 이름"> 
 										<span id="name_check" class="check"></span> 
@@ -60,13 +114,13 @@ img {
 									</div>
 								</div>
 								<div class="col-md-12">
-									<div class="form-group mb-4">
-										계좌번호 <select>
+									<div class="form-group mb-4" >
+										계좌번호 <select >
 											<option>은행</option>
 											<option>부산 은행</option>
 											<option>농협</option>
-										</select> <input type="text" placeholder="계좌번호 입려" name="account">
-										<button type="button">인증</button>
+										</select> <input type="text" placeholder="계좌번호 입력" name="account">
+										<button type="button" class="myButton">인증</button>
 									</div>
 								</div>
 								<div class="col-md-8">
