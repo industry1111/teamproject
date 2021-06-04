@@ -140,8 +140,8 @@ input[type="text"]:focus {
 													value="${i}">template${i}
 											</div>
 											<div class="col-md-9">
-												<img alt="" src="template/${i}.jpg">&nbsp; 
-												<img alt="" src="template/${i}-2.jpg">&nbsp; 
+												<img alt="" src="template/${i}.png">&nbsp; 
+												<img alt="" src="template/${i}-2.png">&nbsp; 
 											</div>
 										</div>
 										<c:if test="${i == 5 }">
