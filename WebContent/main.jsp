@@ -72,7 +72,22 @@ input::placeholder { text-align: right;}
 #pname{
 	font-weight: bolder;
 }
-
+.search{
+	border-radius:20px; 
+	border: 3px solid #22CC88; 
+	width:400px;
+	height:40px;
+}
+.search:focus{
+	border-radius:20px; 
+	border: 3px solid #22CC88; 
+	width:400px;
+	height:40px;
+	outline: none;
+}
+.price, .price1{
+	outline:none;
+}
 </style>
 <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -100,7 +115,7 @@ input::placeholder { text-align: right;}
 				</a>
 			</div>
 			<div class="col-md-6">
-				<input type="text" id="searchBox" style="border-radius:20px; border: 3px solid #22CC88; width:400px;height:40px;">
+				<input type="text" id="searchBox" class="search">
 				<img src="images/magnifying-glass.png" alt="shopping" style="height: 23px">
 			</div>
 		</div>

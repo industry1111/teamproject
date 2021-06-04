@@ -94,7 +94,7 @@ input[type="text"]:focus {
 		<div class="container" >
 			<div class="row " >
 				<div class="col-md-7 offset-2"  >
-					<div class="product-name d-flex " style="background-color: : #22CC88; !important; margin-top: 100px; text-align: center;"  >
+					<div class="product-name d-flex " style="background-color: : #22CC88; !important; margin-top: 50px; text-align: center;"  >
 							<div class="col-md-12">회원 가입</div>
 					</div>
 				</div>
@@ -192,6 +192,7 @@ input[type="text"]:focus {
 		</div>
 		</div>
 	</section>
+
 	
 	 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
