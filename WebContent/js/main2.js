@@ -470,11 +470,12 @@ $(function() {
                         data: {"searchBox":$("#searchBox").val()},
                         success: function(data) {
                         	var obj = JSON.parse(data);
+                        	console.log(new Set(obj.name));
                             response(
                                 $.map(obj, function(item) {    //json[i] 번째 에 있는게 item 임.
                                     return {
-                                        label: item.category_name,   //UI 에서 보여지는 글자, 실제 검색어랑 비교 대상
-                                        value: item.category_name,    //그냥 사용자 설정값?
+                                        label: item.name,   //UI 에서 보여지는 글자, 실제 검색어랑 비교 대상
+                                        value: item.name,    //그냥 사용자 설정값?
                                     }
                                 })
                             );
@@ -486,7 +487,6 @@ $(function() {
             },
             minLength: 1,// 최소 글자수
             autoFocus: true, //첫번째 항목 자동 포커스 기본값 false
-            delay: 500,    //검색창에 글자 써지고 나서 autocomplete 창 뜰 때 까지 딜레이 시간(ms)
             close : function(event){    //자동완성창 닫아질때 호출
                 console.log(event);
             }

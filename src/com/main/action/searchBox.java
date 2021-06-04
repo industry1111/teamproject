@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.boardDAO;
 import dto.categoryDTO;
+import dto.searchDTO;
 
 @WebServlet("/searchBox")
 public class searchBox extends HttpServlet {
@@ -35,21 +36,26 @@ public class searchBox extends HttpServlet {
 		String searchBox = request.getParameter("searchBox");
 		System.out.println(searchBox);
 		boardDAO bdao = new boardDAO();
-		List<categoryDTO> clist = bdao.getcategory();
+		List<searchDTO> searchlist = bdao.getSearchString(searchBox);
 
 		String json = "[";
-		for (int i = 0; i < 5; i++) {
-			categoryDTO cdto = (categoryDTO) clist.get(i);
-
-			int category_code = cdto.getCategory_code();
-			String category_name = cdto.getCategory_name();
-			json += "{\"category_code\":\"" + category_code + "\",\"category_name\":\"" + category_name + "\"}";
-			if (i != 4) {
+		for (int i = 0; i <7; i++) {
+			
+			searchDTO searchdto = (searchDTO) searchlist.get(i);
+			String name = searchdto.getName();
+			json += "{\"name\":\"" + name + "\"}";
+			
+			if(searchlist.size() == i+1){
+				break;
+			}
+			if (i != 6) {
 				json += ",";
 			}
+			
 		}
 
 		json += "]";
+		System.out.println(json);
 		PrintWriter out = response.getWriter();
 		response.setHeader("content-type", "application/json");
 		out.print(json);

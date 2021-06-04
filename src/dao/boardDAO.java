@@ -20,7 +20,7 @@ import dto.ratingDTO;
 import dto.receiverDTO;
 
 import dto.reviewDTO;
-
+import dto.searchDTO;
 import dto.templateDTO;
 
 
@@ -445,6 +445,38 @@ public class boardDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			ResouceClose();
+		}
+		return list;
+	}
+	public List<searchDTO> getSearchString(String searchBox){
+		List<searchDTO> list = new ArrayList<searchDTO>();
+		try {
+			getCon();
+			String sql = "select category_name from category where category_name like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("category_name"));
+				list.add(sdto);
+			}
+			
+			sql = "select distinct brand_name from brand where brand_name like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("brand_name"));
+				list.add(sdto);
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getSearchString:"+e.toString());
+		}finally {
 			ResouceClose();
 		}
 		return list;
