@@ -26,7 +26,13 @@ function payment_btn_click() {
 	      frm.method ="post";
 	      frm.submit();    
 }
-
+function submit_form() {
+	
+	var form = document.form;
+	form.action = contextPath + '/PaymentComplete.or'; 
+	form.submit();    
+  
+}
 
 
 </script>
@@ -74,23 +80,30 @@ input {
 							<div class="col-md-4">
 							<a>
 								<img src="product_img_upload/${list[j].product_img}" style="width: 100px;height: 100px;">
+								<input type="hidden" value="${list[j].product_img}"  name="image${j}">
+								<input type="hidden" value="${list[j].basket_num}"  name="basket_num${j}">
 							</a>
-								<input type="text" name="product_name" value="${list[j].product_name}"readonly="readonly"/>
+								<input type="text" name="product_name${j}" value="${list[j].product_name}"readonly="readonly"/>
 							</div>
 							<div class="col-md-2 ">
-								<input type="text" name="store_name" value="${list[j].store_name}"readonly="readonly"/>
+								<input type="text" name="store_name${j}" value="${list[j].store_name}"readonly="readonly"/>
 							</div>
 							<div class="col-md-1">
-								<input type="text" name="quantity" value="${list[j].quantity}"readonly="readonly"/>
+								<input type="text" name="quantity${j}" value="${list[j].quantity}"readonly="readonly"/>
 							</div>
 							<div class="col-md-3">
-								<input type="text" name="price" value="${list[j].product_price * list[j].quantity}"readonly="readonly"/>
+								<input type="text" name="price${j}" value="${list[j].product_price * list[j].quantity}"readonly="readonly"/>
 							</div>
+							
+							<input type="hidden" value="${list[j].product_num}" name="product_num${j}"/>
+							<input type="hidden" name="store_num${j}" value="${list[j].store_num}">
+							
+							
 					</div>	
 				</c:if>
 			</c:forEach>
 		</c:forEach>
-		
+							<input type="hidden" value="${fn:length(check)-1}" name="count"/>
 	</div>
 
 <div class="deliver_info" >
@@ -115,12 +128,13 @@ input {
 					<c:if test="${rlist[i].basic_num eq 1 }">
 					<div class="basic_select">
 						<ul>
+							<li><input type="text" name="receiver_name" value="${rlist[i].receiver_name}" readonly="readonly"/></li>
 							<li><input type="text" name="address_name" value="${rlist[i].address_name}" readonly="readonly"/></li>
 							<li><input type="text" name="receiver_phone" value="${rlist[i].receiver_phone}" readonly="readonly"/></li>
 							<li>
-							<input type="text" name="addr1" value="${rlist[i].receiver_addr1}" readonly="readonly"/><br>
-							<input type="text" name="addr2" value="${rlist[i].receiver_addr2}" readonly="readonly"/><br>
-							<input type="text" name="addr3" value="${rlist[i].receiver_addr3}" readonly="readonly"/>
+							<input type="text" name="receiver_addr1" value="${rlist[i].receiver_addr1}" readonly="readonly"/><br>
+							<input type="text" name="receiver_addr2" value="${rlist[i].receiver_addr2}" readonly="readonly"/><br>
+							<input type="text" name="receiver_addr3" value="${rlist[i].receiver_addr3}" readonly="readonly"/>
 							</li>
 							<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
 						</ul>
@@ -147,9 +161,9 @@ input {
 			<hr>
 			<div >
 				<ul>
-					<li>이름 : <input value="${mdto.name}" type="text" readonly="readonly" name="name"></li><br>
-					<li>연락처 : <input value="${mdto.phone}" type="text" readonly="readonly" name="phone"></li><br>
-					<li>이메일 : <input value="${mdto.email}" type="text" readonly="readonly" name="email">${mdto.email}</li><br>
+					<li>이름 : <input value="${mdto.name}" type="text" readonly="readonly" name="order_name"></li><br>
+					<li>연락처 : <input value="${mdto.phone}" type="text" readonly="readonly" name="order_phone"></li><br>
+					<li>이메일 : <input value="${mdto.email}" type="text" readonly="readonly" name="order_email"></li><br>
 				</ul>
 			
 		

@@ -14,14 +14,14 @@ public class Payment implements Action{
 	
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String product_name = request.getParameter("product_name");
-		String email = request.getParameter("email");
-		String name = request.getParameter("name");
-		String phone = request.getParameter("phone");
+		String product_name = request.getParameter("product_name0");
+		String email = request.getParameter("order_email");
+		String name = request.getParameter("order_name");
+		String phone = request.getParameter("order_phone");
 		String price_total = request.getParameter("price_total");
-		String addr1 = request.getParameter("addr1");
-		String addr2 = request.getParameter("addr2");
-		String addr3 = request.getParameter("addr3");
+		String addr1 = request.getParameter("receiver_addr1");
+		String addr2 = request.getParameter("receiver_addr2");
+		String addr3 = request.getParameter("receiver_addr3");
 		
 		
 		request.setAttribute("product_name", product_name);

@@ -53,73 +53,50 @@
 							<span>Product Details</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Order</span>
+							<span>Price</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Date</span>
+							<span>quantity</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Total</span>
+							<span>Total Price</span>
 						</div>
 						<div class="one-eight text-center px-4">
 							<span>Status</span>
 						</div>
 					</div>
-						<c:if test="${list.size() eq 0 }">
-							주문내역이 없습니다.
-						</c:if>
-						<c:if test="${list.size() ne 0 }">
 					<c:forEach var="i" begin="0" step="1" end="${list.size()-1}">
+						
 						<div class="product-cart d-flex">
 							<div class="one-forth">
 							&nbsp;
-								<a> <img src="product_img_upload/${list[i].main_product_image}"
+								<a> <img src="product_img_upload/${list[i].image}"
 									style="width: 100px; height: 100px;">
 								</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<c:if test="${list[i].count eq 0}">
-									<a href="OrderDetail.or?orders_code=${list[i].orders_code}">상품 : ${list[i].main_product_name}</a>
-								</c:if>
-								<c:if test="${list[i].count ne 0}">
-									<a href="OrderDetail.or?orders_code=${list[i].orders_code}"> 상품 : ${list[i].main_product_name} 외 ${list[i].count}건 </a>
-								</c:if>
 								
+									상품 : ${list[i].product_name}
+									
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="orders_code">${list[i].orders_code}</span>
+									<span class="price">${list[i].product_price}</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price">${list[i].regdate}</span>
+									<span class="quantity">${list[i].quantity}</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="date">${list[i].total_price}원</span>
+									<span class="total_price">${list[i].quantity * list[i].product_price}원</span>
 								</div>
 							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-
-									<c:if test="${list[i].state==0}">입금완료</c:if>
-									<c:if test="${list[i].state==1}">주문접수</c:if>
-									<c:if test="${list[i].state==2}">배송준비중</c:if>
-									<c:if test="${list[i].state==3}">배송중</c:if>
-									<c:if test="${list[i].state==4}">배송완료</c:if>
-									<c:if test="${list[i].state==5}">주문취소</c:if>
-									<c:if test="${list[i].state==6}">반품처리중</c:if>
-									<c:if test="${list[i].state==7}">반품접수</c:if>
-									<c:if test="${list[i].state==8}">반품승인</c:if>
-									<c:if test="${list[i].state==9}">환불완료</c:if>
-									<c:if test="${list[i].state==10}">교환신청</c:if>
-								</div>
-							</div>
-						
+							
 						</div>
+					
 					</c:forEach>
-					</c:if>
 				</div>
 			</div>
 		</div>
