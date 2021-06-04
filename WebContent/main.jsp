@@ -24,23 +24,11 @@ ul {
     padding:0;
 }
 
-li {
-    margin-left:30px;
-    float: left; 
-    margin-top: 10px;
-}
 .list{
  	border: 1px solid #f3f3f3; 
  	
 }
-input::placeholder { text-align: right;}
-.price{
-	width: 130px;
-}
 
-.price1, .price2{
-	height:5px;
-}
 .myButton {
 	box-shadow: inset 0px 1px 0px 0px #ffffff;
 	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
@@ -85,11 +73,21 @@ input::placeholder { text-align: right;}
 	height:40px;
 	outline: none;
 }
-.price, .price1{
-	outline:none;
+.price, .category1, .category2, .category3, .sort{
+	margin-left:30px;
+    float: left; 
+    margin-top: 10px;
+}
+.ui-menu-item{
+	color: black;
+	margin-top: 2px;
+}
+.ui-widget{
+	background-color: white;
+	border: 1px solid green;
+	width: 400px; 
 }
 </style>
-<!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -154,10 +152,9 @@ input::placeholder { text-align: right;}
 						<li class="price" value="1">1만원이하</li>
 						<li class="price" value="2" >1만원~5만원</li>
 						<li class="price" value="3" >5만원~10만원</li>
-						<li>직접입력 &nbsp;<input type="text"  id="price1" class="price1" placeholder="원" >~
-							<input class="price" type="text" placeholder="원">
+						<li style="float: left; margin-left:30px; margin-top: 10px;">직접입력 &nbsp;<input type="text"  id="price1"  placeholder="원" style="height: 20px" >~
+							<input  type="text" placeholder="원"  style="height: 20px">
 								<img src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
-						
 						</li>
 					</ul>
 				</div>
