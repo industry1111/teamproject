@@ -87,8 +87,8 @@ h4{
 			</div>
 		</div>
 		<div class="row" style="margin-top: 10px">
-			<div class="col-md-9 col-md-offset-2 side"align="center " >
-				<a href="OrderContent.bo">주문/배송내역</a>
+			<div class="col-md-9 col-md-offset-2 side"align="center" >
+				<a href="OrderContent.or">주문/배송내역</a>
 			</div>
 		</div>
 		<div class="row">

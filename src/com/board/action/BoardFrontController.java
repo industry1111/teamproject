@@ -47,16 +47,6 @@ public class BoardFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		}else if(command.equals("/OrderContent.bo")) {
-			
-			action = new OrderList();
-			try {
-				forward = action.execute(request, response);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
 		}else if(command.equals("/payment.bo")) {
 			
 			action = new Payment();
