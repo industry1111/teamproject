@@ -242,7 +242,7 @@ public class sellerDAO {
 					sdto.setStore_name(rs.getString("store_name"));
 					sdto.setProfile_img(rs.getString("profile_img"));
 					sdto.setTemplate(rs.getString("template"));
-					sdto.setMember_num(rs.getInt("member_num"));
+					sdto.setStore_num(rs.getInt("store_num"));
 					list.add(sdto);
 				}
 			} catch (Exception e) {
