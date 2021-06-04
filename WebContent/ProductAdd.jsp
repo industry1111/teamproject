@@ -39,9 +39,17 @@ img{
 </head>
 <body>
 
-	<p style="font-size: 30;color: gray;">신규물품 등록</p>
+	<div class="container" >
+			<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: : #F15F5F !important; margin-top: 50px; margin-bottom:30px; text-align: center;"  >
+							<div class="col-md-12">신규 물품 등록</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-	<div class="container" cols="100" rows="2">
+	<div class="container" cols="100" rows="2" style="color: grey;">
 
 		<form name="newProduct" action="ProductAddAction.pr"
 
@@ -137,9 +145,9 @@ img{
 			</div>
 
 
-			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit" class="btn btn-secondary" >상품 등록</button> 
-				<a type="button" class="btn btn-secondary" href="ProductListAction.pr">등록 취소</a>
+			<div class="d-grid gap-2 col-6 mx-auto" >
+				<button type="submit" class="myButton" style="margin-left: 150px;">상품 등록</button> 
+				<a type="button" class="myButton" href="ProductListAction.pr">등록 취소</a>
 			</div>
 		</form>	
 	</div>

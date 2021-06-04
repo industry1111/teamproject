@@ -44,7 +44,14 @@ input {
 </style>
 </head>
 <body>
-	<h4>주문/결제</h4> 
+			<div class="row " >
+				<div class="col-md-8 offset-2"  >
+					<div class="product-name d-flex " style="background-color: #22CC88 !important; text-align: center; margin-top:100px;" >
+							<div class="col-md-12">주문 결제</div>
+					</div>
+				</div>
+			</div>
+<div class="col-md-8 offset-2" style="border 1px solid grey;">	
 장바구니 > <b>주문결제</b> > 완료
 <hr>
 <form name="form" method="post">
@@ -99,14 +106,14 @@ input {
 		<div class="col-md-8">
 			<h4>배송지 정보</h4>
 			<hr>
-			<div class="deliver_option">
+			<div class="deliver_option" >
 				<strong>배송지 선택</strong>
 				<div class="deliver_option_wrap">
 				<ul>
 					<li>
 						<span><input type="radio" name="receiver" id="basic" checked/></span><label>기본배송지</label>
 						<span><input type="radio" name="receiver" id="new_check"/></span><label>신규배송지</label>
-						<span><input type="button" value="배송지 목록" onclick="btn_click();" /></span>
+						<span><input type="button" class="myButton" value="배송지 목록" onclick="btn_click();" /></span>
 					</li>
 					
 				</ul>
@@ -167,12 +174,13 @@ input {
 		
 		</div>
 		<div>
-			<input type="button" value="결제하기" name="payment_btn" onclick="payment_btn_click();">
+			<input type="button" class="myButton" value="결제하기" name="payment_btn" onclick="payment_btn_click();">
 		</div>
 	
 	</div>
 </div> <!-- 전체 -->	
 </form>
+</div>	
 </body>
 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
