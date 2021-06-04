@@ -194,7 +194,9 @@ ul {
 					<hr>
 					<div class="row">
 						<div class="col-md-2"  >
-							<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 150px; width: 150px;">
+							<a href="StoreProductDetail.st?${plist[i].product_num }">
+								<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 150px; width: 150px;">
+							</a>	
 						</div>
 						<div class="col-md-7 " id="pname" >
 							<b>${plist[i].product_name }</b><br>
@@ -234,10 +236,10 @@ ul {
 							
 						
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-2"> <%--스토어 페이지로 이동 --%>
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
 							<c:if test="${plist[i].member_num eq slist[j].member_num }">
-								<a href="store.bo?${slist[j].store_num }">
+								<a href="StoreProductListAction.st?${slist[j].store_num }">
 									<img src="upload_profile/${slist[j].profile_img }" style="height: 70px; width: 70px;">
 								</a><br>
 								${slist[j].store_name }<br>
