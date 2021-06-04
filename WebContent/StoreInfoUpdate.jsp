@@ -165,8 +165,8 @@ input[type="text"]:focus {
 							<p>현재 사용중인 템플릿<br>
 							  <div class="col-md-9">
 								
-									<img alt="" src="template/${sdto.template}.jpg" name="template_o" id="template_o"> 
-									<img alt="" src="template/${sdto.template}-2.jpg" name="template2_o" id="template2_o"> 
+									<img alt="" src="template/${sdto.template}.png" name="template_o" id="template_o"> 
+									<img alt="" src="template/${sdto.template}-2.png" name="template2_o" id="template2_o"> 
 								
 							  </div>
 							</p>
@@ -182,8 +182,8 @@ input[type="text"]:focus {
 													<input hidden	type="radio" class="template" name="template" id="template" value="${tlist[i].template_num}"> ${tlist[i].template_name}
 											</div>
 														<div class="col-md-9">
-															<img alt="" src="template/${tlist[i].template_num}.jpg" >&nbsp;
-															<img alt="" src="template/${tlist[i].template_num}-2.jpg" >&nbsp;
+															<img alt="" src="template/${tlist[i].template_num}.png" >&nbsp;
+															<img alt="" src="template/${tlist[i].template_num}-2.png" >&nbsp;
 														<br>
 														</div>
 											   	</c:if>

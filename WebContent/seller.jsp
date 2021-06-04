@@ -68,8 +68,83 @@ input[type="text"]:focus {
 	position: relative;
 	top: 1px;
 }
-</style>
 
+.imgList {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+
+.modal {
+	display: none;
+	z-index: 500;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal button {
+	position: absolute;
+	top: 3rem;
+	right: 3rem;
+	background: transparent;
+	border: 0;
+	color: #ffffff;
+	font-size: 3rem;
+}
+
+.modalBox {
+	position: relative;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -20%);
+	background-color: #ffffff;
+	width: 70%;
+	height: auto%;
+	
+}
+
+.modalBox img {
+	width: 100%;
+	height: 100%
+}
+
+
+
+</style>
+<script type="text/javascript">
+$(function(){
+// 	이미지 클릭시 해당 이미지 모달
+	$(".imgC").click(function(){
+		$(".modal").show();
+		// 해당 이미지 가겨오기
+		var imgSrc = $(this).attr("src");
+		var imgAlt = $(this).attr("alt");
+		$(".modalBox img").attr("src", imgSrc);
+		$(".modalBox img").attr("alt", imgAlt);
+		
+	//.modal안에 button을 클릭하면 .modal닫기
+	$(".modal button").click(function(){
+		$(".modal").hide();
+	});
+	
+	//.modal밖에 클릭시 닫힘
+	$(".modal").click(function (e) {
+    if (e.target.className != "modal") {
+      return false;
+    } else {
+      $(".modal").hide();
+    }
+  });
+});
+});
+</script>
 </head>
 
 <body>
@@ -83,7 +158,7 @@ input[type="text"]:focus {
 				<div class="col-md-8 offset-2"  >
 					<div class="row">
 					<div class="product-name d-flex " style="background-color: : #22CC88; !important; text-align: center;"  >
-							<div class="col-md-12">회원 가입</div>
+							<div class="col-md-12">판매자 회원 가입</div>
 					</div>
 					</div>
 				</div>
@@ -138,9 +213,11 @@ input[type="text"]:focus {
 												<input type="radio" name="template" id="template"
 													value="${i}">template${i}
 											</div>
-											<div class="col-md-9">
-												<img alt="" src="template/${i}.jpg">&nbsp; 
-												<img alt="" src="template/${i}-2.jpg">&nbsp; 
+											<div class="col-md-9" >
+												<div class="imgList">
+												<img class="imgC" style="width: 200px; height: 200px;" alt="template" src="template/${i}.png">&nbsp; 
+												<img  class="imgC" style="width: 200px; height: 200px;"  alt="template-2" src="template/${i}-2.png">&nbsp; 
+												</div>
 											</div>
 										</div>
 										<c:if test="${i == 5 }">
@@ -156,6 +233,7 @@ input[type="text"]:focus {
 											Seller</button>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -163,6 +241,13 @@ input[type="text"]:focus {
 			</div>
 		</section>
 	</form>
+	<!-- 팝업 될 곳 -->
+	<div class="modal">
+		<button>&times;</button>
+		<div class="modalBox">
+			<img src="" alt="">
+		</div>
+	</div>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="js/seller.js"></script>
 </body>

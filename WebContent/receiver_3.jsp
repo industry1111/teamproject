@@ -86,8 +86,34 @@ tr:nth-child(even)
 }
 th
 {
-    background-color: #4CAF50;
+    background-color: #22CC88;
     color: white;
+}
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
 }
 </style>
 </head>
@@ -101,7 +127,14 @@ th
 			
 			</div>
 	</div>
-	<h6 align="center">배송지 목록</h6>
+		<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: #c5c5c5 !important; text-align: center; margin-top:15px;" >
+							<div class="col-md-12">배송지 등록/수정</div>
+					</div>
+				</div>
+			</div>
+		
 
 	<table align="center">
 	<tr>
@@ -125,7 +158,7 @@ th
 				<span id="addr3${i}">${list[i].receiver_addr3}</span>
 			</td>
 			<td id="receiver_phone${i}">${list[i].receiver_phone}</td>
-			<td><input type="button" value="선택" onclick="select_btn_onclick(${i});"/></td>
+			<td><input type="button" class="myButton" value="선택" onclick="select_btn_onclick(${i});"/></td>
 		<tr>
 	</c:if>
 	</c:forEach>
@@ -144,7 +177,7 @@ th
 				<span id="addr3${i}">${list[i].receiver_addr3}</span>
 			</td>
 			<td id="receiver_phone${i}">${list[i].receiver_phone}</td>
-			<td><input type="button" value="선택" onclick="select_btn_onclick(${i});"/></td>
+			<td><input type="button" class="myButton" value="선택" onclick="select_btn_onclick(${i});"/></td>
 		<tr>
 	</c:if>
 	</c:forEach>
@@ -153,7 +186,7 @@ th
 		
 			<div class="row" style="margin-left: 100px">
 				<div style="margin-right: 20px">
-					<input type="button" class="myButton" value="닫기" onclick="close_btn_onclick()">
+					<input type="button" class="myButton" value="닫기" onclick="close_btn_onclick()" style="margin-left: 170px; margin-top: 20px;">
 				</div>
 			</div>
 
