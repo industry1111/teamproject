@@ -134,6 +134,11 @@ ul {
 				<div  class="col-md-1 offset-2 category" align="left">중분류</div>
 					<div class="col-md-6 list">
 						<ul id="category2">
+							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
+								<c:if test="${clist[i].category_codeRef1 eq 10000 && clist[i].category_codeRef2 eq 0 }">
+									<li class='category2' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
+								</c:if>
+							</c:forEach>
 						</ul>
 						
 				</div>
@@ -142,6 +147,11 @@ ul {
 				<div class="col-md-1 offset-2 category" align="left" >소분류</div>
 					<div class="col-md-6 list">
 						<ul id="category3">
+							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
+								<c:if test="${clist[i].category_codeRef2 eq 10100 }">
+									<li class='category3' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
+								</c:if>
+							</c:forEach>
 						</ul>
 				</div>
 			</div>

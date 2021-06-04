@@ -201,6 +201,74 @@ $(function() {
 		$(this).css('color', '#627482');
 		$(this).attr('class', 'category2');
 		category_code2 = 0;
+		$.ajax({
+			type: "get",
+			url: contextPath + "/SelectList.do",
+			data: {
+				category_code1: category_code1,
+				category_code2: 0,
+				category_code3: 0,
+				brand: 0,
+				price1: 0,
+				price2: 0
+			},
+			dataType: "text",
+			success: function(data) {
+				var data1 = data.split("||");
+				
+				var obj1 = JSON.parse(data1[0]);
+				var obj2 = JSON.parse(data1[1]);
+				var obj3 = JSON.parse(data1[2]);
+				
+				
+				$("#product-list").html("");
+				for(var i=0;i<obj2.length;i++){
+					var regdate = formatDate(obj2[i].regdate);
+					
+					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					"<div class='row'>" +
+					"<div class='col-md-2'>" +
+						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
+					"</div>" +
+					"<div class='col-md-6'>" + obj2[i].product_name + "<br>" + obj2[i].product_description + "<br><br>";
+					
+					
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_coderef1 == obj3[j].category_code){
+					
+							html+= obj3[j].category_name  + ">";
+						}
+						
+						if(obj2[i].category_coderef2 == obj3[j].category_code){
+							html+= obj3[j].category_name  + ">";
+						}
+						
+						if(obj2[i].category_code1 == obj3[j].category_code){
+							html+= obj3[j].category_name +"<br>";
+						}
+					}
+
+					
+					html +=	"상품 가격 : "+obj2[i].product_price+"원 " +
+					"<br>"+
+					"리뷰수 : &nbsp; 구매건수 : &nbsp;"+
+					"등록일 : "+ regdate+ "&nbsp;"+
+					"<input type='button' value='찜하기'/> &nbsp;"+
+					"<input type='button' value='신고하기'/>"+
+					"</div>"+
+					"<div class='col-md-3'>" +
+					"<a href='store.bo?" + obj2[i].store_num + "'>" + 
+						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 100px; width:100px;'>" +
+					"</div>" +
+					"</a>" + obj2[i].store_name + "<br>" +
+						obj2[i].category_name + 
+					"</div>"+
+					"</div>";
+				
+					$("#product-list").append(html);
+				}
+			}
+		});
 	});
 	
 	
@@ -281,9 +349,77 @@ $(function() {
 	});
 	$(document).on("click", ".category3.allowed", function() {
 		$(this).css('background-color', 'white');
-		$(this).css('color', '#c5c5c5');
+		$(this).css('color', '#627482');
 		$(this).attr('class', 'category3');
 		category_code3 = 0;
+		$.ajax({
+			type: "get",
+			url: contextPath + "/SelectList.do",
+			data: {
+				category_code1: category_code1,
+				category_code2: category_code2,
+				category_code3: 0,
+				brand: 0,
+				price1: 0,
+				price2: 0
+			},
+			dataType: "text", 
+			success: function(data) {
+				var data1 = data.split("||");
+				var obj1 = JSON.parse(data1[0]);
+				var obj2 = JSON.parse(data1[1]);
+				var obj3 = JSON.parse(data1[2]);
+				
+				
+				$("#product-list").html("");
+				
+				for(var i=0;i<obj2.length;i++){
+					var regdate = formatDate(obj2[i].regdate);
+					
+					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					"<div class='row'>" +
+					"<div class='col-md-2'>" +
+						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
+					"</div>" +
+					"<div class='col-md-6'>" + obj2[i].product_name + "<br>" + obj2[i].product_description + "<br><br>";
+					
+					
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_coderef1 == obj3[j].category_code){
+					
+							html+= obj3[j].category_name  + ">";
+						}
+						
+						if(obj2[i].category_coderef2 == obj3[j].category_code){
+							html+= obj3[j].category_name  + ">";
+						}
+						
+						if(obj2[i].category_code1 == obj3[j].category_code){
+							html+= obj3[j].category_name +"<br>";
+						}
+					}
+
+					
+					html +=	"상품 가격 : "+obj2[i].product_price+"원 " +
+					"<br>"+
+					"리뷰수 : &nbsp; 구매건수 : &nbsp;"+
+					"등록일 : "+ regdate+ "&nbsp;"+
+					"<input type='button' value='찜하기'/> &nbsp;"+
+					"<input type='button' value='신고하기'/>"+
+					"</div>"+
+					"<div class='col-md-3'>" +
+					"<a href='store.bo?" + obj2[i].store_num + "'>" + 
+						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 100px; width:100px;'>" +
+					"</div>" +
+					"</a>" + obj2[i].store_name + "<br>" +
+						obj2[i].category_name + 
+					"</div>"+
+					"</div>";
+				
+					$("#product-list").append(html);
+				}
+			}
+		});
 	});
 	
 	
