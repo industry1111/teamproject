@@ -89,7 +89,7 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/RatingAction.bo")) { //상품 수정 페이지로 이동하는 서블릿
+		}else if(command.equals("/RatingAction.bo")) {
 			action = new RatingAction();
 			try {
 				forward = action.execute(request, response);

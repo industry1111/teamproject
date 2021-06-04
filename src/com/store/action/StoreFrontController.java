@@ -1,4 +1,4 @@
-package com.product.action;
+package com.store.action;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import com.board.action.OrderList;
 import action.Action;
 import action.ActionForward;
 
-public class ProductFrontController extends HttpServlet {
+public class StoreFrontController extends HttpServlet { //스토어 및 상품상세페이지로 이동 프론트컨트롤러입니다.
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,10 +37,10 @@ public class ProductFrontController extends HttpServlet {
 		ActionForward forward = null;
 		Action action = null;
 
-		if (command.equals("/ProductListAction.pr")) // 상품 리스트 페이지로 이동하는 서블릿
+		if (command.equals("/StoreProductListAction.st")) // main에서 선택한 플로필 이미지을 통해 해당 스토어로 이동
 		{
 
-			action = new ProductListAction();
+			action = new StoreProductListAction();
 			try {
 				forward = action.execute(request, response);
 
@@ -48,51 +48,15 @@ public class ProductFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/ProductAdd.pr")) { // 상품 등록 페이지로 이동
-			action = new ProductAdd();
+		} else if (command.equals("/StoreProductDetail.st")) { // main에서 선택한 상품 이미지를 통해 해당 상품 상세보기로 이동
+			action = new StoreProductDetail();
 			try {
 				forward = action.execute(request, response);
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
-		} else if (command.equals("/ProductAddAction.pr")) { // 상품 등록 액션
-			action = new ProductAddAction();
-
-			try {
-				forward = action.execute(request, response);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/ProductModify.pr")) { // 수정할 상품 정보를 받아옴.
-			action = new ProductModify();
-			try {
-				forward = action.execute(request, response);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		} else if (command.equals("/ProductModifyAction.pr")) { // 상품 수정 액션
-			action = new ProductModifyAction();
-			try {
-				forward = action.execute(request, response);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		} else if (command.equals("/ProductDelete.pr")) { // 등록된 상품 삭제 액션
-			action = new ProductDelete();
-			try {
-
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		}
+		} 
 		if (forward != null) {
 			if (forward.isRedirect()) {// true -> sendRedirect()
 

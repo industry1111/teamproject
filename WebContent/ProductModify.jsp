@@ -47,7 +47,7 @@ color: #595959;
 
 	<div class="jumbotron" >
 		<div class="container" >
-			<h1 class="display-3">상품 정보 수정${pdto.product_num }</h1>
+			<h1 class="display-3">상품 정보 수정</h1>
 		</div>
 	</div>
 	<form name="newProduct" action="ProductModifyAction.pr"

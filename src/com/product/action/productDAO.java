@@ -106,7 +106,7 @@ public class productDAO {
 	}
 	
 	
-	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정하는 서블릿
+	public void updateProduct(productDTO pdto) {//선택한 상품정보를 수정
 		try {
 		getCon();
 
