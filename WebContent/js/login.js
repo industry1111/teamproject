@@ -35,10 +35,14 @@ $(function() {
 		if(!pwReg.test(pw)){
 			$("#pw_check").text("대소문자,숫자 및 특수 문자를 조합해 8~20자 이내로 작성해 주세요 ");
 			$("#pw_check2").text("");
+			$("#pw_confirm_check2").text("");	
+			$("#pw_confirm_check").text("");
 			pw_check = 0;
 		}else{
 			$("#pw_check2").text("사용가능한 비밀번호 입니다.");
 			$("#pw_check").text("");
+			$("#pw_confirm_check2").text("");	
+			$("#pw_confirm_check").text("");
 			pw_check = 1;
 		}
 	});
@@ -49,10 +53,14 @@ $(function() {
 			if(pw == pw_confirm){
 				$("#pw_confirm_check2").text("비밀번호 값이 일치 합니다.");	
 				$("#pw_confirm_check").text("");
+				$("#pw_check2").text("");
+				$("#pw_check").text("");
 				pw_confirm_check = 1;
 			}else{
 				$("#pw_confirm_check").text("비밀번호값이 서로 다릅니다.");
 				$("#pw_confirm_check2").text("");
+				$("#pw_check2").text("");
+				$("#pw_check").text("");
 				pw_confirm_check = 0;
 			}
 		}

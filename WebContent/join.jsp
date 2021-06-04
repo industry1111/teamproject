@@ -104,7 +104,6 @@ input[type="text"]:focus {
 			<div class="row justify-content-center">
 				<div class="col-md-6 offset-2">
 					<div class="login-wrap">
-						
 						<form action="./MemberJoinAction.me" class="signup-form">
 							<div class="row">
 								<div class="col-md-8">
@@ -114,6 +113,8 @@ input[type="text"]:focus {
                                     	<span id="name_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="r_id" name="id" type="text" class="form-control" placeholder="ID" maxlength="20">
@@ -121,22 +122,27 @@ input[type="text"]:focus {
                                     	<span id="id_check2" class="check2"></span>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group mb-4">
+							</div>
+							<div class="row">
+								<div class="col-md-3">
 										<input id="r_pw" name="pw" required="required" type="password" class="form-control"
-											placeholder="Password">
-										<span id="pw_check" class="check"></span>
-	                                    <span id="pw_check2" class="check2"></span>
-									</div>
+											placeholder="Password" style="width: 200px;">
 								</div>
-								<div class="col-md-6">
-									<div class="form-group mb-4">
+							
+								<div class="col-md-4">
 										<input id="pw_confirm" name="pw_confirm" required="required" type="password" class="form-control"
-											placeholder="Confirm Password">
-	                                    <span id="pw_confirm_check" class="check"></span>
-	                                    <span id="pw_confirm_check2" class="check2"></span>
-									</div>
+											placeholder="Confirm Password" style="width: 200px;">
 								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<span id="pw_check" class="check"></span>
+		                            <span id="pw_check2" class="check2"></span>
+	                            	<span id="pw_confirm_check" class="check"></span>
+	                                <span id="pw_confirm_check2" class="check2"></span>
+                                </div>
+							</div>
+							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="email" name="email" type="text" required="required" class="form-control" placeholder="Email">
@@ -144,6 +150,8 @@ input[type="text"]:focus {
 	                                    <span id="email_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
 <!-- 								<div class="col-md-4"> -->
 <!--                                     <input type="button" id="email_cf_btn" value="인증 " class="btn btn-primary rounded submit p-3"> -->
 <!--                                   </div> -->
@@ -159,6 +167,8 @@ input[type="text"]:focus {
 <!-- 								<div class="col-md-4"> -->
 <!-- 									<input style="size: 30%" type="button" id="cf_num_btn" value="확인" class="btn btn-primary rounded submit p-3"><br> -->
 <!-- 								</div> -->
+							</div>
+							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group mb-4">
 										<input id="phone" name="phone" required="required" type="tel"
@@ -167,23 +177,28 @@ input[type="text"]:focus {
 											id="phone_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-5">
 									<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
 								</div>
 								<div class="col-md-7">
 									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-8">
 									<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
 									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group d-flex">
 										<button type="submit"
 											class="myButton">Sign Up</button>
 									</div>
 								</div>
-								
 							</div>
 						</form>
 					</div>

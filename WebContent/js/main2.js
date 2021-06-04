@@ -460,15 +460,14 @@ $(function() {
 		});
 	});
 	
-	
-	//autocomplete
+		//autocomplete
 	$("#searchBox").autocomplete({
             source : function( request, response ) {
                  $.ajax({
                         type: 'get',
                         url: contextPath+"/searchBox",
                         dataType: "text",
-                        data: {"searchBox":"asd"},
+                        data: {"searchBox":$("#searchBox").val()},
                         success: function(data) {
                         	var obj = JSON.parse(data);
                             response(

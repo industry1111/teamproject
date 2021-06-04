@@ -32,8 +32,8 @@ public class searchBox extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		
 		String searchBox = request.getParameter("searchBox");
+		System.out.println(searchBox);
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory();
 
