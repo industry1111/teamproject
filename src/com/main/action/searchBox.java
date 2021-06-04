@@ -39,6 +39,7 @@ public class searchBox extends HttpServlet {
 		List<searchDTO> searchlist = bdao.getSearchString(searchBox);
 
 		String json = "[";
+		
 		for (int i = 0; i <7; i++) {
 			
 			searchDTO searchdto = (searchDTO) searchlist.get(i);
