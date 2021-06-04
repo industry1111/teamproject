@@ -1,7 +1,5 @@
 package com.order.action;
 
-import java.util.List;
-
 public class OrderDetailDTO {
     
     private int quantity;

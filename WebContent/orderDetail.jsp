@@ -74,9 +74,14 @@
 									style="width: 100px; height: 100px;">
 								</a>
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								
-									상품 : ${list[i].product_name}
 									
+									상품 : ${list[i].product_name}
+									<c:forEach var="j" begin="0" step="1" end="${slist.size()-1}">
+										<c:if test="${list[i].store_num eq slist[j].store_num}">
+											&nbsp;&nbsp;&nbsp;&nbsp; 스토어 :	${slist[j].store_name}
+										</c:if>
+									</c:forEach>
+									 
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
@@ -93,14 +98,48 @@
 									<span class="total_price">${list[i].quantity * list[i].product_price}원</span>
 								</div>
 							</div>
-							
+							<div class="one-eight text-center">
+								<div class="display-tc">
+								<c:forEach var="i" begin="0" step="1" end="${mlist.size()-1}">
+									<c:if test="${mlist[i].state==0}">입금완료</c:if>
+									<c:if test="${mlist[i].state==1}">주문접수</c:if>
+									<c:if test="${mlist[i].state==2}">배송준비중</c:if>
+									<c:if test="${mlist[i].state==3}">배송중</c:if>
+									<c:if test="${mlist[i].state==4}">배송완료</c:if>
+									<c:if test="${mlist[i].state==5}">주문취소</c:if>
+									<c:if test="${mlist[i].state==6}">반품처리중</c:if>
+									<c:if test="${mlist[i].state==7}">반품접수</c:if>
+									<c:if test="${mlist[i].state==8}">반품승인</c:if>
+									<c:if test="${mlist[i].state==9}">환불완료</c:if>
+									<c:if test="${mlist[i].state==10}">교환신청</c:if>
+								</c:forEach>
+								</div>
+							</div>
 						</div>
 					
 					</c:forEach>
 				</div>
 			</div>
 		</div>
+		<c:forEach var="i" begin="0" step="1" end="${mlist.size()-1}">
+			총 금액 : ${mlist[i].total_price}원
+		<hr>
+		<div>
+			<h4> 배송지</h4>
+		</div>
+		
+			<br>
+			수령인 :  ${mlist[i].receiver_name} <br>
+			배송지명: ${mlist[i].address_name}
+			배송지 <br>
+			우편번호 : (${mlist[i].receiver_addr1}) <br>
+			주소 : ${mlist[i].receiver_addr2} <br>
+			상세 주소 : ${mlist[i].receiver_addr3} <br>
+		</c:forEach>
+		
 	</div>
+	
+	
 	<!-- 	</div> -->
 	<!-- popper -->
 	<script src="js/popper.min.js"></script>

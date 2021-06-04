@@ -168,7 +168,7 @@ public class OrderDAO {
 
     }
     
-    //주문내역
+    //멤버 주문내역
     public List<OrderDTO> getOrderInfo(int member_num){
     	
     	
@@ -178,6 +178,7 @@ public class OrderDAO {
 			getCon();
 			
 			String sql = "select * from orders where member_num=?";
+			sql +=" order by regdate desc";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, member_num);
@@ -195,7 +196,7 @@ public class OrderDAO {
 				odto.setReceiver_addr2(rs.getString("receiver_addr2"));
 				odto.setReceiver_addr3(rs.getString("receiver_addr3"));
 				odto.setReceiver_msg(rs.getString("receiver_msg"));
-				odto.setReceiver_name(rs.getString("receiver_phone"));
+				odto.setReceiver_name(rs.getString("receiver_name"));
 				odto.setReceiver_phone(rs.getString("receiver_phone"));
 				odto.setOrder_num(rs.getInt("order_num"));
 				odto.setMain_product_image(rs.getString("main_product_image"));
@@ -234,11 +235,11 @@ public class OrderDAO {
 			pstmt.setString(1, orders_code);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				System.out.println("1");
+				
 				OrderDetailDTO dto = new OrderDetailDTO();
 				
 				dto.setOrders_code(rs.getString("orders_code"));
-				System.out.println(rs.getString("orders_code"));
+				
 				dto.setProduct_name(rs.getString("product_name"));
 				dto.setImage(rs.getString("image"));
 				dto.setProduct_num(rs.getInt("product_num"));
@@ -249,7 +250,7 @@ public class OrderDAO {
 				list.add(dto);
 				
 			}
-			System.out.println("list사이즈 "+list.size());
+			
     		
 		} catch (Exception e) {
 		
@@ -262,6 +263,57 @@ public class OrderDAO {
     	return list;
     	
     }//getOrderDetail
+    
+public List<OrderDTO> getOrder(String orders_code){
+        
+        
+        List<OrderDTO> list = new ArrayList<OrderDTO>();
+        
+        try {
+            getCon();
+            
+            String sql = "select * from orders where orders_code=?";
+            
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, orders_code);
+            rs = pstmt.executeQuery();
+            
+            while(rs.next()){
+                
+                OrderDTO odto = new OrderDTO();
+                odto.setTotal_price(rs.getInt("total_price"));
+                odto.setState(rs.getString("state"));
+                odto.setOrders_code(rs.getString("orders_code"));
+                odto.setRegdate(rs.getTimestamp("regdate"));
+                odto.setAddress_name(rs.getString("address_name"));
+                odto.setReceiver_addr1(rs.getString("receiver_addr1"));
+                odto.setReceiver_addr2(rs.getString("receiver_addr2"));
+                odto.setReceiver_addr3(rs.getString("receiver_addr3"));
+                odto.setReceiver_msg(rs.getString("receiver_msg"));
+                odto.setReceiver_name(rs.getString("receiver_name"));
+                odto.setReceiver_phone(rs.getString("receiver_phone"));
+                odto.setOrder_num(rs.getInt("order_num"));
+                odto.setMain_product_image(rs.getString("main_product_image"));
+                odto.setMain_product_name(rs.getString("main_product_name"));
+                odto.setCount(rs.getInt("count"));
+                
+
+                list.add(odto);
+            }
+            
+            
+            
+        } catch (Exception e) {
+            
+            System.out.println("getOrderInfo:" + e.toString());
+            
+        }finally {
+            ResouceClose();
+        }
+        
+        
+        return list;
+    }//주문내역 
     
   
 }
