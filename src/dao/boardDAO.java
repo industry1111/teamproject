@@ -111,15 +111,15 @@ public class boardDAO {
 	}
 
 	// 장바구니 삭제
-	public void deleteBasket(int product_num) {
+	public void deleteBasket(int basket_num) {
 
 		try {
 
 			getCon();
 
-			String sql = "delete basket from basket where product_num = ?";
+			String sql = "delete basket from basket where basket_num = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, product_num);
+			pstmt.setInt(1, basket_num);
 			pstmt.executeUpdate();
 
 		} catch (Exception e) {

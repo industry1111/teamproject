@@ -43,7 +43,7 @@ $(function() {
 
 	$("#delete_btn").on("click",function(){
 		
-		var product_num = $("#product_num").val();
+		var basket_num = $("#basket_num").val();
 		if(confirm("삭제하시겠습니까?")){
 			
 			$.ajax({
@@ -51,7 +51,7 @@ $(function() {
 				type:"post",
 				async:true,
 				url : contextPath + "/BasketDeleteAction",
-				data : {product_num : product_num} ,
+				data : {basket_num : basket_num} ,
 				success : function () {
 					location.reload();
 				}

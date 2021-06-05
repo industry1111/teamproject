@@ -25,9 +25,9 @@ public class BasketDeleteAction extends HttpServlet {
 	    System.out.println("dd");
 		request.setCharacterEncoding("utf-8");
 	
-		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		int basket_num = Integer.parseInt(request.getParameter("basket_num"));
 	    
-	    new boardDAO().deleteBasket(product_num);
+	    new boardDAO().deleteBasket(basket_num);
 	    
 	}
 

@@ -122,10 +122,10 @@
 			</div>
 		</div>
 		<c:forEach var="i" begin="0" step="1" end="${mlist.size()-1}">
-			총 금액 : ${mlist[i].total_price}원
+			<div align="right" style="margin-right: 100">결제 금액 : ${mlist[i].total_price}원</div>
 		<hr>
-		<div>
-			<h4> 배송지</h4>
+		<div align="left">
+			<h4>배송지 정보</h4>
 		</div>
 		
 			<br>
@@ -135,6 +135,7 @@
 			우편번호 : (${mlist[i].receiver_addr1}) <br>
 			주소 : ${mlist[i].receiver_addr2} <br>
 			상세 주소 : ${mlist[i].receiver_addr3} <br>
+			배송 메모 : ${mlist[i].receiver_msg}
 		</c:forEach>
 		
 	</div>
