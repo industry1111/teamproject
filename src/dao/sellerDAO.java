@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -58,6 +60,7 @@ public class sellerDAO {
 				sdto.setAccount(rs.getString("account"));
 				sdto.setCategory_num(rs.getInt("category_num"));
 				sdto.setMember_num(rs.getInt("member_num"));
+				sdto.setMember_num(rs.getInt("store_num"));
 				sdto.setStore_name(rs.getString("store_name"));
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
@@ -70,8 +73,6 @@ public class sellerDAO {
 		}
 
 		return sdto;
-		
-		
 	}
 	// 로그인 아이디 비밀번호 확인
 	public int userCheck(String id, String pw) {
@@ -164,9 +165,10 @@ public class sellerDAO {
 		public int updateStore_c_num(int store_c_num, int member_num) {
 			try {
 				getCon();
-				String sql = "update seller set store_c_num=? where member_num = ?";
+				String sql = "update seller set category_num=? where member_num = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, store_c_num);
+				pstmt.setInt(2, member_num);
 				pstmt.executeUpdate();
 			} catch (Exception e) {
 				System.out.println("updateStore_c_num" + e.toString());
@@ -222,8 +224,34 @@ public class sellerDAO {
 				ResouceClose();
 			}
 		}
-		
+	
+		public List<sellerDTO> getSellerInfo(){
+			List<sellerDTO> list = new ArrayList<sellerDTO>();
+			try {
+				getCon();
+				String sql = "select * from seller";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
 
+				while (rs.next()) {
+					sellerDTO sdto = new sellerDTO();
+					sdto.setAccount(rs.getString("account"));
+					sdto.setCategory_num(rs.getInt("category_num"));
+					sdto.setMember_num(rs.getInt("member_num"));
+					sdto.setStore_name(rs.getString("store_name"));
+					sdto.setProfile_img(rs.getString("profile_img"));
+					sdto.setTemplate(rs.getString("template"));
+					sdto.setMember_num(rs.getInt("member_num"));
+					list.add(sdto);
+				}
+			} catch (Exception e) {
+				System.out.println("getSellerInfo:" + e.toString());
+			} finally {
+				ResouceClose();
+			}
+
+			return list;
+		}
 
 	
 	
