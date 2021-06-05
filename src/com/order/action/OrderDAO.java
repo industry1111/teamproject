@@ -53,9 +53,9 @@ public class OrderDAO {
             getCon();
 
             String sql = "insert into orders (member_num, total_price, pay_method, state, regdate, orders_code,"
-                    + "receiver_addr1, receiver_addr2, receiver_addr3, receiver_name, receiver_phone, address_name, main_product_image,"
+                    + "receiver_addr1, receiver_addr2, receiver_addr3, receiver_name, receiver_phone, address_name, receiver_msg,main_product_image,"
                     + "main_product_name, count)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, dto.getMember_num());
@@ -70,9 +70,10 @@ public class OrderDAO {
             pstmt.setString(10, dto.getReceiver_name());
             pstmt.setString(11, dto.getReceiver_phone());
             pstmt.setString(12, dto.getAddress_name());
-            pstmt.setString(13, dto.getMain_product_image());
-            pstmt.setString(14, dto.getMain_product_name());
-            pstmt.setInt(15, dto.getCount());
+            pstmt.setString(13, dto.getReceiver_msg());
+            pstmt.setString(14, dto.getMain_product_image());
+            pstmt.setString(15, dto.getMain_product_name());
+            pstmt.setInt(16, dto.getCount());
 
             result = pstmt.executeUpdate();
             

@@ -75,7 +75,6 @@ function order_btn_click() {
 
 </script>
 
-</script>	
 </head>
 	<body>
 <!-- 	<div id="page"> -->
@@ -138,7 +137,7 @@ function order_btn_click() {
 								<div class="one-eight text-center">
 									<div class="display-tc">
 										<a href="#" class="closed" id="delete_btn">
-											<input type="hidden" name="product_num" id="product_num" value="${list[i].product_num}" />
+											<input type="hidden" name="basket_num" id="basket_num" value="${list[i].basket_num}" />
 										</a>
 									</div>
 								</div>
