@@ -18,9 +18,6 @@ public class AdminServiceAction implements Action{
 		
 		 ActionForward forward = new ActionForward();
 
-		 List<reviewDTO> list = new ReviewDAO().getReviewsList();
-		 	
-		 	request.setAttribute("list", list);
 	        forward.setRedirect(false);
 	        forward.setPath("AdminService.ad");
 	        

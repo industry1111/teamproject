@@ -61,7 +61,7 @@ public class MemberLoginAction implements Action{
 		System.out.println(id);
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
-		if(id.equals("wlals")){
+		if(id.equals("gudrb2640")){
 			forward.setRedirect(false);
 			forward.setPath("/AdminMain.ad");
 		}else{

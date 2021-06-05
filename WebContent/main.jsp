@@ -198,9 +198,14 @@ ul {
 				</div>
 			</div>
 			<div class="row" id="product-list" style="margin-top: 10px;">
+				<c:set var="loop" value="true"/>
 				<c:if test="${plist.size() > 0 }">
-				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
-				<div class="col-md-7 offset-2" >
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+					<c:if test="${p.total == i }">
+						<c:set var="loop" value="false"/>
+					</c:if>
+					<c:if test="${loop }">
+					<div class="col-md-7 offset-2" >
 					<hr>
 					<div class="row">
 						<div class="col-md-2"  >
@@ -263,6 +268,7 @@ ul {
 						</div>
 					</div>
 				</div>
+				</c:if>
 				</c:forEach>
 				</c:if>
 			</div>
@@ -274,19 +280,22 @@ ul {
 			<div class="row">
 				<div class="col-md-6 offset-4 paging" style="height: 120px;">
  					<ul class="pagination">
-					 	<li class="page-item previous">
-					 	 	<a class="page-link" href="#">Prev</a>
-					 	</li>
-						 <li class="page-item">
-			                <a class="page-link" href="#">1</a>
-			            </li>
-			             <li class="page-item">
-			                <a class="page-link" href="#">2</a>
-			            </li>
-			             <li class="page-item">
-			                <a class="page-link" href="#">3</a>
-			            </li>
-					 </ul>
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" href="Main.main?page=true&nowPage=${p.startPage-1 }">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="Main.main?page=true&nowPage=${num }">${num }</a>
+				            </li>
+				        </c:forEach>
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" href="Main.main?page=true&nowPage=${p.endPage + 1 }">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
 				</div>
 			</div>
 		</div>

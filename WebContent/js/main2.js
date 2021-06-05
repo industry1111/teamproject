@@ -20,7 +20,6 @@ $(function() {
 	}
 
 	
-	
 
 	$(document).on("click", ".category1", function() {
 		
@@ -59,7 +58,7 @@ $(function() {
 					$("#category2").append("<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
 				}
 				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
-					if(p.total == i){
+					if(p[0].total == i){
 						break;
 					}
 					var regdate = formatDate(obj2[i].regdate);
@@ -107,32 +106,33 @@ $(function() {
 				}
 					
 					html = "";
-					if(p.prev){
+					if(p[0].prev){
 						html = "<li class='page-item previous'>" +
-						"<a class='page-link' href='#'>Previous</a> </li>";
+						"<a class='page-link' onclick='paging("+p[0].startPage +");'>Previous</a> </li>";
 					}
 					console.log(p[0].nowPage);
 					for(var i=p[0].startPage;i<=p[0].endPage;i++){
 						html += "<li class='page-item'>" ;
 						if(p[0].nowPage == i){
-						html +=	"<a class='page-link' style='color:red;border-color:black' href='#'>";
+						html +=	"<a class='page-link' style='color:red;border-color:black'onclick='paging(1);'>";
 						}else{
-						html +=	"<a class='page-link' href='#'>";
+						html +=	"<a class='page-link' onclick='paging("+i+");'>";
 						}
 						html += i + "</a>"
 						+ "</li>";
 					}
 					console.log(html);
-					if(p.next){
+					if(p[0].next){
 						html += "<li class='page-item next'>" +
-						"<a class='page-link' href='#'>Next</a> </li>";
+						"<a class='page-link' onclick='paging("+p[0].endPage +")'>Next</a> </li>";
 					}
 					console.log(html);
 					$(".pagination").append(html);
 			}
 		});
 	});
-
+	
+	
 	$(document).on("click", ".category1.allowed", function() {
 		$(this).css('background-color', 'white');
 		$(this).css('color', '#627482'); 
@@ -654,6 +654,108 @@ $(function() {
                 console.log(event);
             }
         });
-	
-	
+		paging = function(nowpage){
+		$.ajax({
+			type: "get",
+			url: contextPath + "/SelectList.do",
+			data: {
+				category_code1: category_code1,
+				category_code2: category_code2,
+				category_code3: category_code3,
+				brand: brand,
+				price1: price1,
+				price2: price2,
+				page:true,
+				nowPage: nowpage
+			},
+			dataType: "text",
+			success: function(data) {
+				var data1 = data.split("||");
+				
+				var obj1 = JSON.parse(data1[0]);
+				var obj2 = JSON.parse(data1[1]);
+				var obj3 = JSON.parse(data1[2]);
+				var p= JSON.parse(data1[3]);
+				console.log(p);
+				$("#product-list").html("");
+				$("#category2").html("");
+				$("#category3").html("");
+				$(".pagination").html("");
+				for (var i=0;i<obj1.length;i++) {
+					$("#category2").append("<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
+				}
+				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
+					if(p[0].total == i){
+						break;
+					}
+					var regdate = formatDate(obj2[i].regdate);
+					
+					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					"<div class='row'>" +
+					"<div class='col-md-2'>" +
+						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
+					"</div>" +
+					"<div class='col-md-6'>" + obj2[i].product_name + "<br>" + obj2[i].product_description + "<br><br>";
+					
+					
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_coderef1 == obj3[j].category_code){
+					
+							html+= obj3[j].category_name  + ">";
+						}
+						
+						if(obj2[i].category_coderef2 == obj3[j].category_code){
+							html+= obj3[j].category_name  + ">";
+						}
+						
+						if(obj2[i].category_code1 == obj3[j].category_code){
+							html+= obj3[j].category_name +"<br>";
+						}
+					}
+
+					
+					html +=	"상품 가격 : "+obj2[i].product_price+"원 " +
+					"<br>"+
+					"리뷰수 : &nbsp; 구매건수 : &nbsp;"+
+					"등록일 : "+ regdate+ "&nbsp;"+
+					"<input type='button' value='찜하기'/> &nbsp;"+
+					"<input type='button' value='신고하기'/>"+
+					"</div>"+
+					"<div class='col-md-3'>" +
+					"<a href='store.bo?" + obj2[i].store_num + "'>" + 
+						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 100px; width:100px;'>" +
+					"</div>" +
+					"</a>" + obj2[i].store_name + "<br>" +
+						obj2[i].category_name + 
+					"</div>"+
+					"</div>";
+					$("#product-list").append(html);
+				}
+					
+					html = "";
+					if(p[0].prev == true){
+						html = "<li class='page-item previous'>" +
+						"<a class='page-link' href='#'>Previous1</a> </li>";
+					}
+					console.log(p[0].nowPage);
+					for(var i=p[0].startPage;i<=p[0].endPage;i++){
+						html += "<li class='page-item'>" ;
+						if(p[0].nowPage == i){
+						html +=	"<a class='page-link' style='color:red;border-color:black'>";
+						}else{
+						html +=	"<a class='page-link'>";
+						}
+						html += i + "</a>"
+						+ "</li>";
+					}
+					if(p[0].next == true){
+						html += "<li class='page-item next'>" +
+						"<a class='page-link' href='#'>Next</a> </li>";
+					}
+					$(".pagination").append(html);
+			}
+		});
+	}
+
 });
+	
