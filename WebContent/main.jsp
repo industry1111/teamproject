@@ -135,7 +135,7 @@ ul {
 					<div class="col-md-6 list">
 						<ul id="category2">
 							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
-								<c:if test="${clist[i].category_codeRef1 eq 10000 && clist[i].category_codeRef2 eq 0 }">
+								<c:if test="${clist[i].category_codeRef1 ne  0 && clist[i].category_codeRef2 eq 0 }">
 									<li class='category2' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
 								</c:if>
 							</c:forEach>
@@ -148,7 +148,7 @@ ul {
 					<div class="col-md-6 list">
 						<ul id="category3">
 							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
-								<c:if test="${clist[i].category_codeRef2 eq 10100 }">
+								<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 ne 0 }">
 									<li class='category3' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
 								</c:if>
 							</c:forEach>
@@ -282,17 +282,17 @@ ul {
  					<ul class="pagination">
        					<c:if test="${p.prev }">
            					 <li class="page-item previous">
-              					  <a class="page-link" href="Main.main?page=true&nowPage=${p.startPage-1 }">Previous</a>
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
            					 </li>
         				</c:if>
 				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
 				            <li class="page-item">
-				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="Main.main?page=true&nowPage=${num }">${num }</a>
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} onclick="paging(${num});" >${num }</a>
 				            </li>
 				        </c:forEach>
 				        <c:if test="${p.next }">
 				            <li class="page-item next">
-				                <a class="page-link" href="Main.main?page=true&nowPage=${p.endPage + 1 }">Next</a>
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
 				            </li>
 				        </c:if>
    					 </ul>

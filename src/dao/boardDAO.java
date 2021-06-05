@@ -339,7 +339,7 @@ public class boardDAO {
 			if (category_code1 != 0) {
 				sql += " where category_coderef1=" + category_code1 + " and category_coderef2 is null";
 			} else {
-				sql += " where category_coderef2 is null";
+				sql += " where category_coderef1 is not null and category_coderef2 is null";
 			}
 		} else {
 			sql += " where category_coderef2=" + category_code2;

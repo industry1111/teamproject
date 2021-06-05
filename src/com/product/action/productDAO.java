@@ -213,6 +213,7 @@ public class productDAO {
 					+ " from product p join category c on p.category_name = c.category_name "
 					+ " join seller s on s.member_num = p.member_num";
 					
+			
 
 			if(category_code3 == 0) {
 				if(category_code2 == 0) {
@@ -220,10 +221,10 @@ public class productDAO {
 						sql += " where category_coderef1 = "+category_code1;
 					}
 				}else{
-					sql += " where category_coderef1 = "+category_code1 + " and category_coderef2 = "+category_code2;
+					sql += " where category_coderef2 = "+category_code2;
 				}
 			}else{
-				sql += " where category_coderef1 = "+category_code1 + " and category_coderef2 = "+category_code2 + " and category_code = "+category_code3;
+				sql += " where category_code = "+category_code3;
 			}
 			
 			if(price != null){
