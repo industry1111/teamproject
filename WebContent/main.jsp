@@ -266,12 +266,29 @@ ul {
 				</c:forEach>
 				</c:if>
 			</div>
-			<div class="row">
-				<div class="col-md-7 offset-2" style="height: 120px;" align="center">
-					<hr>
-					페이징
+			<div class="row" >
+				<div class="col-md-7 offset-2">
+						<hr>
 				</div>
 			</div>
-	</div>
+			<div class="row">
+				<div class="col-md-6 offset-4 paging" style="height: 120px;">
+ 					<ul class="pagination">
+					 	<li class="page-item previous">
+					 	 	<a class="page-link" href="#">Prev</a>
+					 	</li>
+						 <li class="page-item">
+			                <a class="page-link" href="#">1</a>
+			            </li>
+			             <li class="page-item">
+			                <a class="page-link" href="#">2</a>
+			            </li>
+			             <li class="page-item">
+			                <a class="page-link" href="#">3</a>
+			            </li>
+					 </ul>
+				</div>
+			</div>
+		</div>
 </body>
 </html>

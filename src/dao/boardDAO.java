@@ -332,8 +332,6 @@ public class boardDAO {
 	}
 
 	public List<categoryDTO> getcategory(int category_code1, int category_code2) {
-		System.out.println("category_code1:" + category_code1);
-		System.out.println("category_code2:" + category_code2);
 		List<categoryDTO> list = new ArrayList<categoryDTO>();
 		String sql = "select * from category";
 
@@ -346,7 +344,6 @@ public class boardDAO {
 		} else {
 			sql += " where category_coderef2=" + category_code2;
 		}
-		System.out.println(sql);
 		try {
 			getCon();
 			pstmt = con.prepareStatement(sql);

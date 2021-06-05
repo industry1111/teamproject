@@ -2,7 +2,7 @@ $(function() {
 	var category_code1 = 0;
 	var category_code2 = 0;
 	var category_code3 = 0;
-	var brand = 0;
+	var brand = null;
 	var price = null;
 	var price1 = null;
 	var price2 = null;
@@ -49,15 +49,19 @@ $(function() {
 				var obj1 = JSON.parse(data1[0]);
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
-				
-				
+				var p= JSON.parse(data1[3]);
+				console.log(p);
 				$("#product-list").html("");
 				$("#category2").html("");
 				$("#category3").html("");
+				$(".pagination").html("");
 				for (var i=0;i<obj1.length;i++) {
 					$("#category2").append("<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
 				}
-				for(var i=0;i<obj2.length;i++){
+				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
+					if(p.total == i){
+						break;
+					}
 					var regdate = formatDate(obj2[i].regdate);
 					
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
@@ -99,9 +103,32 @@ $(function() {
 						obj2[i].category_name + 
 					"</div>"+
 					"</div>";
-				
 					$("#product-list").append(html);
 				}
+					
+					html = "";
+					if(p.prev){
+						html = "<li class='page-item previous'>" +
+						"<a class='page-link' href='#'>Previous</a> </li>";
+					}
+					console.log(p[0].nowPage);
+					for(var i=p[0].startPage;i<=p[0].endPage;i++){
+						html += "<li class='page-item'>" ;
+						if(p[0].nowPage == i){
+						html +=	"<a class='page-link' style='color:red;border-color:black' href='#'>";
+						}else{
+						html +=	"<a class='page-link' href='#'>";
+						}
+						html += i + "</a>"
+						+ "</li>";
+					}
+					console.log(html);
+					if(p.next){
+						html += "<li class='page-item next'>" +
+						"<a class='page-link' href='#'>Next</a> </li>";
+					}
+					console.log(html);
+					$(".pagination").append(html);
 			}
 		});
 	});

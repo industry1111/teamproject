@@ -252,7 +252,6 @@ public class productDAO {
 			}
 			
 			
-			System.out.println("sort!!!!!"+sort);
 			try {
 				getCon();
 		
