@@ -1,4 +1,4 @@
-package com.board.action;
+package com.receiver.action;
 
 import java.util.List;
 

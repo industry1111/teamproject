@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.receiver.action.ReceiverDelete;
+import com.receiver.action.ReceiverInfo;
+import com.receiver.action.ReceiverList;
+
 import action.Action;
 import action.ActionForward;
 
@@ -62,13 +66,6 @@ public class BoardFrontController extends HttpServlet {
 			try {
 				forward = action.execute(request, response);
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if(command.equals("/receiver.bo")) {
-			action = new ReceiverList();
-			try {
-				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -135,36 +132,6 @@ public class BoardFrontController extends HttpServlet {
 			}	
 		
 		
-		}else if (command.equals("/receiver_2.bo")) {
-			
-			action = new ReceiverInfo();
-			try {
-	
-				forward = action.execute(request, response);
-	
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if (command.equals("/receiver_3.bo")) {
-			
-			action = new OrderReceiverInfo();
-			try {
-	
-				forward = action.execute(request, response);
-	
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}else if (command.equals("/ReceiverDelete.bo")) {
-			
-			action = new ReceiverDelete();
-			try {
-	
-				forward = action.execute(request, response);
-	
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}else if (command.equals("/StoreChart.bo")) {
 			forward = new ActionForward();
 			forward.setPath("mypage.jsp");

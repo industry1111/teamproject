@@ -1,4 +1,4 @@
-package com.board.action;
+package com.receiver.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
