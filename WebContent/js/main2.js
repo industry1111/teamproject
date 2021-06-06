@@ -26,7 +26,7 @@ $(function() {
 		category_code1 = $(this).val();
 		$('.category1').css('color', '#627482');
 		$('.category1').css('background-color', 'white');
-		$('.category1').attr('class', 'category1');
+		$('.category1.allowed').attr('class', 'category1');
 		$(this).css('color', 'white');
 		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'category1 allowed');
@@ -163,16 +163,31 @@ $(function() {
 				$("#category2").html("");
 				$("#category3").html("");
 				$(".pagination").html("");
+				var html ="";
 				for (var i=0;i<obj1.length;i++) {
-					$("#category2").append("<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
+					if(i < 10){
+						html +="<li class='category2' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>";
+					}
+					if(i >= 10){
+						html += "<li class='category2 hide' hidden value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>";
+					}
 				}
+				html += "<li class='mbtn'>"
+						+"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-caret-down' viewBox='0 0 16 16'>"
+						+"<path d='M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z'/>"
+						+"</svg>";
+				html += "<li class='dbtn' hidden>"
+						+"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-caret-down' viewBox='0 0 16 16'>"
+						+"<path d='M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z'/>"
+						+"</svg>";
+				$("#category2").append(html);
 				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
 					if(p[0].total == i){
 						break;
 					}
 					var regdate = formatDate(obj2[i].regdate);
 					
-					var html = "<div class='col-md-7 offset-2'> <hr>" +
+					html = "<div class='col-md-7 offset-2'> <hr>" +
 					"<div class='row'>" +
 					"<div class='col-md-2'>" +
 						"<img src='product_img_upload/"+obj2[i].product_img+"' style='heiht:100px; width:100px;'>" +
@@ -242,10 +257,21 @@ $(function() {
 		category_code2 = $(this).val();
 		$('.category2').css('color', '#627482');
 		$('.category2').css('background-color', 'white');
-		$('.category2').attr('class', 'category2');
+		
 		$(this).css('color', 'white');
 		$(this).css('background-color', '#c5c5c5');
-		$(this).attr('class', 'category2 allowed');
+		if($('.category2.allowed').hasClass("hide") === true){
+			$('.category2.allowed').attr('class', 'category2 hide');
+		}else{
+			$('.category2.allowed').attr('class', 'category2');	
+		}
+		if($(this).hasClass("hide") === true) {
+			$(this).attr('class', 'category2 allowed hide');
+		}else{
+			$(this).attr('class', 'category2 allowed');
+		}
+
+		
 		
 		$.ajax({
 			type: "get",
@@ -326,7 +352,13 @@ $(function() {
 	$(document).on("click", ".category2.allowed", function() {
 		$(this).css('background-color', 'white');
 		$(this).css('color', '#627482');
-		$(this).attr('class', 'category2');
+		
+		if($(this).hasClass("hide") === true) {
+			$(this).attr('class','category2 hide');
+		}else{
+			$(this).attr('class','category2');
+		}
+		
 		category_code2 = 0;
 		category_code3 = 0;
 		$.ajax({
@@ -406,10 +438,18 @@ $(function() {
 		category_code3 = $(this).val();
 		$('.category3').css('color', '#627482');
 		$('.category3').css('background-color', 'white');
-		$('.category3').attr('class', 'category3');
 		$(this).css('color', 'white');
 		$(this).css('background-color', '#c5c5c5');
-		$(this).attr('class', 'category3 allowed');
+		if($('.category3.allowed').hasClass("hide") === true){
+			$('.category3.allowed').attr('class', 'category3 hide');
+		}else{
+			$('.category3.allowed').attr('class', 'category3');	
+		}
+		if($(this).hasClass("hide") === true) {
+			$(this).attr('class', 'category3 allowed hide');
+		}else{
+			$(this).attr('class', 'category3 allowed');
+		}
 		$.ajax({
 			type: "get",
 			url: contextPath + "/SelectList.do",
@@ -482,7 +522,12 @@ $(function() {
 	$(document).on("click", ".category3.allowed", function() {
 		$(this).css('background-color', 'white');
 		$(this).css('color', '#627482');
-		$(this).attr('class', 'category3');
+		
+		if($(this).hasClass("hide") === true) {
+			$(this).attr('class','category3 hide');
+		}else{
+			$(this).attr('class','category3');
+		}
 		category_code3 = 0;
 		$.ajax({
 			type: "get",
@@ -862,13 +907,12 @@ $(function() {
 			}
 		});
 	}
-	
-	$(".mbtn").click(function(){
+	$(document).on("click",".mbtn",function(){
 		$(this).attr("hidden",true);
 		$(this).siblings(".hide").removeAttr("hidden");
 		$(this).siblings(".dbtn").removeAttr("hidden");
 	});
-	$(".dbtn").click(function(){
+	$(document).on("click",".dbtn",function(){
 		$(this).attr("hidden",true);
 		$(this).siblings(".hide").attr("hidden",true);
 		$(this).siblings(".mbtn").removeAttr("hidden");
