@@ -190,6 +190,7 @@ $(function() {
 						+"<path d='M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z'/>"
 						+"</svg>";
 				$("#category2").append(html);
+				
 				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
 					if(p[0].total == i){
 						break;
@@ -308,13 +309,18 @@ $(function() {
 				var obj1 = JSON.parse(data1[0]);
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
+				var p= JSON.parse(data1[3]);
+				$(".pagination").html("");
 				$("#product-list").html("");
 				$("#category3").html("");
 				for (var i = 0; i < obj1.length; i++) {
 					$("#category3").append("<li class='category3' value=" + obj1[i].category_code + ">" + obj1[i].category_name + "</li>");
 				}
 				
-				for(var i=0;i<obj2.length;i++){
+				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
+					if(p[0].total == i){
+						break;
+					}
 					var regdate = formatDate(obj2[i].regdate);
 					
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
@@ -368,6 +374,26 @@ $(function() {
 				
 					$("#product-list").append(html);
 				}
+				html = "";
+					if(p[0].prev == "true"){
+						html = "<li class='page-item previous'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].startPage)-1) +");'>Previous</a> </li>";
+					}
+					for(var i=p[0].startPage;i<=p[0].endPage;i++){
+						html += "<li class='page-item'>" ;
+						if(p[0].nowPage == i){
+						html +=	"<a class='page-link' style='color:red;border-color:black'onclick='paging("+i+");'>";
+						}else{
+						html +=	"<a class='page-link' onclick='paging("+i+");'>";
+						}
+						html += i + "</a>"
+						+ "</li>";
+					}
+					if(p[0].next == "true"){
+						html += "<li class='page-item next'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].endPage)+1)+")'>Next</a> </li>";
+					}
+					$(".pagination").append(html);
 			}
 		});
 
@@ -404,8 +430,13 @@ $(function() {
 				var obj1 = JSON.parse(data1[0]);
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
+				var p= JSON.parse(data1[3]);
+				$(".pagination").html("");
 				$("#product-list").html("");
-				for(var i=0;i<obj2.length;i++){
+				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
+					if(p[0].total == i){
+						break;
+					}
 					var regdate = formatDate(obj2[i].regdate);
 					
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
@@ -459,6 +490,26 @@ $(function() {
 				
 					$("#product-list").append(html);
 				}
+					html = "";
+					if(p[0].prev == "true"){
+						html = "<li class='page-item previous'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].startPage)-1) +");'>Previous</a> </li>";
+					}
+					for(var i=p[0].startPage;i<=p[0].endPage;i++){
+						html += "<li class='page-item'>" ;
+						if(p[0].nowPage == i){
+						html +=	"<a class='page-link' style='color:red;border-color:black'onclick='paging("+i+");'>";
+						}else{
+						html +=	"<a class='page-link' onclick='paging("+i+");'>";
+						}
+						html += i + "</a>"
+						+ "</li>";
+					}
+					if(p[0].next == "true"){
+						html += "<li class='page-item next'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].endPage)+1)+")'>Next</a> </li>";
+					}
+					$(".pagination").append(html);
 			}
 		});
 	});
@@ -499,9 +550,13 @@ $(function() {
 				var obj1 = JSON.parse(data1[0]);
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
-				
+				var p= JSON.parse(data1[3]);
+				$(".pagination").html("");
 				$("#product-list").html("");
-				for(var i=0;i<obj2.length;i++){
+				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
+					if(p[0].total == i){
+						break;
+					}
 					var regdate = formatDate(obj2[i].regdate);
 					
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
@@ -555,6 +610,26 @@ $(function() {
 				
 					$("#product-list").append(html);
 				}
+				html = "";
+					if(p[0].prev == "true"){
+						html = "<li class='page-item previous'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].startPage)-1) +");'>Previous</a> </li>";
+					}
+					for(var i=p[0].startPage;i<=p[0].endPage;i++){
+						html += "<li class='page-item'>" ;
+						if(p[0].nowPage == i){
+						html +=	"<a class='page-link' style='color:red;border-color:black'onclick='paging("+i+");'>";
+						}else{
+						html +=	"<a class='page-link' onclick='paging("+i+");'>";
+						}
+						html += i + "</a>"
+						+ "</li>";
+					}
+					if(p[0].next == "true"){
+						html += "<li class='page-item next'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].endPage)+1)+")'>Next</a> </li>";
+					}
+					$(".pagination").append(html);
 			}
 		});
 	});
@@ -587,11 +662,13 @@ $(function() {
 				var obj1 = JSON.parse(data1[0]);
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
-				
-				
+				var p= JSON.parse(data1[3]);
+				$(".pagination").html("");
 				$("#product-list").html("");
-				
-				for(var i=0;i<obj2.length;i++){
+				for(var i=p[0].beginPerPage;i<=p[0].endPerPage;i++){
+					if(p[0].total == i){
+						break;
+					}
 					var regdate = formatDate(obj2[i].regdate);
 					
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
@@ -645,6 +722,26 @@ $(function() {
 				
 					$("#product-list").append(html);
 				}
+				html = "";
+					if(p[0].prev == "true"){
+						html = "<li class='page-item previous'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].startPage)-1) +");'>Previous</a> </li>";
+					}
+					for(var i=p[0].startPage;i<=p[0].endPage;i++){
+						html += "<li class='page-item'>" ;
+						if(p[0].nowPage == i){
+						html +=	"<a class='page-link' style='color:red;border-color:black'onclick='paging("+i+");'>";
+						}else{
+						html +=	"<a class='page-link' onclick='paging("+i+");'>";
+						}
+						html += i + "</a>"
+						+ "</li>";
+					}
+					if(p[0].next == "true"){
+						html += "<li class='page-item next'>" +
+						"<a class='page-link' onclick='paging("+(parseInt(p[0].endPage)+1)+")'>Next</a> </li>";
+					}
+					$(".pagination").append(html);
 			}
 		});
 	});
@@ -657,7 +754,7 @@ $(function() {
 		price2 =  $("#price2").val();
 		$('.price').css('color', '#627482');
 		$('.price').css('background-color', 'white');
-		$('.price').attr('class', 'price');
+		$('.price.allowed').attr('class', 'price');
 		$(this).css('color', 'white');
 		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'price allowed');
