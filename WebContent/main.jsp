@@ -73,7 +73,7 @@ ul {
 	height:40px;
 	outline: none;
 }
-.price, .category1, .category2, .category3, .sort{
+.price, .category1, .category2, .category3, .sort, .mbtn, .dbtn{
 	margin-left:30px;
     float: left; 
     margin-top: 10px;
@@ -132,26 +132,58 @@ ul {
 			</div>
 			<div class="row">
 				<div  class="col-md-1 offset-2 category" align="left">중분류</div>
-					<div class="col-md-6 list">
-						<ul id="category2">
-							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
-								<c:if test="${clist[i].category_codeRef1 ne  0 && clist[i].category_codeRef2 eq 0 }">
+				<div class="col-md-6 list">
+					<ul id="category2">
+						<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
+							<c:if test="${clist[i].category_codeRef1 ne  0 && clist[i].category_codeRef2 eq 0 }">
+								<c:set var="j" value="${j+1 }" />
+								<c:if test="${j <= 10 }">
 									<li class='category2' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
 								</c:if>
-							</c:forEach>
-						</ul>
-						
+								<c:if test="${j > 10 }">
+									<li class='category2 hide' hidden value="${ clist[i].category_code}">${ clist[i].category_name}</li>
+								</c:if>
+							</c:if>
+						</c:forEach>
+						<li class="mbtn">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+							  <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+							</svg>
+						</li>
+						<li class="dbtn" hidden>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+							  <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+							</svg>
+						</li>
+					</ul>
 				</div>
 			</div>
+			<c:set var="j" value="0" />
 			<div class="row">
 				<div class="col-md-1 offset-2 category" align="left" >소분류</div>
 					<div class="col-md-6 list">
 						<ul id="category3">
 							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1}">
 								<c:if test="${clist[i].category_codeRef1 ne 0 && clist[i].category_codeRef2 ne 0 }">
-									<li class='category3' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
+								<c:set var="j" value="${j+1 }" />
+									<c:if test="${j <= 10 }">
+										<li class='category3' value="${ clist[i].category_code}">${ clist[i].category_name}</li>
+									</c:if>
+									<c:if test="${j > 10 }">
+										<li class='category3 hide' hidden value="${ clist[i].category_code}">${ clist[i].category_name}</li>
+									</c:if>
 								</c:if>
 							</c:forEach>
+							<li class="mbtn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+								  <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+								</svg>
+							</li>
+							<li class="dbtn" hidden>
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+								  <path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z"/>
+								</svg>
+							</li>
 						</ul>
 				</div>
 			</div>

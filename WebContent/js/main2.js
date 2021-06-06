@@ -862,6 +862,16 @@ $(function() {
 			}
 		});
 	}
-
+	
+	$(".mbtn").click(function(){
+		$(this).attr("hidden",true);
+		$(this).siblings(".hide").removeAttr("hidden");
+		$(this).siblings(".dbtn").removeAttr("hidden");
+	});
+	$(".dbtn").click(function(){
+		$(this).attr("hidden",true);
+		$(this).siblings(".hide").attr("hidden",true);
+		$(this).siblings(".mbtn").removeAttr("hidden");
+	});
 });
 	
