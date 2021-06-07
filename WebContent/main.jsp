@@ -222,10 +222,10 @@ ul {
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<select style="color:grey;">
-						<option>5개씩 보기
-						<option>10개씩 보기
-						<option>20개씩 보기
+					<select name="numPerPage" id="numPerPage"style="color:grey;">
+						<option value="5">5개씩 보기
+						<option value="10" selected>10개씩 보기
+						<option value="20">20개씩 보기
 					</select>
 				</div>
 			</div>
