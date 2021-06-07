@@ -148,6 +148,11 @@ h4{
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
+				<a href="#">주문 현황</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 col-md-offset-2 side"align="center" >
 				<a href="#">내 스토어</a>
 			</div>
 		</div>

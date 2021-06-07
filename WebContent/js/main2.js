@@ -407,7 +407,8 @@ $(function() {
 				price1: price1,
 				price2: price2,
 				price : price,
-				sort : sort
+				sort : sort,
+				numPerPage: numPerPage
 			},
 			dataType: "text", 
 			success: function(data) {
