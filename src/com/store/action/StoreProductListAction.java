@@ -15,6 +15,7 @@ import action.Criteria;
 import action.PageDTO;
 import dao.boardDAO;
 import dto.pagingDTO;
+import dto.sellerDTO;
 
 public class StoreProductListAction implements Action {
 	
@@ -27,7 +28,9 @@ public class StoreProductListAction implements Action {
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		
 		productDAO pdao = new productDAO();
-		List<productDTO> list = pdao.getStoreInfo(store_num);
+		
+		List<productDTO> list = pdao.getStoreInfo(store_num);		
+		
 		
 		//페이징 부분
 		String page = request.getParameter("page");
@@ -51,8 +54,9 @@ public class StoreProductListAction implements Action {
 		//member_num에 해당하는 상품 스토어 리스트 페이지로 이동
 		ActionForward forward = new ActionForward();
 		//페이지이동(뷰페이지로이동)
-		forward.setPath("template3/shop.jsp");
-		forward.setRedirect(false);	
+		forward.setPath("index.jsp");
+		forward.setRedirect(false);
+		request.setAttribute("center", "template"+ pdto.getTemplate() +"/shop.jsp");
 		return forward;
 	}
 }

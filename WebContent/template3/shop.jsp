@@ -11,21 +11,20 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700"
 	rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-<link type="text/css" rel="stylesheet" href="css/slick.css" />
-<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
-<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="template3/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="template3/css/slick.css" />
+<link type="text/css" rel="stylesheet" href="template3/css/slick-theme.css" />
+<link type="text/css" rel="stylesheet" href="template3/css/nouislider.min.css" />
+<link rel="stylesheet" href="template3/css/font-awesome.min.css">
+<link type="text/css" rel="stylesheet" href="template3/css/style.css" />
 
-<script src="assets/js/vendor/jquery-1.12.0.min.js"></script>
 	<!-- jQuery Plugins -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/nouislider.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="template3/js/jquery.min.js"></script>
+	<script src="template3/js/bootstrap.min.js"></script>
+	<script src="template3/js/slick.min.js"></script>
+	<script src="template3/js/nouislider.min.js"></script>
+	<script src="template3/js/jquery.zoom.min.js"></script>
+	<script src="template3/js/main.js"></script>
 </head>
 <body>
 	 <!-- main페이지에서 플로필 사진을 누르면 해당하는 스토어로 이동하게됩니다. -->
