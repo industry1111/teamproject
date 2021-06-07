@@ -18,36 +18,92 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/style.css">
+<!-- <link rel="stylesheet" href="css/login.css"> -->
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
 
 <style>
-			.check{
-				color: red;
-				font-size: 12px;
-			}
-			.check2{
-				color: green;
-				font-size: 12px;
-			}
+.check {
+	color: red;
+	font-size: 13px;
+}
+
+.check2 {
+	color: green;
+	font-size: 13px;
+}
+input[type="text"], .form-control {
+  width: 50%;
+  border: none !important;
+  border-radius: 4px;
+  margin: 8px 0;
+  outline: none;
+  padding: 8px;
+  box-sizing: border-box;
+  transition: 0.3s;
+  background-color: #F6F6F6 !important;
+}
+
+input[type="text"]:focus {
+  border-color: dodgerBlue;
+  box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.inputWithIcon input[type="text"] {
+  padding-left: 40px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color: #ffffff;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #666666;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+}
+
+.myButton:hover {
+	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color: #f6f6f6;
+}
+
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
+
 
 </style>
 
 </head>
-<body>
+<body >
+	
 	<section class="ftco-section" >
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<h2 class="heading-section">Sign Up</h2>
+		<div class="container" >
+			<div class="row " >
+				<div class="col-md-7 offset-2"  >
+					<div class="product-name d-flex " style="background-color: : #22CC88; !important; margin-top: 50px; text-align: center;"  >
+							<div class="col-md-12">회원 가입</div>
+					</div>
 				</div>
 			</div>
+		</div>
+		<div class="col-md-12" style="background-color: white;">
 			<div class="row justify-content-center">
-				<div class="col-md-9 col-lg-6">
+				<div class="col-md-6 offset-2">
 					<div class="login-wrap">
-						<h6 class="mb-4 text-center">Create Your Account</h6>
 						<form action="./MemberJoinAction.me" class="signup-form">
 							<div class="row">
 								<div class="col-md-8">
@@ -57,6 +113,8 @@
                                     	<span id="name_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="r_id" name="id" type="text" class="form-control" placeholder="ID" maxlength="20">
@@ -64,22 +122,27 @@
                                     	<span id="id_check2" class="check2"></span>
 									</div>
 								</div>
-								<div class="col-md-6">
-									<div class="form-group mb-4">
+							</div>
+							<div class="row">
+								<div class="col-md-3">
 										<input id="r_pw" name="pw" required="required" type="password" class="form-control"
-											placeholder="Password">
-										<span id="pw_check" class="check"></span>
-	                                    <span id="pw_check2" class="check2"></span>
-									</div>
+											placeholder="Password" style="width: 200px;">
 								</div>
-								<div class="col-md-6">
-									<div class="form-group mb-4">
+							
+								<div class="col-md-4">
 										<input id="pw_confirm" name="pw_confirm" required="required" type="password" class="form-control"
-											placeholder="Confirm Password">
-	                                    <span id="pw_confirm_check" class="check"></span>
-	                                    <span id="pw_confirm_check2" class="check2"></span>
-									</div>
+											placeholder="Confirm Password" style="width: 200px;">
 								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<span id="pw_check" class="check"></span>
+		                            <span id="pw_check2" class="check2"></span>
+	                            	<span id="pw_confirm_check" class="check"></span>
+	                                <span id="pw_confirm_check2" class="check2"></span>
+                                </div>
+							</div>
+							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
 										<input id="email" name="email" type="text" required="required" class="form-control" placeholder="Email">
@@ -87,6 +150,8 @@
 	                                    <span id="email_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
 <!-- 								<div class="col-md-4"> -->
 <!--                                     <input type="button" id="email_cf_btn" value="인증 " class="btn btn-primary rounded submit p-3"> -->
 <!--                                   </div> -->
@@ -102,6 +167,8 @@
 <!-- 								<div class="col-md-4"> -->
 <!-- 									<input style="size: 30%" type="button" id="cf_num_btn" value="확인" class="btn btn-primary rounded submit p-3"><br> -->
 <!-- 								</div> -->
+							</div>
+							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group mb-4">
 										<input id="phone" name="phone" required="required" type="tel"
@@ -110,30 +177,38 @@
 											id="phone_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-5">
 									<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required><br>
 								</div>
 								<div class="col-md-7">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="btn btn-primary rounded submit p-3"> <br>
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-8">
 									<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required>&nbsp;
 									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required> <br>
 								</div>
+							</div>
+							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group d-flex">
 										<button type="submit"
-											class="btn btn-primary rounded submit p-3">Sign Up</button>
+											class="myButton">Sign Up</button>
 									</div>
 								</div>
-								
 							</div>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+		</div>
 	</section>
+
+	
 	 <!-- 카카오 우편번호 api -->
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

@@ -48,7 +48,7 @@ public class ProductFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/ProductAdd.pr")) { // 상품 등록 페이지로 이동하는 서블릿
+		} else if (command.equals("/ProductAdd.pr")) { // 상품 등록 페이지로 이동
 			action = new ProductAdd();
 			try {
 				forward = action.execute(request, response);
@@ -57,7 +57,7 @@ public class ProductFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/ProductAddAction.pr")) { // 상품을 등록하는 서블릿
+		} else if (command.equals("/ProductAddAction.pr")) { // 상품 등록 액션
 			action = new ProductAddAction();
 
 			try {
@@ -66,7 +66,7 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/ProductModify.pr")) { // 상품 수정 페이지로 이동하는 서블릿
+		} else if (command.equals("/ProductModify.pr")) { // 수정할 상품 정보를 받아옴.
 			action = new ProductModify();
 			try {
 				forward = action.execute(request, response);
@@ -74,7 +74,7 @@ public class ProductFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/ProductModifyAction.pr")) { // 상품 수정 페이지로 이동하는 서블릿
+		} else if (command.equals("/ProductModifyAction.pr")) { // 상품 수정 액션
 			action = new ProductModifyAction();
 			try {
 				forward = action.execute(request, response);
@@ -83,7 +83,7 @@ public class ProductFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/ProductDelete.pr")) { // 등록된 상품을 삭제하는 서블릿
+		} else if (command.equals("/ProductDelete.pr")) { // 등록된 상품 삭제 액션
 			action = new ProductDelete();
 			try {
 

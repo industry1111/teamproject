@@ -103,6 +103,21 @@ input[type="text"] {
 	margin-right: auto;
 	margin-left: auto;
 }
+textarea {
+			width: 100%;
+			height: 200px;
+			padding: 10px;
+			box-sizing: border-box;
+			border: solid 1px rgb(34, 204, 136);;
+			border-radius: 5px;
+			font-size: 16px;
+			resize: both;
+		}
+p{
+	text-align: center;
+	font-size: 15px;
+	font-weight: bolder;
+}
 </style>
 </head>
 <body>
@@ -112,15 +127,24 @@ input[type="text"] {
 				<img src="images/modooLogo.png" alt="Logo" style="height: 30px">
 			</div>
 		</div>
-		<h4 align="center">리뷰쓰기</h4>
+		
+			<div class="row " >
+				<div class="col-md-12"  >
+					<div class="product-name d-flex " style="background-color: #c5c5c5 !important; text-align: center; margin-top: 15px;" >
+							<div class="col-md-5">리뷰 작성</div>
+					</div>
+				</div>
+			</div>
+	
+	
 		<form action="insertReview" method="post"
 			enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="row"
-						style="border: 1px solid black; margin-bottom: 10px">
+						style="border: 1px solid #dadada;; margin-bottom: 10px">
 
-						<div class="col-xs-1" style="border: 1px solid black;">
+						<div class="col-xs-1" style="border: 1px solid #dadada;;">
 							<img  name="product_img" id="product_img" src="product_img_upload/${pdto.product_img }" style="width: 50px; height: 50px;" >
 						</div>
 
@@ -131,12 +155,14 @@ input[type="text"] {
 
 					</div>
 					<div class="row"
-						style="border: 1px solid black; margin-bottom: 10px; text-align: center;">
-						<br>
+						style="border: 1px solid #dadada;; margin-bottom: 10px; text-align: center;">
 						<div class="col-md-12">
+						<br>
+						
 							<div class="row">
-								상품은 만족스러운가요?
-								<div class="star-rating">
+							<div class="col-md-12">
+								<p>상품은 만족스러운가요?</p>
+								<div class="star-rating" >
 									<input type="radio" id="5-stars1" name="rating1" value="5" /> 
 									<label for="5-stars1" class="star">&#9733;</label> 
 									<input type="radio" id="4-stars1" name="rating1" value="4" />
@@ -149,8 +175,10 @@ input[type="text"] {
 									<label for="1-star1" class="star">&#9733;</label>
 								</div>
 							</div>
+							</div>
 							<div class="row">
-								배송은 만족스러운가요?
+							<div class="col-md-12">
+								<p>배송은 만족스러운가요?</p>
 									<div class="star-rating">
 										<input type="radio" id="5-stars2" name="rating2" value="5" /> 
 										<label for="5-stars2" class="star">&#9733;</label> 
@@ -164,8 +192,10 @@ input[type="text"] {
 										<label for="1-star2"	class="star">&#9733;</label>
 									</div>
 							</div>
+							</div>
 							<div class="row">
-								다시 구매할 의향이 있나요?
+							<div class="col-md-12">
+								<p>다시 구매할 의향이 있나요?</p>
 									<div class="star-rating">
 										<input type="radio" id="5-stars3" name="rating3" value="5" /> 
 										<label for="5-stars3" class="star">&#9733;</label> 
@@ -178,30 +208,34 @@ input[type="text"] {
 										<input type="radio" id="1-star3"name="rating3" value="1" /> 
 										<label for="1-star3"	class="star">&#9733;</label>
 									</div>
+									</div>
 							</div>
 							<div class="row">
 								<div class="col-md-12">
 
 									<div class="row">
-										어떤점이 좋았나요?
-										<textarea name="textarea" id="textarea" cols="40" rows="10"
+									<div class="col-md-12">
+										<p>어떤점이 좋았나요?</p>
+										<textarea  name="textarea" id="textarea" cols="40" rows="10"
 											placeholder="자유롭게 작성해주세요"></textarea>
 									</div>
 								</div>
 							</div>
+							</div>
+						</div>
 						</div>
 					</div>
 				</div>
-				<br>
+				<div class="row">
 				<div class="col-md-12"
-					style="border: 1px dashed black; text-align: center;">
+					style="border: 1px dashed #dadada;; text-align: center;">
 					<img src="" id="preview"><br> <label for="profile_img">사진첨부하기</label>
 					<input type="file" id="profile_img" name="profile_img" hidden />
 				</div>
-
+				</div>
 
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" style="margin-left: 140px; margin-top: 20px;">
 						<input type="button" class="myButton" value="닫기"
 							name="close_review_btn" id="close_review_btn"> <input
 							type="button" class="myButton" value="저장" name="write_review_btn"

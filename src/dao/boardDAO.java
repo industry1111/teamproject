@@ -20,7 +20,7 @@ import dto.ratingDTO;
 import dto.receiverDTO;
 
 import dto.reviewDTO;
-
+import dto.searchDTO;
 import dto.templateDTO;
 
 
@@ -332,8 +332,6 @@ public class boardDAO {
 	}
 
 	public List<categoryDTO> getcategory(int category_code1, int category_code2) {
-		System.out.println("category_code1:" + category_code1);
-		System.out.println("category_code2:" + category_code2);
 		List<categoryDTO> list = new ArrayList<categoryDTO>();
 		String sql = "select * from category";
 
@@ -341,12 +339,11 @@ public class boardDAO {
 			if (category_code1 != 0) {
 				sql += " where category_coderef1=" + category_code1 + " and category_coderef2 is null";
 			} else {
-				sql += " where category_coderef2 is null";
+				sql += " where category_coderef1 is not null and category_coderef2 is null";
 			}
 		} else {
 			sql += " where category_coderef2=" + category_code2;
 		}
-		System.out.println(sql);
 		try {
 			getCon();
 			pstmt = con.prepareStatement(sql);
@@ -439,12 +436,44 @@ public class boardDAO {
 				brandDTO bdto = new brandDTO();
 				bdto.setBrand_num(rs.getInt("brand_num"));
 				bdto.setBrand_name(rs.getString("brand_name"));
-
+				bdto.setCategory_code(rs.getInt("category_code"));
 				list.add(bdto);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
+			ResouceClose();
+		}
+		return list;
+	}
+	public List<searchDTO> getSearchString(String searchBox){
+		List<searchDTO> list = new ArrayList<searchDTO>();
+		try {
+			getCon();
+			String sql = "select category_name from category where category_name like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("category_name"));
+				list.add(sdto);
+			}
+			
+			sql = "select distinct brand_name from brand where brand_name like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("brand_name"));
+				list.add(sdto);
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getSearchString:"+e.toString());
+		}finally {
 			ResouceClose();
 		}
 		return list;

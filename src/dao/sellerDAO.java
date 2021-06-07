@@ -224,8 +224,7 @@ public class sellerDAO {
 				ResouceClose();
 			}
 		}
-		
-		
+	
 		public List<sellerDTO> getSellerInfo(){
 			List<sellerDTO> list = new ArrayList<sellerDTO>();
 			try {
@@ -242,7 +241,7 @@ public class sellerDAO {
 					sdto.setStore_name(rs.getString("store_name"));
 					sdto.setProfile_img(rs.getString("profile_img"));
 					sdto.setTemplate(rs.getString("template"));
-					sdto.setStore_num(rs.getInt("store_num"));
+					sdto.setMember_num(rs.getInt("member_num"));
 					list.add(sdto);
 				}
 			} catch (Exception e) {
@@ -253,11 +252,6 @@ public class sellerDAO {
 
 			return list;
 		}
-
-	
-	
-	
-	
 	
 	
 	

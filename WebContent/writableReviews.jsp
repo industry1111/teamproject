@@ -43,7 +43,7 @@
 <script type="text/javascript">
  function add_onclick(product_num){
     //이름은 중복창 제어용
-    child = window.open("reviewForm.bo?product_num="+product_num,"child","width=500,height=900");
+    child = window.open("reviewForm.bo?product_num="+product_num,"child","width=500,height=800");
 };//click
 
 
@@ -95,8 +95,7 @@ input[type="text"]:focus {
 			<div class="row " >
 				<div class="col-md-12"  >
 					<div class="product-name d-flex " align="center" >
-					<div class="col-md-1" ></div>
-						작성 가능한 리뷰
+					<div class="col-md-2">작성 가능한 리뷰</div>
 					</div>
 					<c:if test="${plist.size() ne 0 }">
 					<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
@@ -119,7 +118,7 @@ input[type="text"]:focus {
 						<div class="col-md-2">
 								<input type="button" value="리뷰쓰기" id="add_review" class="myButton" onclick="add_onclick(${plist[i].product_num});">
 						</div>
-					</div>
+					</div><hr>
 					</c:forEach>
 					</c:if>
 				</div>

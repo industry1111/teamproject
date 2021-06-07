@@ -52,19 +52,23 @@ public class MemberLoginAction implements Action{
 		
 		//login.jsp 화면에서 입력한 아이디를 세션객체영역에 저장
 		session.setAttribute("id", id);
+		 
 		memberDTO mdto = mdao.getMemberInfo(id);
 		session.setAttribute("member_num", mdto.getMember_num());
 		session.setAttribute("member_code", mdto.getMember_code());
-
-		ActionForward forward=new ActionForward();
 		
+		ActionForward forward=new ActionForward();
+		System.out.println(id);
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
-		forward.setRedirect(true);
-		
-		forward.setPath("./Main.main"); 
-
-		
+		if(id.equals("gudrb2640")){
+			forward.setRedirect(false);
+			forward.setPath("/AdminMain.ad");
+		}else{
+			forward.setRedirect(true);
+			forward.setPath("./Main.main");
+		}
+		 	
 		return forward;
 	}
 }

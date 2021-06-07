@@ -38,8 +38,6 @@ $(function() {
 	
 	$(document).on("change", ".category2", function() {
 		category_code2 = $(this).val();
-//	$(".category2").change(function() {
-//			category_code2 = $(this).val();
 		$.ajax({
 			type: "get",
 			url: contextPath + "/ProductCategorySelect.pr",
@@ -71,7 +69,5 @@ $(function() {
 		});
 
 	});
-
-	
 
 });

@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-import dto.sellerDTO;
 
 public class memberDAO {
 	Connection con;
@@ -303,40 +303,7 @@ public class memberDAO {
 		}
 	}
 
-	// 로그인한 회원에 대한 정보 얻기
-	public memberDTO getMemberInfo(String id) {
-
-		memberDTO mdto = new memberDTO();
-
-		try {
-			getCon();
-			String sql = "select * from member where id=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				mdto.setMember_num(rs.getInt("member_num"));
-				mdto.setName(rs.getString("name"));
-				mdto.setId(rs.getString("id"));
-				mdto.setPw(rs.getString("pw"));
-				mdto.setEmail(rs.getString("email"));
-				mdto.setPhone(rs.getString("phone"));
-				mdto.setAddr1(rs.getString("addr1"));
-				mdto.setAddr2(rs.getString("addr2"));
-				mdto.setAddr3(rs.getString("addr3"));
-				mdto.setDate(rs.getTimestamp("date"));
-				mdto.setRegdate(rs.getTimestamp("regdate"));
-				mdto.setMember_code((rs.getString("member_code")));
-			}
-		} catch (Exception e) {
-			System.out.println("getMemberInfo:" + e.toString());
-		} finally {
-			ResouceClose();
-		}
-
-		return mdto;
-	}
+	
 	
 	//회원 번호 얻기
 	public int getMemberNum(String id) {
@@ -356,6 +323,110 @@ public class memberDAO {
 			ResouceClose();
 		}
 		return -1;
+	}
+	
+	//로그인한 전체 회원에 대한 정보얻기 
+	public List<memberDTO> getMembersInfo() {
+		List<memberDTO> list = new ArrayList<memberDTO>();
+		
+		try {
+			getCon();
+			String sql = "select * from member";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+	
+			while (rs.next()) {
+				memberDTO mdto = new memberDTO();
+				mdto.setMember_num(rs.getInt("member_num"));
+				mdto.setName(rs.getString("name"));
+				mdto.setId(rs.getString("id"));
+				mdto.setPw(rs.getString("pw"));
+				mdto.setEmail(rs.getString("email"));
+				mdto.setPhone(rs.getString("phone"));
+				mdto.setAddr1(rs.getString("addr1"));
+				mdto.setAddr2(rs.getString("addr2"));
+				mdto.setAddr3(rs.getString("addr3"));
+				mdto.setDate(rs.getTimestamp("date"));
+				mdto.setRegdate(rs.getTimestamp("regdate"));
+				mdto.setMember_code((rs.getString("member_code")));
+				list.add(mdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getMemberInfo:" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	
+		return list;
+	}
+	
+	//관리자가 회원정보를 수정
+		public List<memberDTO> getMembersInfo(int member_num) {
+			List<memberDTO> list = new ArrayList<memberDTO>();
+			
+			try {
+				getCon();
+				String sql = "select * from member";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+		
+				while (rs.next()) {
+					memberDTO mdto = new memberDTO();
+					mdto.setMember_num(rs.getInt("member_num"));
+					mdto.setName(rs.getString("name"));
+					mdto.setId(rs.getString("id"));
+					mdto.setPw(rs.getString("pw"));
+					mdto.setEmail(rs.getString("email"));
+					mdto.setPhone(rs.getString("phone"));
+					mdto.setAddr1(rs.getString("addr1"));
+					mdto.setAddr2(rs.getString("addr2"));
+					mdto.setAddr3(rs.getString("addr3"));
+					mdto.setDate(rs.getTimestamp("date"));
+					mdto.setRegdate(rs.getTimestamp("regdate"));
+					mdto.setMember_code((rs.getString("member_code")));
+					list.add(mdto);
+				}
+			} catch (Exception e) {
+				System.out.println("getMemberInfo:" + e.toString());
+			} finally {
+				ResouceClose();
+			}
+		
+			return list;
+		}
+	
+	// 로그인한 회원에 대한 정보 얻기
+	public memberDTO getMemberInfo(String id) {
+		memberDTO mdto = new memberDTO();
+		try {
+			getCon();
+			String sql = "select * from member where id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+	
+			if (rs.next()) {
+				
+				mdto.setMember_num(rs.getInt("member_num"));
+				mdto.setName(rs.getString("name"));
+				mdto.setId(rs.getString("id"));
+				mdto.setPw(rs.getString("pw"));
+				mdto.setEmail(rs.getString("email"));
+				mdto.setPhone(rs.getString("phone"));
+				mdto.setAddr1(rs.getString("addr1"));
+				mdto.setAddr2(rs.getString("addr2"));
+				mdto.setAddr3(rs.getString("addr3"));
+				mdto.setDate(rs.getTimestamp("date"));
+				mdto.setRegdate(rs.getTimestamp("regdate"));
+				mdto.setMember_code((rs.getString("member_code")));
+			}
+		} catch (Exception e) {
+			System.out.println("getMemberInfo:" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	
+		return mdto;
 	}
 	
 	

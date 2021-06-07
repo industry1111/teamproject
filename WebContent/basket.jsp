@@ -84,19 +84,19 @@ function order_btn_click() {
 					<div class="col-md-12">
 						<div class="product-name d-flex">
 							<div class="one-forth text-left px-4">
-								<span>Product Details</span>
+								<span>상품 정보</span>
 							</div>
 							<div class="one-eight text-center">
-								<span>Price</span>
+								<span>가격</span>
 							</div>
 							<div class="one-eight text-center">
-								<span>Quantity</span>
+								<span>주문수량</span>
 							</div>
 							<div class="one-eight text-center">
-								<span>Total</span>
+								<span>주문합계</span>
 							</div>
 							<div class="one-eight text-center px-4">
-								<span>Remove</span>
+								<span>주문취소</span>
 							</div>
 						</div>
 			<form action="Order.bo" method="post">
