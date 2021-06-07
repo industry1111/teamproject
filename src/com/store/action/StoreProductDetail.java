@@ -22,10 +22,11 @@ public class StoreProductDetail implements Action {
 		request.setCharacterEncoding("utf-8");
 		
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		System.out.println(product_num);
 	
 		/*데이터베이스 자바빈 작업*/
 		productDAO pdao = new productDAO();
-		productDTO pdto = pdao.getProductInfo(product_num);	
+		productDTO pdto = pdao.getStoreProductInfo(product_num);	
 		
 		//카테고리 정보 받아오기
 		boardDAO bdao = new boardDAO();
