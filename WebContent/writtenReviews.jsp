@@ -108,7 +108,7 @@ input[type="text"]:focus {
 									${plist[i].product_description }
 								</div>
 								
-							<c:forEach var="j" begin="0" step="1" end="${rvlist.size()-1 }">
+							<c:forEach var="j" begin="0" step="1" end="${rvlist.size() }">
 									<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
 								<div class="col-md-1 offset-6">
 								
@@ -123,7 +123,7 @@ input[type="text"]:focus {
 								</c:forEach>
 							</div>
 							<c:if test="${rvlist.size() ne 0 }">
-								<c:forEach var="j" begin="0" step="1" end="${rvlist.size()-1 }">
+								<c:forEach var="j" begin="0" step="1" end="${rvlist.size()}">
 									<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
 										<div class="row" >
 											<div class="col-md-12">
