@@ -140,6 +140,23 @@ public class ReviewDAO {
 			return list;
 		}
 		
+		//리뷰 삭제하기
+				public void deleteReview(int review_num) { 
+
+					try {
+						getCon();
+					
+						String sql = "delete review from review where reveiw_num = ?";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, review_num);
+						pstmt.executeUpdate();
+
+					} catch (Exception e) {
+						System.out.println("deleteReview()" + e);
+					} finally {
+						ResouceClose();
+					}
+				
 		
-		
+				}
 }

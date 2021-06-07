@@ -98,7 +98,7 @@ input[type="text"]:focus {
 					<div class="col-md-2">작성 가능한 리뷰</div>
 					</div>
 					<c:if test="${plist.size() ne 0 }">
-					<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
+					<c:forEach var="i" begin="0" step="1" end="${plist.size() -1 }">
 					<div class="row">
 						<div class="col-md-2">
 							<img src="product_img_upload/${plist[i].product_img}" style="width: 100px; height: 100px;">
@@ -119,8 +119,30 @@ input[type="text"]:focus {
 								<input type="button" value="리뷰쓰기" id="add_review" class="myButton" onclick="add_onclick(${plist[i].product_num});">
 						</div>
 					</div><hr>
+					
 					</c:forEach>
 					</c:if>
+						<div class="row">
+				<div class="col-md-6 offset-4 paging" style="height: 120px;">
+ 					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} onclick="paging(${num});" >${num }</a>
+				            </li>
+				        </c:forEach>
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
+				</div>
+			</div>
 				</div>
 			</div>
 		</div>

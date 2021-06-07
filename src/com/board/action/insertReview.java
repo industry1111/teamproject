@@ -1,7 +1,5 @@
 package com.board.action;
-
 import java.io.IOException;
-
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,31 +11,29 @@ import javax.servlet.http.HttpSession;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-
 import dao.ReviewDAO;
 import dto.reviewDTO;
 
 @WebServlet("/insertReview")
-public class WriteReview extends HttpServlet{
+public class insertReview extends HttpServlet{
 
-	  @Override
-		protected void doGet(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			doReIn(request, response);
-		}
-	  @Override
-		protected void doPost(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-			doReIn(request, response);
-		}
-	  protected void doReIn(HttpServletRequest request, HttpServletResponse response)
-				throws ServletException, IOException {
-	      //리뷰를 작성하고 저장하기 버튼을 클릭했을때 실행
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
+	}
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+			System.out.println("writeReview");
 		  request.setCharacterEncoding("utf-8");
 		  HttpSession session=request.getSession();
 		  int member_num = (int)session.getAttribute("member_num");
 			
-		  String directory = request.getServletContext().getRealPath("/upload_profile/");
+		  String directory = request.getServletContext().getRealPath("/upload_review/");
 		  int maxSize = 1024*1024*1024;
 			
 		  MultipartRequest multipartRequest;
@@ -52,13 +48,13 @@ public class WriteReview extends HttpServlet{
 	      rvdto.setRating1(Integer.parseInt(multipartRequest.getParameter("rating1")));
 	      rvdto.setRating2(Integer.parseInt(multipartRequest.getParameter("rating2")));
 	      rvdto.setRating3(Integer.parseInt(multipartRequest.getParameter("rating3")));
-	      rvdto.setReview_content(multipartRequest.getParameter("review_content"));
-	      rvdto.setReview_img(multipartRequest.getFilesystemName("review_img"));
-	      
+	      rvdto.setReview_content(multipartRequest.getParameter("textarea"));
+	      rvdto.setReview_img(multipartRequest.getFilesystemName("profile_img"));
+	      System.out.println(multipartRequest.getParameter("review_content"));
 	      rvdao.insertReview(rvdto);
-	      
-	   
+
+	}
+	  	
 	     
 	       
-	    }
 }
