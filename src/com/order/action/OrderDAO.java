@@ -355,6 +355,7 @@ public class OrderDAO {
 			 dto.setStore_num(rs.getInt("store_num"));
 			 dto.setState(rs.getString("state"));
 			 dto.setOrder_id(rs.getString("order_id"));
+			 dto.setOrder_detail_num(rs.getInt("order_detail_num"));
              
 			 list.add(dto);
 
@@ -368,6 +369,26 @@ public class OrderDAO {
     
     	return list;
     	
+    }//storeOrder
+    
+    //StateUpdate
+    public void OrderStateUpdate(String state, int order_detail_num){
+        
+        try {
+            getCon();
+            
+            String sql = "update orders_detail set state = ? where order_detail_num = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, state);
+            pstmt.setInt(2, order_detail_num);
+            pstmt.executeUpdate();
+
+        } catch (Exception e) {
+           System.out.println("OrderStateUpdate" + e.toString());
+        }finally {
+            ResouceClose();
+        }
+
     }
   
 }

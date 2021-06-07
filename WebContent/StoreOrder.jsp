@@ -9,7 +9,11 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
+<script src="js/StoreOrder.js"></script>
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"
 	rel="stylesheet">
@@ -41,11 +45,7 @@
 
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>
-	var contextPath = "${pageContext.request.contextPath}";
-</script>
-<script src="js/StoreOrder.js"></script>
+
 </head>
 <body>
 	<!-- 	<div id="page"> -->
@@ -88,7 +88,7 @@
 							주문내역이 없습니다.
 						</c:if>
 						<c:if test="${list.size() ne 0 }">
-						<c:forEach var="i" begin="0" step="1" end="${list.size()}">
+						<c:forEach var="i" begin="0" step="1" end="${list.size()-1}">
 						<div class="product-cart d-flex">
 						<div class="col-md-1">
 							<fmt:formatDate pattern="yyyy-MM-dd" value="${list[i].regdate}" />
@@ -133,10 +133,11 @@
 								<option value="9">환불완료</option>
 								<option value="10">교환신청</option>
 							</select>
-							<input type="button" value="수정" id="state_update_btn">
-							<input type="hidden" value="${list[i].orders_code}" class=".orders_code">
+							<input type="button" value="수정" class="state_update_btn">
+							<input type="hidden" value="${list[i].order_detail_num}" class="order_detail_num">${i }
 						</div>
 						<hr>
+						</div>
 					</c:forEach>
 					</c:if>
 				</div>

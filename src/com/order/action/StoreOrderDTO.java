@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class StoreOrderDTO {
 	
+     private int order_detail_num;
 	 private int quantity;
 	 private int product_num;
 	 private int product_price;
@@ -32,7 +33,14 @@ public class StoreOrderDTO {
 	 private int count;
 	 private String order_id;
 	 
-	public String getOrder_id() {
+	 
+	public int getOrder_detail_num() {
+        return order_detail_num;
+    }
+    public void setOrder_detail_num(int order_detail_num) {
+        this.order_detail_num = order_detail_num;
+    }
+    public String getOrder_id() {
 		return order_id;
 	}
 	public void setOrder_id(String order_id) {
