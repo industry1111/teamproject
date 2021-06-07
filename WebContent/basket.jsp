@@ -126,7 +126,13 @@ function order_btn_click() {
 								</div>
 								<div class="one-eight text-center">
 									<div class="display-tc">
-										<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100">
+										<input type="button" id="minus_btn" value="-">
+									</div>
+									<div class="display-tc">
+										<input style="width:80px;" type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100">
+									</div>
+									<div class="display-tc">
+										<input type="button" id="plus_btn" value="+">
 									</div>
 								</div>
 								<div class="one-eight text-center">

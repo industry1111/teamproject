@@ -61,6 +61,13 @@ $(function() {
 		
 	 });//delete_btn
 	
+	$("#plus_btn").on("click",function(){
+		
+		var quantity = $("#quantity").val();
+		new_quantity = quantity + 1;
+
+	});
+	
 	
   });
 
