@@ -10,7 +10,8 @@ import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
-import dao.boardDAO;
+import action.Criteria;
+import action.PageDTO;
 
 public class WritableReviewsAction implements Action{
 
@@ -27,6 +28,27 @@ public class WritableReviewsAction implements Action{
 		productDAO pdao = new productDAO();
 		List<productDTO> plist= pdao.getProductList(member_num);
 		request.setAttribute("plist", plist);
+		
+		//페이징 부분
+		String page = request.getParameter("page");
+		Criteria cri;
+		PageDTO pagedto;
+		int numPerPage = 5;
+		
+		if(page != null){
+			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
+			cri = new Criteria(nowPage, numPerPage);
+			pagedto = new PageDTO(cri, plist.size());
+		}else{
+			cri = new Criteria(numPerPage);
+			pagedto = new PageDTO(cri, plist.size());
+		}
+		
+		request.setAttribute("p", pagedto);
+		request.setAttribute("plist", plist);
+	
+		
+		
 		
 		request.setAttribute("center", "writableReviews.jsp");
 		ActionForward forward = new ActionForward();

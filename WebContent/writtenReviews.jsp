@@ -90,9 +90,13 @@ input[type="text"]:focus {
 					</div>
 				</div>
 			</div>
+			<c:set var="loop" value="true"/>
 			<c:if test="${plist.size() ne 0 }">
-				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
-
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+<c:if test="${p.total == i }">
+								<c:set var="loop" value="false"/>
+							</c:if>
+							<c:if test="${loop }">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row" >
@@ -166,10 +170,31 @@ input[type="text"]:focus {
 							</c:if>
 						</div>
 					</div><hr>
+					</c:if>
 				</c:forEach>
 			</c:if>
 		</div>
 	</div>
+	<div class="col-md-6 offset-4 paging" style="height: 120px;">
+ 					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="writtenReviews.bo?page=true&nowPage=${num }" >${num }</a>
+				            </li>
+				        </c:forEach>
+				   
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
+				</div>
 	<!-- 	</div> -->
 	<!-- popper -->
 	<script src="js/popper.min.js"></script>

@@ -95,10 +95,15 @@ input[type="text"]:focus {
 			<div class="row " >
 				<div class="col-md-12"  >
 					<div class="product-name d-flex " align="center" >
-					<div class="col-md-2">작성 가능한 리뷰</div>
+						<div class="col-md-2">작성 가능한 리뷰</div>
 					</div>
-					<c:if test="${plist.size() ne 0 }">
-					<c:forEach var="i" begin="0" step="1" end="${plist.size() -1 }">
+						<c:set var="loop" value="true"/>
+						<c:if test="${plist.size() ne 0 }">
+						<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+							<c:if test="${p.total == i }">
+								<c:set var="loop" value="false"/>
+							</c:if>
+							<c:if test="${loop }">
 					<div class="row">
 						<div class="col-md-2">
 							<img src="product_img_upload/${plist[i].product_img}" style="width: 100px; height: 100px;">
@@ -113,13 +118,12 @@ input[type="text"]:focus {
 							<div class="row">
 								<div class="col-md-4">${plist[i].product_name }</div>
 							</div>
-							
 						</div>
-						<div class="col-md-2">
+							<div class="col-md-2">
 								<input type="button" value="리뷰쓰기" id="add_review" class="myButton" onclick="add_onclick(${plist[i].product_num});">
-						</div>
+							</div>
 					</div><hr>
-					
+					     </c:if>
 					</c:forEach>
 					</c:if>
 						<div class="row">
@@ -132,9 +136,10 @@ input[type="text"]:focus {
         				</c:if>
 				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
 				            <li class="page-item">
-				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} onclick="paging(${num});" >${num }</a>
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="writableReviews.bo?page=true&nowPage=${num }" >${num }</a>
 				            </li>
 				        </c:forEach>
+				   
 				        <c:if test="${p.next }">
 				            <li class="page-item next">
 				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
