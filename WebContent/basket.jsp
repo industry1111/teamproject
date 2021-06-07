@@ -119,31 +119,32 @@ function order_btn_click() {
 										<h3>${list[i].product_name}</h3>
 									</div>
 								</div>
-								<div class="one-eight text-center">
+								<div class="one-eight text-center" name="product_price">
 									<div class="display-tc">
-										<span class="price">${list[i].product_price}원</span>
+										<span class="price">${list[i].product_price}</span>원
 									</div>
 								</div>
-								<div class="one-eight text-center">
-									<div class="display-tc">
-										<input type="button" id="minus_btn" value="-">
-									</div>
-									<div class="display-tc">
+								<div class="one-eight text-center" >
+									
+									<div class="display-tc" name="parent" id="parent">
 										<input style="width:80px;" type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100">
 									</div>
-									<div class="display-tc">
-										<input type="button" id="plus_btn" value="+">
+									<div>
+										<div class="display-tc">
+											<input style="height: 25px; width: 25px" type="button" class="plus_btn" value="+">
+											<input style="height: 25px; width: 25px" type="button" class="minus_btn" value="-">
+										</div>
 									</div>
 								</div>
-								<div class="one-eight text-center">
+								<div class="one-eight text-center" name="t_price">
 									<div class="display-tc">
-										<span name="total_price" class="price">${list[i].product_price * list[i].quantity}</span>
+										<span name="total_price" class="price">${list[i].product_price * list[i].quantity}</span>원
 									</div>
 								</div>
-								<div class="one-eight text-center">
+								<div class="one-eight text-center" name="parent1">
 									<div class="display-tc">
-										<a href="#" class="closed" id="delete_btn">
-											<input type="hidden" name="basket_num" id="basket_num" value="${list[i].basket_num}" />
+										<a href="#" class="closed" name="delete_btn">
+											<input type="hidden" class="basket_num" name="basket_num" id="basket_num" value="${list[i].basket_num}" />
 										</a>
 									</div>
 								</div>
