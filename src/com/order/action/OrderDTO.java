@@ -16,7 +16,6 @@ public class OrderDTO {
 	private String order_email;
 	private String order_phone;
 	private String pay_method;
-	private String state;
     Timestamp regdate;
     private String orders_code;
     private String receiver_addr1;
@@ -96,12 +95,6 @@ public class OrderDTO {
     }
     public void setPay_method(String pay_method) {
         this.pay_method = pay_method;
-    }
-    public String getState() {
-        return state;
-    }
-    public void setState(String state) {
-        this.state = state;
     }
     public Timestamp getRegdate() {
         return regdate;

@@ -478,5 +478,26 @@ public class boardDAO {
 		}
 		return list;
 	}
+	
+	public void basketQuantityUpdate(int basket_num, int quantity){
+		
+		try {
+			
+			getCon();
+			String sql = "update basket set quantity = ? where basket_num = ? ";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, quantity);
+			pstmt.setInt(2, basket_num);
+			pstmt.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			System.out.println("basketQuantityUpdate:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		
+		
+	}
 
 }

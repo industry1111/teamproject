@@ -88,22 +88,22 @@ h4{
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="OrderContent.or">주문/배송내역</a>
+				<a href="OrderContent.or"  ${center eq "order.jsp" ? 'style="font-weight:bold;"':''}>주문/배송내역</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="basket.bo">장바구니</a>
+				<a href="basket.bo" ${center eq "basket.jsp" ? 'style="font-weight:bold;"':''}>장바구니</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="keepstore.bo">찜한 스토어</a>
+				<a href="keepstore.bo" ${center eq "keepstore.jsp" ? 'style="font-weight:bold;"':''}>찜한 스토어</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="receiver.bo">배송지관리</a>
+				<a href="receiver.re" ${center eq "receiver.jsp" ? 'style="font-weight:bold;"':''}>배송지관리</a>
 			</div>
 		</div>
 		<div class="row">
@@ -114,12 +114,12 @@ h4{
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="writableReviews.bo">작성 가능한 리뷰</a>
+				<a href="writableReviews.bo" ${center eq "writableReviews.jsp" ? 'style="font-weight:bold;"':''}>작성 가능한 리뷰</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="writtenReviews.bo">내가 작성한 리뷰</a>
+				<a href="writtenReviews.bo" ${center eq "writtenReviews.jsp" ? 'style="font-weight:bold;"':''}>내가 작성한 리뷰</a>
 			</div>
 		</div>
 	
@@ -127,7 +127,7 @@ h4{
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2" >
 				<hr>
-				<a href="Seller.me" >
+				<a href="Seller.me"  >
 					<h4>판매자 등록</h4>
 				</a>
 			</div>
@@ -143,7 +143,12 @@ h4{
 		
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="StoreInfo.me">스토어 정보 변경</a>
+				<a href="StoreInfo.me" ${center eq "StoreInfoUpdate.jsp" ? 'style="font-weight:bold;"':''}>스토어 정보 변경</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-9 col-md-offset-2 side"align="center" >
+				<a href="#">주문 현황</a>
 			</div>
 		</div>
 		<div class="row">
@@ -153,12 +158,12 @@ h4{
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="StoreChart.bo">스토어 현황</a>
+				<a href="StoreChart.bo" ${center eq "StoreChart.jsp" ? 'style="font-weight:bold;"':''}>스토어 현황</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="ProductListAction.pr">물품등록/삭제</a> 
+				<a href="ProductListAction.pr" ${center eq "ProductList.jsp" ? 'style="font-weight:bold;"':''}>물품등록/삭제</a> 
 			</div>
 		</div>
 		</c:if>
@@ -170,12 +175,12 @@ h4{
 		</div>
 		<div class="row" style="margin-top: 10px">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="MemberInfo.me">회원 정보 변경</a>
+				<a href="MemberInfo.me" ${center eq "MemberUpdate.jsp" ? 'style="font-weight:bold;"':''}>회원 정보 변경</a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="DeleteMember.me">회원 탈퇴</a>
+				<a href="DeleteMember.me" ${center eq "deleteMember.jsp" ? 'style="font-weight:bold;"':''}>회원 탈퇴</a>
 			</div>
 		</div>
 	</form>

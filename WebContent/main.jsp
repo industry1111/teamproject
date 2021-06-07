@@ -194,9 +194,10 @@ ul {
 						<li class="price" value="1">1만원이하</li>
 						<li class="price" value="2" >1만원~5만원</li>
 						<li class="price" value="3" >5만원~10만원</li>
-						<li style="float: left; margin-left:30px; margin-top: 10px;">직접입력 &nbsp;<input type="text"  id="price1"  placeholder="원" style="height: 20px" >~
-							<input  type="text" placeholder="원"  style="height: 20px">
-								<img src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
+						<li style="float: left; margin-left:30px; margin-top: 10px;">직접입력 &nbsp;
+							<input type="text"  id="price1"  placeholder="원" style="height: 20px;text-align: right;" >~
+							<input  type="text" placeholder="원"  style="height: 20px;text-align: right;">
+							<img class="price"  src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
 						</li>
 					</ul>
 				</div>
@@ -222,10 +223,10 @@ ul {
 					</ul>
 				</div>
 				<div class="col-md-4">
-					<select style="color:grey;">
-						<option>5개씩 보기
-						<option>10개씩 보기
-						<option>20개씩 보기
+					<select name="numPerPage" id="numPerPage"style="color:grey;">
+						<option value="5">5개씩 보기
+						<option value="10" selected>10개씩 보기
+						<option value="20">20개씩 보기
 					</select>
 				</div>
 			</div>
