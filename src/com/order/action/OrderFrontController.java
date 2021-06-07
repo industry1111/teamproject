@@ -71,7 +71,7 @@ public class OrderFrontController extends HttpServlet{
 			}
 
 		}else if(command.equals("/StoreOrder.or")){
-			action = new OrderDetail();
+			action = new StoreOrder();
 			try {
 				forward = action.execute(request, response);
 
