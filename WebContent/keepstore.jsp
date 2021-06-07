@@ -169,7 +169,7 @@ input[type="text"]:focus {
         				</c:if>
 				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
 				            <li class="page-item">
-				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="writableReviews.bo?page=true&nowPage=${num }" >${num }</a>
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="keepstore.bo?page=true&nowPage=${num }" >${num }</a>
 				            </li>
 				        </c:forEach>
 				   
