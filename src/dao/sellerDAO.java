@@ -60,7 +60,7 @@ public class sellerDAO {
 				sdto.setAccount(rs.getString("account"));
 				sdto.setCategory_num(rs.getInt("category_num"));
 				sdto.setMember_num(rs.getInt("member_num"));
-				sdto.setMember_num(rs.getInt("store_num"));
+				sdto.setStore_num(rs.getInt("store_num"));
 				sdto.setStore_name(rs.getString("store_name"));
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
@@ -71,7 +71,7 @@ public class sellerDAO {
 		} finally {
 			ResouceClose();
 		}
-
+		
 		return sdto;
 	}
 	// 로그인 아이디 비밀번호 확인

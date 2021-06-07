@@ -8,7 +8,6 @@ import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
-import javafx.scene.control.Alert;
 
 public class WriteReviewAction implements Action{
 	  @Override

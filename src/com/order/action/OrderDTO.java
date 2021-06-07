@@ -9,6 +9,7 @@ import dto.basketDTO;
 
 public class OrderDTO {
 	
+	private String order_id;
 	private int	order_num; 
 	private int member_num;
 	private int total_price;
@@ -30,6 +31,12 @@ public class OrderDTO {
     private int count;
 
     
+	public String getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(String order_id) {
+		this.order_id = order_id;
+	}
 	public String getMain_product_image() {
 		return main_product_image;
 	}
