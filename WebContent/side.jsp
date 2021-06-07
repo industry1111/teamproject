@@ -103,7 +103,7 @@ h4{
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="receiver.bo">배송지관리</a>
+				<a href="receiver.re">배송지관리</a>
 			</div>
 		</div>
 		<div class="row">
