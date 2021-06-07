@@ -146,7 +146,7 @@ public class ReviewDAO {
 					try {
 						getCon();
 					
-						String sql = "delete review from review where reveiw_num = ?";
+						String sql = "delete review from review where review_num = ?";
 						pstmt = con.prepareStatement(sql);
 						pstmt.setInt(1, review_num);
 						pstmt.executeUpdate();

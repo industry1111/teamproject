@@ -266,7 +266,7 @@ ul {
 							</c:if>
 						</c:forEach>
 						<br>
-							<p style="color:red;">${plist[i].product_price}원<p>
+							<p style="color:red;">${plist[i].product_price}원</p>
 							리뷰&nbsp;·&nbsp;
 							구매건수&nbsp;·&nbsp;
 							등록일&nbsp;<fmt:formatDate pattern="yyyy-MM-dd" value="${plist[i].regdate}" /> &nbsp;·

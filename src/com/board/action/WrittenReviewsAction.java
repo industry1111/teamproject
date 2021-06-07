@@ -11,6 +11,8 @@ import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
+import action.Criteria;
+import action.PageDTO;
 import dao.ReviewDAO;
 import dto.reviewDTO;
 
@@ -37,6 +39,25 @@ public class WrittenReviewsAction implements Action{
 		
 		System.out.println(plist.size());
 		System.out.println(rvlist.size());
+		
+		//페이징 부분
+		String page = request.getParameter("page");
+		Criteria cri;
+		PageDTO pagedto;
+		int numPerPage = 5;
+				
+		if(page != null){
+			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
+			cri = new Criteria(nowPage, numPerPage);
+			pagedto = new PageDTO(cri, plist.size());
+		}else{
+			cri = new Criteria(numPerPage);
+			pagedto = new PageDTO(cri, plist.size());
+		}
+				
+		request.setAttribute("p", pagedto);
+		request.setAttribute("plist", plist);
+		
 		
 		request.setAttribute("center", "writtenReviews.jsp");
 		ActionForward forward = new ActionForward();

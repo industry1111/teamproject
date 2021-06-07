@@ -128,9 +128,8 @@ function write_review_btn(){
 
 	var form = document.frm;
     
-    form.submit().close();
+    form.submit();
     
-	
 	
 
 }
