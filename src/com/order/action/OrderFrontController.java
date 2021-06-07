@@ -70,6 +70,14 @@ public class OrderFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 
+		}else if(command.equals("/StoreOrder.or")){
+			action = new OrderDetail();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
         
         

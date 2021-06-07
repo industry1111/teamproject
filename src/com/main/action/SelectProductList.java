@@ -45,7 +45,9 @@ public class SelectProductList extends HttpServlet{
 		String price2 = request.getParameter("price2");
 		String price = request.getParameter("price");
 		String sort = request.getParameter("sort");
-
+		System.out.println(price);
+		System.out.println(price1);
+		System.out.println(price2);
 		boardDAO bdao = new boardDAO();
 		productDAO pdao = new productDAO();
 		List<categoryDTO> clist_all = bdao.getcategory();
@@ -62,7 +64,6 @@ public class SelectProductList extends HttpServlet{
 		}else{
 			numPerPage = Integer.parseInt(request.getParameter("numPerPage"));
 		}
-		System.out.println(numPerPage);
 		
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));

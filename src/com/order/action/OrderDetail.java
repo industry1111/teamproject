@@ -38,7 +38,7 @@ public class OrderDetail implements Action {
          forward.setRedirect(false);
          
          forward.setPath("mypage.jsp"); 
-         request.setAttribute("center", "orderDetail.jsp");
+         request.setAttribute("center", "StoreOrder.jsp");
          
          return forward;
 	}

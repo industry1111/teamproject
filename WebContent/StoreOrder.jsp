@@ -46,24 +46,41 @@
 <body>
 	<!-- 	<div id="page"> -->
 	<div class="colorlib-product">
-		<div class="container">
 			<div class="row row-pb-lg">
 				<div class="col-md-12">
 					<div class="product-name d-flex">
-						<div class="one-forth text-left px-4">
-							<span>상품정보</span>
+						<div class="col-md-1">
+							<span class="th">주문일시</span>
 						</div>
-						<div class="one-eight text-center">
-							<span>Order</span>
+						<div class="col-md-1">
+							<span class="th">주문번호</span>
 						</div>
-						<div class="one-eight text-center">
-							<span>Date</span>
+						<div class="col-md-1">
+							<span class="th">상품명</span>
 						</div>
-						<div class="one-eight text-center">
-							<span>상품가격</span>
+						<div class="col-md-1">
+							<span class="th">주문수량</span>
 						</div>
-						<div class="one-eight text-center px-4">
-							<span>배송상태</span>
+						<div class="col-md-1">
+							<span class="th">주문금액</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문자</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">수령인</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">휴대폰</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">우편 번호</span>
+						</div>
+						<div class="col-md-2" align="<center></center>">
+							<span class="th">수령인 주소</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문상태</span>
 						</div>
 					</div>
 						<c:if test="${list.size() eq 0 }">
@@ -125,7 +142,6 @@
 					</c:if>
 				</div>
 			</div>
-		</div>
 	</div>
 	<!-- 	</div> -->
 	<!-- popper -->

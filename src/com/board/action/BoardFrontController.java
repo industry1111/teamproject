@@ -129,7 +129,16 @@ public class BoardFrontController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}	
+			}
+			
+			}else if(command.equals("/deleteReview.bo")) {
+				
+				action = new ReviewDeleteAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		
 		
 		}else if (command.equals("/StoreChart.bo")) {
