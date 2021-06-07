@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.ActionForward;
+import action.Criteria;
+import action.PageDTO;
 
 public class OrderList implements Action{
 
@@ -21,6 +23,21 @@ public class OrderList implements Action{
 		OrderDTO odto = new OrderDTO();
 		List<OrderDTO> list = odao.getOrderInfo(member_num);
 	
+		// 페이징 부분
+		String page = request.getParameter("page");
+		Criteria cri;
+		PageDTO pagedto;
+		int numPerPage = 5;
+
+		if (page != null) {
+			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
+			cri = new Criteria(nowPage, numPerPage);
+			pagedto = new PageDTO(cri, list.size());
+		} else {
+			cri = new Criteria(numPerPage);
+			pagedto = new PageDTO(cri, list.size());
+		}
+		request.setAttribute("p", pagedto);
 		request.setAttribute("list", list);
 		request.setAttribute("center", "order.jsp");
 		ActionForward forward = new ActionForward();

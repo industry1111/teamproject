@@ -13,8 +13,8 @@ $(function() {
 	$("input:checkbox[name=product_check]").on("click",function(){
 		
 		var product_price = parseInt($(this).val());
-		//var price_total = parseInt($("#price_total").val());
-		var price_total = $(this).parent().siblings("div[name=t_price]").children().children().text();
+		var price_total = parseInt($("#price_total").val());
+		var product_total = $(this).parent().siblings("div[name=t_price]").children().children().text();
 		console.log(price_total);
 		
 			if($(this).is(":checked")){
@@ -22,14 +22,15 @@ $(function() {
 					checkArr.push($(this).attr("basket_num"));
 					$("#chk").val(checkArr);
 				
-					//product_price = $(this).val();
-					price_total += parseInt(product_price);
+//					product_price = $(this).val();
+					price_total += parseInt(product_total);
 					
 					$("#price_total").val(price_total);
 
 			}else{
 					//product_price = $(this).val();
-					price_total -= parseInt(product_price);	
+					price_total -= parseInt(product_total);
+				
 					$("#price_total").val(price_total);
 					
 					checkArr.pop($(this).attr("basket_num"));
@@ -69,6 +70,19 @@ $(function() {
 		var product_price = $(this).parent().parent().parent().siblings("div[name=product_price]").children().children().text();
 		var new_total_price = parseInt(product_price)*parseInt(new_quantity);
 		$(this).parent().parent().parent().siblings("div[name=t_price]").children().children().text(new_total_price);
+		var check = $(this).parent().parent().parent().siblings("div[name=check]").children();
+		
+		
+		if(check.is(":checked")){
+			
+			var price_total = parseInt($("#price_total").val());
+
+			price_total += parseInt(product_price);
+			
+			$("#price_total").val(price_total);
+
+		}
+		
 		
 		$.ajax({
 			
@@ -90,7 +104,7 @@ $(function() {
 	});
 	
 	$(".minus_btn").on("click",function(){
-		
+		var check = $(this).parent().parent().parent().siblings("div[name=check]").children();
 		var quantity = $(this).parent().parent().siblings("div[name=parent]").children().val();
 		var new_quantity = parseInt(quantity)-1;
 		$(this).parent().parent().siblings("div[name=parent]").children().val(new_quantity);
@@ -99,6 +113,17 @@ $(function() {
 		var new_total_price = parseInt(product_price)*parseInt(new_quantity);
 		$(this).parent().parent().parent().siblings("div[name=t_price]").children().children().text(new_total_price);
 
+		if(check.is(":checked")){
+			
+			var price_total = parseInt($("#price_total").val());
+
+			price_total -= parseInt(product_price);
+			
+			$("#price_total").val(price_total);
+
+		}
+		
+		
 		$.ajax({
 			
 			type:"post",
