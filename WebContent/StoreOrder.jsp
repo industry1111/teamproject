@@ -62,6 +62,9 @@
 						<div class="one-eight text-center">
 							<span>상품가격</span>
 						</div>
+						<div class="one-eight text-center px-4">
+							<span>배송상태</span>
+						</div>
 					</div>
 						<c:if test="${list.size() eq 0 }">
 							주문내역이 없습니다.
@@ -100,6 +103,23 @@
 									<span class="date">${list[i].total_price}원</span>
 								</div>
 							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+
+									<c:if test="${list[i].state==0}">입금완료</c:if>
+									<c:if test="${list[i].state==1}">주문접수</c:if>
+									<c:if test="${list[i].state==2}">배송준비중</c:if>
+									<c:if test="${list[i].state==3}">배송중</c:if>
+									<c:if test="${list[i].state==4}">배송완료</c:if>
+									<c:if test="${list[i].state==5}">주문취소</c:if>
+									<c:if test="${list[i].state==6}">반품처리중</c:if>
+									<c:if test="${list[i].state==7}">반품접수</c:if>
+									<c:if test="${list[i].state==8}">반품승인</c:if>
+									<c:if test="${list[i].state==9}">환불완료</c:if>
+									<c:if test="${list[i].state==10}">교환신청</c:if>
+								</div>
+							</div>
+						
 						</div>
 					</c:forEach>
 					</c:if>

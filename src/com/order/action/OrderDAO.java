@@ -52,28 +52,27 @@ public class OrderDAO {
         try {
             getCon();
 
-            String sql = "insert into orders (member_num, total_price, pay_method, state, regdate, orders_code,"
+            String sql = "insert into orders (member_num, total_price, pay_method, regdate, orders_code,"
                     + "receiver_addr1, receiver_addr2, receiver_addr3, receiver_name, receiver_phone, address_name, receiver_msg,main_product_image,"
                     + "main_product_name, count)"
-                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, dto.getMember_num());
             pstmt.setInt(2, dto.getTotal_price());
             pstmt.setString(3, dto.getPay_method());
-            pstmt.setString(4, "0");
-            pstmt.setTimestamp(5, dto.getRegdate());
-            pstmt.setString(6, dto.getOrders_code());
-            pstmt.setString(7, dto.getReceiver_addr1());
-            pstmt.setString(8, dto.getReceiver_addr2());
-            pstmt.setString(9, dto.getReceiver_addr3());
-            pstmt.setString(10, dto.getReceiver_name());
-            pstmt.setString(11, dto.getReceiver_phone());
-            pstmt.setString(12, dto.getAddress_name());
-            pstmt.setString(13, dto.getReceiver_msg());
-            pstmt.setString(14, dto.getMain_product_image());
-            pstmt.setString(15, dto.getMain_product_name());
-            pstmt.setInt(16, dto.getCount());
+            pstmt.setTimestamp(4, dto.getRegdate());
+            pstmt.setString(5, dto.getOrders_code());
+            pstmt.setString(6, dto.getReceiver_addr1());
+            pstmt.setString(7, dto.getReceiver_addr2());
+            pstmt.setString(8, dto.getReceiver_addr3());
+            pstmt.setString(9, dto.getReceiver_name());
+            pstmt.setString(10, dto.getReceiver_phone());
+            pstmt.setString(11, dto.getAddress_name());
+            pstmt.setString(12, dto.getReceiver_msg());
+            pstmt.setString(13, dto.getMain_product_image());
+            pstmt.setString(14, dto.getMain_product_name());
+            pstmt.setInt(15, dto.getCount());
 
             result = pstmt.executeUpdate();
             
@@ -97,8 +96,8 @@ public class OrderDAO {
             getCon();
 
             String sql = "insert into orders_detail (quantity, product_num, product_name, product_price,"
-            		+ "image, orders_code,store_num)"
-            		+ " values(?,?,?,?,?,?,?)";
+            		+ "image, orders_code,store_num,state)"
+            		+ " values(?,?,?,?,?,?,?,?)";
             
             pstmt = con.prepareStatement(sql);
             
@@ -109,6 +108,7 @@ public class OrderDAO {
             pstmt.setString(5, dto.getImage());
             pstmt.setString(6, dto.getOrders_code());
             pstmt.setInt(7, dto.getStore_num());
+            pstmt.setString(8, "0");
          
             result = pstmt.executeUpdate();
             
@@ -189,7 +189,6 @@ public class OrderDAO {
 				
 				OrderDTO odto = new OrderDTO();
 				odto.setTotal_price(rs.getInt("total_price"));
-				odto.setState(rs.getString("state"));
 				odto.setOrders_code(rs.getString("orders_code"));
 				odto.setRegdate(rs.getTimestamp("regdate"));
 				odto.setAddress_name(rs.getString("address_name"));
@@ -247,6 +246,7 @@ public class OrderDAO {
 				dto.setProduct_price(rs.getInt("product_price"));
 				dto.setQuantity(rs.getInt("quantity"));
 				dto.setStore_num(rs.getInt("store_num"));
+				dto.setState(rs.getString("state"));
 				
 				list.add(dto);
 				
@@ -283,7 +283,6 @@ public List<OrderDTO> getOrder(String orders_code){
                 
                 OrderDTO odto = new OrderDTO();
                 odto.setTotal_price(rs.getInt("total_price"));
-                odto.setState(rs.getString("state"));
                 odto.setOrders_code(rs.getString("orders_code"));
                 odto.setRegdate(rs.getTimestamp("regdate"));
                 odto.setAddress_name(rs.getString("address_name"));
