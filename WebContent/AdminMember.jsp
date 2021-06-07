@@ -106,7 +106,7 @@ input[type="text"] {
 						</div>
 					</div>
 					<c:forEach var="i" begin="0" step="1" end="4">
-						<div class="product-cart d-flex">
+						<div class="product-cart d-flex" >
 							<div class="one-forth text-left px-4">
 								<div class="display-tc">
 									<h3>${list[i].id}</h3>
@@ -130,9 +130,29 @@ input[type="text"] {
 							<div class="one-eight text-center">
 								<div class="display-tc">
 										<select form="">
-										 <option value="">Edit</option>
-										 <option value="">Delete</option>
-										 </select>
+										
+										<option value="">
+										<c:if test="${list[i].member_code eq 1}">일반회원</c:if>
+										<c:if test="${list[i].member_code eq 2}">판매회원</c:if>
+										<c:if test="${list[i].member_code eq 3}">탈퇴회원</c:if>
+										<c:if test="${list[i].member_code eq 4}">강퇴회원</c:if>
+										<c:if test="${list[i].member_code eq 5}">회원코드5</c:if>
+										<c:if test="${list[i].member_code eq 6}">회원코드6</c:if>
+										<c:if test="${list[i].member_code eq 7}">회원코드7</c:if>
+										<c:if test="${list[i].member_code eq 8}">회원코드8</c:if>
+										<c:if test="${list[i].member_code eq 9}">관리자</c:if>
+										</option>
+										
+										<c:if test="${list[i].member_code ne 1}"><option value="">일반회원</option></c:if>
+										<c:if test="${list[i].member_code ne 2}"><option value="">판매회원</option></c:if>
+										<c:if test="${list[i].member_code ne 3}"><option value="">탈퇴회원</option></c:if>
+										<c:if test="${list[i].member_code ne 4}"><option value="">강퇴회원</option></c:if>
+										<c:if test="${list[i].member_code ne 5}"><option value="">회원코드5</option></c:if>
+										<c:if test="${list[i].member_code ne 6}"><option value="">회원코드6</option></c:if>
+										<c:if test="${list[i].member_code ne 7}"><option value="">회원코드7</option></c:if>
+										<c:if test="${list[i].member_code ne 8}"><option value="">회원코드8</option></c:if>
+										<c:if test="${list[i].member_code ne 9}"><option value="">관리자</option></c:if> 
+										</select>
 								</div>
 							</div>	
 						</div>	
