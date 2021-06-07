@@ -12,6 +12,8 @@
     <link rel="icon" href="template5/img/core-img/favicon.ico">
     <link rel="stylesheet" href="template5/css/core-style.css">
     <link rel="stylesheet" href="template5/style.css">
+    
+    <script> var contextPath = "${pageContext.request.contextPath}";</script>
 </head>
 
 <body>

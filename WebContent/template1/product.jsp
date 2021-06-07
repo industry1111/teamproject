@@ -98,7 +98,7 @@
 						<div class="col-md-6">
 							<h2 class="text-black">${pdto.product_name}</h2>
 							<p>${pdto.product_description}</p>
-							<p class="mb-4">pdto.product_brand</p>
+							<p class="mb-4">${pdto.product_brand}</p>
 							<p>
 								<strong class="text-primary h4">${pdto.product_price}</strong>
 							</p>

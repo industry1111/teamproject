@@ -56,7 +56,7 @@ public class StoreProductListAction implements Action {
 		//페이지이동(뷰페이지로이동)
 		forward.setPath("index.jsp");
 		forward.setRedirect(false);
-		request.setAttribute("center", "template"+ pdto.getTemplate() +"/shop.jsp");
+		request.setAttribute("center", "template5/shop.jsp");
 		return forward;
 	}
 }

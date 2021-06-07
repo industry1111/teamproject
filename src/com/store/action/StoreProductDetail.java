@@ -43,7 +43,7 @@ public class StoreProductDetail implements Action {
 		request.setAttribute("sdto", sdto);
 		ActionForward forward = new ActionForward();
 		
-		request.setAttribute("center", "template/product.jsp"); 
+		request.setAttribute("center", "template5/product.jsp"); 
 		forward.setRedirect(false);
 		forward.setPath("index.jsp");
 		return forward;
