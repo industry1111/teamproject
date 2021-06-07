@@ -154,7 +154,7 @@
 	
 		<!--  목록으로가기  -->
 					<div>
-						<a href="StoreProductListAction.st?store_num=${slist[j].store_num}" class="primary-btn order-submit">상품목록으로 돌아가기</a>
+						<a href="StoreProductListAction.st?store_num=${pdto.store_num}" class="primary-btn order-submit">상품목록으로 돌아가기</a>
 					</div>	
 	</body>
 </html>

@@ -242,7 +242,7 @@ ul {
 					<hr>
 					<div class="row">
 						<div class="col-md-2"  >
-							<a href="StoreProductDetail.st?${plist[i].product_num }">
+							<a href="StoreProductDetail.st?product_num=${plist[i].product_num }">
 								<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 150px; width: 150px;">
 							</a>	
 						</div>
