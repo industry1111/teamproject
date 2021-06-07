@@ -56,13 +56,13 @@
 function update_onclick(receiver_num){
             
     //이름은 중복창 제어용
-    child = window.open("receiver_2.bo?receiver_num="+receiver_num,"child","width=500,height=650");
+    child = window.open("receiver_2.re?receiver_num="+receiver_num,"child","width=500,height=650");
 };//click
 function delete_onclick(receiver_num){
 
 	if(confirm("삭제하시겠습니까?")){
 		
-		document.location.href = "ReceiverDelete.bo?receiver_num="+receiver_num;
+		document.location.href = "ReceiverDelete.re?receiver_num="+receiver_num;
 	}else{
 		window.close();
 	}
