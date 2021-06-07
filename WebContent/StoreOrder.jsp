@@ -89,54 +89,38 @@
 						<c:if test="${list.size() ne 0 }">
 					<c:forEach var="i" begin="0" step="1" end="${list.size()-1}">
 						<div class="product-cart d-flex">
-							<div class="one-forth">
-							&nbsp;
-								<a> <img src="product_img_upload/${list[i].main_product_image}"
-									style="width: 100px; height: 100px;">
-								</a>
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<c:if test="${list[i].count eq 0}">
-									<a href="OrderDetail.or?orders_code=${list[i].orders_code}">상품 : ${list[i].main_product_name}</a>
-								</c:if>
-								<c:if test="${list[i].count ne 0}">
-									<a href="OrderDetail.or?orders_code=${list[i].orders_code}"> 상품 : ${list[i].main_product_name} 외 ${list[i].count}건 </a>
-								</c:if>
-								
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="orders_code">${list[i].orders_code}</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">
-										<fmt:formatDate pattern="yyyy-MM-dd" value="${list[i].regdate}" />
-									</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="date">${list[i].total_price}원</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-
-									<c:if test="${list[i].state==0}">입금완료</c:if>
-									<c:if test="${list[i].state==1}">주문접수</c:if>
-									<c:if test="${list[i].state==2}">배송준비중</c:if>
-									<c:if test="${list[i].state==3}">배송중</c:if>
-									<c:if test="${list[i].state==4}">배송완료</c:if>
-									<c:if test="${list[i].state==5}">주문취소</c:if>
-									<c:if test="${list[i].state==6}">반품처리중</c:if>
-									<c:if test="${list[i].state==7}">반품접수</c:if>
-									<c:if test="${list[i].state==8}">반품승인</c:if>
-									<c:if test="${list[i].state==9}">환불완료</c:if>
-									<c:if test="${list[i].state==10}">교환신청</c:if>
-								</div>
-							</div>
-						
+							<div class="col-md-1">
+							<span class="th">주문일시</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문번호</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">상품명</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문수량</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문금액</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문자</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">수령인</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">휴대폰</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">우편 번호</span>
+						</div>
+						<div class="col-md-2" align="<center></center>">
+							<span class="th">수령인 주소</span>
+						</div>
+						<div class="col-md-1">
+							<span class="th">주문상태</span>
 						</div>
 					</c:forEach>
 					</c:if>

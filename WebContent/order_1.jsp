@@ -190,6 +190,9 @@ input {
 		<div>
 			<input type="button" class="myButton" value="결제하기" name="payment_btn" onclick="payment_btn_click();">
 		</div>
+		<div>
+			<a type="button"name="cancle_btn" href="basket.bo">주문취소</a>
+		</div>
 	
 	</div>
 </div> <!-- 전체 -->	
