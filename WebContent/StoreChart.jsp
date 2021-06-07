@@ -150,6 +150,7 @@ var canvas = document.getElementById('chart').getContext("2d");
       }
     });
 });
+
 </script>
 
 
