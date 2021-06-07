@@ -28,8 +28,6 @@ public class StoreProductListAction implements Action {
 		
 		productDAO pdao = new productDAO();
 		List<productDTO> list = pdao.getStoreInfo(store_num);
-		//member에서 store_num 받아오기
-
 		
 		//페이징 부분
 		String page = request.getParameter("page");

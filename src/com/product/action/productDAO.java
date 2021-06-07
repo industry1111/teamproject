@@ -317,6 +317,7 @@ public class productDAO {
 				
 				productDTO pdto = new productDTO();
 				
+				pdto.setStore_num(store_num);
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_num(rs.getInt("product_num"));
