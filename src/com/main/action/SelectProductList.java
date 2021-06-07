@@ -62,7 +62,6 @@ public class SelectProductList extends HttpServlet{
 		}else{
 			numPerPage = Integer.parseInt(request.getParameter("numPerPage"));
 		}
-		System.out.println(numPerPage);
 		
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
