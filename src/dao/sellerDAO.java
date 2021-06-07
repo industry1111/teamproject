@@ -235,6 +235,7 @@ public class sellerDAO {
 
 				while (rs.next()) {
 					sellerDTO sdto = new sellerDTO();
+					sdto.setStore_num(rs.getInt("store_num"));
 					sdto.setAccount(rs.getString("account"));
 					sdto.setCategory_num(rs.getInt("category_num"));
 					sdto.setMember_num(rs.getInt("member_num"));
