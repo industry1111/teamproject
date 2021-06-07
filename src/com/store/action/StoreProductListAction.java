@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.member.action.memberDAO;
 import com.product.action.productDAO;
 import com.product.action.productDTO;
 
@@ -14,6 +15,7 @@ import action.ActionForward;
 import action.Criteria;
 import action.PageDTO;
 import dao.boardDAO;
+import dao.sellerDAO;
 import dto.pagingDTO;
 import dto.sellerDTO;
 
@@ -26,12 +28,12 @@ public class StoreProductListAction implements Action {
 		HttpSession session = request.getSession();
 		
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		
+		System.out.println("StoreProductListAction");
 		productDAO pdao = new productDAO();
-		
+		sellerDAO sdao = new sellerDAO(); 
 		List<productDTO> list = pdao.getStoreInfo(store_num);		
-		
-		
+		String template = sdao.getSellerTemplate(store_num);
+		System.out.println(template);
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
@@ -56,7 +58,7 @@ public class StoreProductListAction implements Action {
 		//페이지이동(뷰페이지로이동)
 		forward.setPath("index.jsp");
 		forward.setRedirect(false);
-		request.setAttribute("center", "template"+ pdto.getTemplate() +"/shop.jsp");
+		request.setAttribute("center", "template"+template+"/shop.jsp");
 		return forward;
 	}
 }
