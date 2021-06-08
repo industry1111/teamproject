@@ -290,7 +290,7 @@ ul {
 								<a href="StoreProductListAction.st?store_num=${slist[j].store_num }">
 									<img src="upload_profile/${slist[j].profile_img }" style="height: 70px; width: 70px;">
 								</a><br> 
-								${slist[j].store_name }<br>
+								${slist[j].store_name }1<br>
 								<c:forEach var="category" items="${clist }">
 									<c:if test="${category.category_num eq slist[j].category_num}">
 										${category.category_name }
