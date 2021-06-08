@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Template3_shop</title>
+<title>템플렛2번입니다.</title>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="template2/css/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet" href="template2/css/slick.css" />

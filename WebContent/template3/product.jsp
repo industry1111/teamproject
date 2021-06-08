@@ -1,160 +1,145 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>   
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>상품상세 페이지</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>���÷�3�� ���������Դϴ�.</title>
+    <link rel="icon" href="template5/img/core-img/favicon.ico">
+    <link rel="stylesheet" href="template5/css/core-style.css">
+    <link rel="stylesheet" href="template5/style.css">
+    
+    <script> var contextPath = "${pageContext.request.contextPath}";</script>
+</head>
 
- 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
- 		<link type="text/css" rel="stylesheet" href="template3/css/bootstrap.min.css"/>
- 		<link type="text/css" rel="stylesheet" href="template3/css/slick.css"/>
- 		<link type="text/css" rel="stylesheet" href="template3/css/slick-theme.css"/>
- 		<link type="text/css" rel="stylesheet" href="template3/css/nouislider.min.css"/>
- 		<link rel="stylesheet" href="template3/css/font-awesome.min.css">
- 		<link type="text/css" rel="stylesheet" href="template3/css/style.css"/>
-		<!-- jQuery Plugins -->
-		<script src="template3/js/jquery.min.js"></script>
-		<script src="template3/js/bootstrap.min.js"></script>
-		<script src="template3/js/slick.min.js"></script>
-		<script src="template3/js/nouislider.min.js"></script>
-		<script src="template3/js/jquery.zoom.min.js"></script>
-		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-		
-		<script src="js/main.js"></script>
-		<script src="js/product_img.js"></script>
-		<script src="js/seller.js"></script>
-		<script src="js/category.js"></script>
-		
-		<script> var contextPath = "${pageContext.request.contextPath}";</script>
-    </head>
-	<body>			
-		
-		<form name="newProduct" action="StoreProductDetail.st"
-		class="form-horizontal" method="post" enctype="multipart/form-data">
-			
-			<input name="store_num" type="text" value="${pdto.store_num}" hidden />
-		
-		<div class="col-md-8">
-			<input name="product_num" type="text" value="${pdto.product_num}"
-				hidden />
-			<div class="product-details" align="center">
-				<h2 class="product-name">
-				${pdto.product_name}</h2> <!-- 상품명 -->
-			</div>
-			
-						<!-- 상품 미리보기 이미지가 올라가는 곳. -->
-			<div class="form-group row">
-				<div class="col-sm-4" align="left">
-					<img src="product_img_upload/${pdto.product_img}" id="preview">
-				</div>
-			</div>
-				
-			<div align="right">
-				<h5 class="product-price">
-				상품가격 : ${pdto.product_price} 원</h5>
-			</div>
-				
-			<div class="form-group row" align="right">
-				<label class="col-sm-2">상품 카테고리</label>
-				<div class="com-sm-3">
-					<select disabled name="category1"  id = "category1" 
-					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
-							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
-									<c:if test="${clist[i].category_codeRef1 eq 0 && clist[i].category_codeRef2 eq 0 }">
-											<c:if test="${pdto.category_coderef1 eq clist[i].category_code}">
-												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
-											</c:if>
-											<c:if test="${pdto.category_coderef1 ne clist[i].category_code}">
-												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
-											</c:if>
-									</c:if>								
-							</c:forEach>	
-					</select>
-				
-					<select disabled name="category2" id="category2" class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
-						
-							<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
-		<!-- 셀렉트 -->					<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq 0 }">
-											<c:if test="${pdto.category_coderef2 eq clist[i].category_code}">
-												<option selected value="${clist[i].category_code}">${clist[i].category_name }</option>
-											</c:if>
-		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.category_coderef2 ne clist[i].category_code}">
-												<option value="${clist[i].category_code}">${clist[i].category_name }</option>
-											</c:if>
-									</c:if>								
-							</c:forEach>
-					</select>
-					
-					<select disabled id="category3" name="category3" class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
-						<c:forEach var="i" begin="0" step="1" end="${clist.size() }">
-							<c:if test="${clist[i].category_codeRef1 eq pdto.category_coderef1 && clist[i].category_codeRef2 eq pdto.category_coderef2 }">
-								<c:if test="${pdto.category_code1 eq clist[i].category_code}">
-									<option selected value="${clist[i].category_name}">${clist[i].category_name }</option>
-								</c:if>
-								<c:if test="${pdto.category_code1 ne clist[i].category_code}">
-									<option value="${clist[i].category_name}">${clist[i].category_name}</option>
-								</c:if>
-							</c:if>
-						</c:forEach>
-					</select>
-				</div>
-				
-				<div class="form-group row" align="right">
-					<label class="col-sm-2">상품브랜드</label>
-				<div class="com-sm-3">
-					<select disabled id="brand_name" name="brand_name" required="required" class="form-control" style="width: 100px;">
-								<c:forEach var="i" begin="0" step="1" end="${blist.size() }">
-		<!-- 셀렉트 -->					<c:if test="${pdto.category_coderef2 eq blist[i].category_code}">
-											<c:if test="${pdto.product_brand eq blist[i].brand_name}">
-												<option selected value="${clist[i].category_name}">${blist[i].brand_name}</option>
-											</c:if>
-		<!-- 범위안에있는 셀렉트값들 -->			<c:if test="${pdto.product_brand ne blist[i].brand_name}">
-												<option value="${clist[i].category_name}">${blist[i].brand_name}</option>
-											</c:if>
-									</c:if>	
-								</c:forEach>	
-							</select>								
-					</div>
-				</div>
-				
-							<div class="product-options">
-								<label>
-									<p>상품수량 : ${pdto.product_count} </p>
-								</label>
-							</div>
-							
-							<div class="add-to-cart">
-								<div class="qty-label">
-									구매 수량
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>구매하기</button>
-						</div>
-			</div>
-			
-			
-			<div class="form-group row">
-				<label class="col-sm-2">상품 내용</label>
-				<div class="com-sm-5">
-					<div name="product_description" cols="100" rows="10"
-						class="form-control" style="border: 0;"> ${pdto.product_description} </div>
-				</div>
-			</div>
-		</div>
-	</form>
-	
-		<!--  목록으로가기  -->
-					<div>
-						<a href="StoreProductListAction.st?store_num=${pdto.store_num}" class="primary-btn order-submit">상품목록으로 돌아가기</a>
-					</div>	
-	</body>
+<body>
+    <!-- Search Wrapper Area Start -->
+    <div class="search-wrapper section-padding-100">
+        <div class="search-close">
+            <i class="fa fa-close" aria-hidden="true"></i>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-content">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
+                            <button type="submit"><img src="img/core-img/search.png" alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- ##### Main Content Wrapper Start ##### -->
+    <div class="main-content-wrapper d-flex clearfix">
+        <!-- Mobile Nav (max width 767px)-->
+        <div class="mobile-nav">
+            <!-- Navbar Brand -->
+            <div class="amado-navbar-brand">
+                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+            </div>
+            <!-- Navbar Toggler -->
+            <div class="amado-navbar-toggler">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <!-- Header Area Start -->
+        <header class="header-area clearfix">
+            <!-- Close Icon -->
+            <div class="nav-close">
+                <i class="fa fa-close" aria-hidden="true"></i>
+            </div>
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+            </div>
+        </header>
+        <!-- Header Area End -->
+
+        <!-- Product Details Area Start -->
+        <div class="single-product-area section-padding-100 clearfix">
+            <div class="container-fluid">
+			 <div class="row">
+                    <div class="col-12 col-lg-7">
+                        <div class="single_product_thumb">
+                        	
+                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <a class="gallery_img" href="product_img_upload/${pdto.product_img}">
+                                            <img class="d-block w-100" src="product_img_upload/${pdto.product_img}" alt="First slide">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-5">
+                        <div class="single_product_desc">
+                            <!-- Product Meta Data -->
+                            <div class="product-meta-data">
+                                <div class="line"></div>
+                                <p class="product-price">��ǰ ����</p>
+                                
+                                    <h6>�� ǰ ��</h6>
+
+                                <!-- Ratings & Review -->
+                                <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
+                                    <div class="ratings">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="review">
+                                        <a href="#">���� ����</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="short_overview my-5">
+                                <p>��ǰ�����Դϴ�.</p>
+                            </div>
+
+                            <!-- Add to Cart Form -->
+                            <form class="cart clearfix" method="post">
+                                <div class="cart-btn d-flex mb-50">
+                                    <p>����</p>
+                                    <div class="quantity">
+                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
+                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
+                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                                <button type="submit" name="addtocart" value="5" class="btn amado-btn">�����ϱ�</button>
+                                <a href="StoreProductListAction.st?store_num=${pdto.store_num}">�ڷΰ���</a>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Details Area End -->
+    </div>
+    <!-- ##### Main Content Wrapper End ##### -->
+
+  
+    <script src="template5/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="template5/js/popper.min.js"></script>
+    <script src="template5/js/bootstrap.min.js"></script>
+    <script src="template5/js/plugins.js"></script>
+    <script src="template5/js/active.js"></script>
+
+</body>
+
 </html>

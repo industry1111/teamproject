@@ -33,7 +33,7 @@ public class StoreProductListAction implements Action {
 		sellerDAO sdao = new sellerDAO(); 
 		List<productDTO> list = pdao.getStoreInfo(store_num);		
 		String template = sdao.getSellerTemplate(store_num);
-		System.out.println(template);
+		
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
@@ -58,7 +58,7 @@ public class StoreProductListAction implements Action {
 		//페이지이동(뷰페이지로이동)
 		forward.setPath("index.jsp");
 		forward.setRedirect(false);
-		request.setAttribute("center", "template5/shop.jsp");
+		request.setAttribute("center", "template"+template+"/shop.jsp");
 
 		return forward;
 	}

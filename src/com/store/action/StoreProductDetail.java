@@ -25,13 +25,15 @@ public class StoreProductDetail implements Action {
 		
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		
-		String template = request.getParameter("template");
+		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		
 		/*데이터베이스 자바빈 작업*/
 		productDAO pdao = new productDAO();
 		productDTO pdto = pdao.getStoreProductInfo(product_num);	
 		sellerDAO sdao = new sellerDAO();
 		List<sellerDTO> sdto = sdao.getSellerInfo();
-		
+		String template = sdao.getSellerTemplate(store_num);
+		System.out.println(template);
 		//카테고리 정보 받아오기
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory();
@@ -43,7 +45,7 @@ public class StoreProductDetail implements Action {
 		request.setAttribute("sdto", sdto);
 		ActionForward forward = new ActionForward();
 		
-		request.setAttribute("center", "template5/product.jsp"); 
+		request.setAttribute("center", "template"+template+"/product.jsp"); 
 		forward.setRedirect(false);
 		forward.setPath("index.jsp");
 		return forward;
