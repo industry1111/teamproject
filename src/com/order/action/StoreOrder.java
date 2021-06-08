@@ -6,41 +6,45 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.member.action.memberDAO;
+import com.member.action.memberDTO;
+
 import action.Action;
 import action.ActionForward;
 import dao.sellerDAO;
 import dto.sellerDTO;
 
-public class OrderDetail implements Action {
+public class StoreOrder implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
 		
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
 		int member_num = (int) session.getAttribute("member_num");
+		String id = (String) session.getAttribute("id");
 		
-		String orders_code = request.getParameter("orders_code");
-		
+		sellerDTO sdto = new sellerDAO().getSellerInfo(member_num); 
 		OrderDAO odao = new OrderDAO();
-		List<OrderDTO> mlist = odao.getOrder(orders_code);
-		List<OrderDetailDTO> list = odao.getOrderDetail(orders_code);
-		sellerDAO sdao = new sellerDAO();
-		List<sellerDTO> slist = sdao.getSellerInfo();
+
+		int store_num = sdto.getStore_num();
 		
-		System.out.println("list사이즈"+mlist.size());
+		List<StoreOrderDTO> list = odao.getStoreOrder(store_num);
+		
+		
+	
 		request.setAttribute("list", list);
-		request.setAttribute("mlist", mlist);
-		request.setAttribute("slist", slist);
-		 ActionForward forward=new ActionForward();
+		 ActionForward forward = new ActionForward();
          forward.setRedirect(false);
          
          forward.setPath("mypage.jsp"); 
-         request.setAttribute("center", "orderDetail.jsp");
+         request.setAttribute("center", "StoreOrder.jsp");
          
          return forward;
 	}
 
+	
+	
+	
 }

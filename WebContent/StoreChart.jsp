@@ -101,7 +101,7 @@ var canvas = document.getElementById('chart').getContext("2d");
           yAxisID: 'A',
           data: [5, 4, 3, 4, 7]
         }, {
-          label: '판매 금액',
+          label: '판매 금액(원)',
           type: 'line',
           yAxisID: 'B',
           data: [50000, 40000, 100000, 33300, 70000],
@@ -119,6 +119,10 @@ var canvas = document.getElementById('chart').getContext("2d");
             id: 'A',
             type: 'linear',
             position: 'left',
+            ticks: {
+                max: 50,
+                min: 0
+              }
           }, {
             id: 'B',
             type: 'linear',
@@ -146,6 +150,7 @@ var canvas = document.getElementById('chart').getContext("2d");
       }
     });
 });
+
 </script>
 
 
@@ -169,7 +174,7 @@ var canvas = document.getElementById('chart').getContext("2d");
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>주문 및 총 금액</h6>
+						<h6>주문 및 판매 	금액</h6>
 						<canvas id="chart"></canvas>
 					</div>
 					<div class="col-md-5"
