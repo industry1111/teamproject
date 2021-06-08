@@ -12,6 +12,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import com.product.action.productDTO;
+
 
 public class OrderDAO {
     
@@ -390,5 +394,34 @@ public class OrderDAO {
         }
 
     }
-  
+    
+    public List<productDTO> getOrderProduct(List<String> order){
+    	List<productDTO> list = new ArrayList<productDTO>();
+    	
+    	String sql ="select * from orders_detail natural join product where orders_code = "+order.get(0);
+    	for(int i = 0;i<order.size();i++){
+    		sql +="or oreders_code"+order.get(i);
+    	}
+    	
+    	try {
+    		getCon();
+    		pstmt= con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()){
+    			productDTO pdto = new productDTO();
+    			
+    			//물품 명 ,설명 , 이미지
+    			
+    			
+    			list.add(pdto);
+    		}
+    		
+		} catch (Exception e) {
+			System.out.println("getorderProduct:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+    	return list;
+    }
+    
 }

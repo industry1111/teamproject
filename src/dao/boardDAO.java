@@ -83,7 +83,7 @@ public class boardDAO {
 		try {
 			getCon();
 			String sql = "select * from basket join product on basket.product_num = product.product_num "
-					+ "join seller on product.member_num = seller.member_num where basket.member_num = ?;";
+					+ "join seller on product.member_num = seller.member_num where basket.member_num = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
