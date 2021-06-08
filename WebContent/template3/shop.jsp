@@ -11,9 +11,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>템플렛3번입니다.</title>
-<link rel="icon" href="template5/img/core-img/favicon.ico">
-<link rel="stylesheet" href="template5/css/core-style.css">
-<link rel="stylesheet" href="template5/style.css">
+<link rel="icon" href="template3/img/core-img/favicon.ico">
+<link rel="stylesheet" href="template3/css/core-style.css">
+<link rel="stylesheet" href="template3/style.css">
 </head>
 
 <body>
@@ -164,10 +164,10 @@
 		</div>
 	</div>
 
-	<script src="template5/js/jquery/jquery-2.2.4.min.js"></script>
-	<script src="template5/js/popper.min.js"></script>
-	<script src="template5/js/bootstrap.min.js"></script>
-	<script src="template5/js/plugins.js"></script>
-	<script src="template5/js/active.js"></script>
+	<script src="template3/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="template3/js/popper.min.js"></script>
+	<script src="template3/js/bootstrap.min.js"></script>
+	<script src="template3/js/plugins.js"></script>
+	<script src="template3/js/active.js"></script>
 </body>
 </html>
