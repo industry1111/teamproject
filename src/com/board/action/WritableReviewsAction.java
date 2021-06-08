@@ -12,6 +12,9 @@ import action.Action;
 import action.ActionForward;
 import action.Criteria;
 import action.PageDTO;
+import dao.ReviewDAO;
+import dao.boardDAO;
+import dto.reviewDTO;
 
 public class WritableReviewsAction implements Action{
 
@@ -26,9 +29,12 @@ public class WritableReviewsAction implements Action{
 		int member_num = (Integer)session.getAttribute("member_num");
 		
 		productDAO pdao = new productDAO();
+		ReviewDAO rdao = new ReviewDAO();
 		List<productDTO> plist= pdao.getProductList(member_num);
-		request.setAttribute("plist", plist);
+		List<reviewDTO> rlist = rdao.getReviewList(member_num);
 		
+		request.setAttribute("plist", plist);
+		request.setAttribute("rlist", rlist);
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
@@ -45,10 +51,7 @@ public class WritableReviewsAction implements Action{
 		}
 		
 		request.setAttribute("p", pagedto);
-		request.setAttribute("plist", plist);
 	
-		
-		
 		
 		request.setAttribute("center", "writableReviews.jsp");
 		ActionForward forward = new ActionForward();

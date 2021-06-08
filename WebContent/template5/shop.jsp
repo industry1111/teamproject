@@ -8,14 +8,14 @@
   <title>템플렛 5입니다.</title>
   
  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="template1/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="template1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="template1/css/magnific-popup.css">
-    <link rel="stylesheet" href="template1/css/jquery-ui.css">
-    <link rel="stylesheet" href="template1/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="template1/css/owl.theme.default.min.css">
- 	<link rel="stylesheet" href="template1/css/aos.css">
-	<link rel="stylesheet" href="template1/css/style.css">
+    <link rel="stylesheet" href="template5/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="template5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template5/css/magnific-popup.css">
+    <link rel="stylesheet" href="template5/css/jquery-ui.css">
+    <link rel="stylesheet" href="template5/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="template5/css/owl.theme.default.min.css">
+ 	<link rel="stylesheet" href="template5/css/aos.css">
+	<link rel="stylesheet" href="template5/css/style.css">
     
 </head>
 <body>
@@ -63,6 +63,7 @@
                 </div>
               </div>
             </div>
+      <!-- 상품시작 -->      
       <form action="StoreProductListAction.st" method="post"
 		enctype="multipart/form-data">
 			<c:set var="loop" value="true"/>
@@ -80,9 +81,9 @@
                     	<img src="product_img_upload/${list[i].product_img}" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">${list[i].product_name}</a></h3>
+                    <h3><a href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a></h3>
                     <p class="mb-0">${list[i].category_name }</p>
-                    <p class="text-primary font-weight-bold">${list[i].product_price }</p>
+                    <p class="text-primary font-weight-bold">${list[i].product_price}</p>
                   </div>
                 </div>
               </div>
@@ -136,14 +137,14 @@
       </div>
 </div>
 
-  <script src="template1/js/jquery-3.3.1.min.js"></script>
-  <script src="template1/js/jquery-ui.js"></script>
-  <script src="template1/js/popper.min.js"></script>
-  <script src="template1/js/bootstrap.min.js"></script>
-  <script src="template1/js/owl.carousel.min.js"></script>
-  <script src="template1/js/jquery.magnific-popup.min.js"></script>
-  <script src="template1/js/aos.js"></script>
-  <script src="template1/js/main.js"></script>
+  <script src="template5/js/jquery-3.3.1.min.js"></script>
+  <script src="template5/js/jquery-ui.js"></script>
+  <script src="template5/js/popper.min.js"></script>
+  <script src="template5/js/bootstrap.min.js"></script>
+  <script src="template5/js/owl.carousel.min.js"></script>
+  <script src="template5/js/jquery.magnific-popup.min.js"></script>
+  <script src="template5/js/aos.js"></script>
+  <script src="template5/js/main.js"></script>
   
 </body>
 </html>

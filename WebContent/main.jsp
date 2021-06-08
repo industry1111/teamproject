@@ -196,9 +196,9 @@ ul {
 						<li class="price" value="3" >5만원~10만원</li>
 						<li style="float: left; margin-left:30px; margin-top: 10px;">직접입력 &nbsp;
 							<input type="text"  id="price1"  placeholder="원" style="height: 20px;text-align: right;" >~
-							<input  type="text" placeholder="원"  style="height: 20px;text-align: right;">
-							<img class="price"  src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
+							<input  type="text" id="price2" placeholder="원"  style="height: 20px;text-align: right;">
 						</li>
+						<li><img class="price"  value="4" src="images/magnifying-glass.png" alt="shopping" style="height: 15px"></li>
 					</ul>
 				</div>
 			</div>
@@ -287,10 +287,10 @@ ul {
 						<div class="col-md-2"> <%--스토어 페이지로 이동 --%>
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
 							<c:if test="${plist[i].member_num eq slist[j].member_num }">
-								<a href="StoreProductListAction.st?store_num=${slist[j].store_num }">
+								<a href="StoreProductListAction.st?store_num=${slist[j].store_num}">
 									<img src="upload_profile/${slist[j].profile_img }" style="height: 70px; width: 70px;">
 								</a><br> 
-								${slist[j].store_name }1<br>
+								${slist[j].store_name }<br>
 								<c:forEach var="category" items="${clist }">
 									<c:if test="${category.category_num eq slist[j].category_num}">
 										${category.category_name }
