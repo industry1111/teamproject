@@ -33,7 +33,8 @@ public class WritableReviewsAction implements Action{
 		ReviewDAO rdao = new ReviewDAO();
 		
 		List<reviewDTO> rlist = rdao.getReviewList(member_num);
-		List<OrderDetailDTO> odlist = odao.getOrderDetail(orders_code);
+		List<String> orders_code = null ;
+		List<productDTO> odlist = odao.getOrderProduct(orders_code);
 		System.out.println(odlist.size());
 		request.setAttribute("odlist", odlist);
 	
