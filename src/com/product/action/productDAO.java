@@ -139,11 +139,12 @@ public class productDAO {
 		List<productDTO> list = new ArrayList<productDTO>();
 		try {
 			getCon();
-			String sql = "select * from product where member_num =?";
+			//String sql = "select * from product where member_num =?";
+			String sql = "select * from product where  member_num = ? and (member_num, product_num) not in(select member_num, product_num from review)";
 			pstmt =con.prepareStatement(sql);
 			pstmt.setInt(1, member_num);
 			rs = pstmt.executeQuery();
-
+			
 			while(rs.next()) {
 				
 				productDTO pdto = new productDTO();
@@ -159,7 +160,39 @@ public class productDAO {
 				list.add(pdto);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("getProductList:"+e.toString());
+		} finally {
+			ResouceClose();
+		}
+		return list;
+	}
+	
+	public List<productDTO> getProductList2(int member_num) {
+		List<productDTO> list = new ArrayList<productDTO>();
+		try {
+			getCon();
+			String sql = "select * from product where member_num =?";
+			
+			pstmt =con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				productDTO pdto = new productDTO();
+				pdto.setProduct_num(rs.getInt("product_num"));
+				pdto.setProduct_name(rs.getString("product_name"));
+				pdto.setProduct_img(rs.getString("product_img"));
+				pdto.setCategory_name(rs.getString("category_name"));
+				pdto.setProduct_price(rs.getInt("product_price"));
+				pdto.setProduct_count(rs.getInt("product_count"));
+				pdto.setProduct_brand(rs.getString("product_brand"));
+				pdto.setProduct_description(rs.getString("product_description"));
+				
+				list.add(pdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getProductList:"+e.toString());
 		} finally {
 			ResouceClose();
 		}

@@ -575,7 +575,8 @@ $(function() {
 		price = null;
 		price1 = null;
 		price2 = null;
-		
+		$("#price1").val('');
+		$("#price2").val('');
 		productlist();
 	});
 	
