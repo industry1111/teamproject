@@ -85,8 +85,8 @@
 
 
     <!-- Open Content -->
-   <form name="newProduct" action="StoreProductDetail.st"
-		class="form-horizontal" method="post" enctype="multipart/form-data">
+<form name="newProduct" action="StoreProductDetail.st"
+	class="form-horizontal" method="post" enctype="multipart/form-data">
     
     <section class="bg-light">
         <div class="container pb-5">
@@ -279,7 +279,6 @@
     <!-- Close Content -->
 
 
-    	<jsp:include page="../footer.jsp"/>
   
     <script src="template1/assets/js/jquery-1.11.0.min.js"></script>
     <script src="template1/assets/js/jquery-migrate-1.2.1.min.js"></script>
