@@ -235,6 +235,7 @@ public class sellerDAO {
 
 				while (rs.next()) {
 					sellerDTO sdto = new sellerDTO();
+					sdto.setStore_num(rs.getInt("store_num"));
 					sdto.setAccount(rs.getString("account"));
 					sdto.setCategory_num(rs.getInt("category_num"));
 					sdto.setMember_num(rs.getInt("member_num"));
@@ -252,7 +253,23 @@ public class sellerDAO {
 
 			return list;
 		}
-	
-	
-	
+		public String getSellerTemplate(int store_num) {
+			String template = null;
+			try {
+				getCon();
+				String sql = "select * from seller where store_num=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, store_num);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					template = rs.getString("template");
+				}
+			} catch (Exception e) {
+				System.out.println("sellerInfo:"+e.toString());
+			}finally {
+				ResouceClose();
+			}
+			
+			return template;
+		}
 }

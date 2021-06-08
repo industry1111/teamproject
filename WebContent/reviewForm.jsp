@@ -128,9 +128,7 @@ function write_review_btn(){
 
 	var form = document.frm;
     
-    form.submit().close();
-    
-	
+    form.submit();
 	
 
 }
@@ -154,7 +152,7 @@ function write_review_btn(){
 			</div>
 	
 	
-		<form action="insertReview" method="post"
+		<form action="insertReview.bo" method="post"
 			enctype="multipart/form-data" id="frm" name="frm">
 			<div class="row">
 				<div class="col-md-12">
