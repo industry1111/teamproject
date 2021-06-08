@@ -120,7 +120,7 @@
 							<span>${list[i].receiver_addr3}</span>
 						</div>
 						<div class="col-md-1">
-							<select disabled="disabled" class="state">
+							<select disabled="disabled" class="state" name="state">
 								<option value="0">입금완료</option>
 								<option value="1">주문접수</option>
 								<option value="2">배송준비중</option>
@@ -134,7 +134,8 @@
 								<option value="10">교환신청</option>
 							</select>
 							<input type="button" value="수정" class="state_update_btn">
-							<input type="hidden" value="${list[i].order_detail_num}" class="order_detail_num">${i }
+							<input type="button" value="완료" class="update_btn">
+							<input type="hidden" value="${list[i].order_detail_num}" class="order_detail_num">
 						</div>
 						<hr>
 						</div>
