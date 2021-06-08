@@ -251,7 +251,7 @@
                                         <ul class="list-inline pb-3">
                                             <li class="list-inline-item text-right">
                                               			  수량
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                                <input type="hidden" name="quantity" id="quantity" value="${quantity}">
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
                                             <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
@@ -260,9 +260,13 @@
                                     </div>
                                 </div>
                                 <div class="row pb-3">
+                                <form name="newProduct" action="AddCart.bo" class="form-horizontal" method="post" >
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">주문하기</button>
+                                    <input id="${pdto.member_num}" hidden />
+                                    <input id="${pdto.product_num}" hidden />
+     							 	  <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">주문하기</button>
                                     </div>
+                                 </form>
                                     <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">장바구니</button>
                                     </div>

@@ -473,6 +473,23 @@ public class boardDAO {
 		}
 	}
 	
+	//쇼핑몰에서 상품을 가져와 장바구니에 추가.
+	public void AddCart(int member_num, int product_num, int quantity) {
+		try {
+			getCon();
+			String sql = "insert into basket(member_num,product_num,quantity)" + "values(?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			pstmt.setInt(2, product_num);
+			pstmt.setInt(3, quantity);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("insertBasket:" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	}
 	
 
 }

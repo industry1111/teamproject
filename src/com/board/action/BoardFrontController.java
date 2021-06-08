@@ -153,6 +153,14 @@ public class BoardFrontController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else if (command.equals("/AddCart.bo")) { //쇼핑몰 페이지에서 상품을 장바구니에 추가함
+            
+            action = new insertReview();
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
 		
