@@ -6274,7 +6274,8 @@ button.bg-dark:focus {
 
 .pr-4,
 .px-4 {
-  padding-right: 1.5rem !important; }
+  padding-right: 1.5rem !important; 
+  }
 
 .pb-4,
 .py-4 {
@@ -8047,7 +8048,8 @@ h1, h2, h3, h4, h5,
     vertical-align: top;
     height: 100px;
     width: 100%; 
-    padding :0px}
+    }
+    
     .product-cart .display-tc h3, .product-name .display-tc h3 {
       margin-bottom: 0;
       vertical-align: top;
