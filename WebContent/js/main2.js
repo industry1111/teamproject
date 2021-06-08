@@ -742,5 +742,21 @@ $(function() {
 		numPerPage = $(this).val();
 		productlist();
 	});
+	
+	$(document).on("click", ".jjim", function() {
+		$(this).css('color', 'green');
+		var store_num = $(this).attr('value');
+		console.log(store_num);
+		$.ajax({
+			
+			type:"post",
+			async:true,
+			url : contextPath + "/StoreLike.do",
+			data : {store_num : store_num},
+			success : function(){}
+			
+		});
+
+	});
 });
 	
