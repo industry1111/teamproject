@@ -30,7 +30,7 @@ public class WrittenReviewsAction implements Action{
 		int member_num = (Integer)session.getAttribute("member_num");
 		
 		productDAO pdao = new productDAO();
-		List<productDTO> plist= pdao.getProductList(member_num);
+		List<productDTO> plist= pdao.getProductList2(member_num);
 		request.setAttribute("plist", plist);
 		
 		ReviewDAO rvdao = new ReviewDAO();

@@ -304,32 +304,7 @@ public class boardDAO {
 	}
 	
 	//리뷰
-	public void insertReview(reviewDTO rvdto) { //상품 정보를 입력함
-
-		try {
-			getCon();
-		
-			String sql = "insert into review (review_num,member_num,product_num,rating1,rating2,rating3,review_title,review_content,regdate)"
-					+ "values(?,?,?,?,?,?,?,?,?)";
-
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rvdto.getReview_num());
-			pstmt.setInt(2, rvdto.getMember_num());
-			pstmt.setInt(3, rvdto.getProduct_num());
-			pstmt.setInt(4, rvdto.getRating1());
-			pstmt.setInt(5, rvdto.getRating2());
-			pstmt.setInt(6, rvdto.getRating3());
-			pstmt.setString(7, rvdto.getReview_title());
-			pstmt.setString(8, rvdto.getReview_content());
-			pstmt.setTimestamp(9, rvdto.getRegdate());
-			
-			pstmt.executeUpdate();
-		} catch (Exception e) {
-			System.out.println("insertReview:"+e.toString());
-		}finally {
-			ResouceClose();
-		}
-	}
+	
 
 	public List<categoryDTO> getcategory(int category_code1, int category_code2) {
 		List<categoryDTO> list = new ArrayList<categoryDTO>();
@@ -496,8 +471,8 @@ public class boardDAO {
 		}finally {
 			ResouceClose();
 		}
-		
-		
 	}
+	
+	
 
 }
