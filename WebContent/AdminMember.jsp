@@ -105,8 +105,15 @@ input[type="text"] {
 							<span>Status</span>
 						</div>
 					</div>
-					<c:forEach var="i" begin="0" step="1" end="4">
-						<div class="product-cart d-flex" >
+					
+					<c:set var="loop" value="true"/>
+					<c:if test="${list.size() ne 0 }">
+					<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+						<c:if test="${p.total == i }">
+						<c:set var="loop" value="false"/>
+						</c:if>
+						<c:if test="${loop }">
+						<div class="product-cart d-flex" align="center" >
 							<div class="one-forth text-left px-4">
 								<div class="display-tc">
 									<h3>${list[i].id}</h3>
@@ -155,18 +162,21 @@ input[type="text"] {
 										</select>
 								</div>
 							</div>	
-						</div>	
-					</c:forEach>	
+						</div>
+					</c:if>	
+					</c:forEach>
+					</c:if>	
 				</div>
-				<div class="row" style="margin-left: 100px" >
-				<div style="margin-right: 20px" >
-					<input type="button" class="myButton" value="뒤로" name="close_btn" id="close_btn" onClick="location.href='/AdminMain.ad'">
+
+				<div class="row" style="margin-left: 100px">
+					<div style="margin-right: 20px">
+						<input type="button" class="myButton" value="뒤로" name="close_btn"
+							id="close_btn" onClick="location.href='/AdminMain.ad'">
+					</div>
 				</div>
-			</div>
-			
-			
+			<%--페이징 --%>
 			<div class="row">
-				<div class="col-md-6 offset-4 paging" style="height: 120px;">
+				<div class="col-md-6 offset-4 paging" style="height: 120px;" align="right">
  					<ul class="pagination">
        					<c:if test="${p.prev }">
            					 <li class="page-item previous">
@@ -187,7 +197,7 @@ input[type="text"] {
    					 </ul>
 				</div>
 			</div>
-				</div>
+			</div>
 			</div>
 		</div>
 	

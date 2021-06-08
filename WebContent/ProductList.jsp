@@ -97,6 +97,7 @@
 							</div>
 						</div>
 				</div>
+				
 				<c:set var="loop" value="true"/>
 				<c:if test="${list.size() ne 0 }">
 				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
@@ -156,6 +157,7 @@
 					<a href="ProductAdd.pr" type="button" class="myButton">신규 상품 등록</a>
 				</div>
 			</div>
+		</div>	
 	</div>
 </form>
 <!--  form태그 끝 -->

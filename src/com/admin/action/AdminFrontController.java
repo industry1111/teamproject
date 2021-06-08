@@ -63,16 +63,6 @@ public class AdminFrontController extends HttpServlet{
 				e.printStackTrace();
 			}	
 			
-//	  }else if (command.equals("/AdminMemberEdit.ad")){ //회원수정요청시 
-//
-//			action = new AdminMemberEdit(); 
-//			try {
-//				forward = action.execute(request, response);
-//	
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}	
-			
 		}else if (command.equals("/AdminStore.ad")){ //스토어관리페이지로 이동하는 서블릿 
 		  action = new AdminStore(); 
 		  try {
@@ -82,7 +72,6 @@ public class AdminFrontController extends HttpServlet{
 		}
 		 
 	  }else if (command.equals("/AdminService.ad")){//문의함페이지로 이동하는 서블릿 
-		  System.out.println("1");
 		  action = new AdminService(); 
 		  try {
 			  forward = action.execute(request, response);
