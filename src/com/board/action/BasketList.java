@@ -10,6 +10,8 @@ import com.member.action.memberDAO;
 
 import action.Action;
 import action.ActionForward;
+import action.Criteria;
+import action.PageDTO;
 import dao.boardDAO;
 import dto.basketDTO;
 
@@ -23,7 +25,21 @@ public class BasketList implements Action{
 		memberDAO mdao = new memberDAO();
 		
 		List<basketDTO> list = new boardDAO().getBasketList(member_num);
-		
+		// 페이징 부분
+		String page = request.getParameter("page");
+		Criteria cri;
+		PageDTO pagedto;
+		int numPerPage = 5;
+
+		if (page != null) {
+			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
+			cri = new Criteria(nowPage, numPerPage);
+			pagedto = new PageDTO(cri, list.size());
+		} else {
+			cri = new Criteria(numPerPage);
+			pagedto = new PageDTO(cri, list.size());
+		}
+		request.setAttribute("p", pagedto);
 		request.setAttribute("list", list);
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(false);

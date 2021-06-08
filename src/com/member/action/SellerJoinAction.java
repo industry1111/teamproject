@@ -17,7 +17,7 @@ public class SellerJoinAction implements Action{
 	  @Override
 	    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	        
-	      
+	      	System.out.println("hi");
 		  	//세션객체 생성
 			HttpSession session=request.getSession();
 			String id = (String)session.getAttribute("id");
@@ -54,7 +54,7 @@ public class SellerJoinAction implements Action{
 			
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(true);
-	        forward.setPath("Main.main");
+	        forward.setPath("writableReviews.jsp");
 	        
 	        return forward;
 	    }

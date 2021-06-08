@@ -76,14 +76,6 @@ public class BoardFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/RatingAction.bo")) {
-			action = new RatingAction();
-			try {
-				forward = action.execute(request, response);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}else if(command.equals("/ReviewAction.bo")) {
 			action = new ReviewAction();
 			try {
@@ -129,23 +121,20 @@ public class BoardFrontController extends HttpServlet {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}	
-		
-		
+			}
+			}else if(command.equals("/deleteReview.bo")) {
+				
+				action = new ReviewDeleteAction();
+				try {
+					forward = action.execute(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 		}else if (command.equals("/StoreChart.bo")) {
 			forward = new ActionForward();
 			forward.setPath("mypage.jsp");
 			forward.setRedirect(false);
 			request.setAttribute("center", "StoreChart.jsp");
-		}else if (command.equals("/RatingAction.bo")) {
-			action = new Rating();
-			try {
-				
-				forward = action.execute(request, response);
-	
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}else if (command.equals("/payment.bo")) {
             
             action = new PaymentInfo();
@@ -153,6 +142,14 @@ public class BoardFrontController extends HttpServlet {
     
                 forward = action.execute(request, response);
     
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else if (command.equals("/insertReview.bo")) {
+            
+            action = new insertReview();
+            try {
+                forward = action.execute(request, response);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -30,7 +30,7 @@ public class OrderDetail implements Action {
 		sellerDAO sdao = new sellerDAO();
 		List<sellerDTO> slist = sdao.getSellerInfo();
 		
-		
+		System.out.println("list사이즈"+mlist.size());
 		request.setAttribute("list", list);
 		request.setAttribute("mlist", mlist);
 		request.setAttribute("slist", slist);

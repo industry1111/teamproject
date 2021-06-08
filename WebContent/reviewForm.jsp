@@ -46,7 +46,6 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<script src="js/receiver.js"></script>
 
 <style type="text/css">
 .myButton {
@@ -119,6 +118,22 @@ p{
 	font-weight: bolder;
 }
 </style>
+<script type="text/javascript">
+function close_review_btn(){ 
+	
+	window.close();
+	
+}
+function write_review_btn(){ 
+
+	var form = document.frm;
+    
+    form.submit();
+	
+
+}
+
+</script>
 </head>
 <body>
 	<div class="container">
@@ -137,8 +152,8 @@ p{
 			</div>
 	
 	
-		<form action="insertReview" method="post"
-			enctype="multipart/form-data">
+		<form action="insertReview.bo" method="post"
+			enctype="multipart/form-data" id="frm" name="frm">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="row"
@@ -237,14 +252,16 @@ p{
 				<div class="row">
 					<div class="col-md-12" style="margin-left: 140px; margin-top: 20px;">
 						<input type="button" class="myButton" value="닫기"
-							name="close_review_btn" id="close_review_btn"> <input
-							type="button" class="myButton" value="저장" name="write_review_btn"
-							id="write_review_btn">
+							onclick="close_review_btn();"> <input
+							type="button" class="myButton" value="저장" id="insertReview_btn" onclick="write_review_btn();"
+						 >
 					</div>
 				</div>
+				</form>
 			</div>
-		</form>
-	</div>
+		
+	
+	
 </body>
 <!-- popper -->
 <script src="js/popper.min.js"></script>

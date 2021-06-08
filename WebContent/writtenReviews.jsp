@@ -77,7 +77,6 @@ input[type="text"]:focus {
 	position: relative;
 }
 </style>
-
 </head>
 <body>
 
@@ -91,9 +90,13 @@ input[type="text"]:focus {
 					</div>
 				</div>
 			</div>
+			<c:set var="loop" value="true"/>
 			<c:if test="${plist.size() ne 0 }">
-				<c:forEach var="i" begin="0" step="1" end="${plist.size()-1 }">
-
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+<c:if test="${p.total == i }">
+								<c:set var="loop" value="false"/>
+							</c:if>
+							<c:if test="${loop }">
 					<div class="row">
 						<div class="col-md-12">
 							<div class="row" >
@@ -104,15 +107,23 @@ input[type="text"]:focus {
 									${plist[i].product_name }<br>
 									${plist[i].product_description }
 								</div>
+								
+							<c:forEach var="j" begin="0" step="1" end="${rvlist.size() }">
+									<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
 								<div class="col-md-1 offset-6">
+								
+									<a id="deleteReview" href="deleteReview.bo?review_num=${rvlist[j].review_num }">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
   										<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
  										<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 									</svg>
+									</a>
 								</div>
+								</c:if>
+								</c:forEach>
 							</div>
 							<c:if test="${rvlist.size() ne 0 }">
-								<c:forEach var="j" begin="0" step="1" end="${rvlist.size()-1 }">
+								<c:forEach var="j" begin="0" step="1" end="${rvlist.size()}">
 									<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
 										<div class="row" >
 											<div class="col-md-12">
@@ -149,7 +160,7 @@ input[type="text"]:focus {
 
 													</div>
 													<div class="col-md-3" align="right">
-														<img src="product_img_upload/${plist[j].product_img}" alt="내 리뷰사진" style="height: 150px; width: 150px;">
+														<img src="product_img_upload/${rvlist[j].review_img}" alt="내 리뷰사진" style="height: 150px; width: 150px;">
 													</div>
 												</div>
 											</div>
@@ -159,10 +170,31 @@ input[type="text"]:focus {
 							</c:if>
 						</div>
 					</div><hr>
+					</c:if>
 				</c:forEach>
 			</c:if>
 		</div>
 	</div>
+	<div class="col-md-6 offset-4 paging" style="height: 120px;">
+ 					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="writtenReviews.bo?page=true&nowPage=${num }" >${num }</a>
+				            </li>
+				        </c:forEach>
+				   
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
+				</div>
 	<!-- 	</div> -->
 	<!-- popper -->
 	<script src="js/popper.min.js"></script>

@@ -9,6 +9,7 @@ import dto.basketDTO;
 
 public class OrderDTO {
 	
+	private String order_id;
 	private int	order_num; 
 	private int member_num;
 	private int total_price;
@@ -16,7 +17,6 @@ public class OrderDTO {
 	private String order_email;
 	private String order_phone;
 	private String pay_method;
-	private String state;
     Timestamp regdate;
     private String orders_code;
     private String receiver_addr1;
@@ -31,6 +31,12 @@ public class OrderDTO {
     private int count;
 
     
+	public String getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(String order_id) {
+		this.order_id = order_id;
+	}
 	public String getMain_product_image() {
 		return main_product_image;
 	}
@@ -96,12 +102,6 @@ public class OrderDTO {
     }
     public void setPay_method(String pay_method) {
         this.pay_method = pay_method;
-    }
-    public String getState() {
-        return state;
-    }
-    public void setState(String state) {
-        this.state = state;
     }
     public Timestamp getRegdate() {
         return regdate;

@@ -23,10 +23,10 @@ public class PaymentComplete implements Action{
             
             HttpSession session = request.getSession();
             
-            System.out.println( "ddd");
             
             int member_num = (int) session.getAttribute("member_num");
             int count = Integer.parseInt(request.getParameter("count"));
+            String id = (String) session.getAttribute("id");
             
           //주문번호(orderId) 생성을 위한 로직
             Calendar cal = Calendar.getInstance();
@@ -49,6 +49,7 @@ public class PaymentComplete implements Action{
             
             odto.setOrders_code(orders_code);
             odto.setMember_num(member_num);
+            odto.setOrder_id(id);
             odto.setAddress_name(request.getParameter("address_name"));
             odto.setReceiver_addr1(request.getParameter("receiver_addr1"));
             odto.setReceiver_addr2(request.getParameter("receiver_addr2"));

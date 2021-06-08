@@ -20,7 +20,7 @@
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
+	<!-- Icomoon Icon Fonts--> <!-- 빼앗긴 들에도 봄은 오는가... -->
 	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Ion Icon Fonts-->
 	<link rel="stylesheet" href="css/ionicons.min.css">
@@ -74,7 +74,22 @@ function order_btn_click() {
 }
 
 </script>
-
+<style type="text/css">
+#button_plus {
+	background:white;
+	background-color:white;
+	border-radius:6px;
+	border:1px solid white;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	height: 25px;
+}
+</style>
 </head>
 	<body>
 <!-- 	<div id="page"> -->
@@ -105,8 +120,8 @@ function order_btn_click() {
 								<h6 align="left">${list[i].store_name}</h6>
 						
 							<div class="product-cart d-flex">
-								<div class="col-md-1">
-									<input type="checkbox" value="${list[i].product_price * list[i].quantity}" name="product_check" 
+								<div class="col-md-1" name="check">
+									<input type="checkbox" value="${list[i].product_price}" name="product_check" 
 										id="product_check" class="chkbox" basket_num="${list[i].basket_num}">
 										<input type="hidden" name="chk" id="chk"/>
 								</div>
@@ -119,25 +134,32 @@ function order_btn_click() {
 										<h3>${list[i].product_name}</h3>
 									</div>
 								</div>
-								<div class="one-eight text-center">
+								<div class="one-eight text-center" name="product_price">
 									<div class="display-tc">
-										<span class="price">${list[i].product_price}원</span>
+										<span class="price">${list[i].product_price}</span>원
 									</div>
 								</div>
-								<div class="one-eight text-center">
-									<div class="display-tc">
-										<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100">
+								<div class="one-eight text-center" >
+									
+									<div class="display-tc" name="parent" id="parent">
+										<input style="width:80px;" type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${list[i].quantity}" min="1" max="100">
+									</div>
+									<div>
+										<div class="display-tc">
+											<input id="button_plus" type="button" class="plus_btn" value="+">
+											<input id="button_plus" style="font-size: 20px" type="button" class="minus_btn" value="-">
+										</div>
 									</div>
 								</div>
-								<div class="one-eight text-center">
+								<div class="one-eight text-center" name="t_price">
 									<div class="display-tc">
-										<span name="total_price" class="price">${list[i].product_price * list[i].quantity}</span>
+										<span name="total_price" class="price">${list[i].product_price * list[i].quantity}</span>원
 									</div>
 								</div>
-								<div class="one-eight text-center">
+								<div class="one-eight text-center" name="parent1">
 									<div class="display-tc">
-										<a href="#" class="closed" id="delete_btn">
-											<input type="hidden" name="basket_num" id="basket_num" value="${list[i].basket_num}" />
+										<a href="#" class="closed" name="delete_btn">
+											<input type="hidden" class="basket_num" name="basket_num" id="basket_num" value="${list[i].basket_num}" />
 										</a>
 									</div>
 								</div>
@@ -147,90 +169,17 @@ function order_btn_click() {
 						</c:forEach>
 					</div>
 				</div>
-				<div class="row row-pb-lg">
-					<div class="col-md-12">
-						<div class="total-wrap">
-							<div class="row">
-								<div class="col-sm-8">
-								
-								<div class="row form-group">
-								<div class="col-sm-9">
-									<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
-								</div>
-								<div class="col-sm-3">
-<!-- 												<input type="submit" value="Apply Coupon" class="btn btn-primary"> -->
-							</div>
-						</div>
-	
-								</div>
-								<div class="col-sm-4 text-center">
-									<div class="total ">
-										<div>
-											<strong>Total:</strong>&nbsp; <input type="text" id="price_total" name="price_total" value="0" readonly="readonly">	
-										</div>
-									</div>
-								</div>
-							</div>
-							<div align="right" class="col-md-11">
-								<input type="submit" value="주문하기" class="myButton">
-							</div>
-						</div>
-					</div>
+				<div class="total" align="right" >
+					<strong>Total:</strong>&nbsp; <input type="text" id="price_total" name="price_total" value="0" readonly="readonly">	
+				</div>
+				<br>
+				<div align="right" class="col-md-11">
+						<input type="submit" value="주문하기" class="myButton">
 				</div>
 		</form>
-				<div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-						<h2>Related Products</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Minam Meaghan</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Men's Taja Commissioner</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Russ Men's Sneakers</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</div>
+  </div>
+</div>
 <!-- 	</div> -->
    <!-- popper -->
    <script src="js/popper.min.js"></script>

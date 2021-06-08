@@ -9,6 +9,16 @@ public class OrderDetailDTO {
     private String image;
     private String orders_code;
     private int store_num;
+	private String state;
+	
+	
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
 
 	public int getQuantity() {
 		return quantity;

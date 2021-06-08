@@ -43,17 +43,18 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
 <style type="text/css">
-h6{
-text-align: left;
-font-size: 17px;
-font-weight: bold;
-font-family:휴먼엽서체 !important;
-color: black;
+h6 {
+	text-align: left;
+	font-size: 17px;
+	font-weight: bold;
+	font-family: 휴먼엽서체 !important;
+	color: black;
 }
 
 .myButton {
@@ -82,166 +83,124 @@ color: black;
 	position: relative;
 	top: 1px;
 }
-
-
 </style>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+var canvas = document.getElementById('chart').getContext("2d");
+    new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: ['5', '4', '3', '2', '1'],
+        datasets: [{
+          label: '주문 수',
+          yAxisID: 'A',
+          data: [5, 4, 3, 4, 7]
+        }, {
+          label: '판매 금액(원)',
+          type: 'line',
+          yAxisID: 'B',
+          data: [50000, 40000, 100000, 33300, 70000],
+            lineTension: 0.3,
+            fill: false,
+            borderColor: 'lightblue',
+            backgroundColor: 'transparent',
+            pointBorderColor: 'lightblue',
+            pointBackgroundColor: 'lightgreen',
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            id: 'A',
+            type: 'linear',
+            position: 'left',
+            ticks: {
+                max: 50,
+                min: 0
+              }
+          }, {
+            id: 'B',
+            type: 'linear',
+            position: 'right',
+            ticks: {
+              max: 100000,
+              min: 0
+            }
+          }]
+        }, 
+          annotation: {
+            annotations: [{
+            type: 'line',
+            mode: 'horizontal',
+            scaleID: 'y-axis-0',
+            value: 32,
+            borderColor: 'rgb(75, 0, 0)',
+            borderWidth: 4,
+            label: {
+              enabled: false,
+              content: 'Test label'
+            }
+          }]
+        }
+      }
+    });
+});
+
+</script>
 
 
 </head>
 <body>
 
-<div class="container" >
-			<div class="row " >
-				<div class="col-md-12"  >
-					<div class="product-name d-flex " style="background-color: #c5c5c5 !important;" >
-							<div class="col-md-2">스토어 현황</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-10 offset-2">
-	<div class="row">
-		<div class="col-md-11">
-			<div class="row" style="margin-top: 30px; height: 400px;">
-				<div class="col-md-5" style="border: 1px solid #dadada; box-shadow:2px 2px 2px;">
-					<br><h6>사이트 방문자</h6>
-
-					<div id="Line_Controls_Chart">
-						<!-- 라인 차트 생성할 영역 -->
-						<div id="lineChartArea" style="padding: 0px 20px 0px 0px;"></div>
-						<!-- 컨트롤바를 생성할 영역 -->
-						<div id="controlsArea" style="padding: 0px 20px 0px 0px;" hidden></div>
-					</div>
-					
-				</div>
-				<div class="col-md-5" style="border: 1px solid #dadada; margin-left: 10px; box-shadow:2px 2px 2px;">
-					<br><h6>두번째 화면</h6>
-					<input type="button" value="버튼" id="button" class="myButton" >
-				</div>
-			</div>
-			<div class="row" style="margin-top: 10px; height: 400px;">
-				<div class="col-md-5" style="border: 1px solid #dadada; box-shadow:2px 2px 2px;">
-						<br><h6>세번째 화면</h6>
-						<input type="button" value="버튼" id="button" class="myButton" >
-				</div>
-				<div class="col-md-5 " style="border: 1px solid #dadada; margin-left: 10px; box-shadow:2px 2px 2px;">
-						<br><h6>네번째 화면</h6>
-					<input type="button" value="버튼" id="button" class="myButton" >
-						
+	<div class="container">
+		<div class="row ">
+			<div class="col-md-12">
+				<div class="product-name d-flex "
+					style="background-color: #c5c5c5 !important;">
+					<div class="col-md-2">스토어 현황</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<div class="col-md-10 offset-2">
+		<div class="row">
+			<div class="col-md-11">
+				<div class="row" style="margin-top: 30px; height: 400px;">
+					<div class="col-md-5"
+						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
+						<br>
+						<h6>주문 및 판매 	금액</h6>
+						<canvas id="chart"></canvas>
+					</div>
+					<div class="col-md-5"
+						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
+						<br>
+						<h6>두번째 화면</h6>
+						<input type="button" value="버튼" id="button" class="myButton">
+					</div>
+				</div>
+				<div class="row" style="margin-top: 10px; height: 400px;">
+					<div class="col-md-5"
+						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
+						<br>
+						<h6>세번째 화면</h6>
+						<input type="button" value="버튼" id="button" class="myButton">
+					</div>
+					<div class="col-md-5 "
+						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
+						<br>
+						<h6>네번째 화면</h6>
+						<input type="button" value="버튼" id="button" class="myButton">
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
-<script>
-
-  var chartDrowFun = {
-
-    chartDrow : function(){
-        var chartData = '';
-
-        //날짜형식 변경하고 싶으시면 이 부분 수정하세요.
-        var chartDateformat 	= 'MM월dd일';
-        //라인차트의 라인 수
-        var chartLineCount    = 0;
-        //컨트롤러 바 차트의 라인 수
-        var controlLineCount	= 1;
-
-
-        function drawDashboard() {
-
-          var data = new google.visualization.DataTable();
-          //그래프에 표시할 컬럼 추가
-          data.addColumn('datetime' , '날짜');
-          data.addColumn('number'   , '남성');
-          data.addColumn('number'   , '여성');
-          data.addColumn('number'   , '전체');
-
-          //그래프에 표시할 데이터
-          var dataRow = [];
-
-          for(var i = 0; i <= 6; i++){ //랜덤 데이터 생성
-            var total   = Math.floor(Math.random() *10) + 1;
-            var man     = Math.floor(Math.random() * total) + 1;
-            var woman   = total - man;
-
-            dataRow = [new Date('2017', '09', i , '10'), man, woman , total];
-            data.addRow(dataRow);
-          }
-
-
-            var chart = new google.visualization.ChartWrapper({
-              chartType   : 'LineChart',
-              containerId : 'lineChartArea', //라인 차트 생성할 영역
-              options     : {
-                              isStacked   : 'percent',
-                              focusTarget : 'category',
-                              height		  : 250,
-                              width			  : '100%',
-                              legend		  : { position: "top", textStyle: {fontSize: 13}},
-                              pointSize		: 5,
-                              tooltip		  : {textStyle : {fontSize:12}, showColorCode : true,trigger: 'both'},
-                              hAxis			  : {format: chartDateformat, gridlines:{count:chartLineCount,units: {
-                                                                  years : {format: ['yyyy년']},
-                                                                  months: {format: ['MM월']},
-                                                                  days  : {format: ['dd일']},
-                                                                  hours : {format: ['HH시']}}
-                                                                },textStyle: {fontSize:12}},
-                vAxis			  : {minValue: 100,viewWindow:{min:0},gridlines:{count:-1},textStyle:{fontSize:12}},
-                animation		: {startup: true,duration: 1000,easing: 'in' },
-                annotations	: {pattern: chartDateformat,
-                                textStyle: {
-                                fontSize: 15,
-                                bold: true,
-                                italic: true,
-                                color: '#871b47',
-                                auraColor: '#d799ae',
-                                opacity: 0.8,
-                                pattern: chartDateformat
-                              }
-                            }
-              }
-            });
-
-            var control = new google.visualization.ControlWrapper({
-              controlType: 'ChartRangeFilter',
-              containerId: 'controlsArea',  //control bar를 생성할 영역
-              options: {
-                  ui:{
-                        chartType: 'LineChart',
-                        chartOptions: {
-                        chartArea: {'width': '60%','height' : 80},
-                          hAxis: {'baselineColor': 'none', format: chartDateformat, textStyle: {fontSize:12},
-                            gridlines:{count:controlLineCount,units: {
-                                  years : {format: ['yyyy년']},
-                                  months: {format: ['MM월']},
-                                  days  : {format: ['dd일']},
-                                  hours : {format: ['HH시']}}
-                            }}
-                        }
-                  },
-                    filterColumnIndex: 0
-                }
-            });
-
-            var date_formatter = new google.visualization.DateFormat({ pattern: chartDateformat});
-            date_formatter.format(data, 0);
-
-            var dashboard = new google.visualization.Dashboard(document.getElementById('Line_Controls_Chart'));
-            window.addEventListener('resize', function() { dashboard.draw(data); }, false); //화면 크기에 따라 그래프 크기 변경
-            dashboard.bind([control], [chart]);
-            dashboard.draw(data);
-
-        }
-          google.charts.setOnLoadCallback(drawDashboard);
-
-      }
-    }
-
-$(document).ready(function(){
-  google.charts.load('current', {'packages':['line','controls']});
-  chartDrowFun.chartDrow(); //chartDrow() 실행
-});
-  </script>
 </html>

@@ -119,12 +119,21 @@ input[type="text"]:focus {
 				<div class="col-md-12"  >
 					<div class="product-name d-flex " align="center" >
 					<div class="col-md-1" ></div>
-						<c:forEach var="list" items="${list }">
+							<c:set var="loop" value="true"/>
+						<c:if test="${plist.size() ne 0 }">
+						<c:forEach var="list" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}" items="${list }">
+							<c:if test="${p.total == i }">
+								<c:set var="loop" value="false"/>
+							</c:if>
+							<c:if test="${loop }">
 							<c:if
 								test="${list.category_codeRef1 eq 0 && list.category_codeRef2 eq 0 }">
 								<div class="col-md-2" >${list.category_name }</div>
 							</c:if>
+							</c:if>
+							
 						</c:forEach>
+						</c:if>
 					</div>
 					<div class="row">
 						<div class="col-md-2">
@@ -151,6 +160,26 @@ input[type="text"]:focus {
 			</div>
 		</div>
 	</div>
+	<div class="col-md-6 offset-4 paging" style="height: 120px;">
+ 					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="keepstore.bo?page=true&nowPage=${num }" >${num }</a>
+				            </li>
+				        </c:forEach>
+				   
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
+				</div>
 	<!-- 	</div> -->
 	<!-- popper -->
 	<script src="js/popper.min.js"></script>

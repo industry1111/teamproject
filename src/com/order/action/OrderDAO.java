@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.mail.Store;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -52,7 +53,7 @@ public class OrderDAO {
         try {
             getCon();
 
-            String sql = "insert into orders (member_num, total_price, pay_method, state, regdate, orders_code,"
+            String sql = "insert into orders (member_num, total_price, pay_method, regdate, orders_code, order_id,"
                     + "receiver_addr1, receiver_addr2, receiver_addr3, receiver_name, receiver_phone, address_name, receiver_msg,main_product_image,"
                     + "main_product_name, count)"
                     + " values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -61,9 +62,9 @@ public class OrderDAO {
             pstmt.setInt(1, dto.getMember_num());
             pstmt.setInt(2, dto.getTotal_price());
             pstmt.setString(3, dto.getPay_method());
-            pstmt.setString(4, "0");
-            pstmt.setTimestamp(5, dto.getRegdate());
-            pstmt.setString(6, dto.getOrders_code());
+            pstmt.setTimestamp(4, dto.getRegdate());
+            pstmt.setString(5, dto.getOrders_code());
+            pstmt.setString(6, dto.getOrder_id());
             pstmt.setString(7, dto.getReceiver_addr1());
             pstmt.setString(8, dto.getReceiver_addr2());
             pstmt.setString(9, dto.getReceiver_addr3());
@@ -97,8 +98,8 @@ public class OrderDAO {
             getCon();
 
             String sql = "insert into orders_detail (quantity, product_num, product_name, product_price,"
-            		+ "image, orders_code,store_num)"
-            		+ " values(?,?,?,?,?,?,?)";
+            		+ "image, orders_code,store_num,state)"
+            		+ " values(?,?,?,?,?,?,?,?)";
             
             pstmt = con.prepareStatement(sql);
             
@@ -109,6 +110,7 @@ public class OrderDAO {
             pstmt.setString(5, dto.getImage());
             pstmt.setString(6, dto.getOrders_code());
             pstmt.setInt(7, dto.getStore_num());
+            pstmt.setString(8, "0");
          
             result = pstmt.executeUpdate();
             
@@ -189,7 +191,6 @@ public class OrderDAO {
 				
 				OrderDTO odto = new OrderDTO();
 				odto.setTotal_price(rs.getInt("total_price"));
-				odto.setState(rs.getString("state"));
 				odto.setOrders_code(rs.getString("orders_code"));
 				odto.setRegdate(rs.getTimestamp("regdate"));
 				odto.setAddress_name(rs.getString("address_name"));
@@ -247,6 +248,7 @@ public class OrderDAO {
 				dto.setProduct_price(rs.getInt("product_price"));
 				dto.setQuantity(rs.getInt("quantity"));
 				dto.setStore_num(rs.getInt("store_num"));
+				dto.setState(rs.getString("state"));
 				
 				list.add(dto);
 				
@@ -265,7 +267,7 @@ public class OrderDAO {
     	
     }//getOrderDetail
     
-public List<OrderDTO> getOrder(String orders_code){
+    public List<OrderDTO> getOrder(String orders_code){
         
         
         List<OrderDTO> list = new ArrayList<OrderDTO>();
@@ -283,7 +285,6 @@ public List<OrderDTO> getOrder(String orders_code){
                 
                 OrderDTO odto = new OrderDTO();
                 odto.setTotal_price(rs.getInt("total_price"));
-                odto.setState(rs.getString("state"));
                 odto.setOrders_code(rs.getString("orders_code"));
                 odto.setRegdate(rs.getTimestamp("regdate"));
                 odto.setAddress_name(rs.getString("address_name"));
@@ -297,13 +298,11 @@ public List<OrderDTO> getOrder(String orders_code){
                 odto.setMain_product_image(rs.getString("main_product_image"));
                 odto.setMain_product_name(rs.getString("main_product_name"));
                 odto.setCount(rs.getInt("count"));
-                
-
+                odto.setOrder_id(rs.getString("order_id"));
+              
                 list.add(odto);
             }
-            
-            
-            
+
         } catch (Exception e) {
             
             System.out.println("getOrderInfo:" + e.toString());
@@ -316,5 +315,80 @@ public List<OrderDTO> getOrder(String orders_code){
         return list;
     }//주문내역 
     
+    //storeOrder
+    public List<StoreOrderDTO> getStoreOrder(int store_num){
+    	
+    	List<StoreOrderDTO> list = new ArrayList<StoreOrderDTO>();
+
+    	try {
+			
+    		getCon();
+    		String sql = "select * from orders join orders_detail on store_num = ?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, store_num);
+    		rs = pstmt.executeQuery();
+    		
+    	while(rs.next()){
+    		
+    		StoreOrderDTO dto = new StoreOrderDTO();
+    		
+    		 dto.setTotal_price(rs.getInt("total_price"));
+             dto.setOrders_code(rs.getString("orders_code"));
+             dto.setRegdate(rs.getTimestamp("regdate"));
+             dto.setAddress_name(rs.getString("address_name"));
+             dto.setReceiver_addr1(rs.getString("receiver_addr1"));
+             dto.setReceiver_addr2(rs.getString("receiver_addr2"));
+             dto.setReceiver_addr3(rs.getString("receiver_addr3"));
+             dto.setReceiver_msg(rs.getString("receiver_msg"));
+             dto.setReceiver_name(rs.getString("receiver_name"));
+             dto.setReceiver_phone(rs.getString("receiver_phone"));
+             dto.setOrder_num(rs.getInt("order_num"));
+             dto.setMain_product_image(rs.getString("main_product_image"));
+             dto.setMain_product_name(rs.getString("main_product_name"));
+             dto.setCount(rs.getInt("count")); 
+             dto.setOrders_code(rs.getString("orders_code"));
+			 dto.setProduct_name(rs.getString("product_name"));
+			 dto.setImage(rs.getString("image"));
+			 dto.setProduct_num(rs.getInt("product_num"));
+			 dto.setProduct_price(rs.getInt("product_price"));
+			 dto.setQuantity(rs.getInt("quantity"));
+			 dto.setStore_num(rs.getInt("store_num"));
+			 dto.setState(rs.getString("state"));
+			 dto.setOrder_id(rs.getString("order_id"));
+			 dto.setOrder_detail_num(rs.getInt("order_detail_num"));
+             
+			 list.add(dto);
+
+    	}
+
+		} catch (Exception e) {
+			System.out.println("getStoreOrder"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+    
+    	return list;
+    	
+    }//storeOrder
+    
+    //StateUpdate
+    public void OrderStateUpdate(String state, int order_detail_num){
+        
+        try {
+            getCon();
+            
+            String sql = "update orders_detail set state = ? where order_detail_num = ?";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, state);
+            pstmt.setInt(2, order_detail_num);
+            pstmt.executeUpdate();
+
+        } catch (Exception e) {
+           System.out.println("OrderStateUpdate" + e.toString());
+        }finally {
+            ResouceClose();
+        }
+
+    }
   
 }
