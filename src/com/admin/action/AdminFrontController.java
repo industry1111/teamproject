@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.board.action.Order;
 import com.member.action.StoreInfo;
+import com.product.action.ProductDelete;
 import com.product.action.ProductListAction;
+import com.product.action.ProductModify;
+import com.product.action.ProductModifyAction;
 
 import action.Action;
 import action.ActionForward;
@@ -78,6 +81,32 @@ public class AdminFrontController extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		 
+	  } else if (command.equals("/AdminMemberModify.ad")) { //수정할 회원 정보를 받아옴.
+			action = new AdminMemberModify();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/AdminMemberModifyAction.ad")) { //회원정보수정액션
+			action = new AdminMemberModifyAction();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else if (command.equals("/AdminMemberDelete.ad")) { //등록된회원삭제액션
+			action = new AdminMemberDelete();
+			try {
+
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
 		  
 	  }
 

@@ -160,11 +160,10 @@ input[type="text"] {
 										</select>
 								</div>
 								<div class="col-md-2" style="margin-left: 40px;">
-							<a href="AdminMember.ad?product_num=${list[i].member_code}" type="button" class="myButton" style="width: 25%"></a>
-							<a href="AdminMember.ad?product_num=${list[i].member_code}" type="button" class="myButton"
-							onclick="if(!confirm('변경하시겠습니까?')){return false;}">변경</a>
-								
-							</div>
+								<a href="ProductModify.pr?product_num=${list[i].member_code}" type="button" class="myButton" style="width: 50%">수정</a>
+								<a href="ProductDelete.pr?product_num=${list[i].member_code}" type="button" class="myButton" style="width: 50%"
+										onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
+						</div>
 								
 			
 							
