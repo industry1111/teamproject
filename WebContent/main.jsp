@@ -320,12 +320,12 @@ ul {
         				</c:if>
 				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
 				            <li class="page-item">
-				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} onclick="paging(${num});" >${num }</a>
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="Main.main?page=true&nowPage=${num }" >${num }</a>
 				            </li>
 				        </c:forEach>
 				        <c:if test="${p.next }">
 				            <li class="page-item next">
-				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				               <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
 				            </li>
 				        </c:if>
    					 </ul>
