@@ -70,11 +70,12 @@
 			 <div class="row">
                     <div class="col-12 col-lg-7">
                         <div class="single_product_thumb">
+                        	
                             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
-                                            <img class="d-block w-100" src="img/product-img/pro-big-1.jpg" alt="First slide">
+                                        <a class="gallery_img" href="product_img_upload/${pdto.product_img}">
+                                            <img class="d-block w-100" src="product_img_upload/${pdto.product_img}" alt="First slide">
                                         </a>
                                     </div>
                                 </div>
@@ -120,7 +121,7 @@
                                     </div>
                                 </div>
                                 <button type="submit" name="addtocart" value="5" class="btn amado-btn">구매하기</button>
-                                <a href="shop.jsp">뒤로가기</a>
+                                <a href="StoreProductListAction.st?store_num=${pdto.store_num}">뒤로가기</a>
                                 
                             </form>
                         </div>
