@@ -158,18 +158,17 @@ input[type="text"] {
 										<c:if test="${list[i].member_code ne 8}"><option value="">회원코드8</option></c:if>
 										<c:if test="${list[i].member_code ne 9}"><option value="">관리자</option></c:if> 
 										</select>
+										
+								<div class="display-tc" style="margin-left: 100px">
+								<div style="margin-right: 20px">
+								<input type="button" class="myButton" value="수정" name="edit_btn" id="edit_btn" onclick=".ad?product_num=${list[i].member_code}">
 								</div>
-								<div class="col-md-2" style="margin-left: 40px;">
-							<a href="AdminMember.ad?product_num=${list[i].member_code}" type="button" class="myButton" style="width: 25%"></a>
-							<a href="AdminMember.ad?product_num=${list[i].member_code}" type="button" class="myButton"
-							onclick="if(!confirm('변경하시겠습니까?')){return false;}">변경</a>
-								
-							</div>
-								
-			
-							
-						</div>
-							
+								<div style="margin-right: 20px">
+								<input type="button" class="myButton" value="완료" name="ok_btn" id="ok_btn">
+								</div>
+								</div>		
+								</div>	
+						</div>	
 						</div>
 					</c:if>	
 					</c:forEach>
