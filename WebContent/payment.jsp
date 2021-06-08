@@ -29,7 +29,7 @@
             buyer_tel : '${phone}',
             buyer_addr : '${addr2}',
             buyer_postcode : '${addr1}'
-            //m_redirect_url : 'http://www.naver.com'
+           
         }, function(rsp) {
             if ( rsp.success ) {
                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
@@ -69,6 +69,7 @@
                 //실패시 이동할 페이지
                 
                 alert(msg);
+                location.href="close.jsp";
             }
             
 		    

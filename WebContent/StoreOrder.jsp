@@ -87,8 +87,14 @@
 						<c:if test="${list.size() eq 0 }">
 							주문내역이 없습니다.
 						</c:if>
-						<c:if test="${list.size() ne 0 }">
-						<c:forEach var="i" begin="0" step="1" end="${list.size()-1}">
+						
+				<c:set var="loop" value="true"/>
+				<c:if test="${list.size() > 0 }">
+				 <c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+					<c:if test="${p.total == i }">
+						<c:set var="loop" value="false"/>
+					</c:if>
+					<c:if test="${loop}">
 						<div class="product-cart d-flex">
 						<div class="col-md-1">
 							<fmt:formatDate pattern="yyyy-MM-dd" value="${list[i].regdate}" />
@@ -103,7 +109,7 @@
 							<span>${list[i].quantity}</span>개
 						</div>
 						<div class="col-md-1">
-							<span>${list[i].total_price}</span>원
+							<span>${list[i].product_price*list[i].quantity}</span>원
 						</div>
 						<div class="col-md-1">
 							<span>${list[i].order_id}</span>
@@ -121,6 +127,19 @@
 						</div>
 						<div class="col-md-1">
 							<select disabled="disabled" class="state" name="state">
+								<option selected="selected">
+									<c:if test="${list[i].state==0}">입금완료</c:if>
+									<c:if test="${list[i].state==1}">주문접수</c:if>
+									<c:if test="${list[i].state==2}">배송준비중</c:if>
+									<c:if test="${list[i].state==3}">배송중</c:if>
+									<c:if test="${list[i].state==4}">배송완료</c:if>
+									<c:if test="${list[i].state==5}">주문취소</c:if>
+									<c:if test="${list[i].state==6}">반품처리중</c:if>
+									<c:if test="${list[i].state==7}">반품접수</c:if>
+									<c:if test="${list[i].state==8}">반품승인</c:if>
+									<c:if test="${list[i].state==9}">환불완료</c:if>
+									<c:if test="${list[i].state==10}">교환신청</c:if>
+								</option>
 								<option value="0">입금완료</option>
 								<option value="1">주문접수</option>
 								<option value="2">배송준비중</option>
@@ -139,11 +158,33 @@
 						</div>
 						<hr>
 						</div>
-					</c:forEach>
+						</c:if>
+					  </c:forEach>
 					</c:if>
 				</div>
 			</div>
 	</div>
+	<div class="row">
+				<div class="col-md-6 offset-4 paging" style="height: 120px;">
+ 					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="StoreOrder.or?page=true&nowPage=${num}" >${num }</a>
+				            </li>
+				        </c:forEach>
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
+				</div>
+			</div>
 	<!-- 	</div> -->
 	<!-- popper -->
 	<script src="js/popper.min.js"></script>

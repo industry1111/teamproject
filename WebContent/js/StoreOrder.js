@@ -4,9 +4,7 @@ $(function() {
 	$(".state_update_btn").on("click",function(){
 		
 		$(this).parent().children(".state").removeAttr("disabled");
-		var state = $(this).parent().children(".state").val();
-		
-		
+
 	});
 	$(".update_btn").on("click",function(){
 		
@@ -15,6 +13,7 @@ $(function() {
 		var order_detail_num = $(this).parent().children(".order_detail_num").val();
 		console.log(order_detail_num);
 		console.log(new_state);
+		$(this).parent().children(".state").attr("disabled",true);
 		$.ajax({
 			
 			type : "post",
@@ -27,7 +26,6 @@ $(function() {
 			},
 			dataType:"text",
 			success : function(){
-				$(".state").attr("disabled",true);
 				
 			}
 			
