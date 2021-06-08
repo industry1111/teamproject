@@ -25,20 +25,19 @@ public class StoreProductDetail implements Action {
 		
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		
 		/*데이터베이스 자바빈 작업*/
 		productDAO pdao = new productDAO();
 		productDTO pdto = pdao.getStoreProductInfo(product_num);	
+		int store_num = pdto.getStore_num();
 		sellerDAO sdao = new sellerDAO();
 		List<sellerDTO> sdto = sdao.getSellerInfo();
 		String template = sdao.getSellerTemplate(store_num);
-		System.out.println(template);
+
 		//카테고리 정보 받아오기
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory();
 		List<brandDTO> blist = bdao.getbrandList();
-		
+
 		request.setAttribute("blist", blist);
 		request.setAttribute("clist", clist);
 		request.setAttribute("pdto", pdto);

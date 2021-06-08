@@ -45,9 +45,6 @@ public class SelectProductList extends HttpServlet{
 		String price2 = request.getParameter("price2");
 		String price = request.getParameter("price");
 		String sort = request.getParameter("sort");
-		System.out.println(price);
-		System.out.println(price1);
-		System.out.println(price2);
 		boardDAO bdao = new boardDAO();
 		productDAO pdao = new productDAO();
 		List<categoryDTO> clist_all = bdao.getcategory();
@@ -94,6 +91,8 @@ public class SelectProductList extends HttpServlet{
 			String product_name = pdto.getProduct_name();
 			String category_name = pdto.getCategory_name();
 			String product_description = pdto.getProduct_description();
+			product_description = product_description.replaceAll("\"", " ");
+			product_description = product_description.replaceAll("\r\n", " ");
 			String store_name = pdto.getStore_name();
 			int store_num = pdto.getStore_num();
 			String profile_img = pdto.getProfile_img();
@@ -127,9 +126,9 @@ public class SelectProductList extends HttpServlet{
 				json+=",";
 			}
 		}
-		json +="]||";
+		json +="]||[";
 			
-		json+="[{\"startPage\":\""+pagedto.getStartPage()+"\",\"endPage\":\""+pagedto.getEndPage()+"\",\"beginPerPage\":\""+pagedto.getBeginPerPage()+"\",\"endPerPage\":\""+pagedto.getEndPerPage()+"\","
+		json+="{\"startPage\":\""+pagedto.getStartPage()+"\",\"endPage\":\""+pagedto.getEndPage()+"\",\"beginPerPage\":\""+pagedto.getBeginPerPage()+"\",\"endPerPage\":\""+pagedto.getEndPerPage()+"\","
 				+"\"prev\":\""+pagedto.isPrev()+"\",\"next\":\""+pagedto.isNext()+"\",\"total\":\""+pagedto.getTotal()+"\",\"nowPage\":\""+pagedto.getCri().getNowPage()+"\"}]";
 		response.setHeader("content-type", "application/json");
 		out.print(json);
