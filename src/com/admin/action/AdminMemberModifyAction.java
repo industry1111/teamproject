@@ -21,7 +21,7 @@ public class AdminMemberModifyAction implements Action {
 		
 		List<memberDTO> list = new memberDAO().getMembersInfo();
 		
-		list.setCategory_name((list.getParameter("category_name")));
+		
 		
 		
 		

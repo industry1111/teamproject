@@ -22,6 +22,13 @@ public class AdminMemberModify implements Action {
 
 		List<memberDTO> list = new memberDAO().getMembersInfo();
 
+		String 
+		
+		
+		
+		
+		
+		
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
