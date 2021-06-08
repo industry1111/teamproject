@@ -91,8 +91,8 @@ public class SelectProductList extends HttpServlet{
 			String product_name = pdto.getProduct_name();
 			String category_name = pdto.getCategory_name();
 			String product_description = pdto.getProduct_description();
-			product_description = product_description.replaceAll("\"", "\\n");
-			product_description = product_description.replaceAll("\r\n", "\\n");
+			product_description = product_description.replaceAll("\"", " ");
+			product_description = product_description.replaceAll("\r\n", " ");
 			String store_name = pdto.getStore_name();
 			int store_num = pdto.getStore_num();
 			String profile_img = pdto.getProfile_img();
