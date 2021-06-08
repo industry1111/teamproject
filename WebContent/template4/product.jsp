@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Template1_details</title>
+    <title>템플렛4번 상세페이지입니다.</title>
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,52 +23,53 @@
 	<link rel="stylesheet" href="template4/fonts/flaticon/font/flaticon.css">
 	<link rel="stylesheet" href="template4/css/style.css">  
    
+   <script> var contextPath = "${pageContext.request.contextPath}";</script>
 </head>
 <body>
-
-<jsp:include page="../header.jsp"></jsp:include>
 
 <!-- 상품 메인 페이지 부분 -->
  <div class="colorlib-product">
 			<div class="container">
+		<form name="newProduct" action="StoreProductDetail.st"
+		class="form-horizontal" method="post" enctype="multipart/form-data">
 				<div class="row row-pb-lg product-detail-wrap">
 					<div class="col-sm-8">
 						<div class="owl-carousel">
 							<div class="item">
 								<div class="product-entry border"> 
 									<a href="#" class="prod-img">
-										<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+										<img src="product_img_upload/${pdto.product_img}" class="img-fluid" alt="">
 									</a>
 								</div>
 							</div>
-							<div class="item">
-								<div class="product-entry border">
-									<a href="#" class="prod-img">
-										<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-									</a>
-								</div>
-							</div>
-							<div class="item">
-								<div class="product-entry border">
-									<a href="#" class="prod-img">
-										<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-									</a>
-								</div>
-							</div>
-							<div class="item">
-								<div class="product-entry border">
-									<a href="#" class="prod-img">
-										<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-									</a>
-								</div>
-							</div>
+<!-- 							<div class="item"> -->
+<!-- 								<div class="product-entry border"> -->
+<!-- 									<a href="#" class="prod-img"> -->
+<!-- 										<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="item"> -->
+<!-- 								<div class="product-entry border"> -->
+<!-- 									<a href="#" class="prod-img"> -->
+<!-- 										<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 							<div class="item"> -->
+<!-- 								<div class="product-entry border"> -->
+<!-- 									<a href="#" class="prod-img"> -->
+<!-- 										<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template"> -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="product-desc">
-							<h3>상품이름</h3>
+							<h3>${pdto.product_name}</h3>
 							<p class="price">
-								<span>상품금액</span> 
+								<span>${pdto.product_price}</span> 
 								<!-- 별점 
 								<span class="rate">
 									<i class="icon-star-full"></i>
@@ -78,7 +79,7 @@
 									<i class="icon-star-half"></i>
 								</span>-->
 							</p>
-							<p>상품설명부분입니다.</p>
+							<p> ${pdto.product_description}</p>
 							<div class="size-wrap">
 								<div class="block-26 mb-2">
 									<h4>옵션</h4>
@@ -173,6 +174,7 @@
 						</div>
 					</div>
 				</div>
+			</form>
 			</div>
 		</div>
 
@@ -188,8 +190,6 @@
 	<script src="template4/js/bootstrap-datepicker.js"></script>
 	<script src="template4/js/jquery.stellar.min.js"></script>
 	<script src="template4/js/main.js"></script>
-	
-    <jsp:include page="../footer.jsp"/>
 
 
 </body>

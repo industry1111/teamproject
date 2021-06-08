@@ -100,8 +100,15 @@ input[type="text"] {
 							<span>Status</span>
 						</div>
 					</div>
-					<c:forEach var="i" begin="0" step="1" end="4">
-						<div class="product-cart d-flex">
+					
+					<c:set var="loop" value="true"/>
+					<c:if test="${list.size() ne 0 }">
+					<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+					<c:if test="${p.total == i }">
+						<c:set var="loop" value="false"/>
+						</c:if>
+						<c:if test="${loop }">
+						<div class="product-cart d-flex" align="center">
 							<div class="one-forth text-left px-4">
 							<a> <img src="images/product.png/${list[i].profile_img}"
 									style="width: 100px; height: 100px;">
@@ -115,17 +122,6 @@ input[type="text"] {
 							<div class="one-forth text-left px-4">
 								<div class="display-tc">
 								<span class="price">${list[i].category_num}</span>								
-								<%--<c:if test="${i==0}">Category_Num</c:if>
-									<c:if test="${i==1}">Category_Num</c:if>
-									<c:if test="${i==2}">Category_Num</c:if>
-									<c:if test="${i==3}">Category_Num</c:if>
-									<c:if test="${i==4}">Category_Num</c:if>
-									<c:if test="${i==5}">Category_Num</c:if>
-									<c:if test="${i==6}">Category_Num</c:if>
-									<c:if test="${i==7}">Category_Num</c:if>
-									<c:if test="${i==8}">Category_Num</c:if>
-									<c:if test="${i==9}">Category_Num</c:if>
-									<c:if test="${i==10}">Category_Num</c:if> --%>
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -136,15 +132,37 @@ input[type="text"] {
 										 </select>
 								</div>
 							</div>	
-						</div>	
-					</c:forEach>	
+						</div>
+						</c:if>	
+					</c:forEach>
+					</c:if>	
 				</div>
 				<div class="row" style="margin-left: 100px" >
 				<div style="margin-right: 20px" >
-					<input type="button" class="myButton" value="저장" name="add_btn" id="add_btn" onClick="#">
+					<input type="button" class="myButton" value="뒤로" name="close_btn" id="close_btn" onClick="location.href='/AdminMain.ad'">
 				</div>
-				<div>
-					<input type="button" class="myButton" value="닫기" name="close_btn" id="close_btn" onClick="location.href='/AdminMain.ad'">
+			</div>
+						<%--페이징 --%>
+			<div class="row">
+				<div class="col-md-6 offset-4 paging" style="height: 120px;" align="right">
+ 					<ul class="pagination">
+       					<c:if test="${p.prev }">
+           					 <li class="page-item previous">
+              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
+           					 </li>
+        				</c:if>
+				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
+				            <li class="page-item">
+				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="AdminStore.ad?page=true&nowPage=${num }" >${num }</a>
+				            </li>
+				        </c:forEach>
+				   
+				        <c:if test="${p.next }">
+				            <li class="page-item next">
+				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
+				            </li>
+				        </c:if>
+   					 </ul>
 				</div>
 			</div>
 			</div>

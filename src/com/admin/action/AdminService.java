@@ -7,8 +7,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.ActionForward;
-import dao.ReviewDAO;
-import dto.reviewDTO;
+import action.Criteria;
+import action.PageDTO;
+import dao.boardDAO;
+import dto.pagingDTO;
 
 
 public class AdminService implements Action{
@@ -20,6 +22,23 @@ public class AdminService implements Action{
 		
 			ActionForward forward = new ActionForward();
 			
+			//페이징 부분
+			String page = request.getParameter("page");
+			Criteria cri;
+			PageDTO pagedto;
+			int numPerPage = 5;
+			
+			if(page != null){
+				int nowPage = Integer.parseInt(request.getParameter("nowPage"));
+				cri = new Criteria(nowPage, numPerPage);
+				pagedto = new PageDTO(cri, list.size());
+			}else{
+				cri = new Criteria(numPerPage);
+				pagedto = new PageDTO(cri, list.size());
+			}
+			
+			request.setAttribute("list", list);
+			request.setAttribute("p", pagedto);
 			
 	        forward.setRedirect(false);
 	        forward.setPath("AdminService.jsp");

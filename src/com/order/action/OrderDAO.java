@@ -323,7 +323,7 @@ public class OrderDAO {
     	try {
 			
     		getCon();
-    		String sql = "select * from orders join orders_detail on store_num = ?";
+    		String sql = "select * from orders natural join orders_detail where store_num = ?";
     		pstmt = con.prepareStatement(sql);
     		pstmt.setInt(1, store_num);
     		rs = pstmt.executeQuery();

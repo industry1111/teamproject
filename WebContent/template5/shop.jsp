@@ -1,155 +1,149 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Template5_shop</title>
-<link rel="icon" href="template5/img/core-img/favicon.ico">
-<link rel="stylesheet" href="template5/css/core-style.css">
-<link rel="stylesheet" href="template5/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>템플렛 5입니다.</title>
+  
+ 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
+    <link rel="stylesheet" href="template1/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="template1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="template1/css/magnific-popup.css">
+    <link rel="stylesheet" href="template1/css/jquery-ui.css">
+    <link rel="stylesheet" href="template1/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="template1/css/owl.theme.default.min.css">
+ 	<link rel="stylesheet" href="template1/css/aos.css">
+	<link rel="stylesheet" href="template1/css/style.css">
+    
 </head>
-
 <body>
+ <!--================ Start Header Menu Area =================-->
+   <div class="site-wrap">
+	<div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Shop</strong></div>
+        </div>
+      </div>
+    </div>
 
-	  <!--================ Start Header Menu Area =================-->
-	<div class="search-wrapper section-padding-100">
-		<div class="search-close">
-			<i class="fa fa-close" aria-hidden="true"></i>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="search-content">
-						<form action="#" method="get">
-							<input type="search" name="search" id="search" placeholder="Type your keyword...">
-							<button type="submit">
-								<img src="img/core-img/search.png" alt="">
-							</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-			<!-- ##### Main Content Wrapper Start ##### 꼭 있어야함-->
-			<div class="main-content-wrapper d-flex clearfix">
-	 		<!-- Mobile Nav (max width 767px)  -->
-			<div class="mobile-nav">
-			<!-- Navbar Brand  -->
-			<div class="amado-navbar-brand">
-			<a href="index.html"><img src="img/core-img/logo.png" alt="">
-			상호명</a>
-			</div> 
-			<!--Navbar Toggler -->
-			<div class="amado-navbar-toggler">
-			<span></span><span></span><span></span>
-			</div>
-			</div> 
+    <div class="site-section">
+      <div class="container">
 
-		<div class="shop_sidebar_area">
-		<!-- 	##### Single Widget ##### -->
-			<div class="widget catagory mb-50">
-				<!-- Widget Title -->
-				<div class="logo">
-					<a href="index.html"> <img src="img/core-img/logo.png" alt=""><h1>상호명<h1></a>
-				</div>
-				<br>
+        <div class="row mb-5">
+          <div class="col-md-9 order-2">
 
-				<h6 class="widget-title mb-30">카테고리</h6>
+            <div class="row">
+              <div class="col-md-12 mb-5">
+                <div class="float-md-left mb-4"><h2 class="text-black h5">Shop All</h2></div>
+                <div class="d-flex">
+                  <div class="dropdown mr-1 ml-md-auto">
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Latest
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                      <a class="dropdown-item" href="#">Men</a>
+                      <a class="dropdown-item" href="#">Women</a>
+                      <a class="dropdown-item" href="#">Children</a>
+                    </div>
+                  </div>
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                      <a class="dropdown-item" href="#">Relevance</a>
+                      <a class="dropdown-item" href="#">Name, A to Z</a>
+                      <a class="dropdown-item" href="#">Name, Z to A</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Price, low to high</a>
+                      <a class="dropdown-item" href="#">Price, high to low</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      <form action="StoreProductListAction.st" method="post"
+		enctype="multipart/form-data">
+			<c:set var="loop" value="true"/>
+				<c:if test="${list.size() ne 0 }">
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+					<c:if test="${p.total == i }">
+						<c:set var="loop" value="false"/>
+					</c:if>
+					<c:if test="${loop }">  
+            <div class="row mb-5">
+              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                <div class="block-4 text-center border">
+                  <figure class="block-4-image">
+                    <a href="StoreProductDetail.st?product_num=${list[i].product_num}">
+                    	<img src="product_img_upload/${list[i].product_img}" alt="Image placeholder" class="img-fluid"></a>
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="shop-single.html">${list[i].product_name}</a></h3>
+                    <p class="mb-0">${list[i].category_name }</p>
+                    <p class="text-primary font-weight-bold">${list[i].product_price }</p>
+                  </div>
+                </div>
+              </div>
+         </div>
+        			 </c:if>
+				</c:forEach>
+			</c:if>
+      </form>   
+</div>
 
-				<!-- ================ 카테고리 섹션 시작 ================= -->	
-				<div class="catagories-menu">
-					<ul>
-						<li class="active"><a href="#">의자</a></li>
-				</div>
-			</div>
-                <div class="widget brands mb-50">
-				<!-- 카테고리2 시작 -->
-				<h6 class="widget-title mb-30">카테고리2</h6>
-				<div class="widget-desc">
-				<!-- 카테고리2 폼체크 -->
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="amado">
-						<label class="form-check-label" for="amado">세부카테고리</label>
-					</div>
-				</div>
-			</div>
-		</div>
 
-		<div class="amado_product_area section-padding-20">
-			<div class="container-fluid">
-			
-				<div class="row" align="right">
-					<div class="col-12">
-						<div class="product-topbar d-xl-flex align-items-end justify-content-between">
+            <div class="border p-4 rounded mb-4">
+              <div class="mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
+                <div id="slider-range" class="border-primary"></div>
+                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+              </div>
 
-							<div class="total-products"></div>
+              <div class="mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
+                <label for="s_sm" class="d-flex">
+                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
+                </label>
+                <label for="s_md" class="d-flex">
+                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
+                </label>
+                <label for="s_lg" class="d-flex">
+                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
+                </label>
+              </div>
 
-							<header class="header-area clearfix"> <!-- Cart Menu -->
-							<div class="cart-fav-search mb-100">
-								<a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> Search</a>
-							</div>
-							</header>
-							<div class="product-sorting d-flex">
-								<div class="sort-by-date d-flex align-items-center mr-15">
-									<p>옵션 </p>
-									<form action="#" method="get">
-										<select name="select" id="sortBydate">
-											<option value="value">높은가격</option>
-											<option value="value">낮은가격</option>
-											<option value="value">인기순</option>
-										</select>
-									</form>
-								</div>
-								<div class="view-product d-flex align-items-center">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+              <div class="mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
+                <a href="#" class="d-flex color-item align-items-center" >
+                  <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
+                </a>
+                <a href="#" class="d-flex color-item align-items-center" >
+                  <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
+                </a>
+                <a href="#" class="d-flex color-item align-items-center" >
+                  <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
+                </a>
+                <a href="#" class="d-flex color-item align-items-center" >
+                  <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
+                </a>
+              </div>
 
-				<div class="row">
-<%--              <c:forEach var="plist" items="${plist}">   --%>
-					<div class="col-12 col-sm-6 col-md-12 col-xl-6">
-						<div class="single-product-wrapper">
-							<!-- Product Image -->
-							<div class="product-img">
-								<img src="img/product-img/product1.jpg" alt="">
-								<!-- Hover Thumb
-                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">  -->
-							</div>
+            </div>
+          </div>
+        </div>    
+      </div>
+</div>
 
-							<!-- Product Description -->
-							<div class="product-description d-flex align-items-center justify-content-between">
-								<div class="product-meta-data">
-									<div class="line"></div>
-									<p class="product-price">상품가격</p>
-									<a href="product-details.jsp">
-										<h6>상품명</h6>
-									</a>
-								</div>
-								</div>
-							</div>
-						</div>
-					</div>
-						<%--  </c:forEach> --%>
-						</div>
-					</div>
-				</div>
-
-	
-	<jsp:include page="../footer.jsp" />
-
-	<script src="template5/js/jquery/jquery-2.2.4.min.js"></script>
-	<script src="template5/js/popper.min.js"></script>
-	<script src="template5/js/bootstrap.min.js"></script>
-	<script src="template5/js/plugins.js"></script>
-	<script src="template5/js/active.js"></script>
+  <script src="template1/js/jquery-3.3.1.min.js"></script>
+  <script src="template1/js/jquery-ui.js"></script>
+  <script src="template1/js/popper.min.js"></script>
+  <script src="template1/js/bootstrap.min.js"></script>
+  <script src="template1/js/owl.carousel.min.js"></script>
+  <script src="template1/js/jquery.magnific-popup.min.js"></script>
+  <script src="template1/js/aos.js"></script>
+  <script src="template1/js/main.js"></script>
+  
 </body>
 </html>

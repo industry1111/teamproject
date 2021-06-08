@@ -83,10 +83,9 @@ public class PaymentComplete implements Action{
             
             
             ActionForward forward=new ActionForward();
-            forward.setRedirect(false);
+            forward.setRedirect(true);
             
-            forward.setPath("mypage.jsp"); 
-            request.setAttribute("center", "payment_success.jsp");
+            forward.setPath("close.jsp"); 
 
             return forward;
         }

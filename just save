@@ -1,0 +1,320 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch yurok
+# Changes to be committed:
+#	new file:   WebContent/product_img_upload/q.jpg
+#	new file:   WebContent/template1/META-INF/MANIFEST.MF
+#	new file:   WebContent/template1/WEB-INF/web.xml
+#	new file:   WebContent/template1/assets/css/bootstrap.min.css
+#	new file:   WebContent/template1/assets/css/custom.css
+#	new file:   WebContent/template1/assets/css/fontawesome.css
+#	new file:   WebContent/template1/assets/css/fontawesome.min.css
+#	renamed:    WebContent/template3/css/slick-theme.css -> WebContent/template1/assets/css/slick-theme.css
+#	new file:   WebContent/template1/assets/css/slick-theme.min.css
+#	new file:   WebContent/template1/assets/css/slick.min.css
+#	new file:   WebContent/template1/assets/css/templatemo.css
+#	new file:   WebContent/template1/assets/css/templatemo.min.css
+#	new file:   WebContent/template1/assets/img/about-hero.svg
+#	new file:   WebContent/template1/assets/img/ajax-loader.gif
+#	new file:   WebContent/template1/assets/img/apple-icon.png
+#	new file:   WebContent/template1/assets/img/banner_img_01.jpg
+#	new file:   WebContent/template1/assets/img/banner_img_02.jpg
+#	new file:   WebContent/template1/assets/img/banner_img_03.jpg
+#	new file:   WebContent/template1/assets/img/brand_01.png
+#	new file:   WebContent/template1/assets/img/brand_02.png
+#	new file:   WebContent/template1/assets/img/brand_03.png
+#	new file:   WebContent/template1/assets/img/brand_04.png
+#	new file:   WebContent/template1/assets/img/category_img_01.jpg
+#	new file:   WebContent/template1/assets/img/category_img_02.jpg
+#	new file:   WebContent/template1/assets/img/category_img_03.jpg
+#	new file:   WebContent/template1/assets/img/favicon.ico
+#	new file:   WebContent/template1/assets/img/feature_prod_01.jpg
+#	new file:   WebContent/template1/assets/img/feature_prod_02.jpg
+#	new file:   WebContent/template1/assets/img/feature_prod_03.jpg
+#	new file:   WebContent/template1/assets/img/product_single_01.jpg
+#	new file:   WebContent/template1/assets/img/product_single_02.jpg
+#	new file:   WebContent/template1/assets/img/product_single_03.jpg
+#	new file:   WebContent/template1/assets/img/product_single_04.jpg
+#	new file:   WebContent/template1/assets/img/product_single_05.jpg
+#	new file:   WebContent/template1/assets/img/product_single_06.jpg
+#	new file:   WebContent/template1/assets/img/product_single_07.jpg
+#	new file:   WebContent/template1/assets/img/product_single_08.jpg
+#	new file:   WebContent/template1/assets/img/product_single_09.jpg
+#	new file:   WebContent/template1/assets/img/product_single_10.jpg
+#	new file:   WebContent/template1/assets/img/shop_01.jpg
+#	new file:   WebContent/template1/assets/img/shop_02.jpg
+#	new file:   WebContent/template1/assets/img/shop_03.jpg
+#	new file:   WebContent/template1/assets/img/shop_04.jpg
+#	new file:   WebContent/template1/assets/img/shop_05.jpg
+#	new file:   WebContent/template1/assets/img/shop_06.jpg
+#	new file:   WebContent/template1/assets/img/shop_07.jpg
+#	new file:   WebContent/template1/assets/img/shop_08.jpg
+#	new file:   WebContent/template1/assets/img/shop_09.jpg
+#	new file:   WebContent/template1/assets/img/shop_10.jpg
+#	new file:   WebContent/template1/assets/img/shop_11.jpg
+#	new file:   WebContent/template1/assets/js/bootstrap.bundle.min.js
+#	new file:   WebContent/template1/assets/js/custom.js
+#	new file:   WebContent/template1/assets/js/jquery-1.11.0.min.js
+#	new file:   WebContent/template1/assets/js/jquery-migrate-1.2.1.min.js
+#	renamed:    WebContent/template1/js/slick.min.js -> WebContent/template1/assets/js/slick.min.js
+#	new file:   WebContent/template1/assets/js/templatemo.js
+#	new file:   WebContent/template1/assets/js/templatemo.min.js
+#	new file:   WebContent/template1/assets/webfonts/fa-brands-400.eot
+#	new file:   WebContent/template1/assets/webfonts/fa-brands-400.svg
+#	new file:   WebContent/template1/assets/webfonts/fa-brands-400.ttf
+#	new file:   WebContent/template1/assets/webfonts/fa-brands-400.woff
+#	new file:   WebContent/template1/assets/webfonts/fa-brands-400.woff2
+#	new file:   WebContent/template1/assets/webfonts/fa-regular-400.eot
+#	new file:   WebContent/template1/assets/webfonts/fa-regular-400.svg
+#	new file:   WebContent/template1/assets/webfonts/fa-regular-400.ttf
+#	new file:   WebContent/template1/assets/webfonts/fa-regular-400.woff
+#	new file:   WebContent/template1/assets/webfonts/fa-regular-400.woff2
+#	new file:   WebContent/template1/assets/webfonts/fa-solid-900.eot
+#	new file:   WebContent/template1/assets/webfonts/fa-solid-900.svg
+#	new file:   WebContent/template1/assets/webfonts/fa-solid-900.ttf
+#	new file:   WebContent/template1/assets/webfonts/fa-solid-900.woff
+#	new file:   WebContent/template1/assets/webfonts/fa-solid-900.woff2
+#	renamed:    WebContent/template3/fonts/slick.eot -> WebContent/template1/assets/webfonts/slick.eot
+#	renamed:    WebContent/template3/fonts/slick.svg -> WebContent/template1/assets/webfonts/slick.svg
+#	renamed:    WebContent/template3/fonts/slick.ttf -> WebContent/template1/assets/webfonts/slick.ttf
+#	renamed:    WebContent/template3/fonts/slick.woff -> WebContent/template1/assets/webfonts/slick.woff
+#	deleted:    WebContent/template1/css/bootstrap.min.css
+#	deleted:    WebContent/template1/css/magnific-popup.css
+#	deleted:    WebContent/template1/js/bootstrap.min.js
+#	deleted:    WebContent/template1/js/popper.min.js
+#	modified:   WebContent/template1/product.jsp
+#	deleted:    WebContent/template1/scss/style.scss
+#	modified:   WebContent/template1/shop.jsp
+#	modified:   WebContent/template2/product.jsp
+#	modified:   WebContent/template2/shop.jsp
+#	deleted:    WebContent/template3/.gitattributes
+#	renamed:    WebContent/template5/css/animate.css -> WebContent/template3/css/animate.css
+#	modified:   WebContent/template3/css/bootstrap.min.css
+#	renamed:    WebContent/template5/css/classy-nav.min.css -> WebContent/template3/css/classy-nav.min.css
+#	renamed:    WebContent/template5/css/core-style.css -> WebContent/template3/css/core-style.css
+#	renamed:    WebContent/template5/css/core-style.css.map -> WebContent/template3/css/core-style.css.map
+#	renamed:    WebContent/template5/css/jquery-ui.min.css -> WebContent/template3/css/jquery-ui.min.css
+#	new file:   WebContent/template3/css/magnific-popup.css
+#	renamed:    WebContent/template5/css/nice-select.css -> WebContent/template3/css/nice-select.css
+#	deleted:    WebContent/template3/css/nouislider.min.css
+#	renamed:    WebContent/template5/css/owl.carousel.css -> WebContent/template3/css/owl.carousel.css
+#	deleted:    WebContent/template3/css/slick.css
+#	deleted:    WebContent/template3/css/style.css
+#	renamed:    WebContent/template5/fonts/helvetica_neu_bold-webfont.ttf -> WebContent/template3/fonts/helvetica_neu_bold-webfont.ttf
+#	renamed:    WebContent/template5/fonts/helvetica_neu_bold-webfont.woff -> WebContent/template3/fonts/helvetica_neu_bold-webfont.woff
+#	renamed:    WebContent/template5/fonts/helvetica_neu_bold-webfont.woff2 -> WebContent/template3/fonts/helvetica_neu_bold-webfont.woff2
+#	renamed:    WebContent/template5/fonts/helveticaneue_medium-webfont.ttf -> WebContent/template3/fonts/helveticaneue_medium-webfont.ttf
+#	renamed:    WebContent/template5/fonts/helveticaneue_medium-webfont.woff -> WebContent/template3/fonts/helveticaneue_medium-webfont.woff
+#	renamed:    WebContent/template5/fonts/helveticaneue_medium-webfont.woff2 -> WebContent/template3/fonts/helveticaneue_medium-webfont.woff2
+#	renamed:    WebContent/template5/img/bg-img/1.jpg -> WebContent/template3/img/bg-img/1.jpg
+#	renamed:    WebContent/template5/img/bg-img/2.jpg -> WebContent/template3/img/bg-img/2.jpg
+#	renamed:    WebContent/template5/img/bg-img/3.jpg -> WebContent/template3/img/bg-img/3.jpg
+#	renamed:    WebContent/template5/img/bg-img/4.jpg -> WebContent/template3/img/bg-img/4.jpg
+#	renamed:    WebContent/template5/img/bg-img/5.jpg -> WebContent/template3/img/bg-img/5.jpg
+#	renamed:    WebContent/template5/img/bg-img/6.jpg -> WebContent/template3/img/bg-img/6.jpg
+#	renamed:    WebContent/template5/img/bg-img/7.jpg -> WebContent/template3/img/bg-img/7.jpg
+#	renamed:    WebContent/template5/img/bg-img/8.jpg -> WebContent/template3/img/bg-img/8.jpg
+#	renamed:    WebContent/template5/img/bg-img/9.jpg -> WebContent/template3/img/bg-img/9.jpg
+#	renamed:    WebContent/template5/img/bg-img/cart1.jpg -> WebContent/template3/img/bg-img/cart1.jpg
+#	renamed:    WebContent/template5/img/bg-img/cart2.jpg -> WebContent/template3/img/bg-img/cart2.jpg
+#	renamed:    WebContent/template5/img/bg-img/cart3.jpg -> WebContent/template3/img/bg-img/cart3.jpg
+#	renamed:    WebContent/template5/img/core-img/cart.png -> WebContent/template3/img/core-img/cart.png
+#	renamed:    WebContent/template5/img/core-img/favicon.ico -> WebContent/template3/img/core-img/favicon.ico
+#	renamed:    WebContent/template5/img/core-img/favorites.png -> WebContent/template3/img/core-img/favorites.png
+#	renamed:    WebContent/template5/img/core-img/logo.png -> WebContent/template3/img/core-img/logo.png
+#	renamed:    WebContent/template5/img/core-img/logo2.png -> WebContent/template3/img/core-img/logo2.png
+#	renamed:    WebContent/template5/img/core-img/paypal.png -> WebContent/template3/img/core-img/paypal.png
+#	renamed:    WebContent/template5/img/core-img/search.png -> WebContent/template3/img/core-img/search.png
+#	deleted:    WebContent/template3/img/hotdeal.png
+#	deleted:    WebContent/template3/img/logo.png
+#	renamed:    WebContent/template5/img/product-img/pro-big-1.jpg -> WebContent/template3/img/product-img/pro-big-1.jpg
+#	renamed:    WebContent/template5/img/product-img/pro-big-2.jpg -> WebContent/template3/img/product-img/pro-big-2.jpg
+#	renamed:    WebContent/template5/img/product-img/pro-big-3.jpg -> WebContent/template3/img/product-img/pro-big-3.jpg
+#	renamed:    WebContent/template5/img/product-img/pro-big-4.jpg -> WebContent/template3/img/product-img/pro-big-4.jpg
+#	renamed:    WebContent/template5/img/product-img/product1.jpg -> WebContent/template3/img/product-img/product1.jpg
+#	renamed:    WebContent/template5/img/product-img/product2.jpg -> WebContent/template3/img/product-img/product2.jpg
+#	renamed:    WebContent/template5/img/product-img/product3.jpg -> WebContent/template3/img/product-img/product3.jpg
+#	renamed:    WebContent/template5/img/product-img/product4.jpg -> WebContent/template3/img/product-img/product4.jpg
+#	renamed:    WebContent/template5/img/product-img/product5.jpg -> WebContent/template3/img/product-img/product5.jpg
+#	renamed:    WebContent/template5/img/product-img/product6.jpg -> WebContent/template3/img/product-img/product6.jpg
+#	deleted:    WebContent/template3/img/product01.png
+#	deleted:    WebContent/template3/img/product02.png
+#	deleted:    WebContent/template3/img/product03.png
+#	deleted:    WebContent/template3/img/product04.png
+#	deleted:    WebContent/template3/img/product05.png
+#	deleted:    WebContent/template3/img/product06.png
+#	deleted:    WebContent/template3/img/product07.png
+#	deleted:    WebContent/template3/img/product08.png
+#	deleted:    WebContent/template3/img/product09.png
+#	deleted:    WebContent/template3/img/shop01.png
+#	deleted:    WebContent/template3/img/shop02.png
+#	deleted:    WebContent/template3/img/shop03.png
+#	renamed:    WebContent/template5/js/active.js -> WebContent/template3/js/active.js
+#	modified:   WebContent/template3/js/bootstrap.min.js
+#	renamed:    WebContent/template5/js/classy-nav.min.js -> WebContent/template3/js/classy-nav.min.js
+#	deleted:    WebContent/template3/js/jquery.min.js
+#	deleted:    WebContent/template3/js/jquery.zoom.min.js
+#	renamed:    WebContent/template5/js/jquery/jquery-2.2.4.min.js -> WebContent/template3/js/jquery/jquery-2.2.4.min.js
+#	deleted:    WebContent/template3/js/main.js
+#	renamed:    WebContent/template5/js/map-active.js -> WebContent/template3/js/map-active.js
+#	deleted:    WebContent/template3/js/nouislider.min.js
+#	renamed:    WebContent/template5/js/plugins.js -> WebContent/template3/js/plugins.js
+#	new file:   WebContent/template3/js/popper.min.js
+#	modified:   WebContent/template3/product.jsp
+#	deleted:    WebContent/template3/screenshot/Checkout.png
+#	deleted:    WebContent/template3/screenshot/Index.png
+#	deleted:    WebContent/template3/screenshot/Product.png
+#	deleted:    WebContent/template3/screenshot/Regular.png
+#	deleted:    WebContent/template3/screenshot/Store.png
+#	renamed:    WebContent/template5/scss/_mixin.scss -> WebContent/template3/scss/_mixin.scss
+#	renamed:    WebContent/template5/scss/_responsive.scss -> WebContent/template3/scss/_responsive.scss
+#	renamed:    WebContent/template5/scss/_theme_color.scss -> WebContent/template3/scss/_theme_color.scss
+#	renamed:    WebContent/template5/scss/_variables.scss -> WebContent/template3/scss/_variables.scss
+#	new file:   WebContent/template3/scss/style.scss
+#	modified:   WebContent/template3/shop.jsp
+#	modified:   WebContent/template4/product.jsp
+#	modified:   WebContent/template4/shop.jsp
+#	renamed:    WebContent/template1/css/aos.css -> WebContent/template5/css/aos.css
+#	modified:   WebContent/template5/css/bootstrap.min.css
+#	renamed:    WebContent/template1/css/bootstrap/bootstrap-grid.css -> WebContent/template5/css/bootstrap/bootstrap-grid.css
+#	renamed:    WebContent/template1/css/bootstrap/bootstrap-reboot.css -> WebContent/template5/css/bootstrap/bootstrap-reboot.css
+#	deleted:    WebContent/template5/css/font-awesome.min.css
+#	renamed:    WebContent/template1/css/jquery-ui.css -> WebContent/template5/css/jquery-ui.css
+#	modified:   WebContent/template5/css/magnific-popup.css
+#	renamed:    WebContent/template1/css/owl.carousel.min.css -> WebContent/template5/css/owl.carousel.min.css
+#	renamed:    WebContent/template1/css/owl.theme.default.min.css -> WebContent/template5/css/owl.theme.default.min.css
+#	renamed:    WebContent/template1/css/style.css -> WebContent/template5/css/style.css
+#	deleted:    WebContent/template5/fonts/FontAwesome.otf
+#	deleted:    WebContent/template5/fonts/fontawesome-webfont.eot
+#	deleted:    WebContent/template5/fonts/fontawesome-webfont.svg
+#	deleted:    WebContent/template5/fonts/fontawesome-webfont.ttf
+#	deleted:    WebContent/template5/fonts/fontawesome-webfont.woff
+#	deleted:    WebContent/template5/fonts/fontawesome-webfont.woff2
+#	renamed:    WebContent/template1/fonts/icomoon/Read Me.txt -> WebContent/template5/fonts/icomoon/Read Me.txt
+#	renamed:    WebContent/template1/fonts/icomoon/demo-files/demo.css -> WebContent/template5/fonts/icomoon/demo-files/demo.css
+#	renamed:    WebContent/template1/fonts/icomoon/demo-files/demo.js -> WebContent/template5/fonts/icomoon/demo-files/demo.js
+#	renamed:    WebContent/template1/fonts/icomoon/fonts/icomoon.eot -> WebContent/template5/fonts/icomoon/fonts/icomoon.eot
+#	renamed:    WebContent/template1/fonts/icomoon/fonts/icomoon.svg -> WebContent/template5/fonts/icomoon/fonts/icomoon.svg
+#	renamed:    WebContent/template1/fonts/icomoon/fonts/icomoon.ttf -> WebContent/template5/fonts/icomoon/fonts/icomoon.ttf
+#	renamed:    WebContent/template1/fonts/icomoon/fonts/icomoon.woff -> WebContent/template5/fonts/icomoon/fonts/icomoon.woff
+#	renamed:    WebContent/template1/fonts/icomoon/selection.json -> WebContent/template5/fonts/icomoon/selection.json
+#	renamed:    WebContent/template1/fonts/icomoon/style.css -> WebContent/template5/fonts/icomoon/style.css
+#	renamed:    WebContent/template1/images/blog_1.jpg -> WebContent/template5/images/blog_1.jpg
+#	renamed:    WebContent/template1/images/children.jpg -> WebContent/template5/images/children.jpg
+#	renamed:    WebContent/template1/images/cloth_1.jpg -> WebContent/template5/images/cloth_1.jpg
+#	renamed:    WebContent/template1/images/cloth_2.jpg -> WebContent/template5/images/cloth_2.jpg
+#	renamed:    WebContent/template1/images/cloth_3.jpg -> WebContent/template5/images/cloth_3.jpg
+#	renamed:    WebContent/template1/images/hero_1.jpg -> WebContent/template5/images/hero_1.jpg
+#	renamed:    WebContent/template1/images/hero_1.png -> WebContent/template5/images/hero_1.png
+#	renamed:    WebContent/template1/images/men.jpg -> WebContent/template5/images/men.jpg
+#	renamed:    WebContent/template1/images/person_1.jpg -> WebContent/template5/images/person_1.jpg
+#	renamed:    WebContent/template1/images/person_2.jpg -> WebContent/template5/images/person_2.jpg
+#	renamed:    WebContent/template1/images/person_3.jpg -> WebContent/template5/images/person_3.jpg
+#	renamed:    WebContent/template1/images/person_4.jpg -> WebContent/template5/images/person_4.jpg
+#	renamed:    WebContent/template1/images/shoe.png -> WebContent/template5/images/shoe.png
+#	renamed:    WebContent/template1/images/shoe_1.jpg -> WebContent/template5/images/shoe_1.jpg
+#	renamed:    WebContent/template1/images/women.jpg -> WebContent/template5/images/women.jpg
+#	renamed:    WebContent/template1/js/aos.js -> WebContent/template5/js/aos.js
+#	modified:   WebContent/template5/js/bootstrap.min.js
+#	renamed:    WebContent/template1/js/jquery-3.3.1.min.js -> WebContent/template5/js/jquery-3.3.1.min.js
+#	renamed:    WebContent/template1/js/jquery-ui.js -> WebContent/template5/js/jquery-ui.js
+#	renamed:    WebContent/template1/js/jquery.magnific-popup.min.js -> WebContent/template5/js/jquery.magnific-popup.min.js
+#	renamed:    WebContent/template1/js/main.js -> WebContent/template5/js/main.js
+#	renamed:    WebContent/template1/js/owl.carousel.min.js -> WebContent/template5/js/owl.carousel.min.js
+#	modified:   WebContent/template5/js/popper.min.js
+#	renamed:    WebContent/template3/js/slick.min.js -> WebContent/template5/js/slick.min.js
+#	modified:   WebContent/template5/product.jsp
+#	renamed:    WebContent/template1/scss/_site-base.scss -> WebContent/template5/scss/_site-base.scss
+#	renamed:    WebContent/template1/scss/_site-blocks.scss -> WebContent/template5/scss/_site-blocks.scss
+#	renamed:    WebContent/template1/scss/_site-navbar.scss -> WebContent/template5/scss/_site-navbar.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_alert.scss -> WebContent/template5/scss/bootstrap/_alert.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_badge.scss -> WebContent/template5/scss/bootstrap/_badge.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_breadcrumb.scss -> WebContent/template5/scss/bootstrap/_breadcrumb.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_button-group.scss -> WebContent/template5/scss/bootstrap/_button-group.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_buttons.scss -> WebContent/template5/scss/bootstrap/_buttons.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_card.scss -> WebContent/template5/scss/bootstrap/_card.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_carousel.scss -> WebContent/template5/scss/bootstrap/_carousel.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_close.scss -> WebContent/template5/scss/bootstrap/_close.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_code.scss -> WebContent/template5/scss/bootstrap/_code.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_custom-forms.scss -> WebContent/template5/scss/bootstrap/_custom-forms.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_dropdown.scss -> WebContent/template5/scss/bootstrap/_dropdown.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_forms.scss -> WebContent/template5/scss/bootstrap/_forms.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_functions.scss -> WebContent/template5/scss/bootstrap/_functions.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_grid.scss -> WebContent/template5/scss/bootstrap/_grid.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_images.scss -> WebContent/template5/scss/bootstrap/_images.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_input-group.scss -> WebContent/template5/scss/bootstrap/_input-group.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_jumbotron.scss -> WebContent/template5/scss/bootstrap/_jumbotron.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_list-group.scss -> WebContent/template5/scss/bootstrap/_list-group.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_media.scss -> WebContent/template5/scss/bootstrap/_media.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_mixins.scss -> WebContent/template5/scss/bootstrap/_mixins.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_modal.scss -> WebContent/template5/scss/bootstrap/_modal.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_nav.scss -> WebContent/template5/scss/bootstrap/_nav.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_navbar.scss -> WebContent/template5/scss/bootstrap/_navbar.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_pagination.scss -> WebContent/template5/scss/bootstrap/_pagination.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_popover.scss -> WebContent/template5/scss/bootstrap/_popover.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_print.scss -> WebContent/template5/scss/bootstrap/_print.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_progress.scss -> WebContent/template5/scss/bootstrap/_progress.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_reboot.scss -> WebContent/template5/scss/bootstrap/_reboot.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_root.scss -> WebContent/template5/scss/bootstrap/_root.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_tables.scss -> WebContent/template5/scss/bootstrap/_tables.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_tooltip.scss -> WebContent/template5/scss/bootstrap/_tooltip.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_transitions.scss -> WebContent/template5/scss/bootstrap/_transitions.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_type.scss -> WebContent/template5/scss/bootstrap/_type.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_utilities.scss -> WebContent/template5/scss/bootstrap/_utilities.scss
+#	renamed:    WebContent/template1/scss/bootstrap/_variables.scss -> WebContent/template5/scss/bootstrap/_variables.scss
+#	renamed:    WebContent/template1/scss/bootstrap/bootstrap-grid.scss -> WebContent/template5/scss/bootstrap/bootstrap-grid.scss
+#	renamed:    WebContent/template1/scss/bootstrap/bootstrap-reboot.scss -> WebContent/template5/scss/bootstrap/bootstrap-reboot.scss
+#	renamed:    WebContent/template1/scss/bootstrap/bootstrap.scss -> WebContent/template5/scss/bootstrap/bootstrap.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_alert.scss -> WebContent/template5/scss/bootstrap/mixins/_alert.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_background-variant.scss -> WebContent/template5/scss/bootstrap/mixins/_background-variant.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_badge.scss -> WebContent/template5/scss/bootstrap/mixins/_badge.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_border-radius.scss -> WebContent/template5/scss/bootstrap/mixins/_border-radius.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_box-shadow.scss -> WebContent/template5/scss/bootstrap/mixins/_box-shadow.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_breakpoints.scss -> WebContent/template5/scss/bootstrap/mixins/_breakpoints.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_buttons.scss -> WebContent/template5/scss/bootstrap/mixins/_buttons.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_caret.scss -> WebContent/template5/scss/bootstrap/mixins/_caret.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_clearfix.scss -> WebContent/template5/scss/bootstrap/mixins/_clearfix.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_float.scss -> WebContent/template5/scss/bootstrap/mixins/_float.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_forms.scss -> WebContent/template5/scss/bootstrap/mixins/_forms.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_gradients.scss -> WebContent/template5/scss/bootstrap/mixins/_gradients.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_grid-framework.scss -> WebContent/template5/scss/bootstrap/mixins/_grid-framework.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_grid.scss -> WebContent/template5/scss/bootstrap/mixins/_grid.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_hover.scss -> WebContent/template5/scss/bootstrap/mixins/_hover.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_image.scss -> WebContent/template5/scss/bootstrap/mixins/_image.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_list-group.scss -> WebContent/template5/scss/bootstrap/mixins/_list-group.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_lists.scss -> WebContent/template5/scss/bootstrap/mixins/_lists.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_nav-divider.scss -> WebContent/template5/scss/bootstrap/mixins/_nav-divider.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_pagination.scss -> WebContent/template5/scss/bootstrap/mixins/_pagination.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_reset-text.scss -> WebContent/template5/scss/bootstrap/mixins/_reset-text.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_resize.scss -> WebContent/template5/scss/bootstrap/mixins/_resize.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_screen-reader.scss -> WebContent/template5/scss/bootstrap/mixins/_screen-reader.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_size.scss -> WebContent/template5/scss/bootstrap/mixins/_size.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_table-row.scss -> WebContent/template5/scss/bootstrap/mixins/_table-row.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_text-emphasis.scss -> WebContent/template5/scss/bootstrap/mixins/_text-emphasis.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_text-hide.scss -> WebContent/template5/scss/bootstrap/mixins/_text-hide.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_text-truncate.scss -> WebContent/template5/scss/bootstrap/mixins/_text-truncate.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_transition.scss -> WebContent/template5/scss/bootstrap/mixins/_transition.scss
+#	renamed:    WebContent/template1/scss/bootstrap/mixins/_visibility.scss -> WebContent/template5/scss/bootstrap/mixins/_visibility.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_align.scss -> WebContent/template5/scss/bootstrap/utilities/_align.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_background.scss -> WebContent/template5/scss/bootstrap/utilities/_background.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_borders.scss -> WebContent/template5/scss/bootstrap/utilities/_borders.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_clearfix.scss -> WebContent/template5/scss/bootstrap/utilities/_clearfix.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_display.scss -> WebContent/template5/scss/bootstrap/utilities/_display.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_embed.scss -> WebContent/template5/scss/bootstrap/utilities/_embed.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_flex.scss -> WebContent/template5/scss/bootstrap/utilities/_flex.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_float.scss -> WebContent/template5/scss/bootstrap/utilities/_float.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_position.scss -> WebContent/template5/scss/bootstrap/utilities/_position.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_screenreaders.scss -> WebContent/template5/scss/bootstrap/utilities/_screenreaders.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_shadows.scss -> WebContent/template5/scss/bootstrap/utilities/_shadows.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_sizing.scss -> WebContent/template5/scss/bootstrap/utilities/_sizing.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_spacing.scss -> WebContent/template5/scss/bootstrap/utilities/_spacing.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_text.scss -> WebContent/template5/scss/bootstrap/utilities/_text.scss
+#	renamed:    WebContent/template1/scss/bootstrap/utilities/_visibility.scss -> WebContent/template5/scss/bootstrap/utilities/_visibility.scss
+#	modified:   WebContent/template5/scss/style.scss
+#	modified:   WebContent/template5/shop.jsp
+#	new file:   WebContent/upload_profile/q.jpg
+#	modified:   src/com/store/action/StoreProductDetail.java
+#	modified:   src/com/store/action/StoreProductListAction.java
+#

@@ -1,142 +1,172 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Template5_details</title>
-    <link rel="icon" href="template5/img/core-img/favicon.ico">
-    <link rel="stylesheet" href="template5/css/core-style.css">
-    <link rel="stylesheet" href="template5/style.css">
+<title>ÌÉ¨ÌîåÎ†õ5Ïùò ÏÉÅÌíàÏÉÅÏÑ∏ÌéòÏù¥ÏßÄ</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+<link rel="stylesheet" href="template1/fonts/icomoon/style.css">
+<link rel="stylesheet" href="template1/css/bootstrap.min.css">
+<link rel="stylesheet" href="template1/css/magnific-popup.css">
+<link rel="stylesheet" href="template1/css/jquery-ui.css">
+<link rel="stylesheet" href="template1/css/owl.carousel.min.css">
+<link rel="stylesheet" href="template1/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="template1/css/aos.css">
+<link rel="stylesheet" href="template1/css/style.css">
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+<script src="js/product_img.js"></script>
+<script src="js/seller.js"></script>
+<script src="js/category.js"></script>
+
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
 </head>
-
 <body>
-    <!-- Search Wrapper Area Start -->
-    <div class="search-wrapper section-padding-100">
-        <div class="search-close">
-            <i class="fa fa-close" aria-hidden="true"></i>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="search-content">
-                        <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
-                            <button type="submit"><img src="img/core-img/search.png" alt=""></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
 
-    <!-- ##### Main Content Wrapper Start ##### -->
-    <div class="main-content-wrapper d-flex clearfix">
-        <!-- Mobile Nav (max width 767px)-->
-        <div class="mobile-nav">
-            <!-- Navbar Brand -->
-            <div class="amado-navbar-brand">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Navbar Toggler -->
-            <div class="amado-navbar-toggler">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
+	<div class="site-wrap">
+		<header class="site-navbar" role="banner">
+		<div class="site-navbar-top">
+			<div class="container">
+				<div class="row align-items-center">
 
-        <!-- Header Area Start -->
-        <header class="header-area clearfix">
-            <!-- Close Icon -->
-            <div class="nav-close">
-                <i class="fa fa-close" aria-hidden="true"></i>
-            </div>
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-        </header>
-        <!-- Header Area End -->
+					<div
+						class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
+						<form action="" class="site-block-top-search">
+							<span class="icon icon-search2"></span> <input type="text"
+								class="form-control border-0" placeholder="Search">
+						</form>
+					</div>
+		
+					<div
+						class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
+						<div class="site-logo">
+							<a href="index.html" class="js-logo-clone">${pdto.store_name}</a>
+						</div>
+					</div>
 
-        <!-- Product Details Area Start -->
-        <div class="single-product-area section-padding-100 clearfix">
-            <div class="container-fluid">
-			 <div class="row">
-                    <div class="col-12 col-lg-7">
-                        <div class="single_product_thumb">
-                            <div id="product_details_slider" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <a class="gallery_img" href="img/product-img/pro-big-1.jpg">
-                                            <img class="d-block w-100" src="img/product-img/pro-big-1.jpg" alt="First slide">
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-5">
-                        <div class="single_product_desc">
-                            <!-- Product Meta Data -->
-                            <div class="product-meta-data">
-                                <div class="line"></div>
-                                <p class="product-price">ªÛ«∞ ∞°∞›</p>
-                                
-                                    <h6>ªÛ «∞ ∏Ì</h6>
+					<div class="col-6 col-md-4 order-3 order-md-3 text-right">
+						<div class="site-top-icons">
+							<ul>
+								<li><a href="#"><span class="icon icon-person"></span></a></li>
+								<li><a href="#"><span class="icon icon-heart-o"></span></a></li>
+								<li><a href="cart.html" class="site-cart"> <span
+										class="icon icon-shopping_cart"></span> <span class="count">2</span>
+								</a></li>
+								<li class="d-inline-block d-md-none ml-md-0"><a href="#"
+									class="site-menu-toggle js-menu-toggle"><span
+										class="icon-menu"></span></a></li>
+							</ul>
+						</div>
+					</div>
 
-                                <!-- Ratings & Review -->
-                                <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
-                                    <div class="ratings">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="review">
-                                        <a href="#">∏Æ∫‰ æ≤±‚</a>
-                                    </div>
-                                </div>
-                            </div>
+				</div>
+			</div>
+		</div>
+		</header>
+	<form name="newProduct" action="StoreProductDetail.st"
+			class="form-horizontal" method="post" enctype="multipart/form-data">
+		<div class="bg-light py-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 mb-0">
+						<a href="index.html">Ïπ¥ÌÖåÍ≥†Î¶¨ÌëúÏãú</a> <span class="mx-2 mb-0">/</span> <strong
+							class="text-black">Ïπ¥ÌÖåÍ≥†Î¶¨ÌëúÏãú</strong>
+					</div>
+				</div>
+			</div>
+		</div>
 
-                            <div class="short_overview my-5">
-                                <p>ªÛ«∞º≥∏Ì¿‘¥œ¥Ÿ.</p>
-                            </div>
+		
+			<div class="site-section">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6">
+							<img src="product_img_upload/${pdto.product_img}" alt="Image"
+								class="img-fluid">
+						</div>
+						<div class="col-md-6">
+							<h2 class="text-black">${pdto.product_name}</h2>
+							<p>${pdto.product_description}</p>
+							<p class="mb-4">${pdto.product_brand}</p>
+							<p>
+								<strong class="text-primary h4">${pdto.product_price}</strong>
+							</p>
+							<div class="mb-1 d-flex">
+								<label for="option-sm" class="d-flex mr-3 mb-3"> <span
+									class="d-inline-block mr-2"
+									style="top: -2px; position: relative;"><input
+										type="radio" id="option-sm" name="shop-sizes"></span> <span
+									class="d-inline-block text-black">ÏòµÏÖò1</span>
+								</label> <label for="option-md" class="d-flex mr-3 mb-3"> <span
+									class="d-inline-block mr-2"
+									style="top: -2px; position: relative;"><input
+										type="radio" id="option-md" name="shop-sizes"></span> <span
+									class="d-inline-block text-black">ÏòµÏÖò2</span>
+								</label> <label for="option-lg" class="d-flex mr-3 mb-3"> <span
+									class="d-inline-block mr-2"
+									style="top: -2px; position: relative;"><input
+										type="radio" id="option-lg" name="shop-sizes"></span> <span
+									class="d-inline-block text-black">ÏòµÏÖò3</span>
+								</label> <label for="option-xl" class="d-flex mr-3 mb-3"> <span
+									class="d-inline-block mr-2"
+									style="top: -2px; position: relative;"><input
+										type="radio" id="option-xl" name="shop-sizes"></span> <span
+									class="d-inline-block text-black">ÏòµÏÖò4</span>
+								</label>
+							</div>
+							<div class="mb-5">
+								<div class="input-group mb-3" style="max-width: 120px;">
+									<div class="input-group-prepend">
+										<button class="btn btn-outline-primary js-btn-minus"
+											type="button">&minus;</button>
+									</div>
+									<input type="text" class="form-control text-center" value="1"
+										placeholder="" aria-label="Example text with button addon"
+										aria-describedby="button-addon1">
+									<div class="input-group-append">
+										<button class="btn btn-outline-primary js-btn-plus"
+											type="button">&plus;</button>
+									</div>
+								</div>
 
-                            <!-- Add to Cart Form -->
-                            <form class="cart clearfix" method="post">
-                                <div class="cart-btn d-flex mb-50">
-                                    <p>ºˆ∑Æ</p>
-                                    <div class="quantity">
-                                        <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>
-                                        <input type="number" class="qty-text" id="qty" step="1" min="1" max="300" name="quantity" value="1">
-                                        <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
-                                    </div>
-                                </div>
-                                <button type="submit" name="addtocart" value="5" class="btn amado-btn">±∏∏≈«œ±‚</button>
-                                <a href="shop.jsp">µ⁄∑Œ∞°±‚</a>
-                                
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Product Details Area End -->
-    </div>
-    <!-- ##### Main Content Wrapper End ##### -->
+							</div>
+							<p>
+								<a href="cart.html" class="buy-now btn btn-sm btn-primary">Add
+									To Cart</a>
+							</p>
+						</div>
 
-  
-    <script src="template5/js/jquery/jquery-2.2.4.min.js"></script>
-    <script src="template5/js/popper.min.js"></script>
-    <script src="template5/js/bootstrap.min.js"></script>
-    <script src="template5/js/plugins.js"></script>
-    <script src="template5/js/active.js"></script>
+					</div>
+					<p>
+						<a href="StoreProductListAction.st?store_num=${pdto.store_num}"
+							class="buy-now btn btn-sm btn-primary">Î™©Î°ùÏúºÎ°ú</a>
+					</p>
+				</div>
+
+			</div>
+		</form>
+	</div>
+	
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
-
 </html>

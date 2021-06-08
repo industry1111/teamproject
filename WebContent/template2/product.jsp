@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>2번째 템플릿입니다.</title>
+		<title>템플렛2번 상세페이지입니다.</title>
  		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
  		<link type="text/css" rel="stylesheet" href="template2/css/bootstrap.min.css"/>
  		<link type="text/css" rel="stylesheet" href="template2/css/slick.css"/>
@@ -14,6 +14,8 @@
  		<link type="text/css" rel="stylesheet" href="template2/css/nouislider.min.css"/>
  		<link rel="stylesheet" href="template2/css/font-awesome.min.css">
  		<link type="text/css" rel="stylesheet" href="template2/css/style.css"/>
+ 		
+ 		<script> var contextPath = "${pageContext.request.contextPath}";</script>
 </head>
 	<body>
 		<header>
@@ -57,7 +59,7 @@
 										<div class="cart-list">
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="./img/product01.png" alt="">
+													<img src="product_img_upload/${pdto.product_img}" alt="">
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">상품명</a></h3>
@@ -68,7 +70,7 @@
 
 											<div class="product-widget">
 												<div class="product-img">
-													<img src="./img/product02.png" alt="">
+													<img src="product_img_upload/${pdto.product_img}" alt="">
 												</div>
 												<div class="product-body">
 													<h3 class="product-name"><a href="#">product name goes here</a></h3>
@@ -113,16 +115,22 @@
 			<div class="container">
 				<!-- row -->
 				<div class="row">
-
+		<form name="newProduct" action="StoreProductDetail.st"
+			class="form-horizontal" method="post" enctype="multipart/form-data">
 					<!-- 상품상세보기시작 -->
 					<div class="col-md-5">
+						<div class="product-widget">
+												<div class="product-img">
+													<img src="product_img_upload/${pdto.product_img}" alt="">
+												</div>
+											</div>	
 						<div class="product-details">
-							<h2 class="product-name">상품명</h2>
+							<h2 class="product-name">${pdto.product_name}</h2>
 						<div>
-								<h3 class="product-price">상품금액</h3>
+								<h3 class="product-price">${pdto.product_price}</h3>
 								<span class="product-available">재고있음</span>
 							</div>
-							<p>상품에 대한 간단한 설명작성.</p>
+							<p>상품설명  :  ${pdto.product_description}</p>
 							<div class="product-options">
 								<label>
 									크기
@@ -153,7 +161,7 @@
 					</div>
 					<!-- 상품상세보기 끝 -->
 
-					
+					</form>
 
 									</div>
 								</div>
