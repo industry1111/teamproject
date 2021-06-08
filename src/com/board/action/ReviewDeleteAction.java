@@ -23,10 +23,9 @@ public class ReviewDeleteAction implements Action{
 		ReviewDAO rvdao = new ReviewDAO();
 		rvdao.deleteReview(review_num);
 		
-		request.setAttribute("center", "writtenReviews.jsp");
 		ActionForward forward = new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("mypage.jsp");
+		forward.setRedirect(true);
+		forward.setPath("writtenReviews.bo");
 		return forward;
 
 	
