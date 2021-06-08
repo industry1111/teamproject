@@ -128,7 +128,6 @@ public class ReviewDAO {
 					rvdto.setReview_content(rs.getString("review_content"));
 					rvdto.setRegdate(rs.getTimestamp("regdate"));
 					rvdto.setReview_img(rs.getString("review_img"));
-					
 					list.add(rvdto);
 					
 				}
@@ -139,6 +138,7 @@ public class ReviewDAO {
 			}
 			return list;
 		}
+		
 		
 		//리뷰 삭제하기
 				public void deleteReview(int review_num) { 
