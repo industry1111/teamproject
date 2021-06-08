@@ -87,7 +87,7 @@
     <!-- Open Content -->
 <form name="newProduct" action="StoreProductDetail.st"
 	class="form-horizontal" method="post" enctype="multipart/form-data">
-    <input value="${pdto.store_num}" hidden />
+   
     <section class="bg-light">
         <div class="container pb-5">
             <div class="row">

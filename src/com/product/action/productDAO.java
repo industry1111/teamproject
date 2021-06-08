@@ -357,7 +357,7 @@ public class productDAO {
 				pdto.setProduct_num(product_num);
 				pdto.setMember_num(rs.getInt("member_num"));
 				pdto.setStore_num(rs.getInt("store_num"));
-				pdto.setProduct_name(rs.getString("product_num"));
+				pdto.setProduct_name(rs.getString("product_name"));
 				pdto.setProduct_img(rs.getString("product_img"));
 				pdto.setCategory_name(rs.getString("category_name"));
 				pdto.setProduct_price(rs.getInt("product_price"));
