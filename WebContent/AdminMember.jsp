@@ -116,7 +116,7 @@ input[type="text"] {
 						<div class="product-cart d-flex" align="center" >
 							<div class="one-forth text-left px-4">
 								<div class="display-tc">
-									<h3>${list[i].id}</h3>
+									<span class="price">${list[i].id}</span>
 								</div>
 							</div>
 							<div class="one-forth text-left px-4">
@@ -137,7 +137,6 @@ input[type="text"] {
 							<div class="one-eight text-center">
 								<div class="display-tc">
 										<select form="">
-										
 										<option value="">
 										<c:if test="${list[i].member_code eq 1}">일반회원</c:if>
 										<c:if test="${list[i].member_code eq 2}">판매회원</c:if>
@@ -149,7 +148,6 @@ input[type="text"] {
 										<c:if test="${list[i].member_code eq 8}">회원코드8</c:if>
 										<c:if test="${list[i].member_code eq 9}">관리자</c:if>
 										</option>
-										
 										<c:if test="${list[i].member_code ne 1}"><option value="">일반회원</option></c:if>
 										<c:if test="${list[i].member_code ne 2}"><option value="">판매회원</option></c:if>
 										<c:if test="${list[i].member_code ne 3}"><option value="">탈퇴회원</option></c:if>
@@ -161,7 +159,17 @@ input[type="text"] {
 										<c:if test="${list[i].member_code ne 9}"><option value="">관리자</option></c:if> 
 										</select>
 								</div>
-							</div>	
+								<div class="col-md-2" style="margin-left: 40px;">
+							<a href="AdminMember.ad?product_num=${list[i].member_code}" type="button" class="myButton" style="width: 50%"></a>
+							<a href="AdminMember.ad?product_num=${list[i].member_code}" type="button" class="myButton"
+							onclick="if(!confirm('변경하시겠습니까?')){return false;}">변경</a>
+								
+							</div>
+								
+			
+							
+						</div>
+							
 						</div>
 					</c:if>	
 					</c:forEach>
@@ -174,6 +182,7 @@ input[type="text"] {
 							id="close_btn" onClick="location.href='/AdminMain.ad'">
 					</div>
 				</div>
+				
 			<%--페이징 --%>
 			<div class="row">
 				<div class="col-md-6 offset-4 paging" style="height: 120px;" align="right">
@@ -188,7 +197,6 @@ input[type="text"] {
 				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="AdminMember.ad?page=true&nowPage=${num }" >${num }</a>
 				            </li>
 				        </c:forEach>
-				   
 				        <c:if test="${p.next }">
 				            <li class="page-item next">
 				                <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
