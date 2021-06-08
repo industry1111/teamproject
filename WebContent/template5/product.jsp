@@ -13,14 +13,14 @@
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-<link rel="stylesheet" href="template1/fonts/icomoon/style.css">
-<link rel="stylesheet" href="template1/css/bootstrap.min.css">
-<link rel="stylesheet" href="template1/css/magnific-popup.css">
-<link rel="stylesheet" href="template1/css/jquery-ui.css">
-<link rel="stylesheet" href="template1/css/owl.carousel.min.css">
-<link rel="stylesheet" href="template1/css/owl.theme.default.min.css">
-<link rel="stylesheet" href="template1/css/aos.css">
-<link rel="stylesheet" href="template1/css/style.css">
+<link rel="stylesheet" href="template5/fonts/icomoon/style.css">
+<link rel="stylesheet" href="template5/css/bootstrap.min.css">
+<link rel="stylesheet" href="template5/css/magnific-popup.css">
+<link rel="stylesheet" href="template5/css/jquery-ui.css">
+<link rel="stylesheet" href="template5/css/owl.carousel.min.css">
+<link rel="stylesheet" href="template5/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="template5/css/aos.css">
+<link rel="stylesheet" href="template5/css/style.css">
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -159,14 +159,14 @@
 	</div>
 	
 
-	<script src="js/jquery-3.3.1.min.js"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/aos.js"></script>
-	<script src="js/main.js"></script>
+	<script src="template5/js/jquery-3.3.1.min.js"></script>
+	<script src="template5/js/jquery-ui.js"></script>
+	<script src="template5/js/popper.min.js"></script>
+	<script src="template5/js/bootstrap.min.js"></script>
+	<script src="template5/js/owl.carousel.min.js"></script>
+	<script src="template5/js/jquery.magnific-popup.min.js"></script>
+	<script src="template5/js/aos.js"></script>
+	<script src="template5/js/main.js"></script>
 
 </body>
 </html>

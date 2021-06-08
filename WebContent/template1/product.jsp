@@ -21,7 +21,7 @@
 </head>
 
 <body>
-
+	
     <nav class="navbar navbar-expand-lg navbar-light shadow">
         <div class="container d-flex justify-content-between align-items-center">
 	  <a class="navbar-brand text-success logo h1 align-self-center" href="shop.jsp">상호명</a>
@@ -34,7 +34,7 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="shop.jsp">목록으로 가기.</a>
+                            <a class="nav-link" href="StoreProductListAction.st?store_num=${pdto.store_num}">목록으로 가기.</a>
                         </li>
                     </ul>
                 </div>
@@ -87,7 +87,7 @@
     <!-- Open Content -->
 <form name="newProduct" action="StoreProductDetail.st"
 	class="form-horizontal" method="post" enctype="multipart/form-data">
-    
+    <input value="${pdto.store_num}" hidden />
     <section class="bg-light">
         <div class="container pb-5">
             <div class="row">
@@ -114,19 +114,19 @@
                                     <div class="row">
                                         <div class="col-4">
                                             <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_01.jpg" alt="Product Image 1">
+                                                <img class="card-img img-fluid" src="product_img_upload/${pdto.product_img}" alt="Product Image 1">
                                             </a>
                                         </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3">
-                                            </a>
-                                        </div>
+<!--                                         <div class="col-4"> -->
+<!--                                             <a href="#"> -->
+<!--                                                 <img class="card-img img-fluid" src="assets/img/product_single_02.jpg" alt="Product Image 2"> -->
+<!--                                             </a> -->
+<!--                                         </div> -->
+<!--                                         <div class="col-4"> -->
+<!--                                             <a href="#"> -->
+<!--                                                 <img class="card-img img-fluid" src="assets/img/product_single_03.jpg" alt="Product Image 3"> -->
+<!--                                             </a> -->
+<!--                                         </div> -->
                                     </div>
                                 </div>
                                 <!--/.First slide-->
@@ -139,16 +139,16 @@
                                                 <img class="card-img img-fluid" src="assets/img/product_single_04.jpg" alt="Product Image 4">
                                             </a>
                                         </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_05.jpg" alt="Product Image 5">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6">
-                                            </a>
-                                        </div>
+<!--                                         <div class="col-4"> -->
+<!--                                             <a href="#"> -->
+<!--                                                 <img class="card-img img-fluid" src="assets/img/product_single_05.jpg" alt="Product Image 5"> -->
+<!--                                             </a> -->
+<!--                                         </div> -->
+<!--                                         <div class="col-4"> -->
+<!--                                             <a href="#"> -->
+<!--                                                 <img class="card-img img-fluid" src="assets/img/product_single_06.jpg" alt="Product Image 6"> -->
+<!--                                             </a> -->
+<!--                                         </div> -->
                                     </div>
                                 </div>
                                 <!--/.Second slide-->
@@ -161,16 +161,16 @@
                                                 <img class="card-img img-fluid" src="assets/img/product_single_07.jpg" alt="Product Image 7">
                                             </a>
                                         </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_08.jpg" alt="Product Image 8">
-                                            </a>
-                                        </div>
-                                        <div class="col-4">
-                                            <a href="#">
-                                                <img class="card-img img-fluid" src="assets/img/product_single_09.jpg" alt="Product Image 9">
-                                            </a>
-                                        </div>
+<!--                                         <div class="col-4"> -->
+<!--                                             <a href="#"> -->
+<!--                                                 <img class="card-img img-fluid" src="assets/img/product_single_08.jpg" alt="Product Image 8"> -->
+<!--                                             </a> -->
+<!--                                         </div> -->
+<!--                                         <div class="col-4"> -->
+<!--                                             <a href="#"> -->
+<!--                                                 <img class="card-img img-fluid" src="assets/img/product_single_09.jpg" alt="Product Image 9"> -->
+<!--                                             </a> -->
+<!--                                         </div> -->
                                     </div>
                                 </div>
                                 <!--/.Third slide-->
@@ -192,8 +192,8 @@
                 <div class="col-lg-7 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h1 class="h2">상품명</h1>
-                            <p class="h3 py-2">상품가격</p>
+                            <h1 class="h2">${pdto.product_name}</h1>
+                            <p class="h3 py-2">${pdto.product_price}</p>
                             <p class="py-2">
                                 <i class="fa fa-star text-warning"></i>
                                 <i class="fa fa-star text-warning"></i>
@@ -207,12 +207,12 @@
                                     <h6>브랜드:</h6>
                                 </li>
                                 <li class="list-inline-item">
-                                    <p class="text-muted"><strong>브랜드명</strong></p>
+                                    <p class="text-muted"><strong>${pdto.product_brand}</strong></p>
                                 </li>
                             </ul>
 
                             <h6>상품설명입니다.</h6>
-                            <p>상품설명부분입니다.</p>
+                            <p>${pdto.product_description}</p>
                             <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>옵션:</h6>
@@ -250,7 +250,7 @@
                                     <div class="col-auto">
                                         <ul class="list-inline pb-3">
                                             <li class="list-inline-item text-right">
-                                                수량
+                                              			  수량
                                                 <input type="hidden" name="product-quanity" id="product-quanity" value="1">
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
