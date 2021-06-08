@@ -196,9 +196,9 @@ ul {
 						<li class="price" value="3" >5만원~10만원</li>
 						<li style="float: left; margin-left:30px; margin-top: 10px;">직접입력 &nbsp;
 							<input type="text"  id="price1"  placeholder="원" style="height: 20px;text-align: right;" >~
-							<input  type="text" placeholder="원"  style="height: 20px;text-align: right;">
-							<img class="price"  src="images/magnifying-glass.png" alt="shopping" style="height: 15px">
+							<input  type="text" id="price2" placeholder="원"  style="height: 20px;text-align: right;">
 						</li>
+						<li><img class="price"  value="4" src="images/magnifying-glass.png" alt="shopping" style="height: 15px"></li>
 					</ul>
 				</div>
 			</div>
