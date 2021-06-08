@@ -26,7 +26,7 @@ public class ProductAddAction implements Action{
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 
-		int maxSize = 1024 * 1024 * 1024;
+		int maxSize = 10 * 1024 * 1024 * 1024;
 
 		MultipartRequest multi = new MultipartRequest(
 				request, realpath, maxSize, "UTF-8", new DefaultFileRenamePolicy()

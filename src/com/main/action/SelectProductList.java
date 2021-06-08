@@ -91,9 +91,8 @@ public class SelectProductList extends HttpServlet{
 			String product_name = pdto.getProduct_name();
 			String category_name = pdto.getCategory_name();
 			String product_description = pdto.getProduct_description();
-			product_description = product_description.replace("\r\n", "\\n");
-			product_description = product_description.replace("\"", "\\n");
-			System.out.println(product_description);
+			product_description = product_description.replaceAll("\"", "\\n");
+			product_description = product_description.replaceAll("\r\n", "\\n");
 			String store_name = pdto.getStore_name();
 			int store_num = pdto.getStore_num();
 			String profile_img = pdto.getProfile_img();
@@ -127,9 +126,9 @@ public class SelectProductList extends HttpServlet{
 				json+=",";
 			}
 		}
-		json +="]||";
+		json +="]||[";
 			
-		json+="[{\"startPage\":\""+pagedto.getStartPage()+"\",\"endPage\":\""+pagedto.getEndPage()+"\",\"beginPerPage\":\""+pagedto.getBeginPerPage()+"\",\"endPerPage\":\""+pagedto.getEndPerPage()+"\","
+		json+="{\"startPage\":\""+pagedto.getStartPage()+"\",\"endPage\":\""+pagedto.getEndPage()+"\",\"beginPerPage\":\""+pagedto.getBeginPerPage()+"\",\"endPerPage\":\""+pagedto.getEndPerPage()+"\","
 				+"\"prev\":\""+pagedto.isPrev()+"\",\"next\":\""+pagedto.isNext()+"\",\"total\":\""+pagedto.getTotal()+"\",\"nowPage\":\""+pagedto.getCri().getNowPage()+"\"}]";
 		response.setHeader("content-type", "application/json");
 		out.print(json);
