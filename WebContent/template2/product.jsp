@@ -37,7 +37,7 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="StoreProductListAction.st?store_num=${pdto.store_num}">
-									<h3>${pdto.store_name}</h3>
+									<h3><font color="#FFF">${pdto.store_name}</font></h3>
 							</a>
 						</div>
 					</div>
@@ -89,12 +89,10 @@
 										<i class="fa fa-shopping-cart"></i>장바구니추가하기
 									</button>
 									<br><br>
-									<div>
-									<button>
-											<a href="StoreProductListAction.st?store_num=${pdto.store_num}">
-												상품목록으로가기 
-											</a>
-										</button>
+										<div>
+									<a type="button" class="primary-btn" href="StoreProductListAction.st?store_num=${pdto.store_num}">
+												<font color="#FFF">상품목록으로가기 </font>
+									</a>
 									</div>
 								</div>
 							</div>

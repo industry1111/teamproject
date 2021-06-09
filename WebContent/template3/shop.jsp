@@ -135,9 +135,9 @@
 										<div class="single-product-wrapper">
 											<!-- Product Image -->
 											<div class="product-img">
-												<img src="product_img_upload/${list[i].product_img}" alt="">
-												<!-- Hover Thumb
-                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">  -->
+												<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
+													<img src="product_img_upload/${list[i].product_img}" alt="">
+												</a>
 											</div>
 
 											<!-- Product Description -->

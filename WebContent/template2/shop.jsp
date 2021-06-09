@@ -34,7 +34,7 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a class="logo"> <h1>${list[1].store_name}</h1></a>
+								<h1><font color="#FFF">${list[1].store_name}</font></h1>
 						</div>
 					</div>
 					<!-- /LOGO -->
@@ -136,10 +136,8 @@
 									<h4 class="product-price">${list[i].product_price }</h4>
 								</div>
 								<div class="add-to-cart">
-									<button class="add-to-cart-btn">
-										<i class="fa fa-shopping-cart"></i> 
-										<a href="StoreProductDetail.st?product_num=${list[i].product_num}">상품 상세보기</a>
-									</button>
+									<a  href="StoreProductDetail.st?product_num=${list[i].product_num}" type="button" >
+										<h3><font color="#D10024"> 상품 상세보기 </font></h3>  </a>	
 								</div>
 							</div>
 						</div>
