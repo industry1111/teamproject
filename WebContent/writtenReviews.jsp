@@ -92,7 +92,8 @@ input[type="text"]:focus {
 			</div>
 			<c:set var="loop" value="true" />
 			<c:if test="${plist.size() ne 0 }">
-				<c:forEach var="i" begin="${p.beginPerPage }" step="1"end="${p.endPerPage}">
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1"
+					end="${p.endPerPage}">
 					<c:if test="${p.total == i }">
 						<c:set var="loop" value="false" />
 					</c:if>
@@ -109,12 +110,12 @@ input[type="text"]:focus {
 										${plist[i].product_description }
 									</div>
 
-									<c:forEach var="j" begin="0" step="1" end="${rvlist.size() }">
-										<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
+									<c:forEach var="rvlist" items="${rvlist }">
+										<c:if test="${plist[i].product_num eq rvlist.product_num}">
 											<div class="col-md-1 offset-6">
 
 												<a id="deleteReview"
-													href="deleteReview.bo?review_num=${rvlist[j].review_num }">
+													href="deleteReview.bo?review_num=${rvlist.review_num }">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16"
 														height="16" fill="currentColor" class="bi bi-x-square"
 														viewBox="0 0 16 16">
@@ -129,14 +130,15 @@ input[type="text"]:focus {
 									</c:forEach>
 								</div>
 								<c:if test="${rvlist.size() ne 0 }">
-									<c:forEach var="j" begin="0" step="1" end="${rvlist.size()}">
-										<c:if test="${plist[i].product_num eq rvlist[j].product_num}">
+									<c:forEach var="rvlist" items="${rvlist }">
+										<c:set var="j" value="${j+1 }" />
+										<c:if test="${plist[i].product_num eq rvlist.product_num}">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="row">
 														<div class="col-md-3 offset-1">
 															<fmt:formatNumber var="rating"
-																value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}"
+																value="${(rvlist.rating1+rvlist.rating2+rvlist.rating3)/3}"
 																pattern="0" />
 															<c:out value="${rating }점"></c:out>
 															<div class="star-rating">
@@ -155,19 +157,17 @@ input[type="text"]:focus {
 																</c:forEach>
 															</div>
 														</div>
-
 													</div>
 													<div class="row">
 
 														<div class="col-md-7 offset-1">
 
 
-															${rvlist[j].review_title}<br>
-															${rvlist[j].review_content }
+															${rvlist.review_title}<br> ${rvlist.review_content }
 
 														</div>
 														<div class="col-md-3" align="right">
-															<img src="product_img_upload/${rvlist[j].review_img}"
+															<img src="upload_review/${rvlist.review_img}"
 																alt="내 리뷰사진" style="height: 150px; width: 150px;">
 														</div>
 													</div>

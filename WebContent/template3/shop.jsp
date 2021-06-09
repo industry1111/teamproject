@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -146,9 +145,9 @@
 												class="product-description d-flex align-items-center justify-content-between">
 												<div class="product-meta-data">
 													<div class="line"></div>
-													<p class="product-price">${list[i].product_price }</p>
+													<p class="product-price">${list[i].product_price } 원</p>
 													<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
-														<h6>${list[i].product_name}</h6>
+														<h6> ${list[i].product_name} </h6>
 													</a>
 												</div>
 											</div>
