@@ -411,7 +411,9 @@ public class OrderDAO {
     			productDTO pdto = new productDTO();
     			
     			//물품 명 ,설명 , 이미지
-    			
+    			pdto.setProduct_img(rs.getString("product_img"));
+    			pdto.setProduct_description(rs.getString("product_description"));
+    			pdto.setProduct_name(rs.getString("product_name"));
     			
     			list.add(pdto);
     		}
