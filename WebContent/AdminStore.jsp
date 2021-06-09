@@ -96,9 +96,9 @@ input[type="text"] {
 						<div class="one-forth text-left px-4">
 							<span>Category_Num</span>
 						</div>
-						<div class="one-eight text-center px-4">
-							<span>Status</span>
-						</div>
+						<!-- <div class="one-eight text-center px-4">
+							<span>모름</span>
+						</div> -->
 					</div>
 					
 					<c:set var="loop" value="true"/>
@@ -124,14 +124,14 @@ input[type="text"] {
 								<span class="price">${list[i].category_num}</span>								
 								</div>
 							</div>
-							<div class="one-eight text-center">
+							<!-- <div class="one-eight text-center">
 								<div class="display-tc">
 									<select form="">
-										 <option value="">Edit</option>
-										 <option value="">Delete</option>
+										 <option value="">모름</option>
+										 <option value="">모름</option>
 										 </select>
 								</div>
-							</div>	
+							</div>	 -->
 						</div>
 						</c:if>	
 					</c:forEach>

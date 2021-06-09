@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import com.product.action.productDTO;
 
+import dto.CartDTO;
 import dto.basketDTO;
 import dto.brandDTO;
 import dto.categoryDTO;
@@ -473,6 +474,23 @@ public class boardDAO {
 		}
 	}
 	
+	//쇼핑몰에서 상품정보를 가져와 장바구니에 추가.
+	public void AddCart(CartDTO cdto) {
+		try {
+			getCon();
+			String sql = "insert into basket(member_num,product_num,quantity)" + "values(?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cdto.getMember_num());
+			pstmt.setInt(2, cdto.getProduct_num());
+			pstmt.setInt(3, cdto.getQuantity());
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("insertBasket:" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	}
 	
 
 }

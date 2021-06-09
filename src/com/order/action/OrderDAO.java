@@ -400,7 +400,7 @@ public class OrderDAO {
     	
     	String sql ="select * from orders_detail natural join product where orders_code = "+order.get(0);
     	for(int i = 0;i<order.size();i++){
-    		sql +="or oreders_code"+order.get(i);
+    		sql +=" or oreders_code"+order.get(i);
     	}
     	
     	try {

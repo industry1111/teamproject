@@ -17,6 +17,8 @@
 </head>
 <body>
 
+<form action="StoreProductListAction.st" method="post"
+		enctype="multipart/form-data">
 	<!-- 상단베너 시작 -->
 	<header>
 		<!-- TOP HEADER -->
@@ -32,26 +34,26 @@
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo"> <!-- <img src="./img/logo.png" alt=""> --> <h1>상호명</h1></a>
+								<h1><font color="#FFF">${list[1].store_name}</font></h1>
 						</div>
 					</div>
 					<!-- /LOGO -->
 
-					<!-- SEARCH BAR -->
-						<div class="col-md-6">
-							<div class="header-search">
-								<form>
-									<select class="input-select">
-										<option value="0">카테고리선택</option>
-										<option value="1">카테고리 1</option>
-										<option value="1">카테고리 2</option>
-									</select>
-									<input class="input" placeholder="검색어를 입력하세요">
-									<button class="search-btn">검색</button>
-								</form>
-							</div>
-						</div>
-						<!-- /SEARCH BAR -->
+<!-- 					SEARCH BAR -->
+<!-- 						<div class="col-md-7"> -->
+<!-- 							<div class="header-search"> -->
+<!-- 								<form> -->
+<!-- 									<select class="input-select"> -->
+<!-- 										<option value="0">카테고리선택</option> -->
+<!-- 										<option value="1">카테고리 1</option> -->
+<!-- 										<option value="1">카테고리 2</option> -->
+<!-- 									</select> -->
+<!-- 									<input class="input" placeholder="검색어를 입력하세요"> -->
+<!-- 									<button class="search-btn">검색</button> -->
+<!-- 								</form> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 						/SEARCH BAR -->
 				</div>
 			</div>
 		</div>
@@ -73,7 +75,7 @@
 
 							<div class="input-checkbox">
 								<input type="checkbox" id="category-1"> <label
-									for="category-1"> <span></span> 노트북 <small>(수량)</small>
+									for="category-1"> <span></span> 노트북 <small>(상품갯수)</small>
 								</label>
 							</div>
 						</div>
@@ -87,7 +89,7 @@
 						<div class="checkbox-filter">
 							<div class="input-checkbox">
 								<input type="checkbox" id="brand-1"> <label
-									for="brand-1"> <span></span> 브랜드 <small>(수량)</small>
+									for="brand-1"> <span></span> 브랜드 <small>(상품갯수)</small>
 								</label>
 							</div>
 						</div>
@@ -112,8 +114,7 @@
 					<!-- 카테고리2끝 -->
 
 					<!-- 상품리스트 -->
-	<form action="StoreProductListAction.st" method="post"
-		enctype="multipart/form-data">
+	
 					<div class="row">
 		<c:set var="loop" value="true"/>
 				<c:if test="${list.size() ne 0 }">
@@ -135,9 +136,8 @@
 									<h4 class="product-price">${list[i].product_price }</h4>
 								</div>
 								<div class="add-to-cart">
-									<button class="add-to-cart-btn">
-										<i class="fa fa-shopping-cart"></i> <a href="StoreProductDetail.st?product_num=${list[i].product_num}">상품 상세보기</a>
-									</button>
+									<a  href="StoreProductDetail.st?product_num=${list[i].product_num}" type="button" >
+										<h3><font color="#D10024"> 상품 상세보기 </font></h3>  </a>	
 								</div>
 							</div>
 						</div>
@@ -145,20 +145,11 @@
 				</c:forEach>
 			</c:if>
 					</div>
-	</form>
-					<div class="store-filter clearfix">
-						<ul class="store-pagination">
-							<li class="active">1</li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-						</ul>
-					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</form>
 
 	<script src="template2/js/jquery.min.js"></script>
 	<script src="template2/js/bootstrap.min.js"></script>

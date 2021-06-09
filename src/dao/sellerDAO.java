@@ -272,4 +272,27 @@ public class sellerDAO {
 			
 			return template;
 		}
+		
+	public void insertStore_like(int member_num, int store_num){
+		
+		try {
+			
+			getCon();
+			
+			String sql = "insert into store_like (store_num, member_num) "
+					+ " values(?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			pstmt.setInt(2, store_num);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			
+			System.out.println("insertStore_like" + e.toString());
+			
+		}finally {
+			ResouceClose();
+		}
+
+	}
 }
