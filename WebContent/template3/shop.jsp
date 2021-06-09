@@ -141,9 +141,9 @@
 											</div>
 
 											<!-- Product Description -->
-											<div
+											<div align="center"
 												class="product-description d-flex align-items-center justify-content-between">
-												<div class="product-meta-data">
+												<div class="product-meta-data" align="center">
 													<div class="line"></div>
 													<p class="product-price">${list[i].product_price } 원</p>
 													<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
