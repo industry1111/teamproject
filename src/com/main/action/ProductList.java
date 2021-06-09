@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.product.action.productDAO;
 import com.product.action.productDTO;
+import com.store.action.Store_likeDTO;
 
 import action.Action;
 import action.ActionForward;
@@ -23,14 +24,14 @@ public class ProductList implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();
-
+	
 		boardDAO bdao = new boardDAO();
 		sellerDAO sdao = new sellerDAO();
 		productDAO pdao = new productDAO();
 		List<categoryDTO> clist = bdao.getcategory();
 		List<productDTO> plist = pdao.getProductList();
 		List<sellerDTO> slist = sdao.getSellerInfo();
+		
 		// 페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
