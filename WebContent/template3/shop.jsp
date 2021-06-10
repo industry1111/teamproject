@@ -134,14 +134,14 @@
 									<div class="col-12 col-sm-6 col-md-12 col-xl-6">
 										<div class="single-product-wrapper">
 											<!-- Product Image -->
-											<div class="product-img" style="height: 370; width: 370;">
+											<div class="product-img">
 												<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
 													<img src="product_img_upload/${list[i].product_img}" width="370px" height="370px" alt="">
 												</a>
 											</div>
 
 											<!-- Product Description -->
-											<div align="center" >
+											<div align="center" style="margin-top: 10px;">
 												<div class="product-meta-data" align="center">
 													<h3><font color="#FFBB00">${list[i].product_price } 원</font></h3>
 													<a href="StoreProductDetail.st?product_num=${list[i].product_num}">

@@ -21,6 +21,8 @@
 <link rel="stylesheet" href="template2/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="template2/css/style.css" />
 
+<script src="js/addbasket.js"></script>
+
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
@@ -61,7 +63,7 @@
 					<!-- 상품상세보기시작 -->
 					<div class="col-lg-5 mt-5">
 						<div class="row">
-							<img src="product_img_upload/${pdto.product_img}" alt="">
+							<img src="product_img_upload/${pdto.product_img}" width="450" height="300" alt="">
 						</div>
 					</div>
 
@@ -73,21 +75,25 @@
 									 <h5><font color="#5D5D5D">${pdto.product_brand }</font></h5> 
 								</div>
 							</div>
-
+									<h3 class="product-price">${pdto.product_price}원</h3>
+							
 							<div class="add-to-cart" style="margin-top: 10px;">
 								<div style="margin-left: 30px;">
-									<h3 class="product-price">${pdto.product_price}원</h3>
-
 									<div class="qty-label" style="margin-left: 40px;">
-										수량
-										<div class="input-number">
-											<input type="number" value="1"> <span class="qty-up">+</span>
+										수량 
+										<div class="input-number"> 
+											<input type="number" id="var-value" value="1"  />
+											 <span class="qty-up">+</span>
 											<span class="qty-down">-</span>
 										</div>
 									</div>
-									<button class="add-to-cart-btn">
-										<i class="fa fa-shopping-cart"></i>장바구니추가하기
-									</button>
+								</div>
+									<div>
+									<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+										<button class="add-to-cart-btn" type="button" id="addbasket" >
+											장바구니추가하기
+										</button>
+									</div>
 								</div>
 
 								<div
