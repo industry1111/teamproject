@@ -30,33 +30,26 @@ public class WritableReviewsAction implements Action{
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 		
-		reviewDTO rvdto = new ReviewDAO().getReviewInfo(member_num);
-		int product_num = rvdto.getProduct_num();
-		//OrderDTO odto = new OrderDTO();
 		OrderDAO odao = new OrderDAO();
-		//String orders_code = odto.getOrders_code();
 		
 		List<OrderDTO> odlist = odao.getOrderInfo(member_num);
-//		List<OrderDetailDTO> oddlist = odao.getOrderDetail(orders_code);
 		
-		List<String> order = null;
-		for(int i=0; i<odlist.size(); i++){
-//			OrderDTO odto =  new OrderDTO();
-//			odto.setOrders_code(odlist.get(i).getOrders_code());
+		if(odlist.size() > 0){
+			List<String> order = null;
+			for(int i=0; i<odlist.size(); i++){
+				
+				OrderDTO odto=(OrderDTO)odlist.get(i);
+				String Orders_code= odto.getOrders_code();
+				order.add(Orders_code);
+				System.out.println(order.get(i));
+			} 
 			
-			OrderDTO odto=(OrderDTO)odlist.get(i);
-			String Orders_code= odto.getOrders_code();
-			order.add(Orders_code);
-			System.out.println(order.get(i));
-		} 
+			List<productDTO> pdlist =odao.getOrderProduct(order);
+			request.setAttribute("pdlist", pdlist);
+		}
 		
-		List<productDTO> pdlist =odao.getOrderProduct(order);
-
-		
-		System.out.println(odlist.size());
-		request.setAttribute("odlist", odlist);
 	
-		request.setAttribute("pdlist", pdlist);
+		
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
