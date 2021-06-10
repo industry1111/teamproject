@@ -41,9 +41,9 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
- function add_onclick(product_num){
+ function add_onclick(product_num,orders_code){
     //이름은 중복창 제어용
-    child = window.open("reviewForm.bo?product_num="+product_num,"child","width=500,height=800");
+    child = window.open("reviewForm.bo?product_num="+product_num+"&orders_code="+orders_code,"child","width=500,height=800");
 };//click
 
 
@@ -107,24 +107,27 @@ input[type="text"]:focus {
 							<c:if test="${loop }">
 								<div class="row">
 									<div class="col-md-2">
-										<img src="product_img_upload/${odlist[i].main_product_image}"
+										<img src="product_img_upload/${pdlist[i].product_img}"
 											style="width: 100px; height: 100px;">
 									</div>
 									<div class="col-md-8" style="margin-top: 15px;">
-										<div class="row">
-											<div class="col-md-2">${odlist[i].total_price }</div>
+									<div class="row">
+											<div class="col-md-2">${pdlist[i].regdate }</div>
 										</div>
 										<div class="row">
-											<div class="col-md-6">${odlist[i].orders_code }</div>
+											<div class="col-md-2">${pdlist[i].product_name }</div>
 										</div>
 										<div class="row">
-											<div class="col-md-4">${plist[i].product_name }</div>
+											<div class="col-md-6">${pdlist[i].product_description }</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">${pdlist[i].store_name}</div>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<input type="button" value="리뷰쓰기" id="add_review"
 											class="myButton"
-											onclick="add_onclick(${odlist[i].order_num});">
+											onclick="add_onclick(${pdlist[i].product_num},${pdlist[i].orders_code });">
 									</div>
 								</div>
 								<hr>

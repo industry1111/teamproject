@@ -28,6 +28,16 @@ public class productDTO {
 	private int category_coderef1;
 	private int category_coderef2;
 	
+	private String orders_code;
+	
+	
+	public String getOrders_code() {
+		return orders_code;
+	}
+	public void setOrders_code(String orders_code) {
+		this.orders_code = orders_code;
+	}
+	
 	
 	public int getProduct_num() {
 		return product_num;

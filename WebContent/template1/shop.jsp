@@ -148,7 +148,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" >
 						<c:set var="loop" value="true" />
 						<c:if test="${list.size() ne 0 }">
 							<c:forEach var="i" begin="${p.beginPerPage }" step="1"
@@ -157,12 +157,13 @@
 									<c:set var="loop" value="false" />
 								</c:if>
 								<c:if test="${loop }">
-									<div class="col-md-4">
-										<div class="card mb-4 product-wap rounded-0">
+									<div class="col-md-4" >
+										<div class="card mb-4 product-wap rounded-0" style="height:500px; width: 300px;" >
 											<div class="card rounded-0">
 												<a
 													href="StoreProductDetail.st?product_num=${list[i].product_num}">
-													<img class="card-img rounded-0 img-fluid"
+													<img class="card-img rounded-0" 
+													height="300" width="300"
 													src="product_img_upload/${list[i].product_img}">
 												</a>
 											</div>

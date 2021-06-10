@@ -151,7 +151,7 @@ function write_review_btn(){
 				</div>
 			</div>
 	
-	
+		
 		<form action="insertReview.bo" method="post"
 			enctype="multipart/form-data" id="frm" name="frm">
 			<div class="row">
@@ -162,10 +162,11 @@ function write_review_btn(){
 						<div class="col-xs-1" style="border: 1px solid #dadada;;">
 							<img  name="product_img" id="product_img" src="product_img_upload/${pdto.product_img }" style="width: 50px; height: 50px;" >
 						</div>
-
+			
 						<div class="col-xs-3">
 							${pdto.product_name }<br> ${pdto.product_description}
 							<input type="hidden" value="${pdto.product_num }" name="product_num"/>
+							<input type="hidden" value="${orders_code}" name="orders_code"/>
 						</div>
 
 					</div>

@@ -35,6 +35,9 @@ public class insertReview implements Action {
 		ReviewDAO rvdao = new ReviewDAO();
 		int product_num = Integer.parseInt(multipartRequest.getParameter("product_num"));
 
+	
+		
+		
 		reviewDTO rvdto = new reviewDTO();
 		rvdto.setMember_num(member_num);
 		rvdto.setProduct_num(product_num);
@@ -43,6 +46,7 @@ public class insertReview implements Action {
 		rvdto.setRating3(Integer.parseInt(multipartRequest.getParameter("rating3")));
 		rvdto.setReview_content(multipartRequest.getParameter("textarea"));
 		rvdto.setReview_img(multipartRequest.getFilesystemName("profile_img"));
+		rvdto.setOrders_code(multipartRequest.getParameter("orders_code"));
 		System.out.println(multipartRequest.getParameter("review_content"));
 		rvdao.insertReview(rvdto);
 

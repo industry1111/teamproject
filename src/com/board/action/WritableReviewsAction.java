@@ -1,4 +1,5 @@
 package com.board.action;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,15 +8,13 @@ import javax.servlet.http.HttpSession;
 
 import com.order.action.OrderDAO;
 import com.order.action.OrderDTO;
-import com.order.action.OrderDetailDTO;
-import com.product.action.productDAO;
 import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
 import action.Criteria;
 import action.PageDTO;
-import dao.ReviewDAO;
+import dao.boardDAO;
 import dto.reviewDTO;
 
 public class WritableReviewsAction implements Action{
@@ -30,34 +29,28 @@ public class WritableReviewsAction implements Action{
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 		
-		reviewDTO rvdto = new ReviewDAO().getReviewInfo(member_num);
-		int product_num = rvdto.getProduct_num();
-	
-		OrderDAO odao = new OrderDAO();
 
+		OrderDAO odao = new OrderDAO();
 		
 		List<OrderDTO> odlist = odao.getOrderInfo(member_num);
+		List<String> order = new ArrayList<String>();
+		List<productDTO> pdlist = new ArrayList<productDTO>();
+		if(odlist.size() > 0){
+			for(int i=0; i<odlist.size(); i++){
+				OrderDTO odto=(OrderDTO)odlist.get(i);
+				String Orders_code= odto.getOrders_code();
+				order.add(Orders_code);
+			} 
+			
+			pdlist = odao.getOrderProduct(order);
+			request.setAttribute("pdlist", pdlist);
+		}
+		List<reviewDTO> rlist = new boardDAO().
+	
 
-		
-		List<String> order = null;
-		for(int i=0; i<odlist.size(); i++){
-
-			OrderDTO odto=(OrderDTO)odlist.get(i);
-			String Orders_code= odto.getOrders_code();
-			order.add(Orders_code);
-			System.out.println(order.get(i));
-		} 
-		
-		List<productDTO> pdlist =odao.getOrderProduct(order);
-
-		
-		System.out.println(odlist.size());
-		request.setAttribute("odlist", odlist);
-		request.setAttribute("pdlist", pdlist);
-		
-		
 		
 		//페이징 부분
+
 		String page = request.getParameter("page");
 		Criteria cri;
 		PageDTO pagedto;
@@ -66,10 +59,10 @@ public class WritableReviewsAction implements Action{
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
 			cri = new Criteria(nowPage, numPerPage);
-			pagedto = new PageDTO(cri, odlist.size());
+			pagedto = new PageDTO(cri, pdlist.size());
 		}else{
 			cri = new Criteria(numPerPage);
-			pagedto = new PageDTO(cri, odlist.size());
+			pagedto = new PageDTO(cri, pdlist.size());
 		}
 		
 		request.setAttribute("p", pagedto);
