@@ -59,8 +59,10 @@
 		</div>
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-		</div>
+					<a href="StoreProductListAction.st?store_num=${pdto.store_num}">
+						<h2> <font color="#FFBB00">${pdto.store_name }</font><h2>
+					</a>
+				</div>
 		</header>
 		<!-- Header Area End -->
 
@@ -91,8 +93,8 @@
 							<!-- Product Meta Data -->
 							<div class="product-meta-data">
 								<div class="line"></div>
-								<p class="product-price">${pdto.product_price}원</p>
-								<h6>${pdto.product_name}</h6>
+								<p class="product-price">${pdto.product_price} 원</p>
+								<h5>${pdto.product_name}</h5>
 							</div>
 						</div>
 
@@ -117,9 +119,11 @@
 							</div>
 							<button type="submit" name="addtocart" value="5"
 								class="btn amado-btn">구매하기</button>
-							<div>	
-								<a href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
-							</div>
+								
+								<a type="button" class="btn amado-btn" href="StoreProductListAction.st?store_num=${pdto.store_num}">
+									상품목록으로 가기
+								</a>
+							
 						</form>
 					</div>
 				</div>

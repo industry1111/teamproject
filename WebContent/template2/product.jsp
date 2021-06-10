@@ -37,7 +37,9 @@
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="StoreProductListAction.st?store_num=${pdto.store_num}">
-									<h3><font color="#FFF">${pdto.store_name}</font></h3>
+								<h1>
+									<font color="#BDBDBD">${pdto.store_name}</font>
+								</h1>
 							</a>
 						</div>
 					</div>
@@ -57,50 +59,56 @@
 				<!-- row -->
 				<div class="row">
 					<!-- 상품상세보기시작 -->
-						<div class="col-lg-5 mt-5">
-							<div class="row">
-								<img src="product_img_upload/${pdto.product_img}" alt="">
-							</div>
+					<div class="col-lg-5 mt-5">
+						<div class="row">
+							<img src="product_img_upload/${pdto.product_img}" alt="">
 						</div>
+					</div>
 
-						<div class="col-lg-7 mt-5">
-							<div class="product-details">
-								<h1>${pdto.product_name}</h1>
-								<div>
+					<div class="col-lg-7 mt-5">
+						<div class="product-details">
+							<div align="left">
+								<h1>${pdto.product_name}  </h1>
+								<div style="margin-left: 30px;">
+									 <h5><font color="#5D5D5D">${pdto.product_brand }</font></h5> 
+								</div>
+							</div>
+
+							<div class="add-to-cart" style="margin-top: 10px;">
+								<div style="margin-left: 30px;">
 									<h3 class="product-price">${pdto.product_price}원</h3>
-								</div>
-								
-								<p> ${pdto.product_brand } </p>
-								
-								<div>
-								
-								</div>
-									<p> ${pdto.product_description}</p>
-								
-								<div class="add-to-cart">
-									<div class="qty-label">
+
+									<div class="qty-label" style="margin-left: 40px;">
 										수량
 										<div class="input-number">
-											<input type="number" value="1"> <span class="qty-up">+</span> <span
-												class="qty-down">-</span>
+											<input type="number" value="1"> <span class="qty-up">+</span>
+											<span class="qty-down">-</span>
 										</div>
 									</div>
 									<button class="add-to-cart-btn">
 										<i class="fa fa-shopping-cart"></i>장바구니추가하기
 									</button>
-									<br><br>
-										<div>
-									<a type="button" class="primary-btn" href="StoreProductListAction.st?store_num=${pdto.store_num}">
-												<font color="#FFF">상품목록으로가기 </font>
+								</div>
+
+								<div
+									style="height: 200px; width: 400px; margin-left: 40px; margin-top: 20px;">
+									<p>${pdto.product_description}</p>
+								</div>
+
+
+								<div align="right" style="margin-top: 100px;">
+									<a type="button" class="primary-btn"
+										href="StoreProductListAction.st?store_num=${pdto.store_num}">
+										<font color="#FFF">상품목록으로가기 </font>
 									</a>
-									</div>
 								</div>
 							</div>
 						</div>
-						<!-- 상품상세보기 끝 -->
 					</div>
+					<!-- 상품상세보기 끝 -->
 				</div>
 			</div>
+		</div>
 		</div>
 	</form>
 
