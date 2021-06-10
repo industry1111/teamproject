@@ -54,7 +54,7 @@ public class SellerJoinAction implements Action{
 			
 	        ActionForward forward = new ActionForward();
 	        forward.setRedirect(true);
-	        forward.setPath("writableReviews.jsp");
+	        forward.setPath("OrderContent.or");
 	        
 	        return forward;
 	    }

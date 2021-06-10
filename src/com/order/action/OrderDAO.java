@@ -398,10 +398,16 @@ public class OrderDAO {
     public List<productDTO> getOrderProduct(List<String> order){
     	List<productDTO> list = new ArrayList<productDTO>();
     	
-    	String sql ="select * from orders_detail natural join product where orders_code = "+order.get(0);
-    	for(int i = 0;i<order.size();i++){
-    		sql +=" or oreders_code"+order.get(i);
-    	}
+    	String sql ="select * from orders_detail natural join product";
+    	
+	    	for(int i = 0;i<order.size();i++){
+	    		if(i == 0){
+	    			sql += "where orders_code = "+order.get(i);
+	    		}else{
+	    			sql +=" or oreders_code"+order.get(i);
+	    		}
+	    		
+	    	}
     	
     	try {
     		getCon();

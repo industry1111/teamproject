@@ -62,10 +62,6 @@ public class MemberLoginAction implements Action{
 		session.setAttribute("member_code", mdto.getMember_code());
 		sellerDAO sdao = new sellerDAO();
 		
-		List<Store_likeDTO> jlist = sdao.getStore_like(mdto.getMember_num());
-		
-		request.setAttribute("jlist", jlist);
-		request.setAttribute("member_num", mdto.getMember_num());
 		ActionForward forward=new ActionForward();
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
