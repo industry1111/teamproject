@@ -12,13 +12,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.product.action.productDAO;
 import com.product.action.productDTO;
+import com.store.action.Store_likeDTO;
 
 import action.Criteria;
 import action.PageDTO;
 import dao.boardDAO;
+import dao.sellerDAO;
 import dto.categoryDTO;
 
 @WebServlet("/SelectList.do")
@@ -36,7 +39,13 @@ public class SelectProductList extends HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		HttpSession session = request.getSession();
+		int member_num =0;
+		if((String) session.getAttribute("id") != null){
+			member_num = (int) session.getAttribute("member_num");
+		}
 		
+
 		PrintWriter out = response.getWriter();
 		
 		int category_code1 = Integer.parseInt(request.getParameter("category_code1"));
@@ -52,6 +61,7 @@ public class SelectProductList extends HttpServlet{
 		List<categoryDTO> clist_all = bdao.getcategory();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
 		List<productDTO> plist = pdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort,price);
+		
 		
 		//페이징 부분
 		String page = request.getParameter("page");
@@ -97,6 +107,7 @@ public class SelectProductList extends HttpServlet{
 			product_description = product_description.replaceAll("\r\n", " ");
 			String store_name = pdto.getStore_name();
 			int store_num = pdto.getStore_num();
+			System.out.println(store_num);
 			String profile_img = pdto.getProfile_img();
 			String template = pdto.getTemplate();
 			int category_num = pdto.getCategory_num();
@@ -131,7 +142,25 @@ public class SelectProductList extends HttpServlet{
 		json +="]||[";
 			
 		json+="{\"startPage\":\""+pagedto.getStartPage()+"\",\"endPage\":\""+pagedto.getEndPage()+"\",\"beginPerPage\":\""+pagedto.getBeginPerPage()+"\",\"endPerPage\":\""+pagedto.getEndPerPage()+"\","
-				+"\"prev\":\""+pagedto.isPrev()+"\",\"next\":\""+pagedto.isNext()+"\",\"total\":\""+pagedto.getTotal()+"\",\"nowPage\":\""+pagedto.getCri().getNowPage()+"\"}]";
+				+"\"prev\":\""+pagedto.isPrev()+"\",\"next\":\""+pagedto.isNext()+"\",\"total\":\""+pagedto.getTotal()+"\",\"nowPage\":\""+pagedto.getCri().getNowPage()+"\"}";
+		
+		if(member_num != 0){
+			json +="]||[";
+				
+			List<Store_likeDTO> slist = new sellerDAO().getStore_like(member_num);
+			
+			for (int i=0; i<slist.size();i++) {
+					Store_likeDTO sdto = (Store_likeDTO)slist.get(i);
+					int store_num = sdto.getStore_num();
+					json+="{\"store_num\":\""+store_num+"\"}";
+					
+					if(i !=slist.size()-1) {
+						json+=",";
+					}
+				}
+		}
+		
+		json +="]";
 		response.setHeader("content-type", "application/json");
 		out.print(json);
 		out.flush();
