@@ -17,12 +17,13 @@ public class WriteReviewAction implements Action {
 
 		request.setCharacterEncoding("utf-8");
 		String orders_code = request.getParameter("orders_code");
-				
+		
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		int order_detail_num = Integer.parseInt(request.getParameter("order_detail_num"));
 		productDAO pdao = new productDAO();
 		productDTO pdto = pdao.getProductInfo(product_num);
 		
-	
+		request.setAttribute("order_detail_num", order_detail_num);
 		request.setAttribute("orders_code", orders_code);
 		request.setAttribute("pdto", pdto);
 

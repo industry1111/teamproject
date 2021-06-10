@@ -102,16 +102,16 @@ input[type="text"]:focus {
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-1">
-										<img src="product_img_upload/${odlist[i].product_img}"
+										<img src="product_img_upload/${pdlist[i].product_img}"
 											alt="스토어 사진" style="width: 50px; height: 50px;">
 									</div>
 									<div class="col-md-4">
-										${odlist[i].product_name }<br>
-										${odlist[i].product_description }
+										${pdlist[i].product_name }<br>
+										${pdlist[i].product_description }
 									</div>
 
 									<c:forEach var="rvlist" items="${rvlist }">
-										<c:if test="${odlist[i].product_num eq rvlist.product_num}">
+										<c:if test="${pdlist[i].product_num eq rvlist.product_num}">
 											<div class="col-md-1 offset-6">
 
 												<a id="deleteReview"
@@ -132,7 +132,7 @@ input[type="text"]:focus {
 								<c:if test="${rvlist.size() ne 0 }">
 									<c:forEach var="rvlist" items="${rvlist }">
 										<c:set var="j" value="${j+1 }" />
-										<c:if test="${odlist[i].product_num eq rvlist.product_num}">
+										<c:if test="${pdlist[i].product_num eq rvlist.product_num}">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="row">

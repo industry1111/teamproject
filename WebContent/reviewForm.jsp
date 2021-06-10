@@ -167,6 +167,7 @@ function write_review_btn(){
 							${pdto.product_name }<br> ${pdto.product_description}
 							<input type="hidden" value="${pdto.product_num }" name="product_num"/>
 							<input type="hidden" value="${orders_code}" name="orders_code"/>
+							<input type="hidden" value="${order_detail_num }" name="order_detail_num"/>
 						</div>
 
 					</div>

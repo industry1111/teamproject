@@ -1,5 +1,6 @@
 package com.board.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +31,12 @@ public class WrittenReviewsAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
+	
+		
+		OrderDAO oddao = new OrderDAO();
+		List<String> order = new ArrayList<String>();
+		List<productDTO> pdlist = oddao.getOrderProduct(order);
+		request.setAttribute("pdlist", pdlist);
 		
 		
 		

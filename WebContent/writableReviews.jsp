@@ -41,9 +41,8 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
- function add_onclick(product_num,orders_code){
-    //이름은 중복창 제어용
-    child = window.open("reviewForm.bo?product_num="+product_num+"&orders_code="+orders_code,"child","width=500,height=800");
+ function add_onclick(product_num,orders_code,order_detail_num){
+    child = window.open("reviewForm.bo?product_num="+product_num+"&orders_code="+orders_code+"&order_detail_num="+order_detail_num,"child","width=500,height=800");
 };//click
 
 
@@ -127,7 +126,7 @@ input[type="text"]:focus {
 									<div class="col-md-2">
 										<input type="button" value="리뷰쓰기" id="add_review"
 											class="myButton"
-											onclick="add_onclick(${pdlist[i].product_num},${pdlist[i].orders_code });">
+											onclick="add_onclick(${pdlist[i].product_num},${pdlist[i].orders_code },${pdlist[i].order_detail_num });">
 									</div>
 								</div>
 								<hr>

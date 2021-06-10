@@ -14,6 +14,7 @@ import action.Action;
 import action.ActionForward;
 import action.Criteria;
 import action.PageDTO;
+import dao.ReviewDAO;
 import dao.boardDAO;
 import dto.reviewDTO;
 
@@ -45,9 +46,7 @@ public class WritableReviewsAction implements Action{
 			pdlist = odao.getOrderProduct(order);
 			request.setAttribute("pdlist", pdlist);
 		}
-		List<reviewDTO> rlist = new boardDAO().
-	
-
+		
 		
 		//페이징 부분
 

@@ -396,9 +396,13 @@ public class OrderDAO {
     public List<productDTO> getOrderProduct(List<String> order){
     	List<productDTO> list = new ArrayList<productDTO>();
     	
-    	String sql ="select * from orders_detail natural join product natural join seller where orders_code = "+order.get(0);
+    	String sql ="select * from orders_detail natural join product natural join seller where review_code =0 and (orders_code = "+order.get(0);
+    	
     	for(int i = 1;i<order.size();i++){
-    		sql +=" or orders_code = "+order.get(i);
+    		sql +=" or orders_code = "+order.get(i)+")";
+    	}
+    	if(order.size()==1){
+    		sql+=")";
     	}
     	try {
     		getCon();
@@ -416,6 +420,7 @@ public class OrderDAO {
     			pdto.setStore_name(rs.getString("store_name"));
     			
     			pdto.setOrders_code(rs.getString("orders_code"));
+    			pdto.setOrder_detail_num(rs.getInt("order_detail_num"));
     		
     			list.add(pdto);
     		}

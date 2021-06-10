@@ -34,7 +34,9 @@ public class insertReview implements Action {
 
 		ReviewDAO rvdao = new ReviewDAO();
 		int product_num = Integer.parseInt(multipartRequest.getParameter("product_num"));
-
+		
+		int order_detail_num = Integer.parseInt(multipartRequest.getParameter("order_detail_num"));
+		
 	
 		
 		
@@ -48,7 +50,7 @@ public class insertReview implements Action {
 		rvdto.setReview_img(multipartRequest.getFilesystemName("profile_img"));
 		rvdto.setOrders_code(multipartRequest.getParameter("orders_code"));
 		System.out.println(multipartRequest.getParameter("review_content"));
-		rvdao.insertReview(rvdto);
+		rvdao.insertReview(rvdto, order_detail_num);
 
 		ActionForward forward = new ActionForward();
 		forward.setPath("close.jsp");
