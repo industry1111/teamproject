@@ -449,7 +449,8 @@ textarea.input {
   background-color: #15161D;
 }
 
-.header-logo {
+.header-logo .h1 {
+  color: #FFF;
   float: left;
 }
 
@@ -2148,9 +2149,10 @@ textarea.input {
   .header-logo {
     float: none;
     text-align: center;
+    color: #FFF;
   }
-  .header-logo .logo {
-    display: inline-block;
+  .header-logo .h1 {
+    color: #FFF;
   }
   #product-imgs {
     margin-bottom: 60px;

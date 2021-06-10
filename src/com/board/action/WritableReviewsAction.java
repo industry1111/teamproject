@@ -29,16 +29,52 @@ public class WritableReviewsAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
-		OrderDAO odao = new OrderDAO();
-		ReviewDAO rdao = new ReviewDAO();
 		
-		List<reviewDTO> rlist = rdao.getReviewList(member_num);
-		List<String> orders_code = null ;
-		List<productDTO> odlist = odao.getOrderProduct(orders_code);
+		reviewDTO rvdto = new ReviewDAO().getReviewInfo(member_num);
+		int product_num = rvdto.getProduct_num();
+		//OrderDTO odto = new OrderDTO();
+		OrderDAO odao = new OrderDAO();
+		//String orders_code = odto.getOrders_code();
+		
+		List<OrderDTO> odlist = odao.getOrderInfo(member_num);
+		//List<OrderDetailDTO> oddlist = odao.getOrderDetail(orders_code);
+		
+		
+		for(int i=0; i<odlist.size(); i++){
+//			OrderDTO odto =  new OrderDTO();
+//			odto.setOrders_code(odlist.get(i).getOrders_code());
+			
+			OrderDTO odto=(OrderDTO)odlist.get(i);
+			String Orders_code= odto.getOrders_code();
+		} 
+		
+		
+		
+	
+		productDAO pdao = new productDAO();
+		List<productDTO> pdlist = pdao.getProductList(product_num);
+//		OrderDTO odto = new OrderDAO().getOrder(orders_code);
+//		int orders_code = odto.getOrders_code();
+//		List<String> order = request.getParameter(order);
+	
+	
+	
+	
+//		OrderDAO odao = new OrderDAO();
+//		ReviewDAO rdao = new ReviewDAO();
+		
+		
+//		String orders_code =request.getParameter("orders_code");
+//		int product_num = Integer.parseInt(request.getParameter("product_num"));
+//		
+//		List<reviewDTO> rlist = rdao.getReviewList(member_num);
+//		List<OrderDetailDTO> odlist = odao.getOrderDetail(orders_code);
+		
+		
 		System.out.println(odlist.size());
 		request.setAttribute("odlist", odlist);
 	
-		request.setAttribute("rlist", rlist);
+		request.setAttribute("pdlist", pdlist);
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;

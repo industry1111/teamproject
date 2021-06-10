@@ -1,4 +1,4 @@
-package com.board.action;
+package com.store.action;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -24,29 +24,30 @@ public class AddCart implements Action{
 		request.setCharacterEncoding("UTF-8");
 		ServletContext context = request.getServletContext();
 	
-		HttpSession session = request.getSession();
-		
-		int member_num = (Integer)session.getAttribute("member_num");
+		int member_num = Integer.parseInt(request.getParameter("member_num"));
 
-		int product_num = (Integer)request.getAttribute("product_name");
+		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		
-		int quantity = (Integer)request.getAttribute("quantity");
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
 		
+		//장바구니에 상품정보 저장 후 다른페이지 session에서 꺼내서 사용할 용도
 		CartDTO cdto = new CartDTO();
 		cdto.setMember_num(member_num);
 		cdto.setProduct_num(product_num);
-		cdto.setQuantity(quantity);
+		cdto.setQuantity(quantity);	
+		HttpSession session = request.getSession();
+		session.setAttribute("cdto", cdto);
 		
-		
+		//장바구니 테이블에 상품정보 insert함.
 		boardDAO bdao = new boardDAO();
-		bdao.AddCart(member_num, product_num, quantity);
+		bdao.AddCart(cdto);
 		
 		
 		ActionForward forward=new ActionForward();
 		
 		forward.setRedirect(true);
 		
-		forward.setPath("./StoreProductListAction.st");
+		forward.setPath("./StoreProductDetail.st");
 		
 		return forward;
 	}

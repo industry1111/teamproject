@@ -285,9 +285,6 @@ $(function() {
 				
 			});
 			
-			
-			
-			
 		});
 		
 		function setImageFromFile(input, expression) {

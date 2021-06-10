@@ -50,10 +50,6 @@
 			<div class="amado-navbar-brand">
 				<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
 			</div>
-			<!-- Navbar Toggler -->
-			<div class="amado-navbar-toggler">
-				<span></span><span></span><span></span>
-			</div>
 		</div>
 
 		<!-- Header Area Start -->
@@ -121,8 +117,9 @@
 							</div>
 							<button type="submit" name="addtocart" value="5"
 								class="btn amado-btn">구매하기</button>
-							<a href="StoreProductListAction.st?store_num=${pdto.store_num}">뒤로가기</a>
-
+							<div>	
+								<a href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
+							</div>
 						</form>
 					</div>
 				</div>

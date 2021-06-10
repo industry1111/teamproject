@@ -40,7 +40,7 @@
 				<div class="row">
 					<div class="col-sm-7 col-md-9">
 						<div id="colorlib-logo">
-							<a href="index.html">상호명</a>
+							<a href="#">${list[1].store_name}</a>
 						</div>
 					</div>
 				</div>
@@ -58,10 +58,6 @@
 									<h3>카테고리1</h3>
 									<ul>
 										<li><a href="#">카테고리1</a></li>
-										<li><a href="#">카테고리1</a></li>
-										<li><a href="#">카테고리1</a></li>
-										<li><a href="#">카테고리1</a></li>
-										<li><a href="#">카테고리1</a></li>
 									</ul>
 								</div>
 							</div>
@@ -70,10 +66,6 @@
 								<div class="side border mb-1">
 									<h3>카테고리2</h3>
 									<ul>
-										<li><a href="#">카테고리2</a></li>
-										<li><a href="#">카테고리2</a></li>
-										<li><a href="#">카테고리2</a></li>
-										<li><a href="#">카테고리2</a></li>
 										<li><a href="#">카테고리2</a></li>
 									</ul>
 								</div>
@@ -97,23 +89,32 @@
 										<c:if test="${loop }">
 											<div class="col-lg-4 mb-4 text-center">
 												<div class="product-entry border">
-													<a href="#" class="prod-img"> <img
+													<a href="StoreProductDetail.st?product_num=${list[i].product_num}" class="prod-img"> <img
 														src="product_img_upload/${list[i].product_img}" class="img-fluid"
 														alt="Free html5 bootstrap 4 template">
 													</a>
+												</div>	
 													<div class="desc">
-														<h2>
+														<h3>
 															<a href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
-														</h2>
-														<span class="price">${list[i].product_price}</span>
+														</h3>
+														<h6>
+															${list[i].product_brand}
+														</h6>
+														
+														<h6>
+															<span class="price">${list[i].product_price}</span>원
+														</h6>
 													</div>
 												</div>
-											</div>
+											
 										</c:if>
 									</c:forEach>
 								</c:if>
 								<!-- <div class="w-100"></div> -->
+								</div>
 							</div>
+							</form>
 						</div>
 				</div>
 			</div>

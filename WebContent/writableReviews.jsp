@@ -107,12 +107,12 @@ input[type="text"]:focus {
 							<c:if test="${loop }">
 								<div class="row">
 									<div class="col-md-2">
-										<img src="product_img_upload/${odlist[i].image}"
+										<img src="product_img_upload/${odlist[i].main_product_image}"
 											style="width: 100px; height: 100px;">
 									</div>
 									<div class="col-md-8" style="margin-top: 15px;">
 										<div class="row">
-											<div class="col-md-2">${odlist[i].product_price }</div>
+											<div class="col-md-2">${odlist[i].total_price }</div>
 										</div>
 										<div class="row">
 											<div class="col-md-6">${odlist[i].orders_code }</div>
@@ -124,7 +124,7 @@ input[type="text"]:focus {
 									<div class="col-md-2">
 										<input type="button" value="리뷰쓰기" id="add_review"
 											class="myButton"
-											onclick="add_onclick(${odlist[i].product_num});">
+											onclick="add_onclick(${odlist[i].order_num});">
 									</div>
 								</div>
 								<hr>

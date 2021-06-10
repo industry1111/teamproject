@@ -18,6 +18,8 @@
 <body>
 
 	<!--================ Start Header Menu Area =================-->
+<form action="StoreProductListAction.st" method="post" enctype="multipart/form-data">	
+
 	<div class="search-wrapper section-padding-100">
 		<div class="search-close">
 			<i class="fa fa-close" aria-hidden="true"></i>
@@ -45,8 +47,8 @@
 		<div class="mobile-nav">
 			<!-- Navbar Brand  -->
 			<div class="amado-navbar-brand">
-				<a href="index.html"><img src="img/core-img/logo.png" alt="">
-					상호명</a>
+				<a href="#"><img src="img/core-img/logo.png" alt="">
+					${list[1].store_name }</a>
 			</div>
 			<!--Navbar Toggler -->
 			<div class="amado-navbar-toggler">
@@ -59,10 +61,9 @@
 			<div class="widget catagory mb-50">
 				<!-- Widget Title -->
 				<div class="logo">
-					<a href="index.html"> <img src="img/core-img/logo.png" alt="">
-					<h1>
-							상호명
-							<h1></a>
+					<a href="#"> <img src="img/core-img/logo.png" alt="">
+						<h2> ${list[1].store_name }<h2>
+					</a>
 				</div>
 				<br>
 
@@ -119,8 +120,7 @@
 						</div>
 					</div>
 				</div>
-				<form action="StoreProductListAction.st" method="post"
-					enctype="multipart/form-data">
+
 					<div class="row">
 
 						<c:set var="loop" value="true" />
@@ -135,15 +135,15 @@
 										<div class="single-product-wrapper">
 											<!-- Product Image -->
 											<div class="product-img">
-												<img src="product_img_upload/${list[i].product_img}" alt="">
-												<!-- Hover Thumb
-                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">  -->
+												<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
+													<img src="product_img_upload/${list[i].product_img}" alt="">
+												</a>
 											</div>
 
 											<!-- Product Description -->
-											<div
+											<div align="center"
 												class="product-description d-flex align-items-center justify-content-between">
-												<div class="product-meta-data">
+												<div class="product-meta-data" align="center">
 													<div class="line"></div>
 													<p class="product-price">${list[i].product_price } 원</p>
 													<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
