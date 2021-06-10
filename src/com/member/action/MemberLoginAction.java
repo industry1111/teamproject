@@ -66,10 +66,7 @@ public class MemberLoginAction implements Action{
 		
 		request.setAttribute("jlist", jlist);
 		request.setAttribute("member_num", mdto.getMember_num());
-		System.out.println(jlist.size());
-		System.out.println(jlist.get(0).getStore_num());
 		ActionForward forward=new ActionForward();
-		System.out.println(id);
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
 		if(id.equals("gudrb2640")){
