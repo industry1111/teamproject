@@ -47,7 +47,7 @@ public class ReviewDAO {
 		}
 		
 		//리뷰 입력하기
-		public void insertReview(reviewDTO rvdto) { 
+		public void insertReview(reviewDTO rvdto,int order_detail_num) { 
 
 			try {
 				getCon();
@@ -66,6 +66,11 @@ public class ReviewDAO {
 				pstmt.setTimestamp(8, rvdto.getRegdate());
 				pstmt.setString(9, rvdto.getReview_img());
 				pstmt.executeUpdate();
+				
+				sql="update orders_detail set review_code = 1 where order_detail_num = "+order_detail_num;
+				pstmt=con.prepareStatement(sql);
+				pstmt.executeUpdate();
+				
 			} catch (Exception e) {
 				System.out.println("insertReview:"+e.toString());
 			}finally {

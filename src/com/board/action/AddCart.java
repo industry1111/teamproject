@@ -1,53 +1,52 @@
 package com.board.action;
 
-import javax.servlet.ServletContext;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-import com.product.action.productDAO;
-import com.product.action.productDTO;
-
-import action.Action;
-import action.ActionForward;
 import dao.boardDAO;
 import dto.CartDTO;
 
-public class AddCart implements Action{
-	@Override
-	public ActionForward execute(HttpServletRequest request, 
-						HttpServletResponse response)
-	throws Exception{
-
-		request.setCharacterEncoding("UTF-8");
-		ServletContext context = request.getServletContext();
+@WebServlet("/AddCart.do")
+public class AddCart extends HttpServlet{
 	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
+	}
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+	
+		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
-		int member_num = (Integer)session.getAttribute("member_num");
-
-		int product_num = (Integer)request.getAttribute("product_name");
-		
-		int quantity = (Integer)request.getAttribute("quantity");
-		
+		int member_num = (int) session.getAttribute("member_num");
+		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		System.out.println("member_num:"+member_num);
+		System.out.println("product_num:"+product_num);
+		System.out.println("quantity:"+quantity);
+		//장바구니에 상품정보 저장 후 다른페이지 session에서 꺼내서 사용할 용도
 		CartDTO cdto = new CartDTO();
 		cdto.setMember_num(member_num);
 		cdto.setProduct_num(product_num);
-		cdto.setQuantity(quantity);
+		cdto.setQuantity(quantity);	
 		
-		
+	
+		//장바구니 테이블에 상품정보 insert함.
 		boardDAO bdao = new boardDAO();
-		bdao.AddCart(member_num, product_num, quantity);
+		bdao.AddCart(cdto);
 		
-		
-		ActionForward forward=new ActionForward();
-		
-		forward.setRedirect(true);
-		
-		forward.setPath("./StoreProductListAction.st");
-		
-		return forward;
 	}
 }
+

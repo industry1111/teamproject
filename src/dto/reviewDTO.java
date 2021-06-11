@@ -13,8 +13,15 @@ public class reviewDTO {
 	private String review_content;
 	private Timestamp regdate;
 	private String review_img;
+	private String orders_code;
 	
 
+	public String getOrders_code() {
+		return orders_code;
+	}
+	public void setOrders_code(String orders_code) {
+		this.orders_code = orders_code;
+	}
 	public int getReview_num() {
 		return review_num;
 	}

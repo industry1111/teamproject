@@ -18,7 +18,9 @@
 <body>
 
 	<!--================ Start Header Menu Area =================-->
-	<div class="search-wrapper section-padding-100">
+<form action="StoreProductListAction.st" method="post" enctype="multipart/form-data">	
+
+	<div class="search-wrapper section-padding-100" style="height: 30px;">
 		<div class="search-close">
 			<i class="fa fa-close" aria-hidden="true"></i>
 		</div>
@@ -45,8 +47,8 @@
 		<div class="mobile-nav">
 			<!-- Navbar Brand  -->
 			<div class="amado-navbar-brand">
-				<a href="index.html"><img src="img/core-img/logo.png" alt="">
-					상호명</a>
+				<a href="#"><img src="img/core-img/logo.png" alt="">
+					${list[1].store_name }</a>
 			</div>
 			<!--Navbar Toggler -->
 			<div class="amado-navbar-toggler">
@@ -59,10 +61,9 @@
 			<div class="widget catagory mb-50">
 				<!-- Widget Title -->
 				<div class="logo">
-					<a href="index.html"> <img src="img/core-img/logo.png" alt="">
-					<h1>
-							상호명
-							<h1></a>
+					<a href="#"> <img src="img/core-img/logo.png" alt="">
+						<h2> <font color="#FFBB00">${list[1].store_name }</font><h2>
+					</a>
 				</div>
 				<br>
 
@@ -90,10 +91,10 @@
 		<div class="amado_product_area section-padding-20">
 			<div class="container-fluid">
 
-				<div class="row" align="right">
+				<div class="row" align="right" style="height: 100px;">
 					<div class="col-12">
-						<div
-							class="product-topbar d-xl-flex align-items-end justify-content-between">
+						<div style="height: 100px; 
+							class="product-topbar d-xl-flex align-items-end justify-content-between" >
 
 							<div class="total-products"></div>
 
@@ -119,8 +120,7 @@
 						</div>
 					</div>
 				</div>
-				<form action="StoreProductListAction.st" method="post"
-					enctype="multipart/form-data">
+
 					<div class="row">
 
 						<c:set var="loop" value="true" />
@@ -135,19 +135,17 @@
 										<div class="single-product-wrapper">
 											<!-- Product Image -->
 											<div class="product-img">
-												<img src="product_img_upload/${list[i].product_img}" alt="">
-												<!-- Hover Thumb
-                                <img class="hover-img" src="img/product-img/product2.jpg" alt="">  -->
+												<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
+													<img src="product_img_upload/${list[i].product_img}" width="370px" height="370px" alt="">
+												</a>
 											</div>
 
 											<!-- Product Description -->
-											<div
-												class="product-description d-flex align-items-center justify-content-between">
-												<div class="product-meta-data">
-													<div class="line"></div>
-													<p class="product-price">${list[i].product_price } 원</p>
+											<div align="center" style="margin-top: 10px;">
+												<div class="product-meta-data" align="center">
+													<h3><font color="#FFBB00">${list[i].product_price } 원</font></h3>
 													<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
-														<h6> ${list[i].product_name} </h6>
+														<h5> ${list[i].product_name} </h5>
 													</a>
 												</div>
 											</div>
