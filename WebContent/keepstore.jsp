@@ -79,38 +79,6 @@ input[type="text"]:focus {
 
 </head>
 <body>
-	<script>
-		$("#").click(function() {
-
-			if (idReg.test(id)) {
-				$.ajax({
-					type : "post",
-					async : true,
-					url : contextPath + "/RegisterCheck",
-					data : {
-						param : id,
-						command : "id"
-					},
-					dataType : "text",
-					success : function(data) {
-						if (data == "중복된 아이디입니다.") {
-							$("#id_check").text(data);
-							$("#id_check2").text("");
-							id_check = 0;
-						} else {
-							$("#id_check2").text(data);
-							$("#id_check").text("");
-							id_check = 1;
-						}
-					},
-				});
-			} else {
-				$("#id_check").text("특수문자 한글 제외  6~15자 이내로 작성해 주세요");
-				$("#id_check2").text("");
-				id_check = 0;
-			}
-		});
-	</script>
 
 	<!-- 	<div id="page"> -->
 	<div class="colorlib-product" >

@@ -8,6 +8,15 @@ public class sellerDTO {
 	private String template;
 	private String account;
 	private int store_num;
+	private int jjim;
+	
+	
+	public int getJjim() {
+		return jjim;
+	}
+	public void setJjim(int jjim) {
+		this.jjim = jjim;
+	}
 	public int getStore_num() {
         return store_num;
     }

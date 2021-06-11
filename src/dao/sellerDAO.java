@@ -66,6 +66,7 @@ public class sellerDAO {
 				sdto.setStore_name(rs.getString("store_name"));
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
+				sdto.setJjim(rs.getInt("jjim"));
 
 			}
 		} catch (Exception e) {
@@ -353,4 +354,43 @@ public class sellerDAO {
 			return list;
 
 	}
+	
+	//찜 증가
+	public void StorejjimCountUp(int store_num){
+		
+		try {
+			
+			getCon();
+			String sql = "update jjim set jjim = jjim + 1 where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.executeQuery();
+
+		} catch (Exception e) {
+			System.out.println("StorejjimCountUp"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	public void StorejjimCountDown(int store_num){
+		
+		try {
+			
+			getCon();
+			String sql = "update jjim set jjim = jjim - 1 where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.executeQuery();
+
+		} catch (Exception e) {
+			System.out.println("StorejjimCountDown"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	
 }
