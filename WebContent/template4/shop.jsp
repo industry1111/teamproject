@@ -88,19 +88,19 @@
 										</c:if>
 										<c:if test="${loop }">
 											<div class="col-lg-4 mb-4 text-center"">
-												<div style="width: 200px; height: 250px;">
+												<div style="width: 250px; height: 400px;">
 													<a
 														href="StoreProductDetail.st?product_num=${list[i].product_num}"
-														class="prod-img"> <img width="250" height="300"
+														class="prod-img"> <img width="250" height="350"
 														src="product_img_upload/${list[i].product_img}"
-														class="img-fluid">
+														>
 													</a>
 												</div>
 												<div class="desc">
-													<h3>
+													<h4>
 														<a
 															href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
-													</h3>
+													</h4>
 													<h6>${list[i].product_brand}</h6>
 
 													<h6>

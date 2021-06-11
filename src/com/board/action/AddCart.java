@@ -1,6 +1,7 @@
 package com.board.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,26 +29,32 @@ public class AddCart extends HttpServlet{
 		
 	
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=utf-8");
 		HttpSession session = request.getSession();
 		
-		int member_num = (int) session.getAttribute("member_num");
-		int product_num = Integer.parseInt(request.getParameter("product_num"));
-		int quantity = Integer.parseInt(request.getParameter("quantity"));
-//		System.out.println("member_num:"+member_num);
-//		System.out.println("product_num:"+product_num);
-//		System.out.println("quantity:"+quantity);
+		PrintWriter out = response.getWriter();
 		
-		//장바구니에 상품정보 저장 후 다른페이지 session에서 꺼내서 사용할 용도
-		CartDTO cdto = new CartDTO();
-		cdto.setMember_num(member_num);
-		cdto.setProduct_num(product_num);
-		cdto.setQuantity(quantity);	
+		int member_num = 0;
+		if((String) session.getAttribute("id") != null){
+			member_num = (int) session.getAttribute("member_num");
+			int product_num = Integer.parseInt(request.getParameter("product_num"));
+			int quantity = Integer.parseInt(request.getParameter("quantity"));
+			
+			//장바구니에 상품정보 저장 후 다른페이지 session에서 꺼내서 사용할 용도
+			CartDTO cdto = new CartDTO();
+			cdto.setMember_num(member_num);
+			cdto.setProduct_num(product_num);
+			cdto.setQuantity(quantity);	
+			
 		
-	
-		//장바구니 테이블에 상품정보 insert함.
-		boardDAO bdao = new boardDAO();
-		bdao.AddCart(cdto);
+			//장바구니 테이블에 상품정보 insert함.
+			boardDAO bdao = new boardDAO();
+			bdao.AddCart(cdto);
+		} //id값이 있으면 실행
 		
+		out.print(member_num);
+		out.flush();
+		out.close();		
 	}
 }
 

@@ -76,44 +76,38 @@
 		<div class="container pb-5">
 			<div class="row">
 				<div class="col-lg-5 mt-5">
-					<div class="row">
+					<div class="row" align="center">
 						<img class="card-img img-fluid"
-							src="product_img_upload/${pdto.product_img}"
-							alt="">
+							src="product_img_upload/${pdto.product_img}" alt="">
 					</div>
 				</div>
 
 				<div class="col-lg-7 mt-5">
 					<div class="card">
-						<div class="card-body">
+						<div class="card-body" align="center" style="margin-top: 30px;">
 							<h1 class="h2">${pdto.product_name}</h1>
 							<p class="h3 py-2">${pdto.product_price}원</p>
+							<p style="color: #59ab6e; font-size: 30px;">${pdto.product_brand}</p>
+						</div>
 
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<p class="text-muted">
-										<strong>${pdto.product_brand}</strong>
-									</p>
-								</li>
-							</ul>
-
-							
-							<p>${pdto.product_description}</p>
-	</form>
-	<div class="row">
-		<div class="col-auto">
-			<ul class="list-inline pb-3">
-				<li class="list-inline-item text-right">수량 </li>
-				<input type="number" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;">
-			</ul>
-		</div>
-	</div>
-	<div class="row pb-3">
-			<div class="col d-grid">
-				 <input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" /> 
-				<button type="button" class="btn btn-success btn-lg" id="addbasket">장바구니 담기</button>
+						<div class="row">
+							<div align="center">
+								<li class="list-inline-item text-right" align="center">수량</li> <input
+									type="number" id="quantity" step="1" min="1" max="300"
+									name="quantity" value="1"
+									style="text-align: right; margin-right: 20px;"> <input
+									value="${pdto.product_num}" type="hidden" name="product_num"
+									id="product_num" />
+								<button type="button" class="btn btn-success btn-lg"
+									id="addbasket">장바구니 담기</button>
+							</div>
+						</div>
+						<p style="margin : 30px;">${pdto.product_description}</p>
+					</div>
+				</div>
 			</div>
-	</div>
+		</div>
+	</form>
 	</section>
 
 
