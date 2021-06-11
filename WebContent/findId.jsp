@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -29,56 +31,50 @@
 }
 </style>
 
-<head>
-<title>Login</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
+<body>
+
 <body>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title"
-					style="background-image: url(images/bg-01.jpg);">
-					<span class="login100-form-title-1"> LOGIN </span>
+				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+					<span class="login100-form-title-1">Enter your Email<br>below to find your ID</span>
 				</div>
 
-				<form class="login100-form validate-form"
-					action="./MemberLoginAction.me">
-					<div class="wrap-input100 validate-input m-b-26"
-						data-validate="Username is required">
-						<span class="label-input100">UserID</span> <input class="input100"
-							type="text" id="id" name="id" placeholder="Enter userid">
+				<form class="login100-form validate-form" action="" >
+					<div class="wrap-input100 validate-input m-b-26" data-validate="your Email is required">
+						<span class="label-input100">Email</span> 
+						<input class="input100"
+							type="text" id="email" name="email" placeholder="Enter your Email"><button ></button>
 						<span class="focus-input100"></span>
 					</div>
-
-					<div class="wrap-input100 validate-input m-b-18"
-						data-validate="Password is required">
-						<span class="label-input100">Password</span> <input
-							class="input100" type="password" id="pw" name="pw"
-							placeholder="Enter password"> <span
-							class="focus-input100"></span>
+					
+					<div class="wrap-input100 validate-input m-b-18" data-validate="AuthNumber is required">
+						<span class="label-input100">Authentication <br> Code&nbsp;Number</span> 
+						<input class="input100" type="text" id="authNum" name="authNum" placeholder="Enter your AuthNumber">
+						<span class="focus-input100"></span>
 					</div>
+					
+					
 					<div class="col-md-12"></div>
 
 					<br> <br>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">Login</button>
+						<button class="login100-form-btn" type="button" onclick="location.href='./login.jsp'">Back</button>
 						<div class="col-md-4">
-							<a href="./MemberJoin.me" class="login100-form-btn"> Sign Up
+							<a href="findIdAfter.me" class="login100-form-btn">Continue
 							</a>
 						</div>
 					</div>
 				</form>
-				<div class="row">
-					<div class="col-md-12" align="right">
-						<a href="./findId.me">Forgot ID?</a>&nbsp;&nbsp;&nbsp;
-						<a href="./findPw.me">Forgot Password?</a>&nbsp;&nbsp;
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
+
+
+
 </body>
 </html>

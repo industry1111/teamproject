@@ -162,6 +162,7 @@ input[type="text"] {
 								<div class="display-tc" style="margin-left: 100px">
 								<div style="margin-right: 20px">
 								<input type="button" class="myButton" value="수정" name="edit_btn" id="edit_btn" onclick=".ad?product_num=${list[i].member_code}">
+								
 								</div>
 								<div style="margin-right: 20px">
 								<input type="button" class="myButton" value="완료" name="ok_btn" id="ok_btn">
@@ -178,7 +179,7 @@ input[type="text"] {
 				<div class="row" style="margin-left: 100px">
 					<div style="margin-right: 20px">
 						<input type="button" class="myButton" value="뒤로" name="close_btn"
-							id="close_btn" onClick="location.href='/AdminMain.ad'">
+							id="close_btn" onClick="location.href='AdminMain.ad'">
 					</div>
 				</div>
 				
