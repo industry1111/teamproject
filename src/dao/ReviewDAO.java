@@ -163,16 +163,17 @@ public class ReviewDAO {
 				}
 				
 		//판매자 스토어 관리 리뷰 3개보기
-				public List<reviewDTO> getStoreReviewList(int member_num) {
+				public List<reviewDTO> getStoreReviewList(int store_num) {
+					System.out.println("store_num:"+store_num);
 					List<reviewDTO> list = new ArrayList<reviewDTO>();
 					try {
 						getCon();
 						String sql = "select * from review where store_num =?";
-						sql += "order by regdate desc";
+						sql += " order by regdate desc";
 						pstmt =con.prepareStatement(sql);
-						pstmt.setInt(1, member_num);
+						pstmt.setInt(1, store_num);
 						rs = pstmt.executeQuery();
-
+							
 						while(rs.next()) {
 							
 							reviewDTO rvdto = new reviewDTO();

@@ -48,7 +48,9 @@ public class insertReview implements Action {
 		rvdto.setRating3(Integer.parseInt(multipartRequest.getParameter("rating3")));
 		rvdto.setReview_content(multipartRequest.getParameter("textarea"));
 		rvdto.setReview_img(multipartRequest.getFilesystemName("profile_img"));
+		rvdto.setStore_num(Integer.parseInt(multipartRequest.getParameter("store_num")));
 		System.out.println(multipartRequest.getParameter("review_content"));
+		
 		rvdao.insertReview(rvdto, order_detail_num);
 
 		ActionForward forward = new ActionForward();
