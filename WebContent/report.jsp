@@ -108,10 +108,10 @@ input[type="text"]:focus {
 					<div class="col-md-12 row">
 						<div>
 						<img src="upload_profile/${sdto.profile_img}" style="width: 100px; height: 100px;">
-						</div>
-						<div>
-						스토어 이름 : ${sdto.store_name}<br>
-						상품명 : ${pdto.product_name}
+						
+						
+							스토어 이름 : ${sdto.store_name}
+							상품명 : ${pdto.product_name}
 						</div>
 					</div>
 					
@@ -125,7 +125,12 @@ input[type="text"]:focus {
 			<td>
 				<div>
 					<div class="col-md-7">
-						
+						<input type="radio">불법 및 미취급 상품<br>
+						<input type="radio">상품가격 다름<br>
+						<input type="radio">품절, 스펙/구성품/부가정보 다름<br>
+						<input type="radio">상품제목 표기 위반<br>
+						<input type="radio">직거래 유도, 에스크로 미적용 등 판매행위 위반<br>
+						<input type="radio">기타<br>
 					</div>
 					
 				</div>
