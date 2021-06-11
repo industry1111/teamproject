@@ -27,18 +27,30 @@ public class StoreLikeAction extends HttpServlet{
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		System.out.println("storeLike");
 		HttpSession session = request.getSession();
 		
-		int member_num = (int) session.getAttribute("member_num");
+		int member_num =0;
+		if((String) session.getAttribute("id") != null){
+			member_num = (int) session.getAttribute("member_num");
+		}
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		String command = request.getParameter("command");
 		
 		Store_likeDTO dto = new Store_likeDTO();
+		sellerDAO dao = new sellerDAO();
 		
 		dto.setMember_num(member_num);
 		dto.setStore_num(store_num);
-
-		new sellerDAO().insertStore_like(member_num, store_num);
+		
+		if(command.equals("check")){
+			System.out.println("check");
+			dao.insertStore_like(member_num, store_num);
+			
+		}else if(command.equals("delete")){
+			System.out.println("delete");
+			dao.deleteStore_like(member_num, store_num);
+			
+		}
 
 	}
 
