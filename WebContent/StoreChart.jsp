@@ -177,12 +177,22 @@ var canvas = document.getElementById('chart').getContext("2d");
 						<h6>주문 및 판매 	금액</h6>
 						<canvas id="chart"></canvas>
 					</div>
+					<c:forEach>
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>두번째 화면</h6>
+						<h6>최근 리뷰</h6>
+							<div class="col-md-12" style="border: 1px solid #dadada;;">
+								<div class="col-md-12" style="border: 1px solid #dadada;;">
+									<div class="row">
+										<div class="col-md-9" style="border: 1px solid #dadada;;">리뷰내용</div>
+										<div class="col-md-3" style="border: 1px solid #dadada;;">리뷰 평점</div>
+									</div>
+								</div>
+							</div>
 						<input type="button" value="버튼" id="button" class="myButton">
 					</div>
+					</c:forEach>
 				</div>
 				<div class="row" style="margin-top: 10px; height: 400px;">
 					<div class="col-md-5"
