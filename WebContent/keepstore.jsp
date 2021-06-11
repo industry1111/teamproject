@@ -99,6 +99,9 @@ input[type="text"]:focus {
 								
 							</div>
 						</div>
+					<c:if test="${jlist.size() eq null || jlist.size() eq 0 }">
+						찜한 스토어가 없습니다.
+					</c:if>
 					<c:set var="loop" value="true"/>
 					
 					<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">

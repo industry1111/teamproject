@@ -30,6 +30,7 @@ public class StoreReview implements Action {
 		
 		request.setAttribute("srlist", srlist);
 		
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("mypage.jsp");

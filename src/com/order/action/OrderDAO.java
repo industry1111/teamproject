@@ -102,8 +102,8 @@ public class OrderDAO {
             getCon();
 
             String sql = "insert into orders_detail (quantity, product_num, product_name, product_price,"
-            		+ "image, orders_code,store_num,state)"
-            		+ " values(?,?,?,?,?,?,?,?)";
+            		+ "image, orders_code,store_num,state,review_code)"
+            		+ " values(?,?,?,?,?,?,?,?,0)";
             
             pstmt = con.prepareStatement(sql);
             
@@ -404,6 +404,7 @@ public class OrderDAO {
     	if(order.size()==1){
     		sql+=")";
     	}
+    	System.out.println(sql);
     	try {
     		getCon();
     		pstmt= con.prepareStatement(sql);
