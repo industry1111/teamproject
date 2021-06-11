@@ -31,6 +31,8 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
+
+<script src="js/addbasket.js"></script>
 </head>
 <body>
 
@@ -84,111 +86,70 @@
 							<p>${pdto.product_description}</p>
 							<div class="size-wrap"></div>
 							<div class="input-group mb-4">
-								<span class="input-group-btn">
-									<button type="button" class="quantity-left-minus btn"
-										data-type="minus" data-field="">
-										<i class="icon-minus2"></i>
-									</button>
-								</span> <input type="text" id="quantity" name="quantity"
-									class="form-control input-number" value="1" min="1" max="100">
-								<span class="input-group-btn ml-1">
-									<button type="button" class="quantity-right-plus btn"
-										data-type="plus" data-field="">
-										<i class="icon-plus2"></i>
-									</button>
-								</span>
+								구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 							</div>
-							<div class="row">
+							<div class="row" align="center">
 								<div class="col-sm-12 text-center">
 									<p class="addtocart">
-										<a href="cart.html" class="btn btn-primary btn-addtocart"><i
-											class="icon-shopping-cart"></i>장바구니담기</a>
+										<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+										<button type="button" id="addbasket" class="btn btn-primary btn-addtocart" style="margin-bottom: 20px;">장바구니 담기</button>
 									</p>
 								</div>
 								<div>
-									<a href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
+									<a style="margin-left: 15px;" class="btn btn-primary" href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
 								</div>
 								
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--  상품 사진 아래 설명 부분 시작  -->
-<!-- 				<div class="row"> -->
-<!-- 					<div class="col-sm-12"> -->
-<!-- 						<div class="row"> -->
-<!-- 							<div class="col-md-12 pills"> -->
-<!-- 								<div class="bd-example bd-example-tabs"> -->
-<!-- 									<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist"> -->
-
-<!-- 										<li class="nav-item"><a class="nav-link active" -->
-<!-- 											id="pills-description-tab" data-toggle="pill" -->
-<!-- 											href="#pills-description" role="tab" -->
-<!-- 											aria-controls="pills-description" aria-expanded="true">상품상세설명</a> -->
-<!-- 										</li> -->
-<!-- 										<li class="nav-item"><a class="nav-link" -->
-<!-- 											id="pills-manufacturer-tab" data-toggle="pill" -->
-<!-- 											href="#pills-manufacturer" role="tab" -->
-<!-- 											aria-controls="pills-manufacturer" aria-expanded="true">메뉴1</a> -->
-<!-- 										</li> -->
-<!-- 										<li class="nav-item"><a class="nav-link" -->
-<!-- 											id="pills-review-tab" data-toggle="pill" href="#pills-review" -->
-<!-- 											role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a> -->
-<!-- 										</li> -->
-<!-- 									</ul> -->
-
-<!-- 									<div class="tab-content" id="pills-tabContent"> -->
-<!-- 										<div class="tab-pane border fade show active" -->
-<!-- 											id="pills-description" role="tabpanel" -->
-<!-- 											aria-labelledby="pills-description-tab"> -->
-<!-- 											<p>상품상세설명입니다.</p> -->
-<!-- 											<p>상품상세설명입니다.</p> -->
-<!-- 										</div> -->
-
-<!-- 										<div class="tab-pane border fade" id="pills-manufacturer" -->
-<!-- 											role="tabpanel" aria-labelledby="pills-manufacturer-tab"> -->
-<!-- 											<p>메뉴1일에대한설명입니다.</p> -->
-<!-- 											<p>메뉴1일에대한설명입니다.</p> -->
-<!-- 										</div> -->
-
-<!-- 										<div class="tab-pane border fade" id="pills-review" -->
-<!-- 											role="tabpanel" aria-labelledby="pills-review-tab"> -->
-<!-- 											<div class="row"> -->
-<!-- 												<div class="col-md-8"> -->
-<!-- 													<h3 class="head">리뷰</h3> -->
-<!-- 													<div class="review"> -->
-<!-- 														<div class="user-img" -->
-<!-- 															style="background-image: url(images/person1.jpg)"></div> -->
-<!-- 														<div class="desc"> -->
-<!-- 															<h4> -->
-<!-- 																<span class="text-left">리뷰작성자</span> <span -->
-<!-- 																	class="text-right">리뷰작성일</span> -->
-<!-- 															</h4> -->
-<!-- 															<p class="star"> -->
-<!-- 																별점부분 -->
-<!-- 																<span> <i class="icon-star-full"></i> <i -->
-<!-- 																	class="icon-star-full"></i> <i class="icon-star-full"></i> -->
-<!-- 																	<i class="icon-star-half"></i> <i -->
-<!-- 																	class="icon-star-empty"></i> -->
-<!-- 																</span> <span class="text-right"><a href="#" -->
-<!-- 																	class="reply"><i class="icon-reply"></i></a></span> -->
-<!-- 															</p> -->
-<!-- 															<p>리뷰작성부분입니다.</p> -->
-<!-- 														</div> -->
-<!-- 													</div> -->
-<!-- 												</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-				<!-- 하단부 페이지-->
-			</form>
+			</form>	
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-md-12 pills">
+								<div class="bd-example bd-example-tabs">
+									<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+										<li class="nav-item"><a class="nav-link"
+											id="pills-review-tab" data-toggle="pill" href="#pills-review"
+											role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
+										</li>
+									</ul>
+										<div class="tab-pane border fade" id="pills-review"
+											 aria-labelledby="pills-review-tab">
+											<div class="row">
+												<div class="col-md-8">
+													<h3 class="head">리뷰</h3>
+													<div class="review">
+														<div class="user-img"
+															style="background-image: url(images/person1.jpg)"></div>
+														<div class="desc">
+															<h4>
+																<span class="text-left">리뷰작성자</span> <span
+																	class="text-right">리뷰작성일</span>
+															</h4>
+															<p class="star">
+																별점부분
+																<span> <i class="icon-star-full"></i> <i
+																	class="icon-star-full"></i> <i class="icon-star-full"></i>
+																	<i class="icon-star-half"></i> <i
+																	class="icon-star-empty"></i>
+																</span> <span class="text-right"><a href="#"
+																	class="reply"><i class="icon-reply"></i></a></span>
+															</p>
+															<p>리뷰작성부분입니다.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 		</div>
-	</div>
 
 	<script src="template4/js/jquery.min.js"></script>
 	<script src="template4/js/popper.min.js"></script>

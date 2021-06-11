@@ -92,8 +92,8 @@ ol {
 }
 
 img {
-    height: auto;
-    max-width: 100%;
+    width: 370px;
+    height : 370px;
 }
 
 /* Spacing */
@@ -1113,7 +1113,8 @@ img {
             visibility: visible;
         }
         img {
-            width: 100%;
+            width: 370px;
+            height : 370px;
         }
     }
     .hover-content {
@@ -1237,7 +1238,8 @@ img {
         z-index: 1;
         overflow: hidden;
         img {
-            width: 100%;
+            width: 370px;
+            height : 370px;
             @include trans-duration(500ms);
         }
         .hover-img {
@@ -1245,7 +1247,8 @@ img {
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: 370px;
+            height : 370px;
             z-index: 10;
             opacity: 0;
             visibility: hidden;

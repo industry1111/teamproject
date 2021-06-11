@@ -31,6 +31,7 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
+<script src="js/addbasket.js"></script>
 </head>
 <body>
 
@@ -89,7 +90,8 @@
 										<button class="btn btn-outline-primary js-btn-minus"
 											type="button">&minus;</button>
 									</div>
-									<input type="text" class="form-control text-center" value="1"
+									<input type="text" class="form-control text-center" 
+										id="quantity" name="quantity" value="1"
 										placeholder="" aria-label="Example text with button addon"
 										aria-describedby="button-addon1">
 									<div class="input-group-append">
@@ -100,8 +102,8 @@
 
 							</div>
 							<p>
-								<a href="cart.html" class="buy-now btn btn-sm btn-primary">Add
-									To Cart</a>
+							<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+							<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
 							</p>
 						</div>
 

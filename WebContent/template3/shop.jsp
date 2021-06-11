@@ -13,6 +13,12 @@
 <link rel="icon" href="template3/img/core-img/favicon.ico">
 <link rel="stylesheet" href="template3/css/core-style.css">
 <link rel="stylesheet" href="template3/style.css">
+
+	<script src="template3/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="template3/js/popper.min.js"></script>
+	<script src="template3/js/bootstrap.min.js"></script>
+	<script src="template3/js/plugins.js"></script>
+	<script src="template3/js/active.js"></script>
 </head>
 
 <body>
@@ -20,7 +26,7 @@
 	<!--================ Start Header Menu Area =================-->
 <form action="StoreProductListAction.st" method="post" enctype="multipart/form-data">	
 
-	<div class="search-wrapper section-padding-100">
+	<div class="search-wrapper section-padding-100" style="height: 30px;">
 		<div class="search-close">
 			<i class="fa fa-close" aria-hidden="true"></i>
 		</div>
@@ -62,7 +68,7 @@
 				<!-- Widget Title -->
 				<div class="logo">
 					<a href="#"> <img src="img/core-img/logo.png" alt="">
-						<h2> ${list[1].store_name }<h2>
+						<h2> <font color="#FFBB00">${list[1].store_name }</font><h2>
 					</a>
 				</div>
 				<br>
@@ -91,10 +97,10 @@
 		<div class="amado_product_area section-padding-20">
 			<div class="container-fluid">
 
-				<div class="row" align="right">
+				<div class="row" align="right" style="height: 100px;">
 					<div class="col-12">
-						<div
-							class="product-topbar d-xl-flex align-items-end justify-content-between">
+						<div style="height: 100px; 
+							class="product-topbar d-xl-flex align-items-end justify-content-between" >
 
 							<div class="total-products"></div>
 
@@ -136,18 +142,16 @@
 											<!-- Product Image -->
 											<div class="product-img">
 												<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
-													<img src="product_img_upload/${list[i].product_img}" alt="">
+													<img src="product_img_upload/${list[i].product_img}" width="370px" height="370px" alt="">
 												</a>
 											</div>
 
 											<!-- Product Description -->
-											<div align="center"
-												class="product-description d-flex align-items-center justify-content-between">
+											<div align="center" style="margin-top: 10px;">
 												<div class="product-meta-data" align="center">
-													<div class="line"></div>
-													<p class="product-price">${list[i].product_price } 원</p>
+													<h3><font color="#FFBB00">${list[i].product_price } 원</font></h3>
 													<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
-														<h6> ${list[i].product_name} </h6>
+														<h5> ${list[i].product_name} </h5>
 													</a>
 												</div>
 											</div>
@@ -163,10 +167,6 @@
 		</div>
 	</div>
 
-	<script src="template3/js/jquery/jquery-2.2.4.min.js"></script>
-	<script src="template3/js/popper.min.js"></script>
-	<script src="template3/js/bootstrap.min.js"></script>
-	<script src="template3/js/plugins.js"></script>
-	<script src="template3/js/active.js"></script>
+
 </body>
 </html>

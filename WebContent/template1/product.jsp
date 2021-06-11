@@ -103,29 +103,16 @@
 	<div class="row">
 		<div class="col-auto">
 			<ul class="list-inline pb-3">
-				<li class="list-inline-item text-right">수량 <input type="hidden"
-					name="quantity" id="quantity" value="${quantity}">
-				</li>
-				<li class="list-inline-item"><span class="btn btn-success"
-					id="btn-minus">-</span></li>
-				<li class="list-inline-item"><span class="badge bg-secondary"
-					id="var-value">1</span></li>
-				<li class="list-inline-item"><span class="btn btn-success"
-					id="btn-plus">+</span></li>
+				<li class="list-inline-item text-right">수량 </li>
+				<input type="number" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;">
 			</ul>
 		</div>
 	</div>
 	<div class="row pb-3">
-		<form name="newProduct" action="AddCart.bo" class="form-horizontal"
-			method="post">
 			<div class="col d-grid">
-				<input id="${pdto.member_num}" type="hidden" name="member_num" /> <input
-					id="${pdto.product_num}" type="hidden" name="product_num" /> <input
-					id="${quantity}" type="hidden" name="quantity">
-				<button type="submit" class="btn btn-success btn-lg" name="submit"
-					value="buy">장바구니 담기</button>
+				 <input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" /> 
+				<button type="button" class="btn btn-success btn-lg" id="addbasket">장바구니 담기</button>
 			</div>
-		</form>
 	</div>
 	</section>
 
@@ -137,7 +124,7 @@
 	<script src="template1/assets/js/bootstrap.bundle.min.js"></script>
 	<script src="template1/assets/js/templatemo.js"></script>
 	<script src="template1/assets/js/custom.js"></script>
-
+	<script src="js/addbasket.js"></script>
 
 	<!-- 슬라이드 start 넣을꺼면 하고 남겨둠!  -->
 	<script src="template1/assets/js/slick.min.js"></script>
