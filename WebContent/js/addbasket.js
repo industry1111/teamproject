@@ -1,11 +1,8 @@
 
 $(function(){
-	
 	$("#addbasket").click(function(){
 		var product_num = $("#product_num").val();
 		var quantity = $("#quantity").val();
-		alert(product_num);
-		alert(quantity);
 		$.ajax({
 			type: "get",
 			url: contextPath + "/AddCart.do",
@@ -15,7 +12,21 @@ $(function(){
 			},
 			dataType: "text", 
 			success: function(data) {
+				console.log(data);
+				if(data == 0){
+					
+					if(confirm("상품을 장바구니에 담으러면 로그인해야합니다.")){
+						//로그인 팝업창 띄우기
+						alert("12");
+					}
+					
+				}else{
+					if(confirm("장바구니에"+ quantity +"개 담아졌습니다. 장바구니페이지로 이동하시겠습니까?" )){
+						document.loaction.href = "./basket.bo";
+					}
+				}
 			}
+			
 		});
 	});
 });
