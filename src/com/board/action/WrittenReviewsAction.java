@@ -32,13 +32,13 @@ public class WrittenReviewsAction implements Action{
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
 	
-		
-		OrderDAO oddao = new OrderDAO();
-		List<String> order = new ArrayList<String>();
-		List<productDTO> pdlist = oddao.getOrderProduct(order);
-		request.setAttribute("pdlist", pdlist);
-		
-		
+//		
+//		OrderDAO oddao = new OrderDAO();
+//		List<String> order = new ArrayList<String>();
+//		List<productDTO> pdlist = oddao.getOrderProduct(order);
+//		request.setAttribute("pdlist", pdlist);
+//		
+//		
 		
 		ReviewDAO rvdao = new ReviewDAO();
 		List<reviewDTO> rvlist= rvdao.getReviewList(member_num);

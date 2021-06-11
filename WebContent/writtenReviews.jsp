@@ -163,7 +163,7 @@ input[type="text"]:focus {
 														<div class="col-md-7 offset-1">
 
 
-															${rvlist.review_title}<br> ${rvlist.review_content }
+															${rvlist.review_content }<br> ${rvlist.review_content }
 
 														</div>
 														<div class="col-md-3" align="right">

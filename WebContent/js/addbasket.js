@@ -3,7 +3,7 @@ $(function(){
 	
 	$("#addbasket").click(function(){
 		var product_num = $("#product_num").val();
-		var quantity = $("#var-value").html();
+		var quantity = $("#quantity").val();
 		alert(product_num);
 		alert(quantity);
 		$.ajax({
