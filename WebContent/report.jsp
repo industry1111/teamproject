@@ -60,19 +60,21 @@ input[type="text"] {
   background-color: #F6F6F6;
 }
 
-input[type="text"]:focus {
-  border-color: dodgerBlue;
-  box-shadow: 0 0 8px 0 dodgerBlue;
-  color: black;
-  background-color:white; 
+table {
+      width: 95%;
+      border: 1px solid lightgray;
 }
-
-.inputWithIcon input[type="text"] {
-  padding-left: 40px;
+td {
+    padding: 10px;
+     border: 1px solid lightgray;
 }
-
-.inputWithIcon {
-  position: relative;
+tr {
+    padding: 10px;
+     border: 1px solid lightgray;
+     
+}
+th {
+	background-color: MintCream;
 }
 
 </style>
@@ -87,31 +89,36 @@ input[type="text"]:focus {
 			
 			</div>
 	</div>
-	<div class="container" >
+	<div>
 			<div class="row " >
 				<div class="col-md-12"  >
-					<div class="product-name d-flex " style="background-color: #c5c5c5 !important; text-align: center; margin-top: 15px;" >
-							<div class="col-md-2">신고하기</div>
+					<div class="product-name d-flex " style="background-color: LimeGreen !important; width :710px; text-align: center; margin-top: 15px; margin-left: 18px" >
+							<div class="col-md-5">신고하기</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-	<form action="ReceiverInsert" name="form_addr">
-	<table align="center" style="margin-left: 50px">
+	<form action="ReportAction.st" name="form_report">
+	<input type="hidden" value="${sdto.store_num}" name="store_num">
+	<input type="hidden" value="${pdto.product_num}" name="product_num">
+	<table align="center" style="margin-left: 18px" class="report_table">
 		<tr>
 			<th>
 				<div>신고대상</div>
 			</th>
 			<td>
 				<div>
-					<div class="col-md-12 row">
+					<div class="col-md-12 d-flex">
 						<div>
 						<img src="upload_profile/${sdto.profile_img}" style="width: 100px; height: 100px;">
-						
-						
-							스토어 이름 : ${sdto.store_name}
-							상품명 : ${pdto.product_name}
+						</div>
+						<div style="margin-left: 20px; margin-top: 20px;">
+							
+							스토어 이름 : <span style="color: darkblue">${sdto.store_name}</span><br>
+							상품명 : <span style="font-weight: bold;">${pdto.product_name}</span><br>
+							<span style="color: red; font-weight: bold; ">${pdto.product_price}</span>원<br>
+							카테고리 : ${pdto.category_name}
 						</div>
 					</div>
 					
@@ -125,63 +132,36 @@ input[type="text"]:focus {
 			<td>
 				<div>
 					<div class="col-md-7">
-						<input type="radio">불법 및 미취급 상품<br>
-						<input type="radio">상품가격 다름<br>
-						<input type="radio">품절, 스펙/구성품/부가정보 다름<br>
-						<input type="radio">상품제목 표기 위반<br>
-						<input type="radio">직거래 유도, 에스크로 미적용 등 판매행위 위반<br>
-						<input type="radio">기타<br>
+						<input type="radio" name="radio" value="0">불법 및 미취급 상품<br>
+						<input type="radio" name="radio" value="1">상품가격 다름<br>
+						<input type="radio" name="radio" value="2">품절, 스펙/구성품/부가정보 다름<br>
+						<input type="radio" name="radio" value="3">상품제목 표기 위반<br>
+						<input type="radio" name="radio" value="4">직거래 유도, 에스크로 미적용 등 판매행위 위반<br>
+						<input type="radio" name="radio" value="5">기타<br>
+						<span style="color: red">신고사유에 개인정보가 포함되지 않도록 유의해주세요.</span><br>
+						<textarea style="width: 80%" placeholder="위 신고항목에 없거나 추가로 신고하시고자 하는 내용을 적어주세요." ></textarea>
 					</div>
-					
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<th>
-				<div>주소</div>
+				<div>참고사항</div>
 			</th>
 			<td>
-				
+				-다량의 허위 신고 접수 시 신고가 자동으로 차단될 수 있습니다.<br>
+				-신고 처리결과는 별도로 답변 드리지 않습니다. 상담이 필요한 경우 고객센터로 문의해 주십시오.
 			</td>
 		</tr>
-		<tr>
-			<th>
-				<div>연락처</div>
-			</th>
-			<td>
-				<div>
-					
-						<div class="col-md-7">
-							
-					</div>
-					
-				</div>
-			</td>
-		</tr>
-		<tr>
-			<th>
-				<div>기본 <br>배송지</div>
-			</th>
-			<td>
-				<div>
-					<div class="col-md-7">
-						
-							
-					</div>
-					
-				</div>
-			</td>
-		</tr>
-	
 	</table>
 		
-			<div class="row" style="margin-left: 150px; margin-top: 20px;">
+			<div class="row" style="margin-left: 290px; margin-top: 20px;">
 				<div style="margin-right: 20px">
-					<input type="button" class="myButton" value="닫기" name="close_btn" id="close_btn" >
+					<input type="submit" value="신고하기" name="report_btn" id="report_btn" >
 				</div>
 				
 				<div>
-					<input type="button" class="myButton" value="수정" name="addr_update_btn" id="addr_update_btn">
+					<input type="button" value="취소" name="cancle_btn" id="cancle_btn">
 				</div>
 			</div>
 		
