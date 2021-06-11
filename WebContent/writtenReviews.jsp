@@ -90,14 +90,23 @@ input[type="text"]:focus {
 					</div>
 				</div>
 			</div>
+			<c:if test="${rvlist.size() eq 0 }">
+				<div class="row">
+					<div class="col-md-12">작성한 리뷰가 없습니다.</div>
+				</div>
+			</c:if>
 			<c:set var="loop" value="true" />
-			<c:if test="${plist.size() ne 0 }">
+			<c:if test="${rvlist.size() ne 0 }">
 				<c:forEach var="i" begin="${p.beginPerPage }" step="1"
 					end="${p.endPerPage}">
 					<c:if test="${p.total == i }">
 						<c:set var="loop" value="false" />
 					</c:if>
 					<c:if test="${loop }">
+					<c:set var="loop2" value="true" />
+					<c:forEach var="j" items="${pdlist[j] }">
+						<c:if test="${pdlist.productnum eq rvlist[i].product_num }"></c:if>
+					</c:forEach>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="row">

@@ -46,7 +46,6 @@ public class WritableReviewsAction implements Action{
 			pdlist = odao.getOrderProduct(order);
 			request.setAttribute("pdlist", pdlist);
 		}
-		System.out.println(odlist.size());
 		
 		
 		//페이징 부분

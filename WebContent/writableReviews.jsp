@@ -94,8 +94,11 @@ input[type="text"]:focus {
 			<div class="row ">
 				<div class="col-md-12">
 					<div class="product-name d-flex " align="center">
-						<div class="col-md-2">작성 가능한 리뷰</div>
+						<div class="col-md-2">작성 가능한 리뷰${pdlist.size() }</div>
 					</div>
+					<c:if test="${plist.size() eq null }">
+						주문하신 상품이 없습니다.
+					</c:if>
 					<c:set var="loop" value="true" />
 					<c:if test="${plist.size() ne 0 }">
 						<c:forEach var="i" begin="${p.beginPerPage }" step="1"
