@@ -29,7 +29,10 @@ public class StoreLikeAction extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
-		int member_num = (int) session.getAttribute("member_num");
+		int member_num =0;
+		if((String) session.getAttribute("id") != null){
+			member_num = (int) session.getAttribute("member_num");
+		}
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		String command = request.getParameter("command");
 		
