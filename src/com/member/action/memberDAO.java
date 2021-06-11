@@ -431,6 +431,25 @@ public class memberDAO {
 		return mdto;
 	}
 	
+	//멤버 state update
+	public void MemberStateUpdate(int member_num, int member_code){
+		
+		try {
+			getCon();
+			
+			String sql = "update member set member_code = ? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_code);
+			pstmt.setInt(2, member_num);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("MemberStateUpdate"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		
+	}
 	
 
 }// memberDAO

@@ -2,27 +2,26 @@ $(function() {
 	
 	
 	$(".edit_btn").on("click",function(){
-		console.log("dd");
 		$(this).parent().siblings('.state').removeAttr("disabled");
 
 	});
 	$(".ok_btn").on("click",function(){
 		
-		
-		var new_state = $(this).parent().children().children('option:selected').val();
-		var order_detail_num = $(this).parent().children(".order_detail_num").val();
-		console.log(order_detail_num);
-		console.log(new_state);
-		$(this).parent().children(".state").attr("disabled",true);
+		var member_num = $(this).parent().parent().siblings('.member_num').val();
+		var member_code = $(this).parent().siblings('.state').children('option:selected').val();
+	
+		console.log("member_num : "+member_num);
+		console.log("member_code : "+member_code);
+		$(this).parent().siblings('.state').attr("disabled",true);
 		$.ajax({
 			
 			type : "post",
 			async : true,
-			url : contextPath + "/OrderStateUpdate",
+			url : contextPath + "/MemberStateUpdate.do",
 			data : {
 				
-				state : new_state,
-				order_detail_num : order_detail_num
+				member_num : member_num,
+				member_code : member_code
 			},
 			dataType:"text",
 			success : function(){

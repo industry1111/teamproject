@@ -54,7 +54,18 @@ public class StoreFrontController extends HttpServlet { //스토어 및 상품�
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/Report.st")) { // 신고하기로 이동
+			action = new Report();
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} 
+		
+		
+		
 		if (forward != null) {
 			if (forward.isRedirect()) {// true -> sendRedirect()
 
