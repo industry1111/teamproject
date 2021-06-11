@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="template3/style.css">
 
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="js/addbasket.js"></script>
 </head>
 
 <body>
@@ -106,20 +107,14 @@
 						<form class="cart clearfix" method="post">
 							<div class="cart-btn d-flex mb-50">
 								<p>구매 수량</p>
-								<div class="quantity">
-									<span class="qty-minus"
-										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-										class="fa fa-caret-down" aria-hidden="true"></i></span> <input
-										type="number" class="qty-text" id="qty" step="1" min="1"
-										max="300" name="quantity" value="1"> <span
-										class="qty-plus"
-										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
-										class="fa fa-caret-up" aria-hidden="true"></i></span>
+								<div class="quantity" style="margin-left: 10px;">
+									 <input type="number" class="qty-text" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;"> 
 								</div>
 							</div>
-							<button type="submit" name="addtocart" value="5"
-								class="btn amado-btn">구매하기</button>
-								
+							<div>
+							<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+							<button type="button" id="addbasket" class="btn amado-btn" style="margin-bottom: 20px;">장바구니 담기</button>
+							</div>
 								<a type="button" class="btn amado-btn" href="StoreProductListAction.st?store_num=${pdto.store_num}">
 									상품목록으로 가기
 								</a>

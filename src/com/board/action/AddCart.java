@@ -33,9 +33,10 @@ public class AddCart extends HttpServlet{
 		int member_num = (int) session.getAttribute("member_num");
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		int quantity = Integer.parseInt(request.getParameter("quantity"));
-		System.out.println("member_num:"+member_num);
-		System.out.println("product_num:"+product_num);
-		System.out.println("quantity:"+quantity);
+//		System.out.println("member_num:"+member_num);
+//		System.out.println("product_num:"+product_num);
+//		System.out.println("quantity:"+quantity);
+		
 		//장바구니에 상품정보 저장 후 다른페이지 session에서 꺼내서 사용할 용도
 		CartDTO cdto = new CartDTO();
 		cdto.setMember_num(member_num);
