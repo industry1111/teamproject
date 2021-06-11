@@ -161,4 +161,39 @@ public class ReviewDAO {
 				
 		
 				}
+				
+		//판매자 스토어 관리 리뷰 3개보기
+				public List<reviewDTO> getStoreReviewList(int member_num) {
+					List<reviewDTO> list = new ArrayList<reviewDTO>();
+					try {
+						getCon();
+						String sql = "select * from review where store_num =?";
+						sql += "order by regdate desc";
+						pstmt =con.prepareStatement(sql);
+						pstmt.setInt(1, member_num);
+						rs = pstmt.executeQuery();
+
+						while(rs.next()) {
+							
+							reviewDTO rvdto = new reviewDTO();
+							rvdto.setReview_num(rs.getInt("review_num"));
+							rvdto.setMember_num(rs.getInt("member_num"));
+							rvdto.setProduct_num(rs.getInt("product_num"));
+							rvdto.setRating1(rs.getInt("rating1"));
+							rvdto.setRating2(rs.getInt("rating2"));
+							rvdto.setRating3(rs.getInt("rating3"));
+							rvdto.setReview_content(rs.getString("review_content"));
+							rvdto.setRegdate(rs.getTimestamp("regdate"));
+							rvdto.setReview_img(rs.getString("review_img"));
+							rvdto.setStore_num(rs.getInt("store_num"));
+							list.add(rvdto);
+							
+						}
+					} catch (Exception e) {
+						System.out.println("getStoreReview"+e.toString());
+					} finally {
+						ResouceClose();
+					}
+					return list;
+				}
 }

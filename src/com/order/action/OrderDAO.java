@@ -418,8 +418,7 @@ public class OrderDAO {
     			pdto.setProduct_num(rs.getInt("product_num"));
     			//스토어 네임
     			pdto.setStore_name(rs.getString("store_name"));
-    			
-    			pdto.setOrders_code(rs.getString("orders_code"));
+    			pdto.setStore_num(rs.getInt("store_num"));
     			pdto.setOrder_detail_num(rs.getInt("order_detail_num"));
     		
     			list.add(pdto);
