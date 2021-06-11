@@ -21,7 +21,6 @@ public class AdminMemberModify implements Action {
 		request.setCharacterEncoding("utf-8");
 
 		List<memberDTO> list = new memberDAO().getMembersInfo();
-	
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
