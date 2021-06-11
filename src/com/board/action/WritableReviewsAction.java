@@ -47,6 +47,7 @@ public class WritableReviewsAction implements Action{
 			List<productDTO> pdlist =odao.getOrderProduct(order);
 			request.setAttribute("pdlist", pdlist);
 		}
+		System.out.println(odlist.size());
 		
 	
 		
