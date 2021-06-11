@@ -66,6 +66,7 @@ public class sellerDAO {
 				sdto.setStore_name(rs.getString("store_name"));
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
+				sdto.setJjim(rs.getInt("jjim"));
 
 			}
 		} catch (Exception e) {
@@ -245,6 +246,7 @@ public class sellerDAO {
 					sdto.setProfile_img(rs.getString("profile_img"));
 					sdto.setTemplate(rs.getString("template"));
 					sdto.setMember_num(rs.getInt("member_num"));
+					sdto.setJjim(rs.getInt("jjim"));
 					list.add(sdto);
 				}
 			} catch (Exception e) {
@@ -309,7 +311,7 @@ public class sellerDAO {
 			pstmt.setInt(1, member_num);
 			pstmt.setInt(2, store_num);
 			pstmt.executeUpdate();
-			
+
 		} catch (Exception e) {
 			
 			System.out.println("deleteStore_like" + e.toString());
@@ -320,6 +322,7 @@ public class sellerDAO {
 
 	}
 	
+	//찜 리스트
 	public List<Store_likeDTO> getStore_like(int member_num){
 		
 		List<Store_likeDTO> list = new ArrayList<Store_likeDTO>();
@@ -353,4 +356,44 @@ public class sellerDAO {
 			return list;
 
 	}
+	
+	//찜 증가
+	public void StorejjimCountUp(int store_num){
+		
+		try {
+			
+			getCon();
+			String sql = "update seller set jjim = jjim + 1 where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("StorejjimCountUp"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	public void StorejjimCountDown(int store_num){
+		
+		try {
+			
+			getCon();
+			String sql = "update seller set jjim = jjim - 1 where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.executeUpdate();
+			System.out.println(sql);
+		} catch (Exception e) {
+			System.out.println("StorejjimCountDown"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	
+	
 }

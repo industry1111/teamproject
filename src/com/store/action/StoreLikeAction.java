@@ -43,13 +43,14 @@ public class StoreLikeAction extends HttpServlet{
 		dto.setStore_num(store_num);
 		
 		if(command.equals("check")){
-			System.out.println("check");
+			
 			dao.insertStore_like(member_num, store_num);
+			dao.StorejjimCountUp(store_num);
 			
 		}else if(command.equals("delete")){
-			System.out.println("delete");
-			dao.deleteStore_like(member_num, store_num);
 			
+			dao.deleteStore_like(member_num, store_num);
+			dao.StorejjimCountDown(store_num);
 		}
 
 	}
