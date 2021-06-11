@@ -162,11 +162,14 @@ input[type="text"] {
 											<c:if test="${list[i].member_code ne 8}"><option value="8">회원코드8</option></c:if>
 											<c:if test="${list[i].member_code ne 9}"><option value="9">관리자</option></c:if> 
 										</select>
+										
+								<div class="display-tc" style="margin-left: 100px">
+								<div style="margin-right: 20px">
+								<input type="button" class="myButton" value="수정" name="edit_btn" id="edit_btn" onclick=".ad?product_num=${list[i].member_code}">
 								
-										<div style="margin-right: 20px;">
-											<input type="button" value="수정" class="edit_btn" id="edit_btn">
-											<input type="button" value="완료" class="ok_btn" id="ok_btn">
-										</div>
+								</div>
+								<div style="margin-right: 20px">
+								<input type="button" class="myButton" value="완료" name="ok_btn" id="ok_btn">
 								</div>
 								
 						</div>	
@@ -179,7 +182,7 @@ input[type="text"] {
 				<div class="row" style="margin-left: 100px">
 					<div style="margin-right: 20px">
 						<input type="button" class="myButton" value="뒤로" name="close_btn"
-							id="close_btn" onClick="location.href='/AdminMain.ad'">
+							id="close_btn" onClick="location.href='AdminMain.ad'">
 					</div>
 				</div>
 				

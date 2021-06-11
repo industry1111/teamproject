@@ -12,14 +12,15 @@ public class reviewDTO {
 	private String review_content;
 	private Timestamp regdate;
 	private String review_img;
-	private String orders_code;
+	private int store_num;
 	
 
-	public String getOrders_code() {
-		return orders_code;
+	
+	public int getStore_num() {
+		return store_num;
 	}
-	public void setOrders_code(String orders_code) {
-		this.orders_code = orders_code;
+	public void setStore_num(int store_num) {
+		this.store_num = store_num;
 	}
 	public int getReview_num() {
 		return review_num;

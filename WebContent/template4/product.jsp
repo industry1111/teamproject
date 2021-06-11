@@ -45,7 +45,7 @@
 					<div class="col-sm-5">
 <!-- 						<div class="owl-carousel"> -->
 <!-- 							<div class="item"> -->
-								<div class="product-entry border">
+								<div >
 <!-- 									<a href="#" class="prod-img">  -->
 									<img
 										src="product_img_upload/${pdto.product_img}" class="img-fluid"
