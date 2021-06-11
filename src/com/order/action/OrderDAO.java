@@ -192,7 +192,6 @@ public class OrderDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
-				
 				OrderDTO odto = new OrderDTO();
 				odto.setTotal_price(rs.getInt("total_price"));
 				odto.setOrders_code(rs.getString("orders_code"));
@@ -208,7 +207,6 @@ public class OrderDAO {
 				odto.setMain_product_image(rs.getString("main_product_image"));
 				odto.setMain_product_name(rs.getString("main_product_name"));
 				odto.setCount(rs.getInt("count"));
-				
 
 				list.add(odto);
 			}
@@ -398,17 +396,14 @@ public class OrderDAO {
     public List<productDTO> getOrderProduct(List<String> order){
     	List<productDTO> list = new ArrayList<productDTO>();
     	
-    	String sql ="select * from orders_detail natural join product";
+    	String sql ="select * from orders_detail natural join product natural join seller where review_code =0 and (orders_code = "+order.get(0);
     	
-	    	for(int i = 0;i<order.size();i++){
-	    		if(i == 0){
-	    			sql += "where orders_code = "+order.get(i);
-	    		}else{
-	    			sql +=" or oreders_code"+order.get(i);
-	    		}
-	    		
-	    	}
-    	
+    	for(int i = 1;i<order.size();i++){
+    		sql +=" or orders_code = "+order.get(i)+")";
+    	}
+    	if(order.size()==1){
+    		sql+=")";
+    	}
     	try {
     		getCon();
     		pstmt= con.prepareStatement(sql);
@@ -420,7 +415,13 @@ public class OrderDAO {
     			pdto.setProduct_img(rs.getString("product_img"));
     			pdto.setProduct_description(rs.getString("product_description"));
     			pdto.setProduct_name(rs.getString("product_name"));
+    			pdto.setProduct_num(rs.getInt("product_num"));
+    			//스토어 네임
+    			pdto.setStore_name(rs.getString("store_name"));
     			
+    			pdto.setOrders_code(rs.getString("orders_code"));
+    			pdto.setOrder_detail_num(rs.getInt("order_detail_num"));
+    		
     			list.add(pdto);
     		}
     		

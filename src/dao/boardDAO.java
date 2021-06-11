@@ -223,6 +223,7 @@ public class boardDAO {
 		}
 		return rdto;
 	}
+	
 
 	// 배송지 변경
 	public void updateReceiver(receiverDTO rdto, int receiver_num, int member_num) {
