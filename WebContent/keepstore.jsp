@@ -84,47 +84,68 @@ input[type="text"]:focus {
 	<div class="colorlib-product" >
 		<div class="container" >
 			<div class="row row-pb-lg" >
-				<div class="col-md-12"  >
-					<div class="product-name d-flex " align="center" >
-					<div class="col-md-1" ></div>
-							<c:set var="loop" value="true"/>
-						<c:if test="${plist.size() ne 0 }">
-						<c:forEach var="list" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}" items="${list }">
-							<c:if test="${p.total == i }">
-								<c:set var="loop" value="false"/>
-							</c:if>
-							<c:if test="${loop }">
-							<c:if
-								test="${list.category_codeRef1 eq 0 && list.category_codeRef2 eq 0 }">
-								<div class="col-md-2" >${list.category_name }</div>
-							</c:if>
-							</c:if>
-							
-						</c:forEach>
+				<div class="col-md-10"  >
+						<div class="product-name d-flex">
+							<div class="one-forth text-left px-4">
+								<span>스토어 정보</span>
+							</div>
+							<div class="one-eight text-center">
+								
+							</div>
+							<div class="one-eight text-center">
+								
+							</div>
+							<div class="one-eight text-center">
+								
+							</div>
+						</div>
+					<c:set var="loop" value="true"/>
+					
+					<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
+						<c:if test="${p.total == i }">
+							<c:set var="loop" value="false"/>
 						</c:if>
-					</div>
-					<div class="row">
-						<div class="col-md-2">
-							<img src="images/storeprofile.png"
-								style="width: 100px; height: 100px;">
-						</div>
-						<div class="col-md-8" style="margin-top: 15px;">
-							<div class="row">
-								<div class="col-md-2">스토어 이름</div>
+					<c:if test="${jlist.size() > 0 }">
+					<c:if test="${loop}">
+					 <c:forEach var="j" begin="0" step="1" end="${slist.size()-1}">
+					 <c:if test="${slist[j].store_num eq jlist[i].store_num}">
+						<div class="product-cart d-flex">
+							<div class="one-eight text-left px-4">
+								<div>
+									<a>
+										<img src="upload_profile/${slist[j].profile_img}" style="width: 100px;height: 100px;">
+									</a>
+								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-8">지금은 세일중~</div>
+							<div class="one-six text-center">
+								<div>
+									<span> 
+									<a href="StoreProductListAction.st?store_num=${slist[j].store_num}">
+										${slist[j].store_name}
+									</a> 
+									</span><br>
+									<span> 
+									<c:forEach var="k" begin="0" step="1" end="${list.size()-1}">
+										<c:if test="${list[k].category_num eq slist[i].category_num}">
+												${list[k].category_name }
+										</c:if>
+									</c:forEach>
+									</span><br>
+									<span> 
+										찜 개수 : ${slist[j].jjim}
+									</span>
+								</div>
+								</div>
+									<div class="one-eight text-center">
+										<span></span>
+									</div>
 							</div>
-							<div class="row">
-								<div class="col-md-2">찜갯수</div>
-							</div>
-						</div>
-						<div class="col-md-2">
-							<input id="id_cancle" type="button" value="수정 취소"
-								class="myButton" />
-						</div>
-					</div>
-				</div>
+					 </c:if>
+				  </c:forEach>
+<%-- 				  </c:forEach> --%>
+				</c:if>
+				</c:if>
+				</c:forEach>
 			</div>
 		</div>
 	</div>
