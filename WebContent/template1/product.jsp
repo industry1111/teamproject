@@ -103,15 +103,8 @@
 	<div class="row">
 		<div class="col-auto">
 			<ul class="list-inline pb-3">
-				<li class="list-inline-item text-right">수량 <input type="hidden"
-					name="quantity" id="quantity" value="${quantity}">
-				</li>
-				<li class="list-inline-item"><span class="btn btn-success"
-					id="btn-minus">-</span></li>
-				<li class="list-inline-item"><span class="badge bg-secondary"
-					id="var-value">1</span></li>
-				<li class="list-inline-item"><span class="btn btn-success"
-					id="btn-plus">+</span></li>
+				<li class="list-inline-item text-right">수량 </li>
+				<input type="number" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;">
 			</ul>
 		</div>
 	</div>

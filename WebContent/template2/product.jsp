@@ -69,37 +69,33 @@
 
 					<div class="col-lg-7 mt-5">
 						<div class="product-details">
-							<div align="left">
+							<div align="center">
 								<h1>${pdto.product_name}  </h1>
-								<div style="margin-left: 30px;">
+								<div align="center" >
 									 <h5><font color="#5D5D5D">${pdto.product_brand }</font></h5> 
 								</div>
 							</div>
-									<h3 class="product-price">${pdto.product_price}원</h3>
-							
-							<div class="add-to-cart" style="margin-top: 10px;">
-								<div style="margin-left: 30px;">
-									<div class="qty-label" style="margin-left: 40px;">
-										수량 
-										<div class="input-number"> 
-											<input type="number" id="var-value" value="1"  />
-											 <span class="qty-up">+</span>
-											<span class="qty-down">-</span>
-										</div>
+									<div align="center">
+										<h3 class="product-price">${pdto.product_price}원</h3>
 									</div>
-								</div>
-									<div>
-									<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
-										<button class="add-to-cart-btn" type="button" id="addbasket" >
+							<div class="add-to-cart" align="center">
+								<div style="margin-left: 30px;">
+									
+										수량  <input type="number" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;">
+									
+									
+										<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+										<button class="add-to-cart-btn" type="button" id="addbasket" style="margin-left: 10px;" >
 											장바구니추가하기
 										</button>
+									
 									</div>
 								</div>
 
-								<div
-									style="height: 200px; width: 400px; margin-left: 40px; margin-top: 20px;">
+							<div 
+									style="height: auto; width: auto; margin-top: 20px;">
 									<p>${pdto.product_description}</p>
-								</div>
+							</div>
 
 
 								<div align="right" style="margin-top: 100px;">

@@ -31,6 +31,8 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
+
+<script src="js/addbasket.js"></script>
 </head>
 <body>
 
@@ -84,25 +86,13 @@
 							<p>${pdto.product_description}</p>
 							<div class="size-wrap"></div>
 							<div class="input-group mb-4">
-								<span class="input-group-btn">
-									<button type="button" class="quantity-left-minus btn"
-										data-type="minus" data-field="">
-										<i class="icon-minus2"></i>
-									</button>
-								</span> <input type="text" id="quantity" name="quantity"
-									class="form-control input-number" value="1" min="1" max="100">
-								<span class="input-group-btn ml-1">
-									<button type="button" class="quantity-right-plus btn"
-										data-type="plus" data-field="">
-										<i class="icon-plus2"></i>
-									</button>
-								</span>
+								구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 							</div>
 							<div class="row" align="center">
 								<div class="col-sm-12 text-center">
 									<p class="addtocart">
-										<a href="cart.html" class="btn btn-primary btn-addtocart"><i
-											class="icon-shopping-cart"></i>장바구니담기</a>
+										<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+										<button type="button" id="addbasket" class="btn btn-primary btn-addtocart" style="margin-bottom: 20px;">장바구니 담기</button>
 									</p>
 								</div>
 								<div>

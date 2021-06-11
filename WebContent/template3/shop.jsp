@@ -13,6 +13,12 @@
 <link rel="icon" href="template3/img/core-img/favicon.ico">
 <link rel="stylesheet" href="template3/css/core-style.css">
 <link rel="stylesheet" href="template3/style.css">
+
+	<script src="template3/js/jquery/jquery-2.2.4.min.js"></script>
+	<script src="template3/js/popper.min.js"></script>
+	<script src="template3/js/bootstrap.min.js"></script>
+	<script src="template3/js/plugins.js"></script>
+	<script src="template3/js/active.js"></script>
 </head>
 
 <body>
@@ -161,10 +167,6 @@
 		</div>
 	</div>
 
-	<script src="template3/js/jquery/jquery-2.2.4.min.js"></script>
-	<script src="template3/js/popper.min.js"></script>
-	<script src="template3/js/bootstrap.min.js"></script>
-	<script src="template3/js/plugins.js"></script>
-	<script src="template3/js/active.js"></script>
+
 </body>
 </html>
