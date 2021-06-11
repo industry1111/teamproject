@@ -126,7 +126,7 @@
 						<div class="col-md-4 col-xs-6">
 							<div class="product">
 								<div class="product-img">
-									<img src="product_img_upload/${list[i].product_img}" alt="">
+									<img src="product_img_upload/${list[i].product_img}" width="200px" height="200px" alt="">
 									<div class="product-label">
 									</div>
 								</div>

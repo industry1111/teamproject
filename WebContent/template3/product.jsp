@@ -123,7 +123,6 @@
 								<a type="button" class="btn amado-btn" href="StoreProductListAction.st?store_num=${pdto.store_num}">
 									상품목록으로 가기
 								</a>
-							
 						</form>
 					</div>
 				</div>

@@ -51,7 +51,7 @@
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-xl-3">
+					<div class="col-lg-3">
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="side border mb-1">
@@ -72,13 +72,13 @@
 							</div>
 						</div>
 					</div>
+					<!-- /col-lg-3 -->
 
 					<!--================  상품 시작 =================-->
-					<form action="StoreProductListAction.st" method="post"
-						enctype="multipart/form-data">
-
-						<div class="col-lg-9 col-xl-9">
-							<div class="row row-pb-md">
+					<div class="col-lg-9 col-xl-9">
+						<form action="StoreProductListAction.st" method="post"
+							enctype="multipart/form-data">
+							<div class="row row-pd-md">
 								<c:set var="loop" value="true" />
 								<c:if test="${list.size() ne 0 }">
 									<c:forEach var="i" begin="${p.beginPerPage }" step="1"
@@ -87,55 +87,56 @@
 											<c:set var="loop" value="false" />
 										</c:if>
 										<c:if test="${loop }">
-											<div class="col-lg-4 mb-4 text-center">
-												<div class="product-entry border">
-													<a href="StoreProductDetail.st?product_num=${list[i].product_num}" class="prod-img"> <img
-														src="product_img_upload/${list[i].product_img}" class="img-fluid"
-														alt="Free html5 bootstrap 4 template">
+											<div class="col-lg-4 mb-4 text-center"">
+												<div style="width: 200px; height: 250px;">
+													<a
+														href="StoreProductDetail.st?product_num=${list[i].product_num}"
+														class="prod-img"> <img width="250" height="300"
+														src="product_img_upload/${list[i].product_img}"
+														class="img-fluid">
 													</a>
-												</div>	
-													<div class="desc">
-														<h3>
-															<a href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
-														</h3>
-														<h6>
-															${list[i].product_brand}
-														</h6>
-														
-														<h6>
-															<span class="price">${list[i].product_price}</span>원
-														</h6>
-													</div>
 												</div>
-											
+												<div class="desc">
+													<h3>
+														<a
+															href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
+													</h3>
+													<h6>${list[i].product_brand}</h6>
+
+													<h6>
+														<span class="price">${list[i].product_price}</span>원
+													</h6>
+												</div>
+											</div>
+
 										</c:if>
 									</c:forEach>
 								</c:if>
 								<!-- <div class="w-100"></div> -->
-								</div>
 							</div>
-							</form>
-						</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
-		<div class="gototop js-top">
-			<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
-		</div>
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+	</div>
 
-		<script src="template4/js/jquery.min.js"></script>
-		<script src="template4/js/popper.min.js"></script>
-		<script src="template4/js/bootstrap.min.js"></script>
-		<script src="template4/js/jquery.easing.1.3.js"></script>
-		<script src="template4/js/jquery.waypoints.min.js"></script>
-		<script src="template4/js/jquery.flexslider-min.js"></script>
-		<script src="template4/js/owl.carousel.min.js"></script>
-		<script src="template4/js/jquery.magnific-popup.min.js"></script>
-		<script src="template4/js/magnific-popup-options.js"></script>
-		<script src="template4/js/bootstrap-datepicker.js"></script>
-		<script src="template4/js/jquery.stellar.min.js"></script>
-		<script src="template4/js/main.js"></script>
+	<script src="template4/js/jquery.min.js"></script>
+	<script src="template4/js/popper.min.js"></script>
+	<script src="template4/js/bootstrap.min.js"></script>
+	<script src="template4/js/jquery.easing.1.3.js"></script>
+	<script src="template4/js/jquery.waypoints.min.js"></script>
+	<script src="template4/js/jquery.flexslider-min.js"></script>
+	<script src="template4/js/owl.carousel.min.js"></script>
+	<script src="template4/js/jquery.magnific-popup.min.js"></script>
+	<script src="template4/js/magnific-popup-options.js"></script>
+	<script src="template4/js/bootstrap-datepicker.js"></script>
+	<script src="template4/js/jquery.stellar.min.js"></script>
+	<script src="template4/js/main.js"></script>
 </body>
 </html>

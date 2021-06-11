@@ -116,16 +116,10 @@
 		</div>
 	</div>
 	<div class="row pb-3">
-		<form name="newProduct" action="AddCart.bo" class="form-horizontal"
-			method="post">
 			<div class="col d-grid">
-				<input id="${pdto.member_num}" type="hidden" name="member_num" /> <input
-					id="${pdto.product_num}" type="hidden" name="product_num" /> <input
-					id="${quantity}" type="hidden" name="quantity">
-				<button type="submit" class="btn btn-success btn-lg" name="submit"
-					value="buy">장바구니 담기</button>
+				 <input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" /> 
+				<button type="button" class="btn btn-success btn-lg" id="addbasket">장바구니 담기</button>
 			</div>
-		</form>
 	</div>
 	</section>
 
@@ -137,7 +131,7 @@
 	<script src="template1/assets/js/bootstrap.bundle.min.js"></script>
 	<script src="template1/assets/js/templatemo.js"></script>
 	<script src="template1/assets/js/custom.js"></script>
-
+	<script src="js/addbasket.js"></script>
 
 	<!-- 슬라이드 start 넣을꺼면 하고 남겨둠!  -->
 	<script src="template1/assets/js/slick.min.js"></script>

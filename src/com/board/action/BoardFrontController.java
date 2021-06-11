@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.receiver.action.ReceiverDelete;
 import com.receiver.action.ReceiverInfo;
 import com.receiver.action.ReceiverList;
-import com.store.action.AddCart;
 
 import action.Action;
 import action.ActionForward;
@@ -149,14 +148,6 @@ public class BoardFrontController extends HttpServlet {
         }else if (command.equals("/insertReview.bo")) {
             
             action = new insertReview();
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else if (command.equals("/AddCart.bo")) { //쇼핑몰 페이지에서 상품을 장바구니에 추가함
-            System.out.println(request.getParameter("member_num"));
-            action = new AddCart();
             try {
                 forward = action.execute(request, response);
             } catch (Exception e) {
