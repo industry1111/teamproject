@@ -72,7 +72,23 @@ public class MemberFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/Main.me")) {
+		}else if (command.equals("/MemberPopupLogin.me")) { //비로그인 상태에서 장바구니 버튼을 눌럿을때 나오는 로그인창
+			forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("popuplogin.jsp");
+		} else if (command.equals("/MemberPopupLoginAction.me")) { // 비로그인상태에서 장바구니버튼을 누르고 로그인을 했을 때, 
+																   // 로그인된 상태로 상품페이지를 다시 보여줌.
+																   // 로그인이 성공하면 로그인창은 자동으로 닫힘.
+			action = new MemberLoginAction();
+
+			try {
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}else if (command.equals("/Main.me")) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("index.jsp?center=main.jsp");
