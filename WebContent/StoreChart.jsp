@@ -182,18 +182,25 @@ var canvas = document.getElementById('chart').getContext("2d");
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>최근 리뷰</h6>
-						<c:forEach var="j" begin="0" step="1" end="2">
+						<h6>최근 작성된 리뷰</h6>
+							<c:set var="end" value="0"/>
+						<c:if test="${srlist.size() > 2 }">
+							<c:set var="end" value="2"/>
+						</c:if>
+						<c:if test="${srlist.size() <= 2 }">
+							<c:set var="end" value="${srlist.size()-1 }"/>
+						</c:if>
+						<hr><c:forEach var="j" begin="0" step="1" end="${end }" >
 							<div class="col-md-12" >
 								<div class="row">
-									<div class="col-md-12" style="border: 1px solid #dadada;">
-										${srlist[j].regdate }
+									<div class="col-md-12" style="font-size: 12px;" >
+									 	${end }<fmt:formatDate value="${srlist[j].regdate }" type="both" pattern="yyyy-MM-dd [E] a hh:mm:ss"/>
 									</div>
 									<div class="col-md-9"  onclick=""
-									style="border: 1px solid #dadada; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+									style=" text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-weight: bold; ">
 										${srlist[j].review_content}
 									</div>
-									<div class="col-md-3" style="border: 1px solid #dadada;;">
+									<div class="col-md-3" >
 									<c:set var="rating" value="0"/>
 										<fmt:formatNumber var="rating" value="${(srlist[j].rating1+srlist[j].rating2+srlist[j].rating3)/3}" pattern="0"/>
 												<div class="star-rating">
@@ -212,7 +219,7 @@ var canvas = document.getElementById('chart').getContext("2d");
 											
 									</div>
 								</div>
-							</div>
+							</div><hr>
 							</c:forEach>
 						
 					</div>

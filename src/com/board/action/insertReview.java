@@ -36,6 +36,7 @@ public class insertReview implements Action {
 		int product_num = Integer.parseInt(multipartRequest.getParameter("product_num"));
 		
 		int order_detail_num = Integer.parseInt(multipartRequest.getParameter("order_detail_num"));
+		System.out.println("order_detail_num: "+order_detail_num);
 		
 	
 		

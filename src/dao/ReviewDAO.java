@@ -53,8 +53,8 @@ public class ReviewDAO {
 				getCon();
 			
 				String sql = "insert into review (member_num,product_num,rating1,"
-						+ "rating2,rating3,review_content,regdate,review_img)"
-						+ "values(?,?,?,?,?,?,?,?)";
+						+ "rating2,rating3,review_content,regdate,review_img,store_num)"
+						+ "values(?,?,?,?,?,?,?,?,?)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, rvdto.getMember_num());
 				pstmt.setInt(2, rvdto.getProduct_num());
@@ -64,6 +64,7 @@ public class ReviewDAO {
 				pstmt.setString(6, rvdto.getReview_content());
 				pstmt.setTimestamp(7, rvdto.getRegdate());
 				pstmt.setString(8, rvdto.getReview_img());
+				pstmt.setInt(9, rvdto.getStore_num());
 				pstmt.executeUpdate();
 				
 				sql="update orders_detail set review_code = 1 where order_detail_num = "+order_detail_num;

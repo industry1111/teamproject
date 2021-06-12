@@ -25,7 +25,8 @@ public class WriteReviewAction implements Action {
 		
 		request.setAttribute("order_detail_num", order_detail_num);
 		request.setAttribute("pdto", pdto);
-
+		request.setAttribute("store_num", store_num);
+		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
 		forward.setPath("reviewForm.jsp");
