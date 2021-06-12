@@ -46,6 +46,32 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
+<script type="text/javascript">
+	function cancle_btn_click() {
+		window.close();
+	}
+	
+	$(document).ready(function(){
+		
+		$('input[name="radio"]').on("click",function () {
+	         
+	         var radioVal = $(this).val();
+	        $("#reportDetail").val(radioVal);
+	        
+		});
+		
+		 $('#detailText').on('keyup', function() {
+	            $('#test_cnt').html("("+$(this).val().length+" / 100)");
+	 
+	            if($(this).val().length > 100) {
+	                $(this).val($(this).val().substring(0, 100));
+	                $('#test_cnt').html("(100 / 100)");
+	            }
+	        });
+	});
+
+
+</script>
 
 <style type="text/css">
 input[type="text"] {
@@ -100,8 +126,9 @@ th {
 		</div>
 
 	<form action="ReportAction.st" name="form_report">
-	<input type="hidden" value="${sdto.store_num}" name="store_num">
-	<input type="hidden" value="${pdto.product_num}" name="product_num">
+		<input type="hidden" value="${sdto.store_num}" name="store_num">
+		<input type="hidden" value="${pdto.product_num}" name="product_num">
+		<input type="hidden" name="reportDetail" id="reportDetail">
 	<table align="center" style="margin-left: 18px" class="report_table">
 		<tr>
 			<th>
@@ -118,7 +145,26 @@ th {
 							스토어 이름 : <span style="color: darkblue">${sdto.store_name}</span><br>
 							상품명 : <span style="font-weight: bold;">${pdto.product_name}</span><br>
 							<span style="color: red; font-weight: bold; ">${pdto.product_price}</span>원<br>
-							카테고리 : ${pdto.category_name}
+							
+							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+								<c:if test="${pdto.category_name eq clist[i].category_name}">
+									<c:set var="code1" value="${clist[i].category_codeRef1}"/>
+									<c:set var="code2" value="${clist[i].category_codeRef2}"/>
+								</c:if>
+							</c:forEach>
+							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+								<c:if test="${code1 eq clist[i].category_code}">
+										${clist[i].category_name } >
+								</c:if>
+							</c:forEach>
+							<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+								<c:if test="${code2 eq clist[i].category_code}">
+										${clist[i].category_name } >
+								</c:if>
+							</c:forEach>
+							
+								${pdto.category_name}
+							
 						</div>
 					</div>
 					
@@ -131,7 +177,7 @@ th {
 			</th>
 			<td>
 				<div>
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<input type="radio" name="radio" value="0">불법 및 미취급 상품<br>
 						<input type="radio" name="radio" value="1">상품가격 다름<br>
 						<input type="radio" name="radio" value="2">품절, 스펙/구성품/부가정보 다름<br>
@@ -139,7 +185,8 @@ th {
 						<input type="radio" name="radio" value="4">직거래 유도, 에스크로 미적용 등 판매행위 위반<br>
 						<input type="radio" name="radio" value="5">기타<br>
 						<span style="color: red">신고사유에 개인정보가 포함되지 않도록 유의해주세요.</span><br>
-						<textarea style="width: 80%" placeholder="위 신고항목에 없거나 추가로 신고하시고자 하는 내용을 적어주세요." ></textarea>
+						<textarea cols="80" rows="3" name="detailText" id="detailText" style="width: 80%" placeholder="위 신고항목에 없거나 추가로 신고하시고자 하는 내용을 적어주세요." ></textarea>
+						<div id="test_cnt">(0 / 100)</div>
 					</div>
 				</div>
 			</td>
@@ -161,7 +208,7 @@ th {
 				</div>
 				
 				<div>
-					<input type="button" value="취소" name="cancle_btn" id="cancle_btn">
+					<input type="button" value="취소" name="cancle_btn" id="cancle_btn" onclick="cancle_btn_click();">
 				</div>
 			</div>
 		

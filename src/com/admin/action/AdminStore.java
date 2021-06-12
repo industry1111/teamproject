@@ -15,6 +15,7 @@ import action.PageDTO;
 import dao.sellerDAO;
 import dto.sellerDTO;
 import dao.boardDAO;
+import dto.ReportDTO;
 import dto.pagingDTO;
 
 public class AdminStore implements Action{
@@ -28,6 +29,10 @@ public class AdminStore implements Action{
 			//셀러정보를 가지고온다.
 			 List<sellerDTO> list = new sellerDAO().getSellerInfo();
 			//셀러정보를 전달하기 위해 
+			 
+			 //신고정보
+			 List<ReportDTO> rlist = new sellerDAO().getReportInfo();
+			 
 			 
 			//페이징 부분
 				String page = request.getParameter("page");
@@ -45,6 +50,7 @@ public class AdminStore implements Action{
 				}
 				
 			 request.setAttribute("list", list);
+			 request.setAttribute("rlist", rlist);
 			 request.setAttribute("p", pagedto);
 			 
 			 forward.setRedirect(false);

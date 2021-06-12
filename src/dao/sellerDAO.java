@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import com.store.action.Store_likeDTO;
 
+import dto.ReportDTO;
 import dto.sellerDTO;
 
 public class sellerDAO {
@@ -67,7 +68,7 @@ public class sellerDAO {
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
 				sdto.setJjim(rs.getInt("jjim"));
-
+				sdto.setReport_count(rs.getInt("report_count"));
 			}
 		} catch (Exception e) {
 			System.out.println("getSellerInfo:" + e.toString());
@@ -125,8 +126,8 @@ public class sellerDAO {
 			try {
 				
 				getCon();
-				String sql = "insert into seller (member_num,store_name,category_num,profile_img,template,account)"
-						+ " values(?,?,?,?,?,?)";
+				String sql = "insert into seller (member_num,store_name,category_num,profile_img,template,account,jjim,report_count)"
+						+ " values(?,?,?,?,?,?,0,0)";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, sdto.getMember_num());
 				pstmt.setString(2, sdto.getStore_name());
@@ -247,6 +248,7 @@ public class sellerDAO {
 					sdto.setTemplate(rs.getString("template"));
 					sdto.setMember_num(rs.getInt("member_num"));
 					sdto.setJjim(rs.getInt("jjim"));
+					sdto.setReport_count(rs.getInt("report_count"));
 					list.add(sdto);
 				}
 			} catch (Exception e) {
@@ -394,6 +396,81 @@ public class sellerDAO {
 
 	}
 	
+	//신고 
+	public void insertReport(ReportDTO dto){
+	    
+	    try {
+            
+	        getCon();
+	        
+	        String sql = "insert into report (store_num, product_num, reportDetail, detailText, member_num)"
+	                + " values (?,?,?,?,?)";
+	        
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setInt(1, dto.getStore_num());
+	        pstmt.setInt(2, dto.getProduct_num());
+	        pstmt.setString(3, dto.getReportDetail());
+	        pstmt.setString(4, dto.getDetailText());
+	        pstmt.setInt(5, dto.getMember_num());
+	        
+	        pstmt.executeUpdate();
+	        
+	        sql = "update seller set report_count = report_count + 1 where store_num = " + dto.getStore_num();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.executeUpdate();
+	        
+	        
+	        sql = "update product set report_count = report_count + 1 where product_num = " + dto.getProduct_num();
+	        
+	        pstmt = con.prepareStatement(sql);
+            pstmt.executeUpdate();
+            
+	        
+        } catch (Exception e) {
+           System.out.println("insertReport"+e.toString());
+            
+        }finally {
+            ResouceClose();
+        }
+	    
+	}
 	
+	//신고 정보 가져오기
+	public List<ReportDTO> getReportInfo(){
+	    
+	    List<ReportDTO> list = new ArrayList<ReportDTO>();
+	    
+	    try {
+            
+	        getCon();
+	        String sql = "select * from report";
+	        pstmt = con.prepareStatement(sql);
+	        rs = pstmt.executeQuery();
+	        
+	        while(rs.next()){
+	            
+	            ReportDTO dto = new ReportDTO();
+	            
+	            dto.setStore_num(rs.getInt("store_num"));
+	            dto.setProduct_num(rs.getInt("product_num"));
+	            dto.setMember_num(rs.getInt("member_num")); //신고한사람 member_num;
+	            dto.setReportDetail(rs.getString("reportDetail"));
+	            dto.setDetailText(rs.getString("DetailText"));
+	            dto.setReport_num(rs.getInt("report_num"));
+	            
+	            list.add(dto);
+	            
+	        }
+	   } catch (Exception e) {
+           
+           System.out.println("getReportInfo"+e.toString()); 
+            
+        }finally {
+            ResouceClose();
+        }
+	    
+	    return list;
+	    
+	}
 	
 }

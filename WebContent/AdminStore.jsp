@@ -94,7 +94,7 @@ input[type="text"] {
 							<span>Store_Name</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>Category_Num</span>
+							<span>Store_Info</span>
 						</div>
 						<!-- <div class="one-eight text-center px-4">
 							<span>모름</span>
@@ -110,13 +110,16 @@ input[type="text"] {
 						<c:if test="${loop }">
 						<div class="product-cart d-flex" align="center">
 							<div class="one-forth text-left px-4">
-							<a> <img src="images/product.png/${list[i].profile_img}"
+							<a> <img src="upload_profile/${list[i].profile_img}"
 									style="width: 100px; height: 100px;">
 								</a>
 							</div>
-							<div class="one-forth text-left px-4"">
+							<div class="one-forth text-left px-4">
 								<div class="display-tc">
-									<span class="price">${list[i].store_name}</span>
+									<span style="font-weight: bold;"	class="price">${list[i].store_name}</span>
+								<br><br>
+									찜 개수 : <span class="price">${list[i].jjim}</span><br>
+									신고 횟수 : <span class="price">${list[i].report_count}</span>
 								</div>
 							</div>
 							<div class="one-forth text-left px-4">
@@ -124,14 +127,14 @@ input[type="text"] {
 								<span class="price">${list[i].category_num}</span>								
 								</div>
 							</div>
-							<!-- <div class="one-eight text-center">
-								<div class="display-tc">
-									<select form="">
-										 <option value="">모름</option>
-										 <option value="">모름</option>
-										 </select>
-								</div>
-							</div>	 -->
+<!-- 							 <div class="one-eight text-center"> -->
+<!-- 								<div class="display-tc"> -->
+<!-- 									<select form=""> -->
+<!-- 										 <option value="">모름</option> -->
+<!-- 										 <option value="">모름</option> -->
+<!-- 										 </select> -->
+<!-- 								</div> -->
+<!-- 							</div>	 -->
 						</div>
 						</c:if>	
 					</c:forEach>
