@@ -1,6 +1,4 @@
 $(function() {
-	
-	
 	$(".edit_btn").on("click",function(){
 		$(this).parent().siblings('.state').removeAttr("disabled");
 
