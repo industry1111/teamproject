@@ -165,7 +165,6 @@ public class ReviewDAO {
 				
 		//판매자 스토어 관리 리뷰 3개보기
 				public List<reviewDTO> getStoreReviewList(int store_num) {
-					System.out.println("store_num:"+store_num);
 					List<reviewDTO> list = new ArrayList<reviewDTO>();
 					try {
 						getCon();

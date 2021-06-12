@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.order.action.OrderDetail;
+import com.order.action.OrderDetailDTO;
 import com.product.action.productDTO;
 
 import dto.CartDTO;
@@ -491,6 +493,30 @@ public class boardDAO {
 		} finally {
 			ResouceClose();
 		}
+	}
+	public List<OrderDetailDTO> getSalesRate(int store_num,int day){
+		List<OrderDetailDTO> list = new ArrayList<OrderDetailDTO>();
+		try {
+			getCon();
+			String sql = null;
+			for(int i=0;i<5;i++) {
+				sql = "select count(order_detail_num) count,sum(product_price) total from orders_detail where store_num = "+store_num+" and orders_code like '"+(day-i)+"%'";
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					OrderDetailDTO odto = new OrderDetailDTO();
+					odto.setCount(rs.getInt("count"));
+					odto.setTotal(rs.getInt("total"));
+					list.add(odto);
+				}
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getSalesRate:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		return list;
 	}
 	
 

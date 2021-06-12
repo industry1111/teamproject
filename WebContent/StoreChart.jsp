@@ -91,21 +91,29 @@ h6 {
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		var count = ${count}
+		var total = ${total}
+		var today = new Date();   
+		var year = today.getFullYear(); // 년도
+		var month = today.getMonth() + 1;  // 월
+		var date = today.getDate();  // 날짜
+		
+		var day = year+"-"+month+"-";
 		var canvas = document.getElementById('chart').getContext("2d");
 		new Chart(canvas, {
 			type : 'bar',
 			data : {
-				labels : [ '5', '4', '3', '2', '1' ],
+				labels : [ day+(date-4), day+(date-3), day+(date-2), day+(date-1), day+date ],
 				datasets : [ {
-					label : '주문 수',
-					yAxisID : 'A',
-					data : [ 5, 4, 3, 4, 7 ]
-				}, {
 					label : '판매 금액(원)',
+					yAxisID : 'A',
+					data : [ total[4], total[3], total[2], total[1],total[0] ]
+				}, {
+					label : '주문 수',
 					type : 'line',
 					yAxisID : 'B',
-					data : [ 50000, 40000, 100000, 33300, 70000 ],
+					data : [count[4], count[3], count[2],count[1], count[0] ],
+					
 					lineTension : 0.3,
 					fill : false,
 					borderColor : 'lightblue',
@@ -120,18 +128,16 @@ h6 {
 						id : 'A',
 						type : 'linear',
 						position : 'left',
-						ticks : {
-							max : 50,
-							min : 0
-						}
+						ticks: {
+				            stepSize: 1000	
+					    }
 					}, {
 						id : 'B',
 						type : 'linear',
 						position : 'right',
-						ticks : {
-							max : 100000,
-							min : 0
-						}
+						ticks: {
+				            stepSize: 1
+					    }
 					} ]
 				},
 				annotation : {
@@ -145,7 +151,7 @@ h6 {
 						label : {
 							enabled : false,
 							content : 'Test label'
-						}
+						},
 					} ]
 				}
 			}

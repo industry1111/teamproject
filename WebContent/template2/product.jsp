@@ -108,10 +108,68 @@
 						</div>
 					</div>
 					<!-- 상품상세보기 끝 -->
+					<!-- 상품 리뷰  -->
+					<div class="row">
+						<div class="col-md-12">
+							<hr>
+							<h3>상품 리뷰</h3>
+							<div class="row" style="margin-top: 30px; background-color:#f7fafc; height:300px;" align="center">
+								<div class="col-md-4" style="margin-top: 30px;">
+									사용자 총 평점
+								</div>
+								<div class="col-md-4" style="margin-top: 30px;">
+									전체 리뷰 수
+								</div>
+								<div class="col-md-4" style="margin-top: 30px;">
+									평점 비율
+								</div>
+							</div>
+							<div class="row" style="margin-top: 30px; height: 70px; border: 1px solid gray;" >
+								<div class="col-md-12" style="margin-top: 20px;">
+									<ul >
+										<a href="#"><li style="float: left;" >전체()</li></a>
+										<a href="#"><li style="float: left; margin-left: 180px;">5점()</li></a>
+										<a href="#"><li style="float: left; margin-left: 180px;">4점()</li></a>
+										<a href="#"><li style="float: left; margin-left: 180px;">3점()</li></a>
+										<a href="#"><li style="float: left; margin-left: 180px;">2점()</li></a>
+										<a href="#"><li style="float: left; margin-left: 180px;">1점()</li></a>
+									</ul>
+								</div>
+							</div>
+							<c:forEach var="i" begin="0" step="1" end="5">
+								<div class="row" style="margin-top: 40px;">
+									<div class="col-md-10">
+										별점/숫자<br>
+										아이디(앞4글자+****)/리뷰 등록날짜
+									</div>
+									<div class="col-md-2">
+										답변달기
+									</div>
+								</div>
+								<div class="row" style="margin-top: 10px;">
+									<div class="col-md-8">
+										리뷰내용
+									</div>
+									<div class="col-md-2 offset-2">
+										<img alt="" src="" width="100%" height="150px;">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-5">
+										판매자/답변등록일
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										판매자 답변
+									</div>
+								</div>
+								<hr>
+						</c:forEach>
+					</div>
 				</div>
+				<!-- Q&A  -->
 			</div>
-		</div>
-		</div>
 	</form>
 
 
