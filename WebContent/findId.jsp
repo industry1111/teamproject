@@ -24,8 +24,7 @@
 	font-size: 15px;
 	font-weight: bold;
 	position: absolute;
-	bottom: 8px;
-	right: 16px;
+	text-align: right;
 	text-decoration: none;
 	text-shadow: 0px 1px 0px #ffffff;
 }
@@ -46,10 +45,16 @@
 				<form class="login100-form validate-form" action="" >
 					<div class="wrap-input100 validate-input m-b-26" data-validate="your Email is required">
 						<span class="label-input100">Email</span> 
-						<input class="input100"
-							type="text" id="email" name="email" placeholder="Enter your Email"><button ></button>
+						<input class="input100" type="text" id="email" name="email" placeholder="Enter your Email">
 						<span class="focus-input100"></span>
 					</div>
+						<p>After entering your Email,click the Send button.</p>
+						<br>	<br>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="button" style="text-align: right;">Send</button></div>
+					
+					<div class="col-md-12"></div>
+					<br> <br>
 					
 					<div class="wrap-input100 validate-input m-b-18" data-validate="AuthNumber is required">
 						<span class="label-input100">Authentication <br> Code&nbsp;Number</span> 
