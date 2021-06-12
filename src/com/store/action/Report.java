@@ -11,7 +11,9 @@ import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
+import dao.boardDAO;
 import dao.sellerDAO;
+import dto.categoryDTO;
 import dto.sellerDTO;
 
 public class Report implements Action{
@@ -27,10 +29,13 @@ public class Report implements Action{
 		productDAO pdao = new productDAO();
 		productDTO pdto = pdao.getProductInfo(product_num);
 		sellerDTO sdto = sdao.getSellerInfo(pdto.getMember_num());
-		System.out.println("스토어이름 : " + sdto.getStore_name());
+		 List<categoryDTO> clist = new boardDAO().getcategory();
+	        
+		
 		request.setAttribute("sdto", sdto);
 		request.setAttribute("pdto", pdto);
-	
+		request.setAttribute("clist", clist);
+		
 		ActionForward forward = new ActionForward();
 		forward.setPath("report.jsp");
 		forward.setRedirect(false);

@@ -107,7 +107,6 @@ public class SelectProductList extends HttpServlet{
 			product_description = product_description.replaceAll("\r\n", " ");
 			String store_name = pdto.getStore_name();
 			int store_num = pdto.getStore_num();
-			System.out.println(store_num);
 			String profile_img = pdto.getProfile_img();
 			String template = pdto.getTemplate();
 			int category_num = pdto.getCategory_num();
@@ -116,12 +115,13 @@ public class SelectProductList extends HttpServlet{
 			int category_coderef1 = pdto.getCategory_coderef1();
 			int category_coderef2 = pdto.getCategory_coderef2();
 			int category_code = pdto.getCategory_code1();
+			int product_num = pdto.getProduct_num();
 
 			json+="{\"product_img\":\""+product_img+"\",\"category_name\":\""+category_name+"\",\"product_name\":\""+product_name+"\",\"category_name\":\""+category_name+"\","
 					+ "\"product_description\":\""+product_description+"\",\"store_name\":\""+store_name+"\",\"store_num\":\""+store_num+"\","
 					+ "\"profile_img\":\""+profile_img+"\",\"template\":\""+template+"\",\"category_num\":\""+category_num+"\",\"product_price\":\""+product_price+"\""
 					 + ",\"regdate\":\""+regdate+"\",\"category_coderef1\":\""+category_coderef1+"\""
-					 		+ ",\"category_coderef2\":\""+category_coderef2+"\",\"category_code1\":\""+category_code+"\"}";
+					 		+ ",\"category_coderef2\":\""+category_coderef2+"\",\"category_code1\":\""+category_code+"\",\"product_num\":\""+product_num+"\"}";
 			if(i !=plist.size()-1) {
 				json+=",";
 			}

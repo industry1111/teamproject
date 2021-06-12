@@ -70,7 +70,24 @@ public class StoreFrontController extends HttpServlet { //스토어 및 상품�
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		}else if (command.equals("/ReportLogin.st")) { //신고하기 로그인
+		    int product_num = Integer.parseInt(request.getParameter("product_num"));
+		    forward = new ActionForward();
+            forward.setRedirect(true);
+            forward.setPath("./reportLogin.jsp?product_num="+product_num);
+            
+        }else if (command.equals("/ReportLoginAcion.st")) { //신고하기 로그인액션
+            
+         // 로그인 처리를 위한 Action객체 생성
+            action = new ReportLoginAction();
+
+            try {
+                forward = action.execute(request, response);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } 
+        }
 		
 		
 		
