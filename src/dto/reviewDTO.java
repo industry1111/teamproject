@@ -9,12 +9,19 @@ public class reviewDTO {
 	private int rating1;
 	private int rating2;
 	private int rating3;
-	private String review_title;
 	private String review_content;
 	private Timestamp regdate;
 	private String review_img;
+	private int store_num;
 	
 
+	
+	public int getStore_num() {
+		return store_num;
+	}
+	public void setStore_num(int store_num) {
+		this.store_num = store_num;
+	}
 	public int getReview_num() {
 		return review_num;
 	}
@@ -50,12 +57,6 @@ public class reviewDTO {
 	}
 	public void setRating3(int rating3) {
 		this.rating3 = rating3;
-	}
-	public String getReview_title() {
-		return review_title;
-	}
-	public void setReview_title(String review_title) {
-		this.review_title = review_title;
 	}
 	public String getReview_content() {
 		return review_content;

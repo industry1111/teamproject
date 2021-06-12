@@ -431,6 +431,76 @@ public class memberDAO {
 		return mdto;
 	}
 	
+
+	//멤버 state update
+	public void MemberStateUpdate(int member_num, int member_code){
+		
+		try {
+			getCon();
+			
+			String sql = "update member set member_code = ? where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_code);
+			pstmt.setInt(2, member_num);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("MemberStateUpdate"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+	}
+
+	//회원 아이디 찾기 
+	public String findId(String email) {
+		String id = null;
+		
+		try {
+			getCon();
+			String sql = "select id * from member where email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
 	
+			if (rs.next()) {
+				id = rs.getString("member.email");
+			}
+		} catch (Exception e) {
+			System.out.println("findId:" + e.toString());
+		} finally {
+			ResouceClose();
+		}
+	
+		return id;
+
+	}
+	
+	//회원 비밀번호찾기
+		public String findPw(String name, String email) {
+			String pw = null;
+			
+			try {
+				getCon();
+				String sql = "select pw * from member where name = ? and" + " email = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, name);
+				pstmt.setString(2, email);
+				rs = pstmt.executeQuery();
+		
+				if (rs.next()) {
+					pw = rs.getString("member.name");
+				
+				if (rs.next())
+					pw = rs.getString("member.email");
+
+				}
+			} catch (Exception e) {
+				System.out.println("findPw:" + e.toString());
+			} finally {
+				ResouceClose();
+			}
+		
+			return pw;
+		}
 
 }// memberDAO

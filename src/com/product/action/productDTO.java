@@ -28,9 +28,26 @@ public class productDTO {
 	private int category_coderef1;
 	private int category_coderef2;
 	
+	private String orders_code;
+	private int order_detail_num;
+	
+	
+	public String getOrders_code() {
+		return orders_code;
+	}
+	public void setOrders_code(String orders_code) {
+		this.orders_code = orders_code;
+	}
+	
 	
 	public int getProduct_num() {
 		return product_num;
+	}
+	public int getOrder_detail_num() {
+		return order_detail_num;
+	}
+	public void setOrder_detail_num(int order_detail_num) {
+		this.order_detail_num = order_detail_num;
 	}
 	public void setProduct_num(int product_num) {
 		this.product_num = product_num;

@@ -90,28 +90,37 @@ input[type="text"]:focus {
 					</div>
 				</div>
 			</div>
+			<c:if test="${rvlist.size() eq 0 }">
+				<div class="row">
+					<div class="col-md-12">작성한 리뷰가 없습니다.</div>
+				</div>
+			</c:if>
 			<c:set var="loop" value="true" />
-			<c:if test="${plist.size() ne 0 }">
+			<c:if test="${rvlist.size() ne 0 }">
 				<c:forEach var="i" begin="${p.beginPerPage }" step="1"
 					end="${p.endPerPage}">
 					<c:if test="${p.total == i }">
 						<c:set var="loop" value="false" />
 					</c:if>
 					<c:if test="${loop }">
+					<c:set var="loop2" value="true" />
+					<c:forEach var="j" items="${pdlist[j] }">
+						<c:if test="${pdlist.productnum eq rvlist[i].product_num }"></c:if>
+					</c:forEach>
 						<div class="row">
 							<div class="col-md-12">
 								<div class="row">
 									<div class="col-md-1">
-										<img src="product_img_upload/${plist[i].product_img}"
+										<img src="product_img_upload/${pdlist[i].product_img}"
 											alt="스토어 사진" style="width: 50px; height: 50px;">
 									</div>
 									<div class="col-md-4">
-										${plist[i].product_name }<br>
-										${plist[i].product_description }
+										${pdlist[i].product_name }<br>
+										${pdlist[i].product_description }
 									</div>
 
 									<c:forEach var="rvlist" items="${rvlist }">
-										<c:if test="${plist[i].product_num eq rvlist.product_num}">
+										<c:if test="${pdlist[i].product_num eq rvlist.product_num}">
 											<div class="col-md-1 offset-6">
 
 												<a id="deleteReview"
@@ -132,7 +141,7 @@ input[type="text"]:focus {
 								<c:if test="${rvlist.size() ne 0 }">
 									<c:forEach var="rvlist" items="${rvlist }">
 										<c:set var="j" value="${j+1 }" />
-										<c:if test="${plist[i].product_num eq rvlist.product_num}">
+										<c:if test="${pdlist[i].product_num eq rvlist.product_num}">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="row">
@@ -163,7 +172,7 @@ input[type="text"]:focus {
 														<div class="col-md-7 offset-1">
 
 
-															${rvlist.review_title}<br> ${rvlist.review_content }
+															${rvlist.review_content }<br> ${rvlist.review_content }
 
 														</div>
 														<div class="col-md-3" align="right">

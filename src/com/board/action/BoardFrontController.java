@@ -130,11 +130,17 @@ public class BoardFrontController extends HttpServlet {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
 		}else if (command.equals("/StoreChart.bo")) {
-			forward = new ActionForward();
-			forward.setPath("mypage.jsp");
-			forward.setRedirect(false);
-			request.setAttribute("center", "StoreChart.jsp");
+			action = new StoreReview();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+		
 		}else if (command.equals("/payment.bo")) {
             
             action = new PaymentInfo();
@@ -146,14 +152,6 @@ public class BoardFrontController extends HttpServlet {
                 e.printStackTrace();
             }
         }else if (command.equals("/insertReview.bo")) {
-            
-            action = new insertReview();
-            try {
-                forward = action.execute(request, response);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else if (command.equals("/AddCart.bo")) { //쇼핑몰 페이지에서 상품을 장바구니에 추가함
             
             action = new insertReview();
             try {

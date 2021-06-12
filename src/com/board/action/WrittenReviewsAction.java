@@ -1,11 +1,14 @@
 package com.board.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.order.action.OrderDAO;
+import com.order.action.OrderDTO;
 import com.product.action.productDAO;
 import com.product.action.productDTO;
 
@@ -28,17 +31,27 @@ public class WrittenReviewsAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
-		
-		productDAO pdao = new productDAO();
-		List<productDTO> plist= pdao.getProductList2(member_num);
-		request.setAttribute("plist", plist);
+	
+		OrderDAO odao = new OrderDAO();
+		List<String> order = new ArrayList<String>();
+		List<OrderDTO> odlist = odao.getOrderInfo(member_num);
+		List<productDTO> pdlist = new ArrayList<productDTO>();
+		if(odlist.size() > 0){
+			for(int i=0; i<odlist.size(); i++){
+				OrderDTO odto=(OrderDTO)odlist.get(i);
+				String Orders_code= odto.getOrders_code();
+				order.add(Orders_code);
+			} 
+			
+			pdlist = odao.getOrderProduct(order);
+			request.setAttribute("pdlist", pdlist);
+		}
 		
 		ReviewDAO rvdao = new ReviewDAO();
 		List<reviewDTO> rvlist= rvdao.getReviewList(member_num);
 		request.setAttribute("rvlist", rvlist);
 		
-		System.out.println(plist.size());
-		System.out.println(rvlist.size());
+		
 		
 		//페이징 부분
 		String page = request.getParameter("page");
@@ -49,14 +62,14 @@ public class WrittenReviewsAction implements Action{
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
 			cri = new Criteria(nowPage, numPerPage);
-			pagedto = new PageDTO(cri, plist.size());
+			pagedto = new PageDTO(cri, rvlist.size());
 		}else{
 			cri = new Criteria(numPerPage);
-			pagedto = new PageDTO(cri, plist.size());
+			pagedto = new PageDTO(cri, rvlist.size());
 		}
 				
 		request.setAttribute("p", pagedto);
-		request.setAttribute("plist", plist);
+		request.setAttribute("rvlist", rvlist);
 		
 		
 		request.setAttribute("center", "writtenReviews.jsp");

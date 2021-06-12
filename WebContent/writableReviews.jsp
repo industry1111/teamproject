@@ -41,9 +41,8 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
- function add_onclick(product_num){
-    //이름은 중복창 제어용
-    child = window.open("reviewForm.bo?product_num="+product_num,"child","width=500,height=800");
+ function add_onclick(product_num,order_detail_num){
+    child = window.open("reviewForm.bo?product_num="+product_num+"&order_detail_num="+order_detail_num,"&store_num="+store_num,"child","width=500,height=800");
 };//click
 
 
@@ -95,8 +94,11 @@ input[type="text"]:focus {
 			<div class="row ">
 				<div class="col-md-12">
 					<div class="product-name d-flex " align="center">
-						<div class="col-md-2">작성 가능한 리뷰</div>
+						<div class="col-md-2">작성 가능한 리뷰${pdlist.size() }</div>
 					</div>
+					<c:if test="${plist.size() eq null }">
+						주문하신 상품이 없습니다.
+					</c:if>
 					<c:set var="loop" value="true" />
 					<c:if test="${plist.size() ne 0 }">
 						<c:forEach var="i" begin="${p.beginPerPage }" step="1"
@@ -107,24 +109,27 @@ input[type="text"]:focus {
 							<c:if test="${loop }">
 								<div class="row">
 									<div class="col-md-2">
-										<img src="product_img_upload/${odlist[i].image}"
+										<img src="product_img_upload/${pdlist[i].product_img}"
 											style="width: 100px; height: 100px;">
 									</div>
 									<div class="col-md-8" style="margin-top: 15px;">
-										<div class="row">
-											<div class="col-md-2">${odlist[i].product_price }</div>
+									<div class="row">
+											<div class="col-md-2">${pdlist[i].regdate }</div>
 										</div>
 										<div class="row">
-											<div class="col-md-6">${odlist[i].orders_code }</div>
+											<div class="col-md-2">${pdlist[i].product_name }</div>
 										</div>
 										<div class="row">
-											<div class="col-md-4">${plist[i].product_name }</div>
+											<div class="col-md-6">${pdlist[i].product_description }</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">${pdlist[i].store_name}</div>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<input type="button" value="리뷰쓰기" id="add_review"
 											class="myButton"
-											onclick="add_onclick(${odlist[i].product_num});">
+											onclick="add_onclick(${pdlist[i].product_num},${pdlist[i].order_detail_num },${pdlist[i].store_num });">
 									</div>
 								</div>
 								<hr>

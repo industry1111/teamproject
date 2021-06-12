@@ -31,14 +31,14 @@ public class AdminService implements Action{
 			if(page != null){
 				int nowPage = Integer.parseInt(request.getParameter("nowPage"));
 				cri = new Criteria(nowPage, numPerPage);
-				pagedto = new PageDTO(cri, list.size());
+				//pagedto = new PageDTO(cri, list.size());
 			}else{
 				cri = new Criteria(numPerPage);
-				pagedto = new PageDTO(cri, list.size());
+				//pagedto = new PageDTO(cri, list.size());
 			}
 			
-			request.setAttribute("list", list);
-			request.setAttribute("p", pagedto);
+			//request.setAttribute("list", list);
+			//request.setAttribute("p", pagedto);
 			
 	        forward.setRedirect(false);
 	        forward.setPath("AdminService.jsp");

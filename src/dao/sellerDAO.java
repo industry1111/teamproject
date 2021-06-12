@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.store.action.Store_likeDTO;
+
 import dto.sellerDTO;
 
 public class sellerDAO {
@@ -64,6 +66,7 @@ public class sellerDAO {
 				sdto.setStore_name(rs.getString("store_name"));
 				sdto.setProfile_img(rs.getString("profile_img"));
 				sdto.setTemplate(rs.getString("template"));
+				sdto.setJjim(rs.getInt("jjim"));
 
 			}
 		} catch (Exception e) {
@@ -243,6 +246,7 @@ public class sellerDAO {
 					sdto.setProfile_img(rs.getString("profile_img"));
 					sdto.setTemplate(rs.getString("template"));
 					sdto.setMember_num(rs.getInt("member_num"));
+					sdto.setJjim(rs.getInt("jjim"));
 					list.add(sdto);
 				}
 			} catch (Exception e) {
@@ -282,8 +286,8 @@ public class sellerDAO {
 			String sql = "insert into store_like (store_num, member_num) "
 					+ " values(?,?)";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, member_num);
-			pstmt.setInt(2, store_num);
+			pstmt.setInt(1, store_num);
+			pstmt.setInt(2, member_num);
 			pstmt.executeUpdate();
 			
 		} catch (Exception e) {
@@ -295,4 +299,101 @@ public class sellerDAO {
 		}
 
 	}
+	
+	public void deleteStore_like(int member_num, int store_num){
+		
+		try {
+			
+			getCon();
+			
+			String sql = "delete store_like from store_like where member_num = ? and store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			pstmt.setInt(2, store_num);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			
+			System.out.println("deleteStore_like" + e.toString());
+			
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	//찜 리스트
+	public List<Store_likeDTO> getStore_like(int member_num){
+		
+		List<Store_likeDTO> list = new ArrayList<Store_likeDTO>();
+		
+		try {
+			
+			getCon();
+			
+			String sql = "select * from store_like where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				Store_likeDTO dto = new Store_likeDTO();
+				
+				dto.setStore_num(rs.getInt("store_num"));
+				dto.setMember_num(rs.getInt("member_num"));
+				
+				list.add(dto);
+				
+			}
+
+		} catch (Exception e) {
+			System.out.println("getStore_like"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		
+			return list;
+
+	}
+	
+	//찜 증가
+	public void StorejjimCountUp(int store_num){
+		
+		try {
+			
+			getCon();
+			String sql = "update seller set jjim = jjim + 1 where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println("StorejjimCountUp"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	public void StorejjimCountDown(int store_num){
+		
+		try {
+			
+			getCon();
+			String sql = "update seller set jjim = jjim - 1 where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.executeUpdate();
+			System.out.println(sql);
+		} catch (Exception e) {
+			System.out.println("StorejjimCountDown"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+
+	}
+	
+	
+	
 }

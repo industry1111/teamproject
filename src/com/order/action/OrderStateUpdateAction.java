@@ -27,9 +27,7 @@ public class OrderStateUpdateAction extends HttpServlet{
 		
 		int order_detail_num =  Integer.parseInt(request.getParameter("order_detail_num"));
 		String state = request.getParameter("state");
-		System.out.println(state + ", " +order_detail_num);
 		OrderDAO dao = new OrderDAO();
-		
 		dao.OrderStateUpdate(state, order_detail_num);
 
 		

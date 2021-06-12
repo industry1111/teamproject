@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -177,11 +178,43 @@ var canvas = document.getElementById('chart').getContext("2d");
 						<h6>주문 및 판매 	금액</h6>
 						<canvas id="chart"></canvas>
 					</div>
+					
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>두번째 화면</h6>
-						<input type="button" value="버튼" id="button" class="myButton">
+						<h6>최근 리뷰</h6>
+						<c:forEach var="j" begin="0" step="1" end="2">
+							<div class="col-md-12" >
+								<div class="row">
+									<div class="col-md-12" style="border: 1px solid #dadada;">
+										${srlist[j].regdate }
+									</div>
+									<div class="col-md-9"  onclick=""
+									style="border: 1px solid #dadada; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+										${srlist[j].review_content}
+									</div>
+									<div class="col-md-3" style="border: 1px solid #dadada;;">
+									<c:set var="rating" value="0"/>
+										<fmt:formatNumber var="rating" value="${(srlist[j].rating1+srlist[j].rating2+srlist[j].rating3)/3}" pattern="0"/>
+												<div class="star-rating">
+													<c:forEach var="i" begin="1" step="1" end="5">
+														<c:if test="${rating != 6-i }">
+															<input type="radio" id="${6-i }-stars"	name="rating${j }" value="${6-i }" disabled />
+															<label for="${6-i }-stars" class="star">&#9733;</label>
+														</c:if>
+														<c:if test="${rating == 6-i }">
+															<input type="radio" id="${6-i }-stars"	name="rating${j }" value="${6-i }" checked disabled />
+															<label for="${6-i }-stars" class="star">&#9733;</label>
+														</c:if>
+													</c:forEach>
+														
+												</div>
+											
+									</div>
+								</div>
+							</div>
+							</c:forEach>
+						
 					</div>
 				</div>
 				<div class="row" style="margin-top: 10px; height: 400px;">

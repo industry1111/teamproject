@@ -31,6 +31,7 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
+<script src="js/addbasket.js"></script>
 </head>
 <body>
 
@@ -42,34 +43,14 @@
 
 					<div
 						class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-						<form action="" class="site-block-top-search">
-							<span class="icon icon-search2"></span> <input type="text"
-								class="form-control border-0" placeholder="Search">
-						</form>
 					</div>
 		
 					<div
 						class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
 						<div class="site-logo">
-							<a href="index.html" class="js-logo-clone">${pdto.store_name}</a>
+							<a href="StoreProductListAction.st?store_num=${pdto.store_num}" class="js-logo-clone">${pdto.store_name}</a>
 						</div>
 					</div>
-
-					<div class="col-6 col-md-4 order-3 order-md-3 text-right">
-						<div class="site-top-icons">
-							<ul>
-								<li><a href="#"><span class="icon icon-person"></span></a></li>
-								<li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-								<li><a href="cart.html" class="site-cart"> <span
-										class="icon icon-shopping_cart"></span> <span class="count">2</span>
-								</a></li>
-								<li class="d-inline-block d-md-none ml-md-0"><a href="#"
-									class="site-menu-toggle js-menu-toggle"><span
-										class="icon-menu"></span></a></li>
-							</ul>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>
@@ -100,38 +81,17 @@
 							<p>${pdto.product_description}</p>
 							<p class="mb-4">${pdto.product_brand}</p>
 							<p>
-								<strong class="text-primary h4">${pdto.product_price}</strong>
+								<strong class="text-primary h4">${pdto.product_price} 원</strong>
 							</p>
-							<div class="mb-1 d-flex">
-								<label for="option-sm" class="d-flex mr-3 mb-3"> <span
-									class="d-inline-block mr-2"
-									style="top: -2px; position: relative;"><input
-										type="radio" id="option-sm" name="shop-sizes"></span> <span
-									class="d-inline-block text-black">옵션1</span>
-								</label> <label for="option-md" class="d-flex mr-3 mb-3"> <span
-									class="d-inline-block mr-2"
-									style="top: -2px; position: relative;"><input
-										type="radio" id="option-md" name="shop-sizes"></span> <span
-									class="d-inline-block text-black">옵션2</span>
-								</label> <label for="option-lg" class="d-flex mr-3 mb-3"> <span
-									class="d-inline-block mr-2"
-									style="top: -2px; position: relative;"><input
-										type="radio" id="option-lg" name="shop-sizes"></span> <span
-									class="d-inline-block text-black">옵션3</span>
-								</label> <label for="option-xl" class="d-flex mr-3 mb-3"> <span
-									class="d-inline-block mr-2"
-									style="top: -2px; position: relative;"><input
-										type="radio" id="option-xl" name="shop-sizes"></span> <span
-									class="d-inline-block text-black">옵션4</span>
-								</label>
-							</div>
+
 							<div class="mb-5">
 								<div class="input-group mb-3" style="max-width: 120px;">
 									<div class="input-group-prepend">
 										<button class="btn btn-outline-primary js-btn-minus"
 											type="button">&minus;</button>
 									</div>
-									<input type="text" class="form-control text-center" value="1"
+									<input type="text" class="form-control text-center" 
+										id="quantity" name="quantity" value="1"
 										placeholder="" aria-label="Example text with button addon"
 										aria-describedby="button-addon1">
 									<div class="input-group-append">
@@ -142,8 +102,8 @@
 
 							</div>
 							<p>
-								<a href="cart.html" class="buy-now btn btn-sm btn-primary">Add
-									To Cart</a>
+							<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+							<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
 							</p>
 						</div>
 

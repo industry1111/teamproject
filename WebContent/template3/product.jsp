@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="template3/style.css">
 
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="js/addbasket.js"></script>
 </head>
 
 <body>
@@ -50,10 +51,6 @@
 			<div class="amado-navbar-brand">
 				<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
 			</div>
-			<!-- Navbar Toggler -->
-			<div class="amado-navbar-toggler">
-				<span></span><span></span><span></span>
-			</div>
 		</div>
 
 		<!-- Header Area Start -->
@@ -63,8 +60,10 @@
 		</div>
 		<!-- Logo -->
 		<div class="logo">
-			<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-		</div>
+					<a href="StoreProductListAction.st?store_num=${pdto.store_num}">
+						<h2> <font color="#FFBB00">${pdto.store_name }</font><h2>
+					</a>
+				</div>
 		</header>
 		<!-- Header Area End -->
 
@@ -95,8 +94,8 @@
 							<!-- Product Meta Data -->
 							<div class="product-meta-data">
 								<div class="line"></div>
-								<p class="product-price">${pdto.product_price}원</p>
-								<h6>${pdto.product_name}</h6>
+								<p class="product-price">${pdto.product_price} 원</p>
+								<h5>${pdto.product_name}</h5>
 							</div>
 						</div>
 
@@ -108,21 +107,17 @@
 						<form class="cart clearfix" method="post">
 							<div class="cart-btn d-flex mb-50">
 								<p>구매 수량</p>
-								<div class="quantity">
-									<span class="qty-minus"
-										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i
-										class="fa fa-caret-down" aria-hidden="true"></i></span> <input
-										type="number" class="qty-text" id="qty" step="1" min="1"
-										max="300" name="quantity" value="1"> <span
-										class="qty-plus"
-										onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i
-										class="fa fa-caret-up" aria-hidden="true"></i></span>
+								<div class="quantity" style="margin-left: 10px;">
+									 <input type="number" class="qty-text" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;"> 
 								</div>
 							</div>
-							<button type="submit" name="addtocart" value="5"
-								class="btn amado-btn">구매하기</button>
-							<a href="StoreProductListAction.st?store_num=${pdto.store_num}">뒤로가기</a>
-
+							<div>
+							<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+							<button type="button" id="addbasket" class="btn amado-btn" style="margin-bottom: 20px;">장바구니 담기</button>
+							</div>
+								<a type="button" class="btn amado-btn" href="StoreProductListAction.st?store_num=${pdto.store_num}">
+									상품목록으로 가기
+								</a>
 						</form>
 					</div>
 				</div>
