@@ -36,6 +36,7 @@ public class WrittenReviewsAction implements Action{
 		List<String> order = new ArrayList<String>();
 		List<OrderDTO> odlist = odao.getOrderInfo(member_num);
 		List<productDTO> pdlist = new ArrayList<productDTO>();
+		
 		if(odlist.size() > 0){
 			for(int i=0; i<odlist.size(); i++){
 				OrderDTO odto=(OrderDTO)odlist.get(i);
@@ -43,7 +44,7 @@ public class WrittenReviewsAction implements Action{
 				order.add(Orders_code);
 			} 
 			
-			pdlist = odao.getOrderProduct(order);
+			pdlist = odao.getWrittenReviewProduct(order);
 			request.setAttribute("pdlist", pdlist);
 		}
 		
@@ -57,7 +58,7 @@ public class WrittenReviewsAction implements Action{
 		String page = request.getParameter("page");
 		Criteria cri;
 		PageDTO pagedto;
-		int numPerPage = 5;
+		int numPerPage = 10;
 				
 		if(page != null){
 			int nowPage = Integer.parseInt(request.getParameter("nowPage"));

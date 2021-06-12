@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -90,68 +90,67 @@ h6 {
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script type="text/javascript">
-$(function(){
-	
-var canvas = document.getElementById('chart').getContext("2d");
-    new Chart(canvas, {
-      type: 'bar',
-      data: {
-        labels: ['5', '4', '3', '2', '1'],
-        datasets: [{
-          label: '주문 수',
-          yAxisID: 'A',
-          data: [5, 4, 3, 4, 7]
-        }, {
-          label: '판매 금액(원)',
-          type: 'line',
-          yAxisID: 'B',
-          data: [50000, 40000, 100000, 33300, 70000],
-            lineTension: 0.3,
-            fill: false,
-            borderColor: 'lightblue',
-            backgroundColor: 'transparent',
-            pointBorderColor: 'lightblue',
-            pointBackgroundColor: 'lightgreen',
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            id: 'A',
-            type: 'linear',
-            position: 'left',
-            ticks: {
-                max: 50,
-                min: 0
-              }
-          }, {
-            id: 'B',
-            type: 'linear',
-            position: 'right',
-            ticks: {
-              max: 100000,
-              min: 0
-            }
-          }]
-        }, 
-          annotation: {
-            annotations: [{
-            type: 'line',
-            mode: 'horizontal',
-            scaleID: 'y-axis-0',
-            value: 32,
-            borderColor: 'rgb(75, 0, 0)',
-            borderWidth: 4,
-            label: {
-              enabled: false,
-              content: 'Test label'
-            }
-          }]
-        }
-      }
-    });
-});
+	$(function() {
 
+		var canvas = document.getElementById('chart').getContext("2d");
+		new Chart(canvas, {
+			type : 'bar',
+			data : {
+				labels : [ '5', '4', '3', '2', '1' ],
+				datasets : [ {
+					label : '주문 수',
+					yAxisID : 'A',
+					data : [ 5, 4, 3, 4, 7 ]
+				}, {
+					label : '판매 금액(원)',
+					type : 'line',
+					yAxisID : 'B',
+					data : [ 50000, 40000, 100000, 33300, 70000 ],
+					lineTension : 0.3,
+					fill : false,
+					borderColor : 'lightblue',
+					backgroundColor : 'transparent',
+					pointBorderColor : 'lightblue',
+					pointBackgroundColor : 'lightgreen',
+				} ]
+			},
+			options : {
+				scales : {
+					yAxes : [ {
+						id : 'A',
+						type : 'linear',
+						position : 'left',
+						ticks : {
+							max : 50,
+							min : 0
+						}
+					}, {
+						id : 'B',
+						type : 'linear',
+						position : 'right',
+						ticks : {
+							max : 100000,
+							min : 0
+						}
+					} ]
+				},
+				annotation : {
+					annotations : [ {
+						type : 'line',
+						mode : 'horizontal',
+						scaleID : 'y-axis-0',
+						value : 32,
+						borderColor : 'rgb(75, 0, 0)',
+						borderWidth : 4,
+						label : {
+							enabled : false,
+							content : 'Test label'
+						}
+					} ]
+				}
+			}
+		});
+	});
 </script>
 
 
@@ -175,53 +174,58 @@ var canvas = document.getElementById('chart').getContext("2d");
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>주문 및 판매 	금액</h6>
+						<h6>주문 및 판매 금액</h6>
 						<canvas id="chart"></canvas>
 					</div>
-					
+
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
 						<br>
 						<h6>최근 작성된 리뷰</h6>
-							<c:set var="end" value="0"/>
+						<c:set var="end" value="-1" />
 						<c:if test="${srlist.size() > 2 }">
-							<c:set var="end" value="2"/>
+							<c:set var="end" value="2" />
 						</c:if>
 						<c:if test="${srlist.size() <= 2 }">
-							<c:set var="end" value="${srlist.size()-1 }"/>
+							<c:set var="end" value="${srlist.size()-1 }" />
 						</c:if>
-						<hr><c:forEach var="j" begin="0" step="1" end="${end }" >
-							<div class="col-md-12" >
-								<div class="row">
-									<div class="col-md-12" style="font-size: 12px;" >
-									 	${end }<fmt:formatDate value="${srlist[j].regdate }" type="both" pattern="yyyy-MM-dd [E] a hh:mm:ss"/>
-									</div>
-									<div class="col-md-9"  onclick=""
-									style=" text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-weight: bold; ">
-										${srlist[j].review_content}
-									</div>
-									<div class="col-md-3" >
-									<c:set var="rating" value="0"/>
-										<fmt:formatNumber var="rating" value="${(srlist[j].rating1+srlist[j].rating2+srlist[j].rating3)/3}" pattern="0"/>
-												<div class="star-rating">
-													<c:forEach var="i" begin="1" step="1" end="5">
-														<c:if test="${rating != 6-i }">
-															<input type="radio" id="${6-i }-stars"	name="rating${j }" value="${6-i }" disabled />
-															<label for="${6-i }-stars" class="star">&#9733;</label>
-														</c:if>
-														<c:if test="${rating == 6-i }">
-															<input type="radio" id="${6-i }-stars"	name="rating${j }" value="${6-i }" checked disabled />
-															<label for="${6-i }-stars" class="star">&#9733;</label>
-														</c:if>
-													</c:forEach>
-														
-												</div>
-											
+						<c:if test="${end < 0 }">
+							최근 작성된 리뷰가 없습니다.
+						</c:if>
+						<c:if test="${end >= 0 }">
+							<hr>
+							<c:forEach var="j" begin="0" step="1" end="${end }">
+								<div class="col-md-12">
+									<div class="row">
+										<div class="col-md-12" style="font-size: 12px;">
+											${end }
+											<fmt:formatDate value="${srlist[j].regdate }" type="both"
+												pattern="yyyy-MM-dd [E] a hh:mm:ss" />
+										</div>
+										<div class="col-md-9" onclick="" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-weight: bold;">
+											${srlist[j].review_content}</div>
+										<div class="col-md-3">
+											<fmt:formatNumber var="rating" value="${(srlist[j].rating1+srlist[j].rating2+srlist[j].rating3)/3}" pattern="0" />
+											<div class="star-rating">
+												<c:forEach var="i" begin="1" step="1" end="5">
+													<c:if test="${rating != 6-i }">
+														<input type="radio" id="${6-i }-stars" name="rating${j }"
+															value="${6-i }" disabled />
+														<label for="${6-i }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${rating == 6-i }">
+														<input type="radio" id="${6-i }-stars" name="rating${j }"
+															value="${6-i }" checked disabled />
+														<label for="${6-i }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div><hr>
+								<hr>
 							</c:forEach>
-						
+						</c:if>
 					</div>
 				</div>
 				<div class="row" style="margin-top: 10px; height: 400px;">

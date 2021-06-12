@@ -14,7 +14,7 @@ import dao.ReviewDAO;
 import dao.sellerDAO;
 import dto.reviewDTO;
 
-public class StoreReview implements Action {
+public class StoreChart implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -22,11 +22,12 @@ public class StoreReview implements Action {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		int member_num = (Integer)session.getAttribute("member_num");
+		System.out.println(member_num);
 		int store_num = new sellerDAO().getSellerInfo(member_num).getStore_num();
 		
 		ReviewDAO rdao = new ReviewDAO();
 		List<reviewDTO> srlist = rdao.getStoreReviewList(store_num);
-		System.out.println(srlist.size());
+		System.out.println("srlist size:"+srlist.size());
 		
 		request.setAttribute("srlist", srlist);
 		
