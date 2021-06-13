@@ -33,6 +33,7 @@ public class StoreProductListAction implements Action {
 		sellerDAO sdao = new sellerDAO(); 
 		List<productDTO> list = pdao.getStoreInfo(store_num);		
 		String template = sdao.getSellerTemplate(store_num);
+		System.out.println("상품 개수"+list.size());
 		
 		//페이징 부분
 		String page = request.getParameter("page");
