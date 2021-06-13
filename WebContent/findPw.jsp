@@ -51,8 +51,8 @@
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-18" data-validate="Email is required">
-						<span class="label-input100">Email</span> 
-						<input class="input100" type="email" id="email" name="email" placeholder="Enter your Email">
+						<span class="label-input100">ID</span> 
+						<input class="input100" type="text" id="id" name="id" placeholder="Enter your ID">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -62,9 +62,8 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="button" onclick="location.href='./login.jsp'">Back</button>
-						<div class="col-md-4">
-							<a href="" class="login100-form-btn" onclick="alert('임시비밀번호를 이메일로 발송하였습니다.');">Continue
-							</a>
+						<div class="col-md-4" >
+							<input type="button" id="continue" class="login100-form-btn" value="Continue"/>
 						</div>
 					</div>
 				</form>

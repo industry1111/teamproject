@@ -457,13 +457,13 @@ public class memberDAO {
 		
 		try {
 			getCon();
-			String sql = "select id * from member where email=?";
+			String sql = "select id from member where email=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
 	
 			if (rs.next()) {
-				id = rs.getString("member.email");
+				id = rs.getString("id");
 			}
 		} catch (Exception e) {
 			System.out.println("findId:" + e.toString());
@@ -481,7 +481,7 @@ public class memberDAO {
 			
 			try {
 				getCon();
-				String sql = "select pw * from member where name = ? and" + " email = ?";
+				String sql = "select pw  from member where name = ? and" + " email = ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, name);
 				pstmt.setString(2, email);
