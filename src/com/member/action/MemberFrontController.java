@@ -175,9 +175,16 @@ public class MemberFrontController extends HttpServlet {
 
 			
 		} else if (command.equals("/findIdAfter.me")) {//id를 찾은다음 이동
-				forward = new ActionForward();
-				forward.setRedirect(false);
-				forward.setPath("findIdAfter.jsp");
+				
+		      action = new FindIdAfter();
+		    
+		    try {
+                
+		        forward = action.execute(request, response);
+		        
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
 
 		} 
 		// 주소 이동
