@@ -76,10 +76,11 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("popuplogin.jsp");
+			
 		} else if (command.equals("/MemberPopupLoginAction.me")) { // 비로그인상태에서 장바구니버튼을 누르고 로그인을 했을 때, 
 																   // 로그인된 상태로 상품페이지를 다시 보여줌.
 																   // 로그인이 성공하면 로그인창은 자동으로 닫힘.
-			action = new MemberLoginAction();
+			action = new MemberPopupLoginAction();
 
 			try {
 				forward = action.execute(request, response);

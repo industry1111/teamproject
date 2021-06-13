@@ -17,7 +17,7 @@ $(function(){
 					
 					if(confirm("상품을 장바구니에 담으러면 로그인해야합니다.")){
 						//로그인 팝업창 띄우기
-						window.open(contextPath + "/MemberLogin.me","PopupLogin","width=500,height=500");						
+						window.open(contextPath + "/MemberPopupLogin.me","PopupLogin.jsp","width=500,height=500");						
 					}
 					
 				}else{
