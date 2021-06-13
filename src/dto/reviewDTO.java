@@ -13,9 +13,15 @@ public class reviewDTO {
 	private Timestamp regdate;
 	private String review_img;
 	private int store_num;
+	private String id;
 	
 
-	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getStore_num() {
 		return store_num;
 	}

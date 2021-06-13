@@ -129,14 +129,16 @@ h6 {
 						type : 'linear',
 						position : 'left',
 						ticks: {
-				            stepSize: 1000	
+							beginAtZero: true,
+				            stepSize: 10000	
 					    }
 					}, {
 						id : 'B',
 						type : 'linear',
 						position : 'right',
 						ticks: {
-				            stepSize: 1
+							beginAtZero: true,
+				            stepSize: 10
 					    }
 					} ]
 				},
