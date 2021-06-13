@@ -67,12 +67,11 @@ public class MemberPopupLoginAction implements Action{
 			forward.setRedirect(false);
 			forward.setPath("/AdminMain.ad");
 		}else{
+			forward.setPath("close.jsp");
 			forward.setRedirect(true);
-			forward.setPath("./Main.main");
 		}
 		 	
-		forward.setPath("close.jsp");
-		forward.setRedirect(true);
+		
 		return forward;
 	}
 }

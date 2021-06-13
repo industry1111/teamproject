@@ -59,12 +59,10 @@
 							placeholder="Enter password"> <span
 							class="focus-input100"></span>
 					</div>
-					<div class="col-md-12"></div>
-
+					<div class="col-md-12"></div>	
 					<br> <br>
-
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">Login</button>
+						<button class="login100-form-btn" type="submit" >Login</button>		
 						<div class="col-md-4">
 							<a href="./MemberJoin.me" class="login100-form-btn"> Sign Up
 							</a>
