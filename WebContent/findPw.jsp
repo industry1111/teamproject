@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/util.css">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-<script src="login.js"></script>
+<script>var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="js/findpw.js"></script>
+
 <style type="text/css">
 .myButton {
 	box-shadow: inset 0px 1px 0px 0px #ffffff;

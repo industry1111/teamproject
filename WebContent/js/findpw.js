@@ -1,6 +1,8 @@
 $(function() {
 	
 	var check = 0;
+	var check1 = 0;
+	var check2 = 0;
 	var id = null;
 	var name = null;
 	var email = null;
@@ -9,7 +11,8 @@ $(function() {
 	$("#continue").on("click",function(){
 		
 		name = $("#name").val();
-		email = $("#id").val();
+		id = $("#id").val();
+		
 		
 		if(name == ""){
 			
@@ -38,27 +41,10 @@ $(function() {
 				},
 			});
 
-			
-			if(check == 1){
-				
-				$.ajax({
-					type: "post",
-					async: true,
-					url: contextPath + "/GetEmail",
-					data: {
-						param: id,
-						command: "id"
-					},
-					dataType: "text",
-					success: function(data) {
-						email = data;
-						check = 2;
-					},
-				});
-			}	
-				
-				
-			if(check == 2){
+		}
+		
+		
+		if(check == 1){
 			
 					$.ajax({
 						
@@ -66,42 +52,20 @@ $(function() {
 						async : true,
 						url : contextPath + "/FindPassWordMail",
 						data : {
-							address : email
+							id : id
 						},
 						success: function(data) {
 							alert("인증번호가 발송 되었습니다.");
 							new_pw = data;
-							check = 3;
+							location.href= contextPath + "/PassWordUpdateAction?id="+id+"&pw="+new_pw;
 						}
 						
 					});
-				}
-			
-			if(check == 3){
 				
-				$.ajax({
-					
-					type:"post",
-					async:true,
-					url : contextPath + "/MemberUpdateAction",
-					data : {
-						
-						pw : new_pw,
-						id : id,
-						command : "new_pw"
-						
-					},
-					dataType : "text",
-					success : function(){}
-				});
 			}
-			
-		}
 		
 		
 	});
-	
-
-	
+		
 });
 

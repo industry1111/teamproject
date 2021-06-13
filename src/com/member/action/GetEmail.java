@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/GetEmail")
 public class GetEmail extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		requestPro(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,6 +30,8 @@ public class GetEmail extends HttpServlet {
 		memberDTO mdto = mdao.getMemberInfo(id);
 		
 		String email = mdto.getEmail();
+		System.out.println(id);
+		System.out.println(email);
 
 		out.print(email);
 
