@@ -15,8 +15,19 @@ function btn_click() {
 	child = window.open("receiver_3.bo","child","width=600,height=650");
 		
 }
+function submit_form() {
+	
+	var form = document.form;
+	form.action = contextPath + '/PaymentComplete.or'; 
+	form.submit();    
+  
+}
 
-function payment_btn_click() {
+
+
+$(function(){ 
+		payment_btn.on("click",function(){
+			
 	
 	if($("input:radio[id='new_select']").is(':checked')){
 		alert("ss");
@@ -43,17 +54,10 @@ function payment_btn_click() {
 	      frm.submit();    
 	}
 	
+		}) 
+		
 		 
-}
-function submit_form() {
-	
-	var form = document.form;
-	form.action = contextPath + '/PaymentComplete.or'; 
-	form.submit();    
-  
-}
-
-
+});
 </script>
 <script src="js/order.js"></script>
 <head>
@@ -207,7 +211,7 @@ input {
 		
 		</div>
 		<div>
-			<input type="button" class="myButton" value="결제하기" name="payment_btn" onclick="payment_btn_click();">
+			<input type="button" class="myButton" value="결제하기" id = "payment_btn" name="payment_btn">
 		</div>
 		<div>
 			<a type="button"name="cancle_btn" href="basket.bo">주문취소</a>
