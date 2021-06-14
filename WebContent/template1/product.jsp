@@ -293,7 +293,10 @@
 												</c:forEach>
 											</div>
 										</div>
-										<div class="col-md-2">답변달기</div>
+										
+												<div class="col-md-2">답변달기</div>
+										
+										
 									</div>
 									<div class="row">
 										<div class="col-md-12">
