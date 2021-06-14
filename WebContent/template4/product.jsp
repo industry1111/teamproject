@@ -62,6 +62,10 @@
   color:#f90;
 }
 
+ ul{
+    list-style:none;
+    list-style-type:none;
+    } 
 </style>
 </head>
 <body>
@@ -242,7 +246,7 @@
 						</c:if>
 						<div class="row"
 							style="margin-top: 30px; height: 70px; border: 1px solid gray;">
-							<div class="col-md-12" style="margin-top: 20px;">
+							<div class="col-xs-12" style="margin-top: 20px;">
 								<ul>
 									<a href="#"><li style="float: left;">전체()</li></a>
 									<a href="#"><li style="float: left; margin-left: 180px;">5점()</li></a>

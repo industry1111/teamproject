@@ -392,6 +392,28 @@
 						</c:if>
 					</div>
 				</div>
+							<div class="row">
+						<div class="col-md-6 offset-4 paging" style="height: 120px;">
+							<ul class="pagination">
+								<c:if test="${p.prev }">
+									<li class="page-item previous"><a class="page-link"
+										onclick="paging(${p.startPage-1 });">Previous</a></li>
+								</c:if>
+								<c:forEach var="num" begin="${p.startPage }" step="1"
+									end="${p.endPage }">
+									<li class="page-item"><a class="page-link"
+										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+										href="StoreProductDetail.st?page=true&nowPage=${num }&product_num=${pdto.product_num}">${num }</a>
+									</li>
+								</c:forEach>
+
+								<c:if test="${p.next }">
+									<li class="page-item next"><a class="page-link"
+										onclick="paging(${p.endPage + 1 });">Next</a></li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
 				<!-- Q&A  -->
 			</div>
 	</form>
