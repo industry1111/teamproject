@@ -117,17 +117,14 @@ input[type="text"]:focus {
 												</div>
 												<div class="col-md-4">
 													${pdlist.product_name }<br>
-													
-														
-											    <c:choose>
-													<c:when test="${fn:length(pdlist.product_description  ) > 62}">
-												    	<c:out value="${fn:substring(pdlist.product_description  ,0,61)}"/>....
-													</c:when>
-													<c:otherwise>
-														<c:out value="${pdlist.product_description  }"/>
-													</c:otherwise> 
-												</c:choose>
-															
+												    <c:choose>
+														<c:when test="${fn:length(pdlist.product_description  ) > 62}">
+													    	<c:out value="${fn:substring(pdlist.product_description  ,0,61)}"/>....
+														</c:when>
+														<c:otherwise>
+															<c:out value="${pdlist.product_description  }"/>
+														</c:otherwise> 
+													</c:choose>
 												</div>
 												<div class="col-md-1 offset-6">
 													<a id="deleteReview" href="deleteReview.bo?review_num=${rvlist[i].review_num }">
