@@ -5,8 +5,14 @@ public class brandDTO {
 	private int brand_num;
 	private String brand_name;
 	private int category_code;
+	private int count;
 	
-	
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public int getBrand_num() {
 		return brand_num;
 	}

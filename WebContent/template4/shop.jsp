@@ -55,7 +55,7 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="side border mb-1">
-									<h3>카테고리1</h3>
+									<h3>카테고리</h3>
 									<ul>
 										<li><a href="#">카테고리1</a></li>
 									</ul>
@@ -64,10 +64,16 @@
 
 							<div class="col-sm-12">
 								<div class="side border mb-1">
-									<h3>카테고리2</h3>
-									<ul>
-										<li><a href="#">카테고리2</a></li>
-									</ul>
+									<h3>브랜드</h3>
+									<c:if test="${blist.size() ne 0 }">
+										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
+											<div>
+												<ul>
+													<li><a href="#">${blist[i].brand_name}(${blist[i].count })</a></li>
+												</ul>
+											</div>
+										</c:forEach>
+									</c:if>
 								</div>
 							</div>
 						</div>
@@ -92,8 +98,7 @@
 													<a
 														href="StoreProductDetail.st?product_num=${list[i].product_num}"
 														class="prod-img"> <img width="250" height="350"
-														src="product_img_upload/${list[i].product_img}"
-														>
+														src="product_img_upload/${list[i].product_img}">
 													</a>
 												</div>
 												<div class="desc">
@@ -115,6 +120,26 @@
 								<!-- <div class="w-100"></div> -->
 							</div>
 						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 offset-4 paging" style="height: 120px;">
+						<ul class="pagination">
+							<c:if test="${p.prev }">
+								<li class="page-item previous"><a class="page-link"
+									onclick="paging(${p.startPage-1 });">Previous</a></li>
+							</c:if>
+							<c:forEach var="num" begin="${p.startPage }" step="1"
+								end="${p.endPage }">
+								<li class="page-item"><a class="page-link"
+									${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+									href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+							</c:forEach>
+							<c:if test="${p.next }">
+								<li class="page-item next"><a class="page-link"
+									onclick="paging(${p.endPage + 1 });">Next</a></li>
+							</c:if>
+						</ul>
 					</div>
 				</div>
 			</div>
