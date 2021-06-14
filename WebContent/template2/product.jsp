@@ -24,9 +24,10 @@
 <link type="text/css" rel="stylesheet" href="template2/css/style.css" />
 
 <script src="js/addbasket.js"></script>
-
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
+	
 </script>
 
 <style>
@@ -155,7 +156,7 @@
 							<div class="col-md-4" style="margin-top: 30px;">
 								<div class="row" align="center">
 									<div class="col-md-12">
-										상품 총 평점
+										<h4>상품 총 평점</h4>
 									</div>
 								</div>
 								<div class="star-rating" style="margin-top: 40px; font-size: 2.5em;">
@@ -177,7 +178,7 @@
 							<div class="col-md-4" style="margin-top: 30px;">
 								<div class="row">
 									<div class="col-md-12">
-										전체 리뷰수
+										<h4>전체 리뷰수</h4>
 									</div>
 								</div>
 								<div class="row">
@@ -191,7 +192,77 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-4" style="margin-top: 30px;">평점 비율</div>
+							<div class="col-md-4" style="margin-top: 30px;">
+								<div class="row">
+									<div class="col-md-12">
+										<h4>평점 비율</h4>
+									</div>
+								</div>
+								<div class="row" style="margin-top: 40px;" align="right">
+									<div class="col-md-6" >
+										상품 만족도
+									</div>
+									<div class="col-md-5" align="left">
+										<div class="star-rating"  style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+												<c:if test="${4 != 6-s }">
+													<input type="radio" id="${6-s }-stars"
+														name="ratinga" value="${6-s }" disabled />
+													<label for="${6-s }-stars" class="star">&#9733;</label>
+												</c:if>
+												<c:if test="${4 == 6-s }">
+													<input type="radio" id="${6-s }-stars"
+														name="ratinga" value="${6-s }" checked disabled />
+													<label for="${6-s }-stars" class="star">&#9733;</label>
+												</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								<div class="row" style="margin-top: 20px;" align="right">
+									<div class="col-md-6" >
+										배송 만족도
+									</div>
+									<div class="col-md-5" align="left">
+										<div class="star-rating"  style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+												<c:if test="${4 != 6-s }">
+													<input type="radio" id="${6-s }-stars"
+														name="ratingb" value="${6-s }" disabled />
+													<label for="${6-s }-stars" class="star">&#9733;</label>
+												</c:if>
+												<c:if test="${4 == 6-s }">
+													<input type="radio" id="${6-s }-stars"
+														name="ratingb" value="${6-s }" checked disabled />
+													<label for="${6-s }-stars" class="star">&#9733;</label>
+												</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								<div class="row" style="margin-top: 20px;" align="right">
+									<div class="col-md-6" >
+										재구매 의사
+									</div>
+									<div class="col-md-5" align="left">
+										<div class="star-rating"  style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+												<c:if test="${4 != 6-s }">
+													<input type="radio" id="${6-s }-stars"
+														name="ratingc" value="${6-s }" disabled />
+													<label for="${6-s }-stars" class="star">&#9733;</label>
+												</c:if>
+												<c:if test="${4 == 6-s }">
+													<input type="radio" id="${6-s }-stars"
+														name="ratingc" value="${6-s }" checked disabled />
+													<label for="${6-s }-stars" class="star">&#9733;</label>
+												</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+								
+							</div>
 						</div>
 						</c:if>
 						<!-- ---------------------------- -->
