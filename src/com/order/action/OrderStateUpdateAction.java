@@ -27,10 +27,15 @@ public class OrderStateUpdateAction extends HttpServlet{
 		
 		int order_detail_num =  Integer.parseInt(request.getParameter("order_detail_num"));
 		String state = request.getParameter("state");
+		int product_num = Integer.parseInt(request.getParameter("product_num"));
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		
 		OrderDAO dao = new OrderDAO();
 		dao.OrderStateUpdate(state, order_detail_num);
 		
-		if(state.equals("3")){
+		if(state.equals("1")){
+			
+			dao.updateProductCount(quantity, product_num);
 			
 		}
 

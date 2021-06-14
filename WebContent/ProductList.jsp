@@ -84,7 +84,7 @@
 								상품이름
 							</div>
 							<div class="col-md-2">
-								상품설명
+								상품정보
 							</div>
 							<div class="col-md-2">
 								카테고리
@@ -113,13 +113,16 @@
 							<div class="a">${list[i].product_name}</div> <%-- 상품명 --%>
 						</div>
 						<div class="col-md-2">
-							<div class="a">${list[i].product_description}</div> <%-- 물품가격 --%>
+							<div class="a">
+								<span>상품 설명 : ${list[i].product_description}</span><br>
+								<span style="font-weight: bold;">상품 재고 : ${list[i].product_count}개<span>
+							</div> 	
 						</div>
 						<div class="col-md-2">
 							<div class="a">${list[i].category_name }</div> <%--카테고리 --%>
 						</div>
 						<div class="col-md-1" align="left">
-							<div class="a">${list[i].product_price }</div> <%--상품가격 --%>
+							<div class="a">${list[i].product_price }원</div> <%--상품가격 --%>
 						</div>
 						<div class="col-md-2" style="margin-left: 40px;">
 								<a href="ProductModify.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%">수정</a>

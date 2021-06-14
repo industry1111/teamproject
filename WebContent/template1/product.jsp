@@ -93,8 +93,8 @@
 						<div class="row">
 							<div align="center">
 								<li class="list-inline-item text-right" align="center">수량</li> <input
-									type="number" id="quantity" step="1" min="1" max="300"
-									name="quantity" value="1"
+									type="number" id="quantity" step="1" min="1" max="${pdto.product_count}"
+									name="quantity" value="1" 
 									style="text-align: right; margin-right: 20px;"> <input
 									value="${pdto.product_num}" type="hidden" name="product_num"
 									id="product_num" />

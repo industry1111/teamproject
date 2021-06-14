@@ -13,7 +13,7 @@ public class StoreOrderDTO {
 	 private String orders_code;
 	 private int store_num;
 	 private String state;
-	 private int	order_num; 
+	 private int order_num; 
 	 private int member_num;
 	 private int total_price;
 	 private String order_name;

@@ -18,13 +18,32 @@ function btn_click() {
 
 function payment_btn_click() {
 	
-		 
-	      var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
+	if($("input:radio[id='new_select']").is(':checked')){
+		alert("ss");
+		if($("#receiver_name").val() != "" && $("#receiver_phone").val() !="" && $("#adress_name").val() !="" && $("#addr1").val() !="" 
+				&& $("#addr2").val() != "" && $("#addr3")!= ""){
+			
+		      var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
+		      var frm = document.form;
+		      frm.action = contextPath + '/payment.bo';
+		      frm.target ="child2";
+		      frm.method ="post";
+		      frm.submit();    
+			
+		}else{
+			alert("배송지를 입력해 주세요.");
+		}
+		
+	}else{
+		var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
 	      var frm = document.form;
 	      frm.action = contextPath + '/payment.bo';
 	      frm.target ="child2";
 	      frm.method ="post";
 	      frm.submit();    
+	}
+	
+		 
 }
 function submit_form() {
 	
@@ -148,7 +167,7 @@ input {
 					</div>
 					</c:if>
 				</c:forEach>
-				<div class="new_select" hidden>
+				<div class="new_select" id="new_select" hidden>
 				<ul>
 					<li>수령인 : <input type="text" id="receiver_name" name="receiver_name"></li>
 					<li>배송지 이름 : <input type="text" id="address_name" name="address_name"></li>
