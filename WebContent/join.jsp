@@ -134,6 +134,8 @@ input[type="text"]:focus {
 											placeholder="Confirm Password" style="width: 200px;">
 								</div>
 							</div>
+							
+							
 							<div class="row">
 								<div class="col-md-12">
 									<span id="pw_check" class="check"></span>
@@ -177,6 +179,16 @@ input[type="text"]:focus {
 											id="phone_check2" class="check2"></span>
 									</div>
 								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-1">
+									<input type="radio" value="남" name="radio_btn" id="radio_btn1" checked="checked"> 남
+								</div>
+							
+								<div class="col-md-1">
+										<input type="radio" value="여" name="radio_btn" id="radio_btn2"> 여
+								</div>
+								<input type="hidden" name="gender" class="gender" value="남">
 							</div>
 							<div class="row">
 								<div class="col-md-5">

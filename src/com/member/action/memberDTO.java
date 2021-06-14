@@ -16,7 +16,14 @@ public class memberDTO {
     private String member_code;
     private Timestamp date;
     private Timestamp regdate;
-
+    private String gender;
+    
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public int getMember_num() {
 		return member_num;
 	}
