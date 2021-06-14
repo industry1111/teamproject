@@ -64,7 +64,7 @@ public class MemberJoinAction implements Action{
 
 		forward.setRedirect(true);
 	
-		forward.setPath("./ReportLogin.st?);
+		forward.setPath("MemberLogin.me");
 
 		return forward;
 	}
