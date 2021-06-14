@@ -25,16 +25,22 @@ public class StoreProductListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
 
-		HttpSession session = request.getSession();
 		
+		String visit = request.getParameter("visit");
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String user = "비회원";
+		if(id != null){
+			user = new memberDAO().getMemberInfo(id).getGender();
+		}
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		System.out.println("StoreProductListAction");
 		productDAO pdao = new productDAO();
 		sellerDAO sdao = new sellerDAO(); 
 		List<productDTO> list = pdao.getStoreInfo(store_num);		
 		String template = sdao.getSellerTemplate(store_num);
-		System.out.println("상품 개수"+list.size());
-		
+		if(visit != null){
+			sdao.visitorCount(user, store_num);
+		}
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;

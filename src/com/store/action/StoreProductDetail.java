@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.member.action.memberDAO;
 import com.product.action.productDAO;
 import com.product.action.productDTO;
 
@@ -26,6 +28,13 @@ public class StoreProductDetail implements Action {
 		
 		request.setCharacterEncoding("utf-8");
 		
+		String visit = request.getParameter("visit");
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String user = "비회원";
+		if(id != null){
+			user = new memberDAO().getMemberInfo(id).getGender();
+		}
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		
 		/*데이터베이스 자바빈 작업*/
@@ -34,7 +43,9 @@ public class StoreProductDetail implements Action {
 		int store_num = pdto.getStore_num();
 		sellerDAO sdao = new sellerDAO();
 		String template = sdao.getSellerTemplate(store_num);
-		
+		if(visit != null){
+			sdao.visitorCount(user, store_num);
+		}
 		//카테고리 정보 받아오기
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory();

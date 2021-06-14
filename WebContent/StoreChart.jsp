@@ -157,7 +157,8 @@ h6 {
 				}
 			}
 		});
-		
+		var user = ${user}
+		var vcount = ${vcount}
 		//구글 차트
 		
 	 	google.charts.load('current', {'packages':['corechart']});
@@ -175,9 +176,9 @@ h6 {
          data.addColumn('string', 'Topping');
          data.addColumn('number', 'Slices');
          data.addRows([
-          ['남', 2],
-          ['여', 2],
-          ['비회원', 1]
+          [user[0], vcount[0]],
+          [user[1], vcount[1]],
+          [user[2], vcount[2]]
         ]);
 
         // Set chart options

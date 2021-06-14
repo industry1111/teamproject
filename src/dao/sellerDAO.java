@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import com.store.action.Store_likeDTO;
 
 import dto.ReportDTO;
 import dto.sellerDTO;
+import dto.visitDTO;
 
 public class sellerDAO {
 	Connection con;
@@ -468,9 +470,46 @@ public class sellerDAO {
         }finally {
             ResouceClose();
         }
-	    
 	    return list;
-	    
+	}
+	
+	public void visitorCount(String user,int store_num){
+		try {
+			getCon();
+			String sql = "insert into visitor(store_num,user)"
+					+ " values(?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			pstmt.setString(2, user);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("visitorCount:"+e.toString());
+		}finally{
+			ResouceClose();
+		}
+	}
+	public List<visitDTO> getVisitCount(int store_num,String day){
+		List<visitDTO> list = new ArrayList<visitDTO>();
+		try {
+			getCon();
+			String sql="select user,count(user) from visitor where store_num = ? "
+					+ "and visitdate like '"+day+"%' group by user";
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,store_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				visitDTO vdto = new visitDTO();
+				vdto.setCount(rs.getInt("count(user)"));
+				vdto.setUser(rs.getString("user"));
+				list.add(vdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getVisitCount:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		return list;
 	}
 	
 }

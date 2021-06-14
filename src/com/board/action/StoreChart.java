@@ -20,6 +20,7 @@ import dao.ReviewDAO;
 import dao.boardDAO;
 import dao.sellerDAO;
 import dto.reviewDTO;
+import dto.visitDTO;
 
 public class StoreChart implements Action {
 	
@@ -37,7 +38,6 @@ public class StoreChart implements Action {
 			
 		String pattern = "yyyyMMdd";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-
 		String day = simpleDateFormat.format(new Date());
 		int date = Integer.parseInt(day);
 		List<OrderDetailDTO> olist = new boardDAO().getSalesRate(store_num, date);
@@ -50,6 +50,21 @@ public class StoreChart implements Action {
 			total.add(olist.get(i).getTotal());
 		}
 		
+		pattern = "yyyy-MM-dd";
+		simpleDateFormat = new SimpleDateFormat(pattern);
+		day = simpleDateFormat.format(new Date());
+		List<visitDTO> vlist = new sellerDAO().getVisitCount(store_num, day);
+		JSONArray user = new JSONArray();
+		for(int i=0;i<vlist.size();i++) {
+			user.add(vlist.get(i).getUser());
+		}
+		JSONArray vcount = new JSONArray();
+		for(int i=0;i<vlist.size();i++) {
+			vcount.add(vlist.get(i).getCount());
+		}
+		
+		request.setAttribute("user", user);
+		request.setAttribute("vcount", vcount);
 		request.setAttribute("count", count);
 		request.setAttribute("total", total);
 		request.setAttribute("srlist", srlist);
