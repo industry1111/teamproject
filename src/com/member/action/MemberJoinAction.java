@@ -57,14 +57,14 @@ public class MemberJoinAction implements Action{
 		
 		new boardDAO().insertReceiver(rdto, member_num);
 		
-		 int product_num = Integer.parseInt(request.getParameter("product_num"));
+		
 		/*회원 가입 성공 시 로그인 페이지로 이동.*/
 		//페이지 이동 방식 여부 값,이동페이지 경로 값 저장 하여 리턴 해주는 객체 생성
 		ActionForward forward=new ActionForward();
 
 		forward.setRedirect(true);
 	
-		forward.setPath("./ReportLogin.st?");
+		forward.setPath("MemberLogin.me");
 
 		return forward;
 	}
