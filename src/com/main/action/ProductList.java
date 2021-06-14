@@ -39,6 +39,7 @@ public class ProductList implements Action {
 		List<sellerDTO> slist = sdao.getSellerInfo();
 		
 		
+		
 		memberDTO mdto = new memberDAO().getMemberInfo(id);
 		List<Store_likeDTO> jlist = sdao.getStore_like(mdto.getMember_num());
 		

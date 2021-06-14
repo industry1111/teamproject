@@ -29,6 +29,10 @@ public class OrderStateUpdateAction extends HttpServlet{
 		String state = request.getParameter("state");
 		OrderDAO dao = new OrderDAO();
 		dao.OrderStateUpdate(state, order_detail_num);
+		
+		if(state.equals("3")){
+			
+		}
 
 		
 	}
