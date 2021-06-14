@@ -214,16 +214,7 @@ $(function() {
 			return false;
 		}
 	});
-	
-//	if($("input:checkbox[id='radio_btn1']").is(':checked')){
-//		var radioVal = $("input:checkbox[id='radio_btn1']:checked").val();
-//		console.log(radioVal);
-//	}
-//	if($("input:checkbox[id='radio_btn2']").is(':checked')){
-//		var radioVal = $(this).val();
-//		console.log(radioVal);
-//	}
-	
+
 	 $("input[name='radio_btn']:radio").change(function () {
 		
 		var gender = $(this).val();

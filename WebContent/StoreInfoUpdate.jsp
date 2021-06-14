@@ -241,9 +241,9 @@ $(function(){
 								
 									<div class="col-md-12">
 										<div class="row">
- 												<c:if test="${tlist[i].template_num ne sdto.template}">
+ 												<c:if test="${i ne sdto.template}">
 											<div class="col-md-3">
-													<input hidden	type="radio" class="template" name="template" id="template" value="${tlist[i].template_num}"> ${tlist[i].template_name}
+													<input hidden	type="radio" class="template" name="template" id="template" value="${i}"> ${i}번
 											</div>
 														<div class="col-md-9">
 														<div class="imgList">
