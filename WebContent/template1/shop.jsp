@@ -25,8 +25,7 @@
 		<div
 			class="container d-flex justify-content-between align-items-center">
 			<a class="navbar-brand text-success logo h1 align-self-center">
-				${list[1].store_name}
-			</a>
+				${list[1].store_name} </a>
 			<button class="navbar-toggler border-0" type="button"
 				data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -90,39 +89,44 @@
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-lg-3">
-					<h1 class="h2 pb-4">카테고리1</h1>
-					<ul class="list-unstyled templatemo-accordion">
-						<li class="pb-3"><a
-							class="collapsed d-flex justify-content-between h3 text-decoration-none"
-							href="#"> 카테고리1-1 <i
-								class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-						</a>
-							<ul class="collapse show list-unstyled pl-3">
-								<li><a class="text-decoration-none" href="#">세부 카테고리1</a></li>
-								<li><a class="text-decoration-none" href="#">세부 카테고리2</a></li>
-							</ul></li>
-						<!--   <li class="pb-3">
-                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Sale
-                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-                        </a>
-                        <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Sport</a></li>
-                            <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        </ul>
-                    </li>
-                    <li class="pb-3">
-                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Product
-                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
-                        </a>
-                        <ul id="collapseThree" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Bag</a></li>
-                            <li><a class="text-decoration-none" href="#">Sweather</a></li>
-                            <li><a class="text-decoration-none" href="#">Sunglass</a></li>
-                        </ul>
-                    </li> -->
-					</ul>
+					<div>
+						<h1 class="h2 pb-4">카테고리1</h1>
+						<ul class="list-unstyled templatemo-accordion">
+							<li class="pb-3"><a
+								class="collapsed d-flex justify-content-between h3 text-decoration-none"
+								href="#"> 카테고리1-1 <i
+									class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+							</a>
+								<ul class="collapse show list-unstyled pl-3">
+									<li><a class="text-decoration-none" href="#">세부 카테고리1</a></li>
+									<li><a class="text-decoration-none" href="#">세부 카테고리2</a></li>
+								</ul></li>
+						</ul>
+					</div>
+					<div>
+						<ul class="list-unstyled templatemo-accordion">
+							<li class="pb-3"><a
+								class="collapsed d-flex justify-content-between h4 text-decoration-none"
+								href="#"> 브랜드 <i
+									class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+							</a> <c:set var="loop" value="true" /> <c:if
+									test="${blist.size() ne 0 }">
+									<c:forEach var="i" begin="0" step="1"
+										end="${blist.size()-1 }">
+										<c:if test="${p.total == i }">
+											<c:set var="loop" value="false" />
+										</c:if>
+										<c:if test="${loop }" >
+											<div>
+												<ul class="collapse show list-unstyled pl-3">
+													<li><a class="text-decoration-none" href="#"><h5>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
+												</ul>
+											</div>
+										</c:if>
+									</c:forEach>
+								</c:if></li>
+						</ul>
+					</div>
 				</div>
 
 				<div class="col-lg-9">
@@ -148,7 +152,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row" >
+					<div class="row">
 						<c:set var="loop" value="true" />
 						<c:if test="${list.size() ne 0 }">
 							<c:forEach var="i" begin="${p.beginPerPage }" step="1"
@@ -157,13 +161,13 @@
 									<c:set var="loop" value="false" />
 								</c:if>
 								<c:if test="${loop }">
-									<div class="col-md-4" >
-										<div class="card mb-4 product-wap rounded-0" style="height:500px; width: 300px;" >
+									<div class="col-md-4">
+										<div class="card mb-4 product-wap rounded-0"
+											style="height: 500px; width: 300px;">
 											<div class="card rounded-0">
 												<a
 													href="StoreProductDetail.st?product_num=${list[i].product_num}">
-													<img class="card-img rounded-0" 
-													height="300" width="300"
+													<img class="card-img rounded-0" height="300" width="300"
 													src="product_img_upload/${list[i].product_img}">
 												</a>
 											</div>
@@ -193,28 +197,27 @@
 				</div>
 			</div>
 	</form>
-		
-		<div class="row">
-				<div class="col-md-6 offset-4 paging" style="height: 120px;">
- 					<ul class="pagination">
-       					<c:if test="${p.prev }">
-           					 <li class="page-item previous">
-              					  <a class="page-link" onclick="paging(${p.startPage-1 });">Previous</a>
-           					 </li>
-        				</c:if>
-				        <c:forEach var="num" begin="${p.startPage }" step="1" end="${p.endPage }">
-				            <li class="page-item">
-				            	 <a class="page-link" ${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''} href="Main.main?page=true&nowPage=${num }" >${num }</a>
-				            </li>
-				        </c:forEach>
-				        <c:if test="${p.next }">
-				            <li class="page-item next">
-				               <a class="page-link" onclick="paging(${p.endPage + 1 });">Next</a>
-				            </li>
-				        </c:if>
-   					 </ul>
-				</div>
-			</div>
+
+	<div class="row">
+		<div class="col-md-6 offset-4 paging" style="height: 120px;">
+			<ul class="pagination">
+				<c:if test="${p.prev }">
+					<li class="page-item previous"><a class="page-link"
+						onclick="paging(${p.startPage-1 });">Previous</a></li>
+				</c:if>
+				<c:forEach var="num" begin="${p.startPage }" step="1"
+					end="${p.endPage }">
+					<li class="page-item"><a class="page-link"
+						${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+						href="Main.main?page=true&nowPage=${num }">${num }</a></li>
+				</c:forEach>
+				<c:if test="${p.next }">
+					<li class="page-item next"><a class="page-link"
+						onclick="paging(${p.endPage + 1 });">Next</a></li>
+				</c:if>
+			</ul>
+		</div>
+	</div>
 	<script src="js/main2.js"></script>
 	<script src="template1/assets/js/jquery-1.11.0.min.js"></script>
 	<script src="template1/assets/js/jquery-migrate-1.2.1.min.js"></script>

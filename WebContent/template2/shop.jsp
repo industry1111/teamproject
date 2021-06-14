@@ -85,13 +85,24 @@
 
 					<!-- 카테고리2 -->
 					<div class="aside">
-						<h3 class="aside-title">카테고리2</h3>
+						<h2 class="aside-title" style="font-size: 30px;">브랜드</h2>
 						<div class="checkbox-filter">
 							<div class="input-checkbox">
-								<input type="checkbox" id="brand-1"> <label
-									for="brand-1"> <span></span> 브랜드 <small>(상품갯수)</small>
-								</label>
-							</div>
+								</a> <c:set var="loop" value="true" />
+									<c:if test="${blist.size() ne 0 }">
+										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
+											<c:if test="${p.total == i }">
+												<c:set var="loop" value="false" />
+											</c:if>
+											<c:if test="${loop }">
+												<div>
+													<label for="brand-1"> <span></span><h4>${blist[i].brand_name}(${blist[i].count })</h4>
+													</label>
+												</div>
+											</c:if>
+										</c:forEach>
+									</c:if>
+								</div>
 						</div>
 					</div>
 

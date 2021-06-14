@@ -461,7 +461,6 @@ public class boardDAO {
 	public void basketQuantityUpdate(int basket_num, int quantity){
 		
 		try {
-			
 			getCon();
 			String sql = "update basket set quantity = ? where basket_num = ? ";
 			pstmt = con.prepareStatement(sql);
@@ -519,5 +518,29 @@ public class boardDAO {
 		return list;
 	}
 	
+	public List<brandDTO> getStorebrandList(int member_num) { //스토어에 담겨잇는 상품 브랜드 리스트를 중복없이 출력
 
+		List<brandDTO> blist = new ArrayList<brandDTO>();
+		try {
+			getCon();
+			String sql = " select product_brand, count(product_brand) as count "
+					+ " from product where member_num ="+ member_num 
+					+ " group by product_brand ";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+
+				brandDTO bdto = new brandDTO();
+				bdto.setBrand_name(rs.getString("product_brand"));
+				bdto.setCount(rs.getInt("count"));
+				blist.add(bdto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			ResouceClose();
+		}
+		return blist;
+	}
 }
