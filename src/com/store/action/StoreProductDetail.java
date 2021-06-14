@@ -63,6 +63,7 @@ public class StoreProductDetail implements Action {
 		request.setAttribute("blist", blist);
 		request.setAttribute("clist", clist);
 		request.setAttribute("pdto", pdto);
+		
 		ActionForward forward = new ActionForward();
 		
 		request.setAttribute("center", "template"+template+"/product.jsp"); 
