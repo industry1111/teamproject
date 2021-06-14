@@ -138,7 +138,7 @@
 							<div class="cart-btn d-flex mb-50">
 								<p>구매 수량</p>
 								<div class="quantity" style="margin-left: 10px;">
-									 <input type="number" class="qty-text" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right;"> 
+									 <input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right;"> 
 								</div>
 							</div>
 							<div>

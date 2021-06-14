@@ -11,8 +11,9 @@ $(function() {
 		//var new_state = $(this).val();
 		var new_state = $(this).parent().children().children('option:selected').val();
 		var order_detail_num = $(this).parent().children(".order_detail_num").val();
-		console.log(order_detail_num);
-		console.log(new_state);
+		var product_num = $(this).siblings(".product_num").val();
+		var quantity = $(this).parent().children(".quantity").val();
+		
 		$(this).parent().children(".state").attr("disabled",true);
 		$.ajax({
 			
@@ -22,7 +23,9 @@ $(function() {
 			data : {
 				
 				state : new_state,
-				order_detail_num : order_detail_num
+				order_detail_num : order_detail_num,
+				product_num : product_num,
+				quantity : quantity
 			},
 			dataType:"text",
 			success : function(){

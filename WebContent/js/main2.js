@@ -78,7 +78,6 @@ $(function() {
 							html+= obj3[j].category_name +"<br>";
 						}
 					}
-
 					
 					html +=	"<p style='color:red;'>"+obj2[i].product_price+"원 </p>" +
 					"등록일&nbsp;" +
