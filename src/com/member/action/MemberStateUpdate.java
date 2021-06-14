@@ -1,4 +1,4 @@
-package com.order.action;
+package com.member.action;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/OrderStateUpdate")
-public class OrderStateUpdateAction extends HttpServlet{
+@WebServlet("/MemberStateUpdate.do")
+public class MemberStateUpdate extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,16 +22,17 @@ public class OrderStateUpdateAction extends HttpServlet{
 	}
 	
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		request.setCharacterEncoding("UTF-8");
 		
-		int order_detail_num =  Integer.parseInt(request.getParameter("order_detail_num"));
-		String state = request.getParameter("state");
-		OrderDAO dao = new OrderDAO();
-		dao.OrderStateUpdate(state, order_detail_num);
-
+		int member_code = Integer.parseInt(request.getParameter("member_code"));
+		int member_num = Integer.parseInt(request.getParameter("member_num"));
 		
-	}
+		memberDAO dao = new memberDAO();
+		dao.MemberStateUpdate(member_num, member_code);
 
+	}
+	
+	
 	
 }

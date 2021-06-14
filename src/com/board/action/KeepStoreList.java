@@ -46,7 +46,7 @@ public class KeepStoreList implements Action{
 		
 		//페이징 부분
 		String page = request.getParameter("page");
-		Criteria cri;
+		Criteria cri =null;
 		PageDTO pagedto;
 		int numPerPage = 5;
 						

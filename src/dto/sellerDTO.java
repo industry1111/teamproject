@@ -9,9 +9,15 @@ public class sellerDTO {
 	private String account;
 	private int store_num;
 	private int jjim;
-	
-	
-	public int getJjim() {
+	private int report_count;
+
+	public int getReport_count() {
+        return report_count;
+    }
+    public void setReport_count(int report_count) {
+        this.report_count = report_count;
+    }
+    public int getJjim() {
 		return jjim;
 	}
 	public void setJjim(int jjim) {

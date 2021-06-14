@@ -132,15 +132,12 @@ public class BoardFrontController extends HttpServlet {
 				}
 				
 		}else if (command.equals("/StoreChart.bo")) {
-			action = new StoreReview();
+			action = new StoreChart();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
-			
-		
 		}else if (command.equals("/payment.bo")) {
             
             action = new PaymentInfo();
