@@ -143,9 +143,58 @@
 				</div>
 				<!-- 상품상세보기 끝 -->
 				<!-- 상품 리뷰  -->
+				
 				<div class="row">
 					<div class="col-md-12">
 						<hr>
+						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
+							<h3>상품 리뷰</h3>
+						<div class="row"
+							style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
+							align="center">
+							<div class="col-md-4" style="margin-top: 30px;">
+								<div class="row" align="center">
+									<div class="col-md-12">
+										상품 총 평점
+									</div>
+								</div>
+								<div class="star-rating" style="margin-top: 40px; font-size: 2.5em;">
+										<c:forEach var="s" begin="1" step="1" end="5">
+										<c:if test="${0 != 6-s }">
+											<input type="radio" id="${6-s }-stars"
+												name="rating" value="${6-s }" disabled />
+											<label for="${6-s }-stars" class="star">&#9733;</label>
+										</c:if>
+										<c:if test="${0 == 6-s }">
+											<input type="radio" id="${6-s }-stars"
+												name="rating" value="${6-s }" checked disabled />
+											<label for="${6-s }-stars" class="star">&#9733;</label>
+										</c:if>
+									</c:forEach>
+								</div>
+								<h2>0/<span style="color: #E1E1E1;">5</span></h2>
+							</div>
+							<div class="col-md-4" style="margin-top: 30px;">
+								<div class="row">
+									<div class="col-md-12">
+										전체 리뷰수
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12" style="margin-top: 45px;">
+										<img src="${pageContext.request.contextPath}/images/review.png" width="20%">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12" align="center">
+										<h2>0</h2>									
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4" style="margin-top: 30px;">평점 비율</div>
+						</div>
+						</c:if>
+						<c:if test="${rvlist.size() > 0 }">
 						<h3>상품 리뷰</h3>
 						<div class="row"
 							style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
@@ -195,6 +244,7 @@
 							</div>
 							<div class="col-md-4" style="margin-top: 30px;">평점 비율</div>
 						</div>
+						</c:if>
 						<div class="row"
 							style="margin-top: 30px; height: 70px; border: 1px solid gray;">
 							<div class="col-md-12" style="margin-top: 20px;">
@@ -208,6 +258,13 @@
 								</ul>
 							</div>
 						</div>
+						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
+							<div class="row">
+								<div class="col-md-12">
+									작성된 리뷰가 없습니다.
+								</div>
+							</div>
+						</c:if>
 						<c:set var="loop" value="true" />
 						<c:if test="${rvlist.size() > 0 }">
 							<c:forEach var="i" begin="${p.beginPerPage }" step="1"
