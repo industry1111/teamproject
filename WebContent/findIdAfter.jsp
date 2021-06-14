@@ -46,7 +46,7 @@
 				<form class="login100-form validate-form" action="" >
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">Your ID</span> 
-						<input class="input100" type="text" id="id" name="id" readonly="readonly" value="member.id">
+						<input class="input100" type="text" id="id" name="id" readonly="readonly" value="${find_id}">
 						<span class="focus-input100"></span>
 					</div>
 					

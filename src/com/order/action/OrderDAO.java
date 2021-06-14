@@ -102,8 +102,8 @@ public class OrderDAO {
             getCon();
 
             String sql = "insert into orders_detail (quantity, product_num, product_name, product_price,"
-            		+ "image, orders_code,store_num,state)"
-            		+ " values(?,?,?,?,?,?,?,?)";
+            		+ "image, orders_code,store_num,state,review_code)"
+            		+ " values(?,?,?,?,?,?,?,?,0)";
             
             pstmt = con.prepareStatement(sql);
             
@@ -397,6 +397,44 @@ public class OrderDAO {
     	List<productDTO> list = new ArrayList<productDTO>();
     	
     	String sql ="select * from orders_detail natural join product natural join seller where review_code =0 and (orders_code = "+order.get(0);
+    	
+    	for(int i = 1;i<order.size();i++){
+    		sql +=" or orders_code = "+order.get(i)+")";
+    	}
+    	if(order.size()==1){
+    		sql+=")";
+    	}
+    	try {
+    		getCon();
+    		pstmt= con.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()){
+    			productDTO pdto = new productDTO();
+    			
+    			//물품 명 ,설명 , 이미지
+    			pdto.setProduct_img(rs.getString("product_img"));
+    			pdto.setProduct_description(rs.getString("product_description"));
+    			pdto.setProduct_name(rs.getString("product_name"));
+    			pdto.setProduct_num(rs.getInt("product_num"));
+    			//스토어 네임
+    			pdto.setStore_name(rs.getString("store_name"));
+    			pdto.setStore_num(rs.getInt("store_num"));
+    			pdto.setOrder_detail_num(rs.getInt("order_detail_num"));
+    		
+    			list.add(pdto);
+    		}
+    		
+		} catch (Exception e) {
+			System.out.println("getorderProduct:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+    	return list;
+    }
+    public List<productDTO> getWrittenReviewProduct(List<String> order){
+    	List<productDTO> list = new ArrayList<productDTO>();
+    	
+    	String sql ="select * from orders_detail natural join product natural join seller where review_code =1 and (orders_code = "+order.get(0);
     	
     	for(int i = 1;i<order.size();i++){
     		sql +=" or orders_code = "+order.get(i)+")";

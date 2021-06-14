@@ -86,108 +86,87 @@ input[type="text"]:focus {
 			<div class="row ">
 				<div class="col-md-12">
 					<div class="product-name d-flex " align="center">
-						<div class="col-md-2">내가 작성한 리뷰</div>
+						<div class="col-md-2">내가 작성한 리뷰${rvlist.size() }</div>
 					</div>
 				</div>
 			</div>
-			<c:if test="${rvlist.size() eq 0 }">
+			<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null }">
 				<div class="row">
 					<div class="col-md-12">작성한 리뷰가 없습니다.</div>
 				</div>
 			</c:if>
 			<c:set var="loop" value="true" />
 			<c:if test="${rvlist.size() ne 0 }">
-				<c:forEach var="i" begin="${p.beginPerPage }" step="1"
-					end="${p.endPerPage}">
+				<c:forEach var="i" begin="${p.beginPerPage }" step="1" end="${p.endPerPage}">
 					<c:if test="${p.total == i }">
 						<c:set var="loop" value="false" />
 					</c:if>
 					<c:if test="${loop }">
-					<c:set var="loop2" value="true" />
-					<c:forEach var="j" items="${pdlist[j] }">
-						<c:if test="${pdlist.productnum eq rvlist[i].product_num }"></c:if>
-					</c:forEach>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="row">
-									<div class="col-md-1">
-										<img src="product_img_upload/${pdlist[i].product_img}"
-											alt="스토어 사진" style="width: 50px; height: 50px;">
-									</div>
-									<div class="col-md-4">
-										${pdlist[i].product_name }<br>
-										${pdlist[i].product_description }
-									</div>
-
-									<c:forEach var="rvlist" items="${rvlist }">
-										<c:if test="${pdlist[i].product_num eq rvlist.product_num}">
-											<div class="col-md-1 offset-6">
-
-												<a id="deleteReview"
-													href="deleteReview.bo?review_num=${rvlist.review_num }">
-													<svg xmlns="http://www.w3.org/2000/svg" width="16"
-														height="16" fill="currentColor" class="bi bi-x-square"
-														viewBox="0 0 16 16">
-  										<path
-															d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
- 										<path
-															d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-									</svg>
-												</a>
+						<c:set var="loop2" value="true" />
+						<c:forEach var="pdlist" items="${pdlist }">
+							<c:if test="${loop2 }">
+								<c:if test="${pdlist.product_num eq rvlist[i].product_num }">
+								<c:set var="loop2" value="false" />
+									<div class="row">
+										<div class="col-md-12">
+											<div class="row">
+												<div class="col-md-1">
+													<img src="product_img_upload/${pdlist.product_img}"
+														alt="스토어 사진" style="width: 50px; height: 50px;">
+												</div>
+												<div class="col-md-4">
+													${pdlist.product_name }<br>
+													${pdlist.product_description }
+												</div>
+												<div class="col-md-1 offset-6">
+													<a id="deleteReview" href="deleteReview.bo?review_num=${rvlist[i].review_num }">
+														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+	  														<path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+	 														<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+														</svg>
+													</a>
+												</div>
 											</div>
-										</c:if>
-									</c:forEach>
-								</div>
-								<c:if test="${rvlist.size() ne 0 }">
-									<c:forEach var="rvlist" items="${rvlist }">
-										<c:set var="j" value="${j+1 }" />
-										<c:if test="${pdlist[i].product_num eq rvlist.product_num}">
 											<div class="row">
 												<div class="col-md-12">
 													<div class="row">
 														<div class="col-md-3 offset-1">
-															<fmt:formatNumber var="rating"
-																value="${(rvlist.rating1+rvlist.rating2+rvlist.rating3)/3}"
-																pattern="0" />
+															<fmt:formatNumber var="rating"	value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}" pattern="0" />
 															<c:out value="${rating }점"></c:out>
 															<div class="star-rating">
-																<c:forEach var="i" begin="1" step="1" end="5">
-																	<c:if test="${rating != 6-i }">
-																		<input type="radio" id="${6-i }-stars"
-																			name="rating${j }" value="${6-i }" disabled />
-																		<label for="${6-i }-stars" class="star">&#9733;</label>
+																<c:forEach var="s" begin="1" step="1" end="5">
+																	<c:if test="${rating != 6-s }">
+																		<input type="radio" id="${6-s }-stars"
+																			name="rating${i }" value="${6-s }" disabled />
+																		<label for="${6-s }-stars" class="star">&#9733;</label>
 																	</c:if>
-																	<c:if test="${rating == 6-i }">
-																		<input type="radio" id="${6-i }-stars"
-																			name="rating${j }" value="${6-i }" checked disabled />
-																		<label for="${6-i }-stars" class="star">&#9733;</label>
+																	<c:if test="${rating == 6-s }">
+																		<input type="radio" id="${6-s }-stars"
+																			name="rating${i }" value="${6-s }" checked disabled />
+																		<label for="${6-s }-stars" class="star">&#9733;</label>
 																	</c:if>
-
+	
 																</c:forEach>
 															</div>
 														</div>
 													</div>
 													<div class="row">
-
 														<div class="col-md-7 offset-1">
-
-
-															${rvlist.review_content }<br> ${rvlist.review_content }
-
+															${rvlist[i].review_content }<br>
+															${rvlist[i].review_content }
 														</div>
 														<div class="col-md-3" align="right">
-															<img src="upload_review/${rvlist.review_img}"
-																alt="내 리뷰사진" style="height: 150px; width: 150px;">
+															<img src="upload_review/${rvlist[i].review_img}" alt="내 리뷰사진"
+																style="height: 150px; width: 150px;">
 														</div>
 													</div>
 												</div>
 											</div>
-										</c:if>
-									</c:forEach>
+										</div>
+									</div>
 								</c:if>
-							</div>
-						</div>
-						<hr>
+							</c:if>
+						</c:forEach>
 					</c:if>
 				</c:forEach>
 			</c:if>

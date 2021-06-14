@@ -10,11 +10,14 @@ import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
+import action.Criteria;
+import action.PageDTO;
+import dao.ReviewDAO;
 import dao.boardDAO;
 import dao.sellerDAO;
 import dto.brandDTO;
 import dto.categoryDTO;
-import dto.sellerDTO;
+import dto.reviewDTO;
 
 public class StoreProductDetail implements Action {
 
@@ -30,18 +33,36 @@ public class StoreProductDetail implements Action {
 		productDTO pdto = pdao.getStoreProductInfo(product_num);	
 		int store_num = pdto.getStore_num();
 		sellerDAO sdao = new sellerDAO();
-		List<sellerDTO> sdto = sdao.getSellerInfo();
 		String template = sdao.getSellerTemplate(store_num);
-
+		
 		//카테고리 정보 받아오기
 		boardDAO bdao = new boardDAO();
 		List<categoryDTO> clist = bdao.getcategory();
 		List<brandDTO> blist = bdao.getbrandList();
 
+		//리뷰 리스트
+		List<reviewDTO> rvlist = new ReviewDAO().getProductReviewList(product_num);
+		
+		//페이징
+		String page = request.getParameter("page");
+		Criteria cri;
+		PageDTO pagedto;
+		int numPerPage = 5;
+						
+		if(page != null){
+			int nowPage = Integer.parseInt(request.getParameter("nowPage"));
+			cri = new Criteria(nowPage, numPerPage);
+			pagedto = new PageDTO(cri, rvlist.size());
+		}else{
+			cri = new Criteria(numPerPage);
+			pagedto = new PageDTO(cri, rvlist.size());
+		}
+		
+		request.setAttribute("p", pagedto);
+		request.setAttribute("rvlist", rvlist);
 		request.setAttribute("blist", blist);
 		request.setAttribute("clist", clist);
 		request.setAttribute("pdto", pdto);
-		request.setAttribute("sdto", sdto);
 		ActionForward forward = new ActionForward();
 		
 		request.setAttribute("center", "template"+template+"/product.jsp"); 

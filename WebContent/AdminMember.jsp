@@ -18,7 +18,7 @@
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 </script>
-<script src="js/AdminMember.js"></script>
+<script src="js/adminmember.js"></script>
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/ionicons.min.css">
@@ -138,6 +138,7 @@ input[type="text"] {
 								</div>
 							</div>
 							<div class="one-eight text-center">
+								<input type="hidden" value="${list[i].member_num}" class="member_num">
 								<div class="display-tc">
 										<select form="" disabled="disabled" class="state">
 											<option value="" selected="selected">
@@ -151,27 +152,23 @@ input[type="text"] {
 											<c:if test="${list[i].member_code eq 8}">회원코드8</c:if>
 											<c:if test="${list[i].member_code eq 9}">관리자</c:if>
 											</option>
-											<c:if test="${list[i].member_code ne 1}"><option value="">일반회원</option></c:if>
-											<c:if test="${list[i].member_code ne 2}"><option value="">판매회원</option></c:if>
-											<c:if test="${list[i].member_code ne 3}"><option value="">탈퇴회원</option></c:if>
-											<c:if test="${list[i].member_code ne 4}"><option value="">강퇴회원</option></c:if>
-											<c:if test="${list[i].member_code ne 5}"><option value="">회원코드5</option></c:if>
-											<c:if test="${list[i].member_code ne 6}"><option value="">회원코드6</option></c:if>
-											<c:if test="${list[i].member_code ne 7}"><option value="">회원코드7</option></c:if>
-											<c:if test="${list[i].member_code ne 8}"><option value="">회원코드8</option></c:if>
-											<c:if test="${list[i].member_code ne 9}"><option value="">관리자</option></c:if> 
-										</select>
-										
-								<div class="display-tc" style="margin-left: 100px">
+											<c:if test="${list[i].member_code ne 1}"><option value="1">일반회원</option></c:if>
+											<c:if test="${list[i].member_code ne 2}"><option value="2">판매회원</option></c:if>
+											<c:if test="${list[i].member_code ne 3}"><option value="3">탈퇴회원</option></c:if>
+											<c:if test="${list[i].member_code ne 4}"><option value="4">강퇴회원</option></c:if>
+											<c:if test="${list[i].member_code ne 5}"><option value="5">회원코드5</option></c:if>
+											<c:if test="${list[i].member_code ne 6}"><option value="6">회원코드6</option></c:if>
+											<c:if test="${list[i].member_code ne 7}"><option value="7">회원코드7</option></c:if>
+											<c:if test="${list[i].member_code ne 8}"><option value="8">회원코드8</option></c:if>
+											<c:if test="${list[i].member_code ne 9}"><option value="9">관리자</option></c:if> 
+										</select>	
 								<div style="margin-right: 20px">
-								<input type="button" class="myButton" value="수정" name="edit_btn" id="edit_btn" onclick=".ad?product_num=${list[i].member_code}">
-								
-								</div>
-								<div style="margin-right: 20px">
-								<input type="button" class="myButton" value="완료" name="ok_btn" id="ok_btn">
+									<input type="button" class="edit_btn" value="수정" name="edit_btn" id="edit_btn">
+									<input type="button" class="ok_btn" value="완료" name="ok_btn" id="ok_btn">
 								</div>
 								
 						</div>	
+						</div>
 						</div>
 					</c:if>	
 					</c:forEach>

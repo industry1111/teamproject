@@ -110,9 +110,6 @@
 	</form>
 	</section>
 
-
-
-
 	<script src="template1/assets/js/jquery-1.11.0.min.js"></script>
 	<script src="template1/assets/js/jquery-migrate-1.2.1.min.js"></script>
 	<script src="template1/assets/js/bootstrap.bundle.min.js"></script>

@@ -115,6 +115,9 @@ function order_btn_click() {
 							</div>
 						</div>
 			<form action="Order.bo" method="post">
+						<c:if test="${list.size() eq null || list.size() eq 0 }">
+						장바구니에 담긴 상품이 없습니다.
+					</c:if>
 						<c:forEach var="i" begin="0" step="1" end="${list.size()}">
 							<c:if test="${list[i].store_num ne null}">
 								<h6 align="left">${list[i].store_name}</h6>

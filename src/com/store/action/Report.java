@@ -1,37 +1,50 @@
-package com.board.action;
+package com.store.action;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.product.action.productDAO;
 import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
+import dao.boardDAO;
+import dao.sellerDAO;
+import dto.categoryDTO;
+import dto.sellerDTO;
 
-public class WriteReviewAction implements Action {
+public class Report implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// 리뷰리스트 있는 페이지에서 리뷰쓰기버튼을 클릭했을때 실행
-
-		request.setCharacterEncoding("utf-8");
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
-		int order_detail_num = Integer.parseInt(request.getParameter("order_detail_num"));
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
+
+		sellerDAO sdao = new sellerDAO();
 		productDAO pdao = new productDAO();
 		productDTO pdto = pdao.getProductInfo(product_num);
+		sellerDTO sdto = sdao.getSellerInfo(pdto.getMember_num());
+		 List<categoryDTO> clist = new boardDAO().getcategory();
+	        
 		
-		request.setAttribute("order_detail_num", order_detail_num);
+		request.setAttribute("sdto", sdto);
 		request.setAttribute("pdto", pdto);
-		request.setAttribute("store_num", store_num);
+		request.setAttribute("clist", clist);
 		
 		ActionForward forward = new ActionForward();
+		forward.setPath("report.jsp");
 		forward.setRedirect(false);
-		forward.setPath("reviewForm.jsp");
-
+		
 		return forward;
-
+		
 	}
+
+	
+	
+	
 }

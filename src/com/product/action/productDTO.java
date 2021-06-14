@@ -31,7 +31,14 @@ public class productDTO {
 	private String orders_code;
 	private int order_detail_num;
 	
-	
+	private int report_count;
+
+    public int getReport_count() {
+        return report_count;
+    }
+    public void setReport_count(int report_count) {
+        this.report_count = report_count;
+    }
 	public String getOrders_code() {
 		return orders_code;
 	}

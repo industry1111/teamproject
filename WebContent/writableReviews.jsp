@@ -41,8 +41,8 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 <script type="text/javascript">
- function add_onclick(product_num,order_detail_num){
-    child = window.open("reviewForm.bo?product_num="+product_num+"&order_detail_num="+order_detail_num,"&store_num="+store_num,"child","width=500,height=800");
+ function add_onclick(product_num,order_detail_num,store_num){
+    child = window.open("reviewForm.bo?product_num="+product_num+"&order_detail_num="+order_detail_num+"&store_num="+store_num,"child","width=500,height=800");
 };//click
 
 
@@ -94,13 +94,13 @@ input[type="text"]:focus {
 			<div class="row ">
 				<div class="col-md-12">
 					<div class="product-name d-flex " align="center">
-						<div class="col-md-2">작성 가능한 리뷰${pdlist.size() }</div>
+						<div class="col-md-2">작성 가능한 리뷰</div>
 					</div>
-					<c:if test="${plist.size() eq null }">
-						주문하신 상품이 없습니다.
+					<c:if test="${pdlist.size() eq null || pdlist.size() eq 0 }">
+						작성가능한 리뷰가 없습니다.
 					</c:if>
 					<c:set var="loop" value="true" />
-					<c:if test="${plist.size() ne 0 }">
+					<c:if test="${pdlist.size() ne 0 }">
 						<c:forEach var="i" begin="${p.beginPerPage }" step="1"
 							end="${p.endPerPage}">
 							<c:if test="${p.total == i }">
