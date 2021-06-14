@@ -16,6 +16,7 @@ import action.Criteria;
 import action.PageDTO;
 import dao.boardDAO;
 import dao.sellerDAO;
+import dto.brandDTO;
 import dto.pagingDTO;
 import dto.sellerDTO;
 
@@ -24,16 +25,27 @@ public class StoreProductListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception {
-
-		HttpSession session = request.getSession();
 		
+		String visit = request.getParameter("visit");
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String user = "비회원";
+		if(id != null){
+			user = new memberDAO().getMemberInfo(id).getGender();
+		}
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
-		System.out.println("StoreProductListAction");
 		productDAO pdao = new productDAO();
-		sellerDAO sdao = new sellerDAO(); 
+		sellerDAO sdao = new sellerDAO();
+		boardDAO bdao = new boardDAO();
+		
 		List<productDTO> list = pdao.getStoreInfo(store_num);		
 		String template = sdao.getSellerTemplate(store_num);
-		System.out.println("상품 개수"+list.size());
+		if(visit != null){
+			sdao.visitorCount(user, store_num);
+		}
+		
+		int member_num = list.get(0).getMember_num();
+		List<brandDTO> blist = bdao.getStorebrandList(member_num);
 		
 		//페이징 부분
 		String page = request.getParameter("page");
@@ -54,6 +66,7 @@ public class StoreProductListAction implements Action {
 		//requset영역에 저장
 		request.setAttribute("list", list);
 		request.setAttribute("p", pagedto);
+		request.setAttribute("blist", blist);
 		//member_num에 해당하는 상품 스토어 리스트 페이지로 이동
 		ActionForward forward = new ActionForward();
 		//페이지이동(뷰페이지로이동)

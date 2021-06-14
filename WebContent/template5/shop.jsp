@@ -37,65 +37,99 @@
 		</div>
 		<!-- 상품시작 -->
 		<form action="StoreProductListAction.st" method="post"
-							enctype="multipart/form-data">
-		<div class="site-section">
-			<div class="container">
-				<div class="row mb-5">
-					<div class="col-md-9 order-2">
-						<div class="row mb-5">
-						
-							<c:set var="loop" value="true" />
-							<c:if test="${list.size() ne 0 }">
-								<c:forEach var="i" begin="${p.beginPerPage }" step="1"
-									end="${p.endPerPage}">
-									<c:if test="${p.total == i }">
-										<c:set var="loop" value="false" />
-									</c:if>
-									<c:if test="${loop }">
-										<div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-											<div class="block-4 text-center border">
-												<figure class="block-4-image"> 
-												<a href="StoreProductDetail.st?product_num=${list[i].product_num}">
-													<img src="product_img_upload/${list[i].product_img}"
-													alt="Image placeholder" width="250" height="250">
-												</a> </figure>
-												<div class="block-4-text p-4" style="height: 160px;">
-													<h3>
-														<a
-															href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
-													</h3>
-													<p class="mb-0">${list[i].product_brand }</p>
-													<p class="text-primary font-weight-bold">${list[i].product_price}
-														원</p>
+			enctype="multipart/form-data">
+			<div class="site-section">
+				<div class="container">
+					<div class="row mb-5">
+						<div class="col-md-9 order-2">
+							<div class="row mb-5">
+
+								<c:set var="loop" value="true" />
+								<c:if test="${list.size() ne 0 }">
+									<c:forEach var="i" begin="${p.beginPerPage }" step="1"
+										end="${p.endPerPage}">
+										<c:if test="${p.total == i }">
+											<c:set var="loop" value="false" />
+										</c:if>
+										<c:if test="${loop }">
+											<div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+												<div class="block-4 text-center border">
+													<figure class="block-4-image"> <a
+														href="StoreProductDetail.st?product_num=${list[i].product_num}">
+														<img src="product_img_upload/${list[i].product_img}"
+														alt="Image placeholder" width="250" height="250">
+													</a> </figure>
+													<div class="block-4-text p-4" style="height: 160px;">
+														<h3>
+															<a
+																href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
+														</h3>
+														<p class="mb-0">${list[i].product_brand }</p>
+														<p class="text-primary font-weight-bold">${list[i].product_price}
+															원</p>
+													</div>
 												</div>
 											</div>
+										</c:if>
+									</c:forEach>
+								</c:if>
+
+							</div>
+							<!-- /row md-5 -->
+						</div>
+						<!-- /md-9 order-2 -->
+
+						<!-- category start -->
+						<div class="border p-4 rounded mb-4">
+							<div class="mb-4">
+								<h3 class="mb-3 h6 text-uppercase text-black d-block">카테고리1</h3>
+								<label for="s_sm" class="d-flex"> <input type="checkbox"
+									id="s_sm" class="mr-2 mt-1"> <span class="text-black">카테고리1-1</span>
+								</label>
+							</div>
+							<div class="mb-4">
+								<h3 class="mb-3 h6 text-uppercase text-black d-block">브랜드</h3>
+								<c:if test="${blist.size() ne 0 }">
+									<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
+										<div>
+											<span
+												class="bg-danger color d-inline-block rounded-circle mr-2"></span>
+											<span class="text-black"> <a href="#">
+													${blist[i].brand_name}(${blist[i].count }) </a>
+											</span>
 										</div>
-									</c:if>
+									</c:forEach>
+								</c:if>
+							</div>
+						</div>
+						<!-- /category -->
+					</div>
+					<!-- /row md-5 -->
+					<div class="row">
+						<div class="col-md-6 offset-4 paging" style="height: 120px;">
+							<ul class="pagination">
+								<c:if test="${p.prev }">
+									<li class="page-item previous"><a class="page-link"
+										onclick="paging(${p.startPage-1 });">Previous</a></li>
+								</c:if>
+								<c:forEach var="num" begin="${p.startPage }" step="1"
+									end="${p.endPage }">
+									<li class="page-item"><a class="page-link"
+										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
 								</c:forEach>
-							</c:if>
-						
-						</div> <!-- /row md-5 -->
-					</div><!-- /md-9 order-2 -->
-					
-				<!-- category start -->	
-				<div class="border p-4 rounded mb-4">
-					<div class="mb-4">
-						<h3 class="mb-3 h6 text-uppercase text-black d-block">카테고리1</h3>
-						<label for="s_sm" class="d-flex"> <input type="checkbox"
-							id="s_sm" class="mr-2 mt-1"> <span class="text-black">카테고리1-1</span>
-						</label>
+								<c:if test="${p.next }">
+									<li class="page-item next"><a class="page-link"
+										onclick="paging(${p.endPage + 1 });">Next</a></li>
+								</c:if>
+							</ul>
+						</div>
 					</div>
-					<div class="mb-4">
-						<h3 class="mb-3 h6 text-uppercase text-black d-block">브랜드</h3>
-						<a href="#" class="d-flex color-item align-items-center"> <span
-							class="bg-danger color d-inline-block rounded-circle mr-2"></span>
-							<span class="text-black">브랜드1</span>
-						</a>
-					</div>
-				</div><!-- /category -->
-				</div><!-- /row md-5 -->
-			</div><!-- /container -->
-		</div><!-- /site session -->
+
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /site session -->
 		</form>
 	</div>
 

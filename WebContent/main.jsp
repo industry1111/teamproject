@@ -216,6 +216,12 @@ ul {
 					</ul>
 				</div>
 			</div>
+			<br>
+			<div class="row" >
+				<div class="col-md-7 offset-2" align="center">
+					<img class="banner" src="images/banner.png" alt="배너" style=" width: 100%;" >
+				</div>
+			</div>
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
 					<ul >
@@ -261,7 +267,7 @@ ul {
 					<hr>
 					<div class="row">
 						<div class="col-md-2"  >
-							<a href="StoreProductDetail.st?product_num=${plist[i].product_num }">
+							<a href="StoreProductDetail.st?product_num=${plist[i].product_num }&visit=true">
 								<img alt="" src="product_img_upload/${plist[i].product_img }" style="height: 150px; width: 150px;">
 							</a>	
 						</div>
@@ -343,7 +349,7 @@ ul {
 						<div class="col-md-2"> <%--스토어 페이지로 이동 --%>
 						<c:forEach var="j" begin="0" step="1" end="${slist.size()-1 }">
 							<c:if test="${plist[i].member_num eq slist[j].member_num }">
-								<a href="StoreProductListAction.st?store_num=${slist[j].store_num}">
+								<a href="StoreProductListAction.st?store_num=${slist[j].store_num}&visit=true">
 									<img src="upload_profile/${slist[j].profile_img }" style="height: 70px; width: 70px;">
 								</a><br> 
 								${slist[j].store_name }<br>
@@ -367,7 +373,7 @@ ul {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 offset-4 paging" style="height: 120px;">
+				<div class="col-md-7 offset-4 paging" style="height: 120px;">
  					<ul class="pagination">
        					<c:if test="${p.prev }">
            					 <li class="page-item previous">

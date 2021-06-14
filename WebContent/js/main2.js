@@ -56,7 +56,7 @@ $(function() {
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
 					"<div class='row'>" +
 					"<div class='col-md-2'>" +
-						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"'>"+
+						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"&visit=true'>"+
 						"<img src='product_img_upload/"+obj2[i].product_img+"' style='height:150px; width:150px;'>" +
 						"</a>"+
 					"</div>" +
@@ -138,7 +138,7 @@ $(function() {
 					
 					html+="</div>"+
 					"<div class='col-md-2'>" +
-					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "'>" + 
+					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
 					"</a><br>" + obj2[i].store_name + "<br>" +
 						obj2[i].category_name + 
@@ -219,7 +219,7 @@ $(function() {
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
 					"<div class='row'>" +
 					"<div class='col-md-2'>" +
-						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"'>"+
+						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"&visit=true'>"+
 						"<img src='product_img_upload/"+obj2[i].product_img+"' style='height:150px; width:150px;'>" +
 						"</a>"+
 					"</div>" +
@@ -301,7 +301,7 @@ $(function() {
 					
 					html+="</div>"+
 					"<div class='col-md-2'>" +
-					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "'>" + 
+					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
 					"</a><br>" + obj2[i].store_name + "<br>" +
 						obj2[i].category_name + 
@@ -397,7 +397,7 @@ $(function() {
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
 					"<div class='row'>" +
 					"<div class='col-md-2'>" +
-						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"'>"+
+						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"&visit=true'>"+
 						"<img src='product_img_upload/"+obj2[i].product_img+"' style='height:150px; width:150px;'>" +
 						"</a>"+
 					"</div>" +
@@ -481,7 +481,7 @@ $(function() {
 					
 					html+="</div>"+
 					"<div class='col-md-2'>" +
-					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "'>" + 
+					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
 					"</a><br>" + obj2[i].store_name + "<br>" +
 						obj2[i].category_name + 
@@ -571,7 +571,7 @@ $(function() {
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
 					"<div class='row'>" +
 					"<div class='col-md-2'>" +
-						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"'>"+
+						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"&visit=true'>"+
 						"<img src='product_img_upload/"+obj2[i].product_img+"' style='height:150px; width:150px;'>" +
 						"</a>"+
 					"</div>" +
@@ -655,7 +655,7 @@ $(function() {
 					
 					html+="</div>"+
 					"<div class='col-md-2'>" +
-					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "'>" + 
+					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
 					"</a><br>" + obj2[i].store_name + "<br>" +
 						obj2[i].category_name + 
@@ -843,7 +843,7 @@ $(function() {
 					var html = "<div class='col-md-7 offset-2'> <hr>" +
 					"<div class='row'>" +
 					"<div class='col-md-2'>" +
-						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"'>"+
+						"<a href='StoreProductDetail.st?product_num="+obj2[i].product_num+"&visit=true'>"+
 						"<img src='product_img_upload/"+obj2[i].product_img+"' style='height:150px; width:150px;'>" +
 						"</a>"+
 					"</div>" +
@@ -927,7 +927,7 @@ $(function() {
 					
 					html+="</div>"+
 					"<div class='col-md-2'>" +
-					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "'>" + 
+					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
 					"</a><br>" + obj2[i].store_name + "<br>" +
 						obj2[i].category_name + 

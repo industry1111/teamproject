@@ -399,11 +399,10 @@ public class OrderDAO {
     	String sql ="select * from orders_detail natural join product natural join seller where review_code =0 and (orders_code = "+order.get(0);
     	
     	for(int i = 1;i<order.size();i++){
-    		sql +=" or orders_code = "+order.get(i)+")";
-    	}
-    	if(order.size()==1){
+    		sql +=" or orders_code = "+order.get(i);
+    	}	
     		sql+=")";
-    	}
+    	
     	try {
     		getCon();
     		pstmt= con.prepareStatement(sql);
@@ -437,11 +436,11 @@ public class OrderDAO {
     	String sql ="select * from orders_detail natural join product natural join seller where review_code =1 and (orders_code = "+order.get(0);
     	
     	for(int i = 1;i<order.size();i++){
-    		sql +=" or orders_code = "+order.get(i)+")";
+    		sql +=" or orders_code = "+order.get(i);
     	}
-    	if(order.size()==1){
+    		
     		sql+=")";
-    	}
+    		System.out.println(sql);
     	try {
     		getCon();
     		pstmt= con.prepareStatement(sql);
