@@ -107,14 +107,11 @@ $(function() {
 				$("#account_check2").text("")
 				
 			}else{
-//				if (accountReg.test(new_account)) {
+
 					$("#account_check2").text("변경가능한 계좌번호 입니다.")
 					$("#account_check").text("");
 					check = 1;
-//				}else{
-//					$("#account_check").text("입력하신 계좌번호가 맞는지 한번 더 확인해주세요.")
-//					$("#account_check2").text("");
-////				}
+
 			}
 			$("#account_update").on("click",function() {
 				if(check == 1){
@@ -223,8 +220,6 @@ $(function() {
 								$(".template").attr("hidden", true);
 								$("#template_btn").removeAttr("hidden");
 								$("#template").attr("disabled", true);
-//								$("#template_o").attr("src","template/"+new_template+".jpg");
-//								$("#template2_o").attr("src","template/"+new_template+"-2.jpg");
 								location.reload();
 								
 							}

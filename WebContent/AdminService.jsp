@@ -86,17 +86,17 @@ input[type="text"] {
 			<div class="row row-pb-lg">
 				<div class="col-md-12">
 					<div class="product-name d-flex">
-						<div class="one-forth text-left px-4">
-							<span>Member_ID</span>
+						<div class="one-forth text-left px-2">
+							<span>스토어 정보</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>Email/Phone</span>
+							<span>신고 상품</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>RegDate</span>
+							<span>신고 사유</span>
 						</div>
-						<div class="one-eight text-center">
-							<span>Confirm</span>
+						<div class="one-eight text-left px-2">
+							<span>신고자</span>
 						</div>
 					</div>
 					
@@ -108,27 +108,57 @@ input[type="text"] {
 						</c:if>
 						<c:if test="${loop }">
 						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="display-tc">
-									<h3>${list[i].member_num}</h3>
-								</div>
+							<div class="one-forth text-left px-4">
+							<c:forEach var="j" begin="0" step="1" end="${slist.size()-1}">
+									<c:if test="${slist[j].store_num eq rlist[i].store_num }">
+									<div class="row d-flex">
+										<div style="margin-right: 10px;">
+											<img alt="" src="upload_profile/${slist[j].profile_img}" style="height: 100px; width: 100px;">
+										</div>
+										<div>
+											<span style="font-weight: bold; font-size: 15px;">${slist[j].store_name }</span>
+										</div>
+									</div>
+									</c:if>
+							</c:forEach>
 							</div>
 							<div class="one-forth text-left px-4">
-								<div class="display-tc">
-									<span>${list[i].email}</span>
-								</div>
+							<c:forEach var="j" begin="0" step="1" end="${plist.size()-1}">
+								<c:if test="${plist[j].product_num eq rlist[i].product_num }">
+								
+									<div >
+										상품 : <span style="font-weight: bold;">${plist[j].product_name}</span><br>
+										가격 : <span style="color: red;">${plist[j].product_price}</span>원
+									</div>
+							
+								</c:if>
+							</c:forEach>
+								
 							</div>
 							<div class="one-forth text-left px-4">
+							<div class="row d-flex">
+								<div style="margin-bottom: 10px;">
+									<c:if test="${rlist[i].reportDetail eq 0 }">불법 및 미취급 상품</c:if>
+									<c:if test="${rlist[i].reportDetail eq 1 }">상품가격 다름</c:if>
+									<c:if test="${rlist[i].reportDetail eq 2 }">품절, 스펙/구성품/부가정보 다름</c:if>
+									<c:if test="${rlist[i].reportDetail eq 3 }">상품제목 표기 위반</c:if>
+									<c:if test="${rlist[i].reportDetail eq 4 }">직거래 유도, 에스크로 미적용 등 판매행위 위반</c:if>
+									<c:if test="${rlist[i].reportDetail eq 5 }">기타</c:if>
+								</div><br>
 								<div class="display-tc">
-								<span>${list[i].regdate}</span>								
+								<c:if test="${rlist[i].detailText eq null }">상세사유 없음.</c:if>
+								<c:if test="${rlist[i].detailText ne null }">상세 사유 : <span>${rlist[i].detailText}</span></c:if>
+																
 								</div>
 							</div>
-							<div class="one-eight text-center">
+							</div>
+							<div class="one-eight text-left px-2">
 								<div class="display-tc">
-										<select form="">
-										 <option value="">Edit</option>
-										 <option value="">Delete</option>
-										 </select>
+								<c:forEach var="j" begin="0" step="1" end="${mlist.size()-1}">
+									<c:if test="${mlist[j].member_num eq rlist[i].member_num }">
+										<span style="font-weight: bold;">${mlist[j].id}</span>
+								</c:if>
+								</c:forEach>
 								</div>
 							</div>	
 						</div>	
