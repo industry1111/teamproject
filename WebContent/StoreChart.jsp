@@ -158,6 +158,37 @@ h6 {
 				}
 			}
 		});
+		
+		//구글 차트
+		
+	 	google.charts.load('current', {'packages':['corechart']});
+
+     	 // Set a callback to run when the Google Visualization API is loaded.
+      	google.charts.setOnLoadCallback(drawChart);
+
+     	 // Callback that creates and populates a data table,
+     	 // instantiates the pie chart, passes in the data and
+     	 // draws it.
+     	 function drawChart() {
+
+         // Create the data table.
+         var data = new google.visualization.DataTable();
+         data.addColumn('string', 'Topping');
+         data.addColumn('number', 'Slices');
+         data.addRows([
+          ['남', 2],
+          ['여', 2],
+          ['비회원', 1]
+        ]);
+
+        // Set chart options
+        var options = {'width':450,
+                       'height':400};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
 	});
 </script>
 
@@ -240,8 +271,9 @@ h6 {
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>세번째 화면</h6>
-						<input type="button" value="버튼" id="button" class="myButton">
+						<h6>방문자 통계</h6>
+						 <div id="chart_div"></div>
+						
 					</div>
 					<div class="col-md-5 "
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
