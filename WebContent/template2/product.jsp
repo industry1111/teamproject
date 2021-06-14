@@ -194,6 +194,7 @@
 							<div class="col-md-4" style="margin-top: 30px;">평점 비율</div>
 						</div>
 						</c:if>
+						<!-- ---------------------------- -->
 						<c:if test="${rvlist.size() > 0 }">
 						<h3>상품 리뷰</h3>
 						<div class="row"
