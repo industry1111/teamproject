@@ -130,29 +130,29 @@ public class OrderDAO {
             return false;
         }//insert orderDetail
     
-//    //재고 수정
-//    public void updateProductCount(int quantity,int product_num){
-//    	
-//    	try {
-//			
-//    		getCon();
-//    		
-//    		String sql = "update product set product_count = (product_count -?) where product_num = ?";
-//    		pstmt = con.prepareStatement(sql);
-//    		
-//    		pstmt.setInt(1, quantity);
-//    		pstmt.setInt(2, product_num);
-//    		
-//    		pstmt.executeUpdate();
-//    		
-//		} catch (Exception e) {
-//			System.out.println("updateProductCount:" + e.toString());
-//		}finally {
-//			
-//			ResouceClose();
-//		}
-//
-//    }
+    //재고 수정
+    public void updateProductCount(int quantity,int product_num){
+    	
+    	try {
+			
+    		getCon();
+    		
+    		String sql = "update product set product_count = (product_count -?) where product_num = ?";
+    		pstmt = con.prepareStatement(sql);
+    		
+    		pstmt.setInt(1, quantity);
+    		pstmt.setInt(2, product_num);
+    		
+    		pstmt.executeUpdate();
+    		
+		} catch (Exception e) {
+			System.out.println("updateProductCount:" + e.toString());
+		}finally {
+			
+			ResouceClose();
+		}
+
+    }
     
     //장바구니 삭제
     public void deleteBasket(int basket_num){

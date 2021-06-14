@@ -155,6 +155,8 @@
 							<input type="button" value="수정" class="state_update_btn">
 							<input type="button" value="완료" class="update_btn">
 							<input type="hidden" value="${list[i].order_detail_num}" class="order_detail_num">
+							<input type="hidden" value="${list[i].product_num}" class="product_num">
+							<input type="hidden" value="${list[i].quantity}" class="quantity">
 						</div>
 						<hr>
 						</div>

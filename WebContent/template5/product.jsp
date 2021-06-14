@@ -121,9 +121,9 @@
 											type="button">&minus;</button>
 									</div>
 									<input type="text" class="form-control text-center" 
-										id="quantity" name="quantity" value="1"
+										id="quantity" name="quantity" value="1" max="${pdto.product_count}"
 										placeholder="" aria-label="Example text with button addon"
-										aria-describedby="button-addon1">
+										aria-describedby="button-addon1" >
 									<div class="input-group-append">
 										<button class="btn btn-outline-primary js-btn-plus"
 											type="button">&plus;</button>

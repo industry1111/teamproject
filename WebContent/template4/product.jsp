@@ -116,7 +116,7 @@
 							<p>${pdto.product_description}</p>
 							<div class="size-wrap"></div>
 							<div class="input-group mb-4">
-								구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="300" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
+								구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 							</div>
 							<div class="row" align="center">
 								<div class="col-sm-12 text-center">

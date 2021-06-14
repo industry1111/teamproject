@@ -116,7 +116,7 @@
 								<div style="margin-left: 30px;">
 
 									수량 <input type="number" id="quantity" step="1" min="1"
-										max="300" name="quantity" value="1" style="text-align: right;">
+										max="${pdto.product_count}" name="quantity" value="1" style="text-align: right;">
 
 
 									<input value="${pdto.product_num}" type="hidden"
