@@ -85,16 +85,18 @@
 				</div>
 				<div class="widget brands mb-50">
 					<!-- 카테고리2 시작 -->
-					<h3 ><font color="#FFBB00">브랜드</font></h3>
+					<h3>
+						<font color="#FFBB00">브랜드</font>
+					</h3>
 					<div class="widget-desc">
 						<!-- 카테고리2 폼체크 -->
 						<div class="form-check">
 							<c:if test="${blist.size() ne 0 }">
 								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
-										<div>
-											<label class="form-check-label" for="amado">
-											 ${blist[i].brand_name}(${blist[i].count }) </label>
-										</div>
+									<div>
+										<label class="form-check-label" for="amado">
+											${blist[i].brand_name}(${blist[i].count }) </label>
+									</div>
 								</c:forEach>
 							</c:if>
 						</div>
@@ -107,8 +109,7 @@
 
 					<div class="row" align="right" style="height: 100px;">
 						<div class="col-12">
-							<div style="height: 100px;" product-topbar d-xl-flex
-								align-items-endjustify-content-between" >
+							<div style="height: 100px;" product-topbar d-xl-flexalign-items-endjustify-content-between" >
 
 								<div class="total-products"></div>
 
@@ -174,12 +175,30 @@
 							</c:forEach>
 						</c:if>
 					</div>
+					<div class="row">
+						<div class="col-md-6 offset-4 paging" style="height: 120px;">
+							<ul class="pagination">
+								<c:if test="${p.prev }">
+									<li class="page-item previous"><a class="page-link"
+										onclick="paging(${p.startPage-1 });">Previous</a></li>
+								</c:if>
+								<c:forEach var="num" begin="${p.startPage }" step="1"
+									end="${p.endPage }">
+									<li class="page-item"><a class="page-link"
+										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+								</c:forEach>
+								<c:if test="${p.next }">
+									<li class="page-item next"><a class="page-link"
+										onclick="paging(${p.endPage + 1 });">Next</a></li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 	</form>
 	<%--  </c:forEach> --%>
-	</div>
-	</div>
-	</div>
-
 
 </body>
 </html>

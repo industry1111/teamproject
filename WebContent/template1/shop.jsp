@@ -196,9 +196,7 @@
 					</div>
 				</div>
 			</div>
-	</form>
-
-	<div class="row">
+				<div class="row">
 		<div class="col-md-6 offset-4 paging" style="height: 120px;">
 			<ul class="pagination">
 				<c:if test="${p.prev }">
@@ -209,7 +207,7 @@
 					end="${p.endPage }">
 					<li class="page-item"><a class="page-link"
 						${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-						href="Main.main?page=true&nowPage=${num }">${num }</a></li>
+						href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
 				</c:forEach>
 				<c:if test="${p.next }">
 					<li class="page-item next"><a class="page-link"
@@ -218,6 +216,8 @@
 			</ul>
 		</div>
 	</div>
+		</div>
+	</form>
 	<script src="js/main2.js"></script>
 	<script src="template1/assets/js/jquery-1.11.0.min.js"></script>
 	<script src="template1/assets/js/jquery-migrate-1.2.1.min.js"></script>
