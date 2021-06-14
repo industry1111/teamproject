@@ -216,6 +216,12 @@ ul {
 					</ul>
 				</div>
 			</div>
+			<br>
+			<div class="row" >
+				<div class="col-md-7 offset-2" align="center">
+					<img class="banner" src="images/banner.png" alt="배너" style=" width: 100%;" >
+				</div>
+			</div>
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
 					<ul >
@@ -367,7 +373,7 @@ ul {
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 offset-4 paging" style="height: 120px;">
+				<div class="col-md-7 offset-4 paging" style="height: 120px;">
  					<ul class="pagination">
        					<c:if test="${p.prev }">
            					 <li class="page-item previous">
