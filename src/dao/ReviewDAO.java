@@ -70,6 +70,11 @@ public class ReviewDAO {
 			sql = "update orders_detail set review_code = 1 where order_detail_num = " + order_detail_num;
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
+			
+			sql = "update product set review_count=review_count+1 where product_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rvdto.getProduct_num());
+			pstmt.executeUpdate();
 
 		} catch (Exception e) {
 			System.out.println("insertReview:" + e.toString());
@@ -143,7 +148,7 @@ public class ReviewDAO {
 	}
 
 	// 리뷰 삭제하기
-	public void deleteReview(int review_num) {
+	public void deleteReview(int review_num,int product_num) {
 
 		try {
 			getCon();
@@ -152,9 +157,14 @@ public class ReviewDAO {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, review_num);
 			pstmt.executeUpdate();
+			
+			sql = "update product set review_count=review_count-1 where product_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, product_num);
+			pstmt.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println("deleteReview()" + e);
+			System.out.println("deleteReview()" + e.toString());
 		} finally {
 			ResouceClose();
 		}

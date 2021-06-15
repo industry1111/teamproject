@@ -33,7 +33,7 @@ public class ReceiverUpdate extends HttpServlet{
 
 	protected void doReUpdate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("dd");
+		
 		request.setCharacterEncoding("UTF-8");
 		int receiver_num = Integer.parseInt(request.getParameter("receiver_num"));
 		receiverDTO rdto = new receiverDTO();
@@ -51,6 +51,8 @@ public class ReceiverUpdate extends HttpServlet{
 		rdto.setBasic_num(Integer.parseInt(request.getParameter("basic_num")));
 		
 		new boardDAO().updateReceiver(rdto, receiver_num,member_num);
+		
+
 
 	}
 

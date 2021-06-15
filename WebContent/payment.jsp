@@ -69,7 +69,6 @@
                 //실패시 이동할 페이지
                 
                 alert(msg);
-                location.href="close.jsp";
             }
             
 		    

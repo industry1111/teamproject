@@ -129,8 +129,10 @@
 									style="text-align: right; margin-right: 20px;"> <input
 									value="${pdto.product_num}" type="hidden" name="product_num"
 									id="product_num" />
-								<button type="button" class="btn btn-success btn-lg"
-									id="addbasket">장바구니 담기</button>
+								<input type="button" class="btn btn-success btn-lg"
+									id="addbasket" value="장바구니 담기"/>
+								<input type="submit" class="btn btn-success btn-lg"
+									value="주문하기" id="order"/>
 							</div>
 						</div>
 						<p style="margin : 30px;">${pdto.product_description}</p>
@@ -294,7 +296,10 @@
 												</c:forEach>
 											</div>
 										</div>
-										<div class="col-md-2">답변달기</div>
+										<c:if test="${pdto.member_num eq member_num }">
+											<div class="col-md-2">답변달기</div>
+										</c:if>
+
 									</div>
 									<div class="row">
 										<div class="col-md-12">

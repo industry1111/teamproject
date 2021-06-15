@@ -20,7 +20,7 @@ public class ReceiverDelete implements Action{
 		
 		ActionForward forward = new ActionForward();
 		
-		forward.setPath("receiver.bo");
+		forward.setPath("receiver.re");
 		forward.setRedirect(false);
 		return forward;	
 		
