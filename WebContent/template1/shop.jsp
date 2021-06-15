@@ -16,6 +16,7 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 <link rel="stylesheet" href="template1/assets/css/fontawesome.min.css">
+
 </head>
 <body>
 
@@ -95,14 +96,14 @@
 						<h2 class="h2 pb-4">카테고리</h2>
 						<ul class="list-unstyled templatemo-accordion">
 							<!-- 중분류 -->
-							<li class="pb-3">
-								<a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#"> 
-									카테고리1-1 <i class="fa fa-fw fa-chevron-circle-down mt-1"></i></a>
-							 <!-- 소분류 -->
+							<li class="pb-3"><a
+								class="collapsed d-flex justify-content-between h3 text-decoration-none"
+								href="#"> 카테고리1-1 <i
+									class="fa fa-fw fa-chevron-circle-down mt-1"></i></a> <!-- 소분류 -->
 								<ul class="collapse show list-unstyled pl-3">
-									<li><a class="text-decoration-none" href="#">세부 카테고리1-1-1</a></li>
-								</ul>
-							</li>
+									<li><a class="text-decoration-none" href="#">세부
+											카테고리1-1-1</a></li>
+								</ul></li>
 						</ul>
 					</div>
 					<div>
@@ -195,28 +196,31 @@
 							</c:forEach>
 						</c:if>
 					</div>
+					<div class="row" style="margin-top: 20px;">
+						<div class="col-md-4 offset-4 paging" style="height: 120px;">
+							<div class="text-center">
+								<ul class="pagination justify-content-center">
+									<c:if test="${p.prev }">
+										<li class="page-item previous"><a class="page-link"
+											onclick="paging(${p.startPage-1 });">Previous</a></li>
+									</c:if>
+									<c:forEach var="num" begin="${p.startPage }" step="1"
+										end="${p.endPage }">
+										<li class="page-item"><a class="page-link"
+											${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+									</c:forEach>
+									<c:if test="${p.next }">
+										<li class="page-item next"><a class="page-link"
+											onclick="paging(${p.endPage + 1 });">Next</a></li>
+									</c:if>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-6 offset-4 paging" style="height: 120px;">
-					<ul class="pagination">
-						<c:if test="${p.prev }">
-							<li class="page-item previous"><a class="page-link"
-								onclick="paging(${p.startPage-1 });">Previous</a></li>
-						</c:if>
-						<c:forEach var="num" begin="${p.startPage }" step="1"
-							end="${p.endPage }">
-							<li class="page-item"><a class="page-link"
-								${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-								href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
-						</c:forEach>
-						<c:if test="${p.next }">
-							<li class="page-item next"><a class="page-link"
-								onclick="paging(${p.endPage + 1 });">Next</a></li>
-						</c:if>
-					</ul>
-				</div>
-			</div>
+
 		</div>
 	</form>
 	<script src="js/main2.js"></script>

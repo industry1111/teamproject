@@ -120,7 +120,7 @@
 										value="${pdto.product_num}" type="hidden" name="product_num"
 										id="product_num" />
 									<button class="add-to-cart-btn" type="button" id="addbasket"
-										style="margin-left: 10px;">장바구니추가하기</button>
+										style="margin-left: 10px;">&nbsp;&nbsp;장바구니추가하기&nbsp;&nbsp;</button>
 
 								</div>
 							</div>
@@ -133,7 +133,7 @@
 							<div align="right" style="margin-top: 100px;">
 								<a type="button" class="primary-btn"
 									href="StoreProductListAction.st?store_num=${pdto.store_num}">
-									<font color="#FFF">상품목록으로가기 </font>
+									<font color="#FFF">상품목록 </font>
 								</a>
 							</div>
 						</div>

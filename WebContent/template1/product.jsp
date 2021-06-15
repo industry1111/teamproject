@@ -88,8 +88,9 @@
 						</div>
 					</div>
 				</div>
-				<a href="StoreProductListAction.st?store_num=${pdto.store_num}">
-					목록으로가기 </a>
+				<a href="StoreProductListAction.st?store_num=${pdto.store_num}" type="button" class="btn btn-success btn-sm"
+				style="color: #fff">
+					상품목록 </a>
 			</div>
 		</div>
 

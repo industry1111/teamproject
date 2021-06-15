@@ -91,8 +91,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 mb-0">
-						<a href="index.html">카테고리표시</a> <span class="mx-2 mb-0">/</span> <strong
-							class="text-black">카테고리표시</strong>
+						<a href="#"></a> <span class="mx-2 mb-0"></span> <strong
+							class="text-black"></strong>
 					</div>
 				</div>
 			</div>
@@ -104,18 +104,19 @@
 					<div class="row">
 						<div class="col-md-6">
 							<img src="product_img_upload/${pdto.product_img}" alt="Image"
-								class="img-fluid">
+								class="img-fluid" style="margin-top: 20px;">
 						</div>
 						<div class="col-md-6">
-							<h2 class="text-black">${pdto.product_name}</h2>
+							<h2 style="margin-bottom: 30px;" class="text-black">${pdto.product_name}</h2>
 							<p>${pdto.product_description}</p>
-							<p class="mb-4">${pdto.product_brand}</p>
-							<p>
-								<strong class="text-primary h4">${pdto.product_price} 원</strong>
-							</p>
-
-							<div class="mb-5">
-								<div class="input-group mb-3" style="max-width: 120px;">
+							<div align="center">
+							<p class="mb-4"><font color="#7971ea">${pdto.product_brand}</font></p>
+							</div>
+						<div style="text-align: center">
+							<div style="float: left; margin-left:50px; margin-right:40px; height: 70px; text-align: center;">
+								<strong class="text-primary h3">${pdto.product_price} 원</strong>
+							</div>
+							<div class="input-group mb-3" align="center" style=" max-width: 120px; float: left; margin-right: 20px;">
 									<div class="input-group-prepend">
 										<button class="btn btn-outline-primary js-btn-minus"
 											type="button">&minus;</button>
@@ -128,20 +129,20 @@
 										<button class="btn btn-outline-primary js-btn-plus"
 											type="button">&plus;</button>
 									</div>
-								</div>
-
 							</div>
-							<p>
-							<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
-							<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
-							</p>
+							<div>
+								<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+								<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
+							</div>			
 						</div>
-
 					</div>
-					<p>
+					</div>
+					<div style="margin-top: 50px;">
+					<p align="center">
 						<a href="StoreProductListAction.st?store_num=${pdto.store_num}"
-							class="buy-now btn btn-sm btn-primary">목록으로</a>
+							class="buy-now btn btn-sm btn-primary">상품목록</a>
 					</p>
+					</div>
 				</div>
 
 			</div>

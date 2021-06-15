@@ -112,27 +112,28 @@
 					</div>
 					<div class="col-sm-4">
 						<div class="product-desc">
+							<div align="center">
 							<h3>${pdto.product_name}</h3>
 								<h4 class="price">
 									<span>${pdto.product_price} 원</span>
 								</h4>
 							<p>${pdto.product_brand }</p>
-							<p>${pdto.product_description}</p>
-							<div class="size-wrap"></div>
-							<div class="input-group mb-4">
-								구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 							</div>
-							<div class="row" align="center">
-								<div class="col-sm-12 text-center">
+							<p>${pdto.product_description}</p>
+							
+							<div align="center">
+								<div align="center">
+								<p>구매수량&nbsp;&nbsp;<input type="number" class="qty-text" id="quantity" 
+								step="1" min="1" max="${pdto.product_count}" name="quantity" value="1">
+								</p>
 									<p class="addtocart">
 										<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
 										<button type="button" id="addbasket" class="btn btn-primary btn-addtocart" style="margin-bottom: 20px;">장바구니 담기</button>
 									</p>
 								</div>
 								<div>
-									<a style="margin-left: 15px;" class="btn btn-primary" href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
+									<a class="btn btn-primary" href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
 								</div>
-								
 							</div>
 						</div>
 					</div>
