@@ -109,25 +109,15 @@
 						<div class="col-md-6">
 							<h2 style="margin-bottom: 30px;" class="text-black">${pdto.product_name}</h2>
 							<p>${pdto.product_description}</p>
-							<div align="center">
-							<p class="mb-4"><font color="#7971ea">${pdto.product_brand}</font></p>
-							</div>
-						<div style="text-align: center">
-							<div style="float: left; margin-left:50px; margin-right:40px; height: 70px; text-align: center;">
-								<strong class="text-primary h3">${pdto.product_price} 원</strong>
-							</div>
-							<div class="input-group mb-3" align="center" style=" max-width: 120px; float: left; margin-right: 20px;">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus"
-											type="button">&minus;</button>
-									</div>
-									<input type="text" class="form-control text-center" 
-										id="quantity" name="quantity" value="1" max="${pdto.product_count}"
-										placeholder="" aria-label="Example text with button addon"
-										aria-describedby="button-addon1" >
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus"
-											type="button">&plus;</button>
+							<p class="mb-4">${pdto.product_brand}</p>
+							<p>
+								<strong class="text-primary h4">${pdto.product_price} 원</strong>
+							</p>
+
+							<div class="mb-5">
+								<div class="input-group mb-3" style="max-width: 120px;">
+									<div class="input-group mb-4">
+										구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 									</div>
 							</div>
 							<div>
