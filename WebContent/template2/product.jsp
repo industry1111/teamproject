@@ -453,7 +453,7 @@
 									<div class="row" style="margin-top: 10px;">
 										<div class="col-md-8">${rvlist[i].review_content }</div>
 										<div class="col-md-2 offset-2">
-											<img alt="" src="${rvlist[i].review_img }" width="100%" height="150px;">
+											<img alt="" src="${pageContext.request.contextPath}/upload_review/${rvlist[i].review_img }" width="100%" height="150px;">
 										</div>
 									</div>
 									<div class="row">
@@ -461,7 +461,7 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12">판매자 답변</div>
-									</div>
+									</ div>
 									<hr>
 								</c:if>
 							</c:forEach>
