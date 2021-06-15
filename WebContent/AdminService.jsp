@@ -141,7 +141,7 @@ input[type="text"] {
 				
 				<div class="row" style="margin-left: 100px" >
 				<div style="margin-right: 20px" >
-					<input type="button" class="myButton" value="뒤로" name="close_btn" id="close_btn" onClick="location.href='/AdminMain.ad'">
+					<input type="button" class="myButton" value="뒤로" name="close_btn" id="close_btn" onClick="location.href='AdminMain.ad'">
 				</div>
 			</div>
 			
