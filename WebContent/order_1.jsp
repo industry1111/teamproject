@@ -12,7 +12,7 @@
 <script type="text/javascript">
 function btn_click() {
 
-	child = window.open("receiver_3.bo","child","width=600,height=650");
+	child = window.open("receiver_3.re","child","width=600,height=650");
 		
 }
 function submit_form() {
@@ -82,7 +82,7 @@ input {
 				</div>
 			</div>
 <div class="col-md-8 offset-2" style="border 1px solid grey;">	
-장바구니 > <b>주문결제</b> > 완료
+장바구니 > <span style="font-weight: bold;">주문결제</span> > 완료
 <hr>
 <form name="form" method="post">
 <div>
@@ -115,6 +115,7 @@ input {
 								<input type="hidden" value="${list[j].basket_num}"  name="basket_num${j}">
 							</a>
 								<input type="text" name="product_name${j}" value="${list[j].product_name}"readonly="readonly"/>
+								<input type="hidden" name="product_name_order" value="${list[j].product_name}"/>
 							</div>
 							<div class="col-md-2 ">
 								<input type="text" name="store_name${j}" value="${list[j].store_name}"readonly="readonly"/>
