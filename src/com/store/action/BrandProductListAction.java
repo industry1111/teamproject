@@ -20,7 +20,7 @@ import dto.brandDTO;
 import dto.pagingDTO;
 import dto.sellerDTO;
 
-public class StoreProductListAction implements Action {
+public class BrandProductListAction implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, 
@@ -38,7 +38,9 @@ public class StoreProductListAction implements Action {
 		sellerDAO sdao = new sellerDAO();
 		boardDAO bdao = new boardDAO();
 		
-		List<productDTO> list = pdao.getStoreInfo(store_num);		
+		String brand = request.getParameter("brand");
+		List<productDTO> list = pdao.getProductInfo(store_num, brand);	
+		List<productDTO> plist = pdao.getStoreInfo(store_num);
 		String template = sdao.getSellerTemplate(store_num);
 		if(visit != null){
 			sdao.visitorCount(user, store_num);
@@ -65,16 +67,16 @@ public class StoreProductListAction implements Action {
 		
 		//requset영역에 저장
 		request.setAttribute("list", list);
+		request.setAttribute("plist", plist);
 		request.setAttribute("p", pagedto);
 		request.setAttribute("blist", blist);
 		request.setAttribute("store_num", store_num);
-	
 		//member_num에 해당하는 상품 스토어 리스트 페이지로 이동
 		ActionForward forward = new ActionForward();
 		//페이지이동(뷰페이지로이동)
 		forward.setPath("index.jsp");
 		forward.setRedirect(false);
-		request.setAttribute("center", "template"+template+"/shop.jsp");
+		request.setAttribute("center", "template"+template+"/shop2.jsp");
 
 		return forward;
 	}

@@ -20,11 +20,19 @@
 	href="template2/css/nouislider.min.css" />
 <link rel="stylesheet" href="template2/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="template2/css/style.css" />
+<script type="text/javascript">
+function logo_click() {
+	
+	document.form.submit();
+	
+}
+
+</script>
 </head>
 <body>
 
 	<form action="StoreProductListAction.st" method="post"
-		enctype="multipart/form-data">
+		enctype="multipart/form-data" name="form">
 		<!-- 상단베너 시작 -->
 		<header>
 			<!-- TOP HEADER -->
@@ -40,9 +48,11 @@
 						<!-- LOGO -->
 						<div class="col-md-3">
 							<div class="header-logo">
+								<a href="StoreProductListAction.st?store_num=${store_num}">
 								<h1>
-									<font color="#BDBDBD">${list[1].store_name}</font>
+									<font color="#BDBDBD">${plist[1].store_name}</font>
 								</h1>
+							</a>
 							</div>
 						</div>
 						<!-- /LOGO -->
@@ -89,7 +99,7 @@
 							</div>
 						</div>
 						<!-- 카테고리1끝 -->
-
+						<input type="hidden" value="${store_num}" name="store_num">
 
 						<!-- 카테고리2 -->
 						<div class="aside">
@@ -100,16 +110,13 @@
 									<c:set var="loop" value="true" />
 									<c:if test="${blist.size() ne 0 }">
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
-											<c:if test="${p.total == i }">
-												<c:set var="loop" value="false" />
-											</c:if>
-											<c:if test="${loop}">
+											
 												<div>
 													<label for="brand-1"> <span></span>
 													<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
 													</label>
 												</div>
-											</c:if>
+											
 										</c:forEach>
 									</c:if>
 								</div>
