@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,39 +24,37 @@
 <link type="text/css" rel="stylesheet" href="template2/css/style.css" />
 
 <script src="js/addbasket.js"></script>
- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
 	
 </script>
 
 <style>
-
 .star-rating {
-  border:none;
-  display:flex;
-  flex-direction: row-reverse;
-  font-size:0.8em;
-  justify-content:space-around;
-  padding:0 .2em;
-  text-align:center;
-  width:5em;
-  
+	border: none;
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 0.8em;
+	justify-content: space-around;
+	padding: 0 .2em;
+	text-align: center;
+	width: 5em;
 }
 
 .star-rating input {
-  display:none;
+	display: none;
 }
 
 .star-rating label {
-  color:#ccc;
-  cursor:pointer;
+	color: #ccc;
+	cursor: pointer;
 }
 
 .star-rating :checked ~ label {
-  color:#f90;
+	color: #f90;
 }
-
 </style>
 </head>
 <body>
@@ -117,11 +115,10 @@
 								<div style="margin-left: 30px;">
 
 									수량 <input type="number" id="quantity" step="1" min="1"
-										max="${pdto.product_count}" name="quantity" value="1" style="text-align: right;">
-
-
-									<input value="${pdto.product_num}" type="hidden"
-										name="product_num" id="product_num" />
+										max="${pdto.product_count}" name="quantity" value="1"
+										style="text-align: right;"> <input
+										value="${pdto.product_num}" type="hidden" name="product_num"
+										id="product_num" />
 									<button class="add-to-cart-btn" type="button" id="addbasket"
 										style="margin-left: 10px;">장바구니추가하기</button>
 
@@ -144,178 +141,244 @@
 				</div>
 				<!-- 상품상세보기 끝 -->
 				<!-- 상품 리뷰  -->
-				
+
 				<div class="row">
 					<div class="col-md-12">
 						<hr>
 						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
 							<h3>상품 리뷰</h3>
-						<div class="row"
-							style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
-							align="center">
-							<div class="col-md-4" style="margin-top: 30px;">
-								<div class="row" align="center">
-									<div class="col-md-12">
-										<h4>상품 총 평점</h4>
+							<div class="row"
+								style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
+								align="center">
+								<div class="col-md-4" style="margin-top: 30px;">
+									<div class="row" align="center">
+										<div class="col-md-12">
+											<h4>상품 총 평점</h4>
+										</div>
 									</div>
-								</div>
-								<div class="star-rating" style="margin-top: 40px; font-size: 2.5em;">
+									<div class="star-rating"
+										style="margin-top: 40px; font-size: 2.5em;">
 										<c:forEach var="s" begin="1" step="1" end="5">
-										<c:if test="${0 != 6-s }">
-											<input type="radio" id="${6-s }-stars"
-												name="rating" value="${6-s }" disabled />
-											<label for="${6-s }-stars" class="star">&#9733;</label>
-										</c:if>
-										<c:if test="${0 == 6-s }">
-											<input type="radio" id="${6-s }-stars"
-												name="rating" value="${6-s }" checked disabled />
-											<label for="${6-s }-stars" class="star">&#9733;</label>
-										</c:if>
-									</c:forEach>
-								</div>
-								<h2>0/<span style="color: #E1E1E1;">5</span></h2>
-							</div>
-							<div class="col-md-4" style="margin-top: 30px;">
-								<div class="row">
-									<div class="col-md-12">
-										<h4>전체 리뷰수</h4>
+											<c:if test="${0 != 6-s }">
+												<input type="radio" id="${6-s }-stars" name="rating"
+													value="${6-s }" disabled />
+												<label for="${6-s }-stars" class="star">&#9733;</label>
+											</c:if>
+											<c:if test="${0 == 6-s }">
+												<input type="radio" id="${6-s }-stars" name="rating"
+													value="${6-s }" checked disabled />
+												<label for="${6-s }-stars" class="star">&#9733;</label>
+											</c:if>
+										</c:forEach>
 									</div>
+									<h2>
+										0/<span style="color: #E1E1E1;">5</span>
+									</h2>
 								</div>
-								<div class="row">
-									<div class="col-md-12" style="margin-top: 45px;">
-										<img src="${pageContext.request.contextPath}/images/review.png" width="20%">
+								<div class="col-md-4" style="margin-top: 30px;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4>전체 리뷰수</h4>
+										</div>
 									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12" align="center">
-										<h2>0</h2>									
+									<div class="row">
+										<div class="col-md-12" style="margin-top: 45px;">
+											<img
+												src="${pageContext.request.contextPath}/images/review.png"
+												width="20%">
+										</div>
 									</div>
-								</div>
-							</div>
-							<div class="col-md-4" style="margin-top: 30px;">
-								<div class="row">
-									<div class="col-md-12">
-										<h4>평점 비율</h4>
-									</div>
-								</div>
-								<div class="row" style="margin-top: 40px;" align="right">
-									<div class="col-md-6" >
-										상품 만족도
-									</div>
-									<div class="col-md-5" align="left">
-										<div class="star-rating"  style="font-size: 0.8em;">
-												<c:forEach var="s" begin="1" step="1" end="5">
-												<c:if test="${4 != 6-s }">
-													<input type="radio" id="${6-s }-stars"
-														name="ratinga" value="${6-s }" disabled />
-													<label for="${6-s }-stars" class="star">&#9733;</label>
-												</c:if>
-												<c:if test="${4 == 6-s }">
-													<input type="radio" id="${6-s }-stars"
-														name="ratinga" value="${6-s }" checked disabled />
-													<label for="${6-s }-stars" class="star">&#9733;</label>
-												</c:if>
-											</c:forEach>
+									<div class="row">
+										<div class="col-md-12" align="center">
+											<h2>0</h2>
 										</div>
 									</div>
 								</div>
-								<div class="row" style="margin-top: 20px;" align="right">
-									<div class="col-md-6" >
-										배송 만족도
-									</div>
-									<div class="col-md-5" align="left">
-										<div class="star-rating"  style="font-size: 0.8em;">
-												<c:forEach var="s" begin="1" step="1" end="5">
-												<c:if test="${4 != 6-s }">
-													<input type="radio" id="${6-s }-stars"
-														name="ratingb" value="${6-s }" disabled />
-													<label for="${6-s }-stars" class="star">&#9733;</label>
-												</c:if>
-												<c:if test="${4 == 6-s }">
-													<input type="radio" id="${6-s }-stars"
-														name="ratingb" value="${6-s }" checked disabled />
-													<label for="${6-s }-stars" class="star">&#9733;</label>
-												</c:if>
-											</c:forEach>
+								<div class="col-md-4" style="margin-top: 30px;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4>평점 비율</h4>
 										</div>
 									</div>
-								</div>
-								<div class="row" style="margin-top: 20px;" align="right">
-									<div class="col-md-6" >
-										재구매 의사
-									</div>
-									<div class="col-md-5" align="left">
-										<div class="star-rating"  style="font-size: 0.8em;">
+									<div class="row" style="margin-top: 40px;" align="right">
+										<div class="col-md-6">상품 만족도</div>
+										<div class="col-md-5" align="left">
+											<div class="star-rating" style="font-size: 0.8em;">
 												<c:forEach var="s" begin="1" step="1" end="5">
-												<c:if test="${4 != 6-s }">
-													<input type="radio" id="${6-s }-stars"
-														name="ratingc" value="${6-s }" disabled />
-													<label for="${6-s }-stars" class="star">&#9733;</label>
-												</c:if>
-												<c:if test="${4 == 6-s }">
-													<input type="radio" id="${6-s }-stars"
-														name="ratingc" value="${6-s }" checked disabled />
-													<label for="${6-s }-stars" class="star">&#9733;</label>
-												</c:if>
-											</c:forEach>
+													<c:if test="${0 != 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratinga"
+															value="${6-s }" disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${0 == 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratinga"
+															value="${6-s }" checked disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
 										</div>
 									</div>
+									<div class="row" style="margin-top: 20px;" align="right">
+										<div class="col-md-6">배송 만족도</div>
+										<div class="col-md-5" align="left">
+											<div class="star-rating" style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+													<c:if test="${0 != 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingb"
+															value="${6-s }" disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${0 == 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingb"
+															value="${6-s }" checked disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+									<div class="row" style="margin-top: 20px;" align="right">
+										<div class="col-md-6">재구매 의사</div>
+										<div class="col-md-5" align="left">
+											<div class="star-rating" style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+													<c:if test="${0 != 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingc"
+															value="${6-s }" disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${0 == 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingc"
+															value="${6-s }" checked disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+
 								</div>
-								
 							</div>
-						</div>
 						</c:if>
 						<!-- ---------------------------- -->
 						<c:if test="${rvlist.size() > 0 }">
-						<h3>상품 리뷰</h3>
-						<div class="row"
-							style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
-							align="center">
-							<div class="col-md-4" style="margin-top: 30px;">
-								<div class="row" align="center">
-									<div class="col-md-12">
-										상품 총 평점
+							<h3>상품 리뷰</h3>
+							<div class="row"
+								style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
+								align="center">
+								<div class="col-md-4" style="margin-top: 30px;">
+									<div class="row" align="center">
+										<div class="col-md-12">상품 총 평점</div>
 									</div>
-								</div>
-								<c:forEach var="rv" items="${rvlist }">
-									<c:set var="total" value="${total+(rv.rating1+rv.rating2+rv.rating3)/3}"/>
-								</c:forEach>
-								<div class="star-rating" style="margin-top: 40px; font-size: 2.5em;">
-								<fmt:formatNumber var="total_rating"	value="${total/rvlist.size()}" pattern="0" />
-										<c:forEach var="s" begin="1" step="1" end="5">
-										<c:if test="${total_rating != 6-s }">
-											<input type="radio" id="${6-s }-stars"
-												name="rating${i }" value="${6-s }" disabled />
-											<label for="${6-s }-stars" class="star">&#9733;</label>
-										</c:if>
-										<c:if test="${total_rating == 6-s }">
-											<input type="radio" id="${6-s }-stars"
-												name="rating${i }" value="${6-s }" checked disabled />
-											<label for="${6-s }-stars" class="star">&#9733;</label>
-										</c:if>
+									<c:forEach var="rv" items="${rvlist }">
+										<c:set var="total"
+											value="${total+(rv.rating1+rv.rating2+rv.rating3)/3}" />
 									</c:forEach>
+									<div class="star-rating"
+										style="margin-top: 40px; font-size: 2.5em;">
+										<fmt:formatNumber var="total_rating"
+											value="${total/rvlist.size()}" pattern="0" />
+										<c:forEach var="s" begin="1" step="1" end="5">
+											<c:if test="${total_rating != 6-s }">
+												<input type="radio" id="${6-s }-stars" name="rating${i }"
+													value="${6-s }" disabled />
+												<label for="${6-s }-stars" class="star">&#9733;</label>
+											</c:if>
+											<c:if test="${total_rating == 6-s }">
+												<input type="radio" id="${6-s }-stars" name="rating${i }"
+													value="${6-s }" checked disabled />
+												<label for="${6-s }-stars" class="star">&#9733;</label>
+											</c:if>
+										</c:forEach>
+									</div>
+									<h2>
+										<fmt:formatNumber value="${total/rvlist.size()}" pattern="0.0" />
+										/<span style="color: #E1E1E1;">5</span>
+									</h2>
 								</div>
-								<h2><fmt:formatNumber value="${total/rvlist.size()}" pattern="0.0" />/<span style="color: #E1E1E1;">5</span></h2>
+								<div class="col-md-4" style="margin-top: 30px;">
+									<div class="row">
+										<div class="col-md-12">전체 리뷰수</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12" style="margin-top: 45px;">
+											<img
+												src="${pageContext.request.contextPath}/images/review.png"
+												width="20%">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12" align="center">
+											<h2>${rvlist.size() }</h2>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4" style="margin-top: 30px;">
+									<div class="row">
+										<div class="col-md-12">
+											<h4>평점 비율</h4>
+										</div>
+									</div>
+									<div class="row" style="margin-top: 40px;" align="right">
+										<div class="col-md-6">상품 만족도</div>
+										<div class="col-md-5" align="left">
+											<div class="star-rating" style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+													<c:if test="${0 != 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratinga"
+															value="${6-s }" disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${0 == 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratinga"
+															value="${6-s }" checked disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+									<div class="row" style="margin-top: 20px;" align="right">
+										<div class="col-md-6">배송 만족도</div>
+										<div class="col-md-5" align="left">
+											<div class="star-rating" style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+													<c:if test="${0 != 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingb"
+															value="${6-s }" disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${0 == 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingb"
+															value="${6-s }" checked disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+									<div class="row" style="margin-top: 20px;" align="right">
+										<div class="col-md-6">재구매 의사</div>
+										<div class="col-md-5" align="left">
+											<div class="star-rating" style="font-size: 0.8em;">
+												<c:forEach var="s" begin="1" step="1" end="5">
+													<c:if test="${0 != 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingc"
+															value="${6-s }" disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+													<c:if test="${0 == 6-s }">
+														<input type="radio" id="${6-s }-stars" name="ratingc"
+															value="${6-s }" checked disabled />
+														<label for="${6-s }-stars" class="star">&#9733;</label>
+													</c:if>
+												</c:forEach>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="col-md-4" style="margin-top: 30px;">
-								<div class="row">
-									<div class="col-md-12">
-										전체 리뷰수
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12" style="margin-top: 45px;">
-										<img src="${pageContext.request.contextPath}/images/review.png" width="20%">
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12" align="center">
-										<h2>${rvlist.size() }</h2>									
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4" style="margin-top: 30px;">평점 비율</div>
-						</div>
 						</c:if>
 						<div class="row"
 							style="margin-top: 30px; height: 70px; border: 1px solid gray;">
@@ -332,9 +395,7 @@
 						</div>
 						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
 							<div class="row">
-								<div class="col-md-12">
-									작성된 리뷰가 없습니다.
-								</div>
+								<div class="col-md-12">작성된 리뷰가 없습니다.</div>
 							</div>
 						</c:if>
 						<c:set var="loop" value="true" />
@@ -346,20 +407,24 @@
 								</c:if>
 								<c:if test="${loop}">
 									<div class="row" style="margin-top: 40px;">
-										<fmt:formatNumber var="rating"	value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}" pattern="0.0" />
+										<fmt:formatNumber var="rating"
+											value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}"
+											pattern="0.0" />
 										<div class="col-md-10">
 											<div class="star-rating">
-											/${rating }
-											<fmt:formatNumber var="rating"	value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}" pattern="0" />
+												/${rating }
+												<fmt:formatNumber var="rating"
+													value="${(rvlist[i].rating1+rvlist[i].rating2+rvlist[i].rating3)/3}"
+													pattern="0" />
 												<c:forEach var="s" begin="1" step="1" end="5">
 													<c:if test="${rating != 6-s }">
-														<input type="radio" id="${6-s }-stars"
-															name="rating${i }" value="${6-s }" disabled />
+														<input type="radio" id="${6-s }-stars" name="rating${i }"
+															value="${6-s }" disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
 													</c:if>
 													<c:if test="${rating == 6-s }">
-														<input type="radio" id="${6-s }-stars"
-															name="rating${i }" value="${6-s }" checked disabled />
+														<input type="radio" id="${6-s }-stars" name="rating${i }"
+															value="${6-s }" checked disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
 													</c:if>
 												</c:forEach>
@@ -371,13 +436,12 @@
 									</div>
 									<div class="row">
 										<div class="col-md-12">
-											(${fn:substring(rvlist[i].id,0,4) }****)/<fmt:formatDate value="${rvlist[i].regdate }"/>
+											(${fn:substring(rvlist[i].id,0,4) }****)/
+											<fmt:formatDate value="${rvlist[i].regdate }" />
 										</div>
 									</div>
 									<div class="row" style="margin-top: 10px;">
-										<div class="col-md-8">
-											${rvlist[i].review_content }
-										</div>
+										<div class="col-md-8">${rvlist[i].review_content }</div>
 										<div class="col-md-2 offset-2">
 											<img alt="" src="" width="100%" height="150px;">
 										</div>
@@ -394,28 +458,28 @@
 						</c:if>
 					</div>
 				</div>
-							<div class="row">
-						<div class="col-md-6 offset-4 paging" style="height: 120px;">
-							<ul class="pagination">
-								<c:if test="${p.prev }">
-									<li class="page-item previous"><a class="page-link"
-										onclick="paging(${p.startPage-1 });">Previous</a></li>
-								</c:if>
-								<c:forEach var="num" begin="${p.startPage }" step="1"
-									end="${p.endPage }">
-									<li class="page-item"><a class="page-link"
-										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-										href="StoreProductDetail.st?page=true&nowPage=${num }&product_num=${pdto.product_num}">${num }</a>
-									</li>
-								</c:forEach>
+				<div class="row">
+					<div class="col-md-6 offset-4 paging" style="height: 120px;">
+						<ul class="pagination">
+							<c:if test="${p.prev }">
+								<li class="page-item previous"><a class="page-link"
+									onclick="paging(${p.startPage-1 });">Previous</a></li>
+							</c:if>
+							<c:forEach var="num" begin="${p.startPage }" step="1"
+								end="${p.endPage }">
+								<li class="page-item"><a class="page-link"
+									${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+									href="StoreProductDetail.st?page=true&nowPage=${num }&product_num=${pdto.product_num}">${num }</a>
+								</li>
+							</c:forEach>
 
-								<c:if test="${p.next }">
-									<li class="page-item next"><a class="page-link"
-										onclick="paging(${p.endPage + 1 });">Next</a></li>
-								</c:if>
-							</ul>
-						</div>
+							<c:if test="${p.next }">
+								<li class="page-item next"><a class="page-link"
+									onclick="paging(${p.endPage + 1 });">Next</a></li>
+							</c:if>
+						</ul>
 					</div>
+				</div>
 				<!-- Q&A  -->
 			</div>
 	</form>
