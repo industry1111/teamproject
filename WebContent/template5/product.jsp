@@ -116,17 +116,8 @@
 
 							<div class="mb-5">
 								<div class="input-group mb-3" style="max-width: 120px;">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus"
-											type="button">&minus;</button>
-									</div>
-									<input type="text" class="form-control text-center" 
-										id="quantity" name="quantity" value="1" max="${pdto.product_count}"
-										placeholder="" aria-label="Example text with button addon"
-										aria-describedby="button-addon1" >
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus"
-											type="button">&plus;</button>
+									<div class="input-group mb-4">
+										구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 									</div>
 								</div>
 
