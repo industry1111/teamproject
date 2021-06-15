@@ -203,7 +203,7 @@ input[type="text"]:focus {
 				<div>
 					
 						<div class="col-md-7">
-							<input type="text" id="receiver_phone" name="receiver_phone">
+							<input maxlength="11" style="width: 200px;"  type="text" id="receiver_phone" name="receiver_phone">
 					</div>
 					
 				</div>
@@ -216,7 +216,7 @@ input[type="text"]:focus {
 			<td>
 				<div>
 					<div class="col-md-7">
-							<input type="checkbox" name="basic_num" id="basic_num" value="1"/> 기본배송지로 설정
+							<input type="checkbox" name="basic_num" id="basic_num" value="0"/> 기본배송지로 설정
 					</div>
 					
 				</div>

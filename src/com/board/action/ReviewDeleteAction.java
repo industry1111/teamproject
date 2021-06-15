@@ -19,9 +19,9 @@ public class ReviewDeleteAction implements Action{
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		int review_num = Integer.parseInt(request.getParameter("review_num"));
-		
+		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		ReviewDAO rvdao = new ReviewDAO();
-		rvdao.deleteReview(review_num);
+		rvdao.deleteReview(review_num,product_num);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(true);

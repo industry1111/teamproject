@@ -749,7 +749,6 @@ $(function() {
 		$(this).css('color', 'white');
 		$(this).css('background-color', '#c5c5c5');
 		$(this).attr('class', 'price allowed');
-		
 		productlist();
 	});
 	

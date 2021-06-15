@@ -182,8 +182,12 @@ h6 {
         ]);
 
         // Set chart options
-        var options = {'width':450,
-                       'height':400};
+        var options = {
+        		'width':'100%',
+                'height':400,
+                pieSliceText: 'label',
+                legend: 'none'
+        };
 
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -271,9 +275,24 @@ h6 {
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>방문자 통계</h6>
-						 <div id="chart_div"></div>
-						
+						<h6>일일 방문자</h6>
+						<c:if test="${vlist.size() eq 0 || vlist.size() eq null }">
+							<div style="margin-top: 100px;">
+								<span style="font-size: 20">일일 방문자수는 <span style="font-weight: bold;">0</span>명입니다.</span>
+							</div>
+						</c:if>
+						<c:if test="${vlist.size() > 0}">
+						 	<div id="chart_div"></div>
+						 	<div style="margin-left: 100px;">
+								<span style="font-size: 20">일일 방문자수는  총<span style="font-weight: bold;">
+									<c:set var="count" value="0"/> 
+									<c:forEach var="vlist" items="${vlist }">
+										<c:set var="count" value="${count+vlist.count }"/>
+										${count }
+									</c:forEach>
+								</span>명입니다.</span>
+							</div>
+						 </c:if>
 					</div>
 					<div class="col-md-5 "
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">

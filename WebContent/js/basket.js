@@ -107,38 +107,53 @@ $(function() {
 		var check = $(this).parent().parent().parent().siblings("div[name=check]").children();
 		var quantity = $(this).parent().parent().siblings("div[name=parent]").children().val();
 		var new_quantity = parseInt(quantity)-1;
-		$(this).parent().parent().siblings("div[name=parent]").children().val(new_quantity);
 		var basket_num = $(this).parent().parent().parent().siblings("div[name=parent1]").children().children().children().val();
-		var product_price = $(this).parent().parent().parent().siblings("div[name=product_price]").children().children().text();
-		var new_total_price = parseInt(product_price)*parseInt(new_quantity);
-		$(this).parent().parent().parent().siblings("div[name=t_price]").children().children().text(new_total_price);
-
-		if(check.is(":checked")){
-			
-			var price_total = parseInt($("#price_total").val());
-
-			price_total -= parseInt(product_price);
-			
-			$("#price_total").val(price_total);
-
-		}
 		
 		
-		$.ajax({
+		
+
+		if(new_quantity < 1){
+		
+			alert("최소 수량은 1개 입니다.");
 			
-			type:"post",
-			async:true,
-			url : contextPath + "/BasketQuantityUpdate",
-			data : {
-				new_quantity : new_quantity,
-				basket_num : basket_num,
-				command : "minus"
-				},
-			success : function () {
+			
+		}else{
+			
+			
+			var product_price = $(this).parent().parent().parent().siblings("div[name=product_price]").children().children().text();
+			var new_total_price = parseInt(product_price)*parseInt(new_quantity);
+			$(this).parent().parent().parent().siblings("div[name=t_price]").children().children().text(new_total_price);
+			$(this).parent().parent().siblings("div[name=parent]").children().val(new_quantity);
+			
+			if(check.is(":checked")){
+				
+				var price_total = parseInt($("#price_total").val());
+				
+				price_total -= parseInt(product_price);
+				
+				$("#price_total").val(price_total);
 				
 			}
+			
+			if(new_quantity > 1){
+				$.ajax({
+					
+					type:"post",
+					async:true,
+					url : contextPath + "/BasketQuantityUpdate",
+					data : {
+						new_quantity : new_quantity,
+						basket_num : basket_num,
+						command : "minus"
+					},
+					success : function () {
+						
+					}
+					
+				});
+		}
+	  }
 		
-		});
 	});
 
 });
