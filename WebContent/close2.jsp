@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	
-	opener.parent.location.reload();
-	
+	window.opener.location.reload();
 	window.close();
 
 </script>

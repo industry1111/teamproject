@@ -5,12 +5,13 @@ $(function() {
 	 $("input[id='basic_num']:checkbox").change(function () {
 			
 		 if($("input:checkbox[id='basic_num']").is(":checked")){
-			 baisc_num = $("#basic_num").val('1');
+			 baisc_num = $(this).val('1');
+			 
 		 }else{
-			 baisc_num = $("#basic_num").val('0');
+			 baisc_num = $(this).val('0');
 		 }
 
-		 console.log(baisc_num);
+		 
 	});
 
 	
@@ -75,7 +76,7 @@ $(function() {
 	});
 	
 	$("#close_btn").on("click",function(){
-		location.href="./close2.jsp";
+		self.close();  
 	});
 	
 	
