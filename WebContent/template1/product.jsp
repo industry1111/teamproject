@@ -296,6 +296,7 @@
 										<c:if test="${pdto.member_num eq member_num }">
 											<div class="col-md-2">답변달기</div>
 										</c:if>
+
 									</div>
 									<div class="row">
 										<div class="col-md-12">

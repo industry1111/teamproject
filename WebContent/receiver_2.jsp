@@ -200,7 +200,7 @@ input[type="text"]:focus {
 				<div>
 					
 						<div class="col-md-7">
-							<input type="text" id="receiver_phone" name="receiver_phone" value="${rdto.receiver_phone}">
+							<input type="text" maxlength="11" id="receiver_phone" name="receiver_phone" value="${rdto.receiver_phone}">
 					</div>
 					
 				</div>

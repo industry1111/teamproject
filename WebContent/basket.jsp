@@ -129,7 +129,7 @@ function order_btn_click() {
 										<input type="hidden" name="chk" id="chk"/>
 								</div>
 								<div class="one-forth">
-									<a>
+									<a href="StoreProductDetail.st?product_num=${list[i].product_num }">
 										<img src="product_img_upload/${list[i].product_img}" style="width: 100px;height: 100px;">
 								
 									</a>

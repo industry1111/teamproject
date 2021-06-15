@@ -203,7 +203,7 @@ input[type="text"]:focus {
 				<div>
 					
 						<div class="col-md-7">
-							<input type="text" id="receiver_phone" name="receiver_phone">
+							<input maxlength="11" style="width: 200px;"  type="text" id="receiver_phone" name="receiver_phone">
 					</div>
 					
 				</div>

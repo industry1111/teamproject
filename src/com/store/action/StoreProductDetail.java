@@ -20,6 +20,7 @@ import dao.sellerDAO;
 import dto.brandDTO;
 import dto.categoryDTO;
 import dto.reviewDTO;
+import dto.sellerDTO;
 
 public class StoreProductDetail implements Action {
 
@@ -48,6 +49,7 @@ public class StoreProductDetail implements Action {
 		productDTO pdto = pdao.getStoreProductInfo(product_num);	
 		int store_num = pdto.getStore_num();
 		sellerDAO sdao = new sellerDAO();
+		List<sellerDTO> slist = sdao.getSellerInfo();
 		String template = sdao.getSellerTemplate(store_num);
 		if(visit != null){
 			sdao.visitorCount(user, store_num);
@@ -74,8 +76,9 @@ public class StoreProductDetail implements Action {
 			cri = new Criteria(numPerPage);
 			pagedto = new PageDTO(cri, rvlist.size());
 		}
-		
+
 		request.setAttribute("member_num", member_num);
+
 		request.setAttribute("p", pagedto);
 		request.setAttribute("rvlist", rvlist);
 		request.setAttribute("blist", blist);
