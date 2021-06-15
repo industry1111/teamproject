@@ -100,8 +100,6 @@ public class StoreFrontController extends HttpServlet { //스토어 및 상품�
         }
 		
 		
-		
-		
 		if (forward != null) {
 			if (forward.isRedirect()) {// true -> sendRedirect()
 

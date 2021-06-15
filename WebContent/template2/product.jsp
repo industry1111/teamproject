@@ -26,11 +26,8 @@
 <script src="js/addbasket.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-<script>
-	var contextPath = "${pageContext.request.contextPath}";
-	
-</script>
-
+<script>var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="${pageContext.request.contextPath}/js/reply.js"></script>
 <style>
 .star-rating {
 	border: none;
@@ -440,9 +437,6 @@
 												</c:forEach>
 											</div>
 										</div>
-										<c:if test="${pdto.member_num == member_num }">
-											<div class="col-md-2">답변달기</div>
-										</c:if>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
@@ -456,12 +450,37 @@
 											<img alt="" src="${pageContext.request.contextPath}/upload_review/${rvlist[i].review_img }" width="100%" height="150px;">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-5">판매자/답변등록일</div>
+									<c:if test="${pdto.member_num == member_num }">
+										<div class="row">
+											<div class="col-md-12">
+												<button type="button" class="reply">답변달기</button>	
+											</div>
+										</div>
+									</c:if>
+									<div class="row reply_div" hidden>
+										<div class="col-md-12">
+											<div class="row">
+												<div class="col-md-12">
+													<textarea rows="4" cols="40"></textarea>
+													<button type="button" class="replybtn">등록</button>
+												</div>
+											</div>	
+										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-12">판매자 답변</div>
-									</ div>
+									<div class="row reply_div2" hidden>
+										<div class="col-md-12">
+											<div class="row">
+												<div class="col-md-12">
+													<span class="a" style="font-weight: bold;"></span>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md-12">
+													<span class="b" style="background-color: gray; color: black;"></span>
+												</div>
+											</div>	
+										</div>
+									</div>
 									<hr>
 								</c:if>
 							</c:forEach>

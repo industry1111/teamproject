@@ -19,6 +19,7 @@
 
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
 <script src="js/addbasket.js"></script>
+<script src="${pageContext.request.contextPath}/js/reply"></script>
 <style>
 .star-rating {
 	border: none;
