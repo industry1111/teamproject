@@ -40,8 +40,6 @@ public class OrderFrontController extends HttpServlet{
         
         if(command.equals("/PaymentComplete.or")) {
             
-            System.out.println("sss");
-            
             action = new PaymentComplete();
             try {
                 forward = action.execute(request, response);
