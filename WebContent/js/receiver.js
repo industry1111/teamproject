@@ -2,12 +2,17 @@ $(function() {
 	
 	var baisc_num = $("#basic_num").val();
 	
-	$("#basic_num").on("click",function(){
-		
-		baisc_num = $("#basic_num").val('1');
-		
+	 $("input[id='basic_num']:checkbox").change(function () {
+			
+		 if($("input:checkbox[id='basic_num']").is(":checked")){
+			 baisc_num = $("#basic_num").val('1');
+		 }else{
+			 baisc_num = $("#basic_num").val('0');
+		 }
+
+		 console.log(baisc_num);
 	});
-	
+
 	
 	$("#addr_add_btn").on("click",function(){
 		
@@ -58,16 +63,19 @@ $(function() {
 			},
 			dataTyep:"json",
 			success : function() {
-				
 			}
 			
 		});
-		window.close();
+		window.opener.document.location.href = window.opener.document.URL;    // 부모창 새로고침
+		
+		//window.opener.location.reload()​
+		self.close();  
+	
 	
 	});
 	
 	$("#close_btn").on("click",function(){
-		window.close();
+		location.href="./close2.jsp";
 	});
 	
 	

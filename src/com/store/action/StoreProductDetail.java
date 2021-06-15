@@ -37,6 +37,12 @@ public class StoreProductDetail implements Action {
 		}
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
 		
+		int member_num =0;
+		if((String) session.getAttribute("id") != null){
+			member_num = (int) session.getAttribute("member_num");
+		}
+		
+		
 		/*데이터베이스 자바빈 작업*/
 		productDAO pdao = new productDAO();
 		productDTO pdto = pdao.getStoreProductInfo(product_num);	
@@ -69,6 +75,7 @@ public class StoreProductDetail implements Action {
 			pagedto = new PageDTO(cri, rvlist.size());
 		}
 		
+		request.setAttribute("member_num", member_num);
 		request.setAttribute("p", pagedto);
 		request.setAttribute("rvlist", rvlist);
 		request.setAttribute("blist", blist);

@@ -216,7 +216,7 @@ input[type="text"]:focus {
 						<c:set var="basic_num" value="${rdto.basic_num}"/>
 						<c:choose>
 							<c:when test="${basic_num eq 1}">
-								<input type="checkbox" name="basic_num" id="basic_num" value="0" checked="checked"/> 기본배송지로 설정
+								<input type="checkbox" name="basic_num" id="basic_num" value="1" checked="checked"/> 기본배송지로 설정
 							</c:when>
 							<c:otherwise>
 								<input type="checkbox" name="basic_num" id="basic_num" value="0" /> 기본배송지로 설정
