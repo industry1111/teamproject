@@ -218,8 +218,8 @@ ul {
 			</div>
 			<br>
 			<div class="row" >
-				<div class="col-md-7 offset-2" align="center">
-					<img class="banner" src="images/banner.png" alt="배너" style=" width: 100%;" >
+				<div class="col-md-7 offset-1" align="left">
+					<img class="banner" src="images/banner.png" alt="배너" style=" width: 103%; margin-left: 138px;" >
 				</div>
 			</div>
 			<div class="row" style="margin-top: 60px">
