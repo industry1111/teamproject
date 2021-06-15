@@ -55,14 +55,15 @@ public class StoreChart implements Action {
 		day = simpleDateFormat.format(new Date());
 		List<visitDTO> vlist = new sellerDAO().getVisitCount(store_num, day);
 		JSONArray user = new JSONArray();
-		for(int i=0;i<vlist.size();i++) {
-			user.add(vlist.get(i).getUser());
-		}
 		JSONArray vcount = new JSONArray();
-		for(int i=0;i<vlist.size();i++) {
-			vcount.add(vlist.get(i).getCount());
-		}
-		
+			for(int i=0;i<vlist.size();i++) {
+				user.add(vlist.get(i).getUser());
+			}
+			for(int i=0;i<vlist.size();i++) {
+				vcount.add(vlist.get(i).getCount());
+			}
+		System.out.println(vlist.size());
+		request.setAttribute("vlist", vlist);
 		request.setAttribute("user", user);
 		request.setAttribute("vcount", vcount);
 		request.setAttribute("count", count);
