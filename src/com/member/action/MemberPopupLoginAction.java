@@ -63,15 +63,9 @@ public class MemberPopupLoginAction implements Action{
 		ActionForward forward=new ActionForward();
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
-		if(id.equals("test12")){
-			forward.setRedirect(false);
-			forward.setPath("/AdminMain.ad");
-		}else{
-			forward.setPath("close.jsp");
-			forward.setRedirect(true);
-		}
-		 	
-		
+		forward.setPath("close.jsp");
+		forward.setRedirect(true);
+	
 		return forward;
 	}
 }

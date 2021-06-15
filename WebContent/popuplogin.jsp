@@ -63,10 +63,6 @@
 					<br> <br>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" >Login</button>		
-						<div class="col-md-4">
-							<a href="./MemberJoin.me" class="login100-form-btn"> Sign Up
-							</a>
-						</div>
 					</div>
 				</form>
 				<div class="row">

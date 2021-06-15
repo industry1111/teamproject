@@ -365,7 +365,9 @@
 												</c:forEach>
 											</div>
 										</div>
-										<div class="col-md-2">답변달기</div>
+										<c:if test="${pdto.member_num == member_num }">
+											<div class="col-md-2">답변달기</div>
+										</c:if>
 									</div>
 									<div class="row">
 										<div class="col-md-12">
