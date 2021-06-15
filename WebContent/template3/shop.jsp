@@ -114,9 +114,9 @@
 								<div class="total-products"></div>
 
 								<header class="header-area clearfix"> <!-- Cart Menu -->
-								<div class="cart-fav-search mb-100">
+								<div class="cart-fav-search mb-100" >
 									<a href="#" class="search-nav"><img
-										src="img/core-img/search.png" alt=""> Search</a>
+										src="img/core-img/search.png" alt=""></a>
 								</div>
 								</header>
 								<div class="product-sorting d-flex">
@@ -176,8 +176,8 @@
 						</c:if>
 					</div>
 					<div class="row">
-						<div class="col-md-6 offset-4 paging" style="height: 120px;">
-							<ul class="pagination">
+						<div class="col-md-4 offset-4 paging" style="height: 120px;">
+							<ul class="pagination justify-content-center">
 								<c:if test="${p.prev }">
 									<li class="page-item previous"><a class="page-link"
 										onclick="paging(${p.startPage-1 });">Previous</a></li>
