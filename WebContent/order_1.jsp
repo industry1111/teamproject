@@ -15,17 +15,6 @@ function btn_click() {
 	child = window.open("receiver_3.bo","child","width=600,height=650");
 		
 }
-
-function payment_btn_click() {
-	
-		 
-	      var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
-	      var frm = document.form;
-	      frm.action = contextPath + '/payment.bo';
-	      frm.target ="child2";
-	      frm.method ="post";
-	      frm.submit();    
-}
 function submit_form() {
 	
 	var form = document.form;
@@ -35,6 +24,41 @@ function submit_form() {
 }
 
 
+
+$(function(){ 
+	
+	$("#payment_btn").on("click",function(){
+			
+		if($("input:radio[id='new_check']").is(':checked')){
+
+			if($("#receiver_name").val() != "" && $("#receiver_phone").val() !="" && $("#adress_name").val() !="" && $("#addr1").val() !="" 
+					&& $("#addr2").val() != "" && $("#addr3")!= ""){
+				
+			      var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
+			      var frm = document.form;
+			      frm.action = contextPath + '/payment.bo';
+			      frm.target ="child2";
+			      frm.method ="post";
+			      frm.submit();    
+				
+			}else{
+				alert("배송지를 입력해 주세요.");
+			}
+			
+		}else{
+			
+			 var gsWin = window.open('about:blank','child2',"width=800,height=600 resizable=no, scrollbars=no");
+		      var frm = document.form;
+		      frm.action = contextPath + '/payment.bo';
+		      frm.target ="child2";
+		      frm.method ="post";
+		      frm.submit();    
+		}
+	
+		}) 
+		
+		 
+});
 </script>
 <script src="js/order.js"></script>
 <head>
@@ -148,17 +172,17 @@ input {
 					</div>
 					</c:if>
 				</c:forEach>
-				<div class="new_select" hidden>
-				<ul>
-					<li>수령인 : <input type="text" id="receiver_name" name="receiver_name"></li>
-					<li>배송지 이름 : <input type="text" id="address_name" name="address_name"></li>
-					<li>번호 : <input type="text" id="receiver_phone" name="receiver_phone"></li>
-					<li>주소 : <input type="text" id="addr1" name="addr1" >&nbsp;
-					<input type="button" onclick="addr_search()" value="우편번호 찾기" id="post_btn" class="myButton"></li>
-					<li><input type="text" id="addr2" name="addr2"></li>
-					<li><input type="text" id="addr3" name="addr3"></li>
-					<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
-				</ul>
+				<div class="new_select" id="new_select" hidden>
+					<ul>
+						<li>수령인 : <input type="text" id="receiver_name" name="receiver_name"></li>
+						<li>배송지 이름 : <input type="text" id="address_name" name="address_name"></li>
+						<li>번호 : <input type="text" id="receiver_phone" name="receiver_phone"></li>
+						<li>주소 : <input type="text" id="addr1" name="addr1" >&nbsp;
+						<input type="button" onclick="addr_search()" value="우편번호 찾기" id="post_btn" class="myButton"></li>
+						<li><input type="text" id="addr2" name="addr2"></li>
+						<li><input type="text" id="addr3" name="addr3"></li>
+						<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
+					</ul>
 				</div>
 				</div>
 			</div>
@@ -188,7 +212,7 @@ input {
 		
 		</div>
 		<div>
-			<input type="button" class="myButton" value="결제하기" name="payment_btn" onclick="payment_btn_click();">
+			<input type="button" class="myButton" value="결제하기" id = "payment_btn" name="payment_btn">
 		</div>
 		<div>
 			<a type="button"name="cancle_btn" href="basket.bo">주문취소</a>

@@ -214,4 +214,14 @@ $(function() {
 			return false;
 		}
 	});
+
+	 $("input[name='radio_btn']:radio").change(function () {
+		
+		var gender = $(this).val();
+		console.log(gender);
+		
+		
+	});
+	
+	
 });

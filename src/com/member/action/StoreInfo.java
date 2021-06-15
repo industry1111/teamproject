@@ -27,10 +27,10 @@ public class StoreInfo implements Action {
         
         boardDAO bdao = new boardDAO();
         List<categoryDTO> list = bdao.getcategory();
-        List<templateDTO> tlist = bdao.getTemplateList();
+    
         
         request.setAttribute("list", list);
-        request.setAttribute("tlist", tlist);
+       
 		
         request.setAttribute("center","StoreInfoUpdate.jsp");
 		ActionForward forward = new ActionForward();

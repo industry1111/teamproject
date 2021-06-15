@@ -52,8 +52,8 @@ public class memberDAO {
 		try {
 			getCon();
 
-			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code)"
-					+ " values(?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code,gender)"
+					+ " values(?,?,?,?,?,?,?,?,?,?)";
 			
 
 			pstmt = con.prepareStatement(sql);
@@ -66,6 +66,7 @@ public class memberDAO {
 			pstmt.setString(7, dto.getAddr2());
 			pstmt.setString(8, dto.getAddr3());
 			pstmt.setInt(9, 1);
+			pstmt.setString(10, dto.getGender());
 
 			result = pstmt.executeUpdate();
 			
@@ -351,6 +352,7 @@ public class memberDAO {
 				mdto.setDate(rs.getTimestamp("date"));
 				mdto.setRegdate(rs.getTimestamp("regdate"));
 				mdto.setMember_code((rs.getString("member_code")));
+				mdto.setGender(rs.getString("gender"));
 				list.add(mdto);
 			}
 		} catch (Exception e) {
@@ -386,6 +388,7 @@ public class memberDAO {
 					mdto.setDate(rs.getTimestamp("date"));
 					mdto.setRegdate(rs.getTimestamp("regdate"));
 					mdto.setMember_code((rs.getString("member_code")));
+					mdto.setGender(rs.getString("gender"));
 					list.add(mdto);
 				}
 			} catch (Exception e) {
@@ -421,6 +424,7 @@ public class memberDAO {
 				mdto.setDate(rs.getTimestamp("date"));
 				mdto.setRegdate(rs.getTimestamp("regdate"));
 				mdto.setMember_code((rs.getString("member_code")));
+				mdto.setGender(rs.getString("gender"));
 			}
 		} catch (Exception e) {
 			System.out.println("getMemberInfo:" + e.toString());

@@ -130,29 +130,29 @@ public class OrderDAO {
             return false;
         }//insert orderDetail
     
-//    //재고 수정
-//    public void updateProductCount(int quantity,int product_num){
-//    	
-//    	try {
-//			
-//    		getCon();
-//    		
-//    		String sql = "update product set product_count = (product_count -?) where product_num = ?";
-//    		pstmt = con.prepareStatement(sql);
-//    		
-//    		pstmt.setInt(1, quantity);
-//    		pstmt.setInt(2, product_num);
-//    		
-//    		pstmt.executeUpdate();
-//    		
-//		} catch (Exception e) {
-//			System.out.println("updateProductCount:" + e.toString());
-//		}finally {
-//			
-//			ResouceClose();
-//		}
-//
-//    }
+    //재고 수정
+    public void updateProductCount(int quantity,int product_num){
+    	
+    	try {
+			
+    		getCon();
+    		
+    		String sql = "update product set product_count = (product_count -?) where product_num = ?";
+    		pstmt = con.prepareStatement(sql);
+    		
+    		pstmt.setInt(1, quantity);
+    		pstmt.setInt(2, product_num);
+    		
+    		pstmt.executeUpdate();
+    		
+		} catch (Exception e) {
+			System.out.println("updateProductCount:" + e.toString());
+		}finally {
+			
+			ResouceClose();
+		}
+
+    }
     
     //장바구니 삭제
     public void deleteBasket(int basket_num){
@@ -399,11 +399,10 @@ public class OrderDAO {
     	String sql ="select * from orders_detail natural join product natural join seller where review_code =0 and (orders_code = "+order.get(0);
     	
     	for(int i = 1;i<order.size();i++){
-    		sql +=" or orders_code = "+order.get(i)+")";
-    	}
-    	if(order.size()==1){
+    		sql +=" or orders_code = "+order.get(i);
+    	}	
     		sql+=")";
-    	}
+    	
     	try {
     		getCon();
     		pstmt= con.prepareStatement(sql);
@@ -437,11 +436,11 @@ public class OrderDAO {
     	String sql ="select * from orders_detail natural join product natural join seller where review_code =1 and (orders_code = "+order.get(0);
     	
     	for(int i = 1;i<order.size();i++){
-    		sql +=" or orders_code = "+order.get(i)+")";
+    		sql +=" or orders_code = "+order.get(i);
     	}
-    	if(order.size()==1){
+    		
     		sql+=")";
-    	}
+    		System.out.println(sql);
     	try {
     		getCon();
     		pstmt= con.prepareStatement(sql);
