@@ -151,6 +151,11 @@ function order_btn_click() {
 										<div class="display-tc">
 											<input id="button_plus" type="button" class="plus_btn" value="+">
 											<input id="button_plus" style="font-size: 20px" type="button" class="minus_btn" value="-">
+											<c:forEach var="j" begin="0" step="1" end="${plist.size()-1}">
+												<c:if test="${list[i].product_num eq plist[j].product_num}">
+													<input type="hidden" value="${plist[j].product_count}" class="product_count">
+												</c:if>
+											</c:forEach>
 										</div>
 									</div>
 								</div>

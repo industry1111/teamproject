@@ -135,7 +135,7 @@ input[type="text"]:focus {
 			</div>
 		</div>
 
-	<form action="ReceiverInsert" name="form_addr">
+	<form action="./ReceiverUpdateAction.re" name="form_addr">
 	<table align="center" style="margin-left: 50px">
 		<tr>
 			<th>
@@ -217,9 +217,11 @@ input[type="text"]:focus {
 						<c:choose>
 							<c:when test="${basic_num eq 1}">
 								<input type="checkbox" name="basic_num" id="basic_num" value="1" checked="checked"/> 기본배송지로 설정
+								<input type="hidden" name="basic" id="basic" value="1">
 							</c:when>
 							<c:otherwise>
 								<input type="checkbox" name="basic_num" id="basic_num" value="0" /> 기본배송지로 설정
+								<input type="hidden" name="basic" id="basic" value="0">
 							</c:otherwise>
 						</c:choose>
 							
@@ -237,7 +239,7 @@ input[type="text"]:focus {
 				</div>
 				
 				<div>
-					<input type="button" class="myButton" value="수정" name="addr_update_btn" id="addr_update_btn">
+					<input type="submit" class="myButton" value="수정" name="addr_update_btn" id="addr_update_btn">
 				</div>
 			</div>
 		

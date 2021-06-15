@@ -138,7 +138,7 @@ input[type="text"]:focus {
 			</div>
 		</div>
 	
-	<form action="ReceiverInsert" name="form_addr">
+	<form action="./ReceiverInsertAction.re" name="form_addr">
 	<table align="center" style="margin-left: 50px">
 		<tr>
 			<th>
@@ -217,6 +217,7 @@ input[type="text"]:focus {
 				<div>
 					<div class="col-md-7">
 							<input type="checkbox" name="basic_num" id="basic_num" value="0"/> 기본배송지로 설정
+							<input type="hidden" name="basic" id="basic" value="0">
 					</div>
 					
 				</div>
@@ -231,7 +232,7 @@ input[type="text"]:focus {
 				</div>
 				
 				<div>
-					<input type="button" class="myButton" value="저장" name="addr_add_btn" id="addr_add_btn">
+					<input type="submit" class="myButton" value="저장" name="addr_add_btn" id="addr_add_btn">
 				</div>
 			</div>
 		</div>
