@@ -99,7 +99,7 @@
 		<!-- Product Details Area Start -->
 		<div class="single-product-area section-padding-100 clearfix">
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row" style="height: auto;">
 					<div class="col-xs-12">
 						<div class="single_product_thumb">
 
@@ -156,11 +156,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		
 		<!-- 상품 리뷰가 없을때  -->
 
 		<div class="row">
-			<div class="col-md-12 offset-5">
+			<div class="col-12 col-lg-9 offset-1">
 				<hr>
 				<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
 					<h3>상품 리뷰</h3>
@@ -341,6 +341,7 @@
 					</c:forEach>
 				</c:if>
 			</div>
+			</div>
 			<div class="row">
 				<div class="col-md-6 offset-4 paging" style="height: 120px;">
 					<ul class="pagination">
@@ -363,13 +364,13 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		
 
 	</div>
 	<!-- Product Details Area End -->
 	</div>
 	<!-- ##### Main Content Wrapper End ##### -->
-
+</div>
 
 	<script src="template3/js/jquery/jquery-2.2.4.min.js"></script>
 	<script src="template3/js/popper.min.js"></script>

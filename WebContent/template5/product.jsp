@@ -91,8 +91,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 mb-0">
-						<a href="index.html">카테고리표시</a> <span class="mx-2 mb-0">/</span> <strong
-							class="text-black">카테고리표시</strong>
+						<a href="#"></a> <span class="mx-2 mb-0"></span> <strong
+							class="text-black"></strong>
 					</div>
 				</div>
 			</div>
@@ -104,10 +104,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<img src="product_img_upload/${pdto.product_img}" alt="Image"
-								class="img-fluid">
+								class="img-fluid" style="margin-top: 20px;">
 						</div>
 						<div class="col-md-6">
-							<h2 class="text-black">${pdto.product_name}</h2>
+							<h2 style="margin-bottom: 30px;" class="text-black">${pdto.product_name}</h2>
 							<p>${pdto.product_description}</p>
 							<div align="center">
 							<p class="mb-4"><font color="#7971ea">${pdto.product_brand}</font></p>
