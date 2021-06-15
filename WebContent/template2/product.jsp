@@ -272,13 +272,14 @@
 										<div class="col-md-12">상품 총 평점</div>
 									</div>
 									<c:forEach var="rv" items="${rvlist }">
-										<c:set var="total"
-											value="${total+(rv.rating1+rv.rating2+rv.rating3)/3}" />
+										<c:set var="total" value="${total+(rv.rating1+rv.rating2+rv.rating3)/3}" />
+										<c:set var="rating1" value="${rating1+rv.rating1 }"/>
+										<c:set var="rating2" value="${rating2+rv.rating2 }"/>
+										<c:set var="rating3" value="${rating3+rv.rating3 }"/>
 									</c:forEach>
 									<div class="star-rating"
 										style="margin-top: 40px; font-size: 2.5em;">
-										<fmt:formatNumber var="total_rating"
-											value="${total/rvlist.size()}" pattern="0" />
+										<fmt:formatNumber var="total_rating" value="${total/rvlist.size()}" pattern="0" />
 										<c:forEach var="s" begin="1" step="1" end="5">
 											<c:if test="${total_rating != 6-s }">
 												<input type="radio" id="${6-s }-stars" name="rating${i }"
@@ -321,16 +322,19 @@
 										</div>
 									</div>
 									<div class="row" style="margin-top: 40px;" align="right">
-										<div class="col-md-6">상품 만족도</div>
+									<fmt:formatNumber var="rating1" value="${rating1/rvlist.size()}" pattern="0.0" />
+										<div class="col-md-6">상품 만족도 </div>
 										<div class="col-md-5" align="left">
 											<div class="star-rating" style="font-size: 0.8em;">
+											&nbsp;&nbsp;&nbsp;${rating1 }
+											<fmt:formatNumber var="rating1" value="${rating1}" pattern="0" />
 												<c:forEach var="s" begin="1" step="1" end="5">
-													<c:if test="${0 != 6-s }">
+													<c:if test="${rating1 != 6-s }">
 														<input type="radio" id="${6-s }-stars" name="ratinga"
 															value="${6-s }" disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
 													</c:if>
-													<c:if test="${0 == 6-s }">
+													<c:if test="${rating1 == 6-s }">
 														<input type="radio" id="${6-s }-stars" name="ratinga"
 															value="${6-s }" checked disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
@@ -340,16 +344,19 @@
 										</div>
 									</div>
 									<div class="row" style="margin-top: 20px;" align="right">
+									<fmt:formatNumber var="rating2" value="${rating2/rvlist.size()}" pattern="0.0" />
 										<div class="col-md-6">배송 만족도</div>
 										<div class="col-md-5" align="left">
 											<div class="star-rating" style="font-size: 0.8em;">
+											&nbsp;&nbsp;&nbsp;${rating2 }
+											<fmt:formatNumber var="rating2" value="${rating2}" pattern="0" />
 												<c:forEach var="s" begin="1" step="1" end="5">
-													<c:if test="${0 != 6-s }">
+													<c:if test="${rating2 != 6-s }">
 														<input type="radio" id="${6-s }-stars" name="ratingb"
 															value="${6-s }" disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
 													</c:if>
-													<c:if test="${0 == 6-s }">
+													<c:if test="${rating2 == 6-s }">
 														<input type="radio" id="${6-s }-stars" name="ratingb"
 															value="${6-s }" checked disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
@@ -359,16 +366,19 @@
 										</div>
 									</div>
 									<div class="row" style="margin-top: 20px;" align="right">
+									<fmt:formatNumber var="rating3" value="${rating3/rvlist.size()}" pattern="0.0" />
 										<div class="col-md-6">재구매 의사</div>
 										<div class="col-md-5" align="left">
 											<div class="star-rating" style="font-size: 0.8em;">
+											&nbsp;&nbsp;&nbsp;${rating3 }
+											<fmt:formatNumber var="rating3" value="${rating3}" pattern="0" />
 												<c:forEach var="s" begin="1" step="1" end="5">
-													<c:if test="${0 != 6-s }">
+													<c:if test="${rating3 != 6-s }">
 														<input type="radio" id="${6-s }-stars" name="ratingc"
 															value="${6-s }" disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
 													</c:if>
-													<c:if test="${0 == 6-s }">
+													<c:if test="${rating3 == 6-s }">
 														<input type="radio" id="${6-s }-stars" name="ratingc"
 															value="${6-s }" checked disabled />
 														<label for="${6-s }-stars" class="star">&#9733;</label>
@@ -443,7 +453,7 @@
 									<div class="row" style="margin-top: 10px;">
 										<div class="col-md-8">${rvlist[i].review_content }</div>
 										<div class="col-md-2 offset-2">
-											<img alt="" src="" width="100%" height="150px;">
+											<img alt="" src="${rvlist[i].review_img }" width="100%" height="150px;">
 										</div>
 									</div>
 									<div class="row">
