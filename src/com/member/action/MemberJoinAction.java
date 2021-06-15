@@ -57,10 +57,7 @@ public class MemberJoinAction implements Action{
         rdto.setBasic_num(1);
 		
 		new boardDAO().insertReceiver(rdto, member_num);
-<<<<<<< HEAD
-		
-=======
->>>>>>> 78a5b8c42b327bff9445591a66fc3f92eabc2be9
+
 		/*회원 가입 성공 시 로그인 페이지로 이동.*/
 		//페이지 이동 방식 여부 값,이동페이지 경로 값 저장 하여 리턴 해주는 객체 생성
 		ActionForward forward=new ActionForward();
