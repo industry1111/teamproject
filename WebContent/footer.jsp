@@ -56,23 +56,7 @@ color: #627482;
 							<small class="rights"><span>&#174;</span> Pepper All
 								Rights Reserved.</small>
 						</div>
-						<div
-							class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
-							<h6 class="mt-55 mt-2 text-muted bold-text">
-								<b style="color: #627482">ANIRUDH SINGLA</b>
-							</h6>
-							<small> <span><i class="fa fa-envelope"
-									aria-hidden="true"></i></span > 
-							</small>
-						</div>
-						<div
-							class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
-							<h6 class="text-muted bold-text">
-								<b style="color: #627482">RISHABH SHEKHAR</b>
-							</h6>
-							<small><span><i class="fa fa-envelope"
-									aria-hidden="true"></i></span > rishab@gmail.com</small>
-						</div>
+						
 					</div>
 				</div>
 			</div>

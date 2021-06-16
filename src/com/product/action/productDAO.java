@@ -378,6 +378,46 @@ public class productDAO {
 		return list;
 	}
 	
+	//브랜드 별 상품 가져오기
+	public List<productDTO> getProductInfo(int store_num, String brand) { //store_num에 따라 상품 리스트 가져오기
+        
+        List<productDTO> list = new ArrayList<productDTO>();
+        try {
+            getCon();
+            String sql = "select * from seller natural join product where store_num= ? and product_brand = ?";
+            pstmt =con.prepareStatement(sql);
+            pstmt.setInt(1, store_num);
+            pstmt.setString(2, brand);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                
+                productDTO pdto = new productDTO();
+                
+                pdto.setStore_num(store_num);
+                pdto.setMember_num(rs.getInt("member_num"));
+                pdto.setProduct_name(rs.getString("product_name"));
+                pdto.setProduct_num(rs.getInt("product_num"));
+                pdto.setProduct_img(rs.getString("product_img"));
+                pdto.setCategory_name(rs.getString("category_name"));
+                pdto.setProduct_price(rs.getInt("product_price"));
+                pdto.setProduct_count(rs.getInt("product_count"));
+                pdto.setProduct_brand(rs.getString("product_brand"));
+                pdto.setProduct_description(rs.getString("product_description"));
+                pdto.setCategory_num(rs.getInt("category_num"));
+                pdto.setTemplate(rs.getString("template"));
+                pdto.setStore_name(rs.getString("store_name"));
+                pdto.setProfile_img(rs.getString("profile_img"));
+                list.add(pdto);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            ResouceClose();
+        }
+        return list;
+    }
+	
 	public productDTO getStoreProductInfo(int product_num) { //메인 리스트 중 선택한 상품상세 정보를 불러옴.
 		
 		productDTO pdto = new productDTO();

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.member.action.memberDAO;
+import com.product.action.productDAO;
+import com.product.action.productDTO;
 
 import action.Action;
 import action.ActionForward;
@@ -24,6 +26,7 @@ public class BasketList implements Action{
 		int member_num = (int) session.getAttribute("member_num");
 		memberDAO mdao = new memberDAO();
 		
+		List<productDTO> plist = new productDAO().getProductList();
 		List<basketDTO> list = new boardDAO().getBasketList(member_num);
 		// 페이징 부분
 		String page = request.getParameter("page");
@@ -41,6 +44,7 @@ public class BasketList implements Action{
 		}
 		request.setAttribute("p", pagedto);
 		request.setAttribute("list", list);
+		request.setAttribute("plist", plist);
 		ActionForward forward=new ActionForward();
 		forward.setRedirect(false);
 		

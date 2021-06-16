@@ -40,33 +40,24 @@
 		.a{
 			margin-top: 40px;
 		}
+		
+	
 .myButton {
-	box-shadow: inset 0px 1px 0px 0px #ffffff;
-	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color: #ffffff;
-	border-radius: 6px;
-	border: 1px solid #dcdcdc;
-	display: inline-block;
-	cursor: pointer;
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 24px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #ffffff;
-	color:#666666 !important;
+  border: 2px solid #FF4848;
+  min-width: 100px;
+  height: 50px;
+  background-color:#ffffff;
+  border-radius: 25px;
+ text-align:center;
+ font-family: Arial;
+  font-size: 14px;
+  color:#FF4848 !important;
+   align-items: center;
 }
 
 .myButton:hover {
-	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	background-color: #f6f6f6;
+  background-color: #FF4848;
 }
-
-.myButton:active {
-	position: relative;
-	top: 1px;
-}
-
 		
 	</style>
 	</head>
@@ -125,8 +116,8 @@
 							<div class="a">${list[i].product_price }원</div> <%--상품가격 --%>
 						</div>
 						<div class="col-md-2" style="margin-left: 40px;">
-								<a href="ProductModify.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%">수정</a>
-								<a href="ProductDelete.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%"
+								<a href="ProductModify.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%; line-height:3.5em; display: table-cell; vertical-align: middle;">수정</a>
+								<a href="ProductDelete.pr?product_num=${list[i].product_num}" type="button" class="myButton" style="width: 50%; line-height:3.5em; display: table-cell; vertical-align: middle;"
 										onclick="if(!confirm('삭제하시겠습니까?')){return false;}">삭제</a>
 						</div>
 					</div>
@@ -157,7 +148,7 @@
 			</div>
 			<div class="row">	
 				<div class="col-md-3" align="left">
-					<a href="ProductAdd.pr" type="button" class="myButton">신규 상품 등록</a>
+					<a href="ProductAdd.pr" type="button" class="myButton" style="width:150px !important; line-height:3.5em; display: table-cell; vertical-align: middle;">신규 상품 등록</a>
 				</div>
 			</div>
 		</div>	

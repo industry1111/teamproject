@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	
-	window.opener.location.reload();
+	opener.document.location.href="./OrderContent.or";
+
 	window.close();
 
 </script>

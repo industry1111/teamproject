@@ -19,6 +19,7 @@
 
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
 <script src="js/addbasket.js"></script>
+<script src="${pageContext.request.contextPath}/js/reply"></script>
 <style>
 .star-rating {
 	border: none;
@@ -326,7 +327,7 @@
 							<div class="row" style="margin-top: 10px;">
 								<div class="col-md-8">${rvlist[i].review_content }</div>
 								<div class="col-md-2 offset-2">
-									<img alt="" src="upload_review/${rvlist[i].review_img}"
+									<img alt="" src="${contextPath }/upload_review/${rvlist[i].review_img}"
 										width="100%" height="150px;">
 								</div>
 							</div>

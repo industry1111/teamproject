@@ -9,25 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import action.Action;
+import action.ActionForward;
 import dao.boardDAO;
 import dto.receiverDTO;
-@WebServlet("/ReceiverInsert")
-public class ReceiverInsert extends HttpServlet{
 
+public class ReceiverInsertAction implements Action{
+	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doReIn(request, response);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doReIn(request, response);
-	}
-
-	protected void doReIn(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		System.out.println("ReceiverInsertAction execute()");
 		
@@ -38,16 +28,23 @@ public class ReceiverInsert extends HttpServlet{
 		receiverDTO rdto = new receiverDTO();
 		
 		boardDAO bdao = new boardDAO();
+
 		rdto.setAddress_name(request.getParameter("addr_name"));
 		rdto.setReceiver_name(request.getParameter("receiver_name"));
 		rdto.setReceiver_addr1(request.getParameter("addr1"));
 		rdto.setReceiver_addr2(request.getParameter("addr2"));
 		rdto.setReceiver_addr3(request.getParameter("addr3"));
 		rdto.setReceiver_phone(request.getParameter("receiver_phone"));
-		rdto.setBasic_num(Integer.parseInt(request.getParameter("basic_num")));
+		rdto.setBasic_num(Integer.parseInt(request.getParameter("basic")));
 		
 		bdao.insertReceiver(rdto, member_num);
-
+		
+		ActionForward forward = new ActionForward();
+		
+		forward.setPath("close.jsp");
+		forward.setRedirect(true);
+		
+		return forward;
 	}
-
+	
 }

@@ -72,7 +72,29 @@ public class ReceiverFrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/ReceiverInsertAction.re")) {
+
+			action = new ReceiverInsertAction();
+			try {
+
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("/ReceiverUpdateAction.re")) {
+
+			action = new ReceiverUpdateAction();
+			try {
+
+				forward = action.execute(request, response);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
+		
 		if (forward != null) {
 			if (forward.isRedirect()) {// true -> sendRedirect()
 

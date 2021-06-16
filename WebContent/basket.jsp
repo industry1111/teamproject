@@ -64,8 +64,7 @@ function order_btn_click() {
 	
 	if(count>=1){
 		if(confirm("주문하시겠습니까?")){
-			//document.form.submit();
-			document.location.href = "Order.bo";
+			document.form.submit();
 		}
 	}else{
 		alert("주문하실 상품을 선택해주세요.");
@@ -114,7 +113,7 @@ function order_btn_click() {
 								<span>주문취소</span>
 							</div>
 						</div>
-			<form action="Order.bo" method="post">
+			<form action="Order.bo" method="post" name="form">
 						<c:if test="${list.size() eq null || list.size() eq 0 }">
 						장바구니에 담긴 상품이 없습니다.
 					</c:if>
@@ -151,6 +150,11 @@ function order_btn_click() {
 										<div class="display-tc">
 											<input id="button_plus" type="button" class="plus_btn" value="+">
 											<input id="button_plus" style="font-size: 20px" type="button" class="minus_btn" value="-">
+											<c:forEach var="j" begin="0" step="1" end="${plist.size()-1}">
+												<c:if test="${list[i].product_num eq plist[j].product_num}">
+													<input type="hidden" value="${plist[j].product_count}" class="product_count">
+												</c:if>
+											</c:forEach>
 										</div>
 									</div>
 								</div>
@@ -177,7 +181,7 @@ function order_btn_click() {
 				</div>
 				<br>
 				<div align="right" class="col-md-11">
-						<input type="submit" value="주문하기" class="myButton">
+						<input type="button" value="주문하기" class="myButton" id="order" onclick="order_btn_click();">
 				</div>
 		</form>
 	</div>

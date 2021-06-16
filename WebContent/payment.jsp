@@ -19,7 +19,7 @@
         var msg;
         
         IMP.request_pay({
-            pg : 'kakaopay',
+            pg : 'danal_tpay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : '${product_name}',

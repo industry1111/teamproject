@@ -19,6 +19,7 @@ import dao.boardDAO;
 import dao.sellerDAO;
 import dto.brandDTO;
 import dto.categoryDTO;
+import dto.replyDTO;
 import dto.reviewDTO;
 import dto.sellerDTO;
 
@@ -61,6 +62,7 @@ public class StoreProductDetail implements Action {
 
 		//리뷰 리스트
 		List<reviewDTO> rvlist = new ReviewDAO().getProductReviewList(product_num);
+		List<replyDTO> relist =   new ReviewDAO().getReplyList(product_num);
 		
 		//페이징
 		String page = request.getParameter("page");
@@ -81,6 +83,7 @@ public class StoreProductDetail implements Action {
 
 		request.setAttribute("p", pagedto);
 		request.setAttribute("rvlist", rvlist);
+		request.setAttribute("relist", relist);
 		request.setAttribute("blist", blist);
 		request.setAttribute("clist", clist);
 		request.setAttribute("pdto", pdto);

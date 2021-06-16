@@ -50,32 +50,21 @@
 
 <style type="text/css">
 .myButton {
-	box-shadow: inset 0px 1px 0px 0px #ffffff;
-	background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color: #ffffff;
-	border-radius: 6px;
-	border: 1px solid #dcdcdc;
-	display: inline-block;
-	cursor: pointer;
-	color: #666666;
-	font-family: Arial;
-	font-size: 15px;
-	font-weight: bold;
-	padding: 6px 24px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #ffffff;
+  border: 2px solid #FF4848;
+  min-width: 100px;
+  height: 50px;
+  background-color:#ffffff;
+  border-radius: 25px;
+ text-align:center;
+ font-family: Arial;
+  font-size: 14px;
+  color:#FF4848;
+   align-items: center;
 }
 
 .myButton:hover {
-	background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	background-color: #f6f6f6;
+  background-color: #FF4848;
 }
-
-.myButton:active {
-	position: relative;
-	top: 1px;
-}
-
 .check {
 	color: red;
 	font-size: 13px;
@@ -135,7 +124,7 @@ input[type="text"]:focus {
 			</div>
 		</div>
 
-	<form action="ReceiverInsert" name="form_addr">
+	<form action="./ReceiverUpdateAction.re" name="form_addr">
 	<table align="center" style="margin-left: 50px">
 		<tr>
 			<th>
@@ -217,9 +206,11 @@ input[type="text"]:focus {
 						<c:choose>
 							<c:when test="${basic_num eq 1}">
 								<input type="checkbox" name="basic_num" id="basic_num" value="1" checked="checked"/> 기본배송지로 설정
+								<input type="hidden" name="basic" id="basic" value="1">
 							</c:when>
 							<c:otherwise>
 								<input type="checkbox" name="basic_num" id="basic_num" value="0" /> 기본배송지로 설정
+								<input type="hidden" name="basic" id="basic" value="0">
 							</c:otherwise>
 						</c:choose>
 							
@@ -237,7 +228,7 @@ input[type="text"]:focus {
 				</div>
 				
 				<div>
-					<input type="button" class="myButton" value="수정" name="addr_update_btn" id="addr_update_btn">
+					<input type="submit" class="myButton" value="수정" name="addr_update_btn" id="addr_update_btn">
 				</div>
 			</div>
 		
