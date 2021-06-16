@@ -46,6 +46,26 @@
 <!-- Theme style  -->
 <link rel="stylesheet" href="css/style.css">
 
+<style type="text/css">
+	
+.state_update_btn, .update_btn {
+  border: 2px solid #FF4848;
+  min-width: 25px;
+  height: 30px;
+  background-color:#ffffff;
+  border-radius: 25px;
+ text-align:center;
+ font-family: Arial;
+  font-size: 14px;
+  color:#FF4848 !important;
+   align-items: center;
+}
+
+.state_update_btn:hover,  .update_btn:hover {
+  background-color: #FF4848;
+}
+</style>
+
 </head>
 <body>
 	<!-- 	<div id="page"> -->
@@ -152,6 +172,7 @@
 								<option value="9">환불완료</option>
 								<option value="10">교환신청</option>
 							</select>
+							<br><br>
 							<input type="button" value="수정" class="state_update_btn">
 							<input type="button" value="완료" class="update_btn">
 							<input type="hidden" value="${list[i].order_detail_num}" class="order_detail_num">
