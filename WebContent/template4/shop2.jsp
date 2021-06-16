@@ -40,7 +40,7 @@
 				<div class="row">
 					<div class="col-sm-7 col-md-9">
 						<div id="colorlib-logo">
-							<a href="#">${list[1].store_name}</a>
+							<a href="StoreProductListAction.st?store_num=${store_num}">${plist[1].store_name}</a>
 						</div>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul>
-													<li><a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">${blist[i].brand_name}(${blist[i].count })</a></li>
+													<li><a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</span></a></li>
 												</ul>
 											</div>
 										</c:forEach>
@@ -103,8 +103,7 @@
 												</div>
 												<div class="desc">
 													<h4>
-														<a
-															href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
+														<a href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
 													</h4>
 													<h6>${list[i].product_brand}</h6>
 

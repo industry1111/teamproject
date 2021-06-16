@@ -113,7 +113,7 @@ function logo_click() {
 											
 												<div>
 													<label for="brand-1"> <span></span>
-													<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
+													<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4  ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</h4></a>
 													</label>
 												</div>
 											
