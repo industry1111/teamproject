@@ -114,7 +114,7 @@
 											<c:if test="${loop}">
 												<div>
 													<label for="brand-1"> <span></span>
-													<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
+													<a	href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
 													</label>
 												</div>
 											</c:if>
