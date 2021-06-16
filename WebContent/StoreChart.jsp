@@ -100,22 +100,12 @@ h6 {
 		var day = year+"-"+month+"-";
 		var canvas = document.getElementById('chart').getContext("2d");
 		new Chart(canvas, {
-			type : 'bar',
+			type : 'line',
 			data : {
 				labels : [ day+(date-4), day+(date-3), day+(date-2), day+(date-1), day+date ],
 				datasets : [ {
-					label : '판매 금액(원)',
-					yAxisID : 'A',
-					data : [ total[4], total[3], total[2], total[1],total[0] ],
-					hoverBackgroundColor: "#D7DF01",
-					BackgroundColor: "#D7DF01"
-					 
-				}, {
 					label : '주문 수',
-					type : 'line',
-					yAxisID : 'B',
 					data : [count[4], count[3], count[2],count[1], count[0] ],
-					
 					lineTension : 0.3,
 					fill : false,
 					borderColor : '#FA5858',
@@ -127,39 +117,47 @@ h6 {
 			options : {
 				scales : {
 					yAxes : [ {
-						id : 'A',
 						type : 'linear',
-						position : 'left',
 						ticks: {
 							beginAtZero: true,
-				            stepSize: 1000000	
+				            stepSize: 30
 					    }
-					}, {
-						id : 'B',
-						type : 'linear',
-						position : 'right',
-						ticks: {
-							beginAtZero: true,
-				            stepSize: 100
-					    }
-					} ]
-				},
-				annotation : {
-					annotations : [ {
-						type : 'line',
-						mode : 'horizontal',
-						scaleID : 'y-axis-0',
-						value : 32,
-						borderColor : 'rgb(75, 0, 0)',
-						borderWidth : 4,
-						label : {
-							enabled : false,
-							content : 'Test label'
-						},
 					} ]
 				}
 			}
 		});
+		
+		var canvas2 = document.getElementById('chart2').getContext("2d");
+		new Chart(canvas2, {
+			type : 'bar',
+			data : {
+				labels : [ day + (date - 4), day + (date - 3),
+						day + (date - 2), day + (date - 1), day + date ],
+				datasets : [
+						{
+							label : '판매 금액(원)',
+							data : [ total[4], total[3], total[2], total[1],
+									total[0] ],
+							hoverBackgroundColor : "#D7DF01",
+							BackgroundColor : "#D7DF01"
+
+						}]
+			},
+			options : {
+				scales : {
+					yAxes : [ {
+						id : 'A',
+						type : 'linear',
+						position : 'left',
+						ticks : {
+							beginAtZero : true,
+							stepSize : 1000000
+						}
+					} ]
+				}
+			}
+		});
+		
 		var user = ${user}
 		var vcount = ${vcount}
 		//구글 차트
@@ -223,14 +221,14 @@ h6 {
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>주문 및 판매 금액</h6>
+						<h6>주문 수</h6>
 						<canvas id="chart"></canvas>
 					</div>
 <div class="col-md-5 "
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>네번째 화면</h6>
-						<input type="button" value="버튼" id="button" class="myButton">
+						<h6>판매 금액</h6>
+						<canvas id="chart2"></canvas>
 					</div>
 				</div>
 				<div class="row" style="margin-top: 10px; height: 400px;">

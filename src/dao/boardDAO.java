@@ -543,4 +543,40 @@ public class boardDAO {
 		}
 		return blist;
 	}
+	
+	public List<categoryDTO> getStoreCategory(int member_num){
+		
+		List<categoryDTO> list = new ArrayList<categoryDTO>();
+		
+		try {
+			
+			getCon();
+			String sql = "select distinct category_name, category_code, category_codeRef1, category_codeRef2, category_num"
+						+ " from product natural join category where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				categoryDTO dto = new categoryDTO();
+				
+				dto.setCategory_code(rs.getInt("category_code"));
+				dto.setCategory_codeRef1(rs.getInt("category_codeRef1"));
+				dto.setCategory_codeRef2(rs.getInt("category_codeRef2"));
+				dto.setCategory_name(rs.getString("category_name"));
+				dto.setCategory_num(rs.getInt("category_num"));
+				
+				list.add(dto);
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("getStoreCategory"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		
+		return list;
+	}
 }
