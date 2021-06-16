@@ -67,6 +67,8 @@ public class StoreProductListAction implements Action {
 		request.setAttribute("list", list);
 		request.setAttribute("p", pagedto);
 		request.setAttribute("blist", blist);
+		request.setAttribute("store_num", store_num);
+	
 		//member_num에 해당하는 상품 스토어 리스트 페이지로 이동
 		ActionForward forward = new ActionForward();
 		//페이지이동(뷰페이지로이동)

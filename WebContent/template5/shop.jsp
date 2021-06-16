@@ -106,8 +106,8 @@
 					</div>
 					<!-- /row md-5 -->
 					<div class="row">
-						<div class="col-md-6 offset-4 paging" style="height: 120px;">
-							<ul class="pagination">
+						<div class="col-md-5 offset-4 paging" style="height: 120px;">
+							<ul class="pagination justify-content-center">
 								<c:if test="${p.prev }">
 									<li class="page-item previous"><a class="page-link"
 										onclick="paging(${p.startPage-1 });">Previous</a></li>

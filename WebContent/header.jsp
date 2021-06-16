@@ -25,7 +25,7 @@
 </c:if>
 
 <body>
-	<div class="row" style="margin-bottom: 30px;">
+	<div class="row" style="margin-bottom: 30px; background-color:#F0F0F0;">
 		<div class="col-md-6 offset-3" align="right" >
 
 			<!-- 로그인 안되었을때 -->

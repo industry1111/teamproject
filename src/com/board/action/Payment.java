@@ -14,7 +14,8 @@ public class Payment implements Action{
 	
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
-		String product_name = request.getParameter("product_name0");
+		String product_name = request.getParameter("product_name_order");
+		System.out.println(product_name);
 		String email = request.getParameter("order_email");
 		String name = request.getParameter("order_name");
 		String phone = request.getParameter("order_phone");

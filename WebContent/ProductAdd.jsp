@@ -24,6 +24,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
+<link rel="stylesheet" href="css/style.css">
 
 <style type="text/css">
 
@@ -82,7 +83,7 @@ img{
 				<div class="com-sm-3">
 
 					<input type="text" name="product_name" required="required" id="product_name" class="form-control"
-						placeholder="상품명을 입력하세요.">
+						placeholder="상품명을 입력하세요." style="width: 300px;">
 						<span id="product_name_check" class="check"></span>
 	                    <span id="product_name_check2" class="check2"></span>
 				</div>
@@ -93,7 +94,7 @@ img{
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
 					<textarea name="product_description" required="required" id="product_description" cols="100" rows="10"
-						class="form-control" placeholder="상품내용을 입력하세요."></textarea>
+						class="form-control" placeholder="상품내용을 입력하세요." style="width: 700px;"></textarea>
 					<span id="product_description_check" class="check"></span>
 	                <span id="product_description_check2" class="check2"></span>
 				</div>
@@ -102,8 +103,8 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<select id="brand_name" name="brand_name" required="required" class="form-control brand_name">
-							<option class='brand_name' value="">==브랜드==</option>
+					<select  id="brand_name" name="brand_name" required="required" class="form-control brand_name"  style="width: 100px;">
+							<option class='brand_name' value="" >==브랜드==</option>
 					</select>
 					
 					<span id="product_brand_check" class="check"></span>
@@ -116,7 +117,7 @@ img{
 				<div class="com-sm-3">
 
 					<input type="text" name="product_price" required="required" id="product_price" class="form-control"
-						placeholder="상품가격을 입력하세요.">
+						placeholder="상품가격을 입력하세요." style="border: 0; width:300px;">
 					<span id="product_price_check" class="check"></span>
 	                <span id="product_price_check2" class="check2"></span>
 				</div>
@@ -127,7 +128,7 @@ img{
 				<div class="com-sm-3">
 
 					<input type="text" name="product_count" id="product_count" required="required"
-						class="form-control" placeholder="상품재고 수량을 입력하세요.">
+						class="form-control" placeholder="상품재고 수량을 입력하세요." style="border: 0; width:300px;">
 						<span id="product_count_check" class="check"></span>
 	               		<span id="product_count_check2" class="check2"></span>
 				</div>
@@ -144,10 +145,9 @@ img{
 				</div>
 			</div>
 
-
-			<div class="d-grid gap-2 col-6 mx-auto" >
-				<button type="submit" class="myButton" style="margin-left: 150px;">상품 등록</button> 
-				<a type="button" class="myButton" href="ProductListAction.pr">등록 취소</a>
+			<div>
+				<button type="submit" class="myButton"  style="margin-left: 400px;">상품 등록</button> 
+				<a type="button" class="myButton" href="ProductListAction.pr" style="text-decoration:none; color:#FF4848 !important; line-height:3.3em; display: table-cell; vertical-align: middle;">등록 취소</a>
 			</div>
 		</form>	
 	</div>

@@ -103,10 +103,10 @@
 											<c:if test="${p.total == i }">
 												<c:set var="loop" value="false" />
 											</c:if>
-											<c:if test="${loop }">
+											<c:if test="${loop}">
 												<div>
 													<label for="brand-1"> <span></span>
-													<h4>${blist[i].brand_name}(${blist[i].count })</h4>
+													<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
 													</label>
 												</div>
 											</c:if>
@@ -155,7 +155,7 @@
 												<div class="product-body">
 													<p class="product-category">${list[i].category_name }</p>
 													<h3 class="product-name">${list[i].product_name}</h3>
-													<h4 class="product-price">${list[i].product_price }원</h4>
+													<h4 class="product-price">${list[i].product_price}원</h4>
 												</div>
 												<div class="add-to-cart">
 													<a
@@ -174,9 +174,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-6 offset-4 paging" style="height: 120px;">
-						<ul class="pagination">
+				<div class="row" style="margin-top: 40px;">
+					<div class="col-md-7 offset-4 paging" style="height: 120px;">
+					<div class="text-center">
+						<ul class="pagination justify-content-center">
 							<c:if test="${p.prev }">
 								<li class="page-item previous"><a class="page-link"
 									onclick="paging(${p.startPage-1 });">Previous</a></li>
@@ -192,6 +193,7 @@
 									onclick="paging(${p.endPage + 1 });">Next</a></li>
 							</c:if>
 						</ul>
+						</div>
 					</div>
 				</div>
 			</div>

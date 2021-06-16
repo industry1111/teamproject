@@ -16,6 +16,7 @@ import com.store.action.Store_likeDTO;
 
 import dto.ReportDTO;
 import dto.sellerDTO;
+import dto.visitDTO;
 
 
 public class sellerDAO {
@@ -488,28 +489,28 @@ public class sellerDAO {
 			ResouceClose();
 		}
 	}
-//	public List<E> getVisitCount(int store_num,String day){
-//		List<visitDTO> list = new ArrayList<visitDTO>();
-//		try {
-//			getCon();
-//			String sql="select user,count(user) from visitor where store_num = ? "
-//					+ "and visitdate like '"+day+"%' group by user";
-//			
-//			pstmt=con.prepareStatement(sql);
-//			pstmt.setInt(1,store_num);
-//			rs = pstmt.executeQuery();
-//			while(rs.next()){
-//				visitDTO vdto = new visitDTO();
-//				vdto.setCount(rs.getInt("count(user)"));
-//				vdto.setUser(rs.getString("user"));
-//				list.add(vdto);
-//			}
-//		} catch (Exception e) {
-//			System.out.println("getVisitCount:"+e.toString());
-//		}finally {
-//			ResouceClose();
-//		}
-//		return list;
-//	}
-//	
+	public List<visitDTO> getVisitCount(int store_num,String day){
+		List<visitDTO> list = new ArrayList<visitDTO>();
+		try {
+			getCon();
+			String sql="select user,count(user) from visitor where store_num = ? "
+					+ "and visitdate like '"+day+"%' group by user";
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,store_num);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				visitDTO vdto = new visitDTO();
+				vdto.setCount(rs.getInt("count(user)"));
+				vdto.setUser(rs.getString("user"));
+				list.add(vdto);
+			}
+		} catch (Exception e) {
+			System.out.println("getVisitCount:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+		return list;
+	}
+	
 }

@@ -24,7 +24,9 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
+<link rel="stylesheet" href="css/style.css">
 <style type="text/css">
+
 img {
 	width: 100px;
 	height: 100px;
@@ -39,17 +41,19 @@ font-style:휴먼엽서체;
 font-style:휴먼엽서체;
 color: #595959;
 }
+
+
 </style>
 
 <title>상품 상세 페이지</title>
 </head>
 <body>
-
-	<div class="jumbotron" >
-		<div class="container" >
-			<h1 class="display-3">상품 정보 수정</h1>
-		</div>
-	</div>
+			<div class="col-md-8 offset-2"  >
+				<div class="product-name d-flex " style="background-color: #c5c5c5 !important; text-align: center; margin-top: 15px;" >
+					<div class="col-md-2">상품정보 수정</div>
+				</div>
+			</div>
+			<div class="col-md-8 offset-2"  >
 	<form name="newProduct" action="ProductModifyAction.pr"
 		class="form-horizontal" method="post" enctype="multipart/form-data">
 		<div class="container" cols="100" rows="2">
@@ -113,14 +117,14 @@ color: #595959;
 				<label class="col-sm-2">상품 내용</label>
 				<div class="com-sm-5">
 					<textarea name="product_description" cols="100" rows="10" required="required"
-						class="form-control" style="border: 0;"> ${pdto.product_description} </textarea>
+						class="form-control" style="border: 0; width: 700px;"> ${pdto.product_description} </textarea>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<select id="brand_name" name="brand_name" required="required" class="form-control">
+					<select id="brand_name" name="brand_name" required="required" class="form-control" style="width:100px;">
 								<c:forEach var="i" begin="0" step="1" end="${blist.size() }">
 		<!-- 셀렉트 -->					<c:if test="${pdto.category_coderef2 eq blist[i].category_code}">
 											<c:if test="${pdto.product_brand eq blist[i].brand_name}">
@@ -136,19 +140,19 @@ color: #595959;
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2">상품가격</label>
+				<label class="col-sm-2" >상품가격</label>
 				<div class="com-sm-3">
 					<input type="text" name="product_price" class="form-control" required="required"
-						value="${pdto.product_price}" style="border: 0;">
+						value="${pdto.product_price}" style="border: 0; width: 100px;">
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2">재고수량</label>
+				<label class="col-md-2" ">재고수량</label>
 				<div class="com-sm-3">
 					<input type="text" id="product_count" name="product_count" required="required"
 						class="form-control" value="${pdto.product_count}"
-						style="border: 0;">
+						style="border: 0; width:100px;">
 				</div>
 			</div>
 
@@ -161,14 +165,15 @@ color: #595959;
 					<input type="hidden" name="origin_product_img" value="${pdto.product_img}" />
 				</div>
 			</div>
-
-			<div class="d-grid gap-2 col-6 mx-auto">
-				<button type="submit" class="myButton"  >상품 수정</button>
+				<br>
+			<div>
+				<button type="submit" class="myButton" style="margin-left: 400px;">상품 수정</button>
 				<a type="button" class="myButton" href="ProductListAction.pr" 
-					onclick="if(!confirm('수정을 취소 하시겠습니까?')){return false;}">수정 취소</a>
+					onclick="if(!confirm('수정을 취소 하시겠습니까?')){return false;}" style="text-decoration:none; color:#FF4848 !important; line-height:3.3em; display: table-cell; vertical-align: middle;">수정 취소</a>
 			</div>
 		</div>
 	</form>
+	</div>
 	<script src="js/product_img.js"></script>
 	<script src="js/seller.js"></script>
 	<script src="js/category.js"></script> <%--카테고리 --%>

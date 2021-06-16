@@ -129,7 +129,7 @@ h6 {
 						position : 'left',
 						ticks: {
 							beginAtZero: true,
-				            stepSize: 10000	
+				            stepSize: 1000000	
 					    }
 					}, {
 						id : 'B',
@@ -137,7 +137,7 @@ h6 {
 						position : 'right',
 						ticks: {
 							beginAtZero: true,
-				            stepSize: 10
+				            stepSize: 100
 					    }
 					} ]
 				},
@@ -282,15 +282,15 @@ h6 {
 							</div>
 						</c:if>
 						<c:if test="${vlist.size() > 0}">
-						 	<div id="chart_div"></div>
-						 	<div style="margin-left: 100px;">
-								<span style="font-size: 20">일일 방문자수는  총<span style="font-weight: bold;">
-									<c:set var="count" value="0"/> 
+							<c:set var="count" value="0"/> 
 									<c:forEach var="vlist" items="${vlist }">
 										<c:set var="count" value="${count+vlist.count }"/>
-										${count }
 									</c:forEach>
-								</span>명입니다.</span>
+						 	<div id="chart_div"></div>
+						 	<div style="margin-left: 100px;">
+								<span style="font-size: 20">
+									일일 방문자수는  총	<span style="font-weight: bold;">${count }</span>명입니다.
+								</span>
 							</div>
 						 </c:if>
 					</div>

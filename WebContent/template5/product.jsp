@@ -91,8 +91,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 mb-0">
-						<a href="index.html">카테고리표시</a> <span class="mx-2 mb-0">/</span> <strong
-							class="text-black">카테고리표시</strong>
+						<a href="#"></a> <span class="mx-2 mb-0"></span> <strong
+							class="text-black"></strong>
 					</div>
 				</div>
 			</div>
@@ -104,10 +104,10 @@
 					<div class="row">
 						<div class="col-md-6">
 							<img src="product_img_upload/${pdto.product_img}" alt="Image"
-								class="img-fluid">
+								class="img-fluid" style="margin-top: 20px;">
 						</div>
 						<div class="col-md-6">
-							<h2 class="text-black">${pdto.product_name}</h2>
+							<h2 style="margin-bottom: 30px;" class="text-black">${pdto.product_name}</h2>
 							<p>${pdto.product_description}</p>
 							<p class="mb-4">${pdto.product_brand}</p>
 							<p>
@@ -116,32 +116,23 @@
 
 							<div class="mb-5">
 								<div class="input-group mb-3" style="max-width: 120px;">
-									<div class="input-group-prepend">
-										<button class="btn btn-outline-primary js-btn-minus"
-											type="button">&minus;</button>
+									<div class="input-group mb-4">
+										구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
 									</div>
-									<input type="text" class="form-control text-center" 
-										id="quantity" name="quantity" value="1" max="${pdto.product_count}"
-										placeholder="" aria-label="Example text with button addon"
-										aria-describedby="button-addon1" >
-									<div class="input-group-append">
-										<button class="btn btn-outline-primary js-btn-plus"
-											type="button">&plus;</button>
-									</div>
-								</div>
-
 							</div>
-							<p>
-							<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
-							<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
-							</p>
+							<div>
+								<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+								<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
+							</div>			
 						</div>
-
 					</div>
-					<p>
+					</div>
+					<div style="margin-top: 50px;">
+					<p align="center">
 						<a href="StoreProductListAction.st?store_num=${pdto.store_num}"
-							class="buy-now btn btn-sm btn-primary">목록으로</a>
+							class="buy-now btn btn-sm btn-primary">상품목록</a>
 					</p>
+					</div>
 				</div>
 
 			</div>
