@@ -40,7 +40,7 @@
 				<div class="row">
 					<div class="col-sm-7 col-md-9">
 						<div id="colorlib-logo">
-							<a href="#">${list[1].store_name}</a>
+							<a href="StoreProductListAction.st?store_num=${store_num}">${plist[1].store_name}</a>
 						</div>
 					</div>
 				</div>
@@ -55,32 +55,9 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="side border mb-1">
-									<h3>
-									<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-										<c:if test="${list[1].category_num eq clist[i].category_num}">
-													${clist[i].category_name}
-										</c:if>
-									</c:forEach>
-									</h3>
+									<h3>카테고리</h3>
 									<ul>
-										<c:set var="loop1" value="true" />
-										<c:if test="${loop1}">
-											<c:forEach var="i" begin="0" step="1" end="${sclist.size()-1 }">
-													<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
-														<c:if test="${sclist[i].category_codeRef2 eq clist[j].category_code }">
-															<li><span style="font-weight: bold;">${clist[j].category_name}</span></li>
-															<c:set var="category_code" value="${sclist[i].category_codeRef2"/>
-														</c:if>
-													</c:forEach>
-											</c:forEach>
-										</c:if>
-										<c:forEach var="i" begin="0" step="1" end="${sclist.size()-1 }">
-											<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
-												<c:if test="${sclist[i].category_codeRef2 eq clist[j].category_code }">
-													<li>${sclist[i].category_name}</li>
-												</c:if>
-											</c:forEach>
-										</c:forEach>
+										<li><a href="#">카테고리1</a></li>
 									</ul>
 								</div>
 							</div>
@@ -92,7 +69,7 @@
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul>
-													<li><a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">${blist[i].brand_name}(${blist[i].count })</a></li>
+													<li><a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</span></a></li>
 												</ul>
 											</div>
 										</c:forEach>
@@ -126,8 +103,7 @@
 												</div>
 												<div class="desc">
 													<h4>
-														<a
-															href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
+														<a href="StoreProductDetail.st?product_num=${list[i].product_num}">${list[i].product_name}</a>
 													</h4>
 													<h6>${list[i].product_brand}</h6>
 

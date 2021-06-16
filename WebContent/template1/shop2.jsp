@@ -25,8 +25,8 @@
 		<nav class="navbar navbar-expand-lg navbar-light shadow">
 		<div
 			class="container d-flex justify-content-between align-items-center">
-			<a class="navbar-brand text-success logo h1 align-self-center">
-				${list[1].store_name} </a>
+			<a class="navbar-brand text-success logo h1 align-self-center" href="StoreProductListAction.st?store_num=${store_num}">
+				${plist[1].store_name} </a>
 			<button class="navbar-toggler border-0" type="button"
 				data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -115,16 +115,12 @@
 							</a> <c:set var="loop" value="true" /> <c:if
 									test="${blist.size() ne 0 }">
 									<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
-										<c:if test="${p.total == i }">
-											<c:set var="loop" value="false" />
-										</c:if>
-										<c:if test="${loop }">
-											<div>
+										<div>
 												<ul class="collapse show list-unstyled pl-3">
-													<li><a class="text-decoration-none" href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h5>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
+													<li><a class="text-decoration-none" href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h5 ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
 												</ul>
 											</div>
-										</c:if>
+										
 									</c:forEach>
 								</c:if></li>
 						</ul>
