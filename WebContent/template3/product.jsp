@@ -157,40 +157,7 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
-		</div>
-					<!-- 상품 리뷰가 없을때  -->
-				
-				<div class="row">
-					<div class="col-md-12">
-						<hr>
-						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
-							<h3>상품 리뷰</h3>
-						<div class="row"
-							style="margin-top: 30px; background-color: #f7fafc; height: 300px;"
-							align="center">
-							<div class="col-md-4" style="margin-top: 30px;">
-								<div class="row" align="center">
-									<div class="col-md-12">
-										상품 총 평점
-									</div>
-								</div>
-								<div class="star-rating" style="margin-top: 40px; font-size: 2.5em;">
-										<c:forEach var="s" begin="1" step="1" end="5">
-										<c:if test="${0 != 6-s }">
-											<input type="radio" id="${6-s }-stars"
-												name="rating" value="${6-s }" disabled />
-											<label for="${6-s }-stars" class="star">&#9733;</label>
-										</c:if>
-										<c:if test="${0 == 6-s }">
-											<input type="radio" id="${6-s }-stars"
-												name="rating" value="${6-s }" checked disabled />
-											<label for="${6-s }-stars" class="star">&#9733;</label>
-										</c:if>
-									</c:forEach>
-								</div>
-								<h2>0/<span style="color: #E1E1E1;">5</span></h2>
-=======
+
 		
 		<!-- 상품 리뷰가 없을때  -->
 
@@ -205,7 +172,6 @@
 						<div class="col-md-4" style="margin-top: 30px;">
 							<div class="row" align="center">
 								<div class="col-md-12">상품 총 평점</div>
->>>>>>> beb1c3f6830831484a89a8963471837d26044d91
 							</div>
 							<div class="star-rating"
 								style="margin-top: 40px; font-size: 2.5em;">
