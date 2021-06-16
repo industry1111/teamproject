@@ -450,19 +450,48 @@
 											<img alt="" src="${pageContext.request.contextPath}/upload_review/${rvlist[i].review_img }" width="100%" height="150px;">
 										</div>
 									</div>
-									<c:if test="${pdto.member_num == member_num }">
+									<c:set var="loop2" value="true"/>
+									<c:if test="${relist.size()>0 }">
+										<c:forEach var="y" begin="0" step="1" end="${relist.size()-1 }">
+											<c:if test="${loop2 }">
+												<c:if test="${relist[y].review_num == rvlist[i].review_num }">
+													<c:set var="k" value="${y }" />
+													<c:set var="loop2" value="false" />
+												</c:if>
+											</c:if>
+										</c:forEach>
+									</c:if>
+									<c:if test="${relist[k].review_num == rvlist[i].review_num }">
 										<div class="row">
 											<div class="col-md-12">
-												<button type="button" class="reply">답변달기</button>	
+												<div class="row">
+													<div class="col-md-12">
+														<span style="font-weight: bold;">판매자/<fmt:formatDate value="${relist[k].regdate }" pattern="yyyy.MM.dd" /></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<span style="background-color: gray; color: black;">${relist[k].reply_contents }</span>
+													</div>
+												</div>	
 											</div>
 										</div>
 									</c:if>
+									<c:if test="${relist[k].review_num != rvlist[i].review_num }">
+										<c:if test="${pdto.member_num == member_num }">
+											<div class="row">
+												<div class="col-md-12">
+													<button type="button" class="reply">답변달기</button>	
+												</div>
+											</div>
+										</c:if>
 									<div class="row reply_div" hidden>
 										<div class="col-md-12">
 											<div class="row">
 												<div class="col-md-12">
 													<textarea rows="4" cols="40"></textarea>
 													<button type="button" class="replybtn">등록</button>
+													<input type="text" id="review_num" value="${rvlist[i].review_num }" hidden/>
 												</div>
 											</div>	
 										</div>
@@ -481,6 +510,7 @@
 											</div>	
 										</div>
 									</div>
+									</c:if>
 									<hr>
 								</c:if>
 							</c:forEach>
