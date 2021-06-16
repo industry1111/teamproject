@@ -41,7 +41,6 @@ public class StoreProductListAction implements Action {
 		
 		List<productDTO> list = pdao.getStoreInfo(store_num);	
 		
-		List<productDTO> plist = pdao.getStoreInfo(store_num);
 		List<categoryDTO> clist = bdao.getcategory(); //카테고리 리스트 전부
 		String template = sdao.getSellerTemplate(store_num);
 		if(visit != null){
@@ -68,7 +67,6 @@ public class StoreProductListAction implements Action {
 		
 		
 		//requset영역에 저장
-		request.setAttribute("plist", plist);
 		request.setAttribute("sclist", sclist);
 		request.setAttribute("clist", clist);
 		request.setAttribute("list", list);

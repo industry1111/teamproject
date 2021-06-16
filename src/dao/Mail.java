@@ -12,8 +12,6 @@ import javax.mail.internet.MimeMessage;
 public class Mail {
     public void naverMailSend(String title,String text,String address) {
         String host = "smtp.naver.com";
-        String user = "bg565@naver.com";
-        String password = "exonct124";
 
         Properties props = new Properties();
         props.put("mail.smtp.host", host);

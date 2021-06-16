@@ -46,6 +46,8 @@ $(function() {
 			pw_check = 1;
 		}
 	});
+	
+	
 	$("#pw_confirm").blur(function(){
 		var pw = $("#r_pw").val();
 		var pw_confirm = $(this).val();
