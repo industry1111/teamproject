@@ -107,11 +107,12 @@ h6 {
 					label : '주문 수',
 					data : [count[4], count[3], count[2],count[1], count[0] ],
 					lineTension : 0.3,
-					fill : false,
+					fill : 'start',
 					borderColor : '#FA5858',
-					backgroundColor : 'transparent',
+					backgroundColor : '#F5A9A9',
 					pointBorderColor : '#FA5858',
 					pointBackgroundColor : '#FA5858',
+					
 				} ]
 			},
 			options : {
@@ -138,9 +139,10 @@ h6 {
 							label : '판매 금액(원)',
 							data : [ total[4], total[3], total[2], total[1],
 									total[0] ],
-							hoverBackgroundColor : "#D7DF01",
-							BackgroundColor : "#D7DF01"
-
+							hoverBackgroundColor:'#D7DF01',
+							BackgroundColor:'#D7DF01',
+							backgroundColor:'#D7DF01',
+							borderColor:'#D7DF01'
 						}]
 			},
 			options : {
@@ -188,7 +190,7 @@ h6 {
                 'height':400,
                 pieSliceText: 'label',
                 legend: 'none',
-                colors: ['#e0440e', '#ec8f6e', '#f6c7b6'],
+                colors: ['#8181F7', '#819FF7', '#81BEF7'],
         };
         
       
