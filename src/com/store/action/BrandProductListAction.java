@@ -66,6 +66,7 @@ public class BrandProductListAction implements Action {
 		
 		
 		//requset영역에 저장
+		request.setAttribute("brand", brand);
 		request.setAttribute("list", list);
 		request.setAttribute("plist", plist);
 		request.setAttribute("p", pagedto);

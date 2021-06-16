@@ -194,7 +194,7 @@ $(function(){
 											<option>부산 은행</option>
 											<option>농협</option>
 										</select> <input type="text" placeholder="계좌번호 입력" name="account">
-										<button type="button" class="myButton">인증</button>
+										<button type="button" class="myButton">등록</button>
 									</div>
 								</div>
 								<div class="col-md-8">

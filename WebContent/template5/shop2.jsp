@@ -29,7 +29,7 @@
 				<div class="row">
 					<div class="col-md-12 mb-0">
 						<h2>
-							<font color="#7971ea">${ list[1].store_name}</font>
+							<a href="StoreProductListAction.st?store_num=${store_num}"><font color="#7971ea">${ plist[1].store_name}</font></a>
 						</h2>
 					</div>
 				</div>
@@ -94,8 +94,10 @@
 										<div>
 											<span
 												class="bg-danger color d-inline-block rounded-circle mr-2"></span>
-											<span class="text-black"> <a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
-													${blist[i].brand_name}(${blist[i].count }) </a>
+											<span class="text-black"> 
+												<a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
+													<span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count }) </span>
+													</a>
 											</span>
 										</div>
 									</c:forEach>
