@@ -17,6 +17,7 @@ import action.PageDTO;
 import dao.boardDAO;
 import dao.sellerDAO;
 import dto.brandDTO;
+import dto.categoryDTO;
 import dto.pagingDTO;
 import dto.sellerDTO;
 
@@ -38,7 +39,10 @@ public class StoreProductListAction implements Action {
 		sellerDAO sdao = new sellerDAO();
 		boardDAO bdao = new boardDAO();
 		
-		List<productDTO> list = pdao.getStoreInfo(store_num);		
+		List<productDTO> list = pdao.getStoreInfo(store_num);	
+		
+		List<productDTO> plist = pdao.getStoreInfo(store_num);
+		List<categoryDTO> clist = bdao.getcategory(); //카테고리 리스트 전부
 		String template = sdao.getSellerTemplate(store_num);
 		if(visit != null){
 			sdao.visitorCount(user, store_num);
@@ -46,7 +50,7 @@ public class StoreProductListAction implements Action {
 		
 		int member_num = list.get(0).getMember_num();
 		List<brandDTO> blist = bdao.getStorebrandList(member_num);
-		
+		List<categoryDTO> sclist = bdao.getStoreCategory(member_num);
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
@@ -64,6 +68,9 @@ public class StoreProductListAction implements Action {
 		
 		
 		//requset영역에 저장
+		request.setAttribute("plist", plist);
+		request.setAttribute("sclist", sclist);
+		request.setAttribute("clist", clist);
 		request.setAttribute("list", list);
 		request.setAttribute("p", pagedto);
 		request.setAttribute("blist", blist);

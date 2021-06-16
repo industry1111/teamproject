@@ -71,7 +71,7 @@
 						<a href="StoreProductListAction.st?store_num=${store_num}"> <img src="img/core-img/logo.png" alt="">
 							<h2>
 								<font color="#FFBB00">${plist[1].store_name }</font>
-								<h2></a>
+						<h2></a>
 					</div>
 					<br>
 

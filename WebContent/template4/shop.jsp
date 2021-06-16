@@ -55,9 +55,32 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="side border mb-1">
-									<h3>카테고리</h3>
+									<h3>
+									<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+										<c:if test="${list[1].category_num eq clist[i].category_num}">
+													${clist[i].category_name}
+										</c:if>
+									</c:forEach>
+									</h3>
 									<ul>
-										<li><a href="#">카테고리1</a></li>
+										<c:set var="loop1" value="true" />
+										<c:if test="${loop1}">
+											<c:forEach var="i" begin="0" step="1" end="${sclist.size()-1 }">
+													<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
+														<c:if test="${sclist[i].category_codeRef2 eq clist[j].category_code }">
+															<li><span style="font-weight: bold;">${clist[j].category_name}</span></li>
+															<c:set var="category_code" value="${sclist[i].category_codeRef2"/>
+														</c:if>
+													</c:forEach>
+											</c:forEach>
+										</c:if>
+										<c:forEach var="i" begin="0" step="1" end="${sclist.size()-1 }">
+											<c:forEach var="j" begin="0" step="1" end="${clist.size()-1 }">
+												<c:if test="${sclist[i].category_codeRef2 eq clist[j].category_code }">
+													<li>${sclist[i].category_name}</li>
+												</c:if>
+											</c:forEach>
+										</c:forEach>
 									</ul>
 								</div>
 							</div>
