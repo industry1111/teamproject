@@ -96,7 +96,7 @@
 									<div>
 									
 										<label class="form-check-label" for="amado" >
-										<a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
+										<a href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">
 											<span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</span>
 										</a>
 											 </label>
@@ -191,11 +191,11 @@
 									end="${p.endPage }">
 									<li class="page-item"><a class="page-link"
 										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+										href="StoreProductListAction.st?store_num=${store_num}&nowPage=${num}">${num}</a></li>
 								</c:forEach>
 								<c:if test="${p.next }">
 									<li class="page-item next"><a class="page-link"
-										onclick="paging(${p.endPage + 1 });">Next</a></li>
+										href="StoreProductListAction.st?store_num=${store_num}&nowPage=${num}">Next</a></li>
 								</c:if>
 							</ul>
 						</div>
