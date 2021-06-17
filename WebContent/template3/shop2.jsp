@@ -54,8 +54,8 @@
 			<div class="mobile-nav">
 				<!-- Navbar Brand  -->
 				<div class="amado-navbar-brand">
-					<a href="#"><img src="img/core-img/logo.png" alt="">
-						${list[1].store_name }</a>
+					<a href="StoreProductListAction.st?store_num=${store_num}"><img src="img/core-img/logo.png" alt="">
+						${plist[1].store_name }</a>
 				</div>
 				<!--Navbar Toggler -->
 				<div class="amado-navbar-toggler">
@@ -68,10 +68,10 @@
 				<div class="widget catagory mb-50">
 					<!-- Widget Title -->
 					<div class="logo">
-						<a href="#"> <img src="img/core-img/logo.png" alt="">
+						<a href="StoreProductListAction.st?store_num=${store_num}"> <img src="img/core-img/logo.png" alt="">
 							<h2>
-								<font color="#FFBB00">${list[1].store_name }</font>
-								<h2></a>
+								<font color="#FFBB00">${plist[1].store_name }</font>
+						<h2></a>
 					</div>
 					<br>
 
@@ -94,8 +94,13 @@
 							<c:if test="${blist.size() ne 0 }">
 								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 									<div>
-										<label class="form-check-label" for="amado">
-										<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">	${blist[i].brand_name}(${blist[i].count })</a> </label>
+									
+										<label class="form-check-label" for="amado" >
+										<a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
+											<span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</span>
+										</a>
+											 </label>
+									
 									</div>
 								</c:forEach>
 							</c:if>

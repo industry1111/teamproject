@@ -78,13 +78,21 @@
 
 						<!-- 카테고리1 -->
 						<div class="aside">
-							<h3 class="aside-title">카테고리1</h3>
+							<h3 class="aside-title">
+								<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
+										<c:if test="${list[1].category_num eq clist[i].category_num}">
+													${clist[i].category_name}
+										</c:if>
+									</c:forEach>
+							</h3>
 							<div class="checkbox-filter">
-
 								<div class="input-checkbox">
-									<input type="checkbox" id="category-1"> <label
-										for="category-1"> <span></span> 노트북 <small>(상품갯수)</small>
-									</label>
+									<label for="category-1"> 
+									
+									<c:forEach var="i" begin="0" step="1" end="${sclist.size()-1 }">
+												<li><a>${sclist[i].category_name}</a></li>
+										</c:forEach>
+								</label>
 								</div>
 							</div>
 						</div>
@@ -106,7 +114,7 @@
 											<c:if test="${loop}">
 												<div>
 													<label for="brand-1"> <span></span>
-													<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
+													<a	href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4>${blist[i].brand_name}(${blist[i].count })</h4></a>
 													</label>
 												</div>
 											</c:if>

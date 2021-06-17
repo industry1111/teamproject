@@ -100,26 +100,50 @@ h6 {
 		var day = year+"-"+month+"-";
 		var canvas = document.getElementById('chart').getContext("2d");
 		new Chart(canvas, {
-			type : 'bar',
+			type : 'line',
 			data : {
 				labels : [ day+(date-4), day+(date-3), day+(date-2), day+(date-1), day+date ],
 				datasets : [ {
-					label : '판매 금액(원)',
-					yAxisID : 'A',
-					data : [ total[4], total[3], total[2], total[1],total[0] ]
-				}, {
 					label : '주문 수',
-					type : 'line',
-					yAxisID : 'B',
 					data : [count[4], count[3], count[2],count[1], count[0] ],
-					
 					lineTension : 0.3,
-					fill : false,
-					borderColor : 'lightblue',
-					backgroundColor : 'transparent',
-					pointBorderColor : 'lightblue',
-					pointBackgroundColor : 'lightgreen',
+					fill : 'start',
+					borderColor : '#FA5858',
+					backgroundColor : '#F5A9A9',
+					pointBorderColor : '#FA5858',
+					pointBackgroundColor : '#FA5858',
+					
 				} ]
+			},
+			options : {
+				scales : {
+					yAxes : [ {
+						type : 'linear',
+						ticks: {
+							beginAtZero: true,
+				            stepSize: 30
+					    }
+					} ]
+				}
+			}
+		});
+		
+		var canvas2 = document.getElementById('chart2').getContext("2d");
+		new Chart(canvas2, {
+			type : 'bar',
+			data : {
+				labels : [ day + (date - 4), day + (date - 3),
+						day + (date - 2), day + (date - 1), day + date ],
+				datasets : [
+						{
+							label : '판매 금액(원)',
+							data : [ total[4], total[3], total[2], total[1],
+									total[0] ],
+							hoverBackgroundColor:'#D7DF01',
+							BackgroundColor:'#D7DF01',
+							backgroundColor:'#D7DF01',
+							borderColor:'#D7DF01'
+						}]
 			},
 			options : {
 				scales : {
@@ -127,36 +151,15 @@ h6 {
 						id : 'A',
 						type : 'linear',
 						position : 'left',
-						ticks: {
-							beginAtZero: true,
-				            stepSize: 1000000	
-					    }
-					}, {
-						id : 'B',
-						type : 'linear',
-						position : 'right',
-						ticks: {
-							beginAtZero: true,
-				            stepSize: 100
-					    }
-					} ]
-				},
-				annotation : {
-					annotations : [ {
-						type : 'line',
-						mode : 'horizontal',
-						scaleID : 'y-axis-0',
-						value : 32,
-						borderColor : 'rgb(75, 0, 0)',
-						borderWidth : 4,
-						label : {
-							enabled : false,
-							content : 'Test label'
-						},
+						ticks : {
+							beginAtZero : true,
+							stepSize : 1000000
+						}
 					} ]
 				}
 			}
 		});
+		
 		var user = ${user}
 		var vcount = ${vcount}
 		//구글 차트
@@ -186,9 +189,12 @@ h6 {
         		'width':'100%',
                 'height':400,
                 pieSliceText: 'label',
-                legend: 'none'
+                legend: 'none',
+                colors: ['#8181F7', '#819FF7', '#81BEF7'],
         };
-
+        
+      
+        
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
@@ -217,12 +223,41 @@ h6 {
 					<div class="col-md-5"
 						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
 						<br>
-						<h6>주문 및 판매 금액</h6>
+						<h6>주문 수</h6>
 						<canvas id="chart"></canvas>
 					</div>
-
-					<div class="col-md-5"
+<div class="col-md-5 "
 						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
+						<br>
+						<h6>판매 금액</h6>
+						<canvas id="chart2"></canvas>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 10px; height: 400px;">
+					<div class="col-md-5"
+						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
+						<br>
+						<h6>일일 방문자</h6>
+						<c:if test="${vlist.size() eq 0 || vlist.size() eq null }">
+							<div style="margin-top: 100px;">
+								<span style="font-size: 20">일일 방문자수는 <span style="font-weight: bold;">0</span>명입니다.</span>
+							</div>
+						</c:if>
+						<c:if test="${vlist.size() > 0}">
+							<c:set var="count" value="0"/> 
+									<c:forEach var="vlist" items="${vlist }">
+										<c:set var="count" value="${count+vlist.count }"/>
+									</c:forEach>
+						 	<div id="chart_div"></div>
+						 	<div style="margin-left: 100px;">
+								<span style="font-size: 20; color: #FA5858; font-weight: bolder;">
+									일일 방문자수는  총	<span style="font-weight: bold;">${count }</span>명입니다.
+								</span>
+							</div>
+						 </c:if>
+					</div>
+					
+					<div class="col-md-5"style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
 						<br>
 						<h6>최근 작성된 리뷰</h6>
 						<c:set var="end" value="-1" />
@@ -269,37 +304,6 @@ h6 {
 								<hr>
 							</c:forEach>
 						</c:if>
-					</div>
-				</div>
-				<div class="row" style="margin-top: 10px; height: 400px;">
-					<div class="col-md-5"
-						style="border: 1px solid #dadada; box-shadow: 2px 2px 2px;">
-						<br>
-						<h6>일일 방문자</h6>
-						<c:if test="${vlist.size() eq 0 || vlist.size() eq null }">
-							<div style="margin-top: 100px;">
-								<span style="font-size: 20">일일 방문자수는 <span style="font-weight: bold;">0</span>명입니다.</span>
-							</div>
-						</c:if>
-						<c:if test="${vlist.size() > 0}">
-							<c:set var="count" value="0"/> 
-									<c:forEach var="vlist" items="${vlist }">
-										<c:set var="count" value="${count+vlist.count }"/>
-									</c:forEach>
-						 	<div id="chart_div"></div>
-						 	<div style="margin-left: 100px;">
-								<span style="font-size: 20">
-									일일 방문자수는  총	<span style="font-weight: bold;">${count }</span>명입니다.
-								</span>
-							</div>
-						 </c:if>
-					</div>
-					<div class="col-md-5 "
-						style="border: 1px solid #dadada; margin-left: 10px; box-shadow: 2px 2px 2px;">
-						<br>
-						<h6>네번째 화면</h6>
-						<input type="button" value="버튼" id="button" class="myButton">
-
 					</div>
 				</div>
 			</div>
