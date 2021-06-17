@@ -63,7 +63,7 @@ img{
 				<div class="com-sm-3">
 					<select name="category1"  id = "category1" 
 					class="form-control category1" required="required" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected>==1차==</option>
+						<option value="" selected id = "category1_1">==1차==</option>
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
@@ -147,7 +147,7 @@ img{
 			</div>
 
 			<div>
-				<button type="button" class="myButton"  id="add_btn" style="margin-left: 400px;" onclick="btn_onclick();">상품 등록</button> 
+				<button type="button" class="myButton"  id="add_btn" style="margin-left: 400px;" >상품 등록</button> 
 				<a type="button" class="myButton" href="ProductListAction.pr" style="text-decoration:none; color:#FF4848 !important; line-height:3.3em; display: table-cell; vertical-align: middle;">등록 취소</a>
 			</div>
 		</form>	
