@@ -106,7 +106,7 @@
 									<c:if test="${list[i].state==2}">배송준비중</c:if>
 									<c:if test="${list[i].state==3}">배송중</c:if>
 									<c:if test="${list[i].state==4}">배송완료
-								<a href="BuyComplete.do?price=${list[i].quantity * list[i].product_price}&store_num=${list[i].store_num}&order_detail_num=${list[i].order_detail_num}">
+								<a href="BuyComplete.do?price=${list[i].quantity * list[i].product_price}&store_num=${list[i].store_num}&order_detail_num=${list[i].order_detail_num}&orders_code=${list[i].orders_code}">
 										<input type="button" value="구매확정" class="myButton" id="buy_complete">
 								</a>
 									</c:if>

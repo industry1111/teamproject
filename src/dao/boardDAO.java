@@ -585,7 +585,7 @@ public class boardDAO {
 		try {
 			
 			getCon();
-			String sql = "insert into buy_complete member_num, store_num, price"
+			String sql = "insert into buy_complete (member_num, store_num, price)"
 					+ " values(?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, member_num);
