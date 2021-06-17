@@ -108,37 +108,10 @@
 				class="form-horizontal" method="post" enctype="multipart/form-data">
 				<div class="row row-pb-lg product-detail-wrap">
 					<div class="col-sm-5">
-<!-- 						<div class="owl-carousel"> -->
-<!-- 							<div class="item"> -->
 								<div >
-<!-- 									<a href="#" class="prod-img">  -->
 									<img
 										src="product_img_upload/${pdto.product_img}" class="img-fluid"
 										alt="">
-<!-- 									</a> -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 														<div class="item"> -->
-<!-- 															<div class="product-entry border"> -->
-<!-- 																<a href="#" class="prod-img"> -->
-<!-- 																	<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template"> -->
-<!-- 																</a> -->
-<!-- 															</div> -->
-<!-- 														</div> -->
-							<!-- 							<div class="item"> -->
-							<!-- 								<div class="product-entry border"> -->
-							<!-- 									<a href="#" class="prod-img"> -->
-							<!-- 										<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template"> -->
-							<!-- 									</a> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
-							<!-- 							<div class="item"> -->
-							<!-- 								<div class="product-entry border"> -->
-							<!-- 									<a href="#" class="prod-img"> -->
-							<!-- 										<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template"> -->
-							<!-- 									</a> -->
-							<!-- 								</div> -->
-							<!-- 							</div> -->
 						</div>
 					</div>
 					<div class="col-sm-4">
@@ -153,15 +126,20 @@
 							<p>${pdto.product_description}</p>
 							
 							<div align="center">
-								<div align="center">
-								<p>구매수량&nbsp;&nbsp;<input type="number" class="qty-text" id="quantity" 
-								step="1" min="1" max="${pdto.product_count}" name="quantity" value="1">
-								</p>
-									<p class="addtocart">
-										<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
-										<button type="button" id="addbasket" class="btn btn-primary btn-addtocart" style="margin-bottom: 20px;">장바구니 담기</button>
+								<c:if test="${pdto.product_count eq 0 }">
+									<h4 align="center">품절된 상품입니다.</h4>
+								</c:if>
+								<c:if test="${pdto.product_count ne 0 }">
+									<div align="center">
+									<p>구매수량&nbsp;&nbsp;<input type="number" class="qty-text" id="quantity" 
+									step="1" min="1" max="${pdto.product_count}" name="quantity" value="1">
 									</p>
-								</div>
+										<p class="addtocart">
+											<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+											<button type="button" id="addbasket" class="btn btn-primary btn-addtocart" style="margin-bottom: 20px;">장바구니 담기</button>
+										</p>
+									</div>
+								</c:if>
 								<div>
 									<a class="btn btn-primary" href="StoreProductListAction.st?store_num=${pdto.store_num}">상품목록으로 가기</a>
 								</div>

@@ -53,21 +53,7 @@
 				<div class="row">
 					<div class="col-lg-3">
 						<div class="row">
-							<div class="col-sm-12">
-								<div class="side border mb-1">
-									<h3>
-									<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-										<c:if test="${list[1].category_num eq clist[i].category_num}">
-													${clist[i].category_name}
-										</c:if>
-									</c:forEach>
-									</h3>
-									<ul>
-										
-									</ul>
-								</div>
-							</div>
-
+					
 							<div class="col-sm-12">
 								<div class="side border mb-1">
 									<h3>브랜드</h3>
@@ -75,7 +61,7 @@
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul>
-													<li><a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">${blist[i].brand_name}(${blist[i].count })</a></li>
+													<li><a href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">${blist[i].brand_name}(${blist[i].count })</a></li>
 												</ul>
 											</div>
 										</c:forEach>
@@ -132,17 +118,17 @@
 									<ul class="pagination justify-content-center">
 										<c:if test="${p.prev }">
 											<li class="page-item previous"><a class="page-link"
-												onclick="paging(${p.startPage-1 });">Previous</a></li>
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.startPage - 1 }&page='true'">Prev</a></li>
 										</c:if>
 										<c:forEach var="num" begin="${p.startPage }" step="1"
 											end="${p.endPage }">
 											<li class="page-item"><a class="page-link"
 												${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-												href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+												href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}&page='true'">${num}</a></li>
 										</c:forEach>
 										<c:if test="${p.next }">
 											<li class="page-item next"><a class="page-link"
-												onclick="paging(${p.endPage + 1 });">Next</a></li>
+												href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.endPage + 1 }&page='true'">Next</a></li>
 										</c:if>
 									</ul>
 								

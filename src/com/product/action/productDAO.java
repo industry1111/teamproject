@@ -283,6 +283,8 @@ public class productDAO {
                     sql += " order by p.product_regdate desc";
                 }else if(sort.equals("4")){
                 	sql += " order by p.review_count desc";
+                }else{
+                	sql += " order by p.product_num";
                 }
 			    
 			}

@@ -105,7 +105,9 @@
 									<c:if test="${list[i].state==1}">주문접수</c:if>
 									<c:if test="${list[i].state==2}">배송준비중</c:if>
 									<c:if test="${list[i].state==3}">배송중</c:if>
-									<c:if test="${list[i].state==4}">배송완료</c:if>
+									<c:if test="${list[i].state==4}">배송완료
+										<button type="button">구매확정</button>
+									</c:if>
 									<c:if test="${list[i].state==5}">주문취소</c:if>
 									<c:if test="${list[i].state==6}">반품처리중</c:if>
 									<c:if test="${list[i].state==7}">반품접수</c:if>

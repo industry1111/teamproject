@@ -90,43 +90,23 @@
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-lg-3">
-					<div>
-
-						<!-- 대분류 -->
-						<h2 class="h2 pb-4">카테고리</h2>
-						<ul class="list-unstyled templatemo-accordion">
-							<!-- 중분류 -->
-							<li class="pb-3"><a
-								class="collapsed d-flex justify-content-between h3 text-decoration-none"
-								href="#"> 카테고리1-1 <i
-									class="fa fa-fw fa-chevron-circle-down mt-1"></i></a> <!-- 소분류 -->
-								<ul class="collapse show list-unstyled pl-3">
-									<li><a class="text-decoration-none" href="#">세부
-											카테고리1-1-1</a></li>
-								</ul></li>
-						</ul>
-					</div>
+					
 					<div>
 						<ul class="list-unstyled templatemo-accordion">
 							<li class="pb-3"><a
 								class="collapsed d-flex justify-content-between h4 text-decoration-none"
 								href="#"> 브랜드 <i
 									class="fa fa-fw fa-chevron-circle-down mt-1"></i>
-							</a> <c:set var="loop" value="true" /> <c:if
-									test="${blist.size() ne 0 }">
-									<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
-										<c:if test="${p.total == i }">
-											<c:set var="loop" value="false" />
-										</c:if>
-										<c:if test="${loop }">
+							</a> <c:if test="${blist.size() ne 0 }">
+								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul class="collapse show list-unstyled pl-3">
-													<li><a class="text-decoration-none" href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h5>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
+													<li><a class="text-decoration-none" href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h5>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
 												</ul>
 											</div>
+								</c:forEach>
 										</c:if>
-									</c:forEach>
-								</c:if></li>
+						</li>
 						</ul>
 					</div>
 				</div>
@@ -144,15 +124,7 @@
 							</ul>
 						</div>
 						<!-- 상품필터시작 -->
-						<div class="col-md-6 pb-4">
-							<div class="d-flex">
-								<select class="form-control">
-									<option>인기순</option>
-									<option>낮은가격순</option>
-									<option>높은가격순</option>
-								</select>
-							</div>
-						</div>
+					
 					</div>
 					<div class="row">
 						<c:set var="loop" value="true" />
@@ -202,17 +174,17 @@
 								<ul class="pagination justify-content-center">
 									<c:if test="${p.prev }">
 										<li class="page-item previous"><a class="page-link"
-											onclick="paging(${p.startPage-1 });">Previous</a></li>
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.startPage - 1 }&page='true'">Prev</a></li>
 									</c:if>
 									<c:forEach var="num" begin="${p.startPage }" step="1"
 										end="${p.endPage }">
 										<li class="page-item"><a class="page-link"
 											${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}&page='true'">${num}</a></li>
 									</c:forEach>
 									<c:if test="${p.next }">
 										<li class="page-item next"><a class="page-link"
-											onclick="paging(${p.endPage + 1 });">Next</a></li>
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.endPage + 1 }&page='true'">Next</a></li>
 									</c:if>
 								</ul>
 							</div>

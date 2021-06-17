@@ -1,4 +1,3 @@
-
 var nameReg = /^[가-힣]{2,5}$/;
 var idReg = /^[A-Za-z0-9]{6,15}$/;
 var pwReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,20}/;
@@ -7,6 +6,7 @@ var phoneReg = /^01(?:0|1)([0-9]){7,8}$/;
 var check = 0;
 
 $(function() {
+	var member_num = $("#member_num").val();
 	var date = $("#date").val();
 	var date1 = new Date(date);
 	var now_date = new Date();
@@ -531,7 +531,7 @@ $(function() {
 		$("#name_btn").attr("hidden",true);
 		$("#name").attr("disabled",false);
 		$("#name").focus();
-		
+		console.log("dd : "+ member_num);
 		$("#name").blur(function(){
 			
 			var new_name = $(this).val();

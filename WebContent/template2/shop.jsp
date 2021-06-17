@@ -45,23 +45,7 @@
 								</h1>
 							</div>
 						</div>
-						<!-- /LOGO -->
-
-						<!-- 					SEARCH BAR -->
-						<!-- 						<div class="col-md-7"> -->
-						<!-- 							<div class="header-search"> -->
-						<!-- 								<form> -->
-						<!-- 									<select class="input-select"> -->
-						<!-- 										<option value="0">카테고리선택</option> -->
-						<!-- 										<option value="1">카테고리 1</option> -->
-						<!-- 										<option value="1">카테고리 2</option> -->
-						<!-- 									</select> -->
-						<!-- 									<input class="input" placeholder="검색어를 입력하세요"> -->
-						<!-- 									<button class="search-btn">검색</button> -->
-						<!-- 								</form> -->
-						<!-- 							</div> -->
-						<!-- 						</div> -->
-						<!-- 						/SEARCH BAR -->
+	
 					</div>
 				</div>
 			</div>
@@ -76,26 +60,6 @@
 					<!-- ASIDE -->
 					<div id="aside" class="col-md-3">
 
-						<!-- 카테고리1 -->
-						<div class="aside">
-							<h3 class="aside-title">
-								<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-										<c:if test="${list[1].category_num eq clist[i].category_num}">
-													${clist[i].category_name}
-										</c:if>
-									</c:forEach>
-							</h3>
-							<div class="checkbox-filter">
-								<div class="input-checkbox">
-									<label for="category-1"> 
-									
-									<c:forEach var="i" begin="0" step="1" end="${sclist.size()-1 }">
-												<li><a>${sclist[i].category_name}</a></li>
-										</c:forEach>
-								</label>
-								</div>
-							</div>
-						</div>
 						<!-- 카테고리1끝 -->
 
 
@@ -129,17 +93,6 @@
 
 					<!-- STORE -->
 					<div id="store" class="col-md-9">
-						<!-- store top filter -->
-						<div class="store-filter clearfix">
-							<div class="store-sort">
-								<label> 카테고리: <select class="input-select">
-										<option value="0">높은가격</option>
-										<option value="1">낮은가격</option>
-										<option value="2">인기순</option>
-								</select>
-								</label>
-							</div>
-						</div>
 						<!-- 카테고리2끝 -->
 
 						<!-- 상품리스트 -->
@@ -188,17 +141,17 @@
 						<ul class="pagination justify-content-center">
 							<c:if test="${p.prev }">
 								<li class="page-item previous"><a class="page-link"
-									onclick="paging(${p.startPage-1 });">Previous</a></li>
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.startPage - 1 }&page='true'">Prev</a></li>
 							</c:if>
 							<c:forEach var="num" begin="${p.startPage }" step="1"
 								end="${p.endPage }">
 								<li class="page-item"><a class="page-link"
 									${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-									href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+									href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}&page='true'">${num}</a></li>
 							</c:forEach>
 							<c:if test="${p.next }">
 								<li class="page-item next"><a class="page-link"
-									onclick="paging(${p.endPage + 1 });">Next</a></li>
+									href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.endPage + 1 }&page='true'">Next</a></li>
 							</c:if>
 						</ul>
 						</div>

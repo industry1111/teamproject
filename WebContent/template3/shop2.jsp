@@ -96,7 +96,7 @@
 									<div>
 									
 										<label class="form-check-label" for="amado" >
-										<a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
+										<a href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">
 											<span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</span>
 										</a>
 											 </label>
@@ -185,17 +185,17 @@
 							<ul class="pagination justify-content-center">
 								<c:if test="${p.prev }">
 									<li class="page-item previous"><a class="page-link"
-										onclick="paging(${p.startPage-1 });">Previous</a></li>
+									href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.startPage - 1 }&brand=${brand}&page='true'">Prev</a></li>
 								</c:if>
 								<c:forEach var="num" begin="${p.startPage }" step="1"
 									end="${p.endPage }">
 									<li class="page-item"><a class="page-link"
 										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+										href="BrandProductAction.st?store_num=${store_num}&nowPage=${num}&brand=${brand}&page='true'">${num}</a></li>
 								</c:forEach>
 								<c:if test="${p.next }">
 									<li class="page-item next"><a class="page-link"
-										onclick="paging(${p.endPage + 1 });">Next</a></li>
+										href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}&page='true'">Next</a></li>
 								</c:if>
 							</ul>
 						</div>

@@ -17,7 +17,6 @@ public class SellerJoinAction implements Action{
 	  @Override
 	    public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	        
-	      	System.out.println("hi");
 		  	//세션객체 생성
 			HttpSession session=request.getSession();
 			String id = (String)session.getAttribute("id");
@@ -38,14 +37,8 @@ public class SellerJoinAction implements Action{
 	        sdto.setTemplate(multipartRequest.getParameter("template"));
 	        sdto.setAccount(multipartRequest.getParameter("account"));
 	        sdto.setMember_num(member_num);
-	    	System.out.println(sdto.getMember_num());
-			System.out.println(sdto.getAccount());
-			
 			System.out.println(sdto.getProfile_img());
-			System.out.println(sdto.getTemplate());
-			System.out.println(sdto.getStore_name());
 	        sdto.setCategory_num(Integer.parseInt(multipartRequest.getParameter("category_num")));
-	        System.out.println(sdto.getCategory_num());
 	        sdao.insertSeller(sdto);
 	        
 	        memberDAO mdao = new memberDAO();

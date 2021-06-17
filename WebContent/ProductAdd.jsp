@@ -24,6 +24,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="js/productadd.js"></script>
 <link rel="stylesheet" href="css/style.css">
 
 <style type="text/css">
@@ -33,7 +34,11 @@ img{
   	height: 100px;
   	margin-left: 180px;
   }
-  
+
+.check{
+color:red;
+
+}
 </style>
 
 <title>상품 등록</title>
@@ -53,7 +58,7 @@ img{
 
 	<div class="container" cols="100" rows="2" style="color: grey;">
 
-		<form name="newProduct" action="ProductAddAction.pr"
+		<form name="newProduct" id="newProduct" action="ProductAddAction.pr"
 
 			class="form-horizontal" method="post" enctype="multipart/form-data">
 
@@ -61,9 +66,9 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품 카테고리</label>
 				<div class="com-sm-3">
-					<select name="category1"  id = "category1" required
-					class="form-control category1" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected>==1차==</option>
+					<select name="category1"  id = "category1" 
+					class="form-control category1" required="required" aria-label=".form-select-sm example" style="width: 100px;">
+							<option value="0" selected >==1차==</option>
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
@@ -73,16 +78,16 @@ img{
 					<select required name="category2" id="category2"  class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
 						<option class='category2' value="">==2차==</option>
 					</select>
-					<select required id="category3" name="category_name"  class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+					<select required="required" id="category3" name="category_name"  class="form-control category3" aria-label=".form-select-sm example" style="width: 100px;">
 						<option class='category3' value="">==3차==</option>
 					</select>
+					<span id="product_category_check" class="check"></span>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
-
 					<input type="text" name="product_name" required="required" id="product_name" class="form-control"
 						placeholder="상품명을 입력하세요." style="width: 300px;">
 						<span id="product_name_check" class="check"></span>
@@ -102,17 +107,16 @@ img{
 			<div class="form-group row">
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
-					<select  id="brand_name" name="brand_name" required class="form-control brand_name"  style="width: 100px;">
-							<option class='brand_name' value="" >==브랜드==</option>
+					<select  id="brand_name" name="brand_name" required="required" class="form-control brand_name"  style="width: 100px;">
+							<option class='brand_name' value=0 >==브랜드==</option>
 					</select>
-					<span id="product_brand_check" class="check"></span>	
+					<span id="brand_check" class="check"></span>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-
 					<input type="text" name="product_price" required="required" id="product_price" class="form-control"
 						placeholder="상품가격을 입력하세요." style="border: 0; width:300px;">
 					<span id="product_price_check" class="check"></span>
@@ -141,7 +145,7 @@ img{
 			</div>
 
 			<div>
-				<button type="submit" class="myButton"  style="margin-left: 400px;">상품 등록</button> 
+				<button type="button" class="myButton"  id="add_btn" style="margin-left: 400px;" >상품 등록</button> 
 				<a type="button" class="myButton" href="ProductListAction.pr" style="text-decoration:none; color:#FF4848 !important; line-height:3.3em; display: table-cell; vertical-align: middle;">등록 취소</a>
 			</div>
 		</form>	

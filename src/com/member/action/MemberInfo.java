@@ -15,7 +15,7 @@ public class MemberInfo implements Action{
         HttpSession session = request.getSession();
         
         String id = (String) session.getAttribute("id");
-        
+        int member_num = (int) session.getAttribute("member_num");
         
         memberDTO mdto = new memberDAO().getMemberInfo(id);
         request.setAttribute("mdto", mdto);
@@ -25,7 +25,7 @@ public class MemberInfo implements Action{
         forward.setRedirect(false);
         forward.setPath("mypage.jsp");
         request.setAttribute("center", "MemberUpdate.jsp");
-        
+        request.setAttribute("member_num", member_num);
        
         
         return forward;

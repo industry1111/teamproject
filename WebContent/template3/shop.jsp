@@ -73,15 +73,6 @@
 								<font color="#FFBB00">${list[1].store_name }</font>
 								<h2></a>
 					</div>
-					<br>
-
-					<h6 class="widget-title mb-30">카테고리</h6>
-
-					<!-- ================ 카테고리 섹션 시작 ================= -->
-					<div class="catagories-menu">
-						<ul>
-							<li class="active"><a href="#">의자</a></li>
-					</div>
 				</div>
 				<div class="widget brands mb-50">
 					<!-- 카테고리2 시작 -->
@@ -95,7 +86,7 @@
 								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 									<div>
 										<label class="form-check-label" for="amado">
-										<a	href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">	${blist[i].brand_name}(${blist[i].count })</a> </label>
+										<a	href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">	${blist[i].brand_name}(${blist[i].count })</a> </label>
 									</div>
 								</c:forEach>
 							</c:if>
@@ -119,19 +110,7 @@
 										src="img/core-img/search.png" alt=""></a>
 								</div>
 								</header>
-								<div class="product-sorting d-flex">
-									<div class="sort-by-date d-flex align-items-center mr-15">
-										<p>옵션</p>
-										<form action="#" method="get">
-											<select name="select" id="sortBydate">
-												<option value="value">높은가격</option>
-												<option value="value">낮은가격</option>
-												<option value="value">인기순</option>
-											</select>
-										</form>
-									</div>
-									<div class="view-product d-flex align-items-center"></div>
-								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -180,17 +159,17 @@
 							<ul class="pagination justify-content-center">
 								<c:if test="${p.prev }">
 									<li class="page-item previous"><a class="page-link"
-										onclick="paging(${p.startPage-1 });">Previous</a></li>
+											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${p.startPage - 1 }&page='true'">Prev</a></li>
 								</c:if>
 								<c:forEach var="num" begin="${p.startPage }" step="1"
 									end="${p.endPage }">
 									<li class="page-item"><a class="page-link"
 										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}&page='true'">${num}</a></li>
 								</c:forEach>
 								<c:if test="${p.next }">
 									<li class="page-item next"><a class="page-link"
-										onclick="paging(${p.endPage + 1 });">Next</a></li>
+										href="StoreProductListAction.st?store_num=${list[1].store_num}&&nowPage=${p.endPage + 1 }&page='true'">Next</a></li>
 								</c:if>
 							</ul>
 						</div>
