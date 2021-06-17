@@ -182,7 +182,7 @@ input[type="text"]:focus {
 							</div>
 							<div class="row">
 								<div class="col-md-5">
-									<input class="form-control"  type="text" id="sample6_postcode" name="addr1" placeholder="우편번호" required style="width: 250px;"><br>
+									<input class="form-control"  type="text" id="addr1" name="addr1" placeholder="우편번호" required style="width: 250px;"><br>
 								</div>
 								<div class="col-md-7">
 									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="post_btn" class="myButton"> <br>
@@ -190,14 +190,14 @@ input[type="text"]:focus {
 							</div>
 							<div class="row">
 								<div class="col-md-8">
-									<input class="form-control"  type="text" id="sample6_address" name="addr2" placeholder="주소" required style="width: 250px;">&nbsp;
-									<input class="form-control"  type="text" id="sample6_detailAddress" name="addr3" placeholder="상세주소" required style="width: 500px;"> <br>
+									<input class="form-control"  type="text" id="addr2" name="addr2" placeholder="주소" required style="width: 250px;">&nbsp;
+									<input class="form-control"  type="text" id="addr3" name="addr3" placeholder="상세주소" required style="width: 500px;"> <br>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-2" style="margin-left: 200px;">
 									<div class="form-group d-flex">
-										<button type="submit"
+										<button type="button" id="join"
 											class="myButton" style="width: 200px; height: 60px !important;">Sign Up</button>
 									</div>
 								</div>
@@ -232,10 +232,10 @@ function sample6_execDaumPostcode() {
 
     
             // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('sample6_postcode').value = data.zonecode;
-            document.getElementById("sample6_address").value = address;
+            document.getElementById('addr1').value = data.zonecode;
+            document.getElementById("addr2").value = address;
             // 커서를 상세주소 필드로 이동한다.
-            document.getElementById("sample6_detailAddress").focus();
+            document.getElementById("addr3").focus();
         }
     }).open();
 }
