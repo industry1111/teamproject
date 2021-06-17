@@ -153,7 +153,7 @@ h4{
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="#">내 스토어</a>
+				<a href="MyStore.st">내 스토어</a>
 			</div>
 		</div>
 		<div class="row">
