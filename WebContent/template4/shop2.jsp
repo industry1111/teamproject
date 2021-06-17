@@ -122,11 +122,11 @@
 											end="${p.endPage }">
 											<li class="page-item"><a class="page-link"
 												${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-												href="BrandProductAction.st?store_num=${store_num}&nowPage=${num}&brand=${brand}">${num}</a></li>
+												href="BrandProductAction.st?store_num=${store_num}&nowPage=${num}&brand=${brand}&page='true'">${num}</a></li>
 										</c:forEach>
 										<c:if test="${p.next }">
 											<li class="page-item next"><a class="page-link"
-												href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}">Next</a></li>
+												href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}&page='true'">Next</a></li>
 										</c:if>
 									</ul>
 								
