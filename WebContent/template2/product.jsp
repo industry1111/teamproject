@@ -141,6 +141,10 @@
 								<h3 class="product-price">${pdto.product_price}원</h3>
 							</div>
 							<div class="add-to-cart" align="center">
+							<c:if test="${pdto.product_count eq 0 }">
+								<h4 align="center">품절된 상품입니다.</h4>
+							</c:if>
+							<c:if test="${pdto.product_count ne 0 }">
 								<div style="margin-left: 30px;">
 
 									수량 <input type="number" id="quantity" step="1" min="1"
@@ -152,6 +156,7 @@
 										style="margin-left: 10px;">&nbsp;&nbsp;장바구니추가하기&nbsp;&nbsp;</button>
 
 								</div>
+							</c:if>
 							</div>
 
 							<div style="height: auto; width: auto; margin-top: 20px;">

@@ -171,6 +171,10 @@
 							<div class="cart-btn d-flex mb-50">
 								
 								<div class="quantity">
+								<c:if test="${pdto.product_count eq 0 }">
+									<h4 align="center">품절된 상품입니다.</h4>
+								</c:if>
+								<c:if test="${pdto.product_count ne 0 }">
 									구매 수량&nbsp; &nbsp; &nbsp;
 									<input type="number" class="qty-text" id="quantity" step="1"
 										min="1" max="${pdto.product_count}" name="quantity" value="1"
@@ -179,6 +183,7 @@
 										id="product_num" />
 									<button type="button" id="addbasket" class="btn amado-btn">
 										장바구니 담기</button>
+								</c:if>
 									<a type="button" class="btn amado-btn"
 										href="StoreProductListAction.st?store_num=${pdto.store_num}">
 										상품목록 </a>

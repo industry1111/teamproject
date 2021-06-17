@@ -75,9 +75,9 @@
 						<span class="label-input100">Authentication <br> Code&nbsp;Number</span> 
 						<input class="input100" type="text" disabled="disabled" id="authNum" name="authNum" placeholder="Enter your AuthNumber">
 						<span class="focus-input100"></span>
+					</div>
 						<span id="authNum_check2" class="check2" hidden>인증 완료</span>
 						<span id="authNum_check" class="check" hidden>번호가 일치하지 않습니다.</span>
-					</div>
 					
 					
 					<div class="col-md-12"></div>

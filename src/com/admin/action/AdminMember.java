@@ -1,9 +1,11 @@
 package com.admin.action;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.member.action.memberDAO;
 import com.member.action.memberDTO;
@@ -23,10 +25,29 @@ public class AdminMember implements Action{
 			
 			request.setCharacterEncoding("utf-8");
 			
+			HttpSession session = request.getSession();
+			String member_code = (String) session.getAttribute("member_code");
+			
+			
+			
+			if(!member_code.equals("8")){
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out=response.getWriter();
+				out.println("<script>");
+				out.println("alert('접근권한이 없습니다.');");
+				out.println("history.back();");
+				out.println("</script>");
+				out.close();
+				return null;
+			}
+			
+			
+			
 			ActionForward forward = new ActionForward();
 			//회원정보를 가지고온다.
 			List<memberDTO> list = new memberDAO().getMembersInfo();
 			//회원정보를 전달하기 위해 
+			
 			
 			//페이징 부분
 			String page = request.getParameter("page");

@@ -225,7 +225,7 @@ ul {
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
 					<ul >
-						<li  class="sort" value="0">
+						<li  class="sort" value="0" style="color:black;">
 							<a>랭킹순</a>
 						</li>
 						<li  class="sort" value="1">

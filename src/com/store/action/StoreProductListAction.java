@@ -49,6 +49,7 @@ public class StoreProductListAction implements Action {
 		
 		int member_num = list.get(0).getMember_num();
 		List<brandDTO> blist = bdao.getStorebrandList(member_num);
+		
 		//페이징 부분
 		String page = request.getParameter("page");
 		Criteria cri;
