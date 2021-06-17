@@ -116,7 +116,7 @@
 									<ul class="pagination justify-content-center">
 										<c:if test="${p.prev }">
 											<li class="page-item previous"><a class="page-link"
-									href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.startPage - 1 }&brand=${brand}&page='true'">Prev</a></li>
+											href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.startPage - 1 }&brand=${brand}&page='true'">Prev</a></li>
 										</c:if>
 										<c:forEach var="num" begin="${p.startPage }" step="1"
 											end="${p.endPage }">
