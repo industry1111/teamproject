@@ -117,7 +117,7 @@
 								</c:forEach>
 								<c:if test="${p.next }">
 									<li class="page-item next"><a class="page-link"
-										href="StoreProductListAction.st?store_num=${store_num}&nowPage=${num}">Next</a></li>
+										href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}">Next</a></li>
 								</c:if>
 							</ul>
 						</div>

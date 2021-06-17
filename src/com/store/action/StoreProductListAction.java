@@ -67,6 +67,10 @@ public class StoreProductListAction implements Action {
 		
 		
 		//requset영역에 저장
+<<<<<<< HEAD
+=======
+
+>>>>>>> 74fadb889512df2aa47080c6f4a1de8c5c89828e
 		request.setAttribute("sclist", sclist);
 		request.setAttribute("clist", clist);
 		request.setAttribute("list", list);

@@ -52,6 +52,38 @@
 .star-rating :checked ~ label {
 	color: #f90;
 }
+.reply {
+  border: 2px solid #FF4848;
+  min-width: 100px;
+  height: 30px;
+  background-color:#ffffff;
+  border-radius: 25px;
+ text-align:center;
+ font-family: Arial;
+  font-size: 14px;
+  color:#FF4848 !important;
+   align-items: center;
+}
+
+.reply:hover {
+  background-color: #FF4848;
+}
+.replybtn {
+  border: 2px solid #15161D;
+  min-width: 50px;
+  height: 30px;
+  background-color:#ffffff;
+  border-radius: 25px;
+ text-align:center;
+ font-family: Arial;
+  font-size: 14px;
+  color:#15161D !important;
+   align-items: center;
+}
+
+.replybtn:hover {
+  background-color: #15161D;
+}
 </style>
 </head>
 <body>
@@ -387,19 +419,8 @@
 								</div>
 							</div>
 						</c:if>
-						<div class="row"
-							style="margin-top: 30px; height: 70px; border: 1px solid gray;">
-							<div class="col-md-12" style="margin-top: 20px;">
-								<ul>
-									<a href="#"><li style="float: left;">전체()</li></a>
-									<a href="#"><li style="float: left; margin-left: 180px;">5점()</li></a>
-									<a href="#"><li style="float: left; margin-left: 180px;">4점()</li></a>
-									<a href="#"><li style="float: left; margin-left: 180px;">3점()</li></a>
-									<a href="#"><li style="float: left; margin-left: 180px;">2점()</li></a>
-									<a href="#"><li style="float: left; margin-left: 180px;">1점()</li></a>
-								</ul>
-							</div>
-						</div>
+						<hr>
+							<h4>리뷰</h4>
 						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">
 							<div class="row">
 								<div class="col-md-12">작성된 리뷰가 없습니다.</div>
@@ -450,19 +471,48 @@
 											<img alt="" src="${pageContext.request.contextPath}/upload_review/${rvlist[i].review_img }" width="100%" height="150px;">
 										</div>
 									</div>
-									<c:if test="${pdto.member_num == member_num }">
+									<c:set var="loop2" value="true"/>
+									<c:if test="${relist.size()>0 }">
+										<c:forEach var="y" begin="0" step="1" end="${relist.size()-1 }">
+											<c:if test="${loop2 }">
+												<c:if test="${relist[y].review_num == rvlist[i].review_num }">
+													<c:set var="k" value="${y }" />
+													<c:set var="loop2" value="false" />
+												</c:if>
+											</c:if>
+										</c:forEach>
+									</c:if>
+									<c:if test="${relist[k].review_num == rvlist[i].review_num }">
 										<div class="row">
-											<div class="col-md-12">
-												<button type="button" class="reply">답변달기</button>	
+											<div class="col-md-8" style="background-color: #f1f3f5;">
+												<div class="row">
+													<div class="col-md-12">
+														<span style="font-weight: bold;">판매자/<fmt:formatDate value="${relist[k].regdate }" pattern="yyyy.MM.dd" /></span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-md-12">
+														<span style=" color: black;">${relist[k].reply_contents }</span>
+													</div>
+												</div>	
 											</div>
 										</div>
 									</c:if>
+									<c:if test="${relist[k].review_num != rvlist[i].review_num }">
+										<c:if test="${pdto.member_num == member_num }">
+											<div class="row">
+												<div class="col-md-12">
+													<button type="button" class="reply">답변달기</button>	
+												</div>
+											</div>
+										</c:if>
 									<div class="row reply_div" hidden>
 										<div class="col-md-12">
 											<div class="row">
 												<div class="col-md-12">
-													<textarea rows="4" cols="40"></textarea>
+													<textarea rows="4" cols="40" style="resize:none; outline:none; border: solid 1px #f1f3f5;  border-radius: 10px;"></textarea>
 													<button type="button" class="replybtn">등록</button>
+													<input type="text" id="review_num" value="${rvlist[i].review_num }" hidden/>
 												</div>
 											</div>	
 										</div>
@@ -481,6 +531,7 @@
 											</div>	
 										</div>
 									</div>
+									</c:if>
 									<hr>
 								</c:if>
 							</c:forEach>

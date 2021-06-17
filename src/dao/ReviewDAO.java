@@ -11,6 +11,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import dto.replyDTO;
 import dto.reviewDTO;
 
 public class ReviewDAO {
@@ -235,6 +236,46 @@ public class ReviewDAO {
 		} catch (Exception e) {
 			System.out.println("getStoreReview"+e.toString());
 		} finally {
+			ResouceClose();
+		}
+		return list;
+	}
+	
+	public void insertReply(int review_num,String reply_contents){
+		try {
+			getCon();
+			String sql ="insert into seller_reply (review_num,seller_reply_contents)"
+					+ " values(?,?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, review_num);
+			pstmt.setString(2, reply_contents);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println("ReviewDAO.insertReply:"+e.toString());
+		}finally {
+			ResouceClose();
+		}
+	}
+	public List<replyDTO> getReplyList(int product_num){
+		List<replyDTO> list = new ArrayList<replyDTO>();
+		try {
+			getCon();
+			String sql = "select * from seller_reply s join review r on s.review_num = r.review_num where r.product_num = ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, product_num);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				replyDTO rdto = new replyDTO();
+				rdto.setReply_num(rs.getInt("seller_reply_num"));
+				rdto.setReview_num(rs.getInt("review_num"));
+				rdto.setReply_contents(rs.getString("seller_reply_contents"));
+				rdto.setRegdate(rs.getTimestamp("s.regdate"));
+				list.add(rdto);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("ReviewDAO.getReplyList:"+e.toString());
+		}finally {
 			ResouceClose();
 		}
 		return list;

@@ -104,8 +104,8 @@
 							<div class="a">${list[i].product_name}</div> <%-- 상품명 --%>
 						</div>
 						<div class="col-md-2">
-							<div class="a">
-								<span>상품 설명 : ${list[i].product_description}</span><br>
+							<div class="a" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+								<span >${list[i].product_description}</span><br>
 								<span style="font-weight: bold;">상품 재고 : ${list[i].product_count}개<span>
 							</div> 	
 						</div>

@@ -148,17 +148,20 @@ function logo_click() {
 						<ul class="pagination">
 							<c:if test="${p.prev }">
 								<li class="page-item previous"><a class="page-link"
-									onclick="paging(${p.startPage-1 });">Previous</a></li>
+									href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.startPage - 1 }&brand=${brand}">Next</a></li>
 							</c:if>
 							<c:forEach var="num" begin="${p.startPage }" step="1"
 								end="${p.endPage }">
 								<li class="page-item"><a class="page-link"
 									${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+
 									href="StoreProductListAction.st?store_num=${store_num}&nowPage=${num}">${num}</a></li>
 							</c:forEach>
+						
 							<c:if test="${p.next }">
 								<li class="page-item next"><a class="page-link"
-									href="StoreProductListAction.st?store_num=${store_num}&nowPage=${num}">Next</a></li>
+									href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}">Next</a></li>
+
 							</c:if>
 						</ul>
 					</div>
