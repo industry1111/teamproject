@@ -12,8 +12,17 @@ public class OrderDetailDTO {
 	private String state;
 	private int count;	
 	private int total;
+	private int order_detail_num;
+
 	
-	
+	public int getOrder_detail_num() {
+		return order_detail_num;
+	}
+
+	public void setOrder_detail_num(int order_detail_num) {
+		this.order_detail_num = order_detail_num;
+	}
+
 	public int getTotal() {
 		return total;
 	}

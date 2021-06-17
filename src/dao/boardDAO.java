@@ -598,4 +598,26 @@ public class boardDAO {
 		
 		return list;
 	}
+	
+	public void insertBuyComplete(int member_num, int store_num, int price){
+		
+		try {
+			
+			getCon();
+			String sql = "insert into buy_complete (member_num, store_num, price)"
+					+ " values(?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			pstmt.setInt(2, store_num);
+			pstmt.setInt(3, price);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("insertBuyComplete" + e.toString());
+		}finally {
+			ResouceClose();
+		}
+			
+	}
 }

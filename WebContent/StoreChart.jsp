@@ -281,7 +281,7 @@ h6 {
 												pattern="yyyy-MM-dd [E] a hh:mm:ss" />
 										</div>
 										<div class="col-md-9" onclick="" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-weight: bold;">
-											${srlist[j].review_content}</div>
+											<a href="StoreProductDetail.st?product_num=${srlist[j].product_num }&visit=true">${srlist[j].review_content}</a></div>
 										<div class="col-md-3">
 											<fmt:formatNumber var="rating" value="${(srlist[j].rating1+srlist[j].rating2+srlist[j].rating3)/3}" pattern="0" />
 											<div class="star-rating">
