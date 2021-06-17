@@ -154,14 +154,20 @@ function logo_click() {
 								end="${p.endPage }">
 								<li class="page-item"><a class="page-link"
 									${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf713d5e272ef019511175ad983c6dcd8bbdc524
 									href="BrandProductAction.st?store_num=${store_num}&nowPage=${num}&brand=${brand}">${num}</a></li>
 							</c:forEach>
 						
 							<c:if test="${p.next }">
 								<li class="page-item next"><a class="page-link"
 									href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}">Next</a></li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> bf713d5e272ef019511175ad983c6dcd8bbdc524
 							</c:if>
 						</ul>
 					</div>
