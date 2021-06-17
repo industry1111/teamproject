@@ -53,21 +53,7 @@
 				<div class="row">
 					<div class="col-lg-3">
 						<div class="row">
-							<div class="col-sm-12">
-								<div class="side border mb-1">
-									<h3>
-									<c:forEach var="i" begin="0" step="1" end="${clist.size()-1 }">
-										<c:if test="${list[1].category_num eq clist[i].category_num}">
-													${clist[i].category_name}
-										</c:if>
-									</c:forEach>
-									</h3>
-									<ul>
-										
-									</ul>
-								</div>
-							</div>
-
+					
 							<div class="col-sm-12">
 								<div class="side border mb-1">
 									<h3>브랜드</h3>
@@ -75,7 +61,7 @@
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul>
-													<li><a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">${blist[i].brand_name}(${blist[i].count })</a></li>
+													<li><a href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">${blist[i].brand_name}(${blist[i].count })</a></li>
 												</ul>
 											</div>
 										</c:forEach>
@@ -142,7 +128,7 @@
 										</c:forEach>
 										<c:if test="${p.next }">
 											<li class="page-item next"><a class="page-link"
-												onclick="paging(${p.endPage + 1 });">Next</a></li>
+												href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">Next</a></li>
 										</c:if>
 									</ul>
 								

@@ -55,23 +55,6 @@ function logo_click() {
 							</a>
 							</div>
 						</div>
-						<!-- /LOGO -->
-
-						<!-- 					SEARCH BAR -->
-						<!-- 						<div class="col-md-7"> -->
-						<!-- 							<div class="header-search"> -->
-						<!-- 								<form> -->
-						<!-- 									<select class="input-select"> -->
-						<!-- 										<option value="0">카테고리선택</option> -->
-						<!-- 										<option value="1">카테고리 1</option> -->
-						<!-- 										<option value="1">카테고리 2</option> -->
-						<!-- 									</select> -->
-						<!-- 									<input class="input" placeholder="검색어를 입력하세요"> -->
-						<!-- 									<button class="search-btn">검색</button> -->
-						<!-- 								</form> -->
-						<!-- 							</div> -->
-						<!-- 						</div> -->
-						<!-- 						/SEARCH BAR -->
 					</div>
 				</div>
 			</div>
@@ -86,18 +69,6 @@ function logo_click() {
 					<!-- ASIDE -->
 					<div id="aside" class="col-md-3">
 
-						<!-- 카테고리1 -->
-						<div class="aside">
-							<h3 class="aside-title">카테고리1</h3>
-							<div class="checkbox-filter">
-
-								<div class="input-checkbox">
-									<input type="checkbox" id="category-1"> <label
-										for="category-1"> <span></span> 노트북 <small>(상품갯수)</small>
-									</label>
-								</div>
-							</div>
-						</div>
 						<!-- 카테고리1끝 -->
 						<input type="hidden" value="${store_num}" name="store_num">
 
@@ -129,16 +100,7 @@ function logo_click() {
 					<!-- STORE -->
 					<div id="store" class="col-md-9">
 						<!-- store top filter -->
-						<div class="store-filter clearfix">
-							<div class="store-sort">
-								<label> 카테고리: <select class="input-select">
-										<option value="0">높은가격</option>
-										<option value="1">낮은가격</option>
-										<option value="2">인기순</option>
-								</select>
-								</label>
-							</div>
-						</div>
+					
 						<!-- 카테고리2끝 -->
 
 						<!-- 상품리스트 -->

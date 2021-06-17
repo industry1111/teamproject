@@ -24,6 +24,7 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script> var contextPath = "${pageContext.request.contextPath}";</script>
+<script src="js/productadd.js"></script>
 <link rel="stylesheet" href="css/style.css">
 
 <style type="text/css">
@@ -52,7 +53,7 @@ img{
 
 	<div class="container" cols="100" rows="2" style="color: grey;">
 
-		<form name="newProduct" action="ProductAddAction.pr"
+		<form name="newProduct" id="newProduct" action="ProductAddAction.pr"
 
 			class="form-horizontal" method="post" enctype="multipart/form-data">
 
@@ -72,7 +73,7 @@ img{
 					<select required="required" name="category2" id="category2"  class="form-control category2" aria-label=".form-select-sm example" style="width: 100px;">
 						<option class='category2' value="">==2차==</option>
 					</select>
-					<select required="required" id="category3" name="category_name"  class="form-control" aria-label=".form-select-sm example" style="width: 100px;">
+					<select required="required" id="category3" name="category_name"  class="form-control category3" aria-label=".form-select-sm example" style="width: 100px;">
 						<option class='category3' value="">==3차==</option>
 					</select>
 				</div>
@@ -116,7 +117,7 @@ img{
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="product_price" required="required" id="product_price" class="form-control"
+					<input type="number" name="product_price" required="required" id="product_price" class="form-control"
 						placeholder="상품가격을 입력하세요." style="border: 0; width:300px;">
 					<span id="product_price_check" class="check"></span>
 	                <span id="product_price_check2" class="check2"></span>
@@ -127,7 +128,7 @@ img{
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
 
-					<input type="text" name="product_count" id="product_count" required="required"
+					<input type="number" name="product_count" id="product_count" required="required"
 						class="form-control" placeholder="상품재고 수량을 입력하세요." style="border: 0; width:300px;">
 						<span id="product_count_check" class="check"></span>
 	               		<span id="product_count_check2" class="check2"></span>
@@ -146,7 +147,7 @@ img{
 			</div>
 
 			<div>
-				<button type="submit" class="myButton"  style="margin-left: 400px;">상품 등록</button> 
+				<button type="button" class="myButton"  id="add_btn" style="margin-left: 400px;" onclick="btn_onclick();">상품 등록</button> 
 				<a type="button" class="myButton" href="ProductListAction.pr" style="text-decoration:none; color:#FF4848 !important; line-height:3.3em; display: table-cell; vertical-align: middle;">등록 취소</a>
 			</div>
 		</form>	

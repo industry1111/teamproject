@@ -81,12 +81,7 @@
 
 						<!-- category start -->
 						<div class="border p-4 rounded mb-4">
-							<div class="mb-4">
-								<h3 class="mb-3 h6 text-uppercase text-black d-block">카테고리1</h3>
-								<label for="s_sm" class="d-flex"> <input type="checkbox"
-									id="s_sm" class="mr-2 mt-1"> <span class="text-black">카테고리1-1</span>
-								</label>
-							</div>
+							
 							<div class="mb-4">
 								<h3 class="mb-3 h6 text-uppercase text-black d-block">브랜드</h3>
 								<c:if test="${blist.size() ne 0 }">
@@ -94,7 +89,7 @@
 										<div>
 											<span
 												class="bg-danger color d-inline-block rounded-circle mr-2"></span>
-											<span class="text-black"> <a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
+											<span class="text-black"> <a href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">
 													${blist[i].brand_name}(${blist[i].count }) </a>
 											</span>
 										</div>
@@ -120,7 +115,7 @@
 								</c:forEach>
 								<c:if test="${p.next }">
 									<li class="page-item next"><a class="page-link"
-										onclick="paging(${p.endPage + 1 });">Next</a></li>
+										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">Next</a></li>
 								</c:if>
 							</ul>
 						</div>
