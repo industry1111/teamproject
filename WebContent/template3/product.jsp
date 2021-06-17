@@ -190,9 +190,8 @@
 					</div>
 				</div>
 			</div>
-		
+		<!-- 상품 리뷰가 없을때  -->
 		<!-- 상품 리뷰  -->
-
 				<div class="row">
 					<div class="col-md-12">
 						<hr>
@@ -346,7 +345,7 @@
 									</div>
 									<h2>
 										<fmt:formatNumber value="${total/rvlist.size()}" pattern="0.0" />
-										/<span style="color: #E1E1E1;">5</span>
+										/ <span style="color: #E1E1E1;">5</span>
 									</h2>
 								</div>
 								<div class="col-md-4" style="margin-top: 30px;">
