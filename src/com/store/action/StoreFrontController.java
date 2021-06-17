@@ -99,7 +99,7 @@ public class StoreFrontController extends HttpServlet { //스토어 및 상품�
             
         }else if(command.equals("/MyStore.st")){
             
-            action = new StoreProductListAction();
+            action = new MyStoreAction();
             
             try {
                 forward = action.execute(request, response);
