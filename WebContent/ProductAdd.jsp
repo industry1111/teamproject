@@ -63,7 +63,7 @@ img{
 				<div class="com-sm-3">
 					<select name="category1"  id = "category1" 
 					class="form-control category1" required="required" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected id = "category1_1">==1차==</option>
+						<option value="" selected >==1차==</option>
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
