@@ -139,8 +139,6 @@ input[type="text"]:focus {
 	                                    <span id="email_check" class="check"></span>
 	                                    <span id="email_check2" class="check2"></span>
 								</div>
-					
-							
 								<div class="col-md-4">
                                     <input type="button" id="email_cf_btn" value="인증 " class="myButton" >
                                  </div>

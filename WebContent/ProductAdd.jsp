@@ -34,6 +34,10 @@ img{
   	height: 100px;
   	margin-left: 180px;
   }
+.check{
+color:red;
+
+}
 </style>
 
 <title>상품 등록</title>
@@ -63,7 +67,8 @@ img{
 				<div class="com-sm-3">
 					<select name="category1"  id = "category1" 
 					class="form-control category1" required="required" aria-label=".form-select-sm example" style="width: 100px;">
-						<option value="" selected >==1차==</option>
+							<option value="0" selected >==1차==</option>
+
 							<c:forEach var="i" begin="0" step="1" end="${list.size() }">
 									<c:if test="${list[i].category_codeRef1 eq 0 && list[i].category_codeRef2 eq 0 }">
 										<option value="${list[i].category_code}">${list[i].category_name }</option>
@@ -76,17 +81,16 @@ img{
 					<select required="required" id="category3" name="category_name"  class="form-control category3" aria-label=".form-select-sm example" style="width: 100px;">
 						<option class='category3' value="">==3차==</option>
 					</select>
+					<span id="product_category_check" class="check"></span>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품명</label>
 				<div class="com-sm-3">
-
 					<input type="text" name="product_name" required="required" id="product_name" class="form-control"
 						placeholder="상품명을 입력하세요." style="width: 300px;">
 						<span id="product_name_check" class="check"></span>
-	                    <span id="product_name_check2" class="check2"></span>
 				</div>
 			</div>
 
@@ -97,7 +101,6 @@ img{
 					<textarea name="product_description" required="required" id="product_description" cols="100" rows="10"
 						class="form-control" placeholder="상품내용을 입력하세요." style="width: 700px;"></textarea>
 					<span id="product_description_check" class="check"></span>
-	                <span id="product_description_check2" class="check2"></span>
 				</div>
 			</div>
 
@@ -105,19 +108,16 @@ img{
 				<label class="col-sm-2">상품브랜드</label>
 				<div class="com-sm-3">
 					<select  id="brand_name" name="brand_name" required="required" class="form-control brand_name"  style="width: 100px;">
-							<option class='brand_name' value="" >==브랜드==</option>
+							<option class='brand_name' value=0 >==브랜드==</option>
 					</select>
-					
-					<span id="product_brand_check" class="check"></span>
-	                <span id="product_brand_check2" class="check2"></span>	
+					<span id="brand_check" class="check"></span>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2">상품가격</label>
 				<div class="com-sm-3">
-
-					<input type="number" name="product_price" required="required" id="product_price" class="form-control"
+					<input type="text" name="product_price" required="required" id="product_price" class="form-control"
 						placeholder="상품가격을 입력하세요." style="border: 0; width:300px;">
 					<span id="product_price_check" class="check"></span>
 	                <span id="product_price_check2" class="check2"></span>
@@ -128,7 +128,7 @@ img{
 				<label class="col-sm-2">재고수량</label>
 				<div class="com-sm-3">
 
-					<input type="number" name="product_count" id="product_count" required="required"
+					<input type="text" name="product_count" id="product_count" required="required"
 						class="form-control" placeholder="상품재고 수량을 입력하세요." style="border: 0; width:300px;">
 						<span id="product_count_check" class="check"></span>
 	               		<span id="product_count_check2" class="check2"></span>
