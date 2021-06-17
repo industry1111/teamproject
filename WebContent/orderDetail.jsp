@@ -106,10 +106,12 @@
 									<c:if test="${list[i].state==2}">배송준비중</c:if>
 									<c:if test="${list[i].state==3}">배송중</c:if>
 									<c:if test="${list[i].state==4}">배송완료
+								<a href="BuyComplete.do?price=${list[i].quantity * list[i].product_price}&store_num=${list[i].store_num}&order_detail_num=${list[i].order_detail_num}">
 										<input type="button" value="구매확정" class="myButton" id="buy_complete">
+								</a>
 									</c:if>
 									<c:if test="${list[i].state==5}">주문취소</c:if>
-									<c:if test="${list[i].state==6}">반품처리중</c:if>
+									<c:if test="${list[i].state==6}">구매확정</c:if>
 									<c:if test="${list[i].state==7}">반품접수</c:if>
 									<c:if test="${list[i].state==8}">반품승인</c:if>
 									<c:if test="${list[i].state==9}">환불완료</c:if>
