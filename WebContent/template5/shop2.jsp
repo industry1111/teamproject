@@ -81,12 +81,7 @@
 
 						<!-- category start -->
 						<div class="border p-4 rounded mb-4">
-							<div class="mb-4">
-								<h3 class="mb-3 h6 text-uppercase text-black d-block">카테고리1</h3>
-								<label for="s_sm" class="d-flex"> <input type="checkbox"
-									id="s_sm" class="mr-2 mt-1"> <span class="text-black">카테고리1-1</span>
-								</label>
-							</div>
+							
 							<div class="mb-4">
 								<h3 class="mb-3 h6 text-uppercase text-black d-block">브랜드</h3>
 								<c:if test="${blist.size() ne 0 }">
@@ -95,7 +90,7 @@
 											<span
 												class="bg-danger color d-inline-block rounded-circle mr-2"></span>
 											<span class="text-black"> 
-												<a href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}">
+												<a href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}">
 													<span ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count }) </span>
 													</a>
 											</span>
@@ -118,11 +113,11 @@
 									end="${p.endPage }">
 									<li class="page-item"><a class="page-link"
 										${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-										href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+										href="BrandProductAction.st?store_num=${store_num}&nowPage=${num}&brand=${brand}">${num}</a></li>
 								</c:forEach>
 								<c:if test="${p.next }">
 									<li class="page-item next"><a class="page-link"
-										onclick="paging(${p.endPage + 1 });">Next</a></li>
+										href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}">Next</a></li>
 								</c:if>
 							</ul>
 						</div>

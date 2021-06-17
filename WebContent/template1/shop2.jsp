@@ -90,22 +90,7 @@
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-lg-3">
-					<div>
-
-						<!-- 대분류 -->
-						<h2 class="h2 pb-4">카테고리</h2>
-						<ul class="list-unstyled templatemo-accordion">
-							<!-- 중분류 -->
-							<li class="pb-3"><a
-								class="collapsed d-flex justify-content-between h3 text-decoration-none"
-								href="#"> 카테고리1-1 <i
-									class="fa fa-fw fa-chevron-circle-down mt-1"></i></a> <!-- 소분류 -->
-								<ul class="collapse show list-unstyled pl-3">
-									<li><a class="text-decoration-none" href="#">세부
-											카테고리1-1-1</a></li>
-								</ul></li>
-						</ul>
-					</div>
+				
 					<div>
 						<ul class="list-unstyled templatemo-accordion">
 							<li class="pb-3"><a
@@ -117,7 +102,7 @@
 									<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 										<div>
 												<ul class="collapse show list-unstyled pl-3">
-													<li><a class="text-decoration-none" href="./BrandProductActon.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h5 ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
+													<li><a class="text-decoration-none" href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h5 ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</h5></a></li>
 												</ul>
 											</div>
 										
@@ -140,15 +125,7 @@
 							</ul>
 						</div>
 						<!-- 상품필터시작 -->
-						<div class="col-md-6 pb-4">
-							<div class="d-flex">
-								<select class="form-control">
-									<option>인기순</option>
-									<option>낮은가격순</option>
-									<option>높은가격순</option>
-								</select>
-							</div>
-						</div>
+					
 					</div>
 					<div class="row">
 						<c:set var="loop" value="true" />
@@ -204,11 +181,11 @@
 										end="${p.endPage }">
 										<li class="page-item"><a class="page-link"
 											${p.cri.nowPage == num ? 'style="color:red;border-color:black"':''}
-											href="StoreProductListAction.st?store_num=${list[1].store_num}&nowPage=${num}">${num}</a></li>
+											href="BrandProductAction.st?store_num=${store_num}&nowPage=${num}&brand=${brand}">${num}</a></li>
 									</c:forEach>
 									<c:if test="${p.next }">
 										<li class="page-item next"><a class="page-link"
-											onclick="paging(${p.endPage + 1 });">Next</a></li>
+											href="BrandProductAction.st?store_num=${store_num}&nowPage=${p.endPage + 1 }&brand=${brand}">Next</a></li>
 									</c:if>
 								</ul>
 							</div>

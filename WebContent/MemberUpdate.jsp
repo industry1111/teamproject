@@ -56,6 +56,7 @@ input[type="text"]:focus {
 				<div class="col-md-12"  >
 					<div class="product-name d-flex " style="background-color: #c5c5c5 !important;" >
 							<div class="col-md-2">회원 정보 변경</div>
+							<input type="hidden" value="${member_num}" id="member_num">
 					</div>
 				</div>
 			</div>
