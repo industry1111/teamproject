@@ -140,7 +140,7 @@ public class sellerDAO {
 				pstmt.setString(6, sdto.getAccount());
 				pstmt.executeUpdate();
 				
-				sql = "update member set member_code = 2 where member_num =?";
+				sql = "update member set member_code = 4 where member_num =?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, sdto.getMember_num());
 				pstmt.executeUpdate();

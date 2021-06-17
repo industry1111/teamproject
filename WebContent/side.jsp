@@ -123,7 +123,7 @@ h4{
 			</div>
 		</div>
 	
-		<c:if test="${member_code ==1 }">
+		<c:if test="${member_code < 4 }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2" >
 				<hr>
@@ -133,7 +133,7 @@ h4{
 			</div>
 		</div>
 		</c:if>
-		<c:if test="${member_code == 2 }">
+		<c:if test="${member_code > 3 || member_code < 7 }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>
