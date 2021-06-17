@@ -56,11 +56,18 @@ public class SelectProductList extends HttpServlet{
 		String price2 = request.getParameter("price2");
 		String price = request.getParameter("price");
 		String sort = request.getParameter("sort");
+		String searchbox = request.getParameter("searchbox");
+		System.out.println(searchbox);
 		boardDAO bdao = new boardDAO();
 		productDAO pdao = new productDAO();
 		List<categoryDTO> clist_all = bdao.getcategory();
 		List<categoryDTO> clist = bdao.getcategory(category_code1,category_code2);
-		List<productDTO> plist = pdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort,price);
+		List<productDTO> plist = null;
+		if(searchbox == null || searchbox == "")  {
+			plist = pdao.getProductList(category_code1, category_code2, category_code3, brand, price1, price2,sort,price);
+		}else {
+			plist = pdao.getProductList(searchbox, price1, price2, sort, price);
+		}
 		
 		
 		//페이징 부분

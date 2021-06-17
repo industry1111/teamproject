@@ -9,6 +9,7 @@ $(function() {
 	var sort = null;
 	var numPerPage = 10;
 	var member_num = $("#member_num").val();
+	var searchstring = null;
 
 	function formatDate(date) { 
 		
@@ -34,7 +35,8 @@ $(function() {
 				price2: price2,
 				price : price,
 				sort : sort,
-				numPerPage : numPerPage
+				numPerPage : numPerPage,
+				searchbox : searchstring
 			},
 			dataType: "text", 
 			success: function(data) {
@@ -203,6 +205,7 @@ $(function() {
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
 				var p= JSON.parse(data1[3]);
+				$("#searchBox").val("");
 				$("#product-list").html("");
 				$("#category2").html("");
 				$("#category3").html("");
@@ -365,6 +368,7 @@ $(function() {
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
 				var p= JSON.parse(data1[3]);
+				$("#searchBox").val("");
 				$("#product-list").html("");
 				$("#category2").html("");
 				$("#category3").html("");
@@ -555,6 +559,7 @@ $(function() {
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
 				var p= JSON.parse(data1[3]);
+				$("#searchBox").val("");
 				$(".pagination").html("");
 				$("#product-list").html("");
 				$("#category3").html("");
@@ -702,7 +707,9 @@ $(function() {
 		
 		category_code2 = 0;
 		category_code3 = 0;
+		searchstring = null;
 		productlist();
+		$("#searchBox").val("");
 	});
 	
 	
@@ -722,7 +729,9 @@ $(function() {
 		}else{
 			$(this).attr('class', 'category3 allowed');
 		}
+		searchstring = null;
 		productlist();
+		$("#searchBox").val("");
 	});
 	$(document).on("click", ".category3.allowed", function() {
 		$(this).css('background-color', 'white');
@@ -734,7 +743,9 @@ $(function() {
 			$(this).attr('class','category3');
 		}
 		category_code3 = 0;
+		searchstring = null;
 		productlist();
+		$("#searchBox").val("");
 	});
 	
 	
@@ -808,8 +819,21 @@ $(function() {
         });
 
 		$("#searchbtn").click(function(){
-			alert($("#searchBox").val());
-		})
+			searchstring = $("#searchBox").val();
+			category_code1 = 0;
+			category_code2 = 0;
+			category_code3 = 0;
+			$('.category1.allowed').attr('class', 'category1');
+			$('.category1').css('background-color', 'white');
+			$('.category1').css('color', '#627482');
+			$('.category2.allowed').attr('class', 'category2');
+			$('.category2').css('background-color', 'white');
+			$('.category2').css('color', '#627482');
+			$('.category3.allowed').attr('class', 'category3');
+			$('.category3').css('background-color', 'white');
+			$('.category3').css('color', '#627482');
+			productlist();
+		});
 
 		paging = function(nowpage){
 		$.ajax({
@@ -826,7 +850,9 @@ $(function() {
 				sort : sort,
 				page:true,
 				nowPage: nowpage,
-				numPerPage: numPerPage
+				numPerPage: numPerPage,
+				searchbox : searchstring
+
 			},
 			dataType: "text",
 			success: function(data) {
@@ -983,7 +1009,6 @@ $(function() {
 		$(this).css('color', 'red');
 		$(this).attr('class','jjim2 check');
 		var store_num = $(this).attr('value');
-		console.log(store_num);
 		$.ajax({
 			
 			type:"post",
@@ -1003,7 +1028,6 @@ $(function() {
 		$(this).css('color', 'black');
 		$(this).attr('class','jjim');
 		var store_num = $(this).attr('value');
-		console.log("check");
 		
 		$.ajax({
 			
