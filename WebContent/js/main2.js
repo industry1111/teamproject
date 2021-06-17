@@ -789,7 +789,6 @@ $(function() {
                         data: {"searchBox":$("#searchBox").val()},
                         success: function(data) {
                         	var obj = JSON.parse(data);
-                        	console.log(new Set(obj.name));
                             response(
                                 $.map(obj, function(item) {    //json[i] 번째 에 있는게 item 임.
                                     return {
@@ -801,15 +800,17 @@ $(function() {
                         }
                    });
                 },    // source 는 자동 완성 대상
-            focus : function(event, ui) {    //포커스 가면
-                return false;//한글 에러 잡기용도로 사용됨
+            focus : function(event, ui) {
+	              	return false;
             },
             minLength: 1,// 최소 글자수
-            autoFocus: true, //첫번째 항목 자동 포커스 기본값 false
-            close : function(event){    //자동완성창 닫아질때 호출
-                console.log(event);
-            }
+            autoFocus: true //첫번째 항목 자동 포커스 기본값 false
         });
+
+		$("#searchbtn").click(function(){
+			alert($("#searchBox").val());
+		})
+
 		paging = function(nowpage){
 		$.ajax({
 			type: "get",

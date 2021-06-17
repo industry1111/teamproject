@@ -429,7 +429,7 @@ public class boardDAO {
 		List<searchDTO> list = new ArrayList<searchDTO>();
 		try {
 			getCon();
-			String sql = "select category_name from category where category_name like ?";
+			String sql = "select category_name from category where category_name like ? and category_coderef1 is not null and category_coderef2 is not null";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, "%"+searchBox+"%");
 			rs = pstmt.executeQuery();
@@ -448,6 +448,25 @@ public class boardDAO {
 				sdto.setName(rs.getString("brand_name"));
 				list.add(sdto);
 				
+			}
+			
+			sql = "select distinct product_name from product where product_name like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("product_name"));
+				list.add(sdto);
+			}
+			sql = "select store_name from seller where store_name like ?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("store_name"));
+				list.add(sdto);
 			}
 			
 		} catch (Exception e) {

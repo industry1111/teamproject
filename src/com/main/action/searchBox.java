@@ -34,7 +34,6 @@ public class searchBox extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String searchBox = request.getParameter("searchBox");
-		System.out.println(searchBox);
 		boardDAO bdao = new boardDAO();
 		List<searchDTO> searchlist = bdao.getSearchString(searchBox);
 
@@ -57,7 +56,6 @@ public class searchBox extends HttpServlet {
 		}
 
 		json += "]";
-		System.out.println(json);
 		PrintWriter out = response.getWriter();
 		response.setHeader("content-type", "application/json");
 		out.print(json);
