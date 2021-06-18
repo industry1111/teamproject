@@ -118,23 +118,27 @@ input[type="text"] {
 								<div class="display-tc">
 									<span style="font-weight: bold;"	class="price">${list[i].store_name}</span>
 								<br><br>
-									찜 개수 : <span class="price">${list[i].jjim}</span><br>
-									신고 횟수 : <span class="price">${list[i].report_count}</span>
+									찜 개수 : <span >${list[i].jjim}</span><br>
+									신고 횟수 : <span>${list[i].report_count}</span><br>
+									총 판매량 : 
+									<c:forEach var="j" begin="0" step="1" end="${blist.size()-1}">
+										<c:if test="${list[i].store_num eq blist[j].store_num}">
+											<span>${blist[j].price}</span>
+										</c:if>
+									</c:forEach>
+									원
 								</div>
 							</div>
 							<div class="one-forth text-left px-4">
 								<div class="display-tc">
-								<span class="price">${list[i].category_num}</span>								
+								<c:forEach var="j" begin="0" step="1" end="${clist.size()-1}" >
+									<c:if test="${list[i].category_num eq clist[j].category_num}">
+										<span >${clist[j].category_name}</span>			
+									</c:if>
+								</c:forEach>
+													
 								</div>
 							</div>
-<!-- 							 <div class="one-eight text-center"> -->
-<!-- 								<div class="display-tc"> -->
-<!-- 									<select form=""> -->
-<!-- 										 <option value="">모름</option> -->
-<!-- 										 <option value="">모름</option> -->
-<!-- 										 </select> -->
-<!-- 								</div> -->
-<!-- 							</div>	 -->
 						</div>
 						</c:if>	
 					</c:forEach>

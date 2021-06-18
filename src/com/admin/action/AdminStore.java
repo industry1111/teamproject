@@ -1,5 +1,6 @@
 package com.admin.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,8 @@ import dao.sellerDAO;
 import dto.sellerDTO;
 import dao.boardDAO;
 import dto.ReportDTO;
+import dto.buyCompleteDTO;
+import dto.categoryDTO;
 import dto.pagingDTO;
 
 public class AdminStore implements Action{
@@ -24,15 +27,20 @@ public class AdminStore implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 			
 			 request.setCharacterEncoding("utf-8");
+			 System.out.println("ddddd");
+			 boardDAO bdao = new boardDAO();
 			 
 			 ActionForward forward = new ActionForward();
 			//셀러정보를 가지고온다.
 			 List<sellerDTO> list = new sellerDAO().getSellerInfo();
+			 List<categoryDTO> clist = bdao.getcategory();
 			//셀러정보를 전달하기 위해 
 			 
 			 //신고정보
 			 List<ReportDTO> rlist = new sellerDAO().getReportInfo();
 			 
+			 List<buyCompleteDTO> blist = bdao.getTotal();
+			 System.out.println(blist.size());
 			 
 			//페이징 부분
 				String page = request.getParameter("page");
@@ -50,6 +58,8 @@ public class AdminStore implements Action{
 				}
 				
 			 request.setAttribute("list", list);
+			 request.setAttribute("clist", clist);
+			 request.setAttribute("blist", blist);
 			 request.setAttribute("rlist", rlist);
 			 request.setAttribute("p", pagedto);
 			 
