@@ -22,8 +22,12 @@ function submit_form() {
 	form.submit();    
   
 }
-
-
+function cancle_btn_click(){
+	
+	console.log("dd");
+	location.href= contextPath + "/basket.bo";
+  
+}
 
 $(function(){ 
 	
@@ -168,7 +172,8 @@ input {
 							<input type="text" name="receiver_addr2" value="${rlist[i].receiver_addr2}" readonly="readonly"/><br>
 							<input type="text" name="receiver_addr3" value="${rlist[i].receiver_addr3}" readonly="readonly"/>
 							</li>
-							<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
+							<li><span style="font-weight: bold;">배송시 요청사항을 입력해주세요</span></li>
+							<li><input type="text" name="receiver_msg" placeholder="입력"/></li>
 						</ul>
 					</div>
 					</c:if>
@@ -182,7 +187,8 @@ input {
 						<input type="button" onclick="addr_search()" value="우편번호 찾기" id="post_btn" class="myButton"></li>
 						<li><input type="text" id="addr2" name="addr2"></li>
 						<li><input type="text" id="addr3" name="addr3"></li>
-						<li><input type="text" name="receiver_msg" placeholder="배송 요청사항"/></li>
+						<li><span style="font-weight: bold;">배송시 요청사항을 입력해주세요</span></li>
+						<li><input type="text" name="receiver_msg" placeholder="입력"/></li>
 					</ul>
 				</div>
 				</div>
@@ -214,9 +220,9 @@ input {
 		</div>
 		<div>
 			<input type="button" class="myButton" value="결제하기" id = "payment_btn" name="payment_btn">
+			<input type="button" class="myButton" value="주문취소" id = "cancle_btn" name="cancle_btn" onclick="cancle_btn_click();" >
 		</div>
 		<div>
-			<a type="button" name="cancle_btn" href="basket.bo" >주문취소</a>
 		</div>
 	
 	</div>

@@ -121,7 +121,7 @@ h6 {
 						type : 'linear',
 						ticks: {
 							beginAtZero: true,
-				            stepSize: 30
+				            stepSize: 10
 					    }
 					} ]
 				}

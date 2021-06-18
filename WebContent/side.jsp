@@ -133,7 +133,7 @@ h4{
 			</div>
 		</div>
 		</c:if>
-		<c:if test="${member_code > 3 || member_code < 7 }">
+		<c:if test="${member_code > 3 && member_code < 7 }">
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2">
 				<hr>
@@ -148,7 +148,7 @@ h4{
 		</div>
 		<div class="row">
 			<div class="col-md-9 col-md-offset-2 side"align="center" >
-				<a href="StoreOrder.or">주문 현황</a>
+				<a href="StoreOrder.or" ${center eq "StoreOrder.jsp" ? 'style="font-weight:bold;"':''}>주문 현황</a>
 			</div>
 		</div>
 		<div class="row">
