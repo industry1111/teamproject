@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -503,20 +508,39 @@ public class boardDAO {
 			ResouceClose();
 		}
 	}
-	public List<OrderDetailDTO> getSalesRate(int store_num,int day){
-		List<OrderDetailDTO> list = new ArrayList<OrderDetailDTO>();
+	public List<buyCompleteDTO> getSalesRate(int store_num){
+		List<buyCompleteDTO> list = new ArrayList<buyCompleteDTO>();
+		int y;
+		int m;
+		int d;
+		
+		Calendar cal = new GregorianCalendar(Locale.KOREA);
+		y = cal.get(cal.YEAR);
+		m = cal.get(cal.MONTH)+1;
+		d = cal.get(cal.DAY_OF_MONTH);
+		
 		try {
 			getCon();
 			String sql = null;
 			for(int i=0;i<5;i++) {
-				sql = "select count(order_detail_num) count,sum(product_price) total from orders_detail where store_num = "+store_num+" and orders_code like '"+(day-i)+"%'";
+				String date = null;
+				if(m <10 && d < 10){
+					date = y+"-0"+m+"-0"+(d-i);
+				}else if(m >=10 && d < 10){
+					date = y+"-"+m+"-0"+(d-i);
+				}else if(m < 10 && d >= 10){
+					date = y+"-0"+m+"-"+(d-i);
+				}else if(m >= 10 && d >= 10){
+					date = y+"-"+m+"-"+(d-i);
+				}
+				sql = "select count(store_num) count,sum(price) total from buy_complete where store_num = 11 and date like '"+date+"%'";
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				if(rs.next()) {
-					OrderDetailDTO odto = new OrderDetailDTO();
-					odto.setCount(rs.getInt("count"));
-					odto.setTotal(rs.getInt("total"));
-					list.add(odto);
+					buyCompleteDTO dto = new buyCompleteDTO();
+					dto.setPrice(rs.getInt("total"));
+					dto.setSum(rs.getInt("count"));
+					list.add(dto);
 				}
 			}
 			

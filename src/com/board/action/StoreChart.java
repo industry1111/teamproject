@@ -19,6 +19,7 @@ import action.ActionForward;
 import dao.ReviewDAO;
 import dao.boardDAO;
 import dao.sellerDAO;
+import dto.buyCompleteDTO;
 import dto.reviewDTO;
 import dto.visitDTO;
 
@@ -36,23 +37,19 @@ public class StoreChart implements Action {
 		List<reviewDTO> srlist = rdao.getStoreReviewList(store_num);
 		
 			
-		String pattern = "yyyyMMdd";
+		String pattern = "yyyy-MM-dd";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		String day = simpleDateFormat.format(new Date());
-		int date = Integer.parseInt(day);
-		List<OrderDetailDTO> olist = new boardDAO().getSalesRate(store_num, date);
+		List<buyCompleteDTO> olist = new boardDAO().getSalesRate(store_num);
 		JSONArray count = new JSONArray();
 		for(int i=0;i<olist.size();i++) {
-			count.add(olist.get(i).getCount());
+			count.add(olist.get(i).getSum());
 		}
 		JSONArray total = new JSONArray();
 		for(int i=0;i<olist.size();i++) {
-			total.add(olist.get(i).getTotal());
+			total.add(olist.get(i).getPrice());
 		}
 		
-		pattern = "yyyy-MM-dd";
-		simpleDateFormat = new SimpleDateFormat(pattern);
-		day = simpleDateFormat.format(new Date());
 		List<visitDTO> vlist = new sellerDAO().getVisitCount(store_num, day);
 		JSONArray user = new JSONArray();
 		JSONArray vcount = new JSONArray();
@@ -62,7 +59,6 @@ public class StoreChart implements Action {
 			for(int i=0;i<vlist.size();i++) {
 				vcount.add(vlist.get(i).getCount());
 			}
-		System.out.println(vlist.size());
 		request.setAttribute("vlist", vlist);
 		request.setAttribute("user", user);
 		request.setAttribute("vcount", vcount);
