@@ -102,7 +102,7 @@
 							<span class="th">수령인 주소</span>
 						</div>
 						<div class="col-md-1">
-							<select name="stateList" id="stateList">
+							<select name="stateList" id="stateList" style="width: 90px; height: 25px; background-color:rgb(34, 204, 136); color:white; font-size: 14px; font-weight: bolder;  border-style: none;">
 								<option selected="selected">
 									<c:if test="${stateList==0}">입금완료</c:if>
 									<c:if test="${stateList==1}">주문접수</c:if>
@@ -178,7 +178,7 @@
 								구매확정
 							</c:if>
 							<c:if test="${list[i].state != 6}">
-							<select disabled="disabled" class="state" name="state">
+							<select disabled="disabled" class="state" name="state" >
 								<option selected="selected">
 									<c:if test="${list[i].state==0}">입금완료</c:if>
 									<c:if test="${list[i].state==1}">주문접수</c:if>
