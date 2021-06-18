@@ -6,8 +6,24 @@ public class buyCompleteDTO {
 	
 	private int member_num;
 	private int  store_num;
+	private int s_member_num;
 	private int  price;
+	private int sum;
     Timestamp date;
+    
+    
+	public int getS_member_num() {
+		return s_member_num;
+	}
+	public void setS_member_num(int s_member_num) {
+		this.s_member_num = s_member_num;
+	}
+	public int getSum() {
+		return sum;
+	}
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
 	public int getMember_num() {
 		return member_num;
 	}
