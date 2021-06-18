@@ -53,7 +53,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">회원관리페이지</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="AdminMember.ad">View Details</a>
+                                        <a class="small text-white stretched-link" href="AdminMember.ad">자세히 보기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">스토어관리페이지</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="AdminStore.ad">View Details</a>
+                                        <a class="small text-white stretched-link" href="AdminStore.ad">자세히 보기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">문의함</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="AdminService.ad">View Details</a>
+                                        <a class="small text-white stretched-link" href="AdminService.ad">자세히 보기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">스토어현황</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="Main.main">View Details</a>
+                                        <a class="small text-white stretched-link" href="Main.main">자세히 보기</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

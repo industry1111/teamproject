@@ -227,7 +227,7 @@ $(function() {
 		}
 	});
 
-	 $("input[name='radio_btn']:radio").change(function () {
+	 $("input[name='checkbox']:checked").change(function () {
 		
 		var gender = $(this).val();
 		console.log(gender);

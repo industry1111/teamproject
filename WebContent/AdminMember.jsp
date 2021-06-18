@@ -93,19 +93,19 @@ input[type="text"] {
 				<div class="col-md-12">
 					<div class="product-name d-flex">
 						<div class="one-forth text-left px-4">
-							<span>Member_Id</span>
+							<span>회원아이디</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>Member_Name</span>
+							<span>회원이름</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>Email</span>
+							<span>이메일</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>RegDate</span>
+							<span>가입날짜</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Status</span>
+							<span>상태</span>
 						</div>
 					</div>
 					
