@@ -506,5 +506,38 @@ public class memberDAO {
 		
 			return pw;
 		}
+		
+	//멤버 등급 별 회원 이메일 얻기
+	public List<memberDTO> getMemberEmail(int member_code){
+		
+		List<memberDTO>  list = new ArrayList<memberDTO>();
+		
+		try {
+			
+			getCon();
+			String sql = "select * from member where member_code=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_code);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				memberDTO dto = new memberDTO();
+				
+				dto.setEmail(rs.getString("email"));
+				
+				list.add(dto);
+				
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getMemberEmail" + e.toString());
+		}finally {
+			ResouceClose();
+		}
+		
+		return list;
+
+	}
 
 }// memberDAO

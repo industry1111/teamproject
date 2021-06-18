@@ -470,4 +470,59 @@ public class OrderDAO {
     	return list;
     }
     
+    public List<StoreOrderDTO> getStateList(int store_num, String state){
+    	
+    	List<StoreOrderDTO> list = new ArrayList<StoreOrderDTO>();
+
+    	try {
+			
+    		getCon();
+    		String sql = "select * from orders natural join orders_detail where store_num = ? and state = ?";
+    		pstmt = con.prepareStatement(sql);
+    		pstmt.setInt(1, store_num);
+    		pstmt.setString(2, state);
+    		rs = pstmt.executeQuery();
+    		
+    		while(rs.next()){
+    			
+    			StoreOrderDTO dto = new StoreOrderDTO();
+    			
+    			 dto.setTotal_price(rs.getInt("total_price"));
+                 dto.setOrders_code(rs.getString("orders_code"));
+                 dto.setRegdate(rs.getTimestamp("regdate"));
+                 dto.setAddress_name(rs.getString("address_name"));
+                 dto.setReceiver_addr1(rs.getString("receiver_addr1"));
+                 dto.setReceiver_addr2(rs.getString("receiver_addr2"));
+                 dto.setReceiver_addr3(rs.getString("receiver_addr3"));
+                 dto.setReceiver_msg(rs.getString("receiver_msg"));
+                 dto.setReceiver_name(rs.getString("receiver_name"));
+                 dto.setReceiver_phone(rs.getString("receiver_phone"));
+                 dto.setOrder_num(rs.getInt("order_num"));
+                 dto.setMain_product_image(rs.getString("main_product_image"));
+                 dto.setMain_product_name(rs.getString("main_product_name"));
+                 dto.setCount(rs.getInt("count")); 
+                 dto.setOrders_code(rs.getString("orders_code"));
+    			 dto.setProduct_name(rs.getString("product_name"));
+    			 dto.setImage(rs.getString("image"));
+    			 dto.setProduct_num(rs.getInt("product_num"));
+    			 dto.setProduct_price(rs.getInt("product_price"));
+    			 dto.setQuantity(rs.getInt("quantity"));
+    			 dto.setStore_num(rs.getInt("store_num"));
+    			 dto.setState(rs.getString("state"));
+    			 dto.setOrder_id(rs.getString("order_id"));
+    			 dto.setOrder_detail_num(rs.getInt("order_detail_num"));
+    			 
+    			 list.add(dto);
+    		}
+    		
+		} catch (Exception e) {
+			System.out.println("getStateList" + e.toString());
+		}finally {
+			ResouceClose();
+		}
+    	
+		return list;
+    	
+    }
+    
 }
