@@ -31,9 +31,9 @@
 				<div class="hero-section__option" data-init="slick"
 					data-arrows="false" data-dots="true" data-fade="false"
 					data-autoplay="5000" data-speed="3000">
-					<img src="assets/images/index.jpg" alt="Hero section image">
-					<img src="assets/images/index-slider1.jpg" alt="Hero section image">
-					<img src="assets/images/index-slider2.jpg" alt="Hero section image">
+					<img src="assets/images/index1.jpg" alt="Hero section image">
+					<img src="assets/images/index2.jpg" alt="Hero section image">
+					<img src="assets/images/index3.jpg" alt="Hero section image">
 				</div>
 				<!-- .hero-section__option -->
 
@@ -41,8 +41,8 @@
 					<div class="row">
 						<div class="offset-lg-2 col-lg-8">
 							<div class="title-01 title-01--11 text-center">
-								<h2 class="title__heading">We are AweSome!</h2>
-								<div class="title__description">네이버 모두!를 벤치마킹한 웹사이트입니다</div>
+								<h2 class="title__heading">Modoo</h2>
+								<div class="title__description">누구나 쉽게 이용가능한 오픈마켓, 모두</div>
 
 								<!-- Options btn color: .btn-success | .btn-info | .btn-warning | .btn-danger | .btn-primary -->
 								<div class="title__action">
@@ -55,11 +55,7 @@
 				</div>
 			</div>
 
-			<div class="button-group" style="bottom: 50px;">
-				<a href="index-color.jsp" class="btn btn-outline-success button-sm">Color</a>
-				<a href="index-video.jsp" class="btn btn-outline-success button-sm">Video
-					Background</a>
-			</div>
+			
 			<!-- .hero-section__wrap -->
 		</section>
 		<!-- .hero-section -->
