@@ -154,23 +154,23 @@
 									<c:if test="${list[i].state==3}">배송중</c:if>
 									<c:if test="${list[i].state==4}">배송완료</c:if>
 									<c:if test="${list[i].state==5}">주문취소</c:if>
-									<c:if test="${list[i].state==6}">반품처리중</c:if>
+									<c:if test="${list[i].state==6}">구매확정</c:if>
 									<c:if test="${list[i].state==7}">반품접수</c:if>
 									<c:if test="${list[i].state==8}">반품승인</c:if>
 									<c:if test="${list[i].state==9}">환불완료</c:if>
 									<c:if test="${list[i].state==10}">교환신청</c:if>
 								</option>
-								<option value="0">입금완료</option>
-								<option value="1">주문접수</option>
-								<option value="2">배송준비중</option>
-								<option value="3">배송중</option>
-								<option value="4">배송완료</option>
-								<option value="5">주문취소</option>
-								<option value="6">반품처리중</option>
-								<option value="7">반품접수</option>
-								<option value="8">반품승인</option>
-								<option value="9">환불완료</option>
-								<option value="10">교환신청</option>
+								<c:if test="${list[i].state ne 0}"><option value="0">입금완료</option></c:if>
+								<c:if test="${list[i].state ne 1}"><option value="1">주문접수</option></c:if>
+								<c:if test="${list[i].state ne 2}"><option value="2">배송준비중</option></c:if>
+								<c:if test="${list[i].state ne 3}"><option value="3">배송중</option></c:if>
+								<c:if test="${list[i].state ne 4}"><option value="4">배송완료</option></c:if>
+								<c:if test="${list[i].state ne 5}"><option value="5">주문취소</option></c:if>
+								<c:if test="${list[i].state ne 6}"><option value="6">구매확정</option></c:if>
+								<c:if test="${list[i].state ne 7}"><option value="7">반품접수</option></c:if>
+								<c:if test="${list[i].state ne 8}"><option value="8">반품승인</option></c:if>
+								<c:if test="${list[i].state ne 9}"><option value="9">환불완료</option></c:if>
+								<c:if test="${list[i].state ne 10}"><option value="10">교환신청</option></c:if>
 							</select>
 							<br><br>
 							<input type="button" value="수정" class="state_update_btn">

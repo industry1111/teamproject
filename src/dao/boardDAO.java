@@ -429,17 +429,7 @@ public class boardDAO {
 		List<searchDTO> list = new ArrayList<searchDTO>();
 		try {
 			getCon();
-			String sql = "select category_name from category where category_name like ?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setString(1, "%"+searchBox+"%");
-			rs = pstmt.executeQuery();
-			while(rs.next()){
-				searchDTO sdto = new searchDTO();
-				sdto.setName(rs.getString("category_name"));
-				list.add(sdto);
-			}
-			
-			sql = "select distinct brand_name from brand where brand_name like ?";
+			String sql = "select distinct brand_name from brand where lower(brand_name) like lower(?)";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, "%"+searchBox+"%");
 			rs = pstmt.executeQuery();
@@ -448,6 +438,25 @@ public class boardDAO {
 				sdto.setName(rs.getString("brand_name"));
 				list.add(sdto);
 				
+			}
+			
+			sql = "select distinct product_name from product where lower(product_name) like lower(?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("product_name"));
+				list.add(sdto);
+			}
+			sql = "select store_name from seller where lower(store_name) like lower(?)";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchBox+"%");
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				searchDTO sdto = new searchDTO();
+				sdto.setName(rs.getString("store_name"));
+				list.add(sdto);
 			}
 			
 		} catch (Exception e) {
@@ -578,5 +587,27 @@ public class boardDAO {
 		}
 		
 		return list;
+	}
+	
+	public void insertBuyComplete(int member_num, int store_num, int price){
+		
+		try {
+			
+			getCon();
+			String sql = "insert into buy_complete (member_num, store_num, price)"
+					+ " values(?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			pstmt.setInt(2, store_num);
+			pstmt.setInt(3, price);
+			
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("insertBuyComplete" + e.toString());
+		}finally {
+			ResouceClose();
+		}
+			
 	}
 }
