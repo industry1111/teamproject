@@ -41,9 +41,9 @@
 			style="margin-bottom: 30px; background-color: #F0F0F0;">
 			<div class="col-md-3" style="margin-left: 400px;">
 				<span>${id}님</span>
-				<c:if test="${member_code eq 1}">일반 회원</c:if>
-				<c:if test="${member_code eq 2}">플래티넘  회원</c:if>
-				<c:if test="${member_code eq 3}">다이아  회원</c:if>
+				<c:if test="${member_code eq 1}"><img src="images/패밀리.png" alt="일반회원" style="width: 30px; height: 30px;"></c:if> <!-- 일반회원 -->
+				<c:if test="${member_code eq 2}"><img src="images/플래티넘.png" alt="일반회원" style="width: 30px; height: 30px;"></c:if><!--플래티넘  회원-->
+				<c:if test="${member_code eq 3}"><img src="images/다이아몬드.png" alt="일반회원" style="width: 30px; height: 30px;"></c:if><!-- 다이아  회원 -->
 			</div>
 			<div class="col-md-3" style="margin-left: 120px;" align="right">
 
@@ -63,9 +63,9 @@
 			style="margin-bottom: 30px; background-color: #F0F0F0;">
 			<div class="col-md-3" style="margin-left: 400px;">
 				<span>${id}님</span>
-				<c:if test="${member_code eq 4}">판매자</c:if>
-				<c:if test="${member_code eq 5}">실버 판매자</c:if>
-				<c:if test="${member_code eq 6}">골드 판매자</c:if>
+				<c:if test="${member_code eq 4}"><img src="images/셀러.png" alt="일반회원" style="width: 30px; height: 30px;"></c:if><!-- 판매자 -->
+				<c:if test="${member_code eq 5}"><img src="images/실버.png" alt="일반회원" style="width: 30px; height: 30px;"></c:if><!-- 실버판매자 -->
+				<c:if test="${member_code eq 6}"><img src="images/골드.png" alt="일반회원" style="width: 30px; height: 30px;"></c:if><!-- 골드판매자 -->
 			</div>
 
 			<div class="col-md-3" style="margin-left: 120px;" align="right">

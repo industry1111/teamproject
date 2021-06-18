@@ -42,7 +42,7 @@
 						<div class="offset-lg-2 col-lg-8">
 							<div class="title-01 title-01--11 text-center">
 								<h2 class="title__heading">Modoo</h2>
-								<div class="title__description">누구나 쉽게 이용가능한 오픈마켓, 모두</div>
+								<div class="title__description">누구나 쉽게 이용가능한 오픈마켓</div>
 
 								<!-- Options btn color: .btn-success | .btn-info | .btn-warning | .btn-danger | .btn-primary -->
 								<div class="title__action">
