@@ -107,14 +107,20 @@ public class AdminFrontController extends HttpServlet{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}   
-	  }else if (command.equals("/Notice.ad")) { //등록된회원삭제액션
-			action = new Notice();
+	  }else if (command.equals("/NoticeAction.ad")) { //등록된회원삭제액션
+			action = new NoticeAction();
 			try {
 
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}   
+	  }else if (command.equals("/Notice.ad")) { //등록된회원삭제액션
+		  
+		   forward = new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("./notice.jsp");
+		    forward.setRedirect(false);
 	  }
 
 		if(forward!=null){ 

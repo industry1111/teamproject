@@ -36,4 +36,13 @@ $(function() {
 		
 	});
 	
+	$("#stateList").change(function(){
+		
+		var stateList = $("#stateList option:selected").val();
+		console.log(stateList);
+		location.href="StoreOrder.or?stateList="+stateList;
+		
+		
+	});
+	
 });

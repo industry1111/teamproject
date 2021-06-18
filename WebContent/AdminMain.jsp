@@ -44,10 +44,6 @@
 					</div>
 		            <div id="layoutSidenav_content">
                     <div class="container-fluid px-4">
-                       <!--  <h1 class="mt-4">관리자페이지메인</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">관리자페이지메인</li>
-                        </ol> -->
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
@@ -86,7 +82,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
+                         <div class="row">
+	                        <div class="col-xl-3 col-md-6 ">
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">공지사항 보내기</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -95,11 +92,12 @@
                                     </div>
                                 </div>
                             </div>
+                         </div>
                         </div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<!-- 	</div> -->
 	<script src="js/popper.min.js"></script>
 	<script src="js/jquery.easing.1.3.js"></script>

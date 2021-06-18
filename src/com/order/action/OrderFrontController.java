@@ -78,10 +78,7 @@ public class OrderFrontController extends HttpServlet{
 			}
 		}
         
-        
-        
-        
-         if(forward!=null){ 
+          if(forward!=null){ 
             if(forward.isRedirect()){//true -> sendRedirect()
 
                 response.sendRedirect(forward.getPath());
