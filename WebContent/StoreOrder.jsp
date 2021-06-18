@@ -197,16 +197,15 @@
 								<c:if test="${list[i].state ne 3}"><option value="3">배송중</option></c:if>
 								<c:if test="${list[i].state ne 4}"><option value="4">배송완료</option></c:if>
 								<c:if test="${list[i].state ne 5}"><option value="5">주문취소</option></c:if>
-								<c:if test="${list[i].state ne 6}"><option value="6">구매확정</option></c:if>
 								<c:if test="${list[i].state ne 7}"><option value="7">반품접수</option></c:if>
 								<c:if test="${list[i].state ne 8}"><option value="8">반품승인</option></c:if>
 								<c:if test="${list[i].state ne 9}"><option value="9">환불완료</option></c:if>
 								<c:if test="${list[i].state ne 10}"><option value="10">교환신청</option></c:if>
 							</select>
-							</c:if>
 							<br><br>
 							<input type="button" value="수정" class="state_update_btn">
 							<input type="button" value="완료" class="update_btn">
+							</c:if>
 							<input type="hidden" value="${list[i].order_detail_num}" class="order_detail_num">
 							<input type="hidden" value="${list[i].product_num}" class="product_num">
 							<input type="hidden" value="${list[i].quantity}" class="quantity">
