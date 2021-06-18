@@ -720,5 +720,38 @@ public class boardDAO {
 		}
 		
 	}
+	
+	//총 판매량
+	public List<buyCompleteDTO> getTotal(){
+		
+		List<buyCompleteDTO> list = new ArrayList<buyCompleteDTO>();
+		
+		try {
+			
+			getCon();
+			
+			String sql = "select sum(price), store_num from buy_complete group by store_num";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				buyCompleteDTO dto = new buyCompleteDTO();
+				
+				dto.setPrice(rs.getInt("sum(price)"));
+				dto.setStore_num(rs.getInt("store_num"));
+				
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("getTotal" + e.toString());
+			
+		}finally {
+			ResouceClose();
+		}
+
+		return list;
+	}
 
 }
