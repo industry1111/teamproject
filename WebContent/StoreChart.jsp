@@ -276,7 +276,6 @@ h6 {
 								<div class="col-md-12">
 									<div class="row">
 										<div class="col-md-12" style="font-size: 12px;">
-											${end }
 											<fmt:formatDate value="${srlist[j].regdate }" type="both"
 												pattern="yyyy-MM-dd [E] a hh:mm:ss" />
 										</div>
