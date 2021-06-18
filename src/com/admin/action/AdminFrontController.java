@@ -106,8 +106,15 @@ public class AdminFrontController extends HttpServlet{
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			} 
-		  
+			}   
+	  }else if (command.equals("/Notice.ad")) { //등록된회원삭제액션
+			action = new Notice();
+			try {
+
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}   
 	  }
 
 		if(forward!=null){ 
