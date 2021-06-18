@@ -397,7 +397,7 @@ public class OrderDAO {
     public List<productDTO> getOrderProduct(List<String> order){
     	List<productDTO> list = new ArrayList<productDTO>();
     	
-    	String sql ="select * from orders_detail natural join product natural join seller where review_code =0 and (orders_code = "+order.get(0);
+    	String sql ="select * from orders_detail natural join product natural join seller where state = 6 and review_code =0 and (orders_code = "+order.get(0);
     	
     	for(int i = 1;i<order.size();i++){
     		sql +=" or orders_code = "+order.get(i);
