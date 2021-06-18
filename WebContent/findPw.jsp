@@ -42,19 +42,19 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
-					<span class="login100-form-title-1">Enter your Name and email<br>below to find your password.</span>
+					<span class="login100-form-title-1">비밀번호 찾기</span>
 				</div>
 
 				<form class="login100-form validate-form" action="" >
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Name is required">
-						<span class="label-input100">Name</span> 
-						<input class="input100" type="text" id="name" name="name" placeholder="Enter your Name">
+						<span class="label-input100">이름</span> 
+						<input class="input100" type="text" id="name" name="name" placeholder="이름을 입력해주세요.">
 						<span class="focus-input100"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input m-b-18" data-validate="Email is required">
-						<span class="label-input100">ID</span> 
-						<input class="input100" type="text" id="id" name="id" placeholder="Enter your ID">
+						<span class="label-input100">아이디</span> 
+						<input class="input100" type="text" id="id" name="id" placeholder="아이디를 입력해주세요.">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -63,9 +63,9 @@
 					<br> <br>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="button" onclick="location.href='./login.jsp'">Back</button>
+						<button class="login100-form-btn" type="button" onclick="location.href='./login.jsp'">처음으로</button>
 						<div class="col-md-4" >
-							<input type="button" id="continue" class="login100-form-btn" value="Continue"/>
+							<input type="button" id="continue" class="login100-form-btn" value="계속하기"/>
 						</div>
 					</div>
 				</form>

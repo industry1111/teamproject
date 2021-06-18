@@ -40,23 +40,23 @@
 			<div class="wrap-login100">
 				<div class="login100-form-title"
 					style="background-image: url(images/bg-01.jpg);">
-					<span class="login100-form-title-1"> LOGIN </span>
+					<span class="login100-form-title-1">로그인</span>
 				</div>
 
 				<form class="login100-form validate-form"
 					action="./MemberLoginAction.me">
 					<div class="wrap-input100 validate-input m-b-26"
 						data-validate="Username is required">
-						<span class="label-input100">UserID</span> <input class="input100"
-							type="text" id="id" name="id" placeholder="Enter userid">
+						<span class="label-input100">아이디</span> <input class="input100"
+							type="text" id="id" name="id" placeholder="아이디를 입력해주세요.">
 						<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-18"
 						data-validate="Password is required">
-						<span class="label-input100">Password</span> <input
+						<span class="label-input100">비밀번호</span> <input
 							class="input100" type="password" id="pw" name="pw"
-							placeholder="Enter password"> <span
+							placeholder="비밀번호를 입력해주세요."> <span
 							class="focus-input100"></span>
 					</div>
 					<div class="col-md-12"></div>
@@ -64,17 +64,17 @@
 					<br> <br>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" type="submit">Login</button>
+						<button class="login100-form-btn" type="submit">로그인</button>
 						<div class="col-md-4">
-							<a href="./MemberJoin.me" class="login100-form-btn"> Sign Up
+							<a href="./MemberJoin.me" class="login100-form-btn">회원가입
 							</a>
 						</div>
 					</div>
 				</form>
 				<div class="row">
 					<div class="col-md-12" align="right">
-						<a href="./findId.me">Forgot ID?</a>&nbsp;&nbsp;&nbsp;
-						<a href="./findPw.me">Forgot Password?</a>&nbsp;&nbsp;
+						<a href="./findId.me">아이디 찾기</a>&nbsp;&nbsp;&nbsp;
+						<a href="./findPw.me">비밀번호 찾기</a>&nbsp;&nbsp;
 					</div>
 				</div>
 			</div>
