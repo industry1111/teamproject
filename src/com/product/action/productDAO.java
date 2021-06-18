@@ -237,7 +237,7 @@ public class productDAO {
 			String price1, String price2, String sort, String price) {
 		List<productDTO> list = new ArrayList<productDTO>();
 		String sql = "select p.product_num, s.store_name, p.member_num, p.product_name, p.product_img, c.category_name,p.product_price,"
-				+ " p.product_description, product_regdate, product_brand, c.category_num, c.category_name, s.store_num, "
+				+ " p.product_description, product_regdate, product_brand, s.category_num, c.category_name, s.store_num, "
 				+ " c.category_codeRef1,c.category_codeRef2,c.category_code , s.profile_img, p.product_count, p.product_regdate "
 				+ " from product p join category c on p.category_name = c.category_name "
 				+ " join seller s on s.member_num = p.member_num";
@@ -308,6 +308,7 @@ public class productDAO {
 				pdto.setCategory_coderef1(rs.getInt("category_codeRef1"));
 				pdto.setCategory_coderef2(rs.getInt("category_codeRef2"));
 				pdto.setStore_num(rs.getInt("store_num"));
+				pdto.setCategory_num(rs.getInt("category_num"));
 
 				list.add(pdto);
 			}
