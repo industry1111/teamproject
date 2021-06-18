@@ -158,7 +158,7 @@ input[type="text"] {
 											<c:if test="${list[i].member_code ne 5}"><option value="5">실버</option></c:if>
 											<c:if test="${list[i].member_code ne 6}"><option value="6">골드</option></c:if>
 											<c:if test="${list[i].member_code ne 7}"><option value="7">문의함 관리자</option></c:if>
-											<c:if test="${list[i].member_code ne 8}"><option value="8"> 최고 관리자</option></c:if> 
+											<c:if test="${list[i].member_code ne 8}"><option value="8">최고 관리자</option></c:if> 
 										</select>	
 								<div style="margin-right: 20px">
 									<input type="button" class="edit_btn" value="수정" name="edit_btn" id="edit_btn">
