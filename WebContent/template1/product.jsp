@@ -180,7 +180,7 @@
 	</section>
 	<!-- 상품 리뷰  -->
 
-				<div class="row">
+				<div class="row" style="width: 70%; margin-left: 280px;">
 					<div class="col-md-12">
 						<hr>
 						<c:if test="${rvlist.size() eq 0 || rvlist.size() eq null}">

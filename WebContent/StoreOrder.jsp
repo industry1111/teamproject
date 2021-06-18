@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -132,7 +133,7 @@
 							<span>${list[i].product_price*list[i].quantity}</span>원
 						</div>
 						<div class="col-md-1">
-							<span>${list[i].order_id}</span>
+							<span>${fn:substring(list[i].order_id,0,4) }****</span>
 						</div>
 						<div class="col-md-1">
 							<span>${list[i].receiver_name}</span>
@@ -146,6 +147,10 @@
 							<span>${list[i].receiver_addr3}</span>
 						</div>
 						<div class="col-md-1">
+							<c:if test="${list[i].state==6}">
+								구매확정
+							</c:if>
+							<c:if test="${list[i].state != 6}">
 							<select disabled="disabled" class="state" name="state">
 								<option selected="selected">
 									<c:if test="${list[i].state==0}">입금완료</c:if>
@@ -154,7 +159,6 @@
 									<c:if test="${list[i].state==3}">배송중</c:if>
 									<c:if test="${list[i].state==4}">배송완료</c:if>
 									<c:if test="${list[i].state==5}">주문취소</c:if>
-									<c:if test="${list[i].state==6}">구매확정</c:if>
 									<c:if test="${list[i].state==7}">반품접수</c:if>
 									<c:if test="${list[i].state==8}">반품승인</c:if>
 									<c:if test="${list[i].state==9}">환불완료</c:if>
@@ -172,6 +176,7 @@
 								<c:if test="${list[i].state ne 9}"><option value="9">환불완료</option></c:if>
 								<c:if test="${list[i].state ne 10}"><option value="10">교환신청</option></c:if>
 							</select>
+							</c:if>
 							<br><br>
 							<input type="button" value="수정" class="state_update_btn">
 							<input type="button" value="완료" class="update_btn">

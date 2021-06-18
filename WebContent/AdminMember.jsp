@@ -146,8 +146,8 @@ input[type="text"] {
 											<c:if test="${list[i].member_code eq 2}">플래티넘</c:if>
 											<c:if test="${list[i].member_code eq 3}">다이아</c:if>
 											<c:if test="${list[i].member_code eq 4}">판매회원</c:if>
-											<c:if test="${list[i].member_code eq 5}">스몰</c:if>
-											<c:if test="${list[i].member_code eq 6}">빅</c:if>
+											<c:if test="${list[i].member_code eq 5}">실버</c:if>
+											<c:if test="${list[i].member_code eq 6}">골드</c:if>
 											<c:if test="${list[i].member_code eq 7}">문의함 관리자</c:if>
 											<c:if test="${list[i].member_code eq 8}">최고 관리자</c:if>
 											</option>
@@ -155,10 +155,10 @@ input[type="text"] {
 											<c:if test="${list[i].member_code ne 2}"><option value="2">플래티넘</option></c:if>
 											<c:if test="${list[i].member_code ne 3}"><option value="3">다이아</option></c:if>
 											<c:if test="${list[i].member_code ne 4}"><option value="4">판매회원</option></c:if>
-											<c:if test="${list[i].member_code ne 5}"><option value="5">스몰</option></c:if>
-											<c:if test="${list[i].member_code ne 6}"><option value="6">빅</option></c:if>
-											<c:if test="${list[i].member_code ne 7}"><option value="8">문의함 관리자</option></c:if>
-											<c:if test="${list[i].member_code ne 8}"><option value="9"> 최고 관리자</option></c:if> 
+											<c:if test="${list[i].member_code ne 5}"><option value="5">실버</option></c:if>
+											<c:if test="${list[i].member_code ne 6}"><option value="6">골드</option></c:if>
+											<c:if test="${list[i].member_code ne 7}"><option value="7">문의함 관리자</option></c:if>
+											<c:if test="${list[i].member_code ne 8}"><option value="8"> 최고 관리자</option></c:if> 
 										</select>	
 								<div style="margin-right: 20px">
 									<input type="button" class="edit_btn" value="수정" name="edit_btn" id="edit_btn">

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.member.action.memberDAO;
+import com.member.action.memberDTO;
 import com.order.action.OrderDAO;
 import com.order.action.OrderDTO;
 
@@ -33,6 +35,7 @@ public class BuyComplete extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		int member_num = (int) session.getAttribute("member_num");
+		String id = (String) session.getAttribute("id");
 		
 		int store_num = Integer.parseInt(request.getParameter("store_num"));
 		int price = Integer.parseInt(request.getParameter("price"));
@@ -42,7 +45,13 @@ public class BuyComplete extends HttpServlet {
 		OrderDAO odao = new OrderDAO();
 		boardDAO bdao = new boardDAO();
 		bdao.insertBuyComplete(member_num, store_num, price);
+		bdao.upgradeMemberState(member_num, store_num);
 		odao.OrderStateUpdate("6", order_detail_num); //구매확정으로 state변경
+		
+		memberDAO mdao = new memberDAO();
+	    memberDTO mdto = mdao.getMemberInfo(id);
+	    session.setAttribute("member_code", mdto.getMember_code());
+		
 		
 		String orders_code = request.getParameter("orders_code");
 		

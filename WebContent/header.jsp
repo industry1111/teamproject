@@ -36,6 +36,10 @@
 
 <!-- 			로그인 되었을 경우 -->
 			<c:if test="${member_code > 0 and member_code < 4}">
+				<span>${id}님</span>
+				<c:if test="${member_code eq 1}">일반 회원</c:if>
+				<c:if test="${member_code eq 2}">플래티넘  회원</c:if>
+				<c:if test="${member_code eq 3}">다이아  회원</c:if>
 				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="OrderContent.or">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
@@ -45,6 +49,10 @@
 
 			<!-- 판매자 로그인 -->
 			<c:if test="${member_code > 3 and member_code < 7 }">
+				<span>${id}님</span>
+				<c:if test="${member_code eq 4}">판매자</c:if>
+				<c:if test="${member_code eq 5}">실버 판매자</c:if>
+				<c:if test="${member_code eq 6}">골드 판매자</c:if>
 				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="OrderContent.or">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
