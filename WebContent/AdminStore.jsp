@@ -88,13 +88,13 @@ input[type="text"] {
 				<div class="col-md-12">
 					<div class="product-name d-flex">
 						<div class="one-forth text-left px-4">
-							<span>Profile_img</span>
+							<span>스토어 이미지</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>Store_Name</span>
+							<span>스토어 이름</span>
 						</div>
 						<div class="one-forth text-left px-4">
-							<span>Store_Info</span>
+							<span>스토어 상세정보</span>
 						</div>
 						<!-- <div class="one-eight text-center px-4">
 							<span>모름</span>
