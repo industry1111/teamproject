@@ -4,42 +4,73 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<title>공지사항 보내기</title>
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="css/style.css">
+<style type="text/css">
+.myButton {
+
+  border: 2px solid #FF4848;
+  min-width: 100px;
+  height: 50px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  text-align:center;
+ font-family: Arial;
+  font-size: 14px;
+  color:#FF4848;
+  align-items: center;
+}
+
+.myButton:hover {
+  background-color: #FF4848;
+}
+</style>
 </head>
 <body>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-</div>
-
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <span class="input-group-text" id="basic-addon2">@example.com</span>
-</div>
-
-<label for="basic-url" class="form-label">Your vanity URL</label>
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-</div>
-
-<div class="input-group mb-3">
-  <span class="input-group-text">$</span>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-  <span class="input-group-text">.00</span>
-</div>
-
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-  <span class="input-group-text">@</span>
-  <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-</div>
-
-<div class="input-group">
-  <span class="input-group-text">With textarea</span>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
-</div>
+<div class="colorlib-product">
+		<div class="container">
+		<div class="col-md-12"  >
+					<div class="product-name d-flex " align="center" >
+					<div class="col-md-1" ></div>
+						공지사항 
+					</div>
+				<form action="NoticeAction.ad" method="post">
+				<div >
+					<div class="mb-3">	
+					<label style="font-weight: bold;" >제목</label> : 
+					<input  style="width: 70%"	type="text" class="form-control" id="subject" name="subject" placeholder="제목">
+					</div>
+					<div class="mb-3">
+						<label style="font-weight: bold;" >회원 정보</label> : 
+						<select name="member_code">
+							<option value="1">일반회원</option>
+							<option value="2">플래티넘 회원</option>
+							<option value="3">다이아 회원</option>
+							<option value="4">판매자</option>
+							<option value="5">실버 판매자</option>
+							<option value="6">골드 판매자</option>
+						</select>
+					</div>
+					
+					<div class="mb-3">
+					  <label style="font-weight: bold;" >내용</label>
+					  <textarea style="width: 70%" class="form-control" name="content" rows="10"></textarea>
+					</div>
+				</div>
+				<input type="submit" class="myButton" value="전송">
+				<input type="button" class="myButton" value="취소" onClick="location.href='AdminMain.ad'">
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

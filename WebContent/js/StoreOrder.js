@@ -8,7 +8,6 @@ $(function() {
 	});
 	$(".update_btn").on("click",function(){
 		
-		//var new_state = $(this).val();
 		var new_state = $(this).parent().children().children('option:selected').val();
 		var order_detail_num = $(this).parent().children(".order_detail_num").val();
 		var product_num = $(this).siblings(".product_num").val();
@@ -33,6 +32,15 @@ $(function() {
 			}
 			
 		});
+		
+	});
+	
+	$("#stateList").change(function(){
+		
+		var stateList = $("#stateList option:selected").val();
+		console.log(stateList);
+		location.href="StoreOrder.or?stateList="+stateList;
+		
 		
 	});
 	

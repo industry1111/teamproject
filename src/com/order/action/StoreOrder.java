@@ -1,5 +1,6 @@
 package com.order.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,21 @@ public class StoreOrder implements Action{
 
 		int store_num = sdto.getStore_num();
 		
-		List<StoreOrderDTO> list = odao.getStoreOrder(store_num);
+		String stateList = request.getParameter("stateList");
+		
+		List<StoreOrderDTO> list = new ArrayList<StoreOrderDTO>();
+		
+		if(stateList == null || stateList.equals("11")){
+			
+			list = odao.getStoreOrder(store_num);
+			
+		}else{
+			
+			list = odao.getStateList(store_num, stateList);
+		}
+		
+		System.out.println(stateList + " 리스트 ");
+		
 		
 		// 페이징 부분
 		String page = request.getParameter("page");
@@ -50,6 +65,7 @@ public class StoreOrder implements Action{
 		}
 		request.setAttribute("p", pagedto);
 		request.setAttribute("list", list);
+		request.setAttribute("stateList", stateList);
 		 ActionForward forward = new ActionForward();
          forward.setRedirect(false);
          
