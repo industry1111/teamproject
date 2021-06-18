@@ -40,6 +40,9 @@
 				<a class="h_nav" href="OrderContent.or">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
 				<a class="h_nav" href="Seller.me">판매자 등록</a>
+				<c:if test="${member_code eq 1}">일반 회원</c:if>
+				<c:if test="${member_code eq 2}">플래티넘  회원</c:if>
+				<c:if test="${member_code eq 3}">다이아  회원</c:if>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
 			</c:if>
 
@@ -48,6 +51,9 @@
 				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="OrderContent.or">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
+				<c:if test="${member_code eq 4}">판매자</c:if>
+				<c:if test="${member_code eq 5}">실버 판매자</c:if>
+				<c:if test="${member_code eq 6}">골드 판매자</c:if>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
 			</c:if>
 			<!-- 관리자 -->

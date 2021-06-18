@@ -18,6 +18,7 @@ import com.product.action.productDTO;
 import dto.CartDTO;
 import dto.basketDTO;
 import dto.brandDTO;
+import dto.buyCompleteDTO;
 import dto.categoryDTO;
 import dto.ratingDTO;
 import dto.receiverDTO;
@@ -610,4 +611,90 @@ public class boardDAO {
 		}
 			
 	}
+
+	public void upgradeMemberState(int member_num, int store_num){
+		
+		buyCompleteDTO dto = new buyCompleteDTO();
+		
+		try {
+			
+			getCon();
+			String sql = "select sum(price) from buy_complete where member_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, member_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				System.out.println("ㅇㅇ");
+				dto.setSum(rs.getInt("sum(price)"));
+				
+				int sum = dto.getSum();
+				
+				if(sum >= 100000 &&	sum < 300000){
+					
+					sql = "update member set member_code = 2 where member_num = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, member_num);
+					pstmt.executeUpdate();
+					
+				}else if( sum >= 300000){
+					
+					sql = "update member set member_code = 3 where member_num = ?";
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, member_num);
+					pstmt.executeUpdate();
+				}
+
+			}
+			
+			sql = "select sum(price) from buy_complete where store_num = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, store_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				
+				dto.setSum(rs.getInt("sum(price)"));
+				
+				int sum = dto.getSum();
+				
+				sql = "select member_num from seller where store_num = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, store_num);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					
+					dto.setS_member_num(rs.getInt("member_num"));
+					
+					int s_member_num = dto.getS_member_num();
+				
+					if(sum >= 100000 &&	sum < 5000000){
+					
+						sql = "update member set member_code = 5 where member_num = ?";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, s_member_num);
+						pstmt.executeUpdate();
+						
+					}else if(sum >= 5000000){
+						
+						sql = "update member set member_code = 6 where member_num = ?";
+						pstmt = con.prepareStatement(sql);
+						pstmt.setInt(1, s_member_num);
+						pstmt.executeUpdate();
+						
+					}
+				}
+			
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("updateMemberState" + e.toString());
+		}finally {
+			ResouceClose();
+		}
+		
+	}
+
 }
