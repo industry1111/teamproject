@@ -27,7 +27,7 @@
 
 <link rel="stylesheet" href="css/style2.css">
 	
-<title>mypage</title>
+<title>마이페이지-Modoo?</title>
 </head>
 <body style="overflow:hidden;">
 	<header>
