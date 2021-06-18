@@ -25,8 +25,13 @@
 </c:if>
 
 <body>
+	
+
 	<div class="row" style="margin-bottom: 30px; background-color:#F0F0F0;">
-		<div class="col-md-6 offset-3" align="right" >
+		<div class="col-md-2" style="margin-left: 400px;">
+		000님 회원등급
+	</div>
+		<div class="col-md-5 " align="right" >
 
 			<!-- 로그인 안되었을때 -->
 			<c:if test="${member_code == 0}">
