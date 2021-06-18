@@ -9,6 +9,7 @@ $(function() {
 	var sort = null;
 	var numPerPage = 10;
 	var member_num = $("#member_num").val();
+	var searchstring = null;
 
 	function formatDate(date) { 
 		
@@ -34,7 +35,8 @@ $(function() {
 				price2: price2,
 				price : price,
 				sort : sort,
-				numPerPage : numPerPage
+				numPerPage : numPerPage,
+				searchbox : searchstring
 			},
 			dataType: "text", 
 			success: function(data) {
@@ -203,6 +205,7 @@ $(function() {
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
 				var p= JSON.parse(data1[3]);
+				$("#searchBox").val("");
 				$("#product-list").html("");
 				$("#category2").html("");
 				$("#category3").html("");
@@ -365,6 +368,7 @@ $(function() {
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
 				var p= JSON.parse(data1[3]);
+				$("#searchBox").val("");
 				$("#product-list").html("");
 				$("#category2").html("");
 				$("#category3").html("");
@@ -555,6 +559,7 @@ $(function() {
 				var obj2 = JSON.parse(data1[1]);
 				var obj3 = JSON.parse(data1[2]);
 				var p= JSON.parse(data1[3]);
+				$("#searchBox").val("");
 				$(".pagination").html("");
 				$("#product-list").html("");
 				$("#category3").html("");
@@ -702,7 +707,9 @@ $(function() {
 		
 		category_code2 = 0;
 		category_code3 = 0;
+		searchstring = null;
 		productlist();
+		$("#searchBox").val("");
 	});
 	
 	
@@ -722,7 +729,9 @@ $(function() {
 		}else{
 			$(this).attr('class', 'category3 allowed');
 		}
+		searchstring = null;
 		productlist();
+		$("#searchBox").val("");
 	});
 	$(document).on("click", ".category3.allowed", function() {
 		$(this).css('background-color', 'white');
@@ -734,7 +743,9 @@ $(function() {
 			$(this).attr('class','category3');
 		}
 		category_code3 = 0;
+		searchstring = null;
 		productlist();
+		$("#searchBox").val("");
 	});
 	
 	
@@ -789,7 +800,6 @@ $(function() {
                         data: {"searchBox":$("#searchBox").val()},
                         success: function(data) {
                         	var obj = JSON.parse(data);
-                        	console.log(new Set(obj.name));
                             response(
                                 $.map(obj, function(item) {    //json[i] 번째 에 있는게 item 임.
                                     return {
@@ -801,15 +811,30 @@ $(function() {
                         }
                    });
                 },    // source 는 자동 완성 대상
-            focus : function(event, ui) {    //포커스 가면
-                return false;//한글 에러 잡기용도로 사용됨
+            focus : function(event, ui) {
+	              	return false;
             },
             minLength: 1,// 최소 글자수
-            autoFocus: true, //첫번째 항목 자동 포커스 기본값 false
-            close : function(event){    //자동완성창 닫아질때 호출
-                console.log(event);
-            }
+            autoFocus: true //첫번째 항목 자동 포커스 기본값 false
         });
+
+		$("#searchbtn").click(function(){
+			searchstring = $("#searchBox").val();
+			category_code1 = 0;
+			category_code2 = 0;
+			category_code3 = 0;
+			$('.category1.allowed').attr('class', 'category1');
+			$('.category1').css('background-color', 'white');
+			$('.category1').css('color', '#627482');
+			$('.category2.allowed').attr('class', 'category2');
+			$('.category2').css('background-color', 'white');
+			$('.category2').css('color', '#627482');
+			$('.category3.allowed').attr('class', 'category3');
+			$('.category3').css('background-color', 'white');
+			$('.category3').css('color', '#627482');
+			productlist();
+		});
+
 		paging = function(nowpage){
 		$.ajax({
 			type: "get",
@@ -825,7 +850,9 @@ $(function() {
 				sort : sort,
 				page:true,
 				nowPage: nowpage,
-				numPerPage: numPerPage
+				numPerPage: numPerPage,
+				searchbox : searchstring
+
 			},
 			dataType: "text",
 			success: function(data) {
@@ -982,7 +1009,6 @@ $(function() {
 		$(this).css('color', 'red');
 		$(this).attr('class','jjim2 check');
 		var store_num = $(this).attr('value');
-		console.log(store_num);
 		$.ajax({
 			
 			type:"post",
@@ -1002,7 +1028,6 @@ $(function() {
 		$(this).css('color', 'black');
 		$(this).attr('class','jjim');
 		var store_num = $(this).attr('value');
-		console.log("check");
 		
 		$.ajax({
 			

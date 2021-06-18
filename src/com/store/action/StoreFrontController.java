@@ -97,6 +97,16 @@ public class StoreFrontController extends HttpServlet { //스토어 및 상품�
                 e.printStackTrace();
             }
             
+        }else if(command.equals("/MyStore.st")){
+            
+            action = new MyStoreAction();
+            
+            try {
+                forward = action.execute(request, response);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
         }
 		
 		

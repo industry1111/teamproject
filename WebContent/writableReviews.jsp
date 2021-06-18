@@ -120,7 +120,7 @@ input[type="text"]:focus {
 											<div class="col-md-2">${pdlist[i].product_name }</div>
 										</div>
 										<div class="row">
-											<div class="col-md-6">${pdlist[i].product_description }</div>
+											<div class="col-md-6" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">${pdlist[i].product_description }</div>
 										</div>
 										<div class="row">
 											<div class="col-md-4">${pdlist[i].store_name}</div>

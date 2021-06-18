@@ -251,6 +251,7 @@ public class OrderDAO {
 				dto.setQuantity(rs.getInt("quantity"));
 				dto.setStore_num(rs.getInt("store_num"));
 				dto.setState(rs.getString("state"));
+				dto.setOrder_detail_num(rs.getInt("order_detail_num"));
 				
 				list.add(dto);
 				

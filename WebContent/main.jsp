@@ -23,7 +23,9 @@ ul {
     list-style:none;
     padding:0;
 }
-
+li:hover{
+	cursor:pointer;
+}
 .list{
  	border: 1px solid #f3f3f3; 
  	
@@ -82,11 +84,19 @@ ul {
 	color: black;
 	margin-top: 2px;
 }
+.ui-menu-item .ui-menu-item-wrapper.ui-state-active {
+    background: #F1F3F4 !important;
+    font-weight: bold !important;
+    color: #000 !important;
+} 
 .ui-widget{
-	background-color: white;
+ 	background-color: white;
 	border: 1px solid green;
 	width: 400px; 
 }
+
+
+
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -128,7 +138,7 @@ ul {
 			</div>
 			<div class="col-md-6">
 				<input type="text" id="searchBox" class="search">
-				<img src="images/magnifying-glass.png" alt="shopping" style="height: 23px">
+				<img id="searchbtn" src="images/magnifying-glass.png" alt="shopping" style="height: 23px" >
 			</div>
 		</div>
 		<div class="wrap" style="margin-left: 100px;">
@@ -225,7 +235,7 @@ ul {
 			<div class="row" style="margin-top: 60px">
 				<div class="col-md-6 offset-2">
 					<ul >
-						<li  class="sort" value="0">
+						<li  class="sort" value="0" style="color:black;">
 							<a>랭킹순</a>
 						</li>
 						<li  class="sort" value="1">

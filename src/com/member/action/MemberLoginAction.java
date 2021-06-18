@@ -58,12 +58,13 @@ public class MemberLoginAction implements Action{
 		session.setAttribute("id", id);
 		 
 		memberDTO mdto = mdao.getMemberInfo(id);
+		String member_code = mdto.getMember_code();
 		session.setAttribute("member_num", mdto.getMember_num());
 		session.setAttribute("member_code", mdto.getMember_code());
 		ActionForward forward=new ActionForward();
 		//페이지 이동 방식 여부 값 true로 저장  
 		//true sendRedirect() <-이방식은 이동할 페이지 주소 경로 노출 함.	
-		if(id.equals("test12")){
+		if(member_code.compareTo("7") >= 0){
 			forward.setRedirect(false);
 			forward.setPath("/AdminMain.ad");
 		}else{

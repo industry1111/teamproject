@@ -144,18 +144,23 @@
 							<p>
 								<strong class="text-primary h4">${pdto.product_price} 원</strong>
 							</p>
-
-							<div class="mb-5">
-								<div class="input-group mb-3" style="max-width: 120px;">
-									<div class="input-group mb-4">
-										구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
+							
+							<c:if test="${pdto.product_count eq 0 }">
+								<h4 align="center">품절된 상품입니다.</h4>
+							</c:if>
+							<c:if test="${pdto.product_count ne 0 }">
+								<div class="mb-5">
+									<div class="input-group mb-3" style="max-width: 120px;">
+										<div class="input-group mb-4">
+											구매수량	<input type="number" class="qty-text" id="quantity" step="1" min="1" max="${pdto.product_count}" name="quantity" value="1" style="text-align: right; margin-left: 20px;">
+										</div>
 									</div>
-							</div>
-							<div>
-								<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
-								<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
-							</div>			
-						</div>
+									<div>
+										<input value="${pdto.product_num}" type="hidden" name="product_num" id="product_num" />
+										<button type="button" id="addbasket" class="buy-now btn btn-sm btn-primary" style="margin-bottom: 20px;">장바구니 담기</button>
+									</div>			
+								</div>
+							</c:if>
 					</div>
 					</div>
 					<div style="margin-top: 50px;">

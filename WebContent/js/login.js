@@ -9,7 +9,6 @@ var id_check = 0;
 var name_check = 0;
 var pw_check = 0;
 var pw_confirm_check = 0;
-var blog_check = 0;
 var phone_check = 0;
 var email_check = 0;
 var email_check2 = 0;
@@ -196,8 +195,8 @@ $(function() {
 		if(name_check ==0){
 			$("#name").focus();
 			return false;
-		}else if(name_check ==0){
-			$("#name").focus();
+		}else if(id_check ==0){
+			$("#r_id").focus();
 			return false;
 		}else if(pw_check == 0){
 			$("#r_pw").focus();
@@ -214,6 +213,17 @@ $(function() {
 		}else if(email_check2 == 0){
 			$("#cf_num").focus();
 			return false;
+		}else if($("#addr1").val() == ''){
+			$("#addr1").focus();
+			return false;
+		}else if($("#addr2").val() == ''){
+			$("#addr2").focus();
+			return false;
+		}else if($("#addr3").val() == ''){
+			$("#addr3").focus();
+			return false;
+		}else{
+			$("form").submit();
 		}
 	});
 

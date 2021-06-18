@@ -21,7 +21,7 @@ import dto.categoryDTO;
 import dto.pagingDTO;
 import dto.sellerDTO;
 
-public class StoreProductListAction implements Action {
+public class MyStoreAction implements Action {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, 
@@ -34,9 +34,13 @@ public class StoreProductListAction implements Action {
 		if(id != null){
 			user = new memberDAO().getMemberInfo(id).getGender();
 		}
-		int store_num = Integer.parseInt(request.getParameter("store_num"));
+		
+		int member_num = (int) session.getAttribute("member_num");
 		productDAO pdao = new productDAO();
 		sellerDAO sdao = new sellerDAO();
+		sellerDTO sdto = sdao.getSellerInfo(member_num);
+		int store_num = sdto.getStore_num();
+		System.out.println(store_num + "  ddd");
 		boardDAO bdao = new boardDAO();
 		
 		List<productDTO> list = pdao.getStoreInfo(store_num);	
@@ -47,7 +51,6 @@ public class StoreProductListAction implements Action {
 			sdao.visitorCount(user, store_num);
 		}
 		
-		int member_num = list.get(0).getMember_num();
 		List<brandDTO> blist = bdao.getStorebrandList(member_num);
 		
 		//페이징 부분

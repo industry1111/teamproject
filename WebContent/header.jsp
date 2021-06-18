@@ -35,7 +35,7 @@
 			</c:if>
 
 <!-- 			로그인 되었을 경우 -->
-			<c:if test="${member_code == 1}">
+			<c:if test="${member_code > 0 and member_code < 4}">
 				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="OrderContent.or">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
@@ -44,10 +44,16 @@
 			</c:if>
 
 			<!-- 판매자 로그인 -->
-			<c:if test="${member_code == 2 }">
+			<c:if test="${member_code > 3 and member_code < 7 }">
 				<a class="h_nav" href="Main.main">메인페이지</a>
 				<a class="h_nav" href="OrderContent.or">마이페이지</a>
 				<a class="h_nav" href="basket.bo">장바구니</a>
+				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
+			</c:if>
+			<!-- 관리자 -->
+			<c:if test="${member_code >=7 }">
+				<a class="h_nav" href="Main.main">메인페이지</a>
+				<a class="h_nav" href="AdminMain.ad">관리자페이지</a>
 				<a class="h_nav" href="MemberLogout.me">로그아웃</a>
 			</c:if>
 

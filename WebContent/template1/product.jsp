@@ -151,19 +151,25 @@
 							<p class="h3 py-2">${pdto.product_price}원</p>
 							<p style="color: #59ab6e; font-size: 30px;">${pdto.product_brand}</p>
 						</div>
-
-						<div class="row">
-							<div align="center">
-								<li class="list-inline-item text-right" align="center">수량</li> <input
-									type="number" id="quantity" step="1" min="1" max="${pdto.product_count}"
-									name="quantity" value="1" 
-									style="text-align: right; margin-right: 20px;"> <input
-									value="${pdto.product_num}" type="hidden" name="product_num"
-									id="product_num" />
-								<button type="button" class="btn btn-success btn-lg"
-									id="addbasket">장바구니 담기</button>
+	
+	
+						<c:if test="${pdto.product_count eq 0 }">
+								<h4 align="center">품절된 상품입니다.</h4>
+						</c:if>
+						<c:if test="${pdto.product_count ne 0 }">
+							<div class="row">
+								<div align="center">
+									<li class="list-inline-item text-right" align="center">수량</li> <input
+										type="number" id="quantity" step="1" min="1" max="${pdto.product_count}"
+										name="quantity" value="1" 
+										style="text-align: right; margin-right: 20px;"> <input
+										value="${pdto.product_num}" type="hidden" name="product_num"
+										id="product_num" />
+									<button type="button" class="btn btn-success btn-lg"
+										id="addbasket">장바구니 담기</button>
+								</div>
 							</div>
-						</div>
+						</c:if>
 						<p style="margin : 30px;">${pdto.product_description}</p>
 					</div>
 				</div>
