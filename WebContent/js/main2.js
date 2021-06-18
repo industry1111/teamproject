@@ -142,9 +142,14 @@ $(function() {
 					"<div class='col-md-2'>" +
 					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
-					"</a><br>" + obj2[i].store_name + "<br>" +
-						obj2[i].category_name + 
-					"</div>" +
+					"</a><br>" + obj2[i].store_name + "<br>";
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_num == obj3[j].category_num){
+							html += obj3[j].category_name ;
+						} 
+					}
+					 
+					html += "</div>" +
 					"</div>"+
 					"</div>";
 				
@@ -306,9 +311,13 @@ $(function() {
 					"<div class='col-md-2'>" +
 					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
-					"</a><br>" + obj2[i].store_name + "<br>" +
-						obj2[i].category_name + 
-					"</div>" +
+					"</a><br>" + obj2[i].store_name + "<br>";
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_num == obj3[j].category_num){
+							html += obj3[j].category_name ;
+						} 
+					}
+					html +="</div>" +
 					"</div>"+
 					"</div>";
 				
@@ -487,9 +496,13 @@ $(function() {
 					"<div class='col-md-2'>" +
 					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
-					"</a><br>" + obj2[i].store_name + "<br>" +
-						obj2[i].category_name + 
-					"</div>" +
+					"</a><br>" + obj2[i].store_name + "<br>";
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_num == obj3[j].category_num){
+							html += obj3[j].category_name ;
+						} 
+					}
+					html += "</div>" +
 					"</div>"+
 					"</div>";
 				
@@ -662,9 +675,13 @@ $(function() {
 					"<div class='col-md-2'>" +
 					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
-					"</a><br>" + obj2[i].store_name + "<br>" +
-						obj2[i].category_name + 
-					"</div>" +
+					"</a><br>" + obj2[i].store_name + "<br>";
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_num == obj3[j].category_num){
+							html += obj3[j].category_name ;
+						} 
+					}
+					html += "</div>" +
 					"</div>"+
 					"</div>";
 				
@@ -959,9 +976,13 @@ $(function() {
 					"<div class='col-md-2'>" +
 					"<a href='StoreProductListAction.st?store_num=" + obj2[i].store_num + "&visit=true'>" + 
 						"<img src='upload_profile/" + obj2[i].profile_img +"' style='height: 70px; width:70px;'>" +
-					"</a><br>" + obj2[i].store_name + "<br>" +
-						obj2[i].category_name + 
-					"</div>" +
+					"</a><br>" + obj2[i].store_name + "<br>";
+					for (var j=0;j<obj3.length;j++) {
+						if(obj2[i].category_num == obj3[j].category_num){
+							html += obj3[j].category_name ;
+						} 
+					}
+					html +="</div>" +
 					"</div>"+
 					"</div>";
 				

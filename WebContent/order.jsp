@@ -54,10 +54,10 @@
 							<span>상품정보</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Order</span>
+							<span>주문번호</span>
 						</div>
 						<div class="one-eight text-center">
-							<span>Date</span>
+							<span>주문일자</span>
 						</div>
 						<div class="one-eight text-center">
 							<span>상품가격</span>

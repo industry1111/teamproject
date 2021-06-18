@@ -139,9 +139,10 @@ public class SelectProductList extends HttpServlet{
 		for (int i=0; i<clist_all.size();i++) {
 			categoryDTO cdto = (categoryDTO)clist_all.get(i);
 			
+			int category_num = cdto.getCategory_num();
 			int category_code = cdto.getCategory_code();
 			String category_name= cdto.getCategory_name();
-			json+="{\"category_code\":\""+category_code+"\",\"category_name\":\""+category_name+"\"}";
+			json+="{\"category_code\":\""+category_code+"\",\"category_name\":\""+category_name+"\",\"category_num\":\""+category_num+"\"}";
 			if(i !=clist_all.size()-1) {
 				json+=",";
 			}

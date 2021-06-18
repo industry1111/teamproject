@@ -216,7 +216,7 @@ input {
 			<input type="button" class="myButton" value="결제하기" id = "payment_btn" name="payment_btn">
 		</div>
 		<div>
-			<a type="button"name="cancle_btn" href="basket.bo">주문취소</a>
+			<a type="button" name="cancle_btn" href="basket.bo" >주문취소</a>
 		</div>
 	
 	</div>

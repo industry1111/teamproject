@@ -97,7 +97,7 @@ input[type="text"]:focus {
 							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
-										<input id="name" name="name" type="text" required="required" class="form-control" placeholder="Name" style="width: 250px;">
+										<input id="name" name="name" type="text" required="required" class="form-control" placeholder="이름" style="width: 250px;">
 										<span id="name_check" class="check"></span>
                                     	<span id="name_check2" class="check2"></span>
 									</div>
@@ -106,7 +106,7 @@ input[type="text"]:focus {
 							<div class="row">
 								<div class="col-md-8">
 									<div class="form-group mb-4">
-										<input id="r_id" name="id" type="text" class="form-control" required="required" placeholder="ID" maxlength="20" style="width: 250px;">
+										<input id="r_id" name="id" type="text" class="form-control" required="required" placeholder="아이디" maxlength="20" style="width: 250px;">
 										<span id="id_check" class="check"></span>
                                     	<span id="id_check2" class="check2"></span>
 									</div>
@@ -115,12 +115,12 @@ input[type="text"]:focus {
 							<div class="row">
 								<div class="col-md-3">
 										<input id="r_pw" name="pw" required="required" type="password" class="form-control"
-											placeholder="Password" style="width: 250px;">
+											placeholder="비밀번호" style="width: 250px;">
 								</div>
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<div class="col-md-4">
 										<input id="pw_confirm" name="pw_confirm" required="required" type="password" class="form-control"
-											placeholder="Confirm Password" style="width: 250px;">
+											placeholder="비밀번호 재확인" style="width: 250px;">
 								</div>
 							</div>
 							
@@ -135,7 +135,7 @@ input[type="text"]:focus {
 							</div>
 							<div class="row">
 								<div class="col-md-5">
-										<input id="email" name="email" type="text" required="required" class="form-control" placeholder="Email" style="width: 250px;">
+										<input id="email" name="email" type="text" required="required" class="form-control" placeholder="이메일" style="width: 250px;">
 	                                    <span id="email_check" class="check"></span>
 	                                    <span id="email_check2" class="check2"></span>
 								</div>
@@ -146,7 +146,7 @@ input[type="text"]:focus {
                               <div class="row">
 								<div class="col-md-4">
 									<div class="form-group mb-4">
-										<input name="cf_num" id="cf_num" type="text" required="required" class="form-control" placeholder="Check" style="width: 250px;">
+										<input name="cf_num" id="cf_num" type="text" required="required" class="form-control" placeholder="인증번호입력" style="width: 250px;">
 										<span id="cf_num_check2" class="check" hidden>번호가 일치하지 않습니다.</span>
 									</div>
 								</div>
@@ -161,7 +161,7 @@ input[type="text"]:focus {
 								<div class="col-md-12">
 									<div class="form-group mb-4">
 										<input id="phone" name="phone" required="required" type="tel"
-											placeholder="Phone" maxlength="11" class="form-control" style="width: 250px;"/> <span
+											placeholder="휴대폰번호" maxlength="11" class="form-control" style="width: 250px;"/> <span
 											id="phone_check" class="check"></span> <span
 											id="phone_check2" class="check2"></span>
 									</div>
@@ -195,7 +195,7 @@ input[type="text"]:focus {
 								<div class="col-md-2" style="margin-left: 200px;">
 									<div class="form-group d-flex">
 										<button type="button" id="join"
-											class="myButton" style="width: 200px; height: 60px !important;">Sign Up</button>
+											class="myButton" style="width: 200px; height: 60px !important;">회원가입하기</button>
 									</div>
 								</div>
 							</div>

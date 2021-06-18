@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>배송지 등록</title>
+<title>리뷰작성하기</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -154,10 +156,23 @@ function write_review_btn(){
 						</div>
 			
 						<div class="col-xs-3">
-							${pdto.product_name }<br> ${pdto.product_description}
+							<div
+								style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+								${pdto.product_name}<br> <span> <c:choose>
+										<c:when test="${fn:length(pdto.product_description) > 40}">
+											<c:out
+												value="${fn:substring(pdto.product_description ,0,39)}"/>....
+										</c:when>
+										<c:otherwise>
+											<c:out value="${pdto.product_description}" />
+										</c:otherwise>
+									</c:choose>
+								</span>
+							</div>
 							<input type="hidden" value="${pdto.product_num }" name="product_num"/>
 							<input type="hidden" value="${store_num}" name="store_num"/>
 							<input type="hidden" value="${order_detail_num }" name="order_detail_num"/>
+							
 						</div>
 
 					</div>
