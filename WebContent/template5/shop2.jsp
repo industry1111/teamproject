@@ -85,6 +85,13 @@
 							<div class="mb-4">
 								<h3 class="mb-3 h6 text-uppercase text-black d-block">브랜드</h3>
 								<c:if test="${blist.size() ne 0 }">
+									<div>
+										<span
+											class="bg-danger color d-inline-block rounded-circle mr-2"></span>
+										<span class="text-black"> <a href="./StoreProductListAction.st?store_num=${store_num}" style="color:black;">
+												전체</a>
+										</span>
+									</div>
 									<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 										<div>
 											<span

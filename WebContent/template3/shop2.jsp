@@ -64,6 +64,16 @@
 			</div>
 
 			<div class="shop_sidebar_area">
+				<div class="widget catagory mb-50">
+					<!-- Widget Title -->
+					<div class="logo">
+						<a href="#"> <img src="img/core-img/logo.png" alt="">
+							<h2>
+								<font color="#FFBB00">${plist[1].store_name }</font>
+							<h2>
+						</a>
+					</div>
+				</div>
 				<div class="widget brands mb-50">
 					<!-- 카테고리2 시작 -->
 					<h3>
@@ -73,6 +83,10 @@
 						<!-- 카테고리2 폼체크 -->
 						<div class="form-check">
 							<c:if test="${blist.size() ne 0 }">
+								<div>
+									<label class="form-check-label" for="amado">
+									<a href="StoreProductListAction.st?store_num=${store_num}">전체</a></label>
+								</div>
 								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 									<div>
 									

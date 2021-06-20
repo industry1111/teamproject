@@ -80,11 +80,17 @@ function logo_click() {
 									</a>
 									<c:set var="loop" value="true" />
 									<c:if test="${blist.size() ne 0 }">
+										<div>
+											<label for="brand-1">
+												<a href="StoreProductListAction.st?store_num=${store_num}"><h4>전체</h4></a>
+											</label>
+										</div>
+										
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											
 												<div>
-													<label for="brand-1"> <span></span>
-													<a	href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4  ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</h4></a>
+													<label for="brand-1">
+														<a	href="./BrandProductAction.st?store_num=${store_num}&brand=${blist[i].brand_name}"><h4  ${blist[i].brand_name == brand ? 'style="color:red;"':'style="color:black;"'}>${blist[i].brand_name}(${blist[i].count })</h4></a>
 													</label>
 												</div>
 											

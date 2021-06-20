@@ -98,6 +98,11 @@
 								href="#"> 브랜드 <i
 									class="fa fa-fw fa-chevron-circle-down mt-1"></i>
 							</a> <c:if test="${blist.size() ne 0 }">
+								<div>
+									<ul class="collapse show list-unstyled pl-3">
+										<li><a class="text-decoration-none" href="./StoreProductListAction.st?store_num=${store_num}" style="color:red;"><h5>전체</h5></a></li>
+									</ul>
+								</div>
 								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul class="collapse show list-unstyled pl-3">

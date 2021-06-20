@@ -71,7 +71,8 @@
 						<a href="#"> <img src="img/core-img/logo.png" alt="">
 							<h2>
 								<font color="#FFBB00">${list[1].store_name }</font>
-								<h2></a>
+							<h2>
+						</a>
 					</div>
 				</div>
 				<div class="widget brands mb-50">
@@ -83,6 +84,10 @@
 						<!-- 카테고리2 폼체크 -->
 						<div class="form-check">
 							<c:if test="${blist.size() ne 0 }">
+								<div>
+									<label class="form-check-label" for="amado">
+									<a href="StoreProductListAction.st?store_num=${store_num}" style="color: red;">전체</a></label>
+								</div>
 								<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 									<div>
 										<label class="form-check-label" for="amado">

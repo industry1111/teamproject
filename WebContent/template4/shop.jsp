@@ -58,6 +58,11 @@
 								<div class="side border mb-1">
 									<h3>브랜드</h3>
 									<c:if test="${blist.size() ne 0 }">
+										<div>
+											<ul>
+												<li><a href="./StoreProductListAction.st?store_num=${store_num}" style="color:red;">전체</a></li>
+											</ul>
+										</div>
 										<c:forEach var="i" begin="0" step="1" end="${blist.size()-1 }">
 											<div>
 												<ul>
