@@ -64,25 +64,6 @@
 			</div>
 
 			<div class="shop_sidebar_area">
-				<!-- 	##### Single Widget ##### -->
-				<div class="widget catagory mb-50">
-					<!-- Widget Title -->
-					<div class="logo">
-						<a href="StoreProductListAction.st?store_num=${store_num}"> <img src="img/core-img/logo.png" alt="">
-							<h2>
-								<font color="#FFBB00">${plist[1].store_name }</font>
-						<h2></a>
-					</div>
-					<br>
-
-					<h6 class="widget-title mb-30">카테고리</h6>
-
-					<!-- ================ 카테고리 섹션 시작 ================= -->
-					<div class="catagories-menu">
-						<ul>
-							<li class="active"><a href="#">의자</a></li>
-					</div>
-				</div>
 				<div class="widget brands mb-50">
 					<!-- 카테고리2 시작 -->
 					<h3>

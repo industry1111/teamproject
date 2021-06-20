@@ -74,7 +74,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">스토어현황</div>
+                                    <div class="card-body">메인페이지</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="Main.main">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>

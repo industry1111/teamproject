@@ -25,7 +25,7 @@ public class PageDTO {
 		
 		
 		if(realEnd <= this.endPage){// 실제 끝 페이지가 끝 페이지보다 작으면
-			this.endPage = realEnd; //끝 페이지로 실제 끝 페이지 값으로 변경
+			this.endPage = realEnd; //끝 페이지를 실제 끝 페이지 값으로 변경
 		}
 	
 		
