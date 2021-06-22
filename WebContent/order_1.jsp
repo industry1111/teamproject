@@ -128,7 +128,8 @@ input {
 								<input type="text" name="quantity${i}" value="${list[j].quantity}"readonly="readonly"/>
 							</div>
 							<div class="col-md-3">
-								<input type="text" name="price${i}" value="${list[j].product_price * list[j].quantity}"readonly="readonly"/>
+								<input type="hidden" name="price${i}" value="${list[j].product_price}"> 
+								<input type="text" name="total_price${i}" value="${list[j].product_price * list[j].quantity}"readonly="readonly"/>
 							</div>
 							
 							<input type="hidden" value="${list[j].product_num}" name="product_num${i}"/>
