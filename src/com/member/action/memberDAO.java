@@ -4,14 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
-
-import dto.sellerDTO;
 
 public class memberDAO {
 	Connection con;
@@ -48,12 +48,14 @@ public class memberDAO {
 	// 회원 가입
 	public boolean insertMember(memberDTO dto) {
 		int result = 0; // 회원가입 성공여부
-
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd HH:mm:ss");
+		Date date = new Date();	
+		String day =format1.format(date);
 		try {
 			getCon();
 
-			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code,gender)"
-					+ " values(?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into member (name,id,email,pw,phone,addr1,addr2,addr3,member_code,gender,date)"
+					+ " values(?,?,?,?,?,?,?,?,?,?,?)";
 			
 
 			pstmt = con.prepareStatement(sql);
@@ -67,7 +69,7 @@ public class memberDAO {
 			pstmt.setString(8, dto.getAddr3());
 			pstmt.setInt(9, 1);
 			pstmt.setString(10, dto.getGender());
-
+			pstmt.setString(11, day);
 			result = pstmt.executeUpdate();
 			
 			
@@ -421,7 +423,6 @@ public class memberDAO {
 				mdto.setAddr1(rs.getString("addr1"));
 				mdto.setAddr2(rs.getString("addr2"));
 				mdto.setAddr3(rs.getString("addr3"));
-				mdto.setDate(rs.getTimestamp("date"));
 				mdto.setRegdate(rs.getTimestamp("regdate"));
 				mdto.setMember_code((rs.getString("member_code")));
 				mdto.setGender(rs.getString("gender"));
