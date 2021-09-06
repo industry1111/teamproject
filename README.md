@@ -29,8 +29,7 @@
 ---
 #### 회원가입 및 아이디 비밀번호 찾기
 
-<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132232634-d441d960-455c-4b15-98f5-e3ac5c470e13.gif">
-<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132232888-58f546e5-46d3-4703-8d55-b0c68e4afcda.gif">
+<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132232634-d441d960-455c-4b15-98f5-e3ac5c470e13.gif"><img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132232888-58f546e5-46d3-4703-8d55-b0c68e4afcda.gif">
 
 Ajax와 JavaScript를 이용하여 회원가입시 유효성검사를 하였고, 
 
@@ -38,8 +37,7 @@ Ajax와 JavaScript를 이용하여 회원가입시 유효성검사를 하였고,
 
 
 #### 메인화면 및 페이징 
-<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132224977-219d6375-d7f5-4138-8697-23e7e954d8ac.gif">
-<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132227501-4e17488c-dfd4-4611-8f54-14e272a80d02.gif">
+<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132224977-219d6375-d7f5-4138-8697-23e7e954d8ac.gif"><img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132227501-4e17488c-dfd4-4611-8f54-14e272a80d02.gif">
 
 메인 화면은 자바스크립트만으로 구현하였으면 Ajax와 Jason을 상품 카테고리별로 검색 가능합니다.
 
@@ -47,6 +45,7 @@ Ajax와 JavaScript를 이용하여 회원가입시 유효성검사를 하였고,
 
 ### 배송지 등록
 <img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132246507-c1324916-83df-43a8-80bb-29916db0e8d9.gif">
+
 Jstl을 활용하여 기본 배송지로 설정한 주소가 가장 위에 나타납니다.
 
 #### 리뷰
@@ -58,8 +57,7 @@ Jstl을 활용하여 기본 배송지로 설정한 주소가 가장 위에 나�
 
 #### 스토어 현황
 
-<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132241059-2e546366-d889-4f2f-9943-5b039c527aa3.png">
-<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132245326-781c7165-bbc7-4230-a11e-bbf1b11662dc.gif">
+<img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132241059-2e546366-d889-4f2f-9943-5b039c527aa3.png"><img height="250px" width="250px" src="https://user-images.githubusercontent.com/61621545/132245326-781c7165-bbc7-4230-a11e-bbf1b11662dc.gif">
 
 구글차트, Chart.js를 이용해 이용자들이 한 눈에 보기쉽게 구현
 
