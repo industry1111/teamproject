@@ -67,7 +67,7 @@
 <img height=60px src="https://www.vectorlogo.zone/logos/springio/springio-ar21.svg">
 </td>
 <td>
-<img height=60px src="https://user-images.githubusercontent.com/61621545/132182455-011af7c8-500c-4da1-89c8-5c6e655c7672.png">
+<img height=60px width=100px src="https://user-images.githubusercontent.com/61621545/132182455-011af7c8-500c-4da1-89c8-5c6e655c7672.png">
 </td>
 </tr>
 
