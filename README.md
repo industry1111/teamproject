@@ -76,4 +76,4 @@ Jstl을 활용하여 기본 배송지로 설정한 주소가 가장 위에 나�
 
 Credits: [ghyeonggyu](https://github.com/gudrb2640)
 
-Last Edited on: 06/09/2021
+Last Edited on: 07/09/2021
