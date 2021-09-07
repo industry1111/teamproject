@@ -29,7 +29,7 @@
 ---
 #### 회원가입 및 아이디 비밀번호 찾기
 
-<img height="300px" width="300px" src="https://user-images.githubusercontent.com/61621545/132232634-d441d960-455c-4b15-98f5-e3ac5c470e13.gif">&nbsp;&nbsp;&nbsp;&nbsp;<imgheight="300px" width="300px" src="https://user-images.githubusercontent.com/61621545/132232888-58f546e5-46d3-4703-8d55-b0c68e4afcda.gif">
+<img height="300px" width="300px" src="https://user-images.githubusercontent.com/61621545/132232634-d441d960-455c-4b15-98f5-e3ac5c470e13.gif">&nbsp;&nbsp;&nbsp;&nbsp;<img height="300px" width="300px" src="https://user-images.githubusercontent.com/61621545/132232888-58f546e5-46d3-4703-8d55-b0c68e4afcda.gif">
 
 Ajax와 JavaScript를 이용하여 회원가입시 유효성검사를 하였고, 
 
